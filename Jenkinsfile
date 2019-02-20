@@ -17,6 +17,10 @@
 
 pipeline {
     agent any
+    parameters {
+        string(name: 'snapVersion', defaultValue: '', description: 'Snap version to use to launch tests')
+        string(name: 'commitHash', defaultValue: '', description: 'Commit hash to use')
+    }
     stages {
         stage('GPT Tests') {
             /*agent {
