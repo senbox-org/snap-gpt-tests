@@ -18,31 +18,22 @@
 pipeline {
     agent any
     parameters {
-        string(name: 'snapVersion', defaultValue: '', description: 'Snap version to use to launch tests')
-        string(name: 'commitHash', defaultValue: '', description: 'Commit hash to use')
+        string(name: 'dockerTagName', defaultValue: 's2tbx:testJenkins_validation', description: 'Snap version to use to launch tests')
     }
     stages {
         stage('GPT Tests') {
-            /*agent {
+            agent {
                 docker {
-                    image 'snap-build-server.tilaa.cloud/maven:3.6.0-jdk-8'
-                    // We add the docker group from host (i.e. 999)
-                    args ' --group-add 999 -e MAVEN_CONFIG=/var/maven/.m2 -v /var/run/docker.sock:/var/run/docker.sock -v /usr/bin/docker:/bin/docker -v /opt/maven/.m2/settings.xml:/var/maven/.m2/settings.xml'
+                    image "snap-build-server.tilaa.cloud/${params.dockerTagName}"
                 }
             }
-            when {
-                expression {
-                    // Only launch treatment on branch called master, *.x or *_validation
-                    return ${env.GIT_BRANCH} = 'master' || "${env.GIT_BRANCH}" =~ "/*\.x/" || "${env.GIT_BRANCH}" =~ "/*_validation/";
-                }
-            }*/
             steps {
                 echo "Launch GPT Tests from ${env.JOB_NAME} from ${env.GIT_BRANCH} with commit ${env.GIT_COMMIT} with snap-${params.snapVersion}-${params.commitHash}"
                 // sh 'mvn -Duser.home=/var/maven -Dsnap.userdir=/home/snap clean package install -U -Dsnap.reader.tests.data.dir=/data/ssd/s2tbx/ -Dsnap.reader.tests.execute=false -DskipTests=false'
             }
         }
     }
-    post {
+    /*post {
         failure {
             step (
                 emailext(
@@ -56,5 +47,5 @@ ${env.JOB_NAME} [${env.BUILD_NUMBER}]""",
                 )
             )
         }
-    }
+    }*/
 }
