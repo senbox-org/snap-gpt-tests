@@ -1,0 +1,21 @@
+[{
+  "id":"biophysicalTests",
+  "description":"execute biophysical processor with S2",
+  "frequency":"daily",
+  "graphPath": "s2tbx/graphLAI.xml",
+  "inputs": {
+    "input1": "S2A_MSIL1C_20180313T003701_N0206_R059_T55LCD_20180313T020656.SAFE"
+  },
+  "parameters": {
+    "refBand": "B1",
+    "subsetRegion": "0,0,100,100"
+  },
+  "outputs": [{
+    "parameter": "out1",
+    "outputName": "temp1",
+    "expected": "s2tbx/expectedLAI.json"
+  }]
+}]
+
+
+
