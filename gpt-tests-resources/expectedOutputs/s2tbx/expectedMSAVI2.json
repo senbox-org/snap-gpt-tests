@@ -1,0 +1,147 @@
+{
+    "id": "tempMSAVI2",
+    "decodeQualification": "INTENDED",
+    "expectedContent": {
+        "sceneWidth": 301,
+        "sceneHeight": 301,
+        "geoCoding": {
+            "coordinates": [
+                {
+                    "x": 129.0,
+                    "y": 161.0,
+                    "lat": -33.997550770675396,
+                    "lon": 22.695403893002247
+                },
+                {
+                    "x": 223.0,
+                    "y": 195.0,
+                    "lat": -34.003398694828405,
+                    "lon": 22.715875332867085
+                }
+            ],
+            "reverseAccuracy": 1.1328666005283594E-8
+        },
+        "flagCodings": [
+            {
+                "name": "flags",
+                "samples": [
+                    {
+                        "name": "ARITHMETIC",
+                        "value": 1,
+                        "description": "Value calculation failed due to an arithmetic exception"
+                    },
+                    {
+                        "name": "NEGATIVE",
+                        "value": 2,
+                        "description": "Index value is too low"
+                    },
+                    {
+                        "name": "SATURATION",
+                        "value": 4,
+                        "description": "Index value is too high"
+                    }
+                ]
+            }
+        ],
+        "bands": [
+            {
+                "name": "msavi2",
+                "description": "",
+                "bandWidth": 301,
+                "bandHeight": 301,
+                "noDataValue": "0.0",
+                "noDataValueUsed": "false",
+                "spectralWavelength": "0.0",
+                "spectralBandwidth": "0.0",
+                "expectedPixels": [
+                    {
+                        "x": 15,
+                        "y": 53,
+                        "value": 0.7436242
+                    },
+                    {
+                        "x": 206,
+                        "y": 256,
+                        "value": 0.8197155
+                    }
+                ]
+            },
+            {
+                "name": "flags",
+                "description": "msavi2 specific flags",
+                "bandWidth": 301,
+                "bandHeight": 301,
+                "noDataValue": "0.0",
+                "noDataValueUsed": "false",
+                "spectralWavelength": "0.0",
+                "spectralBandwidth": "0.0",
+                "expectedPixels": [
+                    {
+                        "x": 87,
+                        "y": 77,
+                        "value": 0.0
+                    },
+                    {
+                        "x": 183,
+                        "y": 109,
+                        "value": 0.0
+                    }
+                ]
+            }
+        ],
+        "masks": [
+            {
+                "name": "ARITHMETIC",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "255,0,0",
+                "description": "An arithmetic exception occurred."
+            },
+            {
+                "name": "NEGATIVE",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "255,0,0",
+                "description": "Index value is too low."
+            },
+            {
+                "name": "SATURATION",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "178,0,0",
+                "description": "Index value is too high."
+            }
+        ],
+        "metadata": [
+            {
+                "path": "Processing_Graph/node.1/parameters/clearCacheAfterRowWrite",
+                "value": "false"
+            },
+            {
+                "path": "Processing_Graph/node.1/parameters/deleteOutputOnFailure",
+                "value": "true"
+            },
+            {
+                "path": "Processing_Graph/node.1/parameters/formatName",
+                "value": "BEAM-DIMAP"
+            },
+            {
+                "path": "Processing_Graph/node.0/parameters/upsampling",
+                "value": "Nearest"
+            },
+            {
+                "path": "Processing_Graph/node.0/parameters/redSourceBand",
+                "value": "B4"
+            },
+            {
+                "path": "Processing_Graph/node.1/parameters/deleteOutputOnFailure",
+                "value": "true"
+            },
+            {
+                "path": "Processing_Graph/node.1/parameters/clearCacheAfterRowWrite",
+                "value": "false"
+            },
+            {
+                "path": "Processing_Graph/node.0/parameters/downsampling",
+                "value": "First"
+            }
+        ]
+    }
+}

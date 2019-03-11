@@ -1,0 +1,25 @@
+[{
+  "id":"IRECITest",
+  "description":"execute IRECI processor with S2",
+  "frequency":"daily",
+  "graphPath": "s2tbx/graphIreciOp.xml",
+  "inputs": {
+    "input1": "S2A_MSIL1C_20161206T080312_N0204_R035_T34HFH_20161206T081929.SAFE"
+  },
+  "parameters": {
+    "resampleRefBand": "B5",
+    "subsetRegion": "2700,3000,300,300",
+    "redSourceBand4": "B4",
+    "redSourceBand5": "B5",
+    "redSourceBand6": "B6",
+    "nirSourceBand": "B8"
+  },
+  "outputs": [{
+    "parameter": "out1",
+    "outputName": "tempIRECI",
+    "expected": "s2tbx/expectedIRECI.json"
+  }]
+}]
+
+
+

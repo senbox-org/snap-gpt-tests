@@ -1,0 +1,23 @@
+[{
+  "id":"WDVITest",
+  "description":"execute WDVI processor with S2",
+  "frequency":"daily",
+  "graphPath": "s2tbx/graphWdviOp.xml",
+  "inputs": {
+    "input1": "S2A_MSIL1C_20161206T080312_N0204_R035_T34HFH_20161206T081929.SAFE"
+  },
+  "parameters": {
+    "resampleRefBand": "B5",
+    "subsetRegion": "2700,3000,300,300",
+    "redSourceBand": "B4",
+    "nirSourceBand": "B8"
+  },
+  "outputs": [{
+    "parameter": "out1",
+    "outputName": "tempWDVI",
+    "expected": "s2tbx/expectedWDVI.json"
+  }]
+}]
+
+
+
