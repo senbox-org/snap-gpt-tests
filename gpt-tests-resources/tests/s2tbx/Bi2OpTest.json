@@ -1,23 +1,22 @@
 [{
-  "id":"IRECITest",
-  "description":"execute IRECI processor with S2",
+  "id":"BI2Test",
+  "description":"execute BI2 processor with S2",
   "frequency":"daily",
-  "graphPath": "s2tbx/graphIreciOp.xml",
+  "graphPath": "s2tbx/graphBi2Op.xml",
   "inputs": {
     "input1": "s2tbx/S2/L1C/S2A_MSIL1C_20161206T080312_N0204_R035_T34HFH_20161206T081929.SAFE"
   },
   "parameters": {
     "resampleRefBand": "B5",
     "subsetRegion": "2700,3000,300,300",
-    "redSourceBand4": "B4",
-    "redSourceBand5": "B5",
-    "redSourceBand6": "B6",
+    "redSourceBand": "B4",
+    "greenSourceBand": "B3",
     "nirSourceBand": "B8"
   },
   "outputs": [{
     "parameter": "out1",
-    "outputName": "tempIRECI",
-    "expected": "s2tbx/expectedIRECI.json"
+    "outputName": "tempBI2",
+    "expected": "s2tbx/expectedBI2.json"
   }]
 }]
 

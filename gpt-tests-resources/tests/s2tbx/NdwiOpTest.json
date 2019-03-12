@@ -1,23 +1,21 @@
 [{
-  "id":"IRECITest",
-  "description":"execute IRECI processor with S2",
+  "id":"NDWITest",
+  "description":"execute NDWI processor with S2",
   "frequency":"daily",
-  "graphPath": "s2tbx/graphIreciOp.xml",
+  "graphPath": "s2tbx/graphNdwiOp.xml",
   "inputs": {
     "input1": "s2tbx/S2/L1C/S2A_MSIL1C_20161206T080312_N0204_R035_T34HFH_20161206T081929.SAFE"
   },
   "parameters": {
     "resampleRefBand": "B5",
     "subsetRegion": "2700,3000,300,300",
-    "redSourceBand4": "B4",
-    "redSourceBand5": "B5",
-    "redSourceBand6": "B6",
+    "mirSourceBand": "B12",
     "nirSourceBand": "B8"
   },
   "outputs": [{
     "parameter": "out1",
-    "outputName": "tempIRECI",
-    "expected": "s2tbx/expectedIRECI.json"
+    "outputName": "tempNDWI",
+    "expected": "s2tbx/expectedNDWI.json"
   }]
 }]
 
