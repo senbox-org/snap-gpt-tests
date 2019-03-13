@@ -1,0 +1,49 @@
+[{
+    "id":"Rad2ReflTest1",
+    "description":"execute Rad2Refl operator",
+    "frequency":"daily",
+    "graphPath": "snap/graphRad2ReflOp.xml",
+    "inputs": {
+        "input1": "S2/L1C/S2A_MSIL1C_20161206T080312_N0204_R035_T34HFH_20161206T081929.SAFE"
+    },
+    "parameters": {
+        "subsetRegion": "1500,600,300,300",
+        "resampleRefBand": "Oa05_radiance",
+        "copySubsetMetaData": "false",
+        "sensor": "OLCI",
+        "conversionMode": "RAD_TO_REFL",
+        "copyTiePointGrids": "false",
+        "copyFlagBandsAndMasks": "false",
+        "copyNonSpectralBands": "false"
+    },
+    "outputs": [{
+        "parameter": "output1",
+        "outputName": "tempRad2Refl",
+        "expected": "snap/expectedRAD2REFL.json"
+    }]
+},
+    {
+        "id":"Rad2ReflTest2",
+        "description":"execute Rad2Refl operator",
+        "frequency":"daily",
+        "graphPath": "snap/graphRad2ReflOp.xml",
+        "inputs": {
+            "input1": "/sensors_platforms/MERIS/MER_FRS_1P/MER_FRS_1PNACR20040515_101402_000002112026_00466_11542_0000.N1"
+        },
+        "parameters": {
+            "subsetRegion": "1000,1000,300,300",
+            "resampleRefBand": "radiance_2",
+            "copySubsetMetaData": "false",
+            "sensor": "MERIS",
+            "conversionMode": "RAD_TO_REFL",
+            "copyTiePointGrids": "true",
+            "copyFlagBandsAndMasks": "true",
+            "copyNonSpectralBands": "true"
+        },
+        "outputs": [{
+            "parameter": "output2",
+            "outputName": "tempRad2Refl",
+            "expected": "snap/expectedRAD2REFL.json"
+        }]
+    }
+]

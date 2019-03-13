@@ -1,0 +1,49 @@
+[{
+    "id":"ReprojectionTest1",
+    "description":"execute Reprojection operator",
+    "frequency":"daily",
+    "graphPath": "snap/graphReprojectionOp.xml",
+    "inputs": {
+        "input1": "S2/L1C/S2A_MSIL1C_20161206T080312_N0204_R035_T34HFH_20161206T081929.SAFE"
+    },
+    "parameters": {
+        "subsetRegion": "2000,4000,300,300",
+        "resampleRefBand": "Oa01_radiance",
+        "crs": "EPSG:4326",
+        "resampling": "Nearest",
+        "orthorectify": "false",
+        "noDataValue": "NaN",
+        "includeTiePointGrids": "true",
+        "addDeltaBands": "false"
+    },
+    "outputs": [{
+        "parameter": "output1",
+        "outputName": "tempReprojection",
+        "expected": "snap/expectedReprojection.json"
+    }]
+},
+    {
+        "id":"ReprojectionTest2",
+        "description":"execute Reprojection operator",
+        "frequency":"daily",
+        "graphPath": "snap/graphReprojectionOp.xml",
+        "inputs": {
+            "input1": "/EOData/testdata/sensors_platforms/MERIS/MER_FRS_1P/MER_FRS_1PNACR20040515_101402_000002112026_00466_11542_0000.N1"
+        },
+        "parameters": {
+            "subsetRegion": "1000,1000,300,300",
+            "resampleRefBand": "radiance_2",
+            "crs": "EPSG:4326",
+            "resampling": "Bicubic",
+            "orthorectify": "false",
+            "noDataValue": "NaN",
+            "includeTiePointGrids": "false",
+            "addDeltaBands": "false"
+        },
+        "outputs": [{
+            "parameter": "output2",
+            "outputName": "tempReprojection",
+            "expected": "snap/expectedReprojection.json"
+        }]
+    }
+]

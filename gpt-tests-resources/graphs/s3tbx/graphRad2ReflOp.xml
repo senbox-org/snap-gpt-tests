@@ -1,0 +1,67 @@
+<graph id="GraphReprojectionOp">
+    <version>1.0</version>
+    <node id="Read">
+        <operator>Read</operator>
+        <sources/>
+        <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+            <file>$input1</file>
+        </parameters>
+    </node>
+    <node id="Resample">
+        <operator>Resample</operator>
+        <sources>
+            <sourceProduct refid="Read"/>
+        </sources>
+        <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+            <referenceBand>$resampleRefBand</referenceBand>
+            <targetWidth/>
+            <targetHeight/>
+            <targetResolution/>
+            <upsampling>Nearest</upsampling>
+            <downsampling>First</downsampling>
+            <flagDownsampling>First</flagDownsampling>
+            <resampleOnPyramidLevels>true</resampleOnPyramidLevels>
+        </parameters>
+    </node>
+
+    <node id="Subset">
+        <operator>Subset</operator>
+        <sources>
+            <sourceProduct refid="Resample"/>
+        </sources>
+        <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+            <sourceBands/>
+            <region>$subsetRegion</region>
+            <geoRegion></geoRegion>
+            <subSamplingX>1</subSamplingX>
+            <subSamplingY>1</subSamplingY>
+            <tiePointGridNames></tiePointGridNames>
+            <copyMetadata>$copySubsetMetaData</copyMetadata>
+        </parameters>
+    </node>
+
+
+    <node id="Rad2ReflOp">
+        <operator>Rad2Refl</operator>
+        <sources>
+            <sourceProduct refid="Subset"/>
+        </sources>
+        <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+            <sensor>$sensor</sensor>
+            <conversionMode>$conversionMode</conversionMode>
+            <copyTiePointGrids>$copyTiePointGrids</copyTiePointGrids>
+            <copyFlagBandsAndMasks>$copyFlagBandsAndMasks</copyFlagBandsAndMasks>
+            <copyNonSpectralBands>$copyNonSpectralBands</copyNonSpectralBands>
+        </parameters>
+    </node>
+    <node id="Write">
+        <operator>Write</operator>
+        <sources>
+            <sourceProduct refid="Rad2ReflOp"/>
+        </sources>
+        <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+            <file>$out1</file>
+            <formatName>BEAM-DIMAP</formatName>
+        </parameters>
+    </node>
+</graph>
