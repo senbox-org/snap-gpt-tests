@@ -1,8 +1,8 @@
 [{
-  "id":"TSAVITest",
-  "description":"execute TSAVI processor with S2",
+  "id":"NDTITest",
+  "description":"execute NDTI processor with S2",
   "frequency":"daily",
-  "graphPath": "s2tbx/graphTsaviOp.xml",
+  "graphPath": "s2tbx/graphNdtiOp.xml",
   "inputs": {
     "input1": "s2tbx/S2/L1C/S2A_MSIL1C_20161206T080312_N0204_R035_T34HFH_20161206T081929.SAFE"
   },
@@ -10,12 +10,12 @@
     "resampleRefBand": "B5",
     "subsetRegion": "2700,3000,300,300",
     "redSourceBand": "B4",
-    "nirSourceBand": "B8"
+    "greenSourceBand": "B3"
   },
   "outputs": [{
     "parameter": "out1",
-    "outputName": "tempTSAVI",
-    "expected": "s2tbx/expectedTSAVI.json"
+    "outputName": "tempNDTI",
+    "expected": "s2tbx/expectedNDTI.json"
   }]
 }]
 
