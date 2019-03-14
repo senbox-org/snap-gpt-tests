@@ -2,24 +2,24 @@
     "id": "tempCI",
     "decodeQualification": "INTENDED",
     "expectedContent": {
-        "sceneWidth": 301,
-        "sceneHeight": 301,
+        "sceneWidth": 300,
+        "sceneHeight": 300,
         "geoCoding": {
             "coordinates": [
                 {
                     "x": 129.0,
                     "y": 161.0,
-                    "lat": -33.99694634683874,
-                    "lon": 22.738697484205577
+                    "lat": -33.997550770675396,
+                    "lon": 22.695403893002247
                 },
                 {
-                    "x": 223.0,
-                    "y": 195.0,
-                    "lat": -34.00278697460149,
-                    "lon": 22.759171421109652
+                    "x": 222.0,
+                    "y": 194.0,
+                    "lat": -34.003221417975745,
+                    "lon": 22.715655222867895
                 }
             ],
-            "reverseAccuracy": 1.2907548807561398E-8
+            "reverseAccuracy": 1.1314114090055227E-8
         },
         "flagCodings": [
             {
@@ -47,8 +47,8 @@
             {
                 "name": "ci",
                 "description": "",
-                "bandWidth": 301,
-                "bandHeight": 301,
+                "bandWidth": 300,
+                "bandHeight": 300,
                 "noDataValue": "0.0",
                 "noDataValueUsed": "false",
                 "spectralWavelength": "0.0",
@@ -57,20 +57,20 @@
                     {
                         "x": 15,
                         "y": 53,
-                        "value": 0.08004511
+                        "value": 0.04459093
                     },
                     {
-                        "x": 206,
-                        "y": 256,
-                        "value": -0.08853237
+                        "x": 205,
+                        "y": 255,
+                        "value": -0.10665882
                     }
                 ]
             },
             {
                 "name": "flags",
                 "description": "ci specific flags",
-                "bandWidth": 301,
-                "bandHeight": 301,
+                "bandWidth": 300,
+                "bandHeight": 300,
                 "noDataValue": "0.0",
                 "noDataValueUsed": "false",
                 "spectralWavelength": "0.0",
@@ -119,12 +119,16 @@
                 "value": "true"
             },
             {
+                "path": "Processing_Graph/node.0/sources/sourceProduct",
+                "value": "product:Subset_S2A_MSIL1C_20161206T080312_N0204_R035_T34HFH_20161206T081929_resampled"
+            },
+            {
                 "path": "Processing_Graph/node.1/parameters/formatName",
                 "value": "BEAM-DIMAP"
             },
             {
-                "path": "Processing_Graph/node.0/parameters/upsampling",
-                "value": "Nearest"
+                "path": "Processing_Graph/node.0/parameters/greenSourceBand",
+                "value": "B3"
             },
             {
                 "path": "Processing_Graph/node.0/parameters/redSourceBand",

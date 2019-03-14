@@ -1,0 +1,24 @@
+[{
+  "id":"FCCTest",
+  "description":"execute ForestCoverChange processor with S2",
+  "frequency":"daily",
+  "graphPath": "s2tbx/graphFCCOp.xml",
+  "inputs": {
+    "input1_RecentProduct": "s2tbx/_FCC_gpt/S2B_MSIL1C_20170812T092029_N0205_R093_T34TGQ_20170812T092453.SAFE",
+    "input2_PreviousProduct": "s2tbx/_FCC_gpt/S2A_OPER_PRD_MSIL1C_PDMC_20160713T144304_R093_V20160713T092032_20160713T092032.SAFE"
+  },
+  "parameters": {
+    "resampleRefBand1": "B5",
+    "resampleRefBand2": "B5",
+    "subsetRegion1": "0,600,700,700",
+    "subsetRegion2": "0,600,700,700"
+  },
+  "outputs": [{
+    "parameter": "out1",
+    "outputName": "tempForestCoverChange",
+    "expected": "s2tbx/expectedFCC.json"
+  }]
+}]
+
+
+

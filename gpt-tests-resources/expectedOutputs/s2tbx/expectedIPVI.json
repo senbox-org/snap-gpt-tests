@@ -2,8 +2,8 @@
   "id": "tempIPVI",
   "decodeQualification": "INTENDED",
   "expectedContent": {
-    "sceneWidth": 301,
-    "sceneHeight": 301,
+    "sceneWidth": 300,
+    "sceneHeight": 300,
     "geoCoding": {
       "coordinates": [
         {
@@ -13,13 +13,13 @@
           "lon": 22.695403893002247
         },
         {
-          "x": 223.0,
-          "y": 195.0,
-          "lat": -34.003398694828405,
-          "lon": 22.715875332867085
+          "x": 222.0,
+          "y": 194.0,
+          "lat": -34.003221417975745,
+          "lon": 22.715655222867895
         }
       ],
-      "reverseAccuracy": 1.1328666005283594E-8
+      "reverseAccuracy": 1.1314114090055227E-8
     },
     "flagCodings": [
       {
@@ -47,8 +47,8 @@
       {
         "name": "ipvi",
         "description": "",
-        "bandWidth": 301,
-        "bandHeight": 301,
+        "bandWidth": 300,
+        "bandHeight": 300,
         "noDataValue": "0.0",
         "noDataValueUsed": "false",
         "spectralWavelength": "0.0",
@@ -57,20 +57,20 @@
           {
             "x": 15,
             "y": 53,
-            "value": 0.68827933
+            "value": 0.69155025
           },
           {
-            "x": 206,
-            "y": 256,
-            "value": 0.7968214
+            "x": 205,
+            "y": 255,
+            "value": 0.75106734
           }
         ]
       },
       {
         "name": "flags",
         "description": "ipvi specific flags",
-        "bandWidth": 301,
-        "bandHeight": 301,
+        "bandWidth": 300,
+        "bandHeight": 300,
         "noDataValue": "0.0",
         "noDataValueUsed": "false",
         "spectralWavelength": "0.0",
@@ -119,12 +119,16 @@
         "value": "true"
       },
       {
+        "path": "Processing_Graph/node.0/sources/sourceProduct",
+        "value": "product:Subset_S2A_MSIL1C_20161206T080312_N0204_R035_T34HFH_20161206T081929_resampled"
+      },
+      {
         "path": "Processing_Graph/node.1/parameters/formatName",
         "value": "BEAM-DIMAP"
       },
       {
-        "path": "Processing_Graph/node.0/parameters/upsampling",
-        "value": "Nearest"
+        "path": "Processing_Graph/node.0/parameters/nirFactor",
+        "value": "1.0"
       },
       {
         "path": "Processing_Graph/node.0/parameters/redSourceBand",
@@ -139,8 +143,8 @@
         "value": "false"
       },
       {
-        "path": "Processing_Graph/node.0/parameters/downsampling",
-        "value": "First"
+        "path": "Processing_Graph/node.0/parameters/nirFactor",
+        "value": "1.0"
       }
     ]
   }
