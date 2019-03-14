@@ -1,0 +1,186 @@
+{
+  "id": "tempIkonos",
+  "decodeQualification": "INTENDED",
+  "expectedContent": {
+    "sceneWidth": 746,
+    "sceneHeight": 450,
+    "startTime": "20-AUG-2008 09:26:00.000000",
+    "endTime": "20-AUG-2008 09:26:00.000000",
+    "geoCoding": {
+      "coordinates": [
+        {
+          "x": 321.0,
+          "y": 241.0,
+          "lat": 38.06810673401332,
+          "lon": 23.995961310944846
+        },
+        {
+          "x": 553.0,
+          "y": 292.0,
+          "lat": 38.06619141485573,
+          "lon": 24.004674135347987
+        }
+      ],
+      "reverseAccuracy": 1.1641532182693481E-10
+    },
+    "bands": [
+      {
+        "name": "Blue",
+        "description": "",
+        "bandWidth": 746,
+        "bandHeight": 450,
+        "geophysicalUnit": "mW/cm^2*sr",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 38,
+            "y": 80,
+            "value": 0.41785
+          },
+          {
+            "x": 511,
+            "y": 382,
+            "value": 0.56855
+          }
+        ]
+      },
+      {
+        "name": "Green",
+        "description": "",
+        "bandWidth": 746,
+        "bandHeight": 450,
+        "geophysicalUnit": "mW/cm^2*sr",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 217,
+            "y": 115,
+            "value": 0.60554
+          },
+          {
+            "x": 455,
+            "y": 164,
+            "value": 0.60828
+          }
+        ]
+      },
+      {
+        "name": "Near",
+        "description": "",
+        "bandWidth": 746,
+        "bandHeight": 450,
+        "geophysicalUnit": "mW/cm^2*sr",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 410,
+            "y": 335,
+            "value": 0.37366
+          },
+          {
+            "x": 453,
+            "y": 417,
+            "value": 0.28322
+          }
+        ]
+      },
+      {
+        "name": "Pan",
+        "description": "",
+        "bandWidth": 746,
+        "bandHeight": 450,
+        "geophysicalUnit": "mW/cm^2*sr",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 118,
+            "y": 299,
+            "value": 0.5020575
+          },
+          {
+            "x": 387,
+            "y": 411,
+            "value": 0.394965
+          }
+        ]
+      },
+      {
+        "name": "Red",
+        "description": "",
+        "bandWidth": 746,
+        "bandHeight": 450,
+        "geophysicalUnit": "mW/cm^2*sr",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 564,
+            "y": 218,
+            "value": 0.3612
+          },
+          {
+            "x": 709,
+            "y": 218,
+            "value": 0.3213
+          }
+        ]
+      }
+    ],
+    "metadata": [
+      {
+        "path": "Processing_Graph/node.2/sources/sourceProduct",
+        "value": "file:/E:/STEP_2_0/graphtest/runinsnap/subset_0_of_IK2_OPER_OSA_GEO_1P_20080820T092600_N38-054_E023-986_0001_resampled_reprojected.dim"
+      },
+      {
+        "path": "Metadata/resultTime/TimeInstant/gml:id",
+        "value": "IK2_OPER_OSA_GEO_1P_20080820T092600_N38-054_E023-986_0001_3"
+      },
+      {
+        "path": "history/SubsetInfo/ProductNodeName.2",
+        "value": "Green"
+      },
+      {
+        "path": "history/SubsetInfo/SubRegion.height",
+        "value": "449"
+      },
+      {
+        "path": "Processing_Graph/node.0/parameters/flagDownsampling",
+        "value": "First"
+      },
+      {
+        "path": "history/SubsetInfo/SubSampling.x",
+        "value": "1"
+      },
+      {
+        "path": "Processing_Graph/node.1/parameters/includeTiePointGrids",
+        "value": "true"
+      },
+      {
+        "path": "Processing_Graph/node.1/parameters/orientation",
+        "value": "0.0"
+      },
+      {
+        "path": "Processing_Graph/node.0/parameters/flagDownsampling",
+        "value": "First"
+      },
+      {
+        "path": "history/SubsetInfo/ProductNodeName.4",
+        "value": "Pan"
+      }
+    ]
+  }
+}
