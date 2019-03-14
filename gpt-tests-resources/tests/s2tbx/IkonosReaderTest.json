@@ -1,0 +1,20 @@
+[{
+  "id":"IkonosTest",
+  "description":"execute Ikonos product reader and operators",
+  "frequency":"daily",
+  "graphPath": "s2tbx/graphReaderMultiLevel.xml",
+  "inputs": {
+    "input1": "s2tbx/_gpt_readers/ikonos/IK2_OPER_OSA_GEO_1P_20080820T092600_N38-054_E023-986_0001.SIP.ZIP"
+  },
+  "parameters": {
+    "referenceBand": "Blue",
+    "sourceBands": "Blue,Green,Near,Pan,Red",
+    "subsetRegion": "1783,1041,600,449",
+    "crs": "WGS84(DD)"
+  },
+  "outputs": [{
+    "parameter": "out1",
+    "outputName": "tempIkonos",
+    "expected": "s2tbx/expectedIkonos.json"
+  }]
+}]

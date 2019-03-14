@@ -1,0 +1,177 @@
+{
+  "id": "tempAlosAV2",
+  "decodeQualification": "INTENDED",
+  "expectedContent": {
+    "sceneWidth": 729,
+    "sceneHeight": 101,
+    "startTime": "15-JUL-2008 18:17:42.204020",
+    "endTime": "15-JUL-2008 18:17:42.204020",
+    "geoCoding": {
+      "coordinates": [
+        {
+          "x": 314.0,
+          "y": 54.0,
+          "lat": 82.1069891395445,
+          "lon": -33.36982144071392
+        },
+        {
+          "x": 541.0,
+          "y": 65.0,
+          "lat": 82.10599752112628,
+          "lon": -33.34935804244716
+        }
+      ],
+      "reverseAccuracy": 1.1641532182693481E-10
+    },
+    "bands": [
+      {
+        "name": "Band_1(blue)",
+        "description": "",
+        "bandWidth": 729,
+        "bandHeight": 101,
+        "geophysicalUnit": "W.M-2.SR-1.uM-1",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 38,
+            "y": 17,
+            "value": 61.7975
+          },
+          {
+            "x": 499,
+            "y": 85,
+            "value": 64.1495
+          }
+        ]
+      },
+      {
+        "name": "Band_2(green)",
+        "description": "",
+        "bandWidth": 729,
+        "bandHeight": 101,
+        "geophysicalUnit": "W.M-2.SR-1.uM-1",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 212,
+            "y": 25,
+            "value": 50.481503
+          },
+          {
+            "x": 445,
+            "y": 36,
+            "value": 55.6385
+          }
+        ]
+      },
+      {
+        "name": "Band_3(red)",
+        "description": "",
+        "bandWidth": 729,
+        "bandHeight": 101,
+        "geophysicalUnit": "W.M-2.SR-1.uM-1",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 400,
+            "y": 75,
+            "value": 92.9275
+          },
+          {
+            "x": 443,
+            "y": 93,
+            "value": 64.3135
+          }
+        ]
+      },
+      {
+        "name": "Band_4(near_infrared)",
+        "description": "",
+        "bandWidth": 729,
+        "bandHeight": 101,
+        "geophysicalUnit": "W.M-2.SR-1.uM-1",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 115,
+            "y": 67,
+            "value": 31.787498
+          },
+          {
+            "x": 378,
+            "y": 92,
+            "value": 42.642498
+          }
+        ]
+      }
+    ],
+    "masks": [
+      {
+        "name": "no data",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "0,0,0",
+        "description": "no data"
+      },
+      {
+        "name": "saturated",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "255,255,255",
+        "description": "saturated"
+      }
+    ],
+    "metadata": [
+      {
+        "path": "history/SubsetInfo/ProductNodeName.4",
+        "value": "Band_4(near_infrared)"
+      },
+      {
+        "path": "TIFF Metadata/GeoTIFF Metadata/GeoKeyDirectory/GTModelTypeGeoKey",
+        "value": "ModelTypeProjected"
+      },
+      {
+        "path": "TIFF Metadata/GeoTIFF Metadata/GeoKeyDirectory/GTRasterTypeGeoKey",
+        "value": "RasterPixelIsArea"
+      },
+      {
+        "path": "ALOS/Data_Strip/Ephemeris/Orbital_Bulletin/TRUE_ANOMALY",
+        "value": "-3.010445"
+      },
+      {
+        "path": "ALOS/Raster_CS/RASTER_CS_TYPE",
+        "value": "POINT"
+      },
+      {
+        "path": "Processing_Graph/node.1/sources/sourceProduct",
+        "value": "file:/E:/STEP_2_0/Modules/ALOS/_alos/AL1_NESR_AV2_OBS_1C_20080715T181736_20080715T181748_013182_0539_1810_0410.SIP/AL1_NESR_AV2_OBS_1C_20080715T181736_20080715T181748_013182_0539_1810_0410.MD.XML"
+      },
+      {
+        "path": "TIFF Metadata/GeoTIFF Metadata/GeoKeyDirectory/GeogAngularUnitsGeoKey",
+        "value": "Angular_Degree"
+      },
+      {
+        "path": "ALOS/Data_Strip/Ephemeris/Orbital_Bulletin/LATITUDE_ARGUMENT",
+        "value": "1.543273"
+      },
+      {
+        "path": "ALOS/Raster_CS/PIXEL_ORIGIN",
+        "value": "0"
+      },
+      {
+        "path": "Processing_Graph/node.2/parameters/includeTiePointGrids",
+        "value": "true"
+      }
+    ]
+  }
+}
