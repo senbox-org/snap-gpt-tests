@@ -3,37 +3,17 @@
     <node id="Read">
         <operator>Read</operator>
         <sources/>
-        <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+        <parameters>
             <file>$input1</file>
-        </parameters>
-    </node>
-    <node id="Resample">
-        <operator>Resample</operator>
-        <sources>
-            <sourceProduct refid="Read"/>
-        </sources>
-        <parameters class="com.bc.ceres.binding.dom.XppDomElement">
-            <referenceBand>$resampleRefBand</referenceBand>
-            <targetWidth/>
-            <targetHeight/>
-            <targetResolution/>
-            <upsampling>Nearest</upsampling>
-            <downsampling>First</downsampling>
-            <flagDownsampling>First</flagDownsampling>
-            <resampleOnPyramidLevels>true</resampleOnPyramidLevels>
         </parameters>
     </node>
     <node id="Subset">
         <operator>Subset</operator>
         <sources>
-            <sourceProduct refid="Resample"/>
+            <sourceProduct refid="Read"/>
         </sources>
-        <parameters class="com.bc.ceres.binding.dom.XppDomElement">
-            <sourceBands/>
+        <parameters>
             <region>$subsetRegion</region>
-            <geoRegion/>
-            <subSamplingX>1</subSamplingX>
-            <subSamplingY>1</subSamplingY>
             <fullSwath>false</fullSwath>
             <tiePointGridNames/>
             <copyMetadata>true</copyMetadata>
@@ -44,7 +24,7 @@
         <sources>
             <sourceProduct refid="Subset"/>
         </sources>
-        <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+        <parameters>
             <crs>$crs</crs>
             <resampling>$resampling</resampling>
             <orthorectify>$orthorectify</orthorectify>
@@ -58,7 +38,7 @@
         <sources>
             <sourceProduct refid="ReprojectionOp"/>
         </sources>
-        <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+        <parameters>
             <file>$out1</file>
             <formatName>BEAM-DIMAP</formatName>
         </parameters>

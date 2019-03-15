@@ -1,5 +1,5 @@
 [{
-    "id":"Rad2ReflTest1",
+    "id":"Rad2ReflTest_OLCI",
     "description":"execute Rad2Refl operator",
     "frequency":"daily",
     "graphPath": "s3tbx/graphRad2ReflOp.xml",
@@ -8,7 +8,6 @@
     },
     "parameters": {
         "subsetRegion": "1500,600,300,300",
-        "resampleRefBand": "Oa05_radiance",
         "sensor": "OLCI",
         "conversionMode": "RAD_TO_REFL",
         "copyTiePointGrids": "false",
@@ -17,12 +16,12 @@
     },
     "outputs": [{
         "parameter": "out1",
-        "outputName": "tempRAD2REFL1",
-        "expected": "snap/expectedRAD2REFL.json"
+        "outputName": "Rad2ReflTest_OLCI",
+        "expected": "s3tbx/expectedRAD2REFL.json"
     }]
 },
     {
-        "id":"Rad2ReflTest2",
+        "id":"Rad2ReflTest_MERIS",
         "description":"execute Rad2Refl operator",
         "frequency":"daily",
         "graphPath": "s3tbx/graphRad2ReflOp.xml",
@@ -31,8 +30,6 @@
         },
         "parameters": {
             "subsetRegion": "1000,1000,300,300",
-            "resampleRefBand": "radiance_2",
-            "copySubsetMetaData": "false",
             "sensor": "MERIS",
             "conversionMode": "RAD_TO_REFL",
             "copyTiePointGrids": "true",
@@ -41,8 +38,8 @@
         },
         "outputs": [{
             "parameter": "out1",
-            "outputName": "tempRAD2REFL2",
-            "expected": "snap/expectedRAD2REFL.json"
+            "outputName": "Rad2ReflTest_MERIS",
+            "expected": "s3tbx/expectedRAD2REFL.json"
         }]
     }
 ]
