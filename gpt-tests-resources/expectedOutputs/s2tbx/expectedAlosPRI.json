@@ -1,0 +1,133 @@
+{
+  "id": "tempAlosPRI",
+  "decodeQualification": "INTENDED",
+  "expectedContent": {
+    "sceneWidth": 6476,
+    "sceneHeight": 5001,
+    "startTime": "05-NOV-2010 10:39:03.977416",
+    "endTime": "05-NOV-2010 10:39:03.977416",
+    "geoCoding": {
+      "coordinates": [
+        {
+          "x": 2793.0,
+          "y": 2688.0,
+          "lat": 39.72792117561631,
+          "lon": 3.8822248646604662
+        },
+        {
+          "x": 4808.0,
+          "y": 3245.0,
+          "lat": 39.71525108802119,
+          "lon": 3.9280601007541343
+        }
+      ],
+      "reverseAccuracy": 4.6566128730773926E-10
+    },
+    "bands": [
+      {
+        "name": "ALPSMF254742745",
+        "description": "Band 1 (pan, 0.52 uM to 0.77 uM)",
+        "bandWidth": 6476,
+        "bandHeight": 5001,
+        "geophysicalUnit": "W.M-2.SR-1.uM-1",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 337,
+            "y": 891,
+            "value": 14.028
+          },
+          {
+            "x": 4436,
+            "y": 4253,
+            "value": 15.531
+          }
+        ]
+      },
+      {
+        "name": "ALPSMN254742800",
+        "description": "Band 1 (pan, 0.52 uM to 0.77 uM)",
+        "bandWidth": 6476,
+        "bandHeight": 5001,
+        "geophysicalUnit": "W.M-2.SR-1.uM-1",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 1883,
+            "y": 1284,
+            "value": 12.024
+          },
+          {
+            "x": 3953,
+            "y": 1826,
+            "value": 12.024
+          }
+        ]
+      }
+    ],
+    "masks": [
+      {
+        "name": "no data",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "0,0,0",
+        "description": "no data"
+      },
+      {
+        "name": "saturated",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "255,200,0",
+        "description": "saturated"
+      }
+    ],
+    "metadata": [
+      {
+        "path": "ALOS[2]/Data_Access/Data_File/DATA_FILE_PATH/href",
+        "value": "AL01_PRI_M1N_1C_20101105T103901_20101105T103907_ESR_025474_6B22.GTIF"
+      },
+      {
+        "path": "Processing_Graph/node.2/parameters/copyMetadata",
+
+        "value": "true"
+      },
+      {
+        "path": "ALOS[2]/Data_Strip/Ephemeris/Points/Point[13]/Location/Y",
+        "value": "4.838530336199454E+05"
+      },
+      {
+        "path": "ALOS/Dataset_Use/DATASET_CONTENT",
+        "value": "ALOS PRISM Level 1C Product"
+      },
+      {
+        "path": "ALOS[2]/Dataset_Components/Component[3]/COMPONENT_PATH/href",
+        "value": "AL01_PRI_M1N_1C_20101105T103901_20101105T103907_ESR_025474_6B22_QL.GTIF"
+      },
+      {
+        "path": "ALOS[2]/Coordinate_Reference_System/Horizontal_CS/Geographic_CS/Horizontal_Datum/Prime_Meridian/PRIME_MERIDIAN_OFFSET",
+        "value": "0.017453"
+      },
+      {
+        "path": "ALOS/Data_Strip/Satellite_Attitudes/Angles_List/Angles[56]/Angular_Speed/PITCH",
+        "value": "0.0"
+      },
+      {
+        "path": "ALOS[2]/Geoposition/Geoposition_Insert/XDIM",
+        "value": "2.500000"
+      },
+      {
+        "path": "Metadata/procedure/EarthObservationEquipment/acquisitionParameters/Acquisition/illuminationElevationAngle",
+        "value": "34"
+      },
+      {
+        "path": "history/SubsetInfo/ProductNodeName.1",
+
+        "value": "ALPSMF254742745"
+      }
+    ]
+  }
+}

@@ -1,0 +1,142 @@
+<graph id="Graph">
+  <version>1.0</version>
+  <node id="Read">
+    <operator>Read</operator>
+    <sources/>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <file>$input1_RecentProduct</file>
+    </parameters>
+  </node>
+  <node id="Read(2)">
+    <operator>Read</operator>
+    <sources/>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <file>$input2_PreviousProduct</file>
+    </parameters>
+  </node>
+  <node id="Resample">
+    <operator>Resample</operator>
+    <sources>
+      <sourceProduct refid="Read"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <referenceBand>$resampleRefBand1</referenceBand>
+      <targetWidth/>
+      <targetHeight/>
+      <targetResolution/>
+      <upsampling>Nearest</upsampling>
+      <downsampling>First</downsampling>
+      <flagDownsampling>First</flagDownsampling>
+      <resampleOnPyramidLevels>true</resampleOnPyramidLevels>
+    </parameters>
+  </node>
+  <node id="Resample(2)">
+    <operator>Resample</operator>
+    <sources>
+      <sourceProduct refid="Read(2)"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <referenceBand>$resampleRefBand2</referenceBand>
+      <targetWidth/>
+      <targetHeight/>
+      <targetResolution/>
+      <upsampling>Nearest</upsampling>
+      <downsampling>First</downsampling>
+      <flagDownsampling>First</flagDownsampling>
+      <resampleOnPyramidLevels>true</resampleOnPyramidLevels>
+    </parameters>
+  </node>
+  <node id="Subset">
+    <operator>Subset</operator>
+    <sources>
+      <sourceProduct refid="Resample"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <sourceBands/>
+      <region>$subsetRegion1</region>
+      <geoRegion/>
+      <subSamplingX>1</subSamplingX>
+      <subSamplingY>1</subSamplingY>
+      <fullSwath>false</fullSwath>
+      <tiePointGridNames/>
+      <copyMetadata>true</copyMetadata>
+    </parameters>
+  </node>
+  <node id="Subset(2)">
+    <operator>Subset</operator>
+    <sources>
+      <sourceProduct refid="Resample(2)"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <sourceBands/>
+      <region>$subsetRegion2</region>
+      <geoRegion/>
+      <subSamplingX>1</subSamplingX>
+      <subSamplingY>1</subSamplingY>
+      <fullSwath>false</fullSwath>
+      <tiePointGridNames/>
+      <copyMetadata>true</copyMetadata>
+    </parameters>
+  </node>
+  <node id="ForestCoverChangeOp">
+    <operator>ForestCoverChangeOp</operator>
+    <sources>
+      <!--<sourceProduct refid="Subset"/>-->
+      <!--<sourceProduct.1 refid="Subset(2)"/>-->
+      <currentSourceProduct refid="Subset"/>
+      <previousSourceProduct refid="Subset(2)" />
+
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <forestCoverPercentage>95.0</forestCoverPercentage>
+      <landCoverName>CCILandCover-2015</landCoverName>
+      <landCoverMapIndices>40, 50, 60, 61, 62, 70, 71, 72, 80, 81, 82, 90, 100, 110, 160, 170</landCoverMapIndices>
+      <mergingCostCriterion>Spring</mergingCostCriterion>
+      <regionMergingCriterion>Local Mutual Best Fitting</regionMergingCriterion>
+      <totalIterationsForSecondSegmentation>10</totalIterationsForSecondSegmentation>
+      <threshold>5.0</threshold>
+      <spectralWeight>0.5</spectralWeight>
+      <shapeWeight>0.5</shapeWeight>
+      <degreesOfFreedom>3.3</degreesOfFreedom>
+      <currentProductSourceMaskFile/>
+      <previousProductSourceMaskFile/>
+    </parameters>
+  </node>
+  <node id="Write">
+    <operator>Write</operator>
+    <sources>
+      <sourceProduct refid="ForestCoverChangeOp"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <file>$out1</file>
+      <formatName>BEAM-DIMAP</formatName>
+    </parameters>
+  </node>
+  <applicationData id="Presentation">
+    <Description/>
+    <node id="Read">
+      <displayPosition x="31.0" y="92.0"/>
+    </node>
+    <node id="Read(2)">
+      <displayPosition x="40.0" y="210.0"/>
+    </node>
+    <node id="Resample">
+      <displayPosition x="155.0" y="92.0"/>
+    </node>
+    <node id="Resample(2)">
+      <displayPosition x="154.0" y="210.0"/>
+    </node>
+    <node id="Subset">
+      <displayPosition x="276.0" y="92.0"/>
+    </node>
+    <node id="Subset(2)">
+      <displayPosition x="286.0" y="210.0"/>
+    </node>
+    <node id="ForestCoverChangeOp">
+      <displayPosition x="477.0" y="163.0"/>
+    </node>
+    <node id="Write">
+      <displayPosition x="696.0" y="163.0"/>
+    </node>
+  </applicationData>
+</graph>

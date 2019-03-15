@@ -1,0 +1,20 @@
+[{
+  "id":"AlosPRITest",
+  "description":"execute Alos PRISM product reader and operators",
+  "frequency":"daily",
+  "graphPath": "s2tbx/graphReaderMultiLevel.xml",
+  "inputs": {
+    "input1": "s2tbx/_gpt_readers/alos/AL1_NESR_PSM_OB1_1C_20101105T103901_20101105T103907_025474_0323_2800_0410.SIP/AL1_NESR_PSM_OB1_1C_20101105T103901_20101105T103907_025474_0323_2800_0410.MD.XML"
+  },
+  "parameters": {
+    "referenceBand": "ALPSMF254742745",
+    "sourceBands": "ALPSMF254742745,ALPSMN254742800",
+    "subsetRegion": "4000,6000,5000,5000",
+    "crs": "WGS84(DD)"
+  },
+  "outputs": [{
+    "parameter": "out1",
+    "outputName": "tempAlosPRI",
+    "expected": "s2tbx/expectedAlosPRI.json"
+  }]
+}]
