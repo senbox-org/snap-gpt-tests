@@ -1,0 +1,24 @@
+[{
+  "id":"CoregTest",
+  "description":"execute Coregistration processor",
+  "frequency":"daily",
+  "graphPath": "s2tbx/graphCoregOp.xml",
+  "inputs": {
+    "input1_MasterProduct": "s2tbx/_coregistration_gpt/radar_bandep.png",
+    "input2_SlaveProduct": "s2tbx/_coregistration_gpt/lidar_georef.png"
+  },
+  "parameters": {
+    "subsetRegionMasterProduct": "0,0,500,500",
+    "subsetRegionSlaveProduct": "0,0,500,500",
+    "masterSourceBand": "gray",
+    "slaveSourceBand": "gray"
+  },
+  "outputs": [{
+    "parameter": "out1",
+    "outputName": "tempCoreg",
+    "expected": "s2tbx/expectedCoreg.json"
+  }]
+}]
+
+
+
