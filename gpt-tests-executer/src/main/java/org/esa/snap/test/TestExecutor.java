@@ -1,8 +1,19 @@
 package org.esa.snap.test;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.filefilter.TrueFileFilter;
+import org.apache.commons.io.filefilter.WildcardFileFilter;
+import org.esa.snap.core.dataio.ProductIO;
+import org.esa.snap.core.datamodel.Product;
+import org.esa.snap.dataio.ContentAssert;
+import org.esa.snap.dataio.ExpectedDataset;
+
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
@@ -48,9 +59,38 @@ public class TestExecutor {
         }
 
         //todo check outputs
-        //final ContentAssert contentAssert = new ContentAssert(expectedContent, productId, product);
-        //contentAssert.assertProductContent();
+        for(Output output : graphTest.getOutputs()) {
+            final ObjectMapper mapper = new ObjectMapper();
+            final ExpectedDataset expectedDataset = mapper.readValue(new File(expectedOutputFolder.resolve(output.getExpected()).toString()), ExpectedDataset.class);
+
+            String outputNameWithExtension = findOutput(output, tempFolder);
+            if(outputNameWithExtension == null) {
+                System.out.println("Output not found!!!");
+                return false;
+            }
+            Product product = ProductIO.readProduct(outputNameWithExtension);
+            final ContentAssert contentAssert = new ContentAssert(expectedDataset.getExpectedContent(), output.getOutputName(), product);
+            try {
+                contentAssert.assertProductContent();
+
+            } catch (AssertionError e) {
+                System.out.println("Error in test!!!");
+
+            }
+
+        }
+
 
         return true;
+    }
+    private static String findOutput (Output output, Path tempFolder) {
+        Collection<File> filelist = FileUtils.listFiles(tempFolder.toFile(), new WildcardFileFilter(String.format("%s.*",output.getOutputName())), TrueFileFilter.INSTANCE);
+        if(filelist.size() == 1) {
+            File[] files = filelist.toArray(new File[filelist.size()]);
+            return files[0].getAbsolutePath();
+        }
+
+        //TODO check
+        return null;
     }
 }
