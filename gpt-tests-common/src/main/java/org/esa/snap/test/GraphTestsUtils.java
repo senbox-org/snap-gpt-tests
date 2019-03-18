@@ -29,12 +29,12 @@ public class GraphTestsUtils {
 
     }
 
-    public static boolean createTestJSONListFile (Path testFolderPath, String scope, String fileName) {
+    public static boolean createTestJSONListFile (Path testFolderPath, String scope, Path outputPath) {
 
         BufferedWriter writer = null;
         boolean success = true;
         try {
-            writer = new BufferedWriter(new FileWriter(fileName, true));
+            writer = new BufferedWriter(new FileWriter(outputPath.toFile(), false));
 
             for (File file : FileUtils.listFiles(testFolderPath.toFile(), new WildcardFileFilter("*.json"), TrueFileFilter.INSTANCE)) {
                 GraphTest[] graphTests = null;
@@ -49,7 +49,7 @@ public class GraphTestsUtils {
                     continue;
                 }
                 for (GraphTest graphTest : graphTests) {
-                    if (graphTest.getFrequency().contains(scope)) {
+                    if (graphTest.getFrequency().toLowerCase().contains(scope.toLowerCase())) {
                         writer.write(file.getAbsolutePath());
                         writer.write("\n");
                         continue;

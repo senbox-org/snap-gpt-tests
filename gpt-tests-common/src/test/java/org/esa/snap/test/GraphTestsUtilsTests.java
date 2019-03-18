@@ -6,6 +6,7 @@ import org.junit.Test;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 
 /**
  * Created by obarrile on 15/03/2019.
@@ -23,7 +24,7 @@ public class GraphTestsUtilsTests {
     @Test
     public void testCreateTestJSONListFile() throws Exception {
 
-        Assert.assertTrue(GraphTestsUtils.createTestJSONListFile(Path testFolderPath, "DAILY", "d:/borrar/listOfTests.txt"));
+        Assert.assertTrue(GraphTestsUtils.createTestJSONListFile(Paths.get("D:/GPTTests/snap-gpt-tests/gpt-tests-resources/tests"), "DAILY", Paths.get("d:/borrar/listOfTests.txt")));
 
     }
 }

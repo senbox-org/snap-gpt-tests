@@ -51,7 +51,11 @@
         <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-jar-plugin</artifactId>
-
+            <executions>
+                <execution>
+                    <id>SnapGPTTest</id>
+                    <goals><goal>jar</goal></goals>
+                    <phase>package</phase>
             <configuration>
                 <archive>
                     <manifest>
@@ -62,7 +66,27 @@
                         </mainClass>
                     </manifest>
                 </archive>
+                <finalName>SnapGPTTest</finalName>
             </configuration>
+                </execution>
+                <execution>
+                    <id>FilterTestJSON</id>
+                    <goals><goal>jar</goal></goals>
+                    <phase>package</phase>
+                    <configuration>
+                        <archive>
+                            <manifest>
+                                <addClasspath>true</addClasspath>
+                                <classpathPrefix>libs/</classpathPrefix>
+                                <mainClass>
+                                    org.esa.snap.test.FilterTestJSON
+                                </mainClass>
+                            </manifest>
+                        </archive>
+                        <finalName>FilterTestJSON</finalName>
+                    </configuration>
+                </execution>
+            </executions>
         </plugin>
     </plugins>
     </build>
