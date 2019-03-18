@@ -1,0 +1,97 @@
+<graph id="GraphCoregOp">
+  <version>1.0</version>
+  <node id="ReadMasterProduct">
+    <operator>Read</operator>
+    <sources/>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <file>$input1_MasterProduct</file>
+    </parameters>
+  </node>
+  <node id="ReadSlaveProduct">
+    <operator>Read</operator>
+    <sources/>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <file>$input2_SlaveProduct</file>
+    </parameters>
+  </node>
+  <node id="SubsetMasterProduct">
+    <operator>Subset</operator>
+    <sources>
+      <sourceProduct refid="ReadMasterProduct"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <sourceBands/>
+      <region>$subsetRegionMasterProduct</region>
+      <geoRegion/>
+      <subSamplingX>1</subSamplingX>
+      <subSamplingY>1</subSamplingY>
+      <fullSwath>false</fullSwath>
+      <tiePointGridNames/>
+      <copyMetadata>true</copyMetadata>
+    </parameters>
+  </node>
+  <node id="SubsetSlaveProduct">
+    <operator>Subset</operator>
+    <sources>
+      <sourceProduct refid="ReadSlaveProduct"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <sourceBands/>
+      <region>$subsetRegionSlaveProduct</region>
+      <geoRegion/>
+      <subSamplingX>1</subSamplingX>
+      <subSamplingY>1</subSamplingY>
+      <fullSwath>false</fullSwath>
+      <tiePointGridNames/>
+      <copyMetadata>true</copyMetadata>
+    </parameters>
+  </node>
+  <node id="CoregistrationOp">
+    <operator>CoregistrationOp</operator>
+    <sources>
+      <!--<sourceProduct refid="SubsetMasterProduct"/>
+      <sourceProduct.1 refid="SubsetSlaveProduct"/>-->
+      <masterProduct refid="SubsetMasterProduct"/>
+      <slaveProduct refid="SubsetSlaveProduct"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <masterSourceBand>$masterSourceBand</masterSourceBand>
+      <slaveSourceBand>$slaveSourceBand</slaveSourceBand>
+      <levels>6</levels>
+      <rank>4</rank>
+      <iterations>2</iterations>
+      <radius>32, 28, 24, 20, 16, 12, 8</radius>
+    </parameters>
+  </node>
+  <node id="Write">
+    <operator>Write</operator>
+    <sources>
+      <sourceProduct refid="CoregistrationOp"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <file>$out1</file>
+      <formatName>BEAM-DIMAP</formatName>
+    </parameters>
+  </node>
+  <applicationData id="Presentation">
+    <Description/>
+    <node id="ReadMasterProduct">
+      <displayPosition x="42.0" y="79.0"/>
+    </node>
+    <node id="ReadSlaveProduct">
+      <displayPosition x="46.0" y="196.0"/>
+    </node>
+    <node id="SubsetMasterProduct">
+      <displayPosition x="175.0" y="79.0"/>
+    </node>
+    <node id="SubsetSlaveProduct">
+      <displayPosition x="180.0" y="196.0"/>
+    </node>
+    <node id="CoregistrationOp">
+      <displayPosition x="303.0" y="136.0"/>
+    </node>
+    <node id="Write">
+      <displayPosition x="455.0" y="135.0"/>
+    </node>
+  </applicationData>
+</graph>

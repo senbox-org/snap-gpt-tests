@@ -1,0 +1,74 @@
+{
+    "id": "tempCoreg",
+    "decodeQualification": "INTENDED",
+    "expectedContent": {
+        "sceneWidth": 500,
+        "sceneHeight": 500,
+        "bands": [
+            {
+                "name": "gray",
+                "description": "",
+                "bandWidth": 500,
+                "bandHeight": 500,
+                "noDataValue": "0.0",
+                "noDataValueUsed": "false",
+                "spectralWavelength": "0.0",
+                "spectralBandwidth": "0.0",
+                "expectedPixels": [
+                    {
+                        "x": 215,
+                        "y": 268,
+                        "value": 68.3774
+                    },
+                    {
+                        "x": 371,
+                        "y": 324,
+                        "value": 162.38525
+                    }
+                ]
+            }
+        ],
+        "metadata": [
+            {
+                "path": "Processing_Graph/node.1/sources/sourceProduct",
+                "value": "CoregistrationOp"
+            },
+            {
+                "path": "Processing_Graph/node.0/parameters/levels",
+                "value": "6"
+            },
+            {
+                "path": "Processing_Graph/node.1/sources/sourceProduct",
+                "value": "CoregistrationOp"
+            },
+            {
+                "path": "Processing_Graph/node.1/parameters/deleteOutputOnFailure",
+                "value": "true"
+            },
+            {
+                "path": "Processing_Graph/node.0/sources/slaveProduct",
+                "value": "product:Subset_lidar_georef"
+            },
+            {
+                "path": "Processing_Graph/node.1/parameters/formatName",
+                "value": "BEAM-DIMAP"
+            },
+            {
+                "path": "Processing_Graph/node.0/parameters/masterSourceBand",
+                "value": "gray"
+            },
+            {
+                "path": "Processing_Graph/node.0/parameters/iterations",
+                "value": "2"
+            },
+            {
+                "path": "Processing_Graph/node.1/parameters/deleteOutputOnFailure",
+                "value": "true"
+            },
+            {
+                "path": "Processing_Graph/node.1/parameters/clearCacheAfterRowWrite",
+                "value": "false"
+            }
+        ]
+    }
+}

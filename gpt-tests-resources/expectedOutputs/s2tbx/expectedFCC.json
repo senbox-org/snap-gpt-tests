@@ -1,0 +1,128 @@
+{
+    "id": "tempForestCoverChange",
+    "decodeQualification": "INTENDED",
+    "expectedContent": {
+        "sceneWidth": 700,
+        "sceneHeight": 700,
+        "geoCoding": {
+            "coordinates": [
+                {
+                    "x": 301.0,
+                    "y": 376.0,
+                    "lat": 44.94826247255854,
+                    "lon": 23.61110039147753
+                },
+                {
+                    "x": 519.0,
+                    "y": 454.0,
+                    "lat": 44.9329580185351,
+                    "lon": 23.665660935862906
+                }
+            ],
+            "reverseAccuracy": 1.673470251262188E-7
+        },
+        "indexCodings": [
+            {
+                "name": "Crop Indices",
+                "samples": [
+                    {
+                        "name": "0 No data",
+                        "value": 0,
+                        "description": ""
+                    },
+                    {
+                        "name": "1 Previous land cover forest",
+                        "value": 1,
+                        "description": ""
+                    },
+                    {
+                        "name": "2 Recent land cover forest",
+                        "value": 2,
+                        "description": ""
+                    },
+                    {
+                        "name": "3 Common land cover forest",
+                        "value": 3,
+                        "description": ""
+                    },
+                    {
+                        "name": "4 Previous mask",
+                        "value": 4,
+                        "description": ""
+                    },
+                    {
+                        "name": "5 Recent mask",
+                        "value": 5,
+                        "description": ""
+                    }
+                ]
+            }
+        ],
+        "bands": [
+            {
+                "name": "band_1",
+                "description": "",
+                "bandWidth": 700,
+                "bandHeight": 700,
+                "noDataValue": "0.0",
+                "noDataValueUsed": "false",
+                "spectralWavelength": "0.0",
+                "spectralBandwidth": "0.0",
+                "expectedPixels": [
+                    {
+                        "x": 36,
+                        "y": 124,
+                        "value": 0.0
+                    },
+                    {
+                        "x": 479,
+                        "y": 595,
+                        "value": 0.0
+                    }
+                ]
+            }
+        ],
+        "metadata": [
+            {
+                "path": "Processing_Graph/node.0/parameters/threshold",
+                "value": "5.0"
+            },
+            {
+                "path": "Processing_Graph/node.1/sources/sourceProduct",
+                "value": "ForestCoverChangeOp"
+            },
+            {
+                "path": "Processing_Graph/node.1/parameters/deleteOutputOnFailure",
+                "value": "true"
+            },
+            {
+                "path": "Processing_Graph/node.0/sources/previousSourceProduct",
+                "value": "product:Subset_S2A_OPER_MTD_SAFL1C_PDMC_20160713T144304_R093_V20160713T092032_20160713T092032_resampled"
+            },
+            {
+                "path": "Processing_Graph/node.1/parameters/formatName",
+                "value": "BEAM-DIMAP"
+            },
+            {
+                "path": "Processing_Graph/node.0/parameters/totalIterationsForSecondSegmentation",
+                "value": "10"
+            },
+            {
+                "path": "Processing_Graph/node.0/parameters/mergingCostCriterion",
+                "value": "Spring"
+            },
+            {
+                "path": "Processing_Graph/node.1/parameters/deleteOutputOnFailure",
+                "value": "true"
+            },
+            {
+                "path": "Processing_Graph/node.1/parameters/clearCacheAfterRowWrite",
+                "value": "false"
+            },
+            {
+                "path": "Processing_Graph/node.0/parameters/regionMergingCriterion",
+                "value": "Local Mutual Best Fitting"
+            }
+        ]
+    }
+}
