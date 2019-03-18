@@ -5,6 +5,8 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Properties;
 
 import org.apache.commons.io.FileUtils;
@@ -15,9 +17,19 @@ public class SnapGPTTest {
 
     public static void main(String[] args) throws IOException {
 
-        if (args.length != 1) {
-            System.out.println("Only one argument is required indicating the path to a properties file.");
-            System.out.println("The expected properties are: testFolder, graphFolder, inputFolder, expectedOutputFolder and tempFolder.");
+        boolean specificJSON = false;
+        String JSONFileName = null;
+
+        //TODO check better the arguments
+        if(args.length == 2) {
+            System.out.println("Only one JSON test file will be executed.");
+            specificJSON = true;
+            JSONFileName = args[1];
+        } else if (args.length == 1) {
+            System.out.println("Every JSON test file in the testFolder defined in the property file will be executed.");
+        } else {
+            System.out.println("It is required one or two arguments....");//TODO explain better
+            //System.out.println("The expected properties are: testFolder, graphFolder, inputFolder, expectedOutputFolder and tempFolder.");
             return;
         }
 
@@ -48,7 +60,14 @@ public class SnapGPTTest {
             return;
         }
 
-        for(File file : FileUtils.listFiles(testFolder.toFile(), new WildcardFileFilter("*.json"), TrueFileFilter.INSTANCE)) {
+        Collection<File> fileList = null;
+        if(specificJSON) {
+            fileList = new ArrayList<>();
+            fileList.add(new File(JSONFileName));
+        } else {
+            fileList = FileUtils.listFiles(testFolder.toFile(), new WildcardFileFilter("*.json"), TrueFileFilter.INSTANCE);
+        }
+        for(File file : fileList) {
             GraphTest[] graphTests = GraphTestsUtils.mapGraphTests(file);
             if(graphTests == null || graphTests.length == 0) {
                 continue;
