@@ -1,0 +1,20 @@
+[{
+  "id":"DeimosTest",
+  "description":"execute Deimos product reader and operators",
+  "frequency":"daily",
+  "graphPath": "s2tbx/graphReaderSingleLevelFormat.xml",
+  "inputs": {
+    "input1": "s2tbx/_gpt_readers/deimos/DE01_SL6_22P_1T_20120905T170604_20120905T170613_DMI_0_4502/DE01_SL6_22P_1T_20120905T170604_20120905T170613_DMI_0_4502.dim"
+  },
+  "parameters": {
+    "sourceBands": "NIR,Red,Green",
+    "subsetRegion": "100,100,400,400",
+    "formatName": "DEIMOSDimap",
+    "crs": "WGS84(DD)"
+  },
+  "outputs": [{
+    "parameter": "out1",
+    "outputName": "tempDeimos",
+    "expected": "s2tbx/expectedDeimos.json"
+  }]
+}]

@@ -1,0 +1,20 @@
+[{
+  "id":"MuscateTest",
+  "description":"execute Muscate product reader and operators",
+  "frequency":"daily",
+  "graphPath": "s2tbx/graphReaderMultiLevel.xml",
+  "inputs": {
+    "input1": "s2tbx/_gpt_readers/muscate/SENTINEL2A_20160205-103556-319_L2A_T31TFK_D_V1-0.zip"
+  },
+  "parameters": {
+    "referenceBand": "AOT_R1",
+    "sourceBands": "AOT_R1,AOT_R2,Flat_Reflectance_B11,Flat_Reflectance_B12,Flat_Reflectance_B2,Flat_Reflectance_B3,Flat_Reflectance_B4,Flat_Reflectance_B5,Flat_Reflectance_B6,Flat_Reflectance_B7,Flat_Reflectance_B8,Flat_Reflectance_B8A,Surface_Reflectance_B11,Surface_Reflectance_B12,Surface_Reflectance_B2,Surface_Reflectance_B3,Surface_Reflectance_B4,Surface_Reflectance_B5,Surface_Reflectance_B6,Surface_Reflectance_B7,Surface_Reflectance_B8,Surface_Reflectance_B8A,WVC_R1,WVC_R2,Aux_Mask_aot_interpolation_R1,Aux_Mask_aot_interpolation_R2,Aux_Mask_Cloud_R1,Aux_Mask_Cloud_R2,Aux_Mask_MG2_R1,Aux_Mask_MG2_R2,Aux_Mask_Edge_R1,Aux_Mask_Edge_R2,Aux_Mask_Saturation_R1,Aux_Mask_Saturation_R2,sun_zenith,sun_azimuth,view_zenith_B2,view_azimuth_B2,view_zenith_B3,view_azimuth_B3,view_zenith_B4,view_azimuth_B4,view_zenith_B5,view_azimuth_B5,view_zenith_B6,view_azimuth_B6,view_zenith_B7,view_azimuth_B7,view_zenith_B8,view_azimuth_B8,view_zenith_B8A,view_azimuth_B8A,view_zenith_B11,view_azimuth_B11,view_zenith_B12,view_azimuth_B12,view_zenith_mean,view_azimuth_mean",
+    "subsetRegion": "5000,5000,600,600",
+    "crs": "WGS84(DD)"
+  },
+  "outputs": [{
+    "parameter": "out1",
+    "outputName": "tempMuscate",
+    "expected": "s2tbx/expectedMuscate.json"
+  }]
+}]

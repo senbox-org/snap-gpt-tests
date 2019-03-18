@@ -1,0 +1,181 @@
+{
+  "id": "tempWorldView2",
+  "decodeQualification": "INTENDED",
+  "expectedContent": {
+    "sceneWidth": 1060,
+    "sceneHeight": 601,
+    "startTime": "02-MAY-2017 09:13:55.029932",
+    "endTime": "02-MAY-2017 09:13:55.029932",
+    "geoCoding": {
+      "coordinates": [
+        {
+          "x": 457.0,
+          "y": 323.0,
+          "lat": 55.59935939584169,
+          "lon": 25.375341927600886
+        },
+        {
+          "x": 786.0,
+          "y": 389.0,
+          "lat": 55.59905605723781,
+          "lon": 25.376854024580815
+        }
+      ],
+      "reverseAccuracy": 1.862645149230957E-9
+    },
+    "bands": [
+      {
+        "name": "Pan",
+        "description": "",
+        "bandWidth": 1060,
+        "bandHeight": 601,
+        "noDataValue": "0.0",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 55,
+            "y": 107,
+            "value": 546.0
+          },
+          {
+            "x": 726,
+            "y": 511,
+            "value": 455.0
+          }
+        ]
+      },
+      {
+        "name": "Blue",
+        "description": "",
+        "bandWidth": 1060,
+        "bandHeight": 601,
+        "noDataValue": "0.0",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 308,
+            "y": 154,
+            "value": 262.0
+          },
+          {
+            "x": 647,
+            "y": 219,
+            "value": 258.0
+          }
+        ]
+      },
+      {
+        "name": "Green",
+        "description": "",
+        "bandWidth": 1060,
+        "bandHeight": 601,
+        "noDataValue": "0.0",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 583,
+            "y": 447,
+            "value": 339.0
+          },
+          {
+            "x": 644,
+            "y": 558,
+            "value": 304.0
+          }
+        ]
+      },
+      {
+        "name": "Red",
+        "description": "",
+        "bandWidth": 1060,
+        "bandHeight": 601,
+        "noDataValue": "0.0",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 167,
+            "y": 400,
+            "value": 219.0
+          },
+          {
+            "x": 550,
+            "y": 549,
+            "value": 213.0
+          }
+        ]
+      },
+      {
+        "name": "NIR1",
+        "description": "",
+        "bandWidth": 1060,
+        "bandHeight": 601,
+        "noDataValue": "0.0",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 801,
+            "y": 291,
+            "value": 689.0
+          },
+          {
+            "x": 1007,
+            "y": 292,
+            "value": 739.0
+          }
+        ]
+      }
+    ],
+    "metadata": [
+      {
+        "path": "Metadata[2]/RPB/IMAGE/LINEDENCOEFList/LINEDENCOEF",
+        "value": "1.000000000000000e+00 -1.012996000000000e-05 1.236109000000000e-03 -6.234784000000000e-04 0.000000000000000e+00 -4.580096000000000e-07 -1.223571000000000e-07 1.118673000000000e-07 1.537696000000000e-06 -3.174683000000000e-07 -7.328742000000000e-07 0.000000000000000e+00 0.000000000000000e+00 9.601542000000000e-07 0.000000000000000e+00 0.000000000000000e+00 -1.673917000000000e-08 -3.760395000000000e-06 2.170674000000000e-06 -6.034482000000000e-08"
+      },
+      {
+        "path": "Metadata/IMD/BAND_P/TDILEVEL",
+        "value": "48"
+      },
+      {
+        "path": "Processing_Graph/node.2/parameters/fullSwath",
+        "value": "false"
+      },
+      {
+        "path": "Metadata[2]/IMD/IMAGE/COLUNCERTAINTY",
+        "value": "6.563000000000000e+01"
+      },
+      {
+        "path": "Metadata[2]/TIL/TILE/LRLAT",
+        "value": "5.551290821000000e+01"
+      },
+      {
+        "path": "Metadata/TIL/TILE/LLY",
+        "value": "6.152960749999220e+06"
+      },
+      {
+        "path": "Metadata[2]/RPB/IMAGE/LINENUMCOEFList/LINENUMCOEF",
+        "value": "2.465826000000000e-03 1.091526000000000e-02 -1.035454000000000e+00 2.382162000000000e-02 1.563928000000000e-05 4.490593000000000e-05 -5.446376000000000e-04 -1.582440000000000e-04 -1.284395000000000e-03 6.082136000000000e-06 -4.153297000000000e-07 -4.336685000000000e-07 -2.372267000000000e-08 4.467879000000000e-07 -2.351224000000000e-07 -1.579363000000000e-06 -6.000800000000000e-08 -1.518280000000000e-06 -1.672442000000000e-06 -3.061815000000000e-08"
+      },
+      {
+        "path": "Processing_Graph/node.2/parameters/subSamplingX",
+        "value": "1"
+      },
+      {
+        "path": "Metadata[2]/TIL/TILE/ULLAT",
+        "value": "5.560205833000000e+01"
+      },
+      {
+        "path": "Metadata/RPB/IMAGE/SAMPNUMCOEFList/SAMPNUMCOEF",
+        "value": "2.182794000000000e-03 1.134308000000000e+00 5.400483000000000e-02 -1.454846000000000e-01 -7.467558000000000e-04 5.977989000000000e-04 1.994578000000000e-04 -1.163145000000000e-03 5.833978000000000e-05 -5.147735000000000e-05 -2.218378000000000e-07 8.285799000000000e-07 -1.035622000000000e-06 -2.470430000000000e-08 1.524037000000000e-06 2.981343000000000e-08 3.140668000000000e-07 -1.592733000000000e-06 -6.800845000000000e-07 2.855813000000000e-08"
+      }
+    ]
+  }
+}

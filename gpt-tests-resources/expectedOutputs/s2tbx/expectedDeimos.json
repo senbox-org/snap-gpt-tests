@@ -1,0 +1,151 @@
+{
+  "id": "tempDeimos",
+  "decodeQualification": "INTENDED",
+  "expectedContent": {
+    "sceneWidth": 526,
+    "sceneHeight": 401,
+    "startTime": "05-SEP-2012 17:06:09.000000",
+    "endTime": "05-SEP-2012 17:06:09.000000",
+    "geoCoding": {
+      "coordinates": [
+        {
+          "x": 226.0,
+          "y": 215.0,
+          "lat": 40.69146521650552,
+          "lon": -99.8482519422802
+        },
+        {
+          "x": 390.0,
+          "y": 260.0,
+          "lat": 40.68246221240723,
+          "lon": -99.81544099401087
+        }
+      ],
+      "reverseAccuracy": 5.820766091346741E-11
+    },
+    "bands": [
+      {
+        "name": "NIR",
+        "description": "",
+        "bandWidth": 526,
+        "bandHeight": 401,
+        "noDataValue": "0.0",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 27,
+            "y": 71,
+            "value": 130.0
+          },
+          {
+            "x": 360,
+            "y": 341,
+            "value": 108.0
+          }
+        ]
+      },
+      {
+        "name": "Red",
+        "description": "",
+        "bandWidth": 526,
+        "bandHeight": 401,
+        "noDataValue": "0.0",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 153,
+            "y": 102,
+            "value": 41.0
+          },
+          {
+            "x": 321,
+            "y": 146,
+            "value": 73.0
+          }
+        ]
+      },
+      {
+        "name": "Green",
+        "description": "",
+        "bandWidth": 526,
+        "bandHeight": 401,
+        "noDataValue": "0.0",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 289,
+            "y": 298,
+            "value": 63.0
+          },
+          {
+            "x": 319,
+            "y": 372,
+            "value": 76.0
+          }
+        ]
+      }
+    ],
+    "masks": [
+      {
+        "name": "nodata",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "0,0,0",
+        "description": "nodata"
+      },
+      {
+        "name": "SATURATED",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "0,0,0",
+        "description": "SATURATED"
+      }
+    ],
+    "metadata": [
+      {
+        "path": "DEIMOS/Raster_Encoding/DATA_TYPE",
+        "value": "BYTE"
+      },
+      {
+        "path": "history/SubsetInfo/SubRegion.y",
+        "value": "100"
+      },
+      {
+        "path": "history/SubsetInfo/SubRegion.x",
+        "value": "100"
+      },
+      {
+        "path": "history/SubsetInfo/SubRegion.y",
+        "value": "100"
+      },
+      {
+        "path": "TIFF Metadata/GeoTIFF Metadata/GeoKeyDirectory/GTModelTypeGeoKey",
+        "value": "ModelTypeProjected"
+      },
+      {
+        "path": "history/SubsetInfo/SubRegion.width",
+        "value": "400"
+      },
+      {
+        "path": "TIFF Metadata/GeoTIFF Metadata/GeoKeyDirectory/GTRasterTypeGeoKey",
+        "value": "RasterPixelIsPoint"
+      },
+      {
+        "path": "TIFF Metadata/GeoTIFF Metadata/GeoKeyDirectory/GTModelTypeGeoKey",
+        "value": "ModelTypeProjected"
+      },
+      {
+        "path": "Processing_Graph/node.0/parameters/formatName",
+        "value": "DEIMOSDimap"
+      },
+      {
+        "path": "history/SubsetInfo/SubSampling.x",
+        "value": "1"
+      }
+    ]
+  }
+}

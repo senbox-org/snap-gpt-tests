@@ -1,141 +1,141 @@
 {
-  "id": "tempIkonos",
+  "id": "tempKompsat",
   "decodeQualification": "INTENDED",
   "expectedContent": {
-    "sceneWidth": 746,
-    "sceneHeight": 450,
-    "startTime": "20-AUG-2008 09:26:00.000000",
-    "endTime": "20-AUG-2008 09:26:00.000000",
+    "sceneWidth": 443,
+    "sceneHeight": 301,
+    "startTime": "03-AUG-2009 08:23:52.294205",
+    "endTime": "03-AUG-2009 08:23:52.294205",
     "geoCoding": {
       "coordinates": [
         {
-          "x": 321.0,
-          "y": 241.0,
-          "lat": 38.06810673401332,
-          "lon": 23.995961310944846
+          "x": 191.0,
+          "y": 161.0,
+          "lat": 47.520887870542126,
+          "lon": 19.086246796159262
         },
         {
-          "x": 553.0,
-          "y": 292.0,
-          "lat": 38.06619141485573,
-          "lon": 24.004674135347987
+          "x": 328.0,
+          "y": 195.0,
+          "lat": 47.51963471087274,
+          "lon": 19.091296292474162
         }
       ],
-      "reverseAccuracy": 1.1641532182693481E-10
+      "reverseAccuracy": 2.3283064365386963E-10
     },
     "bands": [
       {
-        "name": "Blue",
+        "name": "MS1",
         "description": "",
-        "bandWidth": 746,
-        "bandHeight": 450,
-        "geophysicalUnit": "mW/cm^2*sr",
+        "bandWidth": 443,
+        "bandHeight": 301,
+        "geophysicalUnit": "mW cm-2 sr-1 ?m-1",
         "noDataValue": "NaN",
         "noDataValueUsed": "true",
         "spectralWavelength": "0.0",
         "spectralBandwidth": "0.0",
         "expectedPixels": [
           {
-            "x": 38,
-            "y": 80,
-            "value": 0.41785
+            "x": 23,
+            "y": 53,
+            "value": 0.913066
           },
           {
-            "x": 511,
-            "y": 382,
-            "value": 0.56855
+            "x": 303,
+            "y": 256,
+            "value": 0.6595204
           }
         ]
       },
       {
-        "name": "Green",
+        "name": "MS2",
         "description": "",
-        "bandWidth": 746,
-        "bandHeight": 450,
-        "geophysicalUnit": "mW/cm^2*sr",
+        "bandWidth": 443,
+        "bandHeight": 301,
+        "geophysicalUnit": "mW cm-2 sr-1 ?m-1",
         "noDataValue": "NaN",
         "noDataValueUsed": "true",
         "spectralWavelength": "0.0",
         "spectralBandwidth": "0.0",
         "expectedPixels": [
           {
-            "x": 217,
-            "y": 115,
-            "value": 0.60554
+            "x": 128,
+            "y": 77,
+            "value": 0.93009
           },
           {
-            "x": 455,
-            "y": 164,
-            "value": 0.60828
+            "x": 270,
+            "y": 109,
+            "value": 0.956046
           }
         ]
       },
       {
-        "name": "Near",
+        "name": "MS3",
         "description": "",
-        "bandWidth": 746,
-        "bandHeight": 450,
-        "geophysicalUnit": "mW/cm^2*sr",
+        "bandWidth": 443,
+        "bandHeight": 301,
+        "geophysicalUnit": "mW cm-2 sr-1 ?m-1",
         "noDataValue": "NaN",
         "noDataValueUsed": "true",
         "spectralWavelength": "0.0",
         "spectralBandwidth": "0.0",
         "expectedPixels": [
           {
-            "x": 410,
-            "y": 335,
-            "value": 0.37366
+            "x": 243,
+            "y": 224,
+            "value": 0.6847583
           },
           {
-            "x": 453,
-            "y": 417,
-            "value": 0.28322
+            "x": 269,
+            "y": 279,
+            "value": 0.6987687
           }
         ]
       },
       {
-        "name": "Pan",
+        "name": "MS4",
         "description": "",
-        "bandWidth": 746,
-        "bandHeight": 450,
-        "geophysicalUnit": "mW/cm^2*sr",
+        "bandWidth": 443,
+        "bandHeight": 301,
+        "geophysicalUnit": "mW cm-2 sr-1 ?m-1",
         "noDataValue": "NaN",
         "noDataValueUsed": "true",
         "spectralWavelength": "0.0",
         "spectralBandwidth": "0.0",
         "expectedPixels": [
           {
-            "x": 118,
-            "y": 299,
-            "value": 0.5020575
+            "x": 70,
+            "y": 200,
+            "value": 0.4142298
           },
           {
-            "x": 387,
-            "y": 411,
-            "value": 0.394965
+            "x": 229,
+            "y": 274,
+            "value": 0.220335
           }
         ]
       },
       {
-        "name": "Red",
+        "name": "PAN",
         "description": "",
-        "bandWidth": 746,
-        "bandHeight": 450,
-        "geophysicalUnit": "mW/cm^2*sr",
+        "bandWidth": 443,
+        "bandHeight": 301,
+        "geophysicalUnit": "mW cm-2 sr-1 ?m-1",
         "noDataValue": "NaN",
         "noDataValueUsed": "true",
         "spectralWavelength": "0.0",
         "spectralBandwidth": "0.0",
         "expectedPixels": [
           {
-            "x": 564,
-            "y": 218,
-            "value": 0.3612
+            "x": 334,
+            "y": 145,
+            "value": 0.4152671
           },
           {
-            "x": 709,
-            "y": 218,
-            "value": 0.3213
+            "x": 421,
+            "y": 146,
+            "value": 0.2636343
           }
         ]
       }
@@ -147,15 +147,15 @@
       },
       {
         "path": "Metadata/resultTime/TimeInstant/gml:id",
-        "value": "IK2_OPER_OSA_GEO_1P_20080820T092600_N38-054_E023-986_0001_3"
+        "value": "KO2_OPER_MSC_MUL_1G_20090803T082351_20090803T082353_016098_0250_1356_0001_3"
       },
       {
         "path": "history/SubsetInfo/SubRegion.height",
-        "value": "449"
+        "value": "300"
       },
       {
         "path": "history/SubsetInfo/SubRegion.width",
-        "value": "600"
+        "value": "300"
       },
       {
         "path": "history/SubsetInfo/SubSampling.x",
@@ -167,11 +167,11 @@
       },
       {
         "path": "Processing_Graph/node.2/parameters/sourceBands",
-        "value": "Blue,Green,Near,Pan,Red"
+        "value": "MS1,MS2,MS3,MS4,PAN"
       },
       {
         "path": "history/SubsetInfo/ProductNodeName.2",
-        "value": "Green"
+        "value": "MS2"
       }
     ]
   }
