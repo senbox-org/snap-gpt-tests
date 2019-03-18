@@ -16,10 +16,15 @@
  */
 
 pipeline {
+    environment {
+        outputDir = "/output/${env.BUILD_NUMBER}/"
+    }
     agent { label 'snap-test' }
     parameters {
         string(name: 'dockerTagName', defaultValue: 's2tbx:testJenkins_validation', description: 'Snap version to use to launch tests')
         string(name: 'testScope', defaultValue: 'PUSH', description: 'Scope of the tests to launch (PUSH, NIGHTLY, WEEKLY, RELEASE)')
+        string(name: 'propertiesPath', defaultValue: '', description: 'Command to launch (gpt command including required parameters)')
+        string(name: 'outputFilesPath', defaultValue: '', description: 'Command to launch (gpt command including required parameters)')
         string(name: 'jsonPath', defaultValue: '', description: 'Command to launch (gpt command including required parameters)')
         // string(name: 'project', defaultValue: 's2tbx', description: 'Scope of the tests to launch (PUSH, NIGHTLY, WEEKLY, RELEASE)')
     }
@@ -32,14 +37,15 @@ pipeline {
             }
             agent {
                 docker {
-                    image "snap-build-server.tilaa.cloud/${params.dockerTagName}"
-                    args '-v /data/ssd/testData/:/data/ssd/testData/'
+                    image "snap-build-server.tilaa.cloud/maven:3.6.0-jdk-8"
+                    args ' -v docker_gpt_test_results:/output/'
                 }
             }
             steps {
                 echo "Launch GPT Tests from ${env.JOB_NAME} from ${env.GIT_BRANCH} with commit ${env.GIT_COMMIT} using docker image snap-build-server.tilaa.cloud/${params.dockerTagName}"
-                sh "mvn clean install"
-                sh "java -jar target/filterJson.jar ${params.testScope} ${params.dockerTagName}"
+                sh "mkdir -p ${outputDir}"
+                sh "mvn clean package install"
+                sh "java -jar target/FilterTestJSON.jar ${params.propertiesPath} ${params.testScope} ${outputDir}/${params.outputFilesPath}"
             }
         }
     }
