@@ -25,8 +25,8 @@ pipeline {
         string(name: 'dockerTagName', defaultValue: 's2tbx:testJenkins_validation', description: 'Snap version to use to launch tests')
         string(name: 'testScope', defaultValue: 'PUSH', description: 'Scope of the tests to launch (PUSH, NIGHTLY, WEEKLY, RELEASE)')
         string(name: 'propertiesPath', defaultValue: '', description: 'Command to launch (gpt command including required parameters)')
-        string(name: 'outputFileName', defaultValue: '', description: 'Command to launch (gpt command including required parameters)')
-        string(name: 'jsonPath', defaultValue: 'test.json', description: 'Command to launch (gpt command including required parameters)')
+        string(name: 'outputFileName', defaultValue: 'test.json', description: 'Command to launch (gpt command including required parameters)')
+        string(name: 'jsonPath', defaultValue: '', description: 'Command to launch (gpt command including required parameters)')
         // string(name: 'project', defaultValue: 's2tbx', description: 'Scope of the tests to launch (PUSH, NIGHTLY, WEEKLY, RELEASE)')
     }
     stages {
