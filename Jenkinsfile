@@ -62,6 +62,7 @@ pipeline {
                 // sh "mvn -Duser.home=/var/maven clean package install"
                 sh "java -jar ./gpt-tests-executer/target/FilterTestJSON.jar ./gpt-tests-resources/tests ${params.testScope} ${outputDir}"
                 sh "more ${outputDir}/JSONTestFiles.txt"
+                sh "cp -r ./gpt-tests-executer/target/ ${outputDir}/gptExecutorTarget"
                 // sh "/opt/launchGpt.sh ${propertiesFilePath} ${outputDir}/FilterJson.vsofig ${scope}"
             }
         }
@@ -100,7 +101,7 @@ pipeline {
             }
             agent  {
                 docker {
-                    image "snap-build-server.tilaa.cloud/maven:3.6.0-jdk-8"
+                    image "snap-build-server.tilaa.cloud/${dockerTagName}"
                     label 'snap'
                     args '-v /data/ssd/testData/:/data/ssd/testData/ -v /opt/snap-gpt-tests/gpt-tests-executer.properties:/opt/snap-gpt-tests/gpt-tests-executer.properties'
                 }
@@ -108,9 +109,8 @@ pipeline {
             steps {
                 echo "Launch GPT Tests from ${env.JOB_NAME} from ${env.GIT_BRANCH} with commit ${env.GIT_COMMIT}"
                 sh "mkdir -p ${outputReportDir}/report"
-                sh "mkdir -p ${outputReportDir}/tmpDir"
-                sh "mvn install"
-                sh "java -jar ./gpt-tests-executer/target/SnapGPTTest.jar /opt/snap-gpt-tests/gpt-tests-executer.properties ${params.testScope} ${params.jsonPath} ${outputReportDir}/report"
+                // sh "mkdir -p ${outputReportDir}/tmpDir"
+                sh "java -jar ${outputReportDir}/gptExecutorTarget/SnapGPTTest.jar /opt/snap-gpt-tests/gpt-tests-executer.properties ${params.testScope} ${params.jsonPath} ${outputReportDir}/report"
             }
         }
     }
