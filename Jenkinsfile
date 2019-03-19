@@ -68,10 +68,10 @@ pipeline {
             steps {
                 script {
                     jsonString = sh(returnStdout: true, script: "cat ${outputDir}/JSONTestFiles.txt").trim()
-                    println "JSonString " + ${jsonString}
-                    def jsonList = ${jsonString}.split("\n")
+                    println "JSonString " + jsonString
+                    def jsonList = jsonString.split("\n")
                     jsonList.each { item->
-                        println "loop " + ${item}
+                        println "loop " + item
                     }
                 }
                 echo "Launch Jobs from ${env.JOB_NAME} from ${env.GIT_BRANCH} with commit ${env.GIT_COMMIT} using docker image snap-build-server.tilaa.cloud/${params.dockerTagName}"
