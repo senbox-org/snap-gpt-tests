@@ -99,7 +99,6 @@ pipeline {
                 }
             }
             agent {
-                label "snap"
                 docker {
                     image "snap-build-server.tilaa.cloud/maven:3.6.0-jdk-8"
                     args '-v /data/ssd/testData/:/data/ssd/testData/ -v /opt/snap-gpt-tests/gpt-tests-executer.properties:/opt/snap-gpt-tests/gpt-tests-executer.properties'
