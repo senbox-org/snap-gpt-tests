@@ -61,7 +61,7 @@ pipeline {
             }
             agent {
                 docker {
-                    image "snap-build-server.tilaa.cloud/script:1.0"
+                    image "snap-build-server.tilaa.cloud/scripts:1.0"
                     args "-v docker_gpt_test_results:/home/snap/output/"
                 }
             } 
