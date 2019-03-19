@@ -18,14 +18,19 @@
 
 @NonCPS // has to be NonCPS or the build breaks on the call to .each
 def launchJobs(jsonString, scope, outputDir) {
+
+    def jobs = [:]
     println "Param string " + jsonString
     jsonList = jsonString.split("\n")
     jsonList.each { item ->
         echo "Value in loop " + item
         // path = item - "["
         // path = path - "]"
-        build job: "snap-gpt-tests/${branchVersion}", parameters: [[$class: 'StringParameterValue', name: 'jsonPath', value: "${item}"], [$class: 'StringParameterValue', name: 'testScope', value: "${scope}"], [$class: 'StringParameterValue', name: 'outputReportDir', value: "${outputDir}"]]
+        jobs["${item}"] =  {
+            build job: "snap-gpt-tests/${branchVersion}", parameters: [[$class: 'StringParameterValue', name: 'jsonPath', value: "${item}"], [$class: 'StringParameterValue', name: 'testScope', value: "${scope}"], [$class: 'StringParameterValue', name: 'outputReportDir', value: "${outputDir}"]]
+        }
     }
+    parallel jobs
 }
 
 pipeline {
