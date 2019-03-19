@@ -59,10 +59,15 @@ pipeline {
                     return "${params.jsonPath}" == '';
                 }
             }
-            agent { label 'snap-test' }
+            agent {
+                docker {
+                    image "snap-build-server.tilaa.cloud/script:1.0"
+                    args "-v docker_gpt_test_results:/home/snap/output/"
+                }
+            } 
             steps {
                 script {
-                    jsonList = sh(returnStdout: true, script: "cat ${params.jsonPath}").trim()
+                    jsonList = sh(returnStdout: true, script: "cat ${outputDir}/JSONTestFiles.txt").trim()
                 }
                 echo "Launch Jobs from ${env.JOB_NAME} from ${env.GIT_BRANCH} with commit ${env.GIT_COMMIT} using docker image snap-build-server.tilaa.cloud/${params.dockerTagName}"
                 println "${jsonList}"
