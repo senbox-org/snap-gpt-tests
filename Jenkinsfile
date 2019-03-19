@@ -73,7 +73,7 @@ pipeline {
                 println "${jsonList}"
                 echo "${jsonList}"
                 
-                jsonList.each { item=>
+                jsonList.each { item->
                     println "loop " + ${item}
                 }
                 // sh "mkdir -p ${outputDir}"
