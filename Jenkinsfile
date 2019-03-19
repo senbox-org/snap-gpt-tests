@@ -22,7 +22,7 @@ def launchJobs(jsonString, scope, outputDir) {
     jsonList.each { item ->
         path = item - "["
         path = path - "]"
-        build job: "snap-gpt-tests/${branchVersion}", parameters: [[$class: 'StringParameterValue', name: 'jsonPath', value: "${path}"], [$class: 'StringParameterValue', name: 'testScope', value: "${scope}"], [$class: 'StringParameterValue', name: 'outputReportDir', value: "${outputDir}"]]
+        build job: "snap-gpt-tests/${branchVersion}", parameters: [[$class: 'LabelParameterValue', name: 'node', label: 'snap-test'],[$class: 'StringParameterValue', name: 'jsonPath', value: "${path}"], [$class: 'StringParameterValue', name: 'testScope', value: "${scope}"], [$class: 'StringParameterValue', name: 'outputReportDir', value: "${outputDir}"]]
     }
 }
 
