@@ -16,6 +16,14 @@
  */
 
 pipeline {
+
+    @NonCPS // has to be NonCPS or the build breaks on the call to .each
+    def launchJobs(list, scope) {
+        list.each { item ->
+            build job: "snap-gpt-tests/${branchVersion}", parameters: [[$class: 'StringParameterValue', name: 'jsonPath', value: "${item}"], [$class: 'StringParameterValue', name: 'testScope', value: "${scope}"]]
+        }
+    }
+
     environment {
         branchVersion = sh(returnStdout: true, script: "echo ${env.GIT_BRANCH} | cut -d '/' -f 2").trim()
         outputDir = "/home/snap/output/${branchVersion}/${env.BUILD_NUMBER}"
@@ -72,14 +80,14 @@ pipeline {
                     def jsonList = jsonString.split("\n")
                     jsonList.each { item->
                         println "loop " + item
-                        step {
-                            build job: "snap-gpt-tests/${branchVersion}", parameters: [[$class: 'StringParameterValue', name: 'jsonPath', value: "${item}"], [$class: 'StringParameterValue', name: 'testScope', value: "${testScope}"]]
-                        }
                     }
                 }
                 echo "Launch Jobs from ${env.JOB_NAME} from ${env.GIT_BRANCH} with commit ${env.GIT_COMMIT} using docker image snap-build-server.tilaa.cloud/${params.dockerTagName}"
-                println "${jsonList}"
-                echo "${jsonList}"
+                echo "List of json files : ${jsonString}"
+                
+                step {
+                     launchJobs(jsonList, testScope)
+                }
                 
                 // sh "mkdir -p ${outputDir}"
                 // sh "mvn -Duser.home=/var/maven clean package install"
