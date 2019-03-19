@@ -85,7 +85,7 @@ pipeline {
                 }
                 echo "Launch Jobs from ${env.JOB_NAME} from ${env.GIT_BRANCH} with commit ${env.GIT_COMMIT} using docker image snap-build-server.tilaa.cloud/${params.dockerTagName}"
                 echo "List of json files : ${jsonString}"
-                launchJobs(${jsonList}, ${testScope})
+                launchJobs("${jsonList}", "${testScope}")
                 
                 // sh "mkdir -p ${outputDir}"
                 // sh "mvn -Duser.home=/var/maven clean package install"
