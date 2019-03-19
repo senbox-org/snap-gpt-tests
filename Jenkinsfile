@@ -87,10 +87,6 @@ pipeline {
                 echo "Launch Jobs from ${env.JOB_NAME} from ${env.GIT_BRANCH} with commit ${env.GIT_COMMIT} using docker image snap-build-server.tilaa.cloud/${params.dockerTagName}"
                 echo "List of json files : ${jsonString}"
                 launchJobs("${jsonList}", "${testScope}", "${outputDir}")
-                
-                // sh "mkdir -p ${outputDir}"
-                // sh "mvn -Duser.home=/var/maven clean package install"
-                // sh "/opt/launchGpt.sh ${propertiesFilePath} ${outputDir}/FilterJson.vsofig ${scope}"
             }
         }
         stage('Json Executer') {
@@ -101,16 +97,16 @@ pipeline {
             }
             agent { label 'snap-execution' } {
                 docker {
-                    image "snap-build-server.tilaa.cloud/${params.dockerTagName}"
-                    args '-v /data/ssd/testData/:/data/ssd/testData/'
+                    image "snap-build-server.tilaa.cloud/maven:3.6.0-jdk-8"
+                    args '-v /data/ssd/testData/:/data/ssd/testData/ -v /opt/snap-gpt-tests/gpt-tests-executer.properties:/opt/snap-gpt-tests/gpt-tests-executer.properties'
                 }
             }
             steps {
-                echo "Launch GPT Tests from ${env.JOB_NAME} from ${env.GIT_BRANCH} with commit ${env.GIT_COMMIT} using docker image snap-build-server.tilaa.cloud/${params.dockerTagName}"
-                sh "mkdir -p ${outputDir}/report"
-                sh "mkdir -p ${outputDir}/tmpDir"
-                sh 'mvn install'
-                sh 'java -jar ./gpt-tests-executer/target/SnapGPTTest.jar ${params.properties} ${params.testScope} ${params.jsonPath} ${outputReportDir}/report'
+                echo "Launch GPT Tests from ${env.JOB_NAME} from ${env.GIT_BRANCH} with commit ${env.GIT_COMMIT}"
+                sh "mkdir -p ${outputReportDir}/report"
+                sh "mkdir -p ${outputReportDir}/tmpDir"
+                // sh 'mvn install'
+                sh 'java -jar ./gpt-tests-executer/target/SnapGPTTest.jar /opt/snap-gpt-tests/gpt-tests-executer.properties ${params.testScope} ${params.jsonPath} ${outputReportDir}/report'
             }
         }
     }
