@@ -40,7 +40,7 @@ pipeline {
             agent {
                 docker {
                     image "snap-build-server.tilaa.cloud/maven:3.6.0-jdk-8"
-                    args "-e MAVEN_CONFIG=/var/maven/.m2 -v /opt/maven/.m2/settings.xml:/var/maven/.m2/settings.xml -v docker_gpt_test_results:${outputDir}"
+                    args "-e MAVEN_CONFIG=/var/maven/.m2 -v /opt/maven/.m2/settings.xml:/var/maven/.m2/settings.xml -v docker_gpt_test_results:/home/snap/output/"
                 }
             }
             steps {
