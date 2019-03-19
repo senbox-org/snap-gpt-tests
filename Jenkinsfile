@@ -103,7 +103,7 @@ pipeline {
                 docker {
                     image "snap-build-server.tilaa.cloud/${dockerTagName}"
                     label 'snap'
-                    args '-v /data/ssd/testData/:/data/ssd/testData/ -v /opt/snap-gpt-tests/gpt-tests-executer.properties:/opt/snap-gpt-tests/gpt-tests-executer.properties'
+                    args '-v /data/ssd/testData/:/data/ssd/testData/ -v /opt/snap-gpt-tests/gpt-tests-executer.properties:/opt/snap-gpt-tests/gpt-tests-executer.properties -v docker_gpt_test_results:/home/snap/output/'
                 }
             }
             steps {
