@@ -23,7 +23,7 @@ pipeline {
     agent { label 'snap-test' }
     parameters {
         string(name: 'dockerTagName', defaultValue: 's2tbx:testJenkins_validation', description: 'Snap version to use to launch tests')
-        string(name: 'testScope', defaultValue: 'PUSH', description: 'Scope of the tests to launch (PUSH, NIGHTLY, WEEKLY, RELEASE)')
+        string(name: 'testScope', defaultValue: 'REGULAR', description: 'Scope of the tests to launch (PUSH, DAILY, REGULAR, WEEKLY, RELEASE)')
         string(name: 'propertiesPath', defaultValue: '', description: 'Command to launch (gpt command including required parameters)')
         string(name: 'outputReportDir', defaultValue: '/home/snap/', description: 'Path to directory where gpt test will write report')
         string(name: 'jsonPath', defaultValue: '', description: 'Command to launch (gpt command including required parameters)')
@@ -48,7 +48,8 @@ pipeline {
                 sh "mkdir -p ${outputDir}"
                 sh "mvn -X -Duser.home=/var/maven clean package install"
                 sh "java -jar ./gpt-tests-executer/target/FilterTestJSON.jar ./gpt-tests-resources/tests ${params.testScope} ${outputDir}"
-                sh "/opt/launchGpt.sh ${propertiesFilePath} ${outputDir}/FilterJson.vsofig ${scope}"
+                sh "more ${outputDir}/JSONTestFiles.txt"
+                // sh "/opt/launchGpt.sh ${propertiesFilePath} ${outputDir}/FilterJson.vsofig ${scope}"
             }
         }
         stage('Launch Jobs') {
@@ -66,7 +67,7 @@ pipeline {
                 echo "Launch Jobs from ${env.JOB_NAME} from ${env.GIT_BRANCH} with commit ${env.GIT_COMMIT} using docker image snap-build-server.tilaa.cloud/${params.dockerTagName}"
                 println "${jsonList}"
                 // sh "mkdir -p ${outputDir}"
-                // sh "mvn -X -Duser.home=/var/maven clean package install"
+                // sh "mvn -Duser.home=/var/maven clean package install"
                 // sh "/opt/launchGpt.sh ${propertiesFilePath} ${outputDir}/FilterJson.vsofig ${scope}"
             }
         }
@@ -85,6 +86,7 @@ pipeline {
             steps {
                 echo "Launch GPT Tests from ${env.JOB_NAME} from ${env.GIT_BRANCH} with commit ${env.GIT_COMMIT} using docker image snap-build-server.tilaa.cloud/${params.dockerTagName}"
                 sh "mkdir -p ${outputDir}/report"
+                sh "mkdir -p ${outputDir}/tmpDir"
                 sh 'mvn install'
                 sh 'java -jar ./gpt-tests-executer/target/SnapGPTTest.jar ${params.properties} ${params.testScope} ${params.jsonPath} ${outputReportDir}/report'
             }
