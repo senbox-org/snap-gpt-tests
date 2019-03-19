@@ -1,0 +1,193 @@
+{
+  "id": "tempSpot5L3",
+  "decodeQualification": "INTENDED",
+  "expectedContent": {
+    "sceneWidth": 807,
+    "sceneHeight": 601,
+    "geoCoding": {
+      "coordinates": [
+        {
+          "x": 348.0,
+          "y": 323.0,
+          "lat": 42.001634013100976,
+          "lon": 1.891800598558003
+        },
+        {
+          "x": 599.0,
+          "y": 389.0,
+          "lat": 41.98754760491978,
+          "lon": 1.945371635731953
+        }
+      ],
+      "reverseAccuracy": 2.9103830456733704E-11
+    },
+    "bands": [
+      {
+        "name": "band_0",
+        "description": "",
+        "bandWidth": 807,
+        "bandHeight": 601,
+        "noDataValue": "0.0",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "450.0",
+        "spectralBandwidth": "5.0",
+        "expectedPixels": [
+          {
+            "x": 42,
+            "y": 107,
+            "value": "NaN"
+          },
+          {
+            "x": 552,
+            "y": 511,
+            "value": "NaN"
+          }
+        ]
+      },
+      {
+        "name": "band_1",
+        "description": "",
+        "bandWidth": 807,
+        "bandHeight": 601,
+        "noDataValue": "0.0",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "580.0",
+        "spectralBandwidth": "5.0",
+        "expectedPixels": [
+          {
+            "x": 234,
+            "y": 154,
+            "value": "NaN"
+          },
+          {
+            "x": 492,
+            "y": 219,
+            "value": "NaN"
+          }
+        ]
+      },
+      {
+        "name": "band_2",
+        "description": "",
+        "bandWidth": 807,
+        "bandHeight": 601,
+        "noDataValue": "0.0",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "750.0",
+        "spectralBandwidth": "5.0",
+        "expectedPixels": [
+          {
+            "x": 443,
+            "y": 447,
+            "value": "NaN"
+          },
+          {
+            "x": 490,
+            "y": 558,
+            "value": "NaN"
+          }
+        ]
+      },
+      {
+        "name": "band_3",
+        "description": "",
+        "bandWidth": 807,
+        "bandHeight": 601,
+        "noDataValue": "0.0",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "1500.0",
+        "spectralBandwidth": "5.0",
+        "expectedPixels": [
+          {
+            "x": 127,
+            "y": 400,
+            "value": "NaN"
+          },
+          {
+            "x": 418,
+            "y": 549,
+            "value": "NaN"
+          }
+        ]
+      },
+      {
+        "name": "latitude",
+        "description": "",
+        "bandWidth": 807,
+        "bandHeight": 601,
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 610,
+            "y": 291,
+            "value": 42.00858
+          },
+          {
+            "x": 767,
+            "y": 292,
+            "value": "NaN"
+          }
+        ]
+      },
+      {
+        "name": "longitude",
+        "description": "",
+        "bandWidth": 807,
+        "bandHeight": 601,
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 274,
+            "y": 540,
+            "value": "NaN"
+          },
+          {
+            "x": 8,
+            "y": 282,
+            "value": "NaN"
+          }
+        ]
+      }
+    ],
+    "metadata": [
+      {
+        "path": "SPOTScene/Production/DATASET_PRODUCER_URL/href",
+        "value": "http://www.dlr.de"
+      },
+      {
+        "path": "history/SubsetInfo/ProductNodeName.1",
+        "value": "latitude"
+      },
+      {
+        "path": "history/SubsetInfo/SubRegion.height",
+        "value": "600"
+      },
+      {
+        "path": "SPOTScene/Quality_Assessment/Quality_Parameter[2]/QUALITY_PARAMETER_CODE",
+        "value": "SPACEMETRIC:RMSX"
+      },
+      {
+        "path": "Processing_Graph/node.1/parameters/sourceBands",
+        "value": "band_0,band_1,band_2,band_3"
+      },
+      {
+        "path": "history/SubsetInfo/SubSampling.x",
+        "value": "1"
+      },
+      {
+        "path": "Processing_Graph/node.2/parameters/resampling",
+        "value": "Nearest"
+      },
+      {
+        "path": "Processing_Graph/node.1/parameters/sourceBands",
+        "value": "band_0,band_1,band_2,band_3"
+      }
+    ]
+  }
+}

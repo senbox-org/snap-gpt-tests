@@ -1,0 +1,19 @@
+[{
+  "id":"Spot5L3Test",
+  "description":"execute Spot 5 (level L3) product reader and operators",
+  "frequency":"daily",
+  "graphPath": "s2tbx/graphReaderSingleLevel.xml",
+  "inputs": {
+    "input1": "s2tbx/_gpt_readers/spot5/L3/SP05_HRG1_X__1O_20060517T105553_20060517T105602_DLR_57_PREU.BIL.ZIP"
+  },
+  "parameters": {
+    "sourceBands": "band_0,band_1,band_2,band_3",
+    "subsetRegion": "1,1,600,600",
+    "crs": "WGS84(DD)"
+  },
+  "outputs": [{
+    "parameter": "out1",
+    "outputName": "tempSpot5L3",
+    "expected": "s2tbx/expectedSpot5L3.json"
+  }]
+}]

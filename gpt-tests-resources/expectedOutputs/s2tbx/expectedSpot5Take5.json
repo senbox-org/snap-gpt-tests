@@ -1,0 +1,550 @@
+{
+  "id": "tempSpot5Take5",
+  "decodeQualification": "INTENDED",
+  "expectedContent": {
+    "sceneWidth": 830,
+    "sceneHeight": 601,
+    "startTime": "25-JUL-2015 09:13:32.999999",
+    "endTime": "25-JUL-2015 09:13:32.999999",
+    "geoCoding": {
+      "coordinates": [
+        {
+          "x": 357.0,
+          "y": 323.0,
+          "lat": 43.90471867470173,
+          "lon": 3.2063970255050944
+        },
+        {
+          "x": 616.0,
+          "y": 389.0,
+          "lat": 43.89876316458405,
+          "lon": 3.2297678909669103
+        }
+      ],
+      "reverseAccuracy": 0.0
+    },
+    "flagCodings": [
+      {
+        "name": "MASK_DIV",
+        "samples": [
+          {
+            "name": "no_div_data",
+            "value": 1,
+            "description": "no diverse data"
+          },
+          {
+            "name": "water",
+            "value": 2,
+            "description": "water"
+          },
+          {
+            "name": "snow",
+            "value": 4,
+            "description": "snow"
+          },
+          {
+            "name": "false_correction",
+            "value": 8,
+            "description": "Sun too low for terrain correction (limitation of correction factor that tends to the infinity, correction is false)"
+          },
+          {
+            "name": "inaccurate_correction",
+            "value": 16,
+            "description": "Sun too low for terrain correction (correction might be inaccurate)"
+          }
+        ]
+      },
+      {
+        "name": "MASK_CLOUDS",
+        "samples": [
+          {
+            "name": "clouds_or_shadows",
+            "value": 1,
+            "description": "all clouds (except thin ones) or shadows"
+          },
+          {
+            "name": "clouds",
+            "value": 2,
+            "description": "all clouds (except thin ones)"
+          },
+          {
+            "name": "cloud_absolute_threshold",
+            "value": 4,
+            "description": "cloud detected through absolute threshold"
+          },
+          {
+            "name": "cloud_multi_t_threshold",
+            "value": 8,
+            "description": "cloud detected through multi-t threshold"
+          },
+          {
+            "name": "thin_clouds",
+            "value": 16,
+            "description": "very thin clouds"
+          },
+          {
+            "name": "clouds_1.38band",
+            "value": 32,
+            "description": "high clouds detected with 1.38 µm band (LANDSAT 8 only)"
+          },
+          {
+            "name": "shadows_matched_clouds",
+            "value": 64,
+            "description": "cloud shadows matched with a cloud"
+          },
+          {
+            "name": "shadows_for_clouds_outside",
+            "value": 128,
+            "description": "cloud shadows in the zone where clouds could be outside the image (less reliable)"
+          }
+        ]
+      },
+      {
+        "name": "MASK_SATURATION",
+        "samples": [
+          {
+            "name": "XS1_saturated",
+            "value": 1,
+            "description": "XS1 band is saturated"
+          },
+          {
+            "name": "XS2_saturated",
+            "value": 2,
+            "description": "XS2 band is saturated"
+          },
+          {
+            "name": "XS3_saturated",
+            "value": 4,
+            "description": "XS3 band is saturated"
+          },
+          {
+            "name": "SWIR_saturated",
+            "value": 8,
+            "description": "SWIR band is saturated"
+          }
+        ]
+      }
+    ],
+    "bands": [
+      {
+        "name": "XS1",
+        "description": "XS1",
+        "bandWidth": 830,
+        "bandHeight": 601,
+        "geophysicalUnit": "N/A",
+        "noDataValue": "0.0",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 43,
+            "y": 107,
+            "value": 165.0
+          },
+          {
+            "x": 568,
+            "y": 511,
+            "value": 77.0
+          }
+        ]
+      },
+      {
+        "name": "XS2",
+        "description": "XS2",
+        "bandWidth": 830,
+        "bandHeight": 601,
+        "geophysicalUnit": "N/A",
+        "noDataValue": "0.0",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 241,
+            "y": 154,
+            "value": 126.0
+          },
+          {
+            "x": 506,
+            "y": 219,
+            "value": 141.0
+          }
+        ]
+      },
+      {
+        "name": "XS3",
+        "description": "XS3",
+        "bandWidth": 830,
+        "bandHeight": 601,
+        "geophysicalUnit": "N/A",
+        "noDataValue": "0.0",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 456,
+            "y": 447,
+            "value": 326.0
+          },
+          {
+            "x": 504,
+            "y": 558,
+            "value": 367.0
+          }
+        ]
+      },
+      {
+        "name": "SWIR",
+        "description": "SWIR",
+        "bandWidth": 830,
+        "bandHeight": 601,
+        "geophysicalUnit": "N/A",
+        "noDataValue": "0.0",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 131,
+            "y": 400,
+            "value": 260.0
+          },
+          {
+            "x": 430,
+            "y": 549,
+            "value": 225.0
+          }
+        ]
+      },
+      {
+        "name": "ORTHO_SURF_CORR_ENV_XS1",
+        "description": "ORTHO_SURF_CORR_ENV_XS1",
+        "bandWidth": 830,
+        "bandHeight": 601,
+        "geophysicalUnit": "N/A",
+        "noDataValue": "0.0",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 627,
+            "y": 291,
+            "value": 139.0
+          },
+          {
+            "x": 789,
+            "y": 292,
+            "value": 27.0
+          }
+        ]
+      },
+      {
+        "name": "ORTHO_SURF_CORR_ENV_XS2",
+        "description": "ORTHO_SURF_CORR_ENV_XS2",
+        "bandWidth": 830,
+        "bandHeight": 601,
+        "geophysicalUnit": "N/A",
+        "noDataValue": "0.0",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 282,
+            "y": 540,
+            "value": 156.0
+          },
+          {
+            "x": 8,
+            "y": 282,
+            "value": 207.0
+          }
+        ]
+      },
+      {
+        "name": "ORTHO_SURF_CORR_ENV_XS3",
+        "description": "ORTHO_SURF_CORR_ENV_XS3",
+        "bandWidth": 830,
+        "bandHeight": 601,
+        "geophysicalUnit": "N/A",
+        "noDataValue": "0.0",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 271,
+            "y": 118,
+            "value": 354.0
+          },
+          {
+            "x": 226,
+            "y": 25,
+            "value": 345.0
+          }
+        ]
+      },
+      {
+        "name": "ORTHO_SURF_CORR_ENV_SWIR",
+        "description": "ORTHO_SURF_CORR_ENV_SWIR",
+        "bandWidth": 830,
+        "bandHeight": 601,
+        "geophysicalUnit": "N/A",
+        "noDataValue": "0.0",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 806,
+            "y": 363,
+            "value": 168.0
+          },
+          {
+            "x": 475,
+            "y": 430,
+            "value": 171.0
+          }
+        ]
+      },
+      {
+        "name": "ORTHO_SURF_AOT_XS1",
+        "description": "ORTHO_SURF_AOT_XS1",
+        "bandWidth": 830,
+        "bandHeight": 601,
+        "geophysicalUnit": "N/A",
+        "noDataValue": "0.0",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 192,
+            "y": 299,
+            "value": 167.0
+          },
+          {
+            "x": 266,
+            "y": 434,
+            "value": 159.0
+          }
+        ]
+      },
+      {
+        "name": "MASK_DIV",
+        "description": "MASK_DIV",
+        "bandWidth": 830,
+        "bandHeight": 601,
+        "noDataValue": "0.0",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 297,
+            "y": 299,
+            "value": "NaN"
+          },
+          {
+            "x": 334,
+            "y": 265,
+            "value": "NaN"
+          }
+        ]
+      },
+      {
+        "name": "MASK_CLOUDS",
+        "description": "MASK_CLOUDS",
+        "bandWidth": 830,
+        "bandHeight": 601,
+        "noDataValue": "0.0",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 476,
+            "y": 55,
+            "value": "NaN"
+          },
+          {
+            "x": 535,
+            "y": 9,
+            "value": "NaN"
+          }
+        ]
+      },
+      {
+        "name": "MASK_SATURATION",
+        "description": "MASK_SATURATION",
+        "bandWidth": 830,
+        "bandHeight": 601,
+        "noDataValue": "0.0",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 809,
+            "y": 220,
+            "value": "NaN"
+          },
+          {
+            "x": 788,
+            "y": 568,
+            "value": "NaN"
+          }
+        ]
+      }
+    ],
+    "masks": [
+      {
+        "name": "XS1_saturated",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "255,0,0",
+        "description": "XS1 band is saturated"
+      },
+      {
+        "name": "XS2_saturated",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "178,0,0",
+        "description": "XS2 band is saturated"
+      },
+      {
+        "name": "XS3_saturated",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "0,0,255",
+        "description": "XS3 band is saturated"
+      },
+      {
+        "name": "SWIR_saturated",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "0,0,178",
+        "description": "SWIR band is saturated"
+      },
+      {
+        "name": "clouds_or_shadows",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "0,255,0",
+        "description": "all clouds (except thin ones) or shadows"
+      },
+      {
+        "name": "clouds",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "0,178,0",
+        "description": "all clouds (except thin ones)"
+      },
+      {
+        "name": "cloud_absolute_threshold",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "255,255,0",
+        "description": "cloud detected through absolute threshold"
+      },
+      {
+        "name": "cloud_multi_t_threshold",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "178,178,0",
+        "description": "cloud detected through multi-t threshold"
+      },
+      {
+        "name": "thin_clouds",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "255,0,255",
+        "description": "very thin clouds"
+      },
+      {
+        "name": "clouds_1.38band",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "178,0,178",
+        "description": "high clouds detected with 1.38 µm band (LANDSAT 8 only)"
+      },
+      {
+        "name": "shadows_matched_clouds",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "255,175,175",
+        "description": "cloud shadows matched with a cloud"
+      },
+      {
+        "name": "shadows_for_clouds_outside",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "178,122,122",
+        "description": "cloud shadows in the zone where clouds could be outside the image (less reliable)"
+      },
+      {
+        "name": "no_div_data",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "0,255,255",
+        "description": "no diverse data"
+      },
+      {
+        "name": "water",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "0,178,178",
+        "description": "water"
+      },
+      {
+        "name": "snow",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "255,200,0",
+        "description": "snow"
+      },
+      {
+        "name": "false_correction",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "178,140,0",
+        "description": "Sun too low for terrain correction (limitation of correction factor that tends to the infinity, correction is false)"
+      },
+      {
+        "name": "inaccurate_correction",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "0,0,124",
+        "description": "Sun too low for terrain correction (correction might be inaccurate)"
+      }
+    ],
+    "metadata": [
+      {
+        "path": "N2A/GEOMETRY/PIXEL_SIZE_X",
+        "value": "10.0"
+      },
+      {
+        "path": "TIFF Metadata[3]/GeoTIFF Metadata/GeoKeyDirectory/GTCitationGeoKey",
+        "value": "RGF93 / Lambert-93"
+      },
+      {
+        "path": "TIFF Metadata[3]/GeoTIFF Metadata/GeoKeyDirectory/GTModelTypeGeoKey",
+        "value": "ModelTypeProjected"
+      },
+      {
+        "path": "history/SubsetInfo/ProductNodeName.8",
+        "value": "ORTHO_SURF_CORR_ENV_SWIR"
+      },
+      {
+        "path": "Processing_Graph/node.2/parameters/addDeltaBands",
+        "value": "false"
+      },
+      {
+        "path": "TIFF Metadata/GeoTIFF Metadata/GeoKeyDirectory/GTRasterTypeGeoKey",
+        "value": "RasterPixelIsArea"
+      },
+      {
+        "path": "TIFF Metadata[3]/GeoTIFF Metadata/GeoKeyDirectory/GeogCitationGeoKey",
+        "value": "RGF93"
+      },
+      {
+        "path": "N2A/CTN_HISTORY/TASKS/TASK/INPUT_REFERENCES/FILE",
+        "value": "/work/theia/prod/data/WORKSPACE/SC_N1_S5T5_LanguedocFrance_20150725_SO15011852-55-01_50462621507250913331J1/EXECUTIONS/T0_EXTRACTREF_LanguedocFrance_EXTRACTREF/OUT/REF_ORTHO_S5T5_LanguedocFrance_20150725_SO15011852-55-01_50462621507250913331J1/REF_ORTHO_S5T5_LanguedocFrance_20150725_SO15011852-55-01_50462621507250913331J1.xml"
+      },
+      {
+        "path": "TIFF Metadata[2]/GeoTIFF Metadata/GeoKeyDirectory/GeogCitationGeoKey",
+        "value": "RGF93"
+      },
+      {
+        "path": "history/SubsetInfo/SubSampling.x",
+        "value": "1"
+      }
+    ]
+  }
+}

@@ -1,0 +1,19 @@
+[{
+  "id":"Spot4Take5Test",
+  "description":"execute Spot 4 (level N1_TUILE) product reader and operators",
+  "frequency":"daily",
+  "graphPath": "s2tbx/graphReaderSingleLevel.xml",
+  "inputs": {
+    "input1": "s2tbx/_gpt_readers/spot4/Take5/SPOT4_HRVIR1_XS_20130608_N1A.tgz"
+  },
+  "parameters": {
+    "sourceBands": "XS1,XS2,XS3,SWIR,MASK_SATURATION",
+    "subsetRegion": "900,500,600,600",
+    "crs": "WGS84(DD)"
+  },
+  "outputs": [{
+    "parameter": "out1",
+    "outputName": "tempSpot4Take5",
+    "expected": "s2tbx/expectedSpot4Take5.json"
+  }]
+}]

@@ -1,0 +1,19 @@
+[{
+  "id":"Spot4L3Test",
+  "description":"execute Spot 4 (level L3) product reader and operators",
+  "frequency":"daily",
+  "graphPath": "s2tbx/graphReaderSingleLevel.xml",
+  "inputs": {
+    "input1": "s2tbx/_gpt_readers/spot4/MUL/L3/SP04_HRI1_X__1O_20050605T090007_20050605T090016_DLR_70_PREU.BIL.ZIP"
+  },
+  "parameters": {
+    "sourceBands": "band_0,band_1,band_2,band_3",
+    "subsetRegion": "200,200,600,600",
+    "crs": "WGS84(DD)"
+  },
+  "outputs": [{
+    "parameter": "out1",
+    "outputName": "tempSpot4L3",
+    "expected": "s2tbx/expectedSpot4L3.json"
+  }]
+}]

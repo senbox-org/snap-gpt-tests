@@ -1,0 +1,234 @@
+{
+  "id": "tempSpot4Take5",
+  "decodeQualification": "INTENDED",
+  "expectedContent": {
+    "sceneWidth": 721,
+    "sceneHeight": 601,
+    "startTime": "08-JUN-2013 12:53:51.000000",
+    "endTime": "08-JUN-2013 12:53:51.000000",
+    "geoCoding": {
+      "coordinates": [
+        {
+          "x": 310.0,
+          "y": 323.0,
+          "lat": -34.0064339313151,
+          "lon": -59.83524681723806
+        },
+        {
+          "x": 535.0,
+          "y": 389.0,
+          "lat": -34.01865259948862,
+          "lon": -59.79359226664651
+        }
+      ],
+      "reverseAccuracy": 5.820766091346741E-11
+    },
+    "flagCodings": [
+      {
+        "name": "MASK_SATURATION",
+        "samples": [
+          {
+            "name": "XS1_saturated",
+            "value": 1,
+            "description": "XS1 band is saturated"
+          },
+          {
+            "name": "XS2_saturated",
+            "value": 2,
+            "description": "XS2 band is saturated"
+          },
+          {
+            "name": "XS3_saturated",
+            "value": 4,
+            "description": "XS3 band is saturated"
+          },
+          {
+            "name": "SWIR_saturated",
+            "value": 8,
+            "description": "SWIR band is saturated"
+          }
+        ]
+      }
+    ],
+    "bands": [
+      {
+        "name": "XS1",
+        "description": "XS1",
+        "bandWidth": 721,
+        "bandHeight": 601,
+        "geophysicalUnit": "N/A",
+        "noDataValue": "0.0",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 37,
+            "y": 107,
+            "value": "NaN"
+          },
+          {
+            "x": 493,
+            "y": 511,
+            "value": 102.0
+          }
+        ]
+      },
+      {
+        "name": "XS2",
+        "description": "XS2",
+        "bandWidth": 721,
+        "bandHeight": 601,
+        "geophysicalUnit": "N/A",
+        "noDataValue": "0.0",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 209,
+            "y": 154,
+            "value": 92.0
+          },
+          {
+            "x": 440,
+            "y": 219,
+            "value": 103.0
+          }
+        ]
+      },
+      {
+        "name": "XS3",
+        "description": "XS3",
+        "bandWidth": 721,
+        "bandHeight": 601,
+        "geophysicalUnit": "N/A",
+        "noDataValue": "0.0",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 396,
+            "y": 447,
+            "value": 141.0
+          },
+          {
+            "x": 438,
+            "y": 558,
+            "value": 134.0
+          }
+        ]
+      },
+      {
+        "name": "SWIR",
+        "description": "SWIR",
+        "bandWidth": 721,
+        "bandHeight": 601,
+        "geophysicalUnit": "N/A",
+        "noDataValue": "0.0",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 114,
+            "y": 400,
+            "value": 208.0
+          },
+          {
+            "x": 374,
+            "y": 549,
+            "value": 216.0
+          }
+        ]
+      },
+      {
+        "name": "MASK_SATURATION",
+        "description": "MASK_SATURATION",
+        "bandWidth": 721,
+        "bandHeight": 601,
+        "noDataValue": "0.0",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 545,
+            "y": 291,
+            "value": "NaN"
+          },
+          {
+            "x": 685,
+            "y": 292,
+            "value": "NaN"
+          }
+        ]
+      }
+    ],
+    "masks": [
+      {
+        "name": "XS1_saturated",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "255,0,0",
+        "description": "XS1 band is saturated"
+      },
+      {
+        "name": "XS2_saturated",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "178,0,0",
+        "description": "XS2 band is saturated"
+      },
+      {
+        "name": "XS3_saturated",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "0,0,255",
+        "description": "XS3 band is saturated"
+      },
+      {
+        "name": "SWIR_saturated",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "0,0,178",
+        "description": "SWIR band is saturated"
+      }
+    ],
+    "metadata": [
+      {
+        "path": "TIFF Metadata/GeoTIFF Metadata/GeoKeyDirectory/GeogCitationGeoKey",
+        "value": "WGS 84"
+      },
+      {
+        "path": "TIFF Metadata/GeoTIFF Metadata/GeoKeyDirectory/GTModelTypeGeoKey",
+        "value": "ModelTypeProjected"
+      },
+      {
+        "path": "history/SubsetInfo/SubRegion.height",
+        "value": "600"
+      },
+      {
+        "path": "TIFF Metadata/GeoTIFF Metadata/GeoKeyDirectory/GeogCitationGeoKey",
+        "value": "WGS 84"
+      },
+      {
+        "path": "TIFF Metadata/GeoTIFF Metadata/GeoKeyDirectory/GTModelTypeGeoKey",
+        "value": "ModelTypeProjected"
+      },
+      {
+        "path": "history/SubsetInfo/SubSampling.x",
+        "value": "1"
+      },
+      {
+        "path": "TIFF Metadata/GeoTIFF Metadata/GeoKeyDirectory/GeogCitationGeoKey",
+        "value": "WGS 84"
+      },
+      {
+        "path": "Processing_Graph/node.1/parameters/sourceBands",
+        "value": "XS1,XS2,XS3,SWIR,MASK_SATURATION"
+      },
+      {
+        "path": "TIFF Metadata/GeoTIFF Metadata/GeoKeyDirectory/GTCitationGeoKey",
+        "value": "WGS 84 / UTM zone 21S"
+      }
+    ]
+  }
+}
