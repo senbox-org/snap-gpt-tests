@@ -50,7 +50,7 @@ public class GraphTestsUtils {
                 }
                 for (GraphTest graphTest : graphTests) {
                     if (graphTest.getFrequency().toLowerCase().contains(scope.toLowerCase())) {
-                        writer.write(file.getAbsolutePath());
+                        writer.write(file.getPath());
                         writer.write("\n");
                         continue;
                     }
