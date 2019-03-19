@@ -72,7 +72,9 @@ pipeline {
                     def jsonList = jsonString.split("\n")
                     jsonList.each { item->
                         println "loop " + item
-                        build job: "snap-gpt-tests/branchVersion", parameters: [[$class: 'StringParameterValue', name: 'jsonPath', value: "item"], [$class: 'StringParameterValue', name: 'testScope', value: "testScope"]]
+                        step {
+                            build job: "snap-gpt-tests/${branchVersion}", parameters: [[$class: 'StringParameterValue', name: 'jsonPath', value: "${item}"], [$class: 'StringParameterValue', name: 'testScope', value: "${testScope}"]]
+                        }
                     }
                 }
                 echo "Launch Jobs from ${env.JOB_NAME} from ${env.GIT_BRANCH} with commit ${env.GIT_COMMIT} using docker image snap-build-server.tilaa.cloud/${params.dockerTagName}"
