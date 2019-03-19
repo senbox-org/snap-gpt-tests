@@ -25,7 +25,7 @@ pipeline {
         string(name: 'dockerTagName', defaultValue: 's2tbx:testJenkins_validation', description: 'Snap version to use to launch tests')
         string(name: 'testScope', defaultValue: 'PUSH', description: 'Scope of the tests to launch (PUSH, NIGHTLY, WEEKLY, RELEASE)')
         string(name: 'propertiesPath', defaultValue: '', description: 'Command to launch (gpt command including required parameters)')
-        string(name: 'outputDir', defaultValue: 'test.json', description: 'Command to launch (gpt command including required parameters)')
+        string(name: 'outputReportDir', defaultValue: '/home/snap/', description: 'Path to directory where gpt test will write report')
         string(name: 'jsonPath', defaultValue: '', description: 'Command to launch (gpt command including required parameters)')
         // string(name: 'project', defaultValue: 's2tbx', description: 'Scope of the tests to launch (PUSH, NIGHTLY, WEEKLY, RELEASE)')
     }
@@ -86,7 +86,7 @@ pipeline {
                 echo "Launch GPT Tests from ${env.JOB_NAME} from ${env.GIT_BRANCH} with commit ${env.GIT_COMMIT} using docker image snap-build-server.tilaa.cloud/${params.dockerTagName}"
                 sh "mkdir -p ${outputDir}/report"
                 sh 'mvn install'
-                sh 'java -jar ./gpt-tests-executer/target/SnapGPTTest.jar ${params.properties} ${params.testScope} ${params.jsonPath} ${outputDir}/report'
+                sh 'java -jar ./gpt-tests-executer/target/SnapGPTTest.jar ${params.properties} ${params.testScope} ${params.jsonPath} ${outputReportDir}/report'
             }
         }
     }
