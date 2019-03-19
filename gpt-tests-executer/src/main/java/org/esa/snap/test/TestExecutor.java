@@ -24,6 +24,7 @@ import java.util.Map;
 public class TestExecutor {
     public static boolean executeTest(GraphTest graphTest, Path graphFolder, Path inputFolder, Path expectedOutputFolder, Path tempFolder) throws IOException {
 
+        boolean testPassed = true;
         //prepare parameters
         ArrayList<String> params = new ArrayList<>();
         params.add("gpt");
@@ -75,13 +76,13 @@ public class TestExecutor {
 
             } catch (AssertionError e) {
                 System.out.println("Error in test!!!");
+                testPassed = false;
 
             }
 
         }
 
-
-        return true;
+        return testPassed;
     }
     private static String findOutput (Output output, Path tempFolder) {
         Collection<File> filelist = FileUtils.listFiles(tempFolder.toFile(), new WildcardFileFilter(String.format("%s.*",output.getOutputName())), TrueFileFilter.INSTANCE);

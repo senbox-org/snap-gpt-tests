@@ -2,6 +2,7 @@ package org.esa.snap.test;
 
 import java.io.FileReader;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Properties;
@@ -12,39 +13,37 @@ import java.util.Properties;
 public class FilterTestJSON {
     public static void main(String[] args) throws IOException {
 
-        if (args.length != 2) {
-            System.out.println("Only one argument is required indicating the path to a properties file.");
-            System.out.println("The expected properties are: testFolder, graphFolder, inputFolder, expectedOutputFolder and tempFolder.");
+        if (args.length != 3) {
+            System.out.println("The expected arguments are: [testFolder] [scope] [outputFolder] ");
             return;
         }
 
-        Path testFolder = null;
-        Path tempFolder = null;
-        Properties properties = new Properties();
+        Path testFolder = Paths.get(args[0]);
+        Path outputFolder = Paths.get(args[2]);
+        String scope = args[1];
 
-        try (FileReader in = new FileReader(args[0])) {
-            properties.load(in);
-        } catch (IOException e) {
-            System.out.println("Unable to load property file");
-            return;
-        }
-
-
-        testFolder = Paths.get(properties.getProperty("testFolder"));
-        tempFolder = Paths.get(properties.getProperty("tempFolder"));
-
-
-        if (testFolder == null || tempFolder == null) {
+        if (testFolder == null || outputFolder == null) {
             System.out.println("Some folder is null");
             return;
         }
 
-        String scope = args[1];
-        //TODO check scope
-
-        if (GraphTestsUtils.createTestJSONListFile(testFolder, scope, tempFolder.resolve("JSONTestFiles.txt"))) {
-            System.out.println("Filtered JSON created in " + tempFolder.resolve("JSONTestFiles.txt").toString());
+        if (Files.notExists(testFolder)) {
+            System.out.println("Test folder does not exist");
+            return;
         }
+
+        if (Files.notExists(outputFolder)) {
+            System.out.println("Output folder does not exist");
+            return;
+        }
+
+
+        //TODO check scope valid?
+
+        if (GraphTestsUtils.createTestJSONListFile(testFolder, scope, outputFolder.resolve("JSONTestFiles.txt"))) {
+            System.out.println("Filtered JSON created in " + outputFolder.resolve("JSONTestFiles.txt").toString());
+        }
+
         return;
     }
 }
