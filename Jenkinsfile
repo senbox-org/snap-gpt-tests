@@ -15,14 +15,15 @@
  * with this program; if not, see http://www.gnu.org/licenses/
  */
 
-pipeline {
 
-    @NonCPS // has to be NonCPS or the build breaks on the call to .each
-    def launchJobs(list, scope) {
-        list.each { item ->
-            build job: "snap-gpt-tests/${branchVersion}", parameters: [[$class: 'StringParameterValue', name: 'jsonPath', value: "${item}"], [$class: 'StringParameterValue', name: 'testScope', value: "${scope}"]]
-        }
+@NonCPS // has to be NonCPS or the build breaks on the call to .each
+def launchJobs(list, scope) {
+    list.each { item ->
+        build job: "snap-gpt-tests/${branchVersion}", parameters: [[$class: 'StringParameterValue', name: 'jsonPath', value: "${item}"], [$class: 'StringParameterValue', name: 'testScope', value: "${scope}"]]
     }
+}
+
+pipeline {
 
     environment {
         branchVersion = sh(returnStdout: true, script: "echo ${env.GIT_BRANCH} | cut -d '/' -f 2").trim()
