@@ -35,6 +35,7 @@ public class SnapGPTTest {
         Path inputFolder = null;
         Path expectedOutputFolder = null;
         Path tempFolder = null;
+        Path snapBinFolder = null;
 
         Properties properties = new Properties();
 
@@ -50,6 +51,7 @@ public class SnapGPTTest {
         inputFolder = Paths.get(properties.getProperty("inputFolder"));
         expectedOutputFolder = Paths.get(properties.getProperty("expectedOutputFolder"));
         tempFolder = Paths.get(properties.getProperty("tempFolder"));
+        snapBinFolder = Paths.get(properties.getProperty("snapBin"));
 
         if(testFolder == null || graphFolder == null || inputFolder == null || expectedOutputFolder == null || tempFolder == null) {
             System.out.println("Some folder is null");
@@ -108,7 +110,7 @@ public class SnapGPTTest {
                         writer.write(formatter.format(date));
                         writer.write(" - ");
                     }
-                    boolean passed = TestExecutor.executeTest(graphTest,graphFolder,inputFolder,expectedOutputFolder,tempFolder);
+                    boolean passed = TestExecutor.executeTest(graphTest,graphFolder,inputFolder,expectedOutputFolder,tempFolder,snapBinFolder);
                     if(report) {
                         Date date = new Date();
                         writer.write(formatter.format(date));
