@@ -18,7 +18,7 @@
 pipeline {
     environment {
         branchVersion = sh(returnStdout: true, script: "echo ${env.GIT_BRANCH} | cut -d '/' -f 2").trim()
-        outputDir = "/home/snap/output/${branchVersion}/${env.BUILD_NUMBER}/"
+        outputDir = "/home/snap/output/${branchVersion}/${env.BUILD_NUMBER}"
     }
     agent { label 'snap-test' }
     parameters {
@@ -73,6 +73,9 @@ pipeline {
                 println "${jsonList}"
                 echo "${jsonList}"
                 
+                jsonList.each { item=>
+                    println "loop " + ${item}
+                }
                 // sh "mkdir -p ${outputDir}"
                 // sh "mvn -Duser.home=/var/maven clean package install"
                 // sh "/opt/launchGpt.sh ${propertiesFilePath} ${outputDir}/FilterJson.vsofig ${scope}"
