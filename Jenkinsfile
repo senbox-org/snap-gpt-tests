@@ -22,7 +22,7 @@ def launchJobs(jsonString, scope, outputDir) {
     jsonList.each { item ->
         path = item - "["
         path = path - "]"
-        build job: "snap-gpt-tests/${branchVersion}", parameters: [[$class: 'LabelParameterValue', name: 'node', label: 'snap-test'],[$class: 'StringParameterValue', name: 'jsonPath', value: "${path}"], [$class: 'StringParameterValue', name: 'testScope', value: "${scope}"], [$class: 'StringParameterValue', name: 'outputReportDir', value: "${outputDir}"]]
+        build job: "snap-gpt-tests/${branchVersion}", parameters: [[$class: 'StringParameterValue', name: 'jsonPath', value: "${path}"], [$class: 'StringParameterValue', name: 'testScope', value: "${scope}"], [$class: 'StringParameterValue', name: 'outputReportDir', value: "${outputDir}"]]
     }
 }
 
@@ -39,7 +39,7 @@ pipeline {
         string(name: 'propertiesPath', defaultValue: '', description: 'Command to launch (gpt command including required parameters)')
         string(name: 'outputReportDir', defaultValue: '/home/snap/', description: 'Path to directory where gpt test will write report')
         string(name: 'jsonPath', defaultValue: '', description: 'Command to launch (gpt command including required parameters)')
-        string(name: 'LabelParameterValue', defaultValue: 'snap-test', description: 'Label to use to launch gpt tests')
+        // string(name: 'LabelParameterValue', defaultValue: 'snap-test', description: 'Label to use to launch gpt tests')
         // string(name: 'project', defaultValue: 's2tbx', description: 'Scope of the tests to launch (PUSH, NIGHTLY, WEEKLY, RELEASE)')
     }
     stages {
