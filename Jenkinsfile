@@ -33,13 +33,14 @@ pipeline {
         stage('Filter JSON') {
             when {
                 expression {
+                    // run this stage only when no json path specified
                     return "${params.jsonPath}" == '';
                 }
             }
             agent {
                 docker {
                     image "snap-build-server.tilaa.cloud/maven:3.6.0-jdk-8"
-                    args ' -v docker_gpt_test_results:/output/'
+                    args '-e MAVEN_CONFIG=/var/maven/.m2 -v /opt/maven/.m2/settings.xml:/var/maven/.m2/settings.xml -v docker_gpt_test_results:/output/'
                 }
             }
             steps {
