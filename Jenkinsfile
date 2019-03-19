@@ -48,8 +48,6 @@ pipeline {
                 sh "java -jar target/FilterTestJSON.jar ${params.propertiesPath} ${params.testScope} ${outputDir}/${params.outputFilesPath}"
             }
         }
-    }
-    stages {
         stage('Json Executer') {
             when {
                 expression {
