@@ -67,8 +67,9 @@ pipeline {
             } 
             steps {
                 script {
-                    jsonList = sh(returnStdout: true, script: "cat ${outputDir}/JSONTestFiles.txt").trim()
-                    
+                    jsonString = sh(returnStdout: true, script: "cat ${outputDir}/JSONTestFiles.txt").trim()
+                    println "JSonString " + ${jsonString}
+                    def jsonList = ${jsonString}.split("\n")
                     jsonList.each { item->
                         println "loop " + ${item}
                     }
