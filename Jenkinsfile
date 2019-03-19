@@ -17,7 +17,8 @@
 
 pipeline {
     environment {
-        outputDir = "/output/${env.BUILD_NUMBER}/"
+        branchVersion = sh(returnStdout: true, script: "echo ${env.GIT_BRANCH} | cut -d '/' -f 2").trim()
+        outputDir = "/home/snap/output/${branchVersion}/${env.BUILD_NUMBER}/"
     }
     agent { label 'snap-test' }
     parameters {
