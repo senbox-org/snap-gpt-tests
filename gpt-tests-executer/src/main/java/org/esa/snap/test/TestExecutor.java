@@ -22,12 +22,16 @@ import java.util.Map;
  * Created by obarrile on 20/02/2019.
  */
 public class TestExecutor {
-    public static boolean executeTest(GraphTest graphTest, Path graphFolder, Path inputFolder, Path expectedOutputFolder, Path tempFolder) throws IOException {
+    public static boolean executeTest(GraphTest graphTest, Path graphFolder, Path inputFolder, Path expectedOutputFolder, Path tempFolder, Path snapBin) throws IOException {
 
         boolean testPassed = true;
         //prepare parameters
         ArrayList<String> params = new ArrayList<>();
-        params.add("gpt");
+        if(snapBin != null) {
+            params.add(snapBin.resolve("gpt").toString());
+        } else {
+            params.add("gpt");
+        }
         params.add(graphFolder.resolve(graphTest.getGraphPath()).toString());
 
         //inputs
