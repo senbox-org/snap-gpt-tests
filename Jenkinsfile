@@ -20,8 +20,8 @@
 def launchJobs(jsonString, scope, outputDir) {
     jsonList = jsonString.split("\n")
     jsonList.each { item ->
-        path = item - "["
-        path = path - "]"
+        // path = item - "["
+        // path = path - "]"
         build job: "snap-gpt-tests/${branchVersion}", parameters: [[$class: 'StringParameterValue', name: 'jsonPath', value: "${path}"], [$class: 'StringParameterValue', name: 'testScope', value: "${scope}"], [$class: 'StringParameterValue', name: 'outputReportDir', value: "${outputDir}"]]
     }
 }
@@ -90,7 +90,7 @@ pipeline {
                 }
                 echo "Launch Jobs from ${env.JOB_NAME} from ${env.GIT_BRANCH} with commit ${env.GIT_COMMIT} using docker image snap-build-server.tilaa.cloud/${params.dockerTagName}"
                 echo "List of json files : ${jsonString}"
-                launchJobs("${jsonList}", "${testScope}", "${outputDir}")
+                launchJobs("${JSonString}", "${testScope}", "${outputDir}")
             }
         }
         stage('Json Executer') {
