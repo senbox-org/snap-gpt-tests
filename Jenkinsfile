@@ -39,6 +39,7 @@ pipeline {
         string(name: 'propertiesPath', defaultValue: '', description: 'Command to launch (gpt command including required parameters)')
         string(name: 'outputReportDir', defaultValue: '/home/snap/', description: 'Path to directory where gpt test will write report')
         string(name: 'jsonPath', defaultValue: '', description: 'Command to launch (gpt command including required parameters)')
+        string(name: 'LabelParameterValue', defaultValue: 'snap-test', description: 'Label to use to launch gpt tests')
         // string(name: 'project', defaultValue: 's2tbx', description: 'Scope of the tests to launch (PUSH, NIGHTLY, WEEKLY, RELEASE)')
     }
     stages {
@@ -98,6 +99,7 @@ pipeline {
                 }
             }
             agent {
+                label "snap"
                 docker {
                     image "snap-build-server.tilaa.cloud/maven:3.6.0-jdk-8"
                     args '-v /data/ssd/testData/:/data/ssd/testData/ -v /opt/snap-gpt-tests/gpt-tests-executer.properties:/opt/snap-gpt-tests/gpt-tests-executer.properties'
