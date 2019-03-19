@@ -46,7 +46,7 @@ pipeline {
             steps {
                 echo "Launch GPT Tests from ${env.JOB_NAME} from ${env.GIT_BRANCH} with commit ${env.GIT_COMMIT} using docker image snap-build-server.tilaa.cloud/${params.dockerTagName}"
                 sh "mkdir -p ${outputDir}"
-                sh "mvn clean package install"
+                sh "mvn -Duser.home=/var/maven clean package install"
                 sh "java -jar target/FilterTestJSON.jar ${params.propertiesPath} ${params.testScope} ${outputDir}/${params.outputFileName}"
             }
         }
