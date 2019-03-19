@@ -67,10 +67,7 @@ pipeline {
                 echo "Launch Jobs from ${env.JOB_NAME} from ${env.GIT_BRANCH} with commit ${env.GIT_COMMIT} using docker image snap-build-server.tilaa.cloud/${params.dockerTagName}"
                 println "${jsonList}"
                 echo "${jsonList}"
-                for (i = 0; i <jsonList.size(); i++) {
-                    sh "echo jsonList[i]"
-                    println jsonList[i]
-                }
+                
                 // sh "mkdir -p ${outputDir}"
                 // sh "mvn -Duser.home=/var/maven clean package install"
                 // sh "/opt/launchGpt.sh ${propertiesFilePath} ${outputDir}/FilterJson.vsofig ${scope}"
