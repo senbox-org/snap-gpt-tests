@@ -98,9 +98,10 @@ pipeline {
                     return "${params.jsonPath}" != '';
                 }
             }
-            agent {
+            agent  {
                 docker {
                     image "snap-build-server.tilaa.cloud/maven:3.6.0-jdk-8"
+                    label 'snap'
                     args '-v /data/ssd/testData/:/data/ssd/testData/ -v /opt/snap-gpt-tests/gpt-tests-executer.properties:/opt/snap-gpt-tests/gpt-tests-executer.properties'
                 }
             }
