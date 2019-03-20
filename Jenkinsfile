@@ -36,8 +36,8 @@ def launchJobs(jsonString, scope, outputDir) {
         num = num + 1
     }
     // return jobs
-    return parallel jobs
-    
+    parallel jobs
+    return 
 }
 
 pipeline {
