@@ -27,7 +27,7 @@ def launchJobs(jsonString, scope, outputDir) {
         echo "Schedule job for json file : " + item
         // path = item - "["
         // path = path - "]"
-        jobs["GPT Test ${num}"] =  {
+        jobs["test"] =  {
             build job: "test", parameters: [[$class: 'StringParameterValue', name: 'jsonPath', value: "${item}"], [$class: 'StringParameterValue', name: 'testScope', value: "${scope}"], [$class: 'StringParameterValue', name: 'outputReportDir', value: "${outputDir}"]],
                 quietPeriod: 5,
                 propagate: true,
