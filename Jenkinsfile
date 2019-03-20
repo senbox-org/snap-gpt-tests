@@ -22,16 +22,18 @@ def launchJobs(jsonString, scope, outputDir) {
     def jobs = [:]
     println "List of Json file : " + jsonString
     jsonList = jsonString.split("\n")
+    num = 0
     jsonList.each { item ->
         echo "Schedule job for json file : " + item
         // path = item - "["
         // path = path - "]"
-        jobs["${item}"] =  {
+        jobs["GPT Test ${num}"] =  {
             build job: "test", parameters: [[$class: 'StringParameterValue', name: 'jsonPath', value: "${item}"], [$class: 'StringParameterValue', name: 'testScope', value: "${scope}"], [$class: 'StringParameterValue', name: 'outputReportDir', value: "${outputDir}"]],
                 quietPeriod: 5,
                 propagate: true,
                 wait: true
         }
+        num = num + 1
     }
     // return jobs
     parallel jobs
