@@ -20,17 +20,18 @@
 def launchJobs(jsonString, scope, outputDir) {
 
     def jobs = [:]
-    println "Param string " + jsonString
+    println "List of Json file : " + jsonString
     jsonList = jsonString.split("\n")
     jsonList.each { item ->
-        echo "Value in loop " + item
+        echo "Add job for json file : " + item
         // path = item - "["
         // path = path - "]"
         jobs["${item}"] =  {
             build job: "snap-gpt-tests/${branchVersion}", parameters: [[$class: 'StringParameterValue', name: 'jsonPath', value: "${item}"], [$class: 'StringParameterValue', name: 'testScope', value: "${scope}"], [$class: 'StringParameterValue', name: 'outputReportDir', value: "${outputDir}"]]
         }
     }
-    parallel jobs
+    return jobs
+    // parallel jobs
 }
 
 pipeline {
@@ -89,15 +90,16 @@ pipeline {
             steps {
                 script {
                     jsonString = sh(returnStdout: true, script: "cat ${outputDir}/JSONTestFiles.txt").trim()
-                    println "jsonString " + jsonString
-                    jsonList = jsonString.split("\n")
-                    jsonList.each { item->
-                        println "loop " + item
-                    }
+                    //println "jsonString " + jsonString
+                    //jsonList = jsonString.split("\n")
+                    //jsonList.each { item->
+                    //    println "loop " + item
+                    //}
                 }
                 echo "Launch Jobs from ${env.JOB_NAME} from ${env.GIT_BRANCH} with commit ${env.GIT_COMMIT} using docker image snap-build-server.tilaa.cloud/${params.dockerTagName}"
-                echo "List of json files : ${jsonString}"
-                launchJobs("${jsonString}", "${testScope}", "${outputDir}")
+                // echo "List of json files : ${jsonString}"
+                def jobs = launchJobs("${jsonString}", "${testScope}", "${outputDir}")
+                parallel jobs
             }
         }
         stage('Json Executer') {
@@ -116,7 +118,7 @@ pipeline {
             steps {
                 echo "Launch GPT Tests from ${env.JOB_NAME} from ${env.GIT_BRANCH} with commit ${env.GIT_COMMIT}"
                 sh "mkdir -p ${outputReportDir}/report"
-                // sh "mkdir -p ${outputReportDir}/tmpDir"
+                sh "mkdir -p /home/snap/tmpDir"
                 sh "/home/snap/snap/jre/bin/java -jar ${outputReportDir}/gptExecutorTarget/SnapGPTTest-jar-with-dependencies.jar /opt/snap-gpt-tests/gpt-tests-executer.properties ${params.testScope} ${params.jsonPath} ${outputReportDir}/report"
             }
         }
