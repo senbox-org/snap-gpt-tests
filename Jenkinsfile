@@ -27,7 +27,7 @@ def launchJobs(jsonString, scope, outputDir) {
         echo "Schedule job for json file : " + item
         // path = item - "["
         // path = path - "]"
-        jobs["test"] =  {
+        jobs["GPT Test ${num}"] =  {
             build job: "test", parameters: [[$class: 'StringParameterValue', name: 'jsonPath', value: "${item}"], [$class: 'StringParameterValue', name: 'testScope', value: "${scope}"], [$class: 'StringParameterValue', name: 'outputReportDir', value: "${outputDir}"]],
                 quietPeriod: 5,
                 propagate: true,
@@ -36,8 +36,8 @@ def launchJobs(jsonString, scope, outputDir) {
         num = num + 1
     }
     // return jobs
-    parallel jobs
-    return
+    return parallel jobs
+    
 }
 
 pipeline {
