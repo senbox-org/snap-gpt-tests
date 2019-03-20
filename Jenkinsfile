@@ -34,6 +34,7 @@ def launchJobs(jsonString, scope, outputDir) {
     }
     // return jobs
     parallel jobs
+    return
 }
 
 pipeline {
