@@ -23,15 +23,17 @@ def launchJobs(jsonString, scope, outputDir) {
     println "List of Json file : " + jsonString
     jsonList = jsonString.split("\n")
     jsonList.each { item ->
-        echo "Add job for json file : " + item
+        echo "Schedule job for json file : " + item
         // path = item - "["
         // path = path - "]"
         jobs["${item}"] =  {
-            build job: "snap-gpt-tests/${branchVersion}", parameters: [[$class: 'StringParameterValue', name: 'jsonPath', value: "${item}"], [$class: 'StringParameterValue', name: 'testScope', value: "${scope}"], [$class: 'StringParameterValue', name: 'outputReportDir', value: "${outputDir}"]]
+            build job: "snap-gpt-tests/${branchVersion}", parameters: [[$class: 'StringParameterValue', name: 'jsonPath', value: "${item}"], [$class: 'StringParameterValue', name: 'testScope', value: "${scope}"], [$class: 'StringParameterValue', name: 'outputReportDir', value: "${outputDir}"]],
+                propagate: true,
+                wait: true
         }
     }
-    return jobs
-    // parallel jobs
+    // return jobs
+    parallel jobs
 }
 
 pipeline {
@@ -95,11 +97,11 @@ pipeline {
                     //jsonList.each { item->
                     //    println "loop " + item
                     //}
-                    def jobs = launchJobs(jsonString, testScope, outputDir)
+                    // def jobs = launchJobs(jsonString, testScope, outputDir)
                 }
                 echo "Launch Jobs from ${env.JOB_NAME} from ${env.GIT_BRANCH} with commit ${env.GIT_COMMIT} using docker image snap-build-server.tilaa.cloud/${params.dockerTagName}"
                 // echo "List of json files : ${jsonString}"
-                // jobs = launchJobs("${jsonString}", "${testScope}", "${outputDir}")
+                launchJobs("${jsonString}", "${testScope}", "${outputDir}")
                 parallel jobs
             }
         }
