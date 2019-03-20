@@ -27,7 +27,7 @@ def launchJobs(jsonString, scope, outputDir) {
         // path = item - "["
         // path = path - "]"
         jobs["${item}"] =  {
-            build job: "tests", parameters: [[$class: 'StringParameterValue', name: 'jsonPath', value: "${item}"], [$class: 'StringParameterValue', name: 'testScope', value: "${scope}"], [$class: 'StringParameterValue', name: 'outputReportDir', value: "${outputDir}"]],
+            build job: "test", parameters: [[$class: 'StringParameterValue', name: 'jsonPath', value: "${item}"], [$class: 'StringParameterValue', name: 'testScope', value: "${scope}"], [$class: 'StringParameterValue', name: 'outputReportDir', value: "${outputDir}"]],
                 propagate: true,
                 wait: true
         }
