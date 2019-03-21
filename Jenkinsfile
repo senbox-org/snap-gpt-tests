@@ -30,8 +30,8 @@ def launchJobs(jsonString, scope, outputDir) {
         def currentJsonFile = "" + item
         echo "Schedule job for json file : " + item
         jobs["GPT Test ${num} ${item}"] = {
-            // build job: "snap-gpt-tests/${branchVersion}", parameters: [
-            build job: "test", parameters: [
+            build job: "snap-gpt-tests/${branchVersion}", parameters: [
+            // build job: "test", parameters: [
                     [$class: 'StringParameterValue', name: 'jsonPath', value: currentJsonFile],
                     [$class: 'StringParameterValue', name: 'testScope', value: "${scope}"],
                     [$class: 'StringParameterValue', name: 'outputReportDir', value: "${outputDir}"]
