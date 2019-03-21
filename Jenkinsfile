@@ -15,24 +15,9 @@
  * with this program; if not, see http://www.gnu.org/licenses/
  */
 
-// Take the string and echo it.
-def transformIntoStep(item, jsonString, scope, outputDir) {
-    // We need to wrap what we return in a Groovy closure, or else it's invoked
-    // when this method is called, not when we pass it to parallel.
-    // To do this, you need to wrap the code below in { }, and either return
-    // that explicitly, or use { -> } syntax.
-    return {
-        build job: "test", parameters: [
-                [$class: 'StringParameterValue', name: 'jsonPath', value: "${item}"],
-                [$class: 'StringParameterValue', name: 'testScope', value: "${scope}"],
-                [$class: 'StringParameterValue', name: 'outputReportDir', value: "${outputDir}"]
-            ],
-            quietPeriod: 5,
-            propagate: true,
-            wait: true
-    }
-}
-
+/**
+ * Launch jobs in parallel for every json file listed in jsonString separated by '\n'
+ */
 def launchJobs(jsonString, scope, outputDir) {
 
     def jobs = [:]
@@ -46,7 +31,7 @@ def launchJobs(jsonString, scope, outputDir) {
         // path = item - "["
         // path = path - "]"
         jobs["GPT Test ${num}"] = {
-            build job: "test", parameters: [
+            build job: "snap-gpt-tests/${branchVersion}", parameters: [
                     [$class: 'StringParameterValue', name: 'jsonPath', value: "${item}"],
                     [$class: 'StringParameterValue', name: 'testScope', value: "${scope}"],
                     [$class: 'StringParameterValue', name: 'outputReportDir', value: "${outputDir}"]
