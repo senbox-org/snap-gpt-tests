@@ -134,6 +134,11 @@ pipeline {
                 sh "mkdir -p /home/snap/tmpDir"
                 sh "/home/snap/snap/jre/bin/java -jar ${outputReportDir}/gptExecutorTarget/SnapGPTTest-jar-with-dependencies.jar /opt/snap-gpt-tests/gpt-tests-executer.properties ${params.testScope} ${params.jsonPath} ${outputReportDir}/report"
             }
+            post {
+                always {
+                    archiveArtifacts artifacts: "${outputReportDir}/report/**/*.*", fingerprint: true
+                }
+            }
         }
     }
     /*post {
