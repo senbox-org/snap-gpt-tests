@@ -32,7 +32,7 @@ def launchJobs(jsonString, scope, outputDir) {
         // path = path - "]"
         jobs["GPT Test ${num}"] = {
             build job: "snap-gpt-tests/${branchVersion}", parameters: [
-                    [$class: 'StringParameterValue', name: 'jsonPath', value: "${item}"],
+                    [$class: 'StringParameterValue', name: 'jsonPath', value: "item"],
                     [$class: 'StringParameterValue', name: 'testScope', value: "${scope}"],
                     [$class: 'StringParameterValue', name: 'outputReportDir', value: "${outputDir}"]
                 ],
