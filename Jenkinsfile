@@ -16,14 +16,20 @@
  */
 
 // Take the string and echo it.
-def transformIntoStep(jsonString, scope, outputDir) {
+def transformIntoStep(item, jsonString, scope, outputDir) {
     // We need to wrap what we return in a Groovy closure, or else it's invoked
     // when this method is called, not when we pass it to parallel.
     // To do this, you need to wrap the code below in { }, and either return
     // that explicitly, or use { -> } syntax.
     return {
-       // Job parameters can be added to this step
-       build jobFullName
+        build job: "test", parameters: [
+                [$class: 'StringParameterValue', name: 'jsonPath', value: "${item}"],
+                [$class: 'StringParameterValue', name: 'testScope', value: "${scope}"],
+                [$class: 'StringParameterValue', name: 'outputReportDir', value: "${outputDir}"]
+            ],
+            quietPeriod: 5,
+            propagate: true,
+            wait: true
     }
 }
 
@@ -34,16 +40,13 @@ def launchJobs(jsonString, scope, outputDir) {
     println "List of Json file : " + jsonString
     jsonList = jsonString.split("\n")
     num = 0
-    jsonList.each { item ->
+    for (int i=0; i < jsonList.size(); i++) {
+    //jsonList.each { item ->
+        item = jsonList[i]
         echo "Schedule job for json file : " + item
         // path = item - "["
         // path = path - "]"
-        jobs["GPT Test ${num}"] =  {
-            build job: "test", parameters: [[$class: 'StringParameterValue', name: 'jsonPath', value: "${item}"], [$class: 'StringParameterValue', name: 'testScope', value: "${scope}"], [$class: 'StringParameterValue', name: 'outputReportDir', value: "${outputDir}"]],
-                quietPeriod: 5,
-                propagate: true,
-                wait: false
-        }
+        jobs["GPT Test ${num}"] = transformIntoStep(item, jsonString, scope, outputDir) 
         num = num + 1
     }
     // return jobs
