@@ -27,11 +27,12 @@ def launchJobs(jsonString, scope, outputDir) {
     for (int i=0; i < jsonList.size(); i++) {
     //jsonList.each { item ->
         item = jsonList[i]
+        def currentJsonFile = "" + item
         echo "Schedule job for json file : " + item
-        jobs["GPT Test ${num}"] = {
+        jobs["GPT Test ${num} ${item}"] = {
             // build job: "snap-gpt-tests/${branchVersion}", parameters: [
             build job: "test", parameters: [
-                    [$class: 'StringParameterValue', name: 'jsonPath', value: item],
+                    [$class: 'StringParameterValue', name: 'jsonPath', value: currentJsonFile],
                     [$class: 'StringParameterValue', name: 'testScope', value: "${scope}"],
                     [$class: 'StringParameterValue', name: 'outputReportDir', value: "${outputDir}"]
                 ],
