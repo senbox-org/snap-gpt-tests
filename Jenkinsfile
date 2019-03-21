@@ -33,7 +33,6 @@ def transformIntoStep(item, jsonString, scope, outputDir) {
     }
 }
 
-@NonCPS // has to be NonCPS or the build breaks on the call to .each
 def launchJobs(jsonString, scope, outputDir) {
 
     def jobs = [:]
