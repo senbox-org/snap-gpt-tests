@@ -114,8 +114,13 @@ pipeline {
                 launchJobs("${jsonString}", "${testScope}", "${outputDir}")
                 // parallel jobs
             }
+            post {
+                always {
+                    archiveArtifacts artifacts: "${outputDir}/report/**/*.*", fingerprint: true
+                }
+            }
         }
-        stage('Json Executer') {
+        stage('SNAP GPT Test') {
             when {
                 expression {
                     return "${params.jsonPath}" != '';
@@ -133,11 +138,6 @@ pipeline {
                 sh "mkdir -p ${outputReportDir}/report"
                 sh "mkdir -p /home/snap/tmpDir"
                 sh "/home/snap/snap/jre/bin/java -jar ${outputReportDir}/gptExecutorTarget/SnapGPTTest-jar-with-dependencies.jar /opt/snap-gpt-tests/gpt-tests-executer.properties ${params.testScope} ${params.jsonPath} ${outputReportDir}/report"
-            }
-            post {
-                always {
-                    archiveArtifacts artifacts: "${outputReportDir}/report/**/*.*", fingerprint: true
-                }
             }
         }
     }
