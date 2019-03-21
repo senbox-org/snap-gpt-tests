@@ -45,12 +45,19 @@ def launchJobs(jsonString, scope, outputDir) {
         echo "Schedule job for json file : " + item
         // path = item - "["
         // path = path - "]"
-        jobs["GPT Test ${num}"] = transformIntoStep(item, jsonString, scope, outputDir) 
-        num = num + 1
+        jobs["GPT Test ${num}"] = {
+            build job: "test", parameters: [
+                    [$class: 'StringParameterValue', name: 'jsonPath', value: "${item}"],
+                    [$class: 'StringParameterValue', name: 'testScope', value: "${scope}"],
+                    [$class: 'StringParameterValue', name: 'outputReportDir', value: "${outputDir}"]
+                ],
+                propagate: true,
+                wait: true
+        }
+        num++
     }
     // return jobs
     parallel jobs
-    return 
 }
 
 pipeline {
