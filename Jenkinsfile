@@ -28,11 +28,9 @@ def launchJobs(jsonString, scope, outputDir) {
     //jsonList.each { item ->
         item = jsonList[i]
         echo "Schedule job for json file : " + item
-        // path = item - "["
-        // path = path - "]"
         jobs["GPT Test ${num}"] = {
             build job: "snap-gpt-tests/${branchVersion}", parameters: [
-                    [$class: 'StringParameterValue', name: 'jsonPath', value: "item"],
+                    [$class: 'StringParameterValue', name: 'jsonPath', value: item],
                     [$class: 'StringParameterValue', name: 'testScope', value: "${scope}"],
                     [$class: 'StringParameterValue', name: 'outputReportDir', value: "${outputDir}"]
                 ],
