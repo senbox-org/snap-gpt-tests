@@ -1,0 +1,91 @@
+{
+  "id": "tempJP2",
+  "decodeQualification": "INTENDED",
+  "expectedContent": {
+    "sceneWidth": 1000,
+    "sceneHeight": 1002,
+    "geoCoding": {
+      "coordinates": [
+        {
+          "x": 431.0,
+          "y": 538.0,
+          "lat": -5.8895529026077655,
+          "lon": 142.66781899124405
+        },
+        {
+          "x": 742.0,
+          "y": 650.0,
+          "lat": -5.890060108326254,
+          "lon": 142.66922739283734
+        }
+      ],
+      "reverseAccuracy": 0.0
+    },
+    "bands": [
+      {
+        "name": "band_1",
+        "description": "",
+        "bandWidth": 1000,
+        "bandHeight": 1002,
+        "noDataValue": "0.0",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 52,
+            "y": 178,
+            "value": 21.0
+          },
+          {
+            "x": 685,
+            "y": 852,
+            "value": 25.0
+          }
+        ]
+      }
+    ],
+    "metadata": [
+      {
+        "path": "Code Stream/Codestream Tile Component[2]/qntsty",
+        "value": "2"
+      },
+      {
+        "path": "Code Stream/Codestream Tile Component[3]/roiShift",
+        "value": "0"
+      },
+      {
+        "path": "Processing_Graph/node.3/sources/sourceProduct",
+        "value": "Reproject"
+      },
+      {
+        "path": "XML Metadata/featureMember/FeatureCollection/featureMember/RectifiedGridCoverage/rectifiedGridDomain/RectifiedGrid/origin/Point/srsName",
+        "value": "urn:ogc:def:crs:EPSG::32754"
+      },
+      {
+        "path": "Code Stream/Codestream Tile Component/codeBlockHeight",
+        "value": "64"
+      },
+      {
+        "path": "Image Info/Component[4]/precision",
+        "value": "8"
+      },
+      {
+        "path": "XML Metadata/featureMember/FeatureCollection/featureMember/RectifiedGridCoverage/rangeSet/File/rangeParameters/QuantityExtent",
+        "value": "0 255"
+      },
+      {
+        "path": "XML Metadata/featureMember/FeatureCollection/featureMember/RectifiedGridCoverage/rangeSet/File/rangeParameters/QuantityExtent",
+        "value": "0 255"
+      },
+      {
+        "path": "Image Info/Component[2]/precision",
+        "value": "8"
+      },
+      {
+        "path": "XML Metadata/featureMember/FeatureCollection/featureMember/RectifiedGridCoverage/rectifiedGridDomain/RectifiedGrid/limits/GridEnvelope/low",
+        "value": "1 1"
+      }
+    ]
+  }
+}

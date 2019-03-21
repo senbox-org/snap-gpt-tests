@@ -1,0 +1,19 @@
+[{
+  "id":"JP2Test",
+  "description":"execute JP2 product reader and operators",
+  "frequency":"daily",
+  "graphPath": "s2tbx/graphReaderSingleLevel.xml",
+  "inputs": {
+    "input1": "s2tbx/_gpt_readers/jp2/IMG_PHR1A_PMS_201402040054228_ORT_1336649101-001_R1C1.JP2"
+  },
+  "parameters": {
+    "sourceBands": "band_1",
+    "subsetRegion": "600,600,1000,1000",
+    "crs": "WGS84(DD)"
+  },
+  "outputs": [{
+    "parameter": "out1",
+    "outputName": "tempJP2",
+    "expected": "s2tbx/expectedJP2.json"
+  }]
+}]
