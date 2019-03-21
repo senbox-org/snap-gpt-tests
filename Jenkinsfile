@@ -36,6 +36,7 @@ def launchJobs(jsonString, scope, outputDir) {
                     [$class: 'StringParameterValue', name: 'testScope', value: "${scope}"],
                     [$class: 'StringParameterValue', name: 'outputReportDir', value: "${outputDir}"]
                 ],
+                quietPeriod: 0,
                 propagate: true,
                 wait: true
         }
