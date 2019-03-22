@@ -24,6 +24,7 @@ public class SnapGPTTest {
     public static void main(String[] args) throws IOException {
 
         boolean specificJSON = true;
+        boolean success = true;
         //TODO check better the arguments
         if(args.length != 4) {
             System.out.println("Required arguments: [properties] [scope] [jsonPath] [reportFolder]");
@@ -119,6 +120,7 @@ public class SnapGPTTest {
                             writer.write("PASSED");
                         } else {
                             writer.write("FAILED");
+                            success = false;
                             //copy  output product to report
                             for(Output output : graphTest.getOutputs()) {
                                 Collection<File> outputFiles = FileUtils.listFilesAndDirs(tempFolder.toFile(), new WildcardFileFilter(String.format("%s.*",output.getOutputName())), new WildcardFileFilter(String.format("%s.*",output.getOutputName())));
@@ -146,6 +148,10 @@ public class SnapGPTTest {
 
         if(writer != null) {
             writer.close();
+        }
+
+        if(!success) {
+            System.exit(1);
         }
     }
 }
