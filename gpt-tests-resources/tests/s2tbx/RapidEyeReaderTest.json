@@ -1,0 +1,19 @@
+[{
+  "id":"RapidEyeTest",
+  "description":"execute RapidEye product reader and operators",
+  "frequency":"daily",
+  "graphPath": "s2tbx/graphReaderSingleLevel.xml",
+  "inputs": {
+    "input1": "s2tbx/_gpt_readers/rapideye/Demo05_1B.zip"
+  },
+  "parameters": {
+    "sourceBands": "blue,green,red,red_edge,near_infrared,unusable_data",
+    "subsetRegion": "200,650,600,600",
+    "crs": "WGS84(DD)"
+  },
+  "outputs": [{
+    "parameter": "out1",
+    "outputName": "tempRapidEye",
+    "expected": "s2tbx/expectedRapidEye.json"
+  }]
+}]

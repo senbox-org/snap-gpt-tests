@@ -1,0 +1,20 @@
+[{
+  "id":"WorldView2Test",
+  "description":"execute WorldView2 product reader and operators",
+  "frequency":"daily",
+  "graphPath": "s2tbx/graphReaderMultiLevel.xml",
+  "inputs": {
+    "input1": "s2tbx/_gpt_readers/worldview2/ZON24_I200862_FL01-P369685/ZON24_README.XML"
+  },
+  "parameters": {
+    "referenceBand": "Pan",
+    "sourceBands": "Pan,Blue,Green,Red,NIR1",
+    "subsetRegion": "600,300,600,600",
+    "crs": "WGS84(DD)"
+  },
+  "outputs": [{
+    "parameter": "out1",
+    "outputName": "tempWorldView2",
+    "expected": "s2tbx/expectedWorldView2.json"
+  }]
+}]

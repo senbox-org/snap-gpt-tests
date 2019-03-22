@@ -1,0 +1,338 @@
+{
+  "id": "tempRapidEye",
+  "decodeQualification": "INTENDED",
+  "expectedContent": {
+    "sceneWidth": 780,
+    "sceneHeight": 601,
+    "startTime": "13-JUN-2009 18:01:47.515486",
+    "endTime": "13-JUN-2009 18:01:47.515486",
+    "geoCoding": {
+      "coordinates": [
+        {
+          "x": 336.0,
+          "y": 323.0,
+          "lat": 33.0312895610061,
+          "lon": -96.7083724816576
+        },
+        {
+          "x": 579.0,
+          "y": 389.0,
+          "lat": 33.02681073134027,
+          "lon": -96.69188224516068
+        }
+      ],
+      "reverseAccuracy": 5.820766091346741E-11
+    },
+    "flagCodings": [
+      {
+        "name": "unusable_data",
+        "samples": [
+          {
+            "name": "black_fill",
+            "value": 1,
+            "description": "area was not imaged by spacecraft"
+          },
+          {
+            "name": "clouds",
+            "value": 2,
+            "description": "cloud covered"
+          },
+          {
+            "name": "missing_blue_data",
+            "value": 4,
+            "description": "missing/suspect data in blue band"
+          },
+          {
+            "name": "missing_green_data",
+            "value": 8,
+            "description": "missing/suspect data in green band"
+          },
+          {
+            "name": "missing_red_data",
+            "value": 16,
+            "description": "missing/suspect data in red band"
+          },
+          {
+            "name": "missing_red_edge_data",
+            "value": 32,
+            "description": "missing/suspect data in red edge band"
+          },
+          {
+            "name": "missing_nir_data",
+            "value": 64,
+            "description": "missing/suspect data in nir band"
+          }
+        ]
+      }
+    ],
+    "bands": [
+      {
+        "name": "blue",
+        "description": "",
+        "bandWidth": 780,
+        "bandHeight": 601,
+        "geophysicalUnit": "cW/m² sr ?m",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "440.0",
+        "spectralBandwidth": "70.0",
+        "expectedPixels": [
+          {
+            "x": 40,
+            "y": 107,
+            "value": "NaN"
+          },
+          {
+            "x": 534,
+            "y": 511,
+            "value": 106.14
+          }
+        ]
+      },
+      {
+        "name": "green",
+        "description": "",
+        "bandWidth": 780,
+        "bandHeight": 601,
+        "geophysicalUnit": "cW/m² sr ?m",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "520.0",
+        "spectralBandwidth": "70.0",
+        "expectedPixels": [
+          {
+            "x": 226,
+            "y": 154,
+            "value": 117.75
+          },
+          {
+            "x": 476,
+            "y": 219,
+            "value": 82.97
+          }
+        ]
+      },
+      {
+        "name": "red",
+        "description": "",
+        "bandWidth": 780,
+        "bandHeight": 601,
+        "geophysicalUnit": "cW/m² sr ?m",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "630.0",
+        "spectralBandwidth": "55.0",
+        "expectedPixels": [
+          {
+            "x": 429,
+            "y": 447,
+            "value": 56.449997
+          },
+          {
+            "x": 474,
+            "y": 558,
+            "value": 152.73999
+          }
+        ]
+      },
+      {
+        "name": "red_edge",
+        "description": "",
+        "bandWidth": 780,
+        "bandHeight": 601,
+        "geophysicalUnit": "cW/m² sr ?m",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "690.0",
+        "spectralBandwidth": "40.0",
+        "expectedPixels": [
+          {
+            "x": 123,
+            "y": 400,
+            "value": 56.28
+          },
+          {
+            "x": 404,
+            "y": 549,
+            "value": 87.89
+          }
+        ]
+      },
+      {
+        "name": "near_infrared",
+        "description": "",
+        "bandWidth": 780,
+        "bandHeight": 601,
+        "geophysicalUnit": "cW/m² sr ?m",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "760.0",
+        "spectralBandwidth": "90.0",
+        "expectedPixels": [
+          {
+            "x": 589,
+            "y": 291,
+            "value": 103.32
+          },
+          {
+            "x": 741,
+            "y": 292,
+            "value": "NaN"
+          }
+        ]
+      },
+      {
+        "name": "unusable_data",
+        "description": "",
+        "bandWidth": 780,
+        "bandHeight": 601,
+        "noDataValue": "0.0",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 265,
+            "y": 540,
+            "value": "NaN"
+          },
+          {
+            "x": 7,
+            "y": 282,
+            "value": "NaN"
+          }
+        ]
+      },
+      {
+        "name": "latitude",
+        "description": "",
+        "bandWidth": 780,
+        "bandHeight": 601,
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 255,
+            "y": 118,
+            "value": 33.04524
+          },
+          {
+            "x": 213,
+            "y": 25,
+            "value": 33.051544
+          }
+        ]
+      },
+      {
+        "name": "longitude",
+        "description": "",
+        "bandWidth": 780,
+        "bandHeight": 601,
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 757,
+            "y": 363,
+            "value": "NaN"
+          },
+          {
+            "x": 446,
+            "y": 430,
+            "value": -96.70152
+          }
+        ]
+      }
+    ],
+    "masks": [
+      {
+        "name": "black_fill",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "255,0,0",
+        "description": "area was not imaged by spacecraft"
+      },
+      {
+        "name": "clouds",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "178,0,0",
+        "description": "cloud covered"
+      },
+      {
+        "name": "missing_blue_data",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "0,0,255",
+        "description": "missing/suspect data in blue band"
+      },
+      {
+        "name": "missing_green_data",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "0,0,178",
+        "description": "missing/suspect data in green band"
+      },
+      {
+        "name": "missing_red_data",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "0,255,0",
+        "description": "missing/suspect data in red band"
+      },
+      {
+        "name": "missing_red_edge_data",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "0,178,0",
+        "description": "missing/suspect data in red edge band"
+      },
+      {
+        "name": "missing_nir_data",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "255,255,0",
+        "description": "missing/suspect data in nir band"
+      }
+    ],
+    "metadata": [
+      {
+        "path": "L1B/using/EarthObservationEquipment/sensor/Sensor/resolution",
+        "value": "6.5"
+      },
+      {
+        "path": "NITF Metadata/Image Subheaders/Image Subheader 0/IGEOLO/topLeft/latitude",
+        "value": "33*05'15''"
+      },
+      {
+        "path": "history/SubsetInfo/ProductNodeName.8",
+        "value": "unusable_data"
+      },
+      {
+        "path": "history/SubsetInfo/SubRegion.height",
+        "value": "600"
+      },
+      {
+        "path": "Processing_Graph/node.2/parameters/resampling",
+        "value": "Nearest"
+      },
+      {
+        "path": "NITF Metadata/Image Subheaders/Image Subheader 0/IGEOLO/topLeft/longitude",
+        "value": "096*42'53W325723''"
+      },
+      {
+        "path": "history/SubsetInfo/ProductNodeName.6",
+        "value": "red_edge"
+      },
+      {
+        "path": "history/SubsetInfo/ProductNodeName.1",
+        "value": "latitude"
+      },
+      {
+        "path": "Processing_Graph/node.1/parameters/sourceBands",
+        "value": "blue,green,red,red_edge,near_infrared,unusable_data"
+      },
+      {
+        "path": "NITF Metadata/Image Subheaders/Image Subheader 0/Bands/BAND1/ISUBCAT",
+        "value": "475"
+      }
+    ]
+  }
+}
