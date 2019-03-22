@@ -140,7 +140,7 @@ pipeline {
                 echo "Launch GPT Tests from ${env.JOB_NAME} from ${env.GIT_BRANCH} with commit ${env.GIT_COMMIT}"
                 sh "mkdir -p ${outputReportDir}/report"
                 sh "mkdir -p /home/snap/tmpDir"
-                sh "/home/snap/snap/jre/bin/java -jar ${outputReportDir}/gptExecutorTarget/SnapGPTTest-jar-with-dependencies.jar /opt/snap-gpt-tests/gpt-tests-executer.properties ${params.testScope} ${params.jsonPath} ${outputReportDir}/report"
+                sh "export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:. && /home/snap/snap/jre/bin/java -jar ${outputReportDir}/gptExecutorTarget/SnapGPTTest-jar-with-dependencies.jar /opt/snap-gpt-tests/gpt-tests-executer.properties ${params.testScope} ${params.jsonPath} ${outputReportDir}/report"
             }
         }
     }
