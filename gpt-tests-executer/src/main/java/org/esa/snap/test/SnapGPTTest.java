@@ -119,6 +119,24 @@ public class SnapGPTTest {
                             writer.write("PASSED");
                         } else {
                             writer.write("FAILED");
+                            //copy  output product to report
+                            for(Output output : graphTest.getOutputs()) {
+                                Collection<File> outputFiles = FileUtils.listFilesAndDirs(tempFolder.toFile(), new WildcardFileFilter(String.format("%s.*",output.getOutputName())), new WildcardFileFilter(String.format("%s.*",output.getOutputName())));
+                                for (File outputFile : outputFiles) {
+                                    if(outputFile.toString().equals(tempFolder.toString())) {
+                                        continue;
+                                    }
+                                    Files.copy(outputFile.toPath(),reportFolderPath.resolve(outputFile.getName()));
+                                    if(outputFile.isDirectory()) {
+                                        FileUtils.copyDirectory(outputFile,reportFolderPath.resolve(outputFile.getName()).toFile());
+                                    }
+                                }
+                            }
+
+                            //copy output of gpt to report
+                            Path reportGPT = Paths.get(tempFolder.resolve(graphTest.getId()).toString() + "_gptOutput.txt");
+                            Files.copy(reportGPT,reportFolderPath.resolve(reportGPT.getFileName()));
+
                         }
                         writer.write("\n");
                     }

@@ -51,9 +51,12 @@ public class TestExecutor {
 
         //execute graph
         ProcessBuilder builder = new ProcessBuilder(params);
-
         Map<String, String> environ = builder.environment();
-        builder.inheritIO();
+
+        File redirectOutputFile = new File(tempFolder.resolve(graphTest.getId()).toString() + "_gptOutput.txt");
+        builder.redirectErrorStream(true);
+        builder.redirectOutput(redirectOutputFile);
+
         List<String> command = builder.command();
         Process process = builder.start();
         try {
@@ -89,7 +92,7 @@ public class TestExecutor {
         return testPassed;
     }
     private static String findOutput (Output output, Path tempFolder) {
-        Collection<File> filelist = FileUtils.listFiles(tempFolder.toFile(), new WildcardFileFilter(String.format("%s.*",output.getOutputName())), TrueFileFilter.INSTANCE);
+        Collection<File> filelist = FileUtils.listFiles(tempFolder.toFile(), new WildcardFileFilter(String.format("%s.*",output.getOutputName())), null);
         if(filelist.size() == 1) {
             File[] files = filelist.toArray(new File[filelist.size()]);
             return files[0].getAbsolutePath();
