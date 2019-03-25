@@ -79,7 +79,7 @@ pipeline {
             steps {
                 echo "Launch Filter JSON from ${env.JOB_NAME} from ${env.GIT_BRANCH} with commit ${env.GIT_COMMIT} using docker image snap-build-server.tilaa.cloud/${params.dockerTagName}"
                 sh "mkdir -p ${outputDir}"
-                // sh "mvn -Duser.home=/var/maven clean package install"
+                sh "mvn -Duser.home=/var/maven clean package install"
                 sh "java -jar ./gpt-tests-executer/target/FilterTestJSON.jar ./gpt-tests-resources/tests ${params.testScope} ${outputDir}"
                 sh "more ${outputDir}/JSONTestFiles.txt"
                 sh "cp -r ./gpt-tests-executer/target/ ${outputDir}/gptExecutorTarget"
