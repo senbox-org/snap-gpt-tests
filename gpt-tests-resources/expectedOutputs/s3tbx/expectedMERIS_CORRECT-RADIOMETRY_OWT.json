@@ -2,26 +2,26 @@
     "id": "tempMERIS_Correct-Radiometry_owt",
     "decodeQualification": "INTENDED",
     "expectedContent": {
-        "sceneWidth": 500,
-        "sceneHeight": 500,
-        "startTime": "26-AUG-2010 08:36:39.931091",
-        "endTime": "26-AUG-2010 08:37:01.885594",
+        "sceneWidth": 4481,
+        "sceneHeight": 4545,
+        "startTime": "26-AUG-2010 08:35:55.934092",
+        "endTime": "26-AUG-2010 08:39:15.856460",
         "geoCoding": {
             "coordinates": [
                 {
-                    "x": 215.0,
-                    "y": 268.0,
-                    "lat": 48.22731093899347,
-                    "lon": 26.73713459423212
+                    "x": 1932.0,
+                    "y": 2443.0,
+                    "lat": 44.80962615017779,
+                    "lon": 28.052113536648385
                 },
                 {
-                    "x": 371.0,
-                    "y": 324.0,
-                    "lat": 48.00131143047474,
-                    "lon": 27.218498377095013
+                    "x": 3326.0,
+                    "y": 2949.0,
+                    "lat": 42.63970618136227,
+                    "lon": 31.89111198019817
                 }
             ],
-            "reverseAccuracy": 0.163316860104203
+            "reverseAccuracy": 0.18857896238614558
         },
         "flagCodings": [
             {
@@ -126,300 +126,300 @@
             {
                 "name": "latitude",
                 "description": "Latitude of the tie points (WGS-84), positive N",
-                "offsetX": "-39.5",
-                "offsetY": "-39.5",
+                "offsetX": "0.5",
+                "offsetY": "0.5",
                 "subSamplingX": "64.0",
                 "subSamplingY": "64.0",
                 "expectedPixels": [
                     {
-                        "x": 26,
-                        "y": 89,
-                        "value": 48.783154
+                        "x": 233,
+                        "y": 809,
+                        "value": 49.86845
                     },
                     {
-                        "x": 342,
-                        "y": 425,
-                        "value": 47.75485
+                        "x": 3069,
+                        "y": 3865,
+                        "value": 40.462116
                     }
                 ]
             },
             {
                 "name": "longitude",
                 "description": "Longitude of the tie points (WGS-84), Greenwich origin, positive E",
-                "offsetX": "-39.5",
-                "offsetY": "-39.5",
+                "offsetX": "0.5",
+                "offsetY": "0.5",
                 "subSamplingX": "64.0",
                 "subSamplingY": "64.0",
                 "expectedPixels": [
                     {
-                        "x": 145,
-                        "y": 128,
-                        "value": 26.6205
+                        "x": 1303,
+                        "y": 1167,
+                        "value": 27.128475
                     },
                     {
-                        "x": 305,
-                        "y": 182,
-                        "value": 27.12192
+                        "x": 2735,
+                        "y": 1660,
+                        "value": 31.411543
                     }
                 ]
             },
             {
                 "name": "dem_alt",
                 "description": "Digital elevation model altitude",
-                "offsetX": "-39.5",
-                "offsetY": "-39.5",
+                "offsetX": "0.5",
+                "offsetY": "0.5",
                 "subSamplingX": "64.0",
                 "subSamplingY": "64.0",
                 "expectedPixels": [
                     {
-                        "x": 275,
-                        "y": 372,
-                        "value": 167.4336
+                        "x": 2464,
+                        "y": 3387,
+                        "value": -965.2578
                     },
                     {
-                        "x": 304,
-                        "y": 464,
-                        "value": 176.29688
+                        "x": 2725,
+                        "y": 4219,
+                        "value": 746.46265
                     }
                 ]
             },
             {
                 "name": "dem_rough",
                 "description": "Digital elevation model roughness",
-                "offsetX": "-39.5",
-                "offsetY": "-39.5",
+                "offsetX": "0.5",
+                "offsetY": "0.5",
                 "subSamplingX": "64.0",
                 "subSamplingY": "64.0",
                 "expectedPixels": [
                     {
-                        "x": 79,
-                        "y": 333,
-                        "value": 46.189697
+                        "x": 709,
+                        "y": 3027,
+                        "value": 17.5896
                     },
                     {
-                        "x": 259,
-                        "y": 456,
-                        "value": 62.59375
+                        "x": 2326,
+                        "y": 4151,
+                        "value": 82.26904
                     }
                 ]
             },
             {
                 "name": "lat_corr",
                 "description": "Digital elevation model latitude corrections",
-                "offsetX": "-39.5",
-                "offsetY": "-39.5",
+                "offsetX": "0.5",
+                "offsetY": "0.5",
                 "subSamplingX": "64.0",
                 "subSamplingY": "64.0",
                 "expectedPixels": [
                     {
-                        "x": 378,
-                        "y": 242,
-                        "value": -1.2493164E-4
+                        "x": 3388,
+                        "y": 2202,
+                        "value": 0.0
                     },
                     {
-                        "x": 475,
-                        "y": 242,
-                        "value": -1.2351757E-4
+                        "x": 4260,
+                        "y": 2208,
+                        "value": 0.0
                     }
                 ]
             },
             {
                 "name": "lon_corr",
                 "description": "Digital elevation model longitude corrections",
-                "offsetX": "-39.5",
-                "offsetY": "-39.5",
+                "offsetX": "0.5",
+                "offsetY": "0.5",
                 "subSamplingX": "64.0",
                 "subSamplingY": "64.0",
                 "expectedPixels": [
                     {
-                        "x": 170,
-                        "y": 449,
-                        "value": 0.0017158912
+                        "x": 1525,
+                        "y": 4087,
+                        "value": 9.083496E-6
                     },
                     {
-                        "x": 4,
-                        "y": 235,
-                        "value": 0.0016653965
+                        "x": 44,
+                        "y": 2139,
+                        "value": 0.0039035487
                     }
                 ]
             },
             {
                 "name": "sun_zenith",
                 "description": "Sun zenith angle",
-                "offsetX": "-39.5",
-                "offsetY": "-39.5",
+                "offsetX": "0.5",
+                "offsetY": "0.5",
                 "subSamplingX": "64.0",
                 "subSamplingY": "64.0",
                 "expectedPixels": [
                     {
-                        "x": 163,
-                        "y": 98,
-                        "value": 43.45075
+                        "x": 1467,
+                        "y": 895,
+                        "value": 43.286785
                     },
                     {
-                        "x": 136,
-                        "y": 21,
-                        "value": 43.637115
+                        "x": 1224,
+                        "y": 196,
+                        "value": 44.997456
                     }
                 ]
             },
             {
                 "name": "sun_azimuth",
                 "description": "Sun azimuth angles",
-                "offsetX": "-39.5",
-                "offsetY": "-39.5",
+                "offsetX": "0.5",
+                "offsetY": "0.5",
                 "subSamplingX": "64.0",
                 "subSamplingY": "64.0",
                 "expectedPixels": [
                     {
-                        "x": 485,
-                        "y": 302,
-                        "value": 144.3164
+                        "x": 4353,
+                        "y": 2748,
+                        "value": 152.09795
                     },
                     {
-                        "x": 286,
-                        "y": 358,
-                        "value": 143.34125
+                        "x": 2564,
+                        "y": 3257,
+                        "value": 143.0848
                     }
                 ]
             },
             {
                 "name": "view_zenith",
                 "description": "Viewing zenith angles",
-                "offsetX": "-39.5",
-                "offsetY": "-39.5",
+                "offsetX": "0.5",
+                "offsetY": "0.5",
                 "subSamplingX": "64.0",
                 "subSamplingY": "64.0",
                 "expectedPixels": [
                     {
-                        "x": 115,
-                        "y": 248,
-                        "value": 22.752934
+                        "x": 1039,
+                        "y": 2261,
+                        "value": 24.161694
                     },
                     {
-                        "x": 160,
-                        "y": 361,
-                        "value": 21.918837
+                        "x": 1438,
+                        "y": 3283,
+                        "value": 16.594791
                     }
                 ]
             },
             {
                 "name": "view_azimuth",
                 "description": "Viewing azimuth angles",
-                "offsetX": "-39.5",
-                "offsetY": "-39.5",
+                "offsetX": "0.5",
+                "offsetY": "0.5",
                 "subSamplingX": "64.0",
                 "subSamplingY": "64.0",
                 "expectedPixels": [
                     {
-                        "x": 179,
-                        "y": 249,
-                        "value": 102.65903
+                        "x": 1604,
+                        "y": 2264,
+                        "value": 103.40758
                     },
                     {
-                        "x": 201,
-                        "y": 221,
-                        "value": 102.722694
+                        "x": 1805,
+                        "y": 2010,
+                        "value": 103.95727
                     }
                 ]
             },
             {
                 "name": "zonal_wind",
                 "description": "Zonal wind",
-                "offsetX": "-39.5",
-                "offsetY": "-39.5",
+                "offsetX": "0.5",
+                "offsetY": "0.5",
                 "subSamplingX": "64.0",
                 "subSamplingY": "64.0",
                 "expectedPixels": [
                     {
-                        "x": 287,
-                        "y": 45,
-                        "value": 1.6270264
+                        "x": 2575,
+                        "y": 417,
+                        "value": 2.537085
                     },
                     {
-                        "x": 322,
-                        "y": 7,
-                        "value": 1.6783692
+                        "x": 2891,
+                        "y": 71,
+                        "value": 2.5609376
                     }
                 ]
             },
             {
                 "name": "merid_wind",
                 "description": "Meridional wind",
-                "offsetX": "-39.5",
-                "offsetY": "-39.5",
+                "offsetX": "0.5",
+                "offsetY": "0.5",
                 "subSamplingX": "64.0",
                 "subSamplingY": "64.0",
                 "expectedPixels": [
                     {
-                        "x": 487,
-                        "y": 183,
-                        "value": -1.6
+                        "x": 4369,
+                        "y": 1669,
+                        "value": -2.5765624
                     },
                     {
-                        "x": 475,
-                        "y": 473,
-                        "value": -1.90625
+                        "x": 4257,
+                        "y": 4301,
+                        "value": -3.53125
                     }
                 ]
             },
             {
                 "name": "atm_press",
                 "description": "Mean sea level pressure",
-                "offsetX": "-39.5",
-                "offsetY": "-39.5",
+                "offsetX": "0.5",
+                "offsetY": "0.5",
                 "subSamplingX": "64.0",
                 "subSamplingY": "64.0",
                 "expectedPixels": [
                     {
-                        "x": 55,
-                        "y": 225,
-                        "value": 1016.8172
+                        "x": 496,
+                        "y": 2053,
+                        "value": 1016.82697
                     },
                     {
-                        "x": 285,
-                        "y": 281,
-                        "value": 1016.3938
+                        "x": 2558,
+                        "y": 2556,
+                        "value": 1011.10944
                     }
                 ]
             },
             {
                 "name": "ozone",
                 "description": "Total ozone",
-                "offsetX": "-39.5",
-                "offsetY": "-39.5",
+                "offsetX": "0.5",
+                "offsetY": "0.5",
                 "subSamplingX": "64.0",
                 "subSamplingY": "64.0",
                 "expectedPixels": [
                     {
-                        "x": 252,
-                        "y": 260,
-                        "value": 305.89606
+                        "x": 2266,
+                        "y": 2370,
+                        "value": 288.68564
                     },
                     {
-                        "x": 225,
-                        "y": 290,
-                        "value": 305.53146
+                        "x": 2019,
+                        "y": 2640,
+                        "value": 287.79898
                     }
                 ]
             },
             {
                 "name": "rel_hum",
                 "description": "Relative humidity",
-                "offsetX": "-39.5",
-                "offsetY": "-39.5",
+                "offsetX": "0.5",
+                "offsetY": "0.5",
                 "subSamplingX": "64.0",
                 "subSamplingY": "64.0",
                 "expectedPixels": [
                     {
-                        "x": 7,
-                        "y": 212,
-                        "value": 70.59805
+                        "x": 64,
+                        "y": 1929,
+                        "value": 73.242195
                     },
                     {
-                        "x": 35,
-                        "y": 496,
-                        "value": 75.89687
+                        "x": 314,
+                        "y": 4512,
+                        "value": 52.53125
                     }
                 ]
             }
@@ -428,21 +428,21 @@
             {
                 "name": "class_1",
                 "description": "",
-                "bandWidth": 500,
-                "bandHeight": 500,
+                "bandWidth": 4481,
+                "bandHeight": 4545,
                 "noDataValue": "0.0",
                 "noDataValueUsed": "false",
                 "spectralWavelength": "0.0",
                 "spectralBandwidth": "0.0",
                 "expectedPixels": [
                     {
-                        "x": 148,
-                        "y": 372,
+                        "x": 1329,
+                        "y": 3386,
                         "value": "NaN"
                     },
                     {
-                        "x": 401,
-                        "y": 368,
+                        "x": 3600,
+                        "y": 3347,
                         "value": "NaN"
                     }
                 ]
@@ -450,21 +450,21 @@
             {
                 "name": "class_2",
                 "description": "",
-                "bandWidth": 500,
-                "bandHeight": 500,
+                "bandWidth": 4481,
+                "bandHeight": 4545,
                 "noDataValue": "0.0",
                 "noDataValueUsed": "false",
                 "spectralWavelength": "0.0",
                 "spectralBandwidth": "0.0",
                 "expectedPixels": [
                     {
-                        "x": 417,
-                        "y": 472,
+                        "x": 3739,
+                        "y": 4297,
                         "value": "NaN"
                     },
                     {
-                        "x": 124,
-                        "y": 265,
+                        "x": 1113,
+                        "y": 2417,
                         "value": "NaN"
                     }
                 ]
@@ -472,21 +472,21 @@
             {
                 "name": "class_3",
                 "description": "",
-                "bandWidth": 500,
-                "bandHeight": 500,
+                "bandWidth": 4481,
+                "bandHeight": 4545,
                 "noDataValue": "0.0",
                 "noDataValueUsed": "false",
                 "spectralWavelength": "0.0",
                 "spectralBandwidth": "0.0",
                 "expectedPixels": [
                     {
-                        "x": 305,
-                        "y": 130,
+                        "x": 2737,
+                        "y": 1182,
                         "value": "NaN"
                     },
                     {
-                        "x": 276,
-                        "y": 75,
+                        "x": 2477,
+                        "y": 686,
                         "value": "NaN"
                     }
                 ]
@@ -494,21 +494,21 @@
             {
                 "name": "class_4",
                 "description": "",
-                "bandWidth": 500,
-                "bandHeight": 500,
+                "bandWidth": 4481,
+                "bandHeight": 4545,
                 "noDataValue": "0.0",
                 "noDataValueUsed": "false",
                 "spectralWavelength": "0.0",
                 "spectralBandwidth": "0.0",
                 "expectedPixels": [
                     {
-                        "x": 237,
-                        "y": 279,
+                        "x": 2130,
+                        "y": 2541,
                         "value": "NaN"
                     },
                     {
-                        "x": 47,
-                        "y": 424,
+                        "x": 427,
+                        "y": 3862,
                         "value": "NaN"
                     }
                 ]
@@ -516,21 +516,21 @@
             {
                 "name": "class_5",
                 "description": "",
-                "bandWidth": 500,
-                "bandHeight": 500,
+                "bandWidth": 4481,
+                "bandHeight": 4545,
                 "noDataValue": "0.0",
                 "noDataValueUsed": "false",
                 "spectralWavelength": "0.0",
                 "spectralBandwidth": "0.0",
                 "expectedPixels": [
                     {
-                        "x": 48,
-                        "y": 38,
+                        "x": 431,
+                        "y": 353,
                         "value": "NaN"
                     },
                     {
-                        "x": 227,
-                        "y": 338,
+                        "x": 2039,
+                        "y": 3073,
                         "value": "NaN"
                     }
                 ]
@@ -538,21 +538,21 @@
             {
                 "name": "class_6",
                 "description": "",
-                "bandWidth": 500,
-                "bandHeight": 500,
+                "bandWidth": 4481,
+                "bandHeight": 4545,
                 "noDataValue": "0.0",
                 "noDataValueUsed": "false",
                 "spectralWavelength": "0.0",
                 "spectralBandwidth": "0.0",
                 "expectedPixels": [
                     {
-                        "x": 232,
-                        "y": 447,
+                        "x": 2083,
+                        "y": 4068,
                         "value": "NaN"
                     },
                     {
-                        "x": 433,
-                        "y": 300,
+                        "x": 3887,
+                        "y": 2727,
                         "value": "NaN"
                     }
                 ]
@@ -560,21 +560,21 @@
             {
                 "name": "class_7",
                 "description": "",
-                "bandWidth": 500,
-                "bandHeight": 500,
+                "bandWidth": 4481,
+                "bandHeight": 4545,
                 "noDataValue": "0.0",
                 "noDataValueUsed": "false",
                 "spectralWavelength": "0.0",
                 "spectralBandwidth": "0.0",
                 "expectedPixels": [
                     {
-                        "x": 481,
-                        "y": 190,
+                        "x": 4310,
+                        "y": 1731,
                         "value": "NaN"
                     },
                     {
-                        "x": 43,
-                        "y": 266,
+                        "x": 393,
+                        "y": 2421,
                         "value": "NaN"
                     }
                 ]
@@ -582,21 +582,21 @@
             {
                 "name": "class_8",
                 "description": "",
-                "bandWidth": 500,
-                "bandHeight": 500,
+                "bandWidth": 4481,
+                "bandHeight": 4545,
                 "noDataValue": "0.0",
                 "noDataValueUsed": "false",
                 "spectralWavelength": "0.0",
                 "spectralBandwidth": "0.0",
                 "expectedPixels": [
                     {
-                        "x": 367,
-                        "y": 297,
+                        "x": 3295,
+                        "y": 2704,
                         "value": "NaN"
                     },
                     {
-                        "x": 488,
-                        "y": 93,
+                        "x": 4374,
+                        "y": 845,
                         "value": "NaN"
                     }
                 ]
@@ -604,43 +604,43 @@
             {
                 "name": "class_9",
                 "description": "",
-                "bandWidth": 500,
-                "bandHeight": 500,
+                "bandWidth": 4481,
+                "bandHeight": 4545,
                 "noDataValue": "0.0",
                 "noDataValueUsed": "false",
                 "spectralWavelength": "0.0",
                 "spectralBandwidth": "0.0",
                 "expectedPixels": [
                     {
-                        "x": 230,
-                        "y": 130,
-                        "value": 1.4356835E-23
+                        "x": 2063,
+                        "y": 1186,
+                        "value": 1.4512625E-13
                     },
                     {
-                        "x": 114,
-                        "y": 323,
-                        "value": 5.992172E-25
+                        "x": 1026,
+                        "y": 2943,
+                        "value": 5.2070812E-23
                     }
                 ]
             },
             {
                 "name": "norm_class_1",
                 "description": "",
-                "bandWidth": 500,
-                "bandHeight": 500,
+                "bandWidth": 4481,
+                "bandHeight": 4545,
                 "noDataValue": "0.0",
                 "noDataValueUsed": "false",
                 "spectralWavelength": "0.0",
                 "spectralBandwidth": "0.0",
                 "expectedPixels": [
                     {
-                        "x": 319,
-                        "y": 218,
+                        "x": 2866,
+                        "y": 1988,
                         "value": "NaN"
                     },
                     {
-                        "x": 265,
-                        "y": 283,
+                        "x": 2381,
+                        "y": 2577,
                         "value": "NaN"
                     }
                 ]
@@ -648,21 +648,21 @@
             {
                 "name": "norm_class_2",
                 "description": "",
-                "bandWidth": 500,
-                "bandHeight": 500,
+                "bandWidth": 4481,
+                "bandHeight": 4545,
                 "noDataValue": "0.0",
                 "noDataValueUsed": "false",
                 "spectralWavelength": "0.0",
                 "spectralBandwidth": "0.0",
                 "expectedPixels": [
                     {
-                        "x": 197,
-                        "y": 106,
+                        "x": 1773,
+                        "y": 971,
                         "value": "NaN"
                     },
                     {
-                        "x": 139,
-                        "y": 444,
+                        "x": 1250,
+                        "y": 4039,
                         "value": "NaN"
                     }
                 ]
@@ -670,21 +670,21 @@
             {
                 "name": "norm_class_3",
                 "description": "",
-                "bandWidth": 500,
-                "bandHeight": 500,
+                "bandWidth": 4481,
+                "bandHeight": 4545,
                 "noDataValue": "0.0",
                 "noDataValueUsed": "false",
                 "spectralWavelength": "0.0",
                 "spectralBandwidth": "0.0",
                 "expectedPixels": [
                     {
-                        "x": 472,
-                        "y": 289,
+                        "x": 4237,
+                        "y": 2635,
                         "value": "NaN"
                     },
                     {
-                        "x": 379,
-                        "y": 164,
+                        "x": 3396,
+                        "y": 1491,
                         "value": "NaN"
                     }
                 ]
@@ -692,21 +692,21 @@
             {
                 "name": "norm_class_4",
                 "description": "",
-                "bandWidth": 500,
-                "bandHeight": 500,
+                "bandWidth": 4481,
+                "bandHeight": 4545,
                 "noDataValue": "0.0",
                 "noDataValueUsed": "false",
                 "spectralWavelength": "0.0",
                 "spectralBandwidth": "0.0",
                 "expectedPixels": [
                     {
-                        "x": 280,
-                        "y": 145,
+                        "x": 2512,
+                        "y": 1322,
                         "value": "NaN"
                     },
                     {
-                        "x": 414,
-                        "y": 435,
+                        "x": 3715,
+                        "y": 3957,
                         "value": "NaN"
                     }
                 ]
@@ -714,21 +714,21 @@
             {
                 "name": "norm_class_5",
                 "description": "",
-                "bandWidth": 500,
-                "bandHeight": 500,
+                "bandWidth": 4481,
+                "bandHeight": 4545,
                 "noDataValue": "0.0",
                 "noDataValueUsed": "false",
                 "spectralWavelength": "0.0",
                 "spectralBandwidth": "0.0",
                 "expectedPixels": [
                     {
-                        "x": 54,
-                        "y": 443,
+                        "x": 484,
+                        "y": 4031,
                         "value": "NaN"
                     },
                     {
-                        "x": 171,
-                        "y": 407,
+                        "x": 1541,
+                        "y": 3700,
                         "value": "NaN"
                     }
                 ]
@@ -736,21 +736,21 @@
             {
                 "name": "norm_class_6",
                 "description": "",
-                "bandWidth": 500,
-                "bandHeight": 500,
+                "bandWidth": 4481,
+                "bandHeight": 4545,
                 "noDataValue": "0.0",
                 "noDataValueUsed": "false",
                 "spectralWavelength": "0.0",
                 "spectralBandwidth": "0.0",
                 "expectedPixels": [
                     {
-                        "x": 91,
-                        "y": 346,
+                        "x": 816,
+                        "y": 3146,
                         "value": "NaN"
                     },
                     {
-                        "x": 296,
-                        "y": 274,
+                        "x": 2654,
+                        "y": 2495,
                         "value": "NaN"
                     }
                 ]
@@ -758,21 +758,21 @@
             {
                 "name": "norm_class_7",
                 "description": "",
-                "bandWidth": 500,
-                "bandHeight": 500,
+                "bandWidth": 4481,
+                "bandHeight": 4545,
                 "noDataValue": "0.0",
                 "noDataValueUsed": "false",
                 "spectralWavelength": "0.0",
                 "spectralBandwidth": "0.0",
                 "expectedPixels": [
                     {
-                        "x": 102,
-                        "y": 153,
+                        "x": 921,
+                        "y": 1391,
                         "value": "NaN"
                     },
                     {
-                        "x": 205,
-                        "y": 431,
+                        "x": 1838,
+                        "y": 3925,
                         "value": "NaN"
                     }
                 ]
@@ -780,21 +780,21 @@
             {
                 "name": "norm_class_8",
                 "description": "",
-                "bandWidth": 500,
-                "bandHeight": 500,
+                "bandWidth": 4481,
+                "bandHeight": 4545,
                 "noDataValue": "0.0",
                 "noDataValueUsed": "false",
                 "spectralWavelength": "0.0",
                 "spectralBandwidth": "0.0",
                 "expectedPixels": [
                     {
-                        "x": 350,
-                        "y": 448,
+                        "x": 3144,
+                        "y": 4079,
                         "value": "NaN"
                     },
                     {
-                        "x": 148,
-                        "y": 496,
+                        "x": 1333,
+                        "y": 4511,
                         "value": "NaN"
                     }
                 ]
@@ -802,21 +802,21 @@
             {
                 "name": "norm_class_9",
                 "description": "",
-                "bandWidth": 500,
-                "bandHeight": 500,
+                "bandWidth": 4481,
+                "bandHeight": 4545,
                 "noDataValue": "0.0",
                 "noDataValueUsed": "false",
                 "spectralWavelength": "0.0",
                 "spectralBandwidth": "0.0",
                 "expectedPixels": [
                     {
-                        "x": 273,
-                        "y": 58,
+                        "x": 2452,
+                        "y": 530,
                         "value": 1.0
                     },
                     {
-                        "x": 97,
-                        "y": 280,
+                        "x": 872,
+                        "y": 2550,
                         "value": 1.0
                     }
                 ]
@@ -824,52 +824,52 @@
             {
                 "name": "dominant_class",
                 "description": "",
-                "bandWidth": 500,
-                "bandHeight": 500,
+                "bandWidth": 4481,
+                "bandHeight": 4545,
                 "noDataValue": "-1.0",
                 "noDataValueUsed": "true",
                 "spectralWavelength": "0.0",
                 "spectralBandwidth": "0.0",
                 "expectedPixels": [
                     {
-                        "x": 229,
-                        "y": 64,
+                        "x": 2052,
+                        "y": 585,
                         "value": 9.0
                     },
                     {
-                        "x": 414,
-                        "y": 286,
-                        "value": 9.0
+                        "x": 3714,
+                        "y": 2603,
+                        "value": "NaN"
                     }
                 ]
             },
             {
                 "name": "class_sum",
                 "description": "",
-                "bandWidth": 500,
-                "bandHeight": 500,
+                "bandWidth": 4481,
+                "bandHeight": 4545,
                 "noDataValue": "0.0",
                 "noDataValueUsed": "false",
                 "spectralWavelength": "0.0",
                 "spectralBandwidth": "0.0",
                 "expectedPixels": [
                     {
-                        "x": 51,
-                        "y": 338,
-                        "value": 5.439243E-25
+                        "x": 459,
+                        "y": 3075,
+                        "value": 6.7016347E-25
                     },
                     {
-                        "x": 365,
-                        "y": 236,
-                        "value": 4.797983E-25
+                        "x": 3275,
+                        "y": 2145,
+                        "value": 1.4470445E-13
                     }
                 ]
             },
             {
                 "name": "reflec_1",
                 "description": "Radiometry-corrected TOA reflectance",
-                "bandWidth": 500,
-                "bandHeight": 500,
+                "bandWidth": 4481,
+                "bandHeight": 4545,
                 "geophysicalUnit": "dl",
                 "noDataValue": "0.0",
                 "noDataValueUsed": "false",
@@ -877,22 +877,22 @@
                 "spectralBandwidth": "9.937",
                 "expectedPixels": [
                     {
-                        "x": 71,
-                        "y": 33,
-                        "value": 0.19341633
+                        "x": 641,
+                        "y": 302,
+                        "value": 0.20206882
                     },
                     {
-                        "x": 420,
-                        "y": 149,
-                        "value": 0.1871914
+                        "x": 3770,
+                        "y": 1362,
+                        "value": 0.15665863
                     }
                 ]
             },
             {
                 "name": "reflec_2",
                 "description": "Radiometry-corrected TOA reflectance",
-                "bandWidth": 500,
-                "bandHeight": 500,
+                "bandWidth": 4481,
+                "bandHeight": 4545,
                 "geophysicalUnit": "dl",
                 "noDataValue": "0.0",
                 "noDataValueUsed": "false",
@@ -900,22 +900,22 @@
                 "spectralBandwidth": "9.946",
                 "expectedPixels": [
                     {
-                        "x": 296,
-                        "y": 485,
-                        "value": 0.16030255
+                        "x": 2653,
+                        "y": 4417,
+                        "value": 0.09898737
                     },
                     {
-                        "x": 388,
-                        "y": 13,
-                        "value": 0.13669877
+                        "x": 3483,
+                        "y": 124,
+                        "value": 0.11500237
                     }
                 ]
             },
             {
                 "name": "reflec_3",
                 "description": "Radiometry-corrected TOA reflectance",
-                "bandWidth": 500,
-                "bandHeight": 500,
+                "bandWidth": 4481,
+                "bandHeight": 4545,
                 "geophysicalUnit": "dl",
                 "noDataValue": "0.0",
                 "noDataValueUsed": "false",
@@ -923,22 +923,22 @@
                 "spectralBandwidth": "9.957001",
                 "expectedPixels": [
                     {
-                        "x": 108,
-                        "y": 123,
-                        "value": 0.32729366
+                        "x": 971,
+                        "y": 1120,
+                        "value": 0.16917077
                     },
                     {
-                        "x": 159,
-                        "y": 96,
-                        "value": 0.1791775
+                        "x": 1431,
+                        "y": 880,
+                        "value": 0.20686169
                     }
                 ]
             },
             {
                 "name": "reflec_4",
                 "description": "Radiometry-corrected TOA reflectance",
-                "bandWidth": 500,
-                "bandHeight": 500,
+                "bandWidth": 4481,
+                "bandHeight": 4545,
                 "geophysicalUnit": "dl",
                 "noDataValue": "0.0",
                 "noDataValueUsed": "false",
@@ -946,22 +946,22 @@
                 "spectralBandwidth": "9.961",
                 "expectedPixels": [
                     {
-                        "x": 141,
-                        "y": 441,
-                        "value": 0.11243326
+                        "x": 1266,
+                        "y": 4014,
+                        "value": 0.099106744
                     },
                     {
-                        "x": 498,
-                        "y": 37,
-                        "value": 0.11414009
+                        "x": 4469,
+                        "y": 343,
+                        "value": "NaN"
                     }
                 ]
             },
             {
                 "name": "reflec_5",
                 "description": "Radiometry-corrected TOA reflectance",
-                "bandWidth": 500,
-                "bandHeight": 500,
+                "bandWidth": 4481,
+                "bandHeight": 4545,
                 "geophysicalUnit": "dl",
                 "noDataValue": "0.0",
                 "noDataValueUsed": "false",
@@ -969,35 +969,35 @@
                 "spectralBandwidth": "9.97",
                 "expectedPixels": [
                     {
-                        "x": 409,
-                        "y": 250,
-                        "value": 0.118547544
+                        "x": 3669,
+                        "y": 2280,
+                        "value": 0.08634226
                     },
                     {
-                        "x": 31,
-                        "y": 192,
-                        "value": 0.11253616
+                        "x": 281,
+                        "y": 1751,
+                        "value": 0.13211149
                     }
                 ]
             },
             {
                 "name": "l1_flags",
                 "description": "Level 1b classification and quality flags",
-                "bandWidth": 500,
-                "bandHeight": 500,
+                "bandWidth": 4481,
+                "bandHeight": 4545,
                 "noDataValue": "0.0",
                 "noDataValueUsed": "false",
                 "spectralWavelength": "0.0",
                 "spectralBandwidth": "0.0",
                 "expectedPixels": [
                     {
-                        "x": 138,
-                        "y": 291,
+                        "x": 1242,
+                        "y": 2645,
                         "value": 16.0
                     },
                     {
-                        "x": 464,
-                        "y": 69,
+                        "x": 4161,
+                        "y": 631,
                         "value": 16.0
                     }
                 ]

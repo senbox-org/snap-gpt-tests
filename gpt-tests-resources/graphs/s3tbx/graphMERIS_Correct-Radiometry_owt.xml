@@ -8,21 +8,10 @@
         </parameters>
     </node>
 
-    <node id="Subset">
-        <operator>Subset</operator>
-        <sources>
-            <sourceProduct refid="Read"/>
-        </sources>
-        <parameters>
-            <region>$subsetRegion</region>
-            <copyMetadata>true</copyMetadata>
-        </parameters>
-    </node>
-
     <node id="Meris.CorrectRadiometry">
         <operator>Meris.CorrectRadiometry</operator>
         <sources>
-            <sourceProduct refid="Subset"/>
+            <sourceProduct refid="Read"/>
         </sources>
         <parameters>
             <doCalibration>true</doCalibration>
