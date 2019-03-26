@@ -1,0 +1,61 @@
+<graph id="GraphMerisCorrectRadiometryOP">
+    <version>1.0</version>
+    <node id="Read">
+        <operator>Read</operator>
+        <sources/>
+        <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+            <file>$input1</file>
+        </parameters>
+    </node>
+
+    <node id="Subset">
+        <operator>Subset</operator>
+        <sources>
+            <sourceProduct refid="Read"/>
+        </sources>
+        <parameters>
+            <region>$subsetRegion</region>
+            <copyMetadata>true</copyMetadata>
+        </parameters>
+    </node>
+
+    <node id="Meris.CorrectRadiometry">
+        <operator>Meris.CorrectRadiometry</operator>
+        <sources>
+            <sourceProduct refid="Subset"/>
+        </sources>
+        <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+            <doCalibration>true</doCalibration>
+            <sourceRacFile/>
+            <targetRacFile/>
+            <doSmile>true</doSmile>
+            <doEqualization>true</doEqualization>
+            <reproVersion>$reproVersion</reproVersion>
+            <doRadToRefl>true</doRadToRefl>
+        </parameters>
+    </node>
+
+    <node id="OWTClassification">
+        <operator>OWTClassification</operator>
+        <sources>
+            <sourceProduct refid="Meris.CorrectRadiometry"/>
+        </sources>
+        <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+            <owtType>$owtType</owtType>
+            <reflectancesPrefix>reflec</reflectancesPrefix>
+            <inputReflectanceIs>$inputReflectanceIs</inputReflectanceIs>
+            <writeInputReflectances>true</writeInputReflectances>
+        </parameters>
+    </node>
+
+    <node id="Write">
+        <operator>Write</operator>
+        <sources>
+            <sourceProduct refid="OWTClassification"/>
+        </sources>
+        <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+            <file>$out1</file>
+            <formatName>BEAM-DIMAP</formatName>
+        </parameters>
+    </node>
+</graph>

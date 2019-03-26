@@ -1,0 +1,62 @@
+<graph id="GraphLandWaterMask">
+    <version>1.0</version>
+    <node id="Read">
+        <operator>Read</operator>
+        <sources/>
+        <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+            <file>$input1</file>
+            <formatName>Sen3</formatName>
+        </parameters>
+    </node>
+
+    <node id="Subset">
+        <operator>Subset</operator>
+        <sources>
+            <sourceProduct refid="Read"/>
+        </sources>
+        <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+            <sourceBands/>
+            <region>$subsetRegion</region>
+            <geoRegion></geoRegion>
+            <subSamplingX>1</subSamplingX>
+            <subSamplingY>1</subSamplingY>
+            <tiePointGridNames></tiePointGridNames>
+            <copyMetadata>false</copyMetadata>
+        </parameters>
+    </node>
+
+    <node id="LandWaterMask">
+        <operator>LandWaterMask</operator>
+        <sources>
+            <sourceProduct refid="Subset"/>
+        </sources>
+        <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+            <resolution>$resolution</resolution>
+            <subSamplingFactorX>1</subSamplingFactorX>
+            <subSamplingFactorY>1</subSamplingFactorY>
+        </parameters>
+    </node>
+
+    <node id="BandMerge">
+        <operator>BandMerge</operator>
+        <sources>
+            <sourceProduct refid="LandWaterMask"/>
+            <sourceProduct.1 refid="Subset"/>
+        </sources>
+        <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+            <sourceBands/>
+            <geographicError>$geoError</geographicError>
+        </parameters>
+    </node>
+
+    <node id="Write">
+        <operator>Write</operator>
+        <sources>
+            <sourceProduct refid="BandMerge"/>
+        </sources>
+        <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+            <file>$out1</file>
+            <formatName>BEAM-DIMAP</formatName>
+        </parameters>
+    </node>
+</graph>

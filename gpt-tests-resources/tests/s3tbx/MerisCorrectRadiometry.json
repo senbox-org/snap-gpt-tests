@@ -1,0 +1,21 @@
+[{
+    "id":"MerisCorrectRadiometry",
+    "description":"execute Meris Correct Radiometry operator",
+    "frequency":"daily",
+    "graphPath": "s3tbx/graphMerisCorrectRadiometry.xml",
+    "inputs": {
+        "input1": "sensors_platforms/MERIS/MER_FRS_1P/N1/MER_FRS_1PNMAP20100826_083555_000002002092_00236_44378_0001.N1"
+    },
+    "parameters": {
+        "subsetRegion": "1000,1000,500,500",
+        "owtType": "COASTAL",
+        "inputReflectanceIs": "RADIANCE_REFLECTANCES",
+        "reproVersion": "AUTO_DETECT"
+    },
+    "outputs": [{
+        "parameter": "out1",
+        "outputName": "MerisCorrectRadiometry",
+        "expected": "s3tbx/expectedMERISCORRECTRADIOMETRY.json"
+    }]
+}
+]

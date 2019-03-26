@@ -1,0 +1,1105 @@
+{
+    "id": "MerisCorrectRadiometry",
+    "decodeQualification": "INTENDED",
+    "expectedContent": {
+        "sceneWidth": 500,
+        "sceneHeight": 500,
+        "startTime": "26-AUG-2010 08:36:39.931091",
+        "endTime": "26-AUG-2010 08:37:01.885594",
+        "geoCoding": {
+            "coordinates": [
+                {
+                    "x": 215.0,
+                    "y": 268.0,
+                    "lat": 48.22731093899347,
+                    "lon": 26.73713459423212
+                },
+                {
+                    "x": 371.0,
+                    "y": 324.0,
+                    "lat": 48.00131143047474,
+                    "lon": 27.218498377095013
+                }
+            ],
+            "reverseAccuracy": 0.163316860104203
+        },
+        "flagCodings": [
+            {
+                "name": "l1_flags",
+                "samples": [
+                    {
+                        "name": "COSMETIC",
+                        "value": 1,
+                        "description": "Pixel is cosmetic"
+                    },
+                    {
+                        "name": "DUPLICATED",
+                        "value": 2,
+                        "description": "Pixel has been duplicated (filled in)"
+                    },
+                    {
+                        "name": "GLINT_RISK",
+                        "value": 4,
+                        "description": "Pixel has glint risk"
+                    },
+                    {
+                        "name": "SUSPECT",
+                        "value": 8,
+                        "description": "Pixel is suspect"
+                    },
+                    {
+                        "name": "LAND_OCEAN",
+                        "value": 16,
+                        "description": "Pixel is over land, not ocean"
+                    },
+                    {
+                        "name": "BRIGHT",
+                        "value": 32,
+                        "description": "Pixel is bright"
+                    },
+                    {
+                        "name": "COASTLINE",
+                        "value": 64,
+                        "description": "Pixel is part of a coastline"
+                    },
+                    {
+                        "name": "INVALID",
+                        "value": 128,
+                        "description": "Pixel is invalid"
+                    }
+                ]
+            }
+        ],
+        "indexCodings": [
+            {
+                "name": "Dominant_Classes",
+                "samples": [
+                    {
+                        "name": "class_1",
+                        "value": 1,
+                        "description": "Class 1"
+                    },
+                    {
+                        "name": "class_2",
+                        "value": 2,
+                        "description": "Class 2"
+                    },
+                    {
+                        "name": "class_3",
+                        "value": 3,
+                        "description": "Class 3"
+                    },
+                    {
+                        "name": "class_4",
+                        "value": 4,
+                        "description": "Class 4"
+                    },
+                    {
+                        "name": "class_5",
+                        "value": 5,
+                        "description": "Class 5"
+                    },
+                    {
+                        "name": "class_6",
+                        "value": 6,
+                        "description": "Class 6"
+                    },
+                    {
+                        "name": "class_7",
+                        "value": 7,
+                        "description": "Class 7"
+                    },
+                    {
+                        "name": "class_8",
+                        "value": 8,
+                        "description": "Class 8"
+                    },
+                    {
+                        "name": "class_9",
+                        "value": 9,
+                        "description": "Class 9"
+                    }
+                ]
+            }
+        ],
+        "tiePointGrids": [
+            {
+                "name": "latitude",
+                "description": "Latitude of the tie points (WGS-84), positive N",
+                "offsetX": "-39.5",
+                "offsetY": "-39.5",
+                "subSamplingX": "64.0",
+                "subSamplingY": "64.0",
+                "expectedPixels": [
+                    {
+                        "x": 26,
+                        "y": 89,
+                        "value": 48.783154
+                    },
+                    {
+                        "x": 342,
+                        "y": 425,
+                        "value": 47.75485
+                    }
+                ]
+            },
+            {
+                "name": "longitude",
+                "description": "Longitude of the tie points (WGS-84), Greenwich origin, positive E",
+                "offsetX": "-39.5",
+                "offsetY": "-39.5",
+                "subSamplingX": "64.0",
+                "subSamplingY": "64.0",
+                "expectedPixels": [
+                    {
+                        "x": 145,
+                        "y": 128,
+                        "value": 26.6205
+                    },
+                    {
+                        "x": 305,
+                        "y": 182,
+                        "value": 27.12192
+                    }
+                ]
+            },
+            {
+                "name": "dem_alt",
+                "description": "Digital elevation model altitude",
+                "offsetX": "-39.5",
+                "offsetY": "-39.5",
+                "subSamplingX": "64.0",
+                "subSamplingY": "64.0",
+                "expectedPixels": [
+                    {
+                        "x": 275,
+                        "y": 372,
+                        "value": 167.4336
+                    },
+                    {
+                        "x": 304,
+                        "y": 464,
+                        "value": 176.29688
+                    }
+                ]
+            },
+            {
+                "name": "dem_rough",
+                "description": "Digital elevation model roughness",
+                "offsetX": "-39.5",
+                "offsetY": "-39.5",
+                "subSamplingX": "64.0",
+                "subSamplingY": "64.0",
+                "expectedPixels": [
+                    {
+                        "x": 79,
+                        "y": 333,
+                        "value": 46.189697
+                    },
+                    {
+                        "x": 259,
+                        "y": 456,
+                        "value": 62.59375
+                    }
+                ]
+            },
+            {
+                "name": "lat_corr",
+                "description": "Digital elevation model latitude corrections",
+                "offsetX": "-39.5",
+                "offsetY": "-39.5",
+                "subSamplingX": "64.0",
+                "subSamplingY": "64.0",
+                "expectedPixels": [
+                    {
+                        "x": 378,
+                        "y": 242,
+                        "value": -1.2493164E-4
+                    },
+                    {
+                        "x": 475,
+                        "y": 242,
+                        "value": -1.2351757E-4
+                    }
+                ]
+            },
+            {
+                "name": "lon_corr",
+                "description": "Digital elevation model longitude corrections",
+                "offsetX": "-39.5",
+                "offsetY": "-39.5",
+                "subSamplingX": "64.0",
+                "subSamplingY": "64.0",
+                "expectedPixels": [
+                    {
+                        "x": 170,
+                        "y": 449,
+                        "value": 0.0017158912
+                    },
+                    {
+                        "x": 4,
+                        "y": 235,
+                        "value": 0.0016653965
+                    }
+                ]
+            },
+            {
+                "name": "sun_zenith",
+                "description": "Sun zenith angle",
+                "offsetX": "-39.5",
+                "offsetY": "-39.5",
+                "subSamplingX": "64.0",
+                "subSamplingY": "64.0",
+                "expectedPixels": [
+                    {
+                        "x": 163,
+                        "y": 98,
+                        "value": 43.45075
+                    },
+                    {
+                        "x": 136,
+                        "y": 21,
+                        "value": 43.637115
+                    }
+                ]
+            },
+            {
+                "name": "sun_azimuth",
+                "description": "Sun azimuth angles",
+                "offsetX": "-39.5",
+                "offsetY": "-39.5",
+                "subSamplingX": "64.0",
+                "subSamplingY": "64.0",
+                "expectedPixels": [
+                    {
+                        "x": 485,
+                        "y": 302,
+                        "value": 144.3164
+                    },
+                    {
+                        "x": 286,
+                        "y": 358,
+                        "value": 143.34125
+                    }
+                ]
+            },
+            {
+                "name": "view_zenith",
+                "description": "Viewing zenith angles",
+                "offsetX": "-39.5",
+                "offsetY": "-39.5",
+                "subSamplingX": "64.0",
+                "subSamplingY": "64.0",
+                "expectedPixels": [
+                    {
+                        "x": 115,
+                        "y": 248,
+                        "value": 22.752934
+                    },
+                    {
+                        "x": 160,
+                        "y": 361,
+                        "value": 21.918837
+                    }
+                ]
+            },
+            {
+                "name": "view_azimuth",
+                "description": "Viewing azimuth angles",
+                "offsetX": "-39.5",
+                "offsetY": "-39.5",
+                "subSamplingX": "64.0",
+                "subSamplingY": "64.0",
+                "expectedPixels": [
+                    {
+                        "x": 179,
+                        "y": 249,
+                        "value": 102.65903
+                    },
+                    {
+                        "x": 201,
+                        "y": 221,
+                        "value": 102.722694
+                    }
+                ]
+            },
+            {
+                "name": "zonal_wind",
+                "description": "Zonal wind",
+                "offsetX": "-39.5",
+                "offsetY": "-39.5",
+                "subSamplingX": "64.0",
+                "subSamplingY": "64.0",
+                "expectedPixels": [
+                    {
+                        "x": 287,
+                        "y": 45,
+                        "value": 1.6270264
+                    },
+                    {
+                        "x": 322,
+                        "y": 7,
+                        "value": 1.6783692
+                    }
+                ]
+            },
+            {
+                "name": "merid_wind",
+                "description": "Meridional wind",
+                "offsetX": "-39.5",
+                "offsetY": "-39.5",
+                "subSamplingX": "64.0",
+                "subSamplingY": "64.0",
+                "expectedPixels": [
+                    {
+                        "x": 487,
+                        "y": 183,
+                        "value": -1.6
+                    },
+                    {
+                        "x": 475,
+                        "y": 473,
+                        "value": -1.90625
+                    }
+                ]
+            },
+            {
+                "name": "atm_press",
+                "description": "Mean sea level pressure",
+                "offsetX": "-39.5",
+                "offsetY": "-39.5",
+                "subSamplingX": "64.0",
+                "subSamplingY": "64.0",
+                "expectedPixels": [
+                    {
+                        "x": 55,
+                        "y": 225,
+                        "value": 1016.8172
+                    },
+                    {
+                        "x": 285,
+                        "y": 281,
+                        "value": 1016.3938
+                    }
+                ]
+            },
+            {
+                "name": "ozone",
+                "description": "Total ozone",
+                "offsetX": "-39.5",
+                "offsetY": "-39.5",
+                "subSamplingX": "64.0",
+                "subSamplingY": "64.0",
+                "expectedPixels": [
+                    {
+                        "x": 252,
+                        "y": 260,
+                        "value": 305.89606
+                    },
+                    {
+                        "x": 225,
+                        "y": 290,
+                        "value": 305.53146
+                    }
+                ]
+            },
+            {
+                "name": "rel_hum",
+                "description": "Relative humidity",
+                "offsetX": "-39.5",
+                "offsetY": "-39.5",
+                "subSamplingX": "64.0",
+                "subSamplingY": "64.0",
+                "expectedPixels": [
+                    {
+                        "x": 7,
+                        "y": 212,
+                        "value": 70.59805
+                    },
+                    {
+                        "x": 35,
+                        "y": 496,
+                        "value": 75.89687
+                    }
+                ]
+            }
+        ],
+        "bands": [
+            {
+                "name": "class_1",
+                "description": "",
+                "bandWidth": 500,
+                "bandHeight": 500,
+                "noDataValue": "0.0",
+                "noDataValueUsed": "false",
+                "spectralWavelength": "0.0",
+                "spectralBandwidth": "0.0",
+                "expectedPixels": [
+                    {
+                        "x": 148,
+                        "y": 372,
+                        "value": "NaN"
+                    },
+                    {
+                        "x": 401,
+                        "y": 368,
+                        "value": "NaN"
+                    }
+                ]
+            },
+            {
+                "name": "class_2",
+                "description": "",
+                "bandWidth": 500,
+                "bandHeight": 500,
+                "noDataValue": "0.0",
+                "noDataValueUsed": "false",
+                "spectralWavelength": "0.0",
+                "spectralBandwidth": "0.0",
+                "expectedPixels": [
+                    {
+                        "x": 417,
+                        "y": 472,
+                        "value": "NaN"
+                    },
+                    {
+                        "x": 124,
+                        "y": 265,
+                        "value": "NaN"
+                    }
+                ]
+            },
+            {
+                "name": "class_3",
+                "description": "",
+                "bandWidth": 500,
+                "bandHeight": 500,
+                "noDataValue": "0.0",
+                "noDataValueUsed": "false",
+                "spectralWavelength": "0.0",
+                "spectralBandwidth": "0.0",
+                "expectedPixels": [
+                    {
+                        "x": 305,
+                        "y": 130,
+                        "value": "NaN"
+                    },
+                    {
+                        "x": 276,
+                        "y": 75,
+                        "value": "NaN"
+                    }
+                ]
+            },
+            {
+                "name": "class_4",
+                "description": "",
+                "bandWidth": 500,
+                "bandHeight": 500,
+                "noDataValue": "0.0",
+                "noDataValueUsed": "false",
+                "spectralWavelength": "0.0",
+                "spectralBandwidth": "0.0",
+                "expectedPixels": [
+                    {
+                        "x": 237,
+                        "y": 279,
+                        "value": "NaN"
+                    },
+                    {
+                        "x": 47,
+                        "y": 424,
+                        "value": "NaN"
+                    }
+                ]
+            },
+            {
+                "name": "class_5",
+                "description": "",
+                "bandWidth": 500,
+                "bandHeight": 500,
+                "noDataValue": "0.0",
+                "noDataValueUsed": "false",
+                "spectralWavelength": "0.0",
+                "spectralBandwidth": "0.0",
+                "expectedPixels": [
+                    {
+                        "x": 48,
+                        "y": 38,
+                        "value": "NaN"
+                    },
+                    {
+                        "x": 227,
+                        "y": 338,
+                        "value": "NaN"
+                    }
+                ]
+            },
+            {
+                "name": "class_6",
+                "description": "",
+                "bandWidth": 500,
+                "bandHeight": 500,
+                "noDataValue": "0.0",
+                "noDataValueUsed": "false",
+                "spectralWavelength": "0.0",
+                "spectralBandwidth": "0.0",
+                "expectedPixels": [
+                    {
+                        "x": 232,
+                        "y": 447,
+                        "value": "NaN"
+                    },
+                    {
+                        "x": 433,
+                        "y": 300,
+                        "value": "NaN"
+                    }
+                ]
+            },
+            {
+                "name": "class_7",
+                "description": "",
+                "bandWidth": 500,
+                "bandHeight": 500,
+                "noDataValue": "0.0",
+                "noDataValueUsed": "false",
+                "spectralWavelength": "0.0",
+                "spectralBandwidth": "0.0",
+                "expectedPixels": [
+                    {
+                        "x": 481,
+                        "y": 190,
+                        "value": "NaN"
+                    },
+                    {
+                        "x": 43,
+                        "y": 266,
+                        "value": "NaN"
+                    }
+                ]
+            },
+            {
+                "name": "class_8",
+                "description": "",
+                "bandWidth": 500,
+                "bandHeight": 500,
+                "noDataValue": "0.0",
+                "noDataValueUsed": "false",
+                "spectralWavelength": "0.0",
+                "spectralBandwidth": "0.0",
+                "expectedPixels": [
+                    {
+                        "x": 367,
+                        "y": 297,
+                        "value": "NaN"
+                    },
+                    {
+                        "x": 488,
+                        "y": 93,
+                        "value": "NaN"
+                    }
+                ]
+            },
+            {
+                "name": "class_9",
+                "description": "",
+                "bandWidth": 500,
+                "bandHeight": 500,
+                "noDataValue": "0.0",
+                "noDataValueUsed": "false",
+                "spectralWavelength": "0.0",
+                "spectralBandwidth": "0.0",
+                "expectedPixels": [
+                    {
+                        "x": 230,
+                        "y": 130,
+                        "value": 1.4356835E-23
+                    },
+                    {
+                        "x": 114,
+                        "y": 323,
+                        "value": 5.992172E-25
+                    }
+                ]
+            },
+            {
+                "name": "norm_class_1",
+                "description": "",
+                "bandWidth": 500,
+                "bandHeight": 500,
+                "noDataValue": "0.0",
+                "noDataValueUsed": "false",
+                "spectralWavelength": "0.0",
+                "spectralBandwidth": "0.0",
+                "expectedPixels": [
+                    {
+                        "x": 319,
+                        "y": 218,
+                        "value": "NaN"
+                    },
+                    {
+                        "x": 265,
+                        "y": 283,
+                        "value": "NaN"
+                    }
+                ]
+            },
+            {
+                "name": "norm_class_2",
+                "description": "",
+                "bandWidth": 500,
+                "bandHeight": 500,
+                "noDataValue": "0.0",
+                "noDataValueUsed": "false",
+                "spectralWavelength": "0.0",
+                "spectralBandwidth": "0.0",
+                "expectedPixels": [
+                    {
+                        "x": 197,
+                        "y": 106,
+                        "value": "NaN"
+                    },
+                    {
+                        "x": 139,
+                        "y": 444,
+                        "value": "NaN"
+                    }
+                ]
+            },
+            {
+                "name": "norm_class_3",
+                "description": "",
+                "bandWidth": 500,
+                "bandHeight": 500,
+                "noDataValue": "0.0",
+                "noDataValueUsed": "false",
+                "spectralWavelength": "0.0",
+                "spectralBandwidth": "0.0",
+                "expectedPixels": [
+                    {
+                        "x": 472,
+                        "y": 289,
+                        "value": "NaN"
+                    },
+                    {
+                        "x": 379,
+                        "y": 164,
+                        "value": "NaN"
+                    }
+                ]
+            },
+            {
+                "name": "norm_class_4",
+                "description": "",
+                "bandWidth": 500,
+                "bandHeight": 500,
+                "noDataValue": "0.0",
+                "noDataValueUsed": "false",
+                "spectralWavelength": "0.0",
+                "spectralBandwidth": "0.0",
+                "expectedPixels": [
+                    {
+                        "x": 280,
+                        "y": 145,
+                        "value": "NaN"
+                    },
+                    {
+                        "x": 414,
+                        "y": 435,
+                        "value": "NaN"
+                    }
+                ]
+            },
+            {
+                "name": "norm_class_5",
+                "description": "",
+                "bandWidth": 500,
+                "bandHeight": 500,
+                "noDataValue": "0.0",
+                "noDataValueUsed": "false",
+                "spectralWavelength": "0.0",
+                "spectralBandwidth": "0.0",
+                "expectedPixels": [
+                    {
+                        "x": 54,
+                        "y": 443,
+                        "value": "NaN"
+                    },
+                    {
+                        "x": 171,
+                        "y": 407,
+                        "value": "NaN"
+                    }
+                ]
+            },
+            {
+                "name": "norm_class_6",
+                "description": "",
+                "bandWidth": 500,
+                "bandHeight": 500,
+                "noDataValue": "0.0",
+                "noDataValueUsed": "false",
+                "spectralWavelength": "0.0",
+                "spectralBandwidth": "0.0",
+                "expectedPixels": [
+                    {
+                        "x": 91,
+                        "y": 346,
+                        "value": "NaN"
+                    },
+                    {
+                        "x": 296,
+                        "y": 274,
+                        "value": "NaN"
+                    }
+                ]
+            },
+            {
+                "name": "norm_class_7",
+                "description": "",
+                "bandWidth": 500,
+                "bandHeight": 500,
+                "noDataValue": "0.0",
+                "noDataValueUsed": "false",
+                "spectralWavelength": "0.0",
+                "spectralBandwidth": "0.0",
+                "expectedPixels": [
+                    {
+                        "x": 102,
+                        "y": 153,
+                        "value": "NaN"
+                    },
+                    {
+                        "x": 205,
+                        "y": 431,
+                        "value": "NaN"
+                    }
+                ]
+            },
+            {
+                "name": "norm_class_8",
+                "description": "",
+                "bandWidth": 500,
+                "bandHeight": 500,
+                "noDataValue": "0.0",
+                "noDataValueUsed": "false",
+                "spectralWavelength": "0.0",
+                "spectralBandwidth": "0.0",
+                "expectedPixels": [
+                    {
+                        "x": 350,
+                        "y": 448,
+                        "value": "NaN"
+                    },
+                    {
+                        "x": 148,
+                        "y": 496,
+                        "value": "NaN"
+                    }
+                ]
+            },
+            {
+                "name": "norm_class_9",
+                "description": "",
+                "bandWidth": 500,
+                "bandHeight": 500,
+                "noDataValue": "0.0",
+                "noDataValueUsed": "false",
+                "spectralWavelength": "0.0",
+                "spectralBandwidth": "0.0",
+                "expectedPixels": [
+                    {
+                        "x": 273,
+                        "y": 58,
+                        "value": 1.0
+                    },
+                    {
+                        "x": 97,
+                        "y": 280,
+                        "value": 1.0
+                    }
+                ]
+            },
+            {
+                "name": "dominant_class",
+                "description": "",
+                "bandWidth": 500,
+                "bandHeight": 500,
+                "noDataValue": "-1.0",
+                "noDataValueUsed": "true",
+                "spectralWavelength": "0.0",
+                "spectralBandwidth": "0.0",
+                "expectedPixels": [
+                    {
+                        "x": 229,
+                        "y": 64,
+                        "value": 9.0
+                    },
+                    {
+                        "x": 414,
+                        "y": 286,
+                        "value": 9.0
+                    }
+                ]
+            },
+            {
+                "name": "class_sum",
+                "description": "",
+                "bandWidth": 500,
+                "bandHeight": 500,
+                "noDataValue": "0.0",
+                "noDataValueUsed": "false",
+                "spectralWavelength": "0.0",
+                "spectralBandwidth": "0.0",
+                "expectedPixels": [
+                    {
+                        "x": 51,
+                        "y": 338,
+                        "value": 5.439243E-25
+                    },
+                    {
+                        "x": 365,
+                        "y": 236,
+                        "value": 4.797983E-25
+                    }
+                ]
+            },
+            {
+                "name": "reflec_1",
+                "description": "Radiometry-corrected TOA reflectance",
+                "bandWidth": 500,
+                "bandHeight": 500,
+                "geophysicalUnit": "dl",
+                "noDataValue": "0.0",
+                "noDataValueUsed": "false",
+                "spectralWavelength": "412.691",
+                "spectralBandwidth": "9.937",
+                "expectedPixels": [
+                    {
+                        "x": 71,
+                        "y": 33,
+                        "value": 0.19341633
+                    },
+                    {
+                        "x": 420,
+                        "y": 149,
+                        "value": 0.1871914
+                    }
+                ]
+            },
+            {
+                "name": "reflec_2",
+                "description": "Radiometry-corrected TOA reflectance",
+                "bandWidth": 500,
+                "bandHeight": 500,
+                "geophysicalUnit": "dl",
+                "noDataValue": "0.0",
+                "noDataValueUsed": "false",
+                "spectralWavelength": "442.55902",
+                "spectralBandwidth": "9.946",
+                "expectedPixels": [
+                    {
+                        "x": 296,
+                        "y": 485,
+                        "value": 0.16030255
+                    },
+                    {
+                        "x": 388,
+                        "y": 13,
+                        "value": 0.13669877
+                    }
+                ]
+            },
+            {
+                "name": "reflec_3",
+                "description": "Radiometry-corrected TOA reflectance",
+                "bandWidth": 500,
+                "bandHeight": 500,
+                "geophysicalUnit": "dl",
+                "noDataValue": "0.0",
+                "noDataValueUsed": "false",
+                "spectralWavelength": "489.88202",
+                "spectralBandwidth": "9.957001",
+                "expectedPixels": [
+                    {
+                        "x": 108,
+                        "y": 123,
+                        "value": 0.32729366
+                    },
+                    {
+                        "x": 159,
+                        "y": 96,
+                        "value": 0.1791775
+                    }
+                ]
+            },
+            {
+                "name": "reflec_4",
+                "description": "Radiometry-corrected TOA reflectance",
+                "bandWidth": 500,
+                "bandHeight": 500,
+                "geophysicalUnit": "dl",
+                "noDataValue": "0.0",
+                "noDataValueUsed": "false",
+                "spectralWavelength": "509.81903",
+                "spectralBandwidth": "9.961",
+                "expectedPixels": [
+                    {
+                        "x": 141,
+                        "y": 441,
+                        "value": 0.11243326
+                    },
+                    {
+                        "x": 498,
+                        "y": 37,
+                        "value": 0.11414009
+                    }
+                ]
+            },
+            {
+                "name": "reflec_5",
+                "description": "Radiometry-corrected TOA reflectance",
+                "bandWidth": 500,
+                "bandHeight": 500,
+                "geophysicalUnit": "dl",
+                "noDataValue": "0.0",
+                "noDataValueUsed": "false",
+                "spectralWavelength": "559.69403",
+                "spectralBandwidth": "9.97",
+                "expectedPixels": [
+                    {
+                        "x": 409,
+                        "y": 250,
+                        "value": 0.118547544
+                    },
+                    {
+                        "x": 31,
+                        "y": 192,
+                        "value": 0.11253616
+                    }
+                ]
+            },
+            {
+                "name": "l1_flags",
+                "description": "Level 1b classification and quality flags",
+                "bandWidth": 500,
+                "bandHeight": 500,
+                "noDataValue": "0.0",
+                "noDataValueUsed": "false",
+                "spectralWavelength": "0.0",
+                "spectralBandwidth": "0.0",
+                "expectedPixels": [
+                    {
+                        "x": 138,
+                        "y": 291,
+                        "value": 16.0
+                    },
+                    {
+                        "x": 464,
+                        "y": 69,
+                        "value": 16.0
+                    }
+                ]
+            }
+        ],
+        "masks": [
+            {
+                "name": "coastline",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "0,255,0",
+                "description": "Pixel is part of a coastline"
+            },
+            {
+                "name": "land",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "51,153,0",
+                "description": "Pixel is over land, not ocean"
+            },
+            {
+                "name": "water",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "153,153,255",
+                "description": "Not Pixel is over land, not ocean"
+            },
+            {
+                "name": "cosmetic",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "204,153,255",
+                "description": "Pixel is cosmetic"
+            },
+            {
+                "name": "duplicated",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "255,200,0",
+                "description": "Pixel has been duplicated (filled in)"
+            },
+            {
+                "name": "glint_risk",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "255,0,255",
+                "description": "Pixel has glint risk"
+            },
+            {
+                "name": "suspect",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "204,102,255",
+                "description": "Pixel is suspect"
+            },
+            {
+                "name": "bright",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "255,255,0",
+                "description": "Pixel is bright"
+            },
+            {
+                "name": "invalid",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "255,0,0",
+                "description": "Pixel is invalid"
+            }
+        ],
+        "metadata": [
+            {
+                "path": "Processing_Graph/node.0/parameters/writeInputReflectances",
+                "value": "true"
+            },
+            {
+                "path": "Processing_Graph/node.2/parameters/deleteOutputOnFailure",
+                "value": "true"
+            },
+            {
+                "path": "Processing_Graph/node.0/sources/sourceProduct",
+                "value": "Meris.CorrectRadiometry"
+            },
+            {
+                "path": "Processing_Graph/node.2/parameters/formatName",
+                "value": "BEAM-DIMAP"
+            },
+            {
+                "path": "Processing_Graph/node.0/sources/sourceProduct",
+                "value": "Meris.CorrectRadiometry"
+            },
+            {
+                "path": "Processing_Graph/node.2/sources/sourceProduct",
+                "value": "OWTClassification"
+            },
+            {
+                "path": "Processing_Graph/node.1/parameters/reproVersion",
+                "value": "REPROCESSING_3"
+            },
+            {
+                "path": "Processing_Graph/node.0/sources/sourceProduct",
+                "value": "Meris.CorrectRadiometry"
+            },
+            {
+                "path": "Processing_Graph/node.1/parameters/doEqualization",
+                "value": "true"
+            },
+            {
+                "path": "Processing_Graph/node.2/sources/sourceProduct",
+                "value": "OWTClassification"
+            }
+        ]
+    }
+}
