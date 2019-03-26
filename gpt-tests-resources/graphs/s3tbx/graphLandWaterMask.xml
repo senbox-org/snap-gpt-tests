@@ -3,7 +3,7 @@
     <node id="Read">
         <operator>Read</operator>
         <sources/>
-        <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+        <parameters>
             <file>$input1</file>
             <formatName>Sen3</formatName>
         </parameters>
@@ -14,7 +14,7 @@
         <sources>
             <sourceProduct refid="Read"/>
         </sources>
-        <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+        <parameters>
             <sourceBands/>
             <region>$subsetRegion</region>
             <geoRegion></geoRegion>
@@ -30,7 +30,7 @@
         <sources>
             <sourceProduct refid="Subset"/>
         </sources>
-        <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+        <parameters>
             <resolution>$resolution</resolution>
             <subSamplingFactorX>1</subSamplingFactorX>
             <subSamplingFactorY>1</subSamplingFactorY>
@@ -43,7 +43,7 @@
             <sourceProduct refid="LandWaterMask"/>
             <sourceProduct.1 refid="Subset"/>
         </sources>
-        <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+        <parameters>
             <sourceBands/>
             <geographicError>$geoError</geographicError>
         </parameters>
@@ -54,7 +54,7 @@
         <sources>
             <sourceProduct refid="BandMerge"/>
         </sources>
-        <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+        <parameters>
             <file>$out1</file>
             <formatName>BEAM-DIMAP</formatName>
         </parameters>

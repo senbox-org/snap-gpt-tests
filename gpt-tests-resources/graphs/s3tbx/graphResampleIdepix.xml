@@ -3,7 +3,7 @@
     <node id="Read">
         <operator>Read</operator>
         <sources/>
-        <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+        <parameters>
             <file>$input1</file>
         </parameters>
     </node>
@@ -13,7 +13,7 @@
         <sources>
             <sourceProduct refid="Read"/>
         </sources>
-        <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+        <parameters>
             <referenceBand>$referenceBand</referenceBand>
             <targetWidth/>
             <targetHeight/>
@@ -30,7 +30,7 @@
         <sources>
             <sourceProduct refid="Resample"/>
         </sources>
-        <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+        <parameters>
             <copyToaReflectances>true</copyToaReflectances>
             <copyFeatureValues>false</copyFeatureValues>
             <computeMountainShadow>true</computeMountainShadow>
@@ -47,7 +47,7 @@
         <sources>
             <sourceProduct refid="Idepix.Sentinel2"/>
         </sources>
-        <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+        <parameters>
             <sourceBands/>
             <region>$subsetRegion</region>
             <geoRegion/>
@@ -64,7 +64,7 @@
         <sources>
             <sourceProduct refid="Subset"/>
         </sources>
-        <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+        <parameters>
             <file>$out1</file>
             <formatName>BEAM-DIMAP</formatName>
         </parameters>
