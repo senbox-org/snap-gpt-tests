@@ -9,26 +9,10 @@
         </parameters>
     </node>
 
-    <node id="Subset">
-        <operator>Subset</operator>
-        <sources>
-            <sourceProduct refid="Read"/>
-        </sources>
-        <parameters>
-            <sourceBands/>
-            <region>$subsetRegion</region>
-            <geoRegion></geoRegion>
-            <subSamplingX>1</subSamplingX>
-            <subSamplingY>1</subSamplingY>
-            <tiePointGridNames></tiePointGridNames>
-            <copyMetadata>false</copyMetadata>
-        </parameters>
-    </node>
-
     <node id="LandWaterMask">
         <operator>LandWaterMask</operator>
         <sources>
-            <sourceProduct refid="Subset"/>
+            <sourceProduct refid="Read"/>
         </sources>
         <parameters>
             <resolution>$resolution</resolution>
@@ -41,7 +25,7 @@
         <operator>BandMerge</operator>
         <sources>
             <sourceProduct refid="LandWaterMask"/>
-            <sourceProduct.1 refid="Subset"/>
+            <sourceProduct.1 refid="Read"/>
         </sources>
         <parameters>
             <sourceBands/>
