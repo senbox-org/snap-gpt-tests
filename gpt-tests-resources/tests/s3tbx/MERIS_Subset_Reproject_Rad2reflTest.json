@@ -1,0 +1,19 @@
+[{
+    "id":"MERIS_Subset_Reproject_Rad2reflTest",
+    "description":"execute MERIS Subset, Reprojection and Rad2refl",
+    "frequency":"daily",
+    "graphPath": "s3tbx/graphMERIS_Subset_Reproject_Rad2refl.xml",
+    "inputs": {
+        "input1": "sensors_platforms/MERIS/MER_FRS_1P/N1/MER_FRS_1PNMAP20100826_083555_000002002092_00236_44378_0001.N1"
+    },
+    "parameters": {
+        "sensor": "MERIS",
+        "conversionMode": "RAD_TO_REFL"
+    },
+    "outputs": [{
+        "parameter": "out1",
+        "outputName": "tempMERIS_Subset_Reproject_Rad2Refl",
+        "expected": "s3tbx/expectedMERIS_SUBSET_REPROJECT_RAD2REFL.json"
+    }]
+}
+]

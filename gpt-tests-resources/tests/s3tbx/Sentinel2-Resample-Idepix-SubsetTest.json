@@ -1,5 +1,5 @@
 [{
-    "id":"ResampleIdepix",
+    "id":"Sentinel2-Resample-Idepix-SubsetTest",
     "description":"execute Idepix operator",
     "frequency":"daily",
     "graphPath": "s3tbx/graphResampleIdepix.xml",
@@ -14,8 +14,8 @@
     },
     "outputs": [{
         "parameter": "out1",
-        "outputName": "ResampleIdepix",
-        "expected": "s3tbx/expectedRESAMPLEIDEPIX.json"
+        "outputName": "tempSentinel2-Resample-Idepix-Subset",
+        "expected": "s3tbx/expectedSENTINEL2-RESAMPLE-IDEPIX-SUBSET.json"
     }]
 }
 ]

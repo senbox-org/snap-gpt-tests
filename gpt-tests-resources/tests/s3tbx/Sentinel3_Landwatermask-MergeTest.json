@@ -1,5 +1,5 @@
 [{
-    "id":"LandWaterMask_OLCI",
+    "id":"Sentinel3_Landwatermask-MergeTest",
     "description":"execute LandWaterMask operator",
     "frequency":"daily",
     "graphPath": "s3tbx/graphLandWaterMask.xml",
@@ -15,8 +15,8 @@
     },
     "outputs": [{
         "parameter": "out1",
-        "outputName": "LandWaterMask_OLCI",
-        "expected": "s3tbx/expectedLANDWATERMASK.json"
+        "outputName": "tempSentinel3_Landwatermask-Merge",
+        "expected": "s3tbx/expectedSENTINEL3_LANDWATERMASK-MERGE.json"
     }]
 }
 ]

@@ -1,0 +1,81 @@
+<graph id="GraphMERIS_Subset_Reproject_Rad2refl">
+    <version>1.0</version>
+
+    <node id="Read">
+        <operator>Read</operator>
+        <sources/>
+        <parameters>
+        <file>$input1</file>
+        </parameters>
+    </node>
+
+    <node id="Subset">
+        <operator>Subset</operator>
+        <sources>
+            <sourceProduct refid="Read"/>
+        </sources>
+        <parameters>
+            <sourceBands/>
+            <region>0,0,0,0</region>
+            <geoRegion/>
+            <subSamplingX>1</subSamplingX>
+            <subSamplingY>1</subSamplingY>
+            <fullSwath>false</fullSwath>
+            <tiePointGridNames/>
+            <copyMetadata>true</copyMetadata>
+        </parameters>
+    </node>
+
+    <node id="Reproject">
+        <operator>Reproject</operator>
+        <sources>
+            <sourceProduct refid="Subset"/>
+        </sources>
+        <parameters>
+            <wktFile/>
+            <crs>EPSG:4326</crs>
+            <resampling>Nearest</resampling>
+            <referencePixelX/>
+            <referencePixelY/>
+            <easting/>
+            <northing/>
+            <orientation/>
+            <pixelSizeX/>
+            <pixelSizeY/>
+            <width/>
+            <height/>
+            <tileSizeX/>
+            <tileSizeY/>
+            <orthorectify>false</orthorectify>
+            <elevationModelName/>
+            <noDataValue>NaN</noDataValue>
+            <includeTiePointGrids>true</includeTiePointGrids>
+            <addDeltaBands>false</addDeltaBands>
+        </parameters>
+    </node>
+
+    <node id="Rad2Refl">
+        <operator>Rad2Refl</operator>
+        <sources>
+            <sourceProduct refid="Reproject"/>
+        </sources>
+        <parameters>
+            <sensor>$sensor</sensor>
+            <conversionMode>$conversionMode</conversionMode>
+            <copyTiePointGrids>true</copyTiePointGrids>
+            <copyFlagBandsAndMasks>true</copyFlagBandsAndMasks>
+            <copyNonSpectralBands>false</copyNonSpectralBands>
+        </parameters>
+    </node>
+
+    <node id="Write">
+        <operator>Write</operator>
+        <sources>
+            <sourceProduct refid="Rad2Refl"/>
+        </sources>
+        <parameters>
+            <file>$out1</file>
+            <formatName>BEAM-DIMAP</formatName>
+        </parameters>
+    </node>
+</graph>
