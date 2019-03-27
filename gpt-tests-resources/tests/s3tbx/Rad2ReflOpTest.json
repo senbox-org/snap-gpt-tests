@@ -1,0 +1,45 @@
+[{
+    "id":"Rad2ReflTest_OLCI",
+    "description":"execute Rad2Refl operator",
+    "frequency":"daily/regular",
+    "graphPath": "s3tbx/graphRad2ReflOp.xml",
+    "inputs": {
+        "input1": "s3tbx/sensors_platforms/SENTINEL-3/olci/L1/S3A_OL_1_EFR____20160303T080325_20160303T080525_20160312T095955_0119_001_249______SVL_O_NR_001.SEN3"
+    },
+    "parameters": {
+        "subsetRegion": "1500,600,300,300",
+        "sensor": "OLCI",
+        "conversionMode": "RAD_TO_REFL",
+        "copyTiePointGrids": "false",
+        "copyFlagBandsAndMasks": "false",
+        "copyNonSpectralBands": "false"
+    },
+    "outputs": [{
+        "parameter": "out1",
+        "outputName": "Rad2ReflTest_OLCI",
+        "expected": "s3tbx/expectedRad2ReflOp_olci.json"
+    }]
+},
+    {
+        "id":"Rad2ReflTest_MERIS",
+        "description":"execute Rad2Refl operator",
+        "frequency":"daily/regular",
+        "graphPath": "s3tbx/graphRad2ReflOp.xml",
+        "inputs": {
+            "input1": "s3tbx/sensors_platforms/MERIS/MER_FRS_1P/N1/MER_FRS_1PNACR20040515_101402_000002112026_00466_11542_0000.N1"
+        },
+        "parameters": {
+            "subsetRegion": "1000,1000,300,300",
+            "sensor": "MERIS",
+            "conversionMode": "RAD_TO_REFL",
+            "copyTiePointGrids": "true",
+            "copyFlagBandsAndMasks": "true",
+            "copyNonSpectralBands": "true"
+        },
+        "outputs": [{
+            "parameter": "out1",
+            "outputName": "Rad2ReflTest_MERIS",
+            "expected": "s3tbx/expectedRad2ReflOp_meris.json"
+        }]
+    }
+]

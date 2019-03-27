@@ -1,0 +1,53 @@
+<graph id="Graph">
+    <version>1.0</version>
+    <node id="Read">
+        <operator>Read</operator>
+        <sources/>
+        <parameters>
+            <file>$input1</file>
+            <formatName>Sen3</formatName>
+        </parameters>
+    </node>
+
+    <node id="Rad2Refl">
+        <operator>Rad2Refl</operator>
+        <sources>
+            <sourceProduct refid="Read"/>
+        </sources>
+        <parameters>
+            <sensor>$sensor</sensor>
+            <conversionMode>$conversionMode</conversionMode>
+            <copyTiePointGrids>true</copyTiePointGrids>
+            <copyFlagBandsAndMasks>false</copyFlagBandsAndMasks>
+            <copyNonSpectralBands>false</copyNonSpectralBands>
+        </parameters>
+    </node>
+
+    <node id="Subset">
+        <operator>Subset</operator>
+        <sources>
+            <sourceProduct refid="Rad2Refl"/>
+        </sources>
+        <parameters>
+            <sourceBands/>
+            <region/>
+            <geoRegion/>
+            <subSamplingX>1</subSamplingX>
+            <subSamplingY>1</subSamplingY>
+            <fullSwath>false</fullSwath>
+            <tiePointGridNames/>
+            <copyMetadata>true</copyMetadata>
+        </parameters>
+    </node>
+
+    <node id="Write">
+        <operator>Write</operator>
+        <sources>
+            <sourceProduct refid="Subset"/>
+        </sources>
+        <parameters>
+            <file>$out1</file>
+            <formatName>NetCDF4-BEAM</formatName>
+        </parameters>
+    </node>
+</graph>

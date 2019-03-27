@@ -1,0 +1,46 @@
+<graph id="GraphReprojectionOp">
+    <version>1.0</version>
+    <node id="Read">
+        <operator>Read</operator>
+        <sources/>
+        <parameters>
+            <file>$input1</file>
+        </parameters>
+    </node>
+    <node id="Subset">
+        <operator>Subset</operator>
+        <sources>
+            <sourceProduct refid="Read"/>
+        </sources>
+        <parameters>
+            <region>$subsetRegion</region>
+            <fullSwath>false</fullSwath>
+            <tiePointGridNames/>
+            <copyMetadata>true</copyMetadata>
+        </parameters>
+    </node>
+    <node id="ReprojectionOp">
+        <operator>Reproject</operator>
+        <sources>
+            <sourceProduct refid="Subset"/>
+        </sources>
+        <parameters>
+            <crs>$crs</crs>
+            <resampling>$resampling</resampling>
+            <orthorectify>$orthorectify</orthorectify>
+            <noDataValue>$noDataValue</noDataValue>
+            <includeTiePointGrids>$includeTiePointGrids</includeTiePointGrids>
+            <addDeltaBands>$addDeltaBands</addDeltaBands>
+        </parameters>
+    </node>
+    <node id="Write">
+        <operator>Write</operator>
+        <sources>
+            <sourceProduct refid="ReprojectionOp"/>
+        </sources>
+        <parameters>
+            <file>$out1</file>
+            <formatName>BEAM-DIMAP</formatName>
+        </parameters>
+    </node>
+</graph>

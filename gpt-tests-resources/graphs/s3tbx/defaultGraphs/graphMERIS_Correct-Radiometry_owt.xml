@@ -1,0 +1,50 @@
+<graph id="GraphMERIS_Correct-Radiometry_owt">
+    <version>1.0</version>
+    <node id="Read">
+        <operator>Read</operator>
+        <sources/>
+        <parameters>
+            <file>$input1</file>
+        </parameters>
+    </node>
+
+    <node id="Meris.CorrectRadiometry">
+        <operator>Meris.CorrectRadiometry</operator>
+        <sources>
+            <sourceProduct refid="Read"/>
+        </sources>
+        <parameters>
+            <doCalibration>true</doCalibration>
+            <sourceRacFile/>
+            <targetRacFile/>
+            <doSmile>true</doSmile>
+            <doEqualization>true</doEqualization>
+            <reproVersion>$reproVersion</reproVersion>
+            <doRadToRefl>true</doRadToRefl>
+        </parameters>
+    </node>
+
+    <node id="OWTClassification">
+        <operator>OWTClassification</operator>
+        <sources>
+            <sourceProduct refid="Meris.CorrectRadiometry"/>
+        </sources>
+        <parameters>
+            <owtType>$owtType</owtType>
+            <reflectancesPrefix>reflec</reflectancesPrefix>
+            <inputReflectanceIs>$inputReflectanceIs</inputReflectanceIs>
+            <writeInputReflectances>true</writeInputReflectances>
+        </parameters>
+    </node>
+
+    <node id="Write">
+        <operator>Write</operator>
+        <sources>
+            <sourceProduct refid="OWTClassification"/>
+        </sources>
+        <parameters>
+            <file>$out1</file>
+            <formatName>BEAM-DIMAP</formatName>
+        </parameters>
+    </node>
+</graph>

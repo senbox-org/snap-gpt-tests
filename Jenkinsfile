@@ -15,51 +15,132 @@
  * with this program; if not, see http://www.gnu.org/licenses/
  */
 
+/**
+ * Launch jobs in parallel for every json file listed in jsonString separated by '\n'
+ */
+def launchJobs(jsonString, scope, outputDir) {
+
+    def jobs = [:]
+    println "List of Json file : " + jsonString
+    jsonList = jsonString.split("\n")
+    num = 0
+    for (int i=0; i < jsonList.size(); i++) {
+    //jsonList.each { item ->
+        item = jsonList[i]
+        def currentJsonFile = "" + item
+        echo "Schedule job for json file : " + item
+        jobs["GPT Test ${num} ${item}"] = {
+            build job: "snap-gpt-tests/${branchVersion}", parameters: [
+            // build job: "test", parameters: [
+                    [$class: 'StringParameterValue', name: 'jsonPath', value: currentJsonFile],
+                    [$class: 'StringParameterValue', name: 'testScope', value: "${scope}"],
+                    [$class: 'StringParameterValue', name: 'outputReportDir', value: "${outputDir}"]
+                ],
+                quietPeriod: 0,
+                propagate: true,
+                wait: true
+        }
+        num++
+    }
+    // return jobs
+    parallel jobs
+}
+
 pipeline {
+
+    environment {
+        branchVersion = sh(returnStdout: true, script: "echo ${env.GIT_BRANCH} | cut -d '/' -f 2").trim()
+        outputDir = "/home/snap/output/${branchVersion}/${env.BUILD_NUMBER}"
+    }
     agent { label 'snap-test' }
     parameters {
         string(name: 'dockerTagName', defaultValue: 's2tbx:testJenkins_validation', description: 'Snap version to use to launch tests')
-        string(name: 'testScope', defaultValue: 'PUSH', description: 'Scope of the tests to launch (PUSH, NIGHTLY, WEEKLY, RELEASE)')
+        string(name: 'testScope', defaultValue: 'REGULAR', description: 'Scope of the tests to launch (PUSH, DAILY, REGULAR, WEEKLY, RELEASE)')
+        string(name: 'propertiesPath', defaultValue: '', description: 'Command to launch (gpt command including required parameters)')
+        string(name: 'outputReportDir', defaultValue: '/home/snap/', description: 'Path to directory where gpt test will write report')
         string(name: 'jsonPath', defaultValue: '', description: 'Command to launch (gpt command including required parameters)')
+        // string(name: 'LabelParameterValue', defaultValue: 'snap-test', description: 'Label to use to launch gpt tests')
         // string(name: 'project', defaultValue: 's2tbx', description: 'Scope of the tests to launch (PUSH, NIGHTLY, WEEKLY, RELEASE)')
     }
     stages {
         stage('Filter JSON') {
             when {
                 expression {
+                    // run this stage only when json path is NOT specified
                     return "${params.jsonPath}" == '';
                 }
             }
             agent {
                 docker {
-                    image "snap-build-server.tilaa.cloud/${params.dockerTagName}"
-                    args '-v /data/ssd/testData/:/data/ssd/testData/'
+                    image "snap-build-server.tilaa.cloud/maven:3.6.0-jdk-8"
+                    args "-e MAVEN_CONFIG=/var/maven/.m2 -v /opt/maven/.m2/settings.xml:/var/maven/.m2/settings.xml -v docker_gpt_test_results:/home/snap/output/"
                 }
             }
             steps {
-                echo "Launch GPT Tests from ${env.JOB_NAME} from ${env.GIT_BRANCH} with commit ${env.GIT_COMMIT} using docker image snap-build-server.tilaa.cloud/${params.dockerTagName}"
-                sh "mvn clean install"
-                sh "java -jar target/filterJson.jar ${params.testScope} ${params.dockerTagName}"
+                echo "Launch Filter JSON from ${env.JOB_NAME} from ${env.GIT_BRANCH} with commit ${env.GIT_COMMIT} using docker image snap-build-server.tilaa.cloud/${params.dockerTagName}"
+                sh "mkdir -p ${outputDir}"
+                sh "mvn -Duser.home=/var/maven clean package install"
+                sh "java -jar ./gpt-tests-executer/target/FilterTestJSON.jar ./gpt-tests-resources/tests ${params.testScope} ${outputDir}"
+                sh "more ${outputDir}/JSONTestFiles.txt"
+                sh "cp -r ./gpt-tests-executer/target/ ${outputDir}/gptExecutorTarget"
+                // sh "/opt/launchGpt.sh ${propertiesFilePath} ${outputDir}/FilterJson.vsofig ${scope}"
             }
         }
-    }
-    stages {
-        stage('Json Executer') {
+        stage('Launch Jobs') {
             when {
                 expression {
+                    // run this stage only when json path is NOT specified
                     return "${params.jsonPath}" == '';
                 }
             }
-            agent { label 'snap-execution' } {
+            agent {
                 docker {
-                    image "snap-build-server.tilaa.cloud/${params.dockerTagName}"
-                    args '-v /data/ssd/testData/:/data/ssd/testData/'
+                    image "snap-build-server.tilaa.cloud/scripts:1.0"
+                    args "-v docker_gpt_test_results:/home/snap/output/"
+                }
+            } 
+            steps {
+                script {
+                    jsonString = sh(returnStdout: true, script: "cat ${outputDir}/JSONTestFiles.txt").trim()
+                    //println "jsonString " + jsonString
+                    //jsonList = jsonString.split("\n")
+                    //jsonList.each { item->
+                    //    println "loop " + item
+                    //}
+                    // def jobs = launchJobs(jsonString, testScope, outputDir)
+                }
+                echo "Launch Jobs from ${env.JOB_NAME} from ${env.GIT_BRANCH} with commit ${env.GIT_COMMIT} using docker image snap-build-server.tilaa.cloud/${params.dockerTagName}"
+                // echo "List of json files : ${jsonString}"
+                launchJobs("${jsonString}", "${testScope}", "${outputDir}")
+                // parallel jobs
+            }
+            post {
+                always {
+                    sh "cp -r ${outputDir}/report $WORKSPACE"
+                    sh "cat report/*.txt > report/report.txt"
+                    archiveArtifacts artifacts: "report/**/*.*", fingerprint: true
+                    sh "rm -rf report"
+                }
+            }
+        }
+        stage('SNAP GPT Test') {
+            when {
+                expression {
+                    return "${params.jsonPath}" != '';
+                }
+            }
+            agent  {
+                docker {
+                    label 'snap'
+                    image "snap-build-server.tilaa.cloud/${dockerTagName}"
+                    args '-v /data/ssd/testData/:/data/ssd/testData/ -v /opt/snap-gpt-tests/gpt-tests-executer.properties:/opt/snap-gpt-tests/gpt-tests-executer.properties -v docker_gpt_test_results:/home/snap/output/'
                 }
             }
             steps {
-                echo "Launch GPT Tests from ${env.JOB_NAME} from ${env.GIT_BRANCH} with commit ${env.GIT_COMMIT} using docker image snap-build-server.tilaa.cloud/${params.dockerTagName}"
-                sh 'mvn install'
-                sh 'java -jar target/snap-gpt-tests.jar ${params.testScope} ${params.dockerTagName}'
+                echo "Launch GPT Tests from ${env.JOB_NAME} from ${env.GIT_BRANCH} with commit ${env.GIT_COMMIT}"
+                sh "mkdir -p ${outputReportDir}/report"
+                sh "mkdir -p /home/snap/tmpDir"
+                sh "export LD_LIBRARY_PATH=. && /home/snap/snap/jre/bin/java -jar ${outputReportDir}/gptExecutorTarget/SnapGPTTest-jar-with-dependencies.jar /opt/snap-gpt-tests/gpt-tests-executer.properties ${params.testScope} ${params.jsonPath} ${outputReportDir}/report"
             }
         }
     }

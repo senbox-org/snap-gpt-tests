@@ -1,10 +1,10 @@
 [{
   "id":"biophysicalTests",
   "description":"execute biophysical processor with S2",
-  "frequency":"daily",
+  "frequency":"daily/regular",
   "graphPath": "s2tbx/graphLAI.xml",
   "inputs": {
-    "input1": "S2A_MSIL1C_20180313T003701_N0206_R059_T55LCD_20180313T020656.SAFE"
+    "input1": "s2tbx/S2/PSD14/L1C/S2A_MSIL1C_20160914T074612_N0204_R135_T36JTT_20160914T081456.SAFE"
   },
   "parameters": {
     "refBand": "B1",
