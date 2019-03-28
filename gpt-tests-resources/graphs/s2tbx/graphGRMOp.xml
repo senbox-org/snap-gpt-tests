@@ -1,4 +1,4 @@
-<graph id="GraphIreciOp">
+<graph id="GraphGRMOp">
   <version>1.0</version>
   <node id="Read">
     <operator>Read</operator>
@@ -29,6 +29,7 @@
       <sourceProduct refid="Resample"/>
     </sources>
     <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <!--<sourceBands>$subsetSourceBands</sourceBands>-->
       <sourceBands/>
       <region>$subsetRegion</region>
       <geoRegion/>
@@ -39,29 +40,25 @@
       <copyMetadata>true</copyMetadata>
     </parameters>
   </node>
-  <node id="IreciOp">
-    <operator>IreciOp</operator>
+  <node id="GenericRegionMergingOp">
+    <operator>GenericRegionMergingOp</operator>
     <sources>
       <sourceProduct refid="Subset"/>
     </sources>
     <parameters class="com.bc.ceres.binding.dom.XppDomElement">
-      <resampleType>None</resampleType>
-      <upsampling/>
-      <downsampling/>
-      <redB4Factor>1.0</redB4Factor>
-      <redB5Factor>1.0</redB5Factor>
-      <redB6Factor>1.0</redB6Factor>
-      <nirFactor>1.0</nirFactor>
-      <redSourceBand4>$redSourceBand4</redSourceBand4>
-      <redSourceBand5>$redSourceBand5</redSourceBand5>
-      <redSourceBand6>$redSourceBand6</redSourceBand6>
-      <nirSourceBand>$nirSourceBand</nirSourceBand>
+      <mergingCostCriterion>$mergingCostCriterion</mergingCostCriterion>
+      <regionMergingCriterion>$regionMergingCriterion</regionMergingCriterion>
+      <totalIterationsForSecondSegmentation>50</totalIterationsForSecondSegmentation>
+      <threshold>10.0</threshold>
+      <spectralWeight>0.5</spectralWeight>
+      <shapeWeight>0.5</shapeWeight>
+      <sourceBandNames>$sourceBandNames</sourceBandNames>
     </parameters>
   </node>
   <node id="Write">
     <operator>Write</operator>
     <sources>
-      <sourceProduct refid="IreciOp"/>
+      <sourceProduct refid="GenericRegionMergingOp"/>
     </sources>
     <parameters class="com.bc.ceres.binding.dom.XppDomElement">
       <file>$out1</file>
@@ -79,7 +76,7 @@
     <node id="Subset">
       <displayPosition x="260.0" y="136.0"/>
     </node>
-    <node id="IreciOp">
+    <node id="GenericRegionMergingOp">
       <displayPosition x="380.0" y="136.0"/>
     </node>
     <node id="Write">
