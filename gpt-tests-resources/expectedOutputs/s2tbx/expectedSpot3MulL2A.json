@@ -1,0 +1,217 @@
+{
+  "id": "tempSpot3MulL2A",
+  "decodeQualification": "INTENDED",
+  "expectedContent": {
+    "sceneWidth": 1118,
+    "sceneHeight": 601,
+    "startTime": "18-JUL-1999 11:02:12.924999",
+    "endTime": "18-JUL-1999 11:02:12.924999",
+    "geoCoding": {
+      "coordinates": [
+        {
+          "x": 482.0,
+          "y": 323.0,
+          "lat": 53.733146204226806,
+          "lon": 7.948786479064376
+        },
+        {
+          "x": 830.0,
+          "y": 389.0,
+          "lat": 53.71770165380301,
+          "lon": 8.030221381298936
+        }
+      ],
+      "reverseAccuracy": 2.9103830456733704E-11
+    },
+    "bands": [
+      {
+        "name": "XS1",
+        "description": "XS1",
+        "bandWidth": 1118,
+        "bandHeight": 601,
+        "geophysicalUnit": "equivalent radiance (W.m-2.Sr-1.um-1)",
+        "noDataValue": "0.0",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "470.0",
+        "spectralBandwidth": "5.0",
+        "expectedPixels": [
+          {
+            "x": 58,
+            "y": 107,
+            "value": "NaN"
+          },
+          {
+            "x": 765,
+            "y": 511,
+            "value": 142.0
+          }
+        ]
+      },
+      {
+        "name": "XS2",
+        "description": "XS2",
+        "bandWidth": 1118,
+        "bandHeight": 601,
+        "geophysicalUnit": "equivalent radiance (W.m-2.Sr-1.um-1)",
+        "noDataValue": "0.0",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "590.0",
+        "spectralBandwidth": "5.0",
+        "expectedPixels": [
+          {
+            "x": 325,
+            "y": 154,
+            "value": 102.0
+          },
+          {
+            "x": 682,
+            "y": 219,
+            "value": 101.0
+          }
+        ]
+      },
+      {
+        "name": "XS3",
+        "description": "XS3",
+        "bandWidth": 1118,
+        "bandHeight": 601,
+        "geophysicalUnit": "equivalent radiance (W.m-2.Sr-1.um-1)",
+        "noDataValue": "0.0",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "730.0",
+        "spectralBandwidth": "5.0",
+        "expectedPixels": [
+          {
+            "x": 614,
+            "y": 447,
+            "value": 70.0
+          },
+          {
+            "x": 680,
+            "y": 558,
+            "value": 83.0
+          }
+        ]
+      },
+      {
+        "name": "SWIR",
+        "description": "SWIR",
+        "bandWidth": 1118,
+        "bandHeight": 601,
+        "geophysicalUnit": "equivalent radiance (W.m-2.Sr-1.um-1)",
+        "noDataValue": "0.0",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "1510.0",
+        "spectralBandwidth": "5.0",
+        "expectedPixels": [
+          {
+            "x": 176,
+            "y": 400,
+            "value": 44.0
+          },
+          {
+            "x": 580,
+            "y": 549,
+            "value": "NaN"
+          }
+        ]
+      },
+      {
+        "name": "latitude",
+        "description": "",
+        "bandWidth": 1118,
+        "bandHeight": 601,
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 845,
+            "y": 291,
+            "value": 53.740498
+          },
+          {
+            "x": 1062,
+            "y": 292,
+            "value": "NaN"
+          }
+        ]
+      },
+      {
+        "name": "longitude",
+        "description": "",
+        "bandWidth": 1118,
+        "bandHeight": 601,
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 380,
+            "y": 540,
+            "value": "NaN"
+          },
+          {
+            "x": 11,
+            "y": 282,
+            "value": "NaN"
+          }
+        ]
+      }
+    ],
+    "masks": [
+      {
+        "name": "NODATA",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "0,0,0",
+        "description": "NODATA"
+      },
+      {
+        "name": "SATURATED",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "255,255,255",
+        "description": "SATURATED"
+      }
+    ],
+    "metadata": [
+      {
+        "path": "TIFF Metadata/GeoTIFF Metadata/GeoKeyDirectory/GTModelTypeGeoKey",
+        "value": "ModelTypeGeographic"
+      },
+      {
+        "path": "history/SubsetInfo/ProductNodeName.1",
+        "value": "latitude"
+      },
+      {
+        "path": "TIFF Metadata/GeoTIFF Metadata/GeoKeyDirectory/GTRasterTypeGeoKey",
+        "value": "RasterPixelIsPoint"
+      },
+      {
+        "path": "TIFF Metadata/GeoTIFF Metadata/GeoKeyDirectory/GTModelTypeGeoKey",
+        "value": "ModelTypeGeographic"
+      },
+      {
+        "path": "history/SubsetInfo/SubSampling.x",
+        "value": "1"
+      },
+      {
+        "path": "TIFF Metadata/GeoTIFF Metadata/GeoKeyDirectory/GTCitationGeoKey",
+        "value": "Uncorrected Satellite Data"
+      },
+      {
+        "path": "Processing_Graph/node.1/parameters/sourceBands",
+        "value": "XS1,XS2,XS3,SWIR"
+      },
+      {
+        "path": "TIFF Metadata/GeoTIFF Metadata/GeoKeyDirectory/GTRasterTypeGeoKey",
+        "value": "RasterPixelIsPoint"
+      },
+      {
+        "path": "Processing_Graph/node.3/parameters/clearCacheAfterRowWrite",
+        "value": "false"
+      }
+    ]
+  }
+}

@@ -1,0 +1,19 @@
+[{
+  "id":"Spot6Test",
+  "description":"execute Spot 6 product reader and operators",
+  "frequency":"daily",
+  "graphPath": "s2tbx/graphReaderSingleLevel.xml",
+  "inputs": {
+    "input1": "s2tbx/_gpt_readers/spot6/SPOT_LIST.XML"
+  },
+  "parameters": {
+    "sourceBands": "B0",
+    "subsetRegion": "1,1,600,600",
+    "crs": "WGS84(DD)"
+  },
+  "outputs": [{
+    "parameter": "out1",
+    "outputName": "tempSpot6",
+    "expected": "s2tbx/expectedSpot6.json"
+  }]
+}]

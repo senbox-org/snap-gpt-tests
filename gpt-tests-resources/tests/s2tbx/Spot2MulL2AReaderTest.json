@@ -1,0 +1,19 @@
+[{
+  "id":"Spot2MulL2ATest",
+  "description":"execute Spot 2 (level L2A) product reader and operators",
+  "frequency":"daily",
+  "graphPath": "s2tbx/graphReaderSingleLevel.xml",
+  "inputs": {
+    "input1": "s2tbx/_gpt_readers/spot2/MUL/L2A/20562490706091047282X0_2A_NETWORK.ZIP"
+  },
+  "parameters": {
+    "sourceBands": "XS1,XS2,XS3",
+    "subsetRegion": "900,300,600,600",
+    "crs": "WGS84(DD)"
+  },
+  "outputs": [{
+    "parameter": "out1",
+    "outputName": "tempSpot2MulL2A",
+    "expected": "s2tbx/expectedSpot2MulL2A.json"
+  }]
+}]

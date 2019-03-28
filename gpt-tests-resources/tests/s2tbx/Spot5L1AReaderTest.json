@@ -1,0 +1,19 @@
+[{
+  "id":"Spot5L1ATest",
+  "description":"execute Spot 5 (level L1A) product reader and operators",
+  "frequency":"daily",
+  "graphPath": "s2tbx/graphReaderSingleLevel.xml",
+  "inputs": {
+    "input1": "s2tbx/_gpt_readers/spot5/L1A/50472600612271047091J0_1A_DVD.ZIP"
+  },
+  "parameters": {
+    "sourceBands": "XS1,XS2,XS3,SWIR",
+    "subsetRegion": "1,1,600,600",
+    "crs": "WGS84(DD)"
+  },
+  "outputs": [{
+    "parameter": "out1",
+    "outputName": "tempSpot5L1A",
+    "expected": "s2tbx/expectedSpot5L1A.json"
+  }]
+}]

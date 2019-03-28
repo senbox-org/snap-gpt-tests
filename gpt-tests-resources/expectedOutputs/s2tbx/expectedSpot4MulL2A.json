@@ -1,0 +1,173 @@
+{
+  "id": "tempSpot4MulL2A",
+  "decodeQualification": "INTENDED",
+  "expectedContent": {
+    "sceneWidth": 601,
+    "sceneHeight": 604,
+    "startTime": "03-AUG-2011 08:07:54.172000",
+    "endTime": "03-AUG-2011 08:07:54.172000",
+    "geoCoding": {
+      "coordinates": [
+        {
+          "x": 259.0,
+          "y": 324.0,
+          "lat": -2.4268889586324316,
+          "lon": 28.918134601213335
+        },
+        {
+          "x": 446.0,
+          "y": 391.0,
+          "lat": -2.4329205786426855,
+          "lon": 28.93496912273449
+        }
+      ],
+      "reverseAccuracy": 0.0
+    },
+    "bands": [
+      {
+        "name": "XS1",
+        "description": "XS1",
+        "bandWidth": 601,
+        "bandHeight": 604,
+        "geophysicalUnit": "equivalent radiance (W.m-2.Sr-1.um-1)",
+        "noDataValue": "0.0",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "470.0",
+        "spectralBandwidth": "5.0",
+        "expectedPixels": [
+          {
+            "x": 31,
+            "y": 107,
+            "value": 23.0
+          },
+          {
+            "x": 411,
+            "y": 513,
+            "value": 82.0
+          }
+        ]
+      },
+      {
+        "name": "XS2",
+        "description": "XS2",
+        "bandWidth": 601,
+        "bandHeight": 604,
+        "geophysicalUnit": "equivalent radiance (W.m-2.Sr-1.um-1)",
+        "noDataValue": "0.0",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "590.0",
+        "spectralBandwidth": "5.0",
+        "expectedPixels": [
+          {
+            "x": 174,
+            "y": 155,
+            "value": 96.0
+          },
+          {
+            "x": 366,
+            "y": 220,
+            "value": 124.0
+          }
+        ]
+      },
+      {
+        "name": "XS3",
+        "description": "XS3",
+        "bandWidth": 601,
+        "bandHeight": 604,
+        "geophysicalUnit": "equivalent radiance (W.m-2.Sr-1.um-1)",
+        "noDataValue": "0.0",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "730.0",
+        "spectralBandwidth": "5.0",
+        "expectedPixels": [
+          {
+            "x": 330,
+            "y": 450,
+            "value": 125.0
+          },
+          {
+            "x": 365,
+            "y": 560,
+            "value": 117.0
+          }
+        ]
+      },
+      {
+        "name": "SWIR",
+        "description": "SWIR",
+        "bandWidth": 601,
+        "bandHeight": 604,
+        "geophysicalUnit": "equivalent radiance (W.m-2.Sr-1.um-1)",
+        "noDataValue": "0.0",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "1510.0",
+        "spectralBandwidth": "5.0",
+        "expectedPixels": [
+          {
+            "x": 95,
+            "y": 402,
+            "value": 16.0
+          },
+          {
+            "x": 312,
+            "y": 551,
+            "value": 102.0
+          }
+        ]
+      }
+    ],
+    "masks": [
+      {
+        "name": "NODATA",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "0,0,0",
+        "description": "NODATA"
+      },
+      {
+        "name": "SATURATED",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "255,255,255",
+        "description": "SATURATED"
+      }
+    ],
+    "metadata": [
+      {
+        "path": "history/SubsetInfo/ProductNodeName.4",
+        "value": "SWIR"
+      },
+      {
+        "path": "TIFF Metadata/GeoTIFF Metadata/GeoKeyDirectory/GTModelTypeGeoKey",
+        "value": "ModelTypeProjected"
+      },
+      {
+        "path": "TIFF Metadata/GeoTIFF Metadata/GeoKeyDirectory/GTRasterTypeGeoKey",
+        "value": "RasterPixelIsArea"
+      },
+      {
+        "path": "SPOTSCENE_2A/Data_Strip/Frame_Counters/SCENE_START",
+        "value": "4894"
+      },
+      {
+        "path": "TIFF Metadata/GeoTIFF Metadata/GeoKeyDirectory/GTCitationGeoKey",
+        "value": "Corrected Satellite Data"
+      },
+      {
+        "path": "TIFF Metadata/GeoTIFF Metadata/GeoKeyDirectory/GTModelTypeGeoKey",
+        "value": "ModelTypeProjected"
+      },
+      {
+        "path": "history/SubsetInfo/SubSampling.x",
+        "value": "1"
+      },
+      {
+        "path": "TIFF Metadata/GeoTIFF Metadata/GeoKeyDirectory/GTCitationGeoKey",
+        "value": "Corrected Satellite Data"
+      },
+      {
+        "path": "Processing_Graph/node.1/parameters/sourceBands",
+        "value": "XS1,XS2,XS3,SWIR"
+      }
+    ]
+  }
+}

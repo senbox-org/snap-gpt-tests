@@ -1,0 +1,100 @@
+{
+  "id": "tempSpot7Ortho",
+  "decodeQualification": "INTENDED",
+  "expectedContent": {
+    "sceneWidth": 657,
+    "sceneHeight": 601,
+    "startTime": "11-SEP-2014 13:10:17.761811",
+    "endTime": "11-SEP-2014 13:10:17.761811",
+    "geoCoding": {
+      "coordinates": [
+        {
+          "x": 283.0,
+          "y": 323.0,
+          "lat": -24.58652070062719,
+          "lon": -49.72700252114613
+        },
+        {
+          "x": 487.0,
+          "y": 389.0,
+          "lat": -24.590129442500015,
+          "lon": -49.715848228084674
+        }
+      ],
+      "reverseAccuracy": 1.1641532182693481E-10
+    },
+    "bands": [
+      {
+        "name": "B1",
+        "description": "",
+        "bandWidth": 657,
+        "bandHeight": 601,
+        "geophysicalUnit": "watt/m2/steradians/micrometers",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "565.0",
+        "spectralBandwidth": "62.0",
+        "expectedPixels": [
+          {
+            "x": 34,
+            "y": 107,
+            "value": 116.95951
+          },
+          {
+            "x": 450,
+            "y": 511,
+            "value": 107.12208
+          }
+        ]
+      }
+    ],
+    "masks": [
+      {
+        "name": "NODATA",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "0,0,0",
+        "description": "NODATA"
+      },
+      {
+        "name": "SATURATED",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "255,200,0",
+        "description": "SATURATED"
+      }
+    ],
+    "metadata": [
+      {
+        "path": "Metadata/Product_Information/Distributor_Information/DISTRIBUTOR_URL/href",
+        "value": "http://www.astrium-geo.com"
+      },
+      {
+        "path": "history/SubsetInfo/ProductNodeName.1",
+        "value": "B1"
+      },
+      {
+        "path": "Metadata/Raster_Data/Raster_Encoding/COMPRESSION_RATIO",
+        "value": "5.93681"
+      },
+      {
+        "path": "history/SubsetInfo/ProductNodeName.1",
+        "value": "B1"
+      },
+      {
+        "path": "Processing_Graph/node.1/parameters/sourceBands",
+        "value": "B1"
+      },
+      {
+        "path": "Metadata/Dataset_Sources/Source_Identification[2]/Component/COMPONENT_PATH/href",
+        "value": "LINEAGE/HEIGHT_R3D_DT2_S25W050_DIM.XML"
+      },
+      {
+        "path": "Processing_Graph/node.1/parameters/subSamplingY",
+        "value": "1"
+      },
+      {
+        "path": "Metadata/Raster_Data/Data_Access/Data_Files/Data_File/DATA_FILE_PATH/href",
+        "value": "IMG_SPOT7_MS_201409111310044_ORT_1196465101_R1C1.JP2"
+      }
+    ]
+  }
+}
