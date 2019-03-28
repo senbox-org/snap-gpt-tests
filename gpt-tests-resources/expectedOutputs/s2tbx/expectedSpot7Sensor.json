@@ -1,0 +1,144 @@
+{
+  "id": "tempSpot7Sensor",
+  "decodeQualification": "INTENDED",
+  "expectedContent": {
+    "sceneWidth": 663,
+    "sceneHeight": 601,
+    "startTime": "09-DEC-2014 02:31:03.555524",
+    "endTime": "09-DEC-2014 02:31:03.555524",
+    "geoCoding": {
+      "coordinates": [
+        {
+          "x": 285.0,
+          "y": 323.0,
+          "lat": 22.585751731989884,
+          "lon": 113.99205576915602
+        },
+        {
+          "x": 492.0,
+          "y": 389.0,
+          "lat": 22.584755895265396,
+          "lon": 113.99517907524647
+        }
+      ],
+      "reverseAccuracy": 9.313225746154785E-10
+    },
+    "bands": [
+      {
+        "name": "B0",
+        "description": "",
+        "bandWidth": 663,
+        "bandHeight": 601,
+        "geophysicalUnit": "watt/m2/steradians/micrometers",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "491.0",
+        "spectralBandwidth": "68.0",
+        "expectedPixels": [
+          {
+            "x": 34,
+            "y": 107,
+            "value": 103.5682
+          },
+          {
+            "x": 454,
+            "y": 511,
+            "value": 138.80711
+          }
+        ]
+      },
+      {
+        "name": "latitude",
+        "description": "",
+        "bandWidth": 663,
+        "bandHeight": 601,
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 192,
+            "y": 154,
+            "value": 22.588303
+          },
+          {
+            "x": 404,
+            "y": 219,
+            "value": 22.58733
+          }
+        ]
+      },
+      {
+        "name": "longitude",
+        "description": "",
+        "bandWidth": 663,
+        "bandHeight": 601,
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 364,
+            "y": 447,
+            "value": 113.99322
+          },
+          {
+            "x": 403,
+            "y": 558,
+            "value": 113.993805
+          }
+        ]
+      }
+    ],
+    "masks": [
+      {
+        "name": "NODATA",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "0,0,0",
+        "description": "NODATA"
+      },
+      {
+        "name": "SATURATED",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "255,200,0",
+        "description": "SATURATED"
+      }
+    ],
+    "metadata": [
+      {
+        "path": "Metadata/Raster_Data/Raster_Encoding/COMPRESSION_RATIO",
+        "value": "3.7472"
+      },
+      {
+        "path": "history/SubsetInfo/ProductNodeName.3",
+        "value": "B0"
+      },
+      {
+        "path": "Processing_Graph/node.1/parameters/sourceBands",
+        "value": "B0"
+      },
+      {
+        "path": "Metadata/Dataset_Sources/Source_Identification/Component/COMPONENT_PATH/href",
+        "value": "LINEAGE/STRIP_DS_SPOT7_201412090230586_FR1_FR1_SE1_SE1_E114N23_01871_DIM.XML"
+      },
+      {
+        "path": "Processing_Graph/node.1/parameters/subSamplingY",
+        "value": "1"
+      },
+      {
+        "path": "Metadata/Raster_Data/Data_Access/Data_Files/Data_File/DATA_FILE_PATH/href",
+        "value": "IMG_SPOT7_PMS_201412090230586_SEN_1190920101_R1C1.JP2"
+      },
+      {
+        "path": "Metadata/Geoposition/Geoposition_Models/Rational_Function_Model/Component/COMPONENT_PATH/href",
+        "value": "RPC_SPOT7_PMS_201412090230586_SEN_1190920101.XML"
+      },
+      {
+        "path": "Metadata/Dataset_Sources/Source_Identification/Component/COMPONENT_PATH/href",
+        "value": "LINEAGE/STRIP_DS_SPOT7_201412090230586_FR1_FR1_SE1_SE1_E114N23_01871_DIM.XML"
+      }
+    ]
+  }
+}

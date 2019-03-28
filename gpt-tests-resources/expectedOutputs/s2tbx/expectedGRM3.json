@@ -1,0 +1,91 @@
+{
+    "id": "tempGRM3",
+    "decodeQualification": "INTENDED",
+    "expectedContent": {
+        "sceneWidth": 300,
+        "sceneHeight": 300,
+        "geoCoding": {
+            "coordinates": [
+                {
+                    "x": 129.0,
+                    "y": 161.0,
+                    "lat": -33.997550770675396,
+                    "lon": 22.695403893002247
+                },
+                {
+                    "x": 222.0,
+                    "y": 194.0,
+                    "lat": -34.003221417975745,
+                    "lon": 22.715655222867895
+                }
+            ],
+            "reverseAccuracy": 1.1314114090055227E-8
+        },
+        "bands": [
+            {
+                "name": "band_1",
+                "description": "",
+                "bandWidth": 300,
+                "bandHeight": 300,
+                "noDataValue": "0.0",
+                "noDataValueUsed": "false",
+                "spectralWavelength": "0.0",
+                "spectralBandwidth": "0.0",
+                "expectedPixels": [
+                    {
+                        "x": 15,
+                        "y": 53,
+                        "value": 0.0
+                    },
+                    {
+                        "x": 205,
+                        "y": 255,
+                        "value": 0.0
+                    }
+                ]
+            }
+        ],
+        "metadata": [
+            {
+                "path": "Processing_Graph/node.0/parameters/sourceBandNames",
+                "value": "B1,B2,B3,B4"
+            },
+            {
+                "path": "Processing_Graph/node.1/sources/sourceProduct",
+                "value": "GenericRegionMergingOp"
+            },
+            {
+                "path": "Processing_Graph/node.1/parameters/deleteOutputOnFailure",
+                "value": "true"
+            },
+            {
+                "path": "Processing_Graph/node.0/sources/sourceProduct",
+                "value": "product:Subset_S2A_MSIL1C_20161206T080312_N0204_R035_T34HFH_20161206T081929_resampled"
+            },
+            {
+                "path": "Processing_Graph/node.1/parameters/formatName",
+                "value": "BEAM-DIMAP"
+            },
+            {
+                "path": "Processing_Graph/node.0/parameters/totalIterationsForSecondSegmentation",
+                "value": "50"
+            },
+            {
+                "path": "Processing_Graph/node.0/parameters/mergingCostCriterion",
+                "value": "Spring"
+            },
+            {
+                "path": "Processing_Graph/node.1/parameters/deleteOutputOnFailure",
+                "value": "true"
+            },
+            {
+                "path": "Processing_Graph/node.1/parameters/clearCacheAfterRowWrite",
+                "value": "false"
+            },
+            {
+                "path": "Processing_Graph/node.0/parameters/regionMergingCriterion",
+                "value": "Best Fitting"
+            }
+        ]
+    }
+}

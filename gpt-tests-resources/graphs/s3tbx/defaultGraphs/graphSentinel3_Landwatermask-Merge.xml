@@ -1,0 +1,46 @@
+<graph id="GraphSentinel3_Landwatermask-Merge">
+    <version>1.0</version>
+    <node id="Read">
+        <operator>Read</operator>
+        <sources/>
+        <parameters>
+            <file>$input1</file>
+            <formatName>Sen3</formatName>
+        </parameters>
+    </node>
+
+    <node id="LandWaterMask">
+        <operator>LandWaterMask</operator>
+        <sources>
+            <sourceProduct refid="Read"/>
+        </sources>
+        <parameters>
+            <resolution>$resolution</resolution>
+            <subSamplingFactorX>1</subSamplingFactorX>
+            <subSamplingFactorY>1</subSamplingFactorY>
+        </parameters>
+    </node>
+
+    <node id="BandMerge">
+        <operator>BandMerge</operator>
+        <sources>
+            <sourceProduct refid="LandWaterMask"/>
+            <sourceProduct.1 refid="Read"/>
+        </sources>
+        <parameters>
+            <sourceBands/>
+            <geographicError>$geoError</geographicError>
+        </parameters>
+    </node>
+
+    <node id="Write">
+        <operator>Write</operator>
+        <sources>
+            <sourceProduct refid="BandMerge"/>
+        </sources>
+        <parameters>
+            <file>$out1</file>
+            <formatName>BEAM-DIMAP</formatName>
+        </parameters>
+    </node>
+</graph>

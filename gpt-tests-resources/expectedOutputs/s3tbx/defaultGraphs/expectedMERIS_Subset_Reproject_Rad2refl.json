@@ -1,0 +1,541 @@
+{
+    "id": "tempMERIS_Subset_Reproject_Rad2Refl",
+    "decodeQualification": "INTENDED",
+    "expectedContent": {
+        "sceneWidth": 5969,
+        "sceneHeight": 4546,
+        "startTime": "26-AUG-2010 08:37:35.895275",
+        "endTime": "26-AUG-2010 08:37:35.895275",
+        "geoCoding": {
+            "coordinates": [
+                {
+                    "x": 2574.0,
+                    "y": 2443.0,
+                    "lat": 44.370524622584625,
+                    "lon": 28.60883798635685
+                },
+                {
+                    "x": 4431.0,
+                    "y": 2949.0,
+                    "lat": 42.77938993676787,
+                    "lon": 34.44823939260529
+                }
+            ],
+            "reverseAccuracy": 9.094947017729282E-13
+        },
+        "flagCodings": [
+            {
+                "name": "l1_flags",
+                "samples": [
+                    {
+                        "name": "COSMETIC",
+                        "value": 1,
+                        "description": "Pixel is cosmetic"
+                    },
+                    {
+                        "name": "DUPLICATED",
+                        "value": 2,
+                        "description": "Pixel has been duplicated (filled in)"
+                    },
+                    {
+                        "name": "GLINT_RISK",
+                        "value": 4,
+                        "description": "Pixel has glint risk"
+                    },
+                    {
+                        "name": "SUSPECT",
+                        "value": 8,
+                        "description": "Pixel is suspect"
+                    },
+                    {
+                        "name": "LAND_OCEAN",
+                        "value": 16,
+                        "description": "Pixel is over land, not ocean"
+                    },
+                    {
+                        "name": "BRIGHT",
+                        "value": 32,
+                        "description": "Pixel is bright"
+                    },
+                    {
+                        "name": "COASTLINE",
+                        "value": 64,
+                        "description": "Pixel is part of a coastline"
+                    },
+                    {
+                        "name": "INVALID",
+                        "value": 128,
+                        "description": "Pixel is invalid"
+                    }
+                ]
+            }
+        ],
+        "bands": [
+            {
+                "name": "reflectance_1",
+                "description": "Reflectance converted from radiance",
+                "bandWidth": 5969,
+                "bandHeight": 4546,
+                "geophysicalUnit": "dl",
+                "noDataValue": "-1.0",
+                "noDataValueUsed": "true",
+                "spectralWavelength": "412.691",
+                "spectralBandwidth": "9.937",
+                "expectedPixels": [
+                    {
+                        "x": 311,
+                        "y": 809,
+                        "value": "NaN"
+                    },
+                    {
+                        "x": 4089,
+                        "y": 3866,
+                        "value": 0.127
+                    }
+                ]
+            },
+            {
+                "name": "reflectance_2",
+                "description": "Reflectance converted from radiance",
+                "bandWidth": 5969,
+                "bandHeight": 4546,
+                "geophysicalUnit": "dl",
+                "noDataValue": "-1.0",
+                "noDataValueUsed": "true",
+                "spectralWavelength": "442.55902",
+                "spectralBandwidth": "9.946",
+                "expectedPixels": [
+                    {
+                        "x": 1736,
+                        "y": 1167,
+                        "value": 0.1546
+                    },
+                    {
+                        "x": 3644,
+                        "y": 1660,
+                        "value": 0.109
+                    }
+                ]
+            },
+            {
+                "name": "reflectance_3",
+                "description": "Reflectance converted from radiance",
+                "bandWidth": 5969,
+                "bandHeight": 4546,
+                "geophysicalUnit": "dl",
+                "noDataValue": "-1.0",
+                "noDataValueUsed": "true",
+                "spectralWavelength": "489.88202",
+                "spectralBandwidth": "9.957001",
+                "expectedPixels": [
+                    {
+                        "x": 3283,
+                        "y": 3388,
+                        "value": 0.0827
+                    },
+                    {
+                        "x": 3631,
+                        "y": 4220,
+                        "value": 0.1385
+                    }
+                ]
+            },
+            {
+                "name": "reflectance_4",
+                "description": "Reflectance converted from radiance",
+                "bandWidth": 5969,
+                "bandHeight": 4546,
+                "geophysicalUnit": "dl",
+                "noDataValue": "-1.0",
+                "noDataValueUsed": "true",
+                "spectralWavelength": "509.81903",
+                "spectralBandwidth": "9.961",
+                "expectedPixels": [
+                    {
+                        "x": 944,
+                        "y": 3027,
+                        "value": 0.0872
+                    },
+                    {
+                        "x": 3098,
+                        "y": 4152,
+                        "value": 0.1397
+                    }
+                ]
+            },
+            {
+                "name": "reflectance_5",
+                "description": "Reflectance converted from radiance",
+                "bandWidth": 5969,
+                "bandHeight": 4546,
+                "geophysicalUnit": "dl",
+                "noDataValue": "-1.0",
+                "noDataValueUsed": "true",
+                "spectralWavelength": "559.69403",
+                "spectralBandwidth": "9.97",
+                "expectedPixels": [
+                    {
+                        "x": 4513,
+                        "y": 2203,
+                        "value": 0.4254
+                    },
+                    {
+                        "x": 5675,
+                        "y": 2208,
+                        "value": "NaN"
+                    }
+                ]
+            },
+            {
+                "name": "reflectance_6",
+                "description": "Reflectance converted from radiance",
+                "bandWidth": 5969,
+                "bandHeight": 4546,
+                "geophysicalUnit": "dl",
+                "noDataValue": "-1.0",
+                "noDataValueUsed": "true",
+                "spectralWavelength": "619.601",
+                "spectralBandwidth": "9.979",
+                "expectedPixels": [
+                    {
+                        "x": 2031,
+                        "y": 4088,
+                        "value": "NaN"
+                    },
+                    {
+                        "x": 59,
+                        "y": 2140,
+                        "value": "NaN"
+                    }
+                ]
+            },
+            {
+                "name": "reflectance_7",
+                "description": "Reflectance converted from radiance",
+                "bandWidth": 5969,
+                "bandHeight": 4546,
+                "geophysicalUnit": "dl",
+                "noDataValue": "-1.0",
+                "noDataValueUsed": "true",
+                "spectralWavelength": "664.57306",
+                "spectralBandwidth": "9.985001",
+                "expectedPixels": [
+                    {
+                        "x": 1954,
+                        "y": 896,
+                        "value": 0.1008
+                    },
+                    {
+                        "x": 1630,
+                        "y": 196,
+                        "value": 0.0962
+                    }
+                ]
+            },
+            {
+                "name": "reflectance_8",
+                "description": "Reflectance converted from radiance",
+                "bandWidth": 5969,
+                "bandHeight": 4546,
+                "geophysicalUnit": "dl",
+                "noDataValue": "-1.0",
+                "noDataValueUsed": "true",
+                "spectralWavelength": "680.82104",
+                "spectralBandwidth": "7.4880004",
+                "expectedPixels": [
+                    {
+                        "x": 5798,
+                        "y": 2749,
+                        "value": "NaN"
+                    },
+                    {
+                        "x": 3416,
+                        "y": 3258,
+                        "value": 0.3942
+                    }
+                ]
+            },
+            {
+                "name": "reflectance_9",
+                "description": "Reflectance converted from radiance",
+                "bandWidth": 5969,
+                "bandHeight": 4546,
+                "geophysicalUnit": "dl",
+                "noDataValue": "-1.0",
+                "noDataValueUsed": "true",
+                "spectralWavelength": "708.32904",
+                "spectralBandwidth": "9.992001",
+                "expectedPixels": [
+                    {
+                        "x": 1384,
+                        "y": 2261,
+                        "value": 0.5169
+                    },
+                    {
+                        "x": 1916,
+                        "y": 3284,
+                        "value": 0.1448
+                    }
+                ]
+            },
+            {
+                "name": "reflectance_10",
+                "description": "Reflectance converted from radiance",
+                "bandWidth": 5969,
+                "bandHeight": 4546,
+                "geophysicalUnit": "dl",
+                "noDataValue": "-1.0",
+                "noDataValueUsed": "true",
+                "spectralWavelength": "753.37103",
+                "spectralBandwidth": "7.4950004",
+                "expectedPixels": [
+                    {
+                        "x": 2137,
+                        "y": 2264,
+                        "value": 0.7483
+                    },
+                    {
+                        "x": 2404,
+                        "y": 2010,
+                        "value": 0.6775
+                    }
+                ]
+            },
+            {
+                "name": "reflectance_11",
+                "description": "Reflectance converted from radiance",
+                "bandWidth": 5969,
+                "bandHeight": 4546,
+                "geophysicalUnit": "dl",
+                "noDataValue": "-1.0",
+                "noDataValueUsed": "true",
+                "spectralWavelength": "761.50806",
+                "spectralBandwidth": "3.7440002",
+                "expectedPixels": [
+                    {
+                        "x": 3430,
+                        "y": 417,
+                        "value": 0.0807
+                    },
+                    {
+                        "x": 3851,
+                        "y": 71,
+                        "value": "NaN"
+                    }
+                ]
+            },
+            {
+                "name": "reflectance_12",
+                "description": "Reflectance converted from radiance",
+                "bandWidth": 5969,
+                "bandHeight": 4546,
+                "geophysicalUnit": "dl",
+                "noDataValue": "-1.0",
+                "noDataValueUsed": "true",
+                "spectralWavelength": "778.40906",
+                "spectralBandwidth": "15.010001",
+                "expectedPixels": [
+                    {
+                        "x": 5821,
+                        "y": 1669,
+                        "value": "NaN"
+                    },
+                    {
+                        "x": 5671,
+                        "y": 4302,
+                        "value": "NaN"
+                    }
+                ]
+            },
+            {
+                "name": "reflectance_13",
+                "description": "Reflectance converted from radiance",
+                "bandWidth": 5969,
+                "bandHeight": 4546,
+                "geophysicalUnit": "dl",
+                "noDataValue": "-1.0",
+                "noDataValueUsed": "true",
+                "spectralWavelength": "864.87604",
+                "spectralBandwidth": "20.047",
+                "expectedPixels": [
+                    {
+                        "x": 661,
+                        "y": 2054,
+                        "value": 0.4627
+                    },
+                    {
+                        "x": 3407,
+                        "y": 2556,
+                        "value": 0.0453
+                    }
+                ]
+            },
+            {
+                "name": "reflectance_14",
+                "description": "Reflectance converted from radiance",
+                "bandWidth": 5969,
+                "bandHeight": 4546,
+                "geophysicalUnit": "dl",
+                "noDataValue": "-1.0",
+                "noDataValueUsed": "true",
+                "spectralWavelength": "884.94403",
+                "spectralBandwidth": "10.018001",
+                "expectedPixels": [
+                    {
+                        "x": 3019,
+                        "y": 2371,
+                        "value": 0.0273
+                    },
+                    {
+                        "x": 2690,
+                        "y": 2641,
+                        "value": 0.0229
+                    }
+                ]
+            },
+            {
+                "name": "reflectance_15",
+                "description": "Reflectance converted from radiance",
+                "bandWidth": 5969,
+                "bandHeight": 4546,
+                "geophysicalUnit": "dl",
+                "noDataValue": "-1.0",
+                "noDataValueUsed": "true",
+                "spectralWavelength": "900.00006",
+                "spectralBandwidth": "10.02",
+                "expectedPixels": [
+                    {
+                        "x": 86,
+                        "y": 1930,
+                        "value": "NaN"
+                    },
+                    {
+                        "x": 418,
+                        "y": 4513,
+                        "value": "NaN"
+                    }
+                ]
+            },
+            {
+                "name": "l1_flags",
+                "description": "Level 1b classification and quality flags",
+                "bandWidth": 5969,
+                "bandHeight": 4546,
+                "noDataValue": "0.0",
+                "noDataValueUsed": "true",
+                "spectralWavelength": "0.0",
+                "spectralBandwidth": "0.0",
+                "expectedPixels": [
+                    {
+                        "x": 1771,
+                        "y": 3387,
+                        "value": 18.0
+                    },
+                    {
+                        "x": 4796,
+                        "y": 3347,
+                        "value": "NaN"
+                    }
+                ]
+            }
+        ],
+        "masks": [
+            {
+                "name": "coastline",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "0,255,0",
+                "description": "Pixel is part of a coastline"
+            },
+            {
+                "name": "land",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "51,153,0",
+                "description": "Pixel is over land, not ocean"
+            },
+            {
+                "name": "water",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "153,153,255",
+                "description": "Not Pixel is over land, not ocean"
+            },
+            {
+                "name": "cosmetic",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "204,153,255",
+                "description": "Pixel is cosmetic"
+            },
+            {
+                "name": "duplicated",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "255,200,0",
+                "description": "Pixel has been duplicated (filled in)"
+            },
+            {
+                "name": "glint_risk",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "255,0,255",
+                "description": "Pixel has glint risk"
+            },
+            {
+                "name": "suspect",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "204,102,255",
+                "description": "Pixel is suspect"
+            },
+            {
+                "name": "bright",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "255,255,0",
+                "description": "Pixel is bright"
+            },
+            {
+                "name": "invalid",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "255,0,0",
+                "description": "Pixel is invalid"
+            }
+        ],
+        "metadata": [
+            {
+                "path": "Processing_Graph/node.4/sources/sourceProduct",
+                "value": "Rad2Refl"
+            },
+            {
+                "path": "Scaling_Factor_GADS/sf_zon_wind",
+                "value": "0.1"
+            },
+            {
+                "path": "Scaling_Factor_GADS/sf_rough",
+                "value": "1.0"
+            },
+            {
+                "path": "Quality_ADS/Quality_ADS.41/attach_flag",
+                "value": "0"
+            },
+            {
+                "path": "Quality_ADS/Quality_ADS.49/attach_flag",
+                "value": "0"
+            },
+            {
+                "path": "history/SubsetInfo/ProductNodeName.19",
+                "value": "radiance_4"
+            },
+            {
+                "path": "history/SubsetInfo/ProductNodeName.1",
+                "value": "latitude"
+            },
+            {
+                "path": "Scaling_Factor_GADS/gain_set",
+                "value": "9,10,11,11,11,11,11,10,11,11,11,10,9,11,10,0,9,10,11,11,11,11,11,10,11,11,11,10,9,11,10,0,9,10,11,11,11,11,11,10,11,11,11,10,9,11,10,0,9,10,11,11,11,11,11,10,11,11,11,10,9,11,10,0,9,10,11,11,11,11,11,10,11,11,11,10,9,11,10,0"
+            },
+            {
+                "path": "Scaling_Factor_GADS/sun_spec_flux",
+                "value": "1680.778,1841.6504,1890.1145,1890.7018,1767.3365,1618.0529,1501.2672,1442.9874,1380.035,1240.9479,1229.7134,1153.9244,939.3885,911.40717,877.7102"
+            },
+            {
+                "path": "SPH/LAST_LAST_LONG",
+                "value": "33584117"
+            }
+        ]
+    }
+}

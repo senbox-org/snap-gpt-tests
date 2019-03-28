@@ -1,0 +1,108 @@
+{
+  "id": "tempSpot2PanL2A",
+  "decodeQualification": "INTENDED",
+  "expectedContent": {
+    "sceneWidth": 614,
+    "sceneHeight": 601,
+    "startTime": "03-NOV-1991 11:58:33.452000",
+    "endTime": "03-NOV-1991 11:58:33.452000",
+    "geoCoding": {
+      "coordinates": [
+        {
+          "x": 264.0,
+          "y": 323.0,
+          "lat": 13.77959938186884,
+          "lon": -16.886666238660553
+        },
+        {
+          "x": 455.0,
+          "y": 389.0,
+          "lat": 13.773588090756165,
+          "lon": -16.869269926501143
+        }
+      ],
+      "reverseAccuracy": 2.9103830456733704E-11
+    },
+    "bands": [
+      {
+        "name": "PAN",
+        "description": "PAN",
+        "bandWidth": 614,
+        "bandHeight": 601,
+        "geophysicalUnit": "equivalent radiance (W.m-2.Sr-1.um-1)",
+        "noDataValue": "0.0",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "470.0",
+        "spectralBandwidth": "5.0",
+        "expectedPixels": [
+          {
+            "x": 32,
+            "y": 107,
+            "value": "NaN"
+          },
+          {
+            "x": 420,
+            "y": 511,
+            "value": 55.0
+          }
+        ]
+      }
+    ],
+    "masks": [
+      {
+        "name": "NODATA",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "0,0,0",
+        "description": "NODATA"
+      },
+      {
+        "name": "SATURATED",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "255,255,255",
+        "description": "SATURATED"
+      }
+    ],
+    "metadata": [
+      {
+        "path": "TIFF Metadata/GeoTIFF Metadata/GeoKeyDirectory/GTRasterTypeGeoKey",
+        "value": "RasterPixelIsArea"
+      },
+      {
+        "path": "Processing_Graph/node.2/parameters/addDeltaBands",
+        "value": "false"
+      },
+      {
+        "path": "SPOTSCENE_2A/Raster_Dimensions/NROWS",
+        "value": "7127"
+      },
+      {
+        "path": "history/SubsetInfo/SubRegion.x",
+        "value": "1200"
+      },
+      {
+        "path": "history/SubsetInfo/SubSampling.y",
+        "value": "1"
+      },
+      {
+        "path": "history/SubsetInfo/SubRegion.x",
+        "value": "1200"
+      },
+      {
+        "path": "TIFF Metadata/GeoTIFF Metadata/GeoKeyDirectory/GTModelTypeGeoKey",
+        "value": "ModelTypeProjected"
+      },
+      {
+        "path": "history/SubsetInfo/SubRegion.y",
+        "value": "400"
+      },
+      {
+        "path": "TIFF Metadata/GeoTIFF Metadata/GeoKeyDirectory/GTCitationGeoKey",
+        "value": "Corrected Satellite Data"
+      },
+      {
+        "path": "TIFF Metadata/GeoTIFF Metadata/GeoKeyDirectory/GTModelTypeGeoKey",
+        "value": "ModelTypeProjected"
+      }
+    ]
+  }
+}

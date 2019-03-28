@@ -1,0 +1,25 @@
+[{
+  "id":"GRMTest3",
+  "description":"execute GRM processor",
+  "frequency":"daily",
+  "graphPath": "s2tbx/graphGRMOp.xml",
+  "inputs": {
+    "input1": "s2tbx/_FCC_gpt/S2B_MSIL1C_20170812T092029_N0205_R093_T34TGQ_20170812T092453.SAFE"
+  },
+  "parameters": {
+    "resampleRefBand": "B5",
+    "subsetSourceBands": "B1,B2,B3,B4,B5",
+    "subsetRegion": "0,600,700,700",
+    "mergingCostCriterion": "Spring",
+    "regionMergingCriterion": "Best Fitting",
+    "sourceBandNames": "B5"
+  },
+  "outputs": [{
+    "parameter": "out1",
+    "outputName": "tempGRM3",
+    "expected": "s2tbx/expectedGRM3.json"
+  }]
+}]
+
+
+

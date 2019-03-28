@@ -1,0 +1,19 @@
+[{
+  "id":"Spot4PanL2ATest",
+  "description":"execute Spot 4 (level L2A) product reader and operators",
+  "frequency":"daily",
+  "graphPath": "s2tbx/graphReaderSingleLevel.xml",
+  "inputs": {
+    "input1": "s2tbx/_gpt_readers/spot4/PAN/L2A/40652630910041006181M5_2A_NETWORK.ZIP"
+  },
+  "parameters": {
+    "sourceBands": "PAN",
+    "subsetRegion": "1600,600,600,600",
+    "crs": "WGS84(DD)"
+  },
+  "outputs": [{
+    "parameter": "out1",
+    "outputName": "tempSpot4PanL2A",
+    "expected": "s2tbx/expectedSpot4PanL2A.json"
+  }]
+}]

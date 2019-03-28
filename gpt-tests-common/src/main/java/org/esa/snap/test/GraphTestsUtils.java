@@ -52,7 +52,7 @@ public class GraphTestsUtils {
                     if (graphTest.getFrequency().toLowerCase().contains(scope.toLowerCase())) {
                         writer.write(file.getPath());
                         writer.write("\n");
-                        continue;
+                        break; //Once the file is included in the list, it is not needed to continue
                     }
                 }
             }

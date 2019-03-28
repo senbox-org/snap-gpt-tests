@@ -1,0 +1,592 @@
+{
+    "id": "Rad2ReflTest_OLCI",
+    "decodeQualification": "INTENDED",
+    "expectedContent": {
+      "sceneWidth": 300,
+      "sceneHeight": 300,
+      "startTime": "03-MAR-2016 08:03:51.423858",
+      "endTime": "03-MAR-2016 08:04:04.580217",
+      "geoCoding": {
+        "coordinates": [
+          {
+            "x": 129.0,
+            "y": 161.0,
+            "lat": 31.455246829778602,
+            "lon": 28.572872589569332
+          },
+          {
+            "x": 222.0,
+            "y": 194.0,
+            "lat": 31.327684379516164,
+            "lon": 28.813841374253318
+          }
+        ],
+        "reverseAccuracy": 0.22759859816029575
+      },
+      "tiePointGrids": [
+        {
+          "name": "latitude",
+          "description": "Latitude",
+          "offsetX": "-28.0",
+          "offsetY": "0.0",
+          "subSamplingX": "64.0",
+          "subSamplingY": "1.0",
+          "expectedPixels": [
+            {
+              "x": 15,
+              "y": 53,
+              "value": 31.78472
+            },
+            {
+              "x": 205,
+              "y": 255,
+              "value": 31.175274
+            }
+          ]
+        },
+        {
+          "name": "longitude",
+          "description": "Longitude",
+          "offsetX": "-28.0",
+          "offsetY": "0.0",
+          "subSamplingX": "64.0",
+          "subSamplingY": "1.0",
+          "expectedPixels": [
+            {
+              "x": 87,
+              "y": 77,
+              "value": 28.503267
+            },
+            {
+              "x": 183,
+              "y": 109,
+              "value": 28.753939
+            }
+          ]
+        }
+      ],
+      "bands": [
+        {
+          "name": "Oa01_reflectance",
+          "description": "Reflectance converted from radiance",
+          "bandWidth": 300,
+          "bandHeight": 300,
+          "geophysicalUnit": "dl",
+          "noDataValue": "-1.0",
+          "noDataValueUsed": "true",
+          "spectralWavelength": "400.0",
+          "spectralBandwidth": "15.0",
+          "expectedPixels": [
+            {
+              "x": 165,
+              "y": 223,
+              "value": 0.2454
+            },
+            {
+              "x": 182,
+              "y": 278,
+              "value": 0.2443
+            }
+          ]
+        },
+        {
+          "name": "Oa02_reflectance",
+          "description": "Reflectance converted from radiance",
+          "bandWidth": 300,
+          "bandHeight": 300,
+          "geophysicalUnit": "dl",
+          "noDataValue": "-1.0",
+          "noDataValueUsed": "true",
+          "spectralWavelength": "412.5",
+          "spectralBandwidth": "10.0",
+          "expectedPixels": [
+            {
+              "x": 47,
+              "y": 199,
+              "value": 0.2352
+            },
+            {
+              "x": 155,
+              "y": 274,
+              "value": 0.2281
+            }
+          ]
+        },
+        {
+          "name": "Oa03_reflectance",
+          "description": "Reflectance converted from radiance",
+          "bandWidth": 300,
+          "bandHeight": 300,
+          "geophysicalUnit": "dl",
+          "noDataValue": "-1.0",
+          "noDataValueUsed": "true",
+          "spectralWavelength": "442.5",
+          "spectralBandwidth": "10.0",
+          "expectedPixels": [
+            {
+              "x": 226,
+              "y": 145,
+              "value": 0.186
+            },
+            {
+              "x": 285,
+              "y": 145,
+              "value": 0.1904
+            }
+          ]
+        },
+        {
+          "name": "Oa04_reflectance",
+          "description": "Reflectance converted from radiance",
+          "bandWidth": 300,
+          "bandHeight": 300,
+          "geophysicalUnit": "dl",
+          "noDataValue": "-1.0",
+          "noDataValueUsed": "true",
+          "spectralWavelength": "490.0",
+          "spectralBandwidth": "10.0",
+          "expectedPixels": [
+            {
+              "x": 102,
+              "y": 269,
+              "value": 0.1324
+            },
+            {
+              "x": 2,
+              "y": 141,
+              "value": 0.1413
+            }
+          ]
+        },
+        {
+          "name": "Oa05_reflectance",
+          "description": "Reflectance converted from radiance",
+          "bandWidth": 300,
+          "bandHeight": 300,
+          "geophysicalUnit": "dl",
+          "noDataValue": "-1.0",
+          "noDataValueUsed": "true",
+          "spectralWavelength": "510.0",
+          "spectralBandwidth": "10.0",
+          "expectedPixels": [
+            {
+              "x": 98,
+              "y": 59,
+              "value": 0.2326
+            },
+            {
+              "x": 81,
+              "y": 12,
+              "value": 0.1154
+            }
+          ]
+        },
+        {
+          "name": "Oa06_reflectance",
+          "description": "Reflectance converted from radiance",
+          "bandWidth": 300,
+          "bandHeight": 300,
+          "geophysicalUnit": "dl",
+          "noDataValue": "-1.0",
+          "noDataValueUsed": "true",
+          "spectralWavelength": "560.0",
+          "spectralBandwidth": "10.0",
+          "expectedPixels": [
+            {
+              "x": 291,
+              "y": 181,
+              "value": 0.0729
+            },
+            {
+              "x": 171,
+              "y": 215,
+              "value": 0.0721
+            }
+          ]
+        },
+        {
+          "name": "Oa07_reflectance",
+          "description": "Reflectance converted from radiance",
+          "bandWidth": 300,
+          "bandHeight": 300,
+          "geophysicalUnit": "dl",
+          "noDataValue": "-1.0",
+          "noDataValueUsed": "true",
+          "spectralWavelength": "620.0",
+          "spectralBandwidth": "10.0",
+          "expectedPixels": [
+            {
+              "x": 69,
+              "y": 149,
+              "value": 0.0519
+            },
+            {
+              "x": 96,
+              "y": 216,
+              "value": 0.0506
+            }
+          ]
+        },
+        {
+          "name": "Oa08_reflectance",
+          "description": "Reflectance converted from radiance",
+          "bandWidth": 300,
+          "bandHeight": 300,
+          "geophysicalUnit": "dl",
+          "noDataValue": "-1.0",
+          "noDataValueUsed": "true",
+          "spectralWavelength": "665.0",
+          "spectralBandwidth": "10.0",
+          "expectedPixels": [
+            {
+              "x": 107,
+              "y": 149,
+              "value": 0.0483
+            },
+            {
+              "x": 120,
+              "y": 132,
+              "value": 0.043
+            }
+          ]
+        },
+        {
+          "name": "Oa09_reflectance",
+          "description": "Reflectance converted from radiance",
+          "bandWidth": 300,
+          "bandHeight": 300,
+          "geophysicalUnit": "dl",
+          "noDataValue": "-1.0",
+          "noDataValueUsed": "true",
+          "spectralWavelength": "673.75",
+          "spectralBandwidth": "7.5",
+          "expectedPixels": [
+            {
+              "x": 172,
+              "y": 27,
+              "value": 0.071
+            },
+            {
+              "x": 193,
+              "y": 4,
+              "value": 0.0506
+            }
+          ]
+        },
+        {
+          "name": "Oa10_reflectance",
+          "description": "Reflectance converted from radiance",
+          "bandWidth": 300,
+          "bandHeight": 300,
+          "geophysicalUnit": "dl",
+          "noDataValue": "-1.0",
+          "noDataValueUsed": "true",
+          "spectralWavelength": "681.25",
+          "spectralBandwidth": "7.5",
+          "expectedPixels": [
+            {
+              "x": 292,
+              "y": 110,
+              "value": 0.1361
+            },
+            {
+              "x": 285,
+              "y": 283,
+              "value": 0.0386
+            }
+          ]
+        },
+        {
+          "name": "Oa11_reflectance",
+          "description": "Reflectance converted from radiance",
+          "bandWidth": 300,
+          "bandHeight": 300,
+          "geophysicalUnit": "dl",
+          "noDataValue": "-1.0",
+          "noDataValueUsed": "true",
+          "spectralWavelength": "708.75",
+          "spectralBandwidth": "10.0",
+          "expectedPixels": [
+            {
+              "x": 33,
+              "y": 135,
+              "value": 0.0533
+            },
+            {
+              "x": 171,
+              "y": 168,
+              "value": 0.0352
+            }
+          ]
+        },
+        {
+          "name": "Oa12_reflectance",
+          "description": "Reflectance converted from radiance",
+          "bandWidth": 300,
+          "bandHeight": 300,
+          "geophysicalUnit": "dl",
+          "noDataValue": "-1.0",
+          "noDataValueUsed": "true",
+          "spectralWavelength": "753.75",
+          "spectralBandwidth": "7.5",
+          "expectedPixels": [
+            {
+              "x": 151,
+              "y": 156,
+              "value": 0.0306
+            },
+            {
+              "x": 135,
+              "y": 174,
+              "value": 0.0299
+            }
+          ]
+        },
+        {
+          "name": "Oa13_reflectance",
+          "description": "Reflectance converted from radiance",
+          "bandWidth": 300,
+          "bandHeight": 300,
+          "geophysicalUnit": "dl",
+          "noDataValue": "-1.0",
+          "noDataValueUsed": "true",
+          "spectralWavelength": "761.25",
+          "spectralBandwidth": "2.5",
+          "expectedPixels": [
+            {
+              "x": 4,
+              "y": 127,
+              "value": 0.0149
+            },
+            {
+              "x": 21,
+              "y": 297,
+              "value": 0.0106
+            }
+          ]
+        },
+        {
+          "name": "Oa14_reflectance",
+          "description": "Reflectance converted from radiance",
+          "bandWidth": 300,
+          "bandHeight": 300,
+          "geophysicalUnit": "dl",
+          "noDataValue": "-1.0",
+          "noDataValueUsed": "true",
+          "spectralWavelength": "764.375",
+          "spectralBandwidth": "3.75",
+          "expectedPixels": [
+            {
+              "x": 89,
+              "y": 223,
+              "value": 0.0158
+            },
+            {
+              "x": 241,
+              "y": 220,
+              "value": 0.0162
+            }
+          ]
+        },
+        {
+          "name": "Oa15_reflectance",
+          "description": "Reflectance converted from radiance",
+          "bandWidth": 300,
+          "bandHeight": 300,
+          "geophysicalUnit": "dl",
+          "noDataValue": "-1.0",
+          "noDataValueUsed": "true",
+          "spectralWavelength": "767.5",
+          "spectralBandwidth": "2.5",
+          "expectedPixels": [
+            {
+              "x": 250,
+              "y": 283,
+              "value": 0.0248
+            },
+            {
+              "x": 74,
+              "y": 159,
+              "value": 0.0257
+            }
+          ]
+        },
+        {
+          "name": "Oa16_reflectance",
+          "description": "Reflectance converted from radiance",
+          "bandWidth": 300,
+          "bandHeight": 300,
+          "geophysicalUnit": "dl",
+          "noDataValue": "-1.0",
+          "noDataValueUsed": "true",
+          "spectralWavelength": "778.75",
+          "spectralBandwidth": "15.0",
+          "expectedPixels": [
+            {
+              "x": 183,
+              "y": 78,
+              "value": 0.1128
+            },
+            {
+              "x": 165,
+              "y": 45,
+              "value": 0.0364
+            }
+          ]
+        },
+        {
+          "name": "Oa17_reflectance",
+          "description": "Reflectance converted from radiance",
+          "bandWidth": 300,
+          "bandHeight": 300,
+          "geophysicalUnit": "dl",
+          "noDataValue": "-1.0",
+          "noDataValueUsed": "true",
+          "spectralWavelength": "865.0",
+          "spectralBandwidth": "20.0",
+          "expectedPixels": [
+            {
+              "x": 142,
+              "y": 167,
+              "value": 0.0206
+            },
+            {
+              "x": 28,
+              "y": 254,
+              "value": 0.0203
+            }
+          ]
+        },
+        {
+          "name": "Oa18_reflectance",
+          "description": "Reflectance converted from radiance",
+          "bandWidth": 300,
+          "bandHeight": 300,
+          "geophysicalUnit": "dl",
+          "noDataValue": "-1.0",
+          "noDataValueUsed": "true",
+          "spectralWavelength": "885.0",
+          "spectralBandwidth": "10.0",
+          "expectedPixels": [
+            {
+              "x": 28,
+              "y": 23,
+              "value": 0.028
+            },
+            {
+              "x": 136,
+              "y": 202,
+              "value": 0.02
+            }
+          ]
+        },
+        {
+          "name": "Oa19_reflectance",
+          "description": "Reflectance converted from radiance",
+          "bandWidth": 300,
+          "bandHeight": 300,
+          "geophysicalUnit": "dl",
+          "noDataValue": "-1.0",
+          "noDataValueUsed": "true",
+          "spectralWavelength": "900.0",
+          "spectralBandwidth": "10.0",
+          "expectedPixels": [
+            {
+              "x": 139,
+              "y": 268,
+              "value": 0.0145
+            },
+            {
+              "x": 260,
+              "y": 180,
+              "value": 0.0164
+            }
+          ]
+        },
+        {
+          "name": "Oa20_reflectance",
+          "description": "Reflectance converted from radiance",
+          "bandWidth": 300,
+          "bandHeight": 300,
+          "geophysicalUnit": "dl",
+          "noDataValue": "-1.0",
+          "noDataValueUsed": "true",
+          "spectralWavelength": "940.0",
+          "spectralBandwidth": "20.0",
+          "expectedPixels": [
+            {
+              "x": 288,
+              "y": 114,
+              "value": 0.0289
+            },
+            {
+              "x": 26,
+              "y": 159,
+              "value": 0.0135
+            }
+          ]
+        },
+        {
+          "name": "Oa21_reflectance",
+          "description": "Reflectance converted from radiance",
+          "bandWidth": 300,
+          "bandHeight": 300,
+          "geophysicalUnit": "dl",
+          "noDataValue": "-1.0",
+          "noDataValueUsed": "true",
+          "spectralWavelength": "1020.0",
+          "spectralBandwidth": "40.0",
+          "expectedPixels": [
+            {
+              "x": 220,
+              "y": 178,
+              "value": 0.0155
+            },
+            {
+              "x": 292,
+              "y": 55,
+              "value": 0.1674
+            }
+          ]
+        }
+      ],
+      "metadata": [
+        {
+          "path": "history/SubsetInfo/ProductNodeName.28",
+          "value": "atmospheric_temperature_profile_pressure_level_17"
+        },
+        {
+          "path": "Processing_Graph/node.2/sources/sourceProduct",
+          "value": "product:Subset_S3A_OL_1_EFR____20160303T080325_20160303T080525_20160312T095955_0119_001_249______SVL_O_NR_001.SEN3_resampled"
+        },
+        {
+          "path": "Processing_Graph/node.3/parameters/formatName",
+          "value": "BEAM-DIMAP"
+        },
+        {
+          "path": "history/SubsetInfo/ProductNodeName.38",
+          "value": "Oa01_radiance"
+        },
+        {
+          "path": "Processing_Graph/node.3/sources/sourceProduct",
+          "value": "Rad2ReflOp"
+        },
+        {
+          "path": "history/SubsetInfo/ProductNodeName.21",
+          "value": "atmospheric_temperature_profile_pressure_level_10"
+        },
+        {
+          "path": "Processing_Graph/node.2/parameters/copyTiePointGrids",
+          "value": "false"
+        },
+        {
+          "path": "history/SubsetInfo/ProductNodeName.125",
+          "value": "solar_flux_band_1"
+        },
+        {
+          "path": "Processing_Graph/node.3/sources/sourceProduct",
+          "value": "Rad2ReflOp"
+        }
+      ]
+    }
+  }
