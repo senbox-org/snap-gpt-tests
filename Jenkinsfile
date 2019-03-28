@@ -54,7 +54,7 @@ pipeline {
     }
     agent { label 'snap-test' }
     parameters {
-        string(name: 'dockerTagName', defaultValue: 's2tbx:testJenkins_validation', description: 'Snap version to use to launch tests')
+        string(name: 'dockerTagName', defaultValue: 'snap:testJenkins_validation', description: 'Snap version to use to launch tests')
         string(name: 'testScope', defaultValue: 'REGULAR', description: 'Scope of the tests to launch (PUSH, DAILY, REGULAR, WEEKLY, RELEASE)')
         string(name: 'propertiesPath', defaultValue: '', description: 'Command to launch (gpt command including required parameters)')
         string(name: 'outputReportDir', defaultValue: '/home/snap/', description: 'Path to directory where gpt test will write report')
