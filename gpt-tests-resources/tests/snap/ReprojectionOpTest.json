@@ -18,7 +18,7 @@
     "outputs": [{
         "parameter": "out1",
         "outputName": "ReprojectionTest_OLCI",
-        "expected": "snap/expectedReprojection.json"
+        "expected": "snap/expectedReprojection_S3A.json"
     }]
 },
     {
@@ -41,7 +41,7 @@
         "outputs": [{
             "parameter": "out1",
             "outputName": "ReprojectionTest_MERIS",
-            "expected": "snap/expectedReprojection.json"
+            "expected": "snap/expectedReprojection_MERIS.json"
         }]
     }
 ]
