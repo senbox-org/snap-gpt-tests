@@ -1,7 +1,7 @@
 [{
     "id":"ReprojectionTest_OLCI",
     "description":"execute Reprojection operator",
-    "frequency":"daily",
+    "frequency":"daily/fail",
     "graphPath": "snap/graphReprojectionOp.xml",
     "inputs": {
         "input1": "s3tbx/sensors_platforms/SENTINEL-3/olci/L1/S3A_OL_1_EFR____20160303T080325_20160303T080525_20160312T095955_0119_001_249______SVL_O_NR_001.SEN3"
@@ -24,7 +24,7 @@
     {
         "id":"ReprojectionTest_MERIS",
         "description":"execute Reprojection operator",
-        "frequency":"daily",
+        "frequency":"daily/fail",
         "graphPath": "snap/graphReprojectionOp.xml",
         "inputs": {
             "input1": "s3tbx/sensors_platforms/MERIS/MER_FRS_1P/N1/MER_FRS_1PNACR20040515_101402_000002112026_00466_11542_0000.N1"
