@@ -1,5 +1,6 @@
 package org.esa.snap.test;
 
+import java.nio.file.Path;
 import java.util.Map;
 
 /**
@@ -67,5 +68,14 @@ public class GraphTest {
 
     public void setFrequency(String frequency) {
         this.frequency = frequency;
+    }
+
+    public boolean inputExists(final Path inputFolder) {
+        for (Map.Entry<String, String> entry : getInputs().entrySet()) {
+            if(!inputFolder.resolve(entry.getValue()).toFile().exists()) {
+                return false;
+            }
+        }
+        return true;
     }
 }

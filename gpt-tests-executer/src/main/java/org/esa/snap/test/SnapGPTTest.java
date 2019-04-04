@@ -102,6 +102,11 @@ public class SnapGPTTest {
                 continue;
             }
             for(GraphTest graphTest : graphTests) {
+                if(!graphTest.inputExists(inputFolder)) {
+                    //System.out.println(graphTest.getId() +" is missing input data. Skipping test.");
+                    continue;
+                }
+                
                 if (graphTest.getFrequency().toLowerCase().contains(scope.toLowerCase())) {
                     if(report) {
                         writer.write(graphTest.getId());
