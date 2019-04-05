@@ -56,9 +56,8 @@ pipeline {
     parameters {
         string(name: 'dockerTagName', defaultValue: 'snap:testJenkins_validation', description: 'Snap version to use to launch tests')
         string(name: 'testScope', defaultValue: 'REGULAR', description: 'Scope of the tests to launch (PUSH, DAILY, REGULAR, WEEKLY, RELEASE)')
-        string(name: 'propertiesPath', defaultValue: '', description: 'Command to launch (gpt command including required parameters)')
         string(name: 'outputReportDir', defaultValue: '/home/snap/', description: 'Path to directory where gpt test will write report')
-        string(name: 'jsonPath', defaultValue: '', description: 'Command to launch (gpt command including required parameters)')
+        string(name: 'jsonPath', defaultValue: '', description: 'Path to json file describing tests')
         // string(name: 'LabelParameterValue', defaultValue: 'snap-test', description: 'Label to use to launch gpt tests')
         // string(name: 'project', defaultValue: 's2tbx', description: 'Scope of the tests to launch (PUSH, NIGHTLY, WEEKLY, RELEASE)')
     }
@@ -73,6 +72,7 @@ pipeline {
             agent {
                 docker {
                     image "snap-build-server.tilaa.cloud/maven:3.6.0-jdk-8"
+                    label 'snap-test'
                     args "-e MAVEN_CONFIG=/var/maven/.m2 -v /opt/maven/.m2/settings.xml:/var/maven/.m2/settings.xml -v docker_gpt_test_results:/home/snap/output/"
                 }
             }
@@ -96,6 +96,7 @@ pipeline {
             agent {
                 docker {
                     image "snap-build-server.tilaa.cloud/scripts:1.0"
+                    label 'snap-test'
                     args "-v docker_gpt_test_results:/home/snap/output/"
                 }
             } 
