@@ -1,7 +1,7 @@
 [{
   "id":"Sentinel2BL1CTest",
   "description":"execute Sentinel 2B (level L1C) product reader and operators",
-  "frequency":"daily",
+  "frequency":"daily/fail",
   "graphPath": "s2tbx/graphReaderMultiLevel.xml",
   "inputs": {
     "input1": "s2tbx/S2/L1C/S2B_MSIL1C_20170315T013719_N0100_R000_T52LEK_20170315T013714.SAFE"

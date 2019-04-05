@@ -1,27 +1,27 @@
 {
-    "id": "BiophysicalOp",
+    "id": "temp1",
     "decodeQualification": "INTENDED",
     "expectedContent": {
-        "sceneWidth": 1000,
+        "sceneWidth": 100,
         "sceneHeight": 100,
-        "startTime": "13-MAR-2018 00:37:01.025999",
-        "endTime": "13-MAR-2018 00:37:01.025999",
+        "startTime": "14-SEP-2016 07:46:12.026000",
+        "endTime": "14-SEP-2016 07:47:45.372499",
         "geoCoding": {
             "coordinates": [
                 {
                     "x": 43.0,
                     "y": 53.0,
-                    "lat": -14.493896737559112,
-                    "lon": 145.16817535602158
+                    "lat": -24.41371276429324,
+                    "lon": 30.067032138035394
                 },
                 {
                     "x": 74.0,
                     "y": 64.0,
-                    "lat": -14.499995109901514,
-                    "lon": 145.1853792141795
+                    "lat": -24.420020177041227,
+                    "lon": 30.08521754901528
                 }
             ],
-            "reverseAccuracy": 5.928086466155946E-9
+            "reverseAccuracy": 3.9553015085402876E-8
         },
         "flagCodings": [
             {
@@ -69,12 +69,12 @@
                     {
                         "x": 5,
                         "y": 17,
-                        "value": 0.35691226
+                        "value": 0.27472356
                     },
                     {
                         "x": 68,
                         "y": 85,
-                        "value": 0.33512804
+                        "value": 0.2775961
                     }
                 ]
             },
@@ -96,7 +96,7 @@
                     {
                         "x": 61,
                         "y": 36,
-                        "value": 1.0
+                        "value": 0.0
                     }
                 ]
             }
@@ -135,40 +135,44 @@
         ],
         "metadata": [
             {
-                "path": "Granules/Level-1C_Tile_55LCD/Geometric_Info/Tile_Geocoding/Geoposition[3]/ULX",
-                "value": "300000"
+                "path": "Granules/Level-1C_Tile_36JTT/Geometric_Info/Tile_Angles/Viewing_Incidence_Angles_Grids[7]/Azimuth/Values_List/VALUES[22]",
+                "value": "NaN NaN NaN 271.16 271.745 272.279 272.758 273.204 NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN"
             },
             {
-                "path": "history/SubsetInfo/SubRegion.width",
-                "value": "100"
+                "path": "Processing_Graph/node.2/parameters/subSamplingX",
+                "value": "1"
             },
             {
-                "path": "Level-1C_DataStrip_ID/Satellite_Ancillary_Data_Info/Attitudes/Raw_Attitudes/IMU_List/IMU[2]/Value[367]/Temperatures/BOARD",
-                "value": "1522.16"
+                "path": "Level-1C_DataStrip_ID/Auxiliary_Data_Info/IERS_Bulletin/GPS_TIME_TAI",
+                "value": "-19"
             },
             {
-                "path": "Granules/Level-1C_Tile_55LCD/General_Info/Archiving_Info/metadataLevel",
-                "value": "Expertise"
+                "path": "Level-1C_User_Product/General_Info/Product_Info/Datatake/SENSING_ORBIT_DIRECTION",
+                "value": "DESCENDING"
             },
             {
-                "path": "Level-1C_DataStrip_ID/Satellite_Ancillary_Data_Info/Time_Correlation_Data_List/Time_Correlation_Data[1073]/NSM",
-                "value": "KALMAN_FILTER"
+                "path": "Granules/Level-1C_Tile_36JTT/Quality_Indicators_Info/Image_Content_QI/CLOUDY_PIXEL_PERCENTAGE",
+                "value": "71.9619"
             },
             {
-                "path": "Processing_Graph/node.2/parameters/region",
-                "value": "0,0,100,100"
+                "path": "Level-1C_User_Product/Auxiliary_Data_Info/GIPP_List/GIPP_FILENAME[65]",
+                "value": "S2A_OPER_GIP_R2EOB2_MPC__20150827T165847_V20150819T000000_99999999T999999_B06"
             },
             {
-                "path": "Granules/Level-1C_Tile_55LCD/Geometric_Info/Tile_Geocoding/Geoposition/XDIM",
-                "value": "10"
+                "path": "Level-1C_DataStrip_ID/Satellite_Ancillary_Data_Info/Attitudes/Corrected_Attitudes/Values[2646]/QUATERNION_VALUES",
+                "value": "0.203423823003742 0.471042809832698 -0.152449585213438 0.844687245971969"
             },
             {
-                "path": "Granules/Level-1C_Tile_55LCD/General_Info/Archiving_Info/metadataLevel",
-                "value": "Expertise"
+                "path": "history/SubsetInfo/ProductNodeName.41",
+                "value": "view_azimuth_B11"
             },
             {
-                "path": "Level-1C_DataStrip_ID/Satellite_Ancillary_Data_Info/Attitudes/Corrected_Attitudes/Values[1346]/GPS_TIME",
-                "value": "2018-03-13T00:39:04.4"
+                "path": "history/SubsetInfo/ProductNodeName.16",
+                "value": "sun_zenith"
+            },
+            {
+                "path": "Granules/Level-1C_Tile_36JTT/Geometric_Info/Tile_Angles/Viewing_Incidence_Angles_Grids[23]/Azimuth/Values_List/VALUES[10]",
+                "value": "NaN NaN NaN NaN NaN 276.979 277.319 277.627 277.909 278.165 278.397 NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN"
             }
         ]
     }
