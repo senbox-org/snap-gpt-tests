@@ -22,6 +22,7 @@ def launchJobs(jsonString, scope, outputDir) {
 
     def jobs = [:]
     println "List of Json file : " + jsonString
+    jsonString = jsonString.trim()
     jsonList = jsonString.split("\n")
     num = 0
     for (int i=0; i < jsonList.size(); i++) {
