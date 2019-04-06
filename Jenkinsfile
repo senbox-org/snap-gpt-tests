@@ -29,17 +29,19 @@ def launchJobs(jsonString, scope, outputDir) {
     //jsonList.each { item ->
         item = jsonList[i]
         def currentJsonFile = "" + item
-        echo "Schedule job for json file : " + item
-        jobs["GPT Test ${num} ${item}"] = {
-            build job: "snap-gpt-tests/${branchVersion}", parameters: [
-            // build job: "test", parameters: [
-                    [$class: 'StringParameterValue', name: 'jsonPath', value: currentJsonFile],
-                    [$class: 'StringParameterValue', name: 'testScope', value: "${scope}"],
-                    [$class: 'StringParameterValue', name: 'outputReportDir', value: "${outputDir}"]
-                ],
-                quietPeriod: 0,
-                propagate: true,
-                wait: true
+        if (currentJsonFile.trim() != "") {
+            echo "Schedule job for json file : " + item
+            jobs["GPT Test ${num} ${item}"] = {
+                build job: "snap-gpt-tests/${branchVersion}", parameters: [
+                // build job: "test", parameters: [
+                        [$class: 'StringParameterValue', name: 'jsonPath', value: currentJsonFile],
+                        [$class: 'StringParameterValue', name: 'testScope', value: "${scope}"],
+                        [$class: 'StringParameterValue', name: 'outputReportDir', value: "${outputDir}"]
+                    ],
+                    quietPeriod: 0,
+                    propagate: true,
+                    wait: true
+            }
         }
         num++
     }
@@ -55,7 +57,7 @@ pipeline {
     }
     agent { label 'snap-test' }
     parameters {
-        string(name: 'dockerTagName', defaultValue: 'snap:testJenkins_validation', description: 'Snap version to use to launch tests')
+        string(name: 'dockerTagName', defaultValue: 'snap:master', description: 'Snap version to use to launch tests')
         string(name: 'testScope', defaultValue: 'REGULAR', description: 'Scope of the tests to launch (PUSH, DAILY, REGULAR, WEEKLY, RELEASE)')
         string(name: 'outputReportDir', defaultValue: '/home/snap/', description: 'Path to directory where gpt test will write report')
         string(name: 'jsonPath', defaultValue: '', description: 'Path to json file describing tests')
