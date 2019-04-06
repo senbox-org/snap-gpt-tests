@@ -28,7 +28,7 @@ def launchJobs(jsonString, scope, outputDir) {
     //jsonList.each { item ->
         item = jsonList[i]
         def currentJsonFile = "" + item
-        if (currentJsonFile.trim != "") {
+        if (currentJsonFile.trim() != "") {
             echo "Schedule job for json file : " + item
             jobs["GPT Test ${num} ${item}"] = {
                 build job: "snap-gpt-tests/${branchVersion}", parameters: [
