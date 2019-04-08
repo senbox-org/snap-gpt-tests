@@ -1,0 +1,48 @@
+<graph id="Graph">
+  <version>1.0</version>
+  <node id="Read">
+    <operator>Read</operator>
+    <sources/>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <file>$inputFile</file>
+    </parameters>
+  </node>
+  <node id="S2Resampling">
+    <operator>S2Resampling</operator>
+    <sources>
+      <sourceProduct refid="Read"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <resolution>$resolution</resolution>
+      <upsampling>Bilinear</upsampling>
+      <downsampling>Mean</downsampling>
+      <flagDownsampling>First</flagDownsampling>
+      <resampleOnPyramidLevels>true</resampleOnPyramidLevels>
+    </parameters>
+  </node>
+  <node id="Write">
+    <operator>Write</operator>
+    <sources>
+      <sourceProduct refid="S2Resampling"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <file>$outputFile</file>
+      <formatName>BEAM-DIMAP</formatName>
+    </parameters>
+  </node>
+  <applicationData id="Presentation">
+    <Description/>
+    <node id="Read">
+            <displayPosition x="37.0" y="134.0"/>
+    </node>
+    <node id="S2Resampling">
+      <displayPosition x="157.0" y="129.0"/>
+    </node>
+    <node id="Subset">
+      <displayPosition x="314.0" y="125.0"/>
+    </node>
+    <node id="Write">
+            <displayPosition x="452.0" y="125.0"/>
+    </node>
+  </applicationData>
+</graph>

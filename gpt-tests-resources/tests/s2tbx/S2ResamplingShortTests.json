@@ -1,0 +1,77 @@
+[{
+  "id":"s2Resampling-Muscatev14",
+  "description":"execute s2Resampling and make a subset",
+  "frequency":"daily",
+  "graphPath": "s2tbx/graphS2ResamplingSubset.xml",
+  "inputs": {
+    "inputFile": "s2tbx/S2/MUSCATE/SENTINEL2B_20171127-105827-648_L2A_T31TCJ_D_V1-4/SENTINEL2B_20171127-105827-648_L2A_T31TCJ_D_V1-4_MTD_ALL.xml"
+  },
+  "parameters": {
+    "resolution": "60",
+    "subsetBands": "Surface_Reflectance_B2,Surface_Reflectance_B5,sun_zenith,sun_azimuth,view_zenith_B3,view_azimuth_B7",
+    "subsetRegion": "0,0,500,500",
+    "outputFormat": "BEAM-DIMAP"
+  },
+  "outputs": [{
+    "parameter": "outputFile",
+    "outputName": "temp1",
+    "expected": "s2tbx/expectedS2ResamplingMuscatev14.json"
+  }]
+},{
+  "id":"s2Resampling-Muscatev18",
+  "description":"execute s2Resampling and make a subset",
+  "frequency":"daily",
+  "graphPath": "s2tbx/graphS2ResamplingSubset.xml",
+  "inputs": {
+    "inputFile": "s2tbx/S2/MUSCATE/SENTINEL2A_20180529-101826-293_L2A_T32TPP_D_V1-8/SENTINEL2A_20180529-101826-293_L2A_T32TPP_D_V1-8_MTD_ALL.xml"
+  },
+  "parameters": {
+    "resolution": "20",
+    "subsetBands": "Surface_Reflectance_B3,Surface_Reflectance_B11,sun_zenith,sun_azimuth,view_zenith_mean,view_azimuth_mean",
+    "subsetRegion": "0,0,100,100",
+    "outputFormat": "GeoTIFF"
+  },
+  "outputs": [{
+    "parameter": "outputFile",
+    "outputName": "temp2",
+    "expected": "s2tbx/expectedS2ResamplingMuscatev18.json"
+  }]
+},{
+  "id":"s2Resampling-L1C",
+  "description":"execute s2Resampling and make a subset",
+  "frequency":"daily",
+  "graphPath": "s2tbx/graphS2ResamplingSubset.xml",
+  "inputs": {
+    "inputFile": "s2tbx/S2/PSD14/L1C/S2A_MSIL1C_20160914T074612_N0204_R135_T36JTT_20160914T081456.SAFE"
+  },
+  "parameters": {
+    "resolution": "10",
+    "subsetBands": "B1,B2,B5,sun_zenith,sun_azimuth,view_zenith_B11,view_azimuth_B12",
+    "subsetRegion": "0,0,100,100",
+    "outputFormat": "BEAM-DIMAP"
+  },
+  "outputs": [{
+    "parameter": "outputFile",
+    "outputName": "temp3",
+    "expected": "s2tbx/expectedS2ResamplingL1C.json"
+  }]
+},{
+  "id":"s2Resampling-L2A",
+  "description":"execute s2Resampling and make a subset",
+  "frequency":"daily",
+  "graphPath": "s2tbx/graphS2ResamplingSubset.xml",
+  "inputs": {
+    "inputFile": "s2tbx/S2/PSD14/L2A/10m/S2A_MSIL2A_20160914T074612_N0204_R135_T36JTT_20160914T081456.SAFE"
+  },
+  "parameters": {
+    "resolution": "20",
+    "subsetBands": "B2,B3,B5,sun_zenith,sun_azimuth,view_zenith_mean,view_azimuth_B12",
+    "subsetRegion": "5,5,100,100",
+    "outputFormat": "GeoTIFF"
+  },
+  "outputs": [{
+    "parameter": "outputFile",
+    "outputName": "temp4",
+    "expected": "s2tbx/expectedS2ResamplingL2A.json"
+  }]
+}]

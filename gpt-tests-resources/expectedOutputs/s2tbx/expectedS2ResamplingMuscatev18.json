@@ -1,0 +1,199 @@
+{
+    "id": "temp2",
+    "decodeQualification": "INTENDED",
+    "expectedContent": {
+        "sceneWidth": 100,
+        "sceneHeight": 100,
+        "startTime": "29-MAY-2018 10:18:26.293000",
+        "endTime": "29-MAY-2018 10:18:26.293000",
+        "geoCoding": {
+            "coordinates": [
+                {
+                    "x": 43.0,
+                    "y": 53.0,
+                    "lat": 44.236891347712906,
+                    "lon": 10.263045447547345
+                },
+                {
+                    "x": 74.0,
+                    "y": 64.0,
+                    "lat": 44.23482504594842,
+                    "lon": 10.270765045647531
+                }
+            ],
+            "reverseAccuracy": 1.949956640601158E-9
+        },
+        "bands": [
+            {
+                "name": "Surface_Reflectance_B11",
+                "description": "Ground reflectance without the correction of slope effects, band B11",
+                "bandWidth": 100,
+                "bandHeight": 100,
+                "noDataValue": "-1.0",
+                "noDataValueUsed": "true",
+                "spectralWavelength": "1613.7",
+                "spectralBandwidth": "0.0",
+                "expectedPixels": [
+                    {
+                        "x": 5,
+                        "y": 17,
+                        "value": 0.3729
+                    },
+                    {
+                        "x": 68,
+                        "y": 85,
+                        "value": 0.3991
+                    }
+                ]
+            },
+            {
+                "name": "Surface_Reflectance_B3",
+                "description": "Ground reflectance without the correction of slope effects, band B3",
+                "bandWidth": 100,
+                "bandHeight": 100,
+                "noDataValue": "-1.0",
+                "noDataValueUsed": "true",
+                "spectralWavelength": "559.8",
+                "spectralBandwidth": "0.0",
+                "expectedPixels": [
+                    {
+                        "x": 29,
+                        "y": 25,
+                        "value": 0.3134
+                    },
+                    {
+                        "x": 61,
+                        "y": 36,
+                        "value": 0.2669
+                    }
+                ]
+            },
+            {
+                "name": "sun_zenith",
+                "description": "Sun zenith angles",
+                "bandWidth": 100,
+                "bandHeight": 100,
+                "geophysicalUnit": "°",
+                "noDataValue": "NaN",
+                "noDataValueUsed": "true",
+                "spectralWavelength": "0.0",
+                "spectralBandwidth": "0.0",
+                "expectedPixels": [
+                    {
+                        "x": 55,
+                        "y": 74,
+                        "value": 25.573547
+                    },
+                    {
+                        "x": 60,
+                        "y": 92,
+                        "value": 25.570265
+                    }
+                ]
+            },
+            {
+                "name": "sun_azimuth",
+                "description": "Sun azimuth angles",
+                "bandWidth": 100,
+                "bandHeight": 100,
+                "geophysicalUnit": "°",
+                "noDataValue": "NaN",
+                "noDataValueUsed": "true",
+                "spectralWavelength": "0.0",
+                "spectralBandwidth": "0.0",
+                "expectedPixels": [
+                    {
+                        "x": 15,
+                        "y": 66,
+                        "value": 147.47186
+                    },
+                    {
+                        "x": 51,
+                        "y": 91,
+                        "value": 147.48459
+                    }
+                ]
+            },
+            {
+                "name": "view_zenith_mean",
+                "description": "Mean viewing zenith angles",
+                "bandWidth": 100,
+                "bandHeight": 100,
+                "geophysicalUnit": "°",
+                "noDataValue": "NaN",
+                "noDataValueUsed": "true",
+                "spectralWavelength": "0.0",
+                "spectralBandwidth": "0.0",
+                "expectedPixels": [
+                    {
+                        "x": 75,
+                        "y": 48,
+                        "value": 6.6486745
+                    },
+                    {
+                        "x": 95,
+                        "y": 48,
+                        "value": 6.618123
+                    }
+                ]
+            },
+            {
+                "name": "view_azimuth_mean",
+                "description": "Mean viewing azimuth angles",
+                "bandWidth": 100,
+                "bandHeight": 100,
+                "geophysicalUnit": "°",
+                "noDataValue": "NaN",
+                "noDataValueUsed": "true",
+                "spectralWavelength": "0.0",
+                "spectralBandwidth": "0.0",
+                "expectedPixels": [
+                    {
+                        "x": 34,
+                        "y": 89,
+                        "value": 114.58087
+                    },
+                    {
+                        "x": 0,
+                        "y": 47,
+                        "value": 114.439415
+                    }
+                ]
+            }
+        ],
+        "metadata": [
+            {
+                "path": "Metadata/Dataset_Identification/AUTHORITY",
+                "value": "THEIA"
+            },
+            {
+                "path": "history/SubsetInfo/ProductNodeName.3",
+                "value": "sun_zenith"
+            },
+            {
+                "path": "Metadata/Geoposition_Informations/Raster_CS/PIXEL_ORIGIN",
+                "value": "0"
+            },
+            {
+                "path": "Metadata/Geoposition_Informations/Raster_CS/RASTER_CS_TYPE",
+                "value": "CELL"
+            },
+            {
+                "path": "TIFF Metadata/GeoTIFF Metadata/GeoKeyDirectory/PCSCitationGeoKey",
+                "value": "WGS 84 / UTM zone 32N"
+            },
+            {
+                "path": "Processing_Graph/node.2/parameters/resampleOnPyramidLevels",
+                "value": "true"
+            },
+            {
+                "path": "Metadata/Radiometric_Informations/Spectral_Band_Informations_List/Spectral_Band_Informations[10]/Spectral_Response/VALUES",
+                "value": "0.01662953 0.06111857 0.17407094 0.38946454 0.6645915 0.87454114 0.93695988 0.96751014 0.9893391 0.9951269 1 0.97845762 0.98069118 0.9922335 0.98798379 0.99428313 0.98348041 0.97820013 0.95023367 0.95299604 0.92240308 0.85573828 0.70970227 0.46429542 0.21538427 0.06534121 0.01625596"
+            },
+            {
+                "path": "Metadata/Geoposition_Informations/Metadata_CS/METADATA_CS_TYPE",
+                "value": "CELL"
+            }
+        ]
+    }
+}

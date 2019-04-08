@@ -1,0 +1,207 @@
+{
+    "id": "temp1",
+    "decodeQualification": "INTENDED",
+    "expectedContent": {
+        "sceneWidth": 500,
+        "sceneHeight": 500,
+        "startTime": "27-NOV-2017 10:58:27.648000",
+        "endTime": "27-NOV-2017 10:58:27.648000",
+        "geoCoding": {
+            "coordinates": [
+                {
+                    "x": 215.0,
+                    "y": 268.0,
+                    "lat": 44.08473799486602,
+                    "lon": 0.6630219603444438
+                },
+                {
+                    "x": 371.0,
+                    "y": 324.0,
+                    "lat": 44.0568403693509,
+                    "lon": 0.7809744273425583
+                }
+            ],
+            "reverseAccuracy": 2.4534529075026512E-8
+        },
+        "bands": [
+            {
+                "name": "Surface_Reflectance_B2",
+                "description": "Ground reflectance without the correction of slope effects, band B2",
+                "bandWidth": 500,
+                "bandHeight": 500,
+                "noDataValue": "-1.0",
+                "noDataValueUsed": "true",
+                "spectralWavelength": "492.1",
+                "spectralBandwidth": "0.0",
+                "expectedPixels": [
+                    {
+                        "x": 26,
+                        "y": 89,
+                        "value": 0.0315
+                    },
+                    {
+                        "x": 342,
+                        "y": 425,
+                        "value": 0.0304
+                    }
+                ]
+            },
+            {
+                "name": "Surface_Reflectance_B5",
+                "description": "Ground reflectance without the correction of slope effects, band B5",
+                "bandWidth": 500,
+                "bandHeight": 500,
+                "noDataValue": "-1.0",
+                "noDataValueUsed": "true",
+                "spectralWavelength": "703.8",
+                "spectralBandwidth": "0.0",
+                "expectedPixels": [
+                    {
+                        "x": 145,
+                        "y": 128,
+                        "value": 0.0695
+                    },
+                    {
+                        "x": 305,
+                        "y": 182,
+                        "value": 0.1143
+                    }
+                ]
+            },
+            {
+                "name": "sun_zenith",
+                "description": "Sun zenith angles",
+                "bandWidth": 500,
+                "bandHeight": 500,
+                "geophysicalUnit": "°",
+                "noDataValue": "NaN",
+                "noDataValueUsed": "true",
+                "spectralWavelength": "0.0",
+                "spectralBandwidth": "0.0",
+                "expectedPixels": [
+                    {
+                        "x": 275,
+                        "y": 372,
+                        "value": 66.10657
+                    },
+                    {
+                        "x": 304,
+                        "y": 464,
+                        "value": 66.05441
+                    }
+                ]
+            },
+            {
+                "name": "sun_azimuth",
+                "description": "Sun azimuth angles",
+                "bandWidth": 500,
+                "bandHeight": 500,
+                "geophysicalUnit": "°",
+                "noDataValue": "NaN",
+                "noDataValueUsed": "true",
+                "spectralWavelength": "0.0",
+                "spectralBandwidth": "0.0",
+                "expectedPixels": [
+                    {
+                        "x": 79,
+                        "y": 333,
+                        "value": 168.06227
+                    },
+                    {
+                        "x": 259,
+                        "y": 456,
+                        "value": 168.19768
+                    }
+                ]
+            },
+            {
+                "name": "view_zenith_B3",
+                "description": "Viewing zenith angles",
+                "bandWidth": 500,
+                "bandHeight": 500,
+                "geophysicalUnit": "°",
+                "noDataValue": "NaN",
+                "noDataValueUsed": "true",
+                "spectralWavelength": "0.0",
+                "spectralBandwidth": "0.0",
+                "expectedPixels": [
+                    {
+                        "x": 378,
+                        "y": 242,
+                        "value": 2.7939076
+                    },
+                    {
+                        "x": 475,
+                        "y": 242,
+                        "value": 2.2153401
+                    }
+                ]
+            },
+            {
+                "name": "view_azimuth_B7",
+                "description": "Viewing azimuth angles",
+                "bandWidth": 500,
+                "bandHeight": 500,
+                "geophysicalUnit": "°",
+                "noDataValue": "NaN",
+                "noDataValueUsed": "true",
+                "spectralWavelength": "0.0",
+                "spectralBandwidth": "0.0",
+                "expectedPixels": [
+                    {
+                        "x": 170,
+                        "y": 449,
+                        "value": 132.05508
+                    },
+                    {
+                        "x": 4,
+                        "y": 235,
+                        "value": 87.402695
+                    }
+                ]
+            }
+        ],
+        "metadata": [
+            {
+                "path": "Metadata/Dataset_Identification/AUTHORITY",
+                "value": "THEIA"
+            },
+            {
+                "path": "Processing_Graph/node.2/parameters/flagDownsampling",
+                "value": "First"
+            },
+            {
+                "path": "Metadata/Product_Characteristics/Band_Group_List/Group/Band_List/BAND_ID[2]",
+                "value": "B3"
+            },
+            {
+                "path": "Metadata/Geometric_Informations/Mean_Value_List/Mean_Viewing_Incidence_Angle_List/Mean_Viewing_Incidence_Angle/AZIMUTH_ANGLE",
+                "value": "197.749579981103"
+            },
+            {
+                "path": "Metadata/Production_Informations/Processing_Jobs_List/Job/Products_List/Outputs_List/PRODUCT/ACQUISITION_DATE",
+                "value": "2017-11-27T10:58:27.648Z"
+            },
+            {
+                "path": "Processing_Graph/node.2/parameters/upsampling",
+                "value": "Bilinear"
+            },
+            {
+                "path": "Metadata/Metadata_Identification/METADATA_INFORMATION",
+                "value": "PUBLIC"
+            },
+            {
+                "path": "Metadata/Radiometric_Informations/Spectral_Band_Informations_List/Spectral_Band_Informations[10]/Spectral_Response/VALUES",
+                "value": "0.0121336 0.04608767 0.15156613 0.35888361 0.60704101 0.83836043 0.93474094 0.94270146 0.95838078 0.99064712 0.99789825 1 0.98593726 0.97333604 0.95776631 0.972226 0.94856942 0.94367414 0.90771555 0.88460732 0.85258329 0.83375172 0.71599386 0.52202762 0.26922852 0.09477806 0.02640828 0.00346547"
+            },
+            {
+                "path": "Processing_Graph/node.1/parameters/upsampling",
+                "value": "Bilinear"
+            },
+            {
+                "path": "Metadata/Geometric_Informations/Mean_Value_List/Mean_Viewing_Incidence_Angle_List/Mean_Viewing_Incidence_Angle[2]/band_id",
+                "value": "B2"
+            }
+        ]
+    }
+}
