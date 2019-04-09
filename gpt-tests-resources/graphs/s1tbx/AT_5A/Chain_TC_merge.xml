@@ -1,0 +1,103 @@
+<graph id="Graph">
+  <version>1.0</version>
+  <node id="1-Read">
+    <operator>Read</operator>
+    <sources/>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <file>D:\DATA\TerraSAR-X\SampleData\2009-01-26_Chile_CopperMine_HS300_MGD_S_SE\TSX1_SAR__MGD_SE___HS_S_SRA_20090126T230038_20090126T230038\TSX1_SAR__MGD_SE___HS_S_SRA_20090126T230038_20090126T230038.xml</file>
+    </parameters>
+  </node>
+  <node id="2-Multilook">
+    <operator>Multilook</operator>
+    <sources>
+      <sourceProduct refid="1-Read"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <sourceBands/>
+      <nRgLooks>3</nRgLooks>
+      <nAzLooks>3</nAzLooks>
+      <outputIntensity>true</outputIntensity>
+      <note>Currently, detection for complex data is performed without any resampling</note>
+    </parameters>
+  </node>
+  <node id="3-Speckle-Filter">
+    <operator>Speckle-Filter</operator>
+    <sources>
+      <sourceProduct refid="2-Multilook"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <sourceBands/>
+      <filter>Gamma Map</filter>
+      <filterSizeX>5</filterSizeX>
+      <filterSizeY>5</filterSizeY>
+      <dampingFactor>2</dampingFactor>
+      <edgeThreshold>5000.0</edgeThreshold>
+      <estimateENL>true</estimateENL>
+      <enl>1.0</enl>
+    </parameters>
+  </node>
+  <node id="4-Terrain-Correction">
+    <operator>Terrain-Correction</operator>
+    <sources>
+      <sourceProduct refid="3-Speckle-Filter"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <sourceBands/>
+      <demName>SRTM 3Sec</demName>
+      <externalDEMFile/>
+      <externalDEMNoDataValue>0.0</externalDEMNoDataValue>
+      <demResamplingMethod>BISINC_INTERPOLATION</demResamplingMethod>
+      <imgResamplingMethod>CUBIC_CONVOLUTION</imgResamplingMethod>
+      <pixelSpacingInMeter>0.5</pixelSpacingInMeter>
+      <pixelSpacingInDegree>4.491576420597607E-6</pixelSpacingInDegree>
+      <mapProjection>GEOGCS[&quot;WGS84(DD)&quot;, &#xd;
+  DATUM[&quot;WGS84&quot;, &#xd;
+    SPHEROID[&quot;WGS84&quot;, 6378137.0, 298.257223563]], &#xd;
+  PRIMEM[&quot;Greenwich&quot;, 0.0], &#xd;
+  UNIT[&quot;degree&quot;, 0.017453292519943295], &#xd;
+  AXIS[&quot;Geodetic longitude&quot;, EAST], &#xd;
+  AXIS[&quot;Geodetic latitude&quot;, NORTH]]</mapProjection>
+      <nodataValueAtSea>false</nodataValueAtSea>
+      <saveDEM>false</saveDEM>
+      <saveLocalIncidenceAngle>false</saveLocalIncidenceAngle>
+      <saveProjectedLocalIncidenceAngle>false</saveProjectedLocalIncidenceAngle>
+      <saveSelectedSourceBand>true</saveSelectedSourceBand>
+      <applyRadiometricNormalization>false</applyRadiometricNormalization>
+      <saveSigmaNought>false</saveSigmaNought>
+      <saveGammaNought>false</saveGammaNought>
+      <saveBetaNought>false</saveBetaNought>
+      <incidenceAngleForSigma0>Use projected local incidence angle from DEM</incidenceAngleForSigma0>
+      <incidenceAngleForGamma0>Use projected local incidence angle from DEM</incidenceAngleForGamma0>
+      <auxFile>Latest Auxiliary File</auxFile>
+      <externalAuxFile/>
+    </parameters>
+  </node>
+  <node id="5-Write">
+    <operator>Write</operator>
+    <sources>
+      <sourceProduct refid="4-Terrain-Correction"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <formatName>BEAM-DIMAP</formatName>
+      <file>C:\Temp\Target_ML-SP_TC.dim</file>
+    </parameters>
+  </node>
+  <applicationData id="Presentation">
+    <Description/>
+    <node id="1-Read">
+      <displayPosition y="98.0" x="57.0"/>
+    </node>
+    <node id="2-Multilook">
+      <displayPosition y="98.0" x="161.0"/>
+    </node>
+    <node id="3-Speckle-Filter">
+      <displayPosition y="100.0" x="266.0"/>
+    </node>
+    <node id="4-Terrain-Correction">
+      <displayPosition y="101.0" x="394.0"/>
+    </node>
+    <node id="5-Write">
+      <displayPosition y="101.0" x="533.0"/>
+    </node>
+  </applicationData>
+</graph>

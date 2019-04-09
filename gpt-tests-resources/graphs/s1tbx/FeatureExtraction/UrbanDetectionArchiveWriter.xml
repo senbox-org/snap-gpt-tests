@@ -1,0 +1,94 @@
+<graph id="Graph">
+  <version>1.0</version>
+  <node id="1-Read">
+    <operator>Read</operator>
+    <sources/>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement"/>
+  </node>
+  <node id="3-Calibration">
+    <operator>Calibration</operator>
+    <sources>
+      <sourceProduct refid="1-Read"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <sourceBands/>
+      <auxFile>Latest Auxiliary File</auxFile>
+      <externalAuxFile/>
+      <outputImageInComplex>false</outputImageInComplex>
+      <outputImageScaleInDb>false</outputImageScaleInDb>
+      <createGammaBand>false</createGammaBand>
+      <createBetaBand>false</createBetaBand>
+    </parameters>
+  </node>
+  <node id="4-Create-LandMask">
+    <operator>Create-LandMask</operator>
+    <sources>
+      <sourceProduct refid="3-Calibration"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <sourceBands/>
+      <landMask>false</landMask>
+      <useSRTM>true</useSRTM>
+      <geometry/>
+      <invertGeometry>false</invertGeometry>
+      <byPass>false</byPass>
+    </parameters>
+  </node>
+  <node id="5-Terrain-Mask">
+    <operator>Terrain-Mask</operator>
+    <sources>
+      <sourceProduct refid="4-Create-LandMask"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <demName>SRTM 3Sec</demName>
+      <demResamplingMethod>NEAREST_NEIGHBOUR</demResamplingMethod>
+      <externalDEMFile/>
+      <externalDEMNoDataValue>0.0</externalDEMNoDataValue>
+      <windowSizeStr>15x15</windowSizeStr>
+      <thresholdInMeter>30.0</thresholdInMeter>
+    </parameters>
+  </node>
+  <node id="6-Urban-Area-Detection">
+    <operator>Urban-Area-Detection</operator>
+    <sources>
+      <sourceProduct refid="5-Terrain-Mask"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <sourceBands/>
+      <windowSizeStr>15x15</windowSizeStr>
+    </parameters>
+  </node>
+  <node id="7-FeatureWriter">
+    <operator>FeatureWriter</operator>
+    <sources>
+      <sourceProduct refid="6-Urban-Area-Detection"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <outputFolder>c:\out\archive3</outputFolder>
+      <formatName>BEAM-DIMAP</formatName>
+      <patchSizeKm>4.0</patchSizeKm>
+      <minValidPixels>0.05</minValidPixels>
+    </parameters>
+  </node>
+  <applicationData id="Presentation">
+    <Description/>
+    <node id="1-Read">
+      <displayPosition y="134.0" x="37.0"/>
+    </node>
+    <node id="3-Calibration">
+      <displayPosition y="134.0" x="112.0"/>
+    </node>
+    <node id="4-Create-LandMask">
+      <displayPosition y="178.0" x="112.0"/>
+    </node>
+    <node id="5-Terrain-Mask">
+      <displayPosition y="222.0" x="119.0"/>
+    </node>
+    <node id="6-Urban-Area-Detection">
+      <displayPosition y="222.0" x="280.0"/>
+    </node>
+    <node id="7-FeatureWriter">
+      <displayPosition y="222.0" x="426.0"/>
+    </node>
+  </applicationData>
+</graph>

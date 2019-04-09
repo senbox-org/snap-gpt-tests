@@ -1,0 +1,63 @@
+<graph id="Graph">
+  <version>1.0</version>
+  <node id="1-Read">
+    <operator>Read</operator>
+    <sources/>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <file>$input1</file>
+    </parameters>
+  </node>
+  <node id="2-Write">
+    <operator>Write</operator>
+    <sources>
+      <sourceProduct refid="4-Calibration"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <formatName>BEAM-DIMAP</formatName>
+      <file>target.dim</file>
+    </parameters>
+  </node>
+  <node id="3-Subset">
+    <operator>Subset</operator>
+    <sources>
+      <sourceProduct refid="1-Read"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <sourceBands/>
+      <region>100,100,500,500</region>
+      <subSamplingX>1</subSamplingX>
+      <subSamplingY>1</subSamplingY>
+      <geoRegion/>
+    </parameters>
+  </node>
+  <node id="4-Calibration">
+    <operator>Calibration</operator>
+    <sources>
+      <sourceProduct refid="3-Subset"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <sourceBands/>
+      <auxFile>Latest Auxiliary File</auxFile>
+      <externalAuxFile/>
+      <outputImageInComplex>false</outputImageInComplex>
+      <outputImageScaleInDb>false</outputImageScaleInDb>
+      <createGammaBand>false</createGammaBand>
+      <createBetaBand>false</createBetaBand>
+    </parameters>
+  </node>
+  <applicationData id="Presentation">
+    <Description/>
+    <node id="2-Write">
+      <displayPosition y="179.0" x="278.0"/>
+    </node>
+    <node id="4-Calibration">
+      <displayPosition y="178.0" x="144.0"/>
+    </node>
+    <node id="3-Subset">
+      <displayPosition y="180.0" x="40.0"/>
+    </node>
+    <node id="1-Read">
+      <displayPosition y="134.0" x="37.0"/>
+    </node>
+  </applicationData>
+</graph>

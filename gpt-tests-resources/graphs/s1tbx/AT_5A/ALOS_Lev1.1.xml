@@ -1,0 +1,302 @@
+<graph id="Graph">
+  <version>1.0</version>
+  <node id="1-Read">
+    <operator>Read</operator>
+    <sources/>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <file>D:\DATA\ALOS\data-sample\psr_fbs11\PSR_FBS11\VOL-ALPSRP150170690-H1.1__A</file>
+    </parameters>
+  </node>
+  <node id="2-ALOS-Deskewing">
+    <operator>ALOS-Deskewing</operator>
+    <sources>
+      <sourceProduct refid="1-Read"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <sourceBands/>
+    </parameters>
+  </node>
+  <node id="3-Multilook">
+    <operator>Multilook</operator>
+    <sources>
+      <sourceProduct refid="2-ALOS-Deskewing"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <sourceBands/>
+      <nRgLooks>1</nRgLooks>
+      <nAzLooks>2</nAzLooks>
+      <outputIntensity>true</outputIntensity>
+      <note>Currently, detection for complex data is performed without any resampling</note>
+    </parameters>
+  </node>
+  <node id="5-SAR-Simulation">
+    <operator>SAR-Simulation</operator>
+    <sources>
+      <sourceProduct refid="3-Multilook"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <sourceBands/>
+      <demName>SRTM 3Sec</demName>
+      <demResamplingMethod>BICUBIC_INTERPOLATION</demResamplingMethod>
+      <externalDEMFile/>
+      <externalDEMNoDataValue>0.0</externalDEMNoDataValue>
+      <saveLayoverShadowMask>false</saveLayoverShadowMask>
+    </parameters>
+  </node>
+  <node id="6-GCP-Selection">
+    <operator>GCP-Selection</operator>
+    <sources>
+      <sourceProduct refid="5-SAR-Simulation"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <numGCPtoGenerate>2000</numGCPtoGenerate>
+      <coarseRegistrationWindowWidth>512</coarseRegistrationWindowWidth>
+      <coarseRegistrationWindowHeight>512</coarseRegistrationWindowHeight>
+      <rowInterpFactor>2</rowInterpFactor>
+      <columnInterpFactor>2</columnInterpFactor>
+      <maxIteration>2</maxIteration>
+      <gcpTolerance>0.5</gcpTolerance>
+      <applyFineRegistration>false</applyFineRegistration>
+      <fineRegistrationWindowWidth>128</fineRegistrationWindowWidth>
+      <fineRegistrationWindowHeight>128</fineRegistrationWindowHeight>
+      <coherenceWindowSize>3</coherenceWindowSize>
+      <coherenceThreshold>0.6</coherenceThreshold>
+      <useSlidingWindow>false</useSlidingWindow>
+      <computeOffset>true</computeOffset>
+      <onlyGCPsOnLand>true</onlyGCPsOnLand>
+    </parameters>
+  </node>
+  <node id="7-SARSim-Terrain-Correction">
+    <operator>SARSim-Terrain-Correction</operator>
+    <sources>
+      <sourceProduct refid="6-GCP-Selection"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <rmsThreshold>0.5</rmsThreshold>
+      <warpPolynomialOrder>1</warpPolynomialOrder>
+      <imgResamplingMethod>BILINEAR_INTERPOLATION</imgResamplingMethod>
+      <pixelSpacingInMeter>7.49</pixelSpacingInMeter>
+      <pixelSpacingInDegree>6.728381478055215E-5</pixelSpacingInDegree>
+      <mapProjection>GEOGCS[&quot;WGS84(DD)&quot;, &#xd;
+  DATUM[&quot;WGS84&quot;, &#xd;
+    SPHEROID[&quot;WGS84&quot;, 6378137.0, 298.257223563]], &#xd;
+  PRIMEM[&quot;Greenwich&quot;, 0.0], &#xd;
+  UNIT[&quot;degree&quot;, 0.017453292519943295], &#xd;
+  AXIS[&quot;Geodetic longitude&quot;, EAST], &#xd;
+  AXIS[&quot;Geodetic latitude&quot;, NORTH]]</mapProjection>
+      <saveDEM>false</saveDEM>
+      <saveLocalIncidenceAngle>false</saveLocalIncidenceAngle>
+      <saveProjectedLocalIncidenceAngle>false</saveProjectedLocalIncidenceAngle>
+      <saveSelectedSourceBand>true</saveSelectedSourceBand>
+      <applyRadiometricNormalization>true</applyRadiometricNormalization>
+      <saveSigmaNought>true</saveSigmaNought>
+      <saveGammaNought>false</saveGammaNought>
+      <saveBetaNought>false</saveBetaNought>
+      <incidenceAngleForSigma0>Use projected local incidence angle from DEM</incidenceAngleForSigma0>
+      <incidenceAngleForGamma0>Use projected local incidence angle from DEM</incidenceAngleForGamma0>
+      <auxFile>Latest Auxiliary File</auxFile>
+      <externalAuxFile/>
+      <openShiftsFile>false</openShiftsFile>
+      <openResidualsFile>false</openResidualsFile>
+    </parameters>
+  </node>
+  <node id="8-Write">
+    <operator>Write</operator>
+    <sources>
+      <sourceProduct refid="7-SARSim-Terrain-Correction"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <formatName>BEAM-DIMAP</formatName>
+      <file>C:\Temp\ALOS_ML_SPK_RTC_SARSIM.dim</file>
+    </parameters>
+  </node>
+  <node id="11-Calibration">
+    <operator>Calibration</operator>
+    <sources>
+      <sourceProduct refid="3-Multilook"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <sourceBands/>
+      <auxFile>Latest Auxiliary File</auxFile>
+      <externalAuxFile/>
+      <outputImageInComplex>false</outputImageInComplex>
+      <outputImageScaleInDb>false</outputImageScaleInDb>
+      <createGammaBand>false</createGammaBand>
+      <createBetaBand>false</createBetaBand>
+    </parameters>
+  </node>
+  <node id="12-SAR-Simulation">
+    <operator>SAR-Simulation</operator>
+    <sources>
+      <sourceProduct refid="11-Calibration"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <sourceBands/>
+      <demName>SRTM 3Sec</demName>
+      <demResamplingMethod>BICUBIC_INTERPOLATION</demResamplingMethod>
+      <externalDEMFile/>
+      <externalDEMNoDataValue>0.0</externalDEMNoDataValue>
+      <saveLayoverShadowMask>false</saveLayoverShadowMask>
+    </parameters>
+  </node>
+  <node id="13-GCP-Selection">
+    <operator>GCP-Selection</operator>
+    <sources>
+      <sourceProduct refid="12-SAR-Simulation"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <numGCPtoGenerate>200</numGCPtoGenerate>
+      <coarseRegistrationWindowWidth>128</coarseRegistrationWindowWidth>
+      <coarseRegistrationWindowHeight>128</coarseRegistrationWindowHeight>
+      <rowInterpFactor>2</rowInterpFactor>
+      <columnInterpFactor>2</columnInterpFactor>
+      <maxIteration>2</maxIteration>
+      <gcpTolerance>0.5</gcpTolerance>
+      <applyFineRegistration>true</applyFineRegistration>
+      <fineRegistrationWindowWidth>32</fineRegistrationWindowWidth>
+      <fineRegistrationWindowHeight>32</fineRegistrationWindowHeight>
+      <coherenceWindowSize>3</coherenceWindowSize>
+      <coherenceThreshold>0.6</coherenceThreshold>
+      <useSlidingWindow>true</useSlidingWindow>
+      <computeOffset>false</computeOffset>
+      <onlyGCPsOnLand>false</onlyGCPsOnLand>
+    </parameters>
+  </node>
+  <node id="14-SARSim-Terrain-Correction">
+    <operator>SARSim-Terrain-Correction</operator>
+    <sources>
+      <sourceProduct refid="13-GCP-Selection"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <rmsThreshold>1.0</rmsThreshold>
+      <warpPolynomialOrder>1</warpPolynomialOrder>
+      <imgResamplingMethod>BILINEAR_INTERPOLATION</imgResamplingMethod>
+      <pixelSpacingInMeter>7.49</pixelSpacingInMeter>
+      <pixelSpacingInDegree>6.728381478055215E-5</pixelSpacingInDegree>
+      <mapProjection>GEOGCS[&quot;WGS84(DD)&quot;, &#xd;
+  DATUM[&quot;WGS84&quot;, &#xd;
+    SPHEROID[&quot;WGS84&quot;, 6378137.0, 298.257223563]], &#xd;
+  PRIMEM[&quot;Greenwich&quot;, 0.0], &#xd;
+  UNIT[&quot;degree&quot;, 0.017453292519943295], &#xd;
+  AXIS[&quot;Geodetic longitude&quot;, EAST], &#xd;
+  AXIS[&quot;Geodetic latitude&quot;, NORTH]]</mapProjection>
+      <saveDEM>false</saveDEM>
+      <saveLocalIncidenceAngle>false</saveLocalIncidenceAngle>
+      <saveProjectedLocalIncidenceAngle>false</saveProjectedLocalIncidenceAngle>
+      <saveSelectedSourceBand>true</saveSelectedSourceBand>
+      <applyRadiometricNormalization>false</applyRadiometricNormalization>
+      <saveSigmaNought>false</saveSigmaNought>
+      <saveGammaNought>false</saveGammaNought>
+      <saveBetaNought>false</saveBetaNought>
+      <incidenceAngleForSigma0>Use projected local incidence angle from DEM</incidenceAngleForSigma0>
+      <incidenceAngleForGamma0>Use projected local incidence angle from DEM</incidenceAngleForGamma0>
+      <auxFile>Latest Auxiliary File</auxFile>
+      <externalAuxFile/>
+      <openShiftsFile>false</openShiftsFile>
+      <openResidualsFile>false</openResidualsFile>
+    </parameters>
+  </node>
+  <node id="15-Write">
+    <operator>Write</operator>
+    <sources>
+      <sourceProduct refid="14-SARSim-Terrain-Correction"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <formatName>BEAM-DIMAP</formatName>
+      <file>C:\Temp\ALOS_ML-CAL-TC_SARSIM.dim</file>
+    </parameters>
+  </node>
+  <node id="16-Terrain-Correction">
+    <operator>Terrain-Correction</operator>
+    <sources>
+      <sourceProduct refid="3-Multilook"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <sourceBands>
+        <band>Intensity_HH</band>
+      </sourceBands>
+      <demName>SRTM 3Sec</demName>
+      <externalDEMFile/>
+      <externalDEMNoDataValue>0.0</externalDEMNoDataValue>
+      <demResamplingMethod>BILINEAR_INTERPOLATION</demResamplingMethod>
+      <imgResamplingMethod>BILINEAR_INTERPOLATION</imgResamplingMethod>
+      <pixelSpacingInMeter>7.49</pixelSpacingInMeter>
+      <pixelSpacingInDegree>6.728381478055215E-5</pixelSpacingInDegree>
+      <mapProjection>GEOGCS[&quot;WGS84(DD)&quot;, &#xd;
+  DATUM[&quot;WGS84&quot;, &#xd;
+    SPHEROID[&quot;WGS84&quot;, 6378137.0, 298.257223563]], &#xd;
+  PRIMEM[&quot;Greenwich&quot;, 0.0], &#xd;
+  UNIT[&quot;degree&quot;, 0.017453292519943295], &#xd;
+  AXIS[&quot;Geodetic longitude&quot;, EAST], &#xd;
+  AXIS[&quot;Geodetic latitude&quot;, NORTH]]</mapProjection>
+      <nodataValueAtSea>false</nodataValueAtSea>
+      <saveDEM>false</saveDEM>
+      <saveLocalIncidenceAngle>false</saveLocalIncidenceAngle>
+      <saveProjectedLocalIncidenceAngle>false</saveProjectedLocalIncidenceAngle>
+      <saveSelectedSourceBand>true</saveSelectedSourceBand>
+      <applyRadiometricNormalization>false</applyRadiometricNormalization>
+      <saveSigmaNought>false</saveSigmaNought>
+      <saveGammaNought>false</saveGammaNought>
+      <saveBetaNought>false</saveBetaNought>
+      <incidenceAngleForSigma0>Use projected local incidence angle from DEM</incidenceAngleForSigma0>
+      <incidenceAngleForGamma0>Use projected local incidence angle from DEM</incidenceAngleForGamma0>
+      <auxFile>Latest Auxiliary File</auxFile>
+      <externalAuxFile/>
+    </parameters>
+  </node>
+  <node id="17-Write">
+    <operator>Write</operator>
+    <sources>
+      <sourceProduct refid="16-Terrain-Correction"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <formatName>BEAM-DIMAP</formatName>
+      <file>C:\Temp\ALOS_ML_TC.dim</file>
+    </parameters>
+  </node>
+  <applicationData id="Presentation">
+    <Description/>
+    <node id="1-Read">
+      <displayPosition y="76.0" x="50.0"/>
+    </node>
+    <node id="2-ALOS-Deskewing">
+      <displayPosition y="118.0" x="32.0"/>
+    </node>
+    <node id="3-Multilook">
+      <displayPosition y="172.0" x="60.0"/>
+    </node>
+    <node id="5-SAR-Simulation">
+      <displayPosition y="234.0" x="44.0"/>
+    </node>
+    <node id="6-GCP-Selection">
+      <displayPosition y="229.0" x="220.0"/>
+    </node>
+    <node id="7-SARSim-Terrain-Correction">
+      <displayPosition y="303.0" x="192.0"/>
+    </node>
+    <node id="8-Write">
+      <displayPosition y="306.0" x="397.0"/>
+    </node>
+    <node id="11-Calibration">
+      <displayPosition y="172.0" x="187.0"/>
+    </node>
+    <node id="12-SAR-Simulation">
+      <displayPosition y="160.0" x="297.0"/>
+    </node>
+    <node id="13-GCP-Selection">
+      <displayPosition y="127.0" x="430.0"/>
+    </node>
+    <node id="14-SARSim-Terrain-Correction">
+      <displayPosition y="172.0" x="449.0"/>
+    </node>
+    <node id="15-Write">
+      <displayPosition y="173.0" x="682.0"/>
+    </node>
+    <node id="16-Terrain-Correction">
+      <displayPosition y="94.0" x="221.0"/>
+    </node>
+    <node id="17-Write">
+      <displayPosition y="88.0" x="400.0"/>
+    </node>
+  </applicationData>
+</graph>

@@ -1,0 +1,208 @@
+<graph id="Graph">
+  <version>1.0</version>
+  <node id="1-Read">
+    <operator>Read</operator>
+    <sources/>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <file></file>
+    </parameters>
+  </node>
+  <node id="2-Subset">
+    <operator>Subset</operator>
+    <sources>
+      <sourceProduct refid="1-Read"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <sourceBands/>
+      <regionX>0</regionX>
+      <regionY>0</regionY>
+      <width>1000</width>
+      <height>1000</height>
+      <subSamplingX>1</subSamplingX>
+      <subSamplingY>1</subSamplingY>
+      <geoRegion/>
+    </parameters>
+  </node>
+  <node id="3-Oversample">
+    <operator>Oversample</operator>
+    <sources>
+      <sourceProduct refid="2-Subset"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <sourceBands/>
+      <outputImageBy>Ratio</outputImageBy>
+      <targetImageHeight>1000</targetImageHeight>
+      <targetImageWidth>1000</targetImageWidth>
+      <widthRatio>2.0</widthRatio>
+      <heightRatio>2.0</heightRatio>
+      <rangeSpacing>12.5</rangeSpacing>
+      <azimuthSpacing>12.5</azimuthSpacing>
+      <usePRFTileSize>false</usePRFTileSize>
+    </parameters>
+  </node>
+  <node id="4-Write">
+    <operator>Write</operator>
+    <sources>
+      <sourceProduct refid="3-Oversample"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <formatName>BEAM-DIMAP</formatName>
+      <file>C:\Temp\target_Ovs2.dim</file>
+    </parameters>
+  </node>
+  <node id="5-Ellipsoid-Correction-RD">
+    <operator>Ellipsoid-Correction-RD</operator>
+    <sources>
+      <sourceProduct refid="3-Oversample"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <sourceBands/>
+      <demName>SRTM 3Sec</demName>
+      <externalDEMFile/>
+      <externalDEMNoDataValue>0.0</externalDEMNoDataValue>
+      <demResamplingMethod>BILINEAR_INTERPOLATION</demResamplingMethod>
+      <imgResamplingMethod>CUBIC_CONVOLUTION</imgResamplingMethod>
+      <pixelSpacingInMeter>0</pixelSpacingInMeter>
+      <pixelSpacingInDegree>0</pixelSpacingInDegree>
+      <mapProjection>GEOGCS[&quot;WGS84(DD)&quot;, &#xd;
+  DATUM[&quot;WGS84&quot;, &#xd;
+    SPHEROID[&quot;WGS84&quot;, 6378137.0, 298.257223563]], &#xd;
+  PRIMEM[&quot;Greenwich&quot;, 0.0], &#xd;
+  UNIT[&quot;degree&quot;, 0.017453292519943295], &#xd;
+  AXIS[&quot;Geodetic longitude&quot;, EAST], &#xd;
+  AXIS[&quot;Geodetic latitude&quot;, NORTH]]</mapProjection>
+      <nodataValueAtSea>true</nodataValueAtSea>
+      <saveDEM>false</saveDEM>
+      <saveLocalIncidenceAngle>false</saveLocalIncidenceAngle>
+      <saveProjectedLocalIncidenceAngle>false</saveProjectedLocalIncidenceAngle>
+      <saveSelectedSourceBand>true</saveSelectedSourceBand>
+      <applyRadiometricNormalization>false</applyRadiometricNormalization>
+      <saveSigmaNought>false</saveSigmaNought>
+      <saveGammaNought>false</saveGammaNought>
+      <saveBetaNought>false</saveBetaNought>
+      <incidenceAngleForSigma0>Use projected local incidence angle from DEM</incidenceAngleForSigma0>
+      <incidenceAngleForGamma0>Use projected local incidence angle from DEM</incidenceAngleForGamma0>
+      <auxFile>Latest Auxiliary File</auxFile>
+      <externalAuxFile/>
+    </parameters>
+  </node>
+  <node id="6-Write">
+    <operator>Write</operator>
+    <sources>
+      <sourceProduct refid="5-Ellipsoid-Correction-RD"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <formatName>BEAM-DIMAP</formatName>
+      <file>C:\Temp\target.dim</file>
+    </parameters>
+  </node>
+  <node id="7-Undersample">
+    <operator>Undersample</operator>
+    <sources>
+      <sourceProduct refid="3-Oversample"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <sourceBands/>
+      <method>Sub-Sampling</method>
+      <filterSize>3x3</filterSize>
+      <subSamplingX>2</subSamplingX>
+      <subSamplingY>2</subSamplingY>
+      <outputImageBy>Image Size</outputImageBy>
+      <targetImageHeight>1000</targetImageHeight>
+      <targetImageWidth>1000</targetImageWidth>
+      <widthRatio>0.5</widthRatio>
+      <heightRatio>0.5</heightRatio>
+      <rangeSpacing>12.5</rangeSpacing>
+      <azimuthSpacing>12.5</azimuthSpacing>
+    </parameters>
+  </node>
+  <node id="8-Terrain-Correction">
+    <operator>Terrain-Correction</operator>
+    <sources>
+      <sourceProduct refid="7-Undersample"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <sourceBands/>
+      <demName>SRTM 3Sec</demName>
+      <externalDEMFile/>
+      <externalDEMNoDataValue>0.0</externalDEMNoDataValue>
+      <demResamplingMethod>BILINEAR_INTERPOLATION</demResamplingMethod>
+      <imgResamplingMethod>BILINEAR_INTERPOLATION</imgResamplingMethod>
+      <pixelSpacingInMeter>0</pixelSpacingInMeter>
+      <pixelSpacingInDegree>0</pixelSpacingInDegree>
+      <mapProjection>GEOGCS[&quot;WGS84(DD)&quot;, &#xd;
+  DATUM[&quot;WGS84&quot;, &#xd;
+    SPHEROID[&quot;WGS84&quot;, 6378137.0, 298.257223563]], &#xd;
+  PRIMEM[&quot;Greenwich&quot;, 0.0], &#xd;
+  UNIT[&quot;degree&quot;, 0.017453292519943295], &#xd;
+  AXIS[&quot;Geodetic longitude&quot;, EAST], &#xd;
+  AXIS[&quot;Geodetic latitude&quot;, NORTH]]</mapProjection>
+      <nodataValueAtSea>true</nodataValueAtSea>
+      <saveDEM>false</saveDEM>
+      <saveLocalIncidenceAngle>false</saveLocalIncidenceAngle>
+      <saveProjectedLocalIncidenceAngle>false</saveProjectedLocalIncidenceAngle>
+      <saveSelectedSourceBand>true</saveSelectedSourceBand>
+      <applyRadiometricNormalization>false</applyRadiometricNormalization>
+      <saveSigmaNought>false</saveSigmaNought>
+      <saveGammaNought>false</saveGammaNought>
+      <saveBetaNought>false</saveBetaNought>
+      <incidenceAngleForSigma0>Use projected local incidence angle from DEM</incidenceAngleForSigma0>
+      <incidenceAngleForGamma0>Use projected local incidence angle from DEM</incidenceAngleForGamma0>
+      <auxFile>Latest Auxiliary File</auxFile>
+      <externalAuxFile/>
+    </parameters>
+  </node>
+  <node id="9-Write">
+    <operator>Write</operator>
+    <sources>
+      <sourceProduct refid="8-Terrain-Correction"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <formatName>BEAM-DIMAP</formatName>
+      <file>C:\Temp\targetOvs_Und_TC.dim</file>
+    </parameters>
+  </node>
+  <node id="10-Write">
+    <operator>Write</operator>
+    <sources>
+      <sourceProduct refid="7-Undersample"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <formatName>GeoTIFF</formatName>
+      <file>C:\Temp\target_Ovs-und.tif</file>
+    </parameters>
+  </node>
+  <applicationData id="Presentation">
+    <Description/>
+    <node id="1-Read">
+      <displayPosition y="101.0" x="57.0"/>
+    </node>
+    <node id="2-Subset">
+      <displayPosition y="102.0" x="157.0"/>
+    </node>
+    <node id="3-Oversample">
+      <displayPosition y="102.0" x="257.0"/>
+    </node>
+    <node id="4-Write">
+      <displayPosition y="45.0" x="371.0"/>
+    </node>
+    <node id="5-Ellipsoid-Correction-RD">
+      <displayPosition y="103.0" x="436.0"/>
+    </node>
+    <node id="6-Write">
+      <displayPosition y="105.0" x="621.0"/>
+    </node>
+    <node id="7-Undersample">
+      <displayPosition y="171.0" x="255.0"/>
+    </node>
+    <node id="8-Terrain-Correction">
+      <displayPosition y="246.0" x="246.0"/>
+    </node>
+    <node id="9-Write">
+      <displayPosition y="246.0" x="394.0"/>
+    </node>
+    <node id="10-Write">
+      <displayPosition y="170.0" x="379.0"/>
+    </node>
+  </applicationData>
+</graph>

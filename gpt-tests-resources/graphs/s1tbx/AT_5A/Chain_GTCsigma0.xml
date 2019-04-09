@@ -1,0 +1,140 @@
+<graph id="Graph">
+  <version>1.0</version>
+  <node id="1-Read">
+    <operator>Read</operator>
+    <sources/>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <file></file>
+    </parameters>
+  </node>
+  <node id="2-Multilook">
+    <operator>Multilook</operator>
+    <sources>
+      <sourceProduct refid="1-Read"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <sourceBands/>
+      <nRgLooks>3</nRgLooks>
+      <nAzLooks>3</nAzLooks>
+      <outputIntensity>true</outputIntensity>
+      <note>Currently, detection for complex data is performed without any resampling</note>
+    </parameters>
+  </node>
+  <node id="5-Terrain-Correction">
+    <operator>Terrain-Correction</operator>
+    <sources>
+      <sourceProduct refid="2-Multilook"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <sourceBands/>
+      <demName>SRTM 3Sec</demName>
+      <externalDEMFile/>
+      <externalDEMNoDataValue>0.0</externalDEMNoDataValue>
+      <demResamplingMethod>BILINEAR_INTERPOLATION</demResamplingMethod>
+      <imgResamplingMethod>BILINEAR_INTERPOLATION</imgResamplingMethod>
+      <pixelSpacingInMeter>101.93</pixelSpacingInMeter>
+      <pixelSpacingInDegree>9.156527691030282E-4</pixelSpacingInDegree>
+      <mapProjection>GEOGCS[&quot;WGS84(DD)&quot;, &#xd;
+  DATUM[&quot;WGS84&quot;, &#xd;
+    SPHEROID[&quot;WGS84&quot;, 6378137.0, 298.257223563]], &#xd;
+  PRIMEM[&quot;Greenwich&quot;, 0.0], &#xd;
+  UNIT[&quot;degree&quot;, 0.017453292519943295], &#xd;
+  AXIS[&quot;Geodetic longitude&quot;, EAST], &#xd;
+  AXIS[&quot;Geodetic latitude&quot;, NORTH]]</mapProjection>
+      <nodataValueAtSea>true</nodataValueAtSea>
+      <saveDEM>true</saveDEM>
+      <saveLocalIncidenceAngle>false</saveLocalIncidenceAngle>
+      <saveProjectedLocalIncidenceAngle>false</saveProjectedLocalIncidenceAngle>
+      <saveSelectedSourceBand>true</saveSelectedSourceBand>
+      <applyRadiometricNormalization>true</applyRadiometricNormalization>
+      <saveSigmaNought>true</saveSigmaNought>
+      <saveGammaNought>false</saveGammaNought>
+      <saveBetaNought>false</saveBetaNought>
+      <incidenceAngleForSigma0>Use projected local incidence angle from DEM</incidenceAngleForSigma0>
+      <incidenceAngleForGamma0>Use projected local incidence angle from DEM</incidenceAngleForGamma0>
+      <auxFile>Latest Auxiliary File</auxFile>
+      <externalAuxFile/>
+    </parameters>
+  </node>
+  <node id="9-BandMaths">
+    <operator>BandMaths</operator>
+    <sources>
+      <sourceProduct refid="5-Terrain-Correction"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <targetBands/>
+      <variables/>
+      <bandName>Amplitude</bandName>
+      <bandUnit/>
+      <bandNodataValue/>
+      <bandExpression>abs($Band0)</bandExpression>
+    </parameters>
+  </node>
+  <node id="10-Write">
+    <operator>Write</operator>
+    <sources>
+      <sourceProduct refid="9-BandMaths"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <formatName>BEAM-DIMAP</formatName>
+      <file>C:\Temp\GTC_Beam.dim</file>
+    </parameters>
+  </node>
+  <node id="8-Write">
+    <operator>Write</operator>
+    <sources>
+      <sourceProduct refid="9-BandMaths"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <formatName>PolSARPro</formatName>
+      <file>C:\Temp\GTC_PSP.hdr</file>
+    </parameters>
+  </node>
+  <node id="13-Write">
+    <operator>Write</operator>
+    <sources>
+      <sourceProduct refid="9-BandMaths"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <formatName>GeoTIFF</formatName>
+      <file>C:\Temp\GTC_geotiff.tif</file>
+    </parameters>
+  </node>
+  <node id="14-Write">
+    <operator>Write</operator>
+    <sources>
+      <sourceProduct refid="9-BandMaths"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <formatName>ENVI</formatName>
+      <file>C:\Temp\GTC_envi.hdr</file>
+    </parameters>
+  </node>
+  <applicationData id="Presentation">
+    <Description/>
+    <node id="1-Read">
+      <displayPosition y="53.0" x="13.0"/>
+    </node>
+    <node id="2-Multilook">
+      <displayPosition y="52.0" x="128.0"/>
+    </node>
+    <node id="5-Terrain-Correction">
+      <displayPosition y="47.0" x="264.0"/>
+    </node>
+    <node id="9-BandMaths">
+      <displayPosition y="142.0" x="282.0"/>
+    </node>
+    <node id="10-Write">
+      <displayPosition y="59.0" x="419.0"/>
+    </node>
+    <node id="8-Write">
+      <displayPosition y="105.0" x="420.0"/>
+    </node>
+    <node id="13-Write">
+      <displayPosition y="197.0" x="424.0"/>
+    </node>
+    <node id="14-Write">
+      <displayPosition y="246.0" x="428.0"/>
+    </node>
+  </applicationData>
+</graph>
