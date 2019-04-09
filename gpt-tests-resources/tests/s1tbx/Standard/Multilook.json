@@ -1,0 +1,86 @@
+[
+{
+  "id":"s1tbx.standard.multilook.asar",
+  "description":"execute multilook processor with ASAR",
+  "frequency":"daily",
+  "graphPath": "s1tbx/Standard/Subset_ML.xml",
+  "inputs": {
+    "input1": "s1tbx/SAR/ASAR/ASA_IMM.zip"
+  },
+  "parameters": {
+  },
+  "outputs": [{
+    "parameter": "out1",
+    "outputName": "tempCal",
+    "expected": "s1tbx/Standard/expected-multilook-asar.json"
+  }]
+},
+{
+  "id":"s1tbx.standard.multilook.alos",
+  "description":"execute multilook processor with ALOS",
+  "frequency":"daily",
+  "graphPath": "s1tbx/Standard/Subset_ML.xml",
+  "inputs": {
+    "input1": "s1tbx/SAR/ALOS/ALPSRS267172700-L1.5.zip"
+  },
+  "parameters": {
+  },
+  "outputs": [{
+    "parameter": "out1",
+    "outputName": "tempCal",
+    "expected": "s1tbx/Standard/expected-multilook-alos.json"
+  }]
+},
+{
+  "id":"s1tbx.standard.multilook.ers",
+  "description":"execute multilook processor with ERS-2",
+  "frequency":"daily",
+  "graphPath": "s1tbx/Standard/Subset_ML.xml",
+  "inputs": {
+    "input1": "s1tbx/SAR/ERS/SAR_IMM_1PXESA20110310_110538_00000007A166_00037_83057_1816.E2.zip"
+  },
+  "parameters": {
+  },
+  "outputs": [{
+    "parameter": "out1",
+    "outputName": "tempCal",
+    "expected": "s1tbx/Standard/expected-multilook-ers.json"
+  }]
+},
+{
+  "id":"s1tbx.standard.multilook.rs2",
+  "description":"execute multilook processor with RS2",
+  "frequency":"daily",
+  "graphPath": "s1tbx/Standard/Subset_ML.xml",
+  "inputs": {
+    "input1": "s1tbx/SAR/RS2/RS2-standard-quad.zip"
+  },
+  "parameters": {
+  },
+  "outputs": [{
+    "parameter": "out1",
+    "outputName": "tempCal",
+    "expected": "s1tbx/Standard/expected-multilook-rs2.json"
+  }]
+},
+{
+  "id":"s1tbx.standard.multilook.s1.grd",
+  "description":"execute multilook processor with S1 GRD",
+  "frequency":"daily",
+  "graphPath": "s1tbx/Standard/Subset_ML.xml",
+  "inputs": {
+    "input1": "s1tbx/SAR/S1/S1A_IW_GRDH_1ADV_20140819T224528_20140819T224546_002015_001F3B_979A.zip"
+  },
+  "parameters": {
+  },
+  "outputs": [{
+    "parameter": "out1",
+    "outputName": "tempCal",
+    "expected": "s1tbx/Standard/expected-multilook-s1-grd.json"
+  }]
+}
+
+]
+
+
+

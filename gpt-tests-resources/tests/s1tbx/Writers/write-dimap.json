@@ -1,0 +1,19 @@
+[{
+  "id":"s1tbx.writers.write-Dimap",
+  "description":"execute dimap writing",
+  "frequency":"daily",
+  "graphPath": "s1tbx/Writers/WriteDimap.xml",
+  "inputs": {
+    "input1": "s1tbx/SAR/ASAR/ASA_IMM.zip"
+  },
+  "parameters": {
+  },
+  "outputs": [{
+    "parameter": "out1",
+    "outputName": "tempDimap",
+    "expected": "s1tbx/Writers/expectedDimap.json"
+  }]
+}]
+
+
+
