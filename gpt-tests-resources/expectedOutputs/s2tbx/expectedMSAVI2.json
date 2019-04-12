@@ -57,12 +57,12 @@
           {
             "x": 15,
             "y": 53,
-            "value": 0.7464787
+            "value": 0.7436242
           },
           {
             "x": 205,
             "y": 255,
-            "value": 0.7541438
+            "value": 0.7578905
           }
         ]
       },
@@ -115,16 +115,8 @@
         "value": "false"
       },
       {
-        "path": "Processing_Graph/node.1/parameters/clearCacheAfterRowWrite",
-        "value": "false"
-      },
-      {
-        "path": "Processing_Graph/node.0/parameters/resampleType",
-        "value": "None"
-      },
-      {
-        "path": "Processing_Graph/node.1/sources/sourceProduct",
-        "value": "Msavi2Op"
+        "path": "Processing_Graph/node.1/parameters/deleteOutputOnFailure",
+        "value": "true"
       },
       {
         "path": "Processing_Graph/node.0/sources/sourceProduct",
@@ -135,20 +127,24 @@
         "value": "BEAM-DIMAP"
       },
       {
-        "path": "Processing_Graph/node.0/sources/sourceProduct",
-        "value": "product:Subset_S2A_MSIL1C_20161206T080312_N0204_R035_T34HFH_20161206T081929_resampled"
-      },
-      {
-        "path": "Processing_Graph/node.0/sources/sourceProduct",
-        "value": "product:Subset_S2A_MSIL1C_20161206T080312_N0204_R035_T34HFH_20161206T081929_resampled"
-      },
-      {
         "path": "Processing_Graph/node.0/parameters/nirFactor",
         "value": "1.0"
       },
       {
         "path": "Processing_Graph/node.0/parameters/redSourceBand",
         "value": "B4"
+      },
+      {
+        "path": "Processing_Graph/node.1/parameters/deleteOutputOnFailure",
+        "value": "true"
+      },
+      {
+        "path": "Processing_Graph/node.1/parameters/clearCacheAfterRowWrite",
+        "value": "false"
+      },
+      {
+        "path": "Processing_Graph/node.0/parameters/nirFactor",
+        "value": "1.0"
       }
     ]
   }
