@@ -23,6 +23,10 @@ public class SnapGPTTest {
 
     public static void main(String[] args) throws IOException {
 
+        final String PROPERTYNAME_FAIL_ON_MISSING_DATA = "snap.gpt.tests.failOnMissingData";
+        final boolean FAIL_ON_MISSING_DATA = Boolean.parseBoolean(System.getProperty(PROPERTYNAME_FAIL_ON_MISSING_DATA, "true"));
+
+
         boolean specificJSON = true;
         boolean success = true;
         //TODO check better the arguments
@@ -45,6 +49,10 @@ public class SnapGPTTest {
         } catch (IOException e) {
             System.out.println("Unable to load property file");
             return;
+        }
+
+        if (!FAIL_ON_MISSING_DATA) {
+            System.out.println("Tests will not fail if test data is missing!");
         }
 
         testFolder = Paths.get(properties.getProperty("testFolder"));
@@ -102,8 +110,8 @@ public class SnapGPTTest {
                 continue;
             }
             for(GraphTest graphTest : graphTests) {
-                if(!graphTest.inputExists(inputFolder)) {
-                    //System.out.println(graphTest.getId() +" is missing input data. Skipping test.");
+                if(!graphTest.inputExists(inputFolder) && !FAIL_ON_MISSING_DATA) {
+                    System.out.println(graphTest.getId() +" is missing input data. Skipping test.");
                     continue;
                 }
                 
