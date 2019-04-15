@@ -1,7 +1,7 @@
 [{
     "id":"ResampReprojSubset_Muscate",
     "description":"Apply resampling, reprojection and subset to a S2 product in Muscate format",
-    "frequency":"test",
+    "frequency":"daily",
     "graphPath": "snap/graphResampReprojSubset.xml",
     "inputs": {
         "input1": "s2tbx/S2/MUSCATE/SENTINEL2A_20180529-101826-293_L2A_T32TPP_D_V1-8/SENTINEL2A_20180529-101826-293_L2A_T32TPP_D_V1-8_MTD_ALL.xml"
@@ -24,7 +24,7 @@
     {
         "id":"ResampSubsetReproj_SAFE",
         "description":"Apply resampling,subset and reprojection to a S2 product in SAFE format",
-        "frequency":"test",
+        "frequency":"daily",
         "graphPath": "snap/graphResampSubsetReproj.xml",
         "inputs": {
             "input1": "s2tbx/S2/Maricopa/S2A_MSIL2A_20170207T182431_N0204_R084_T12SUB_20170207T182425.SAFE"
