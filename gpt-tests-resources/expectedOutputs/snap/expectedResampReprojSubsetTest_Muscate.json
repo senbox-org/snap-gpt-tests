@@ -1,0 +1,159 @@
+{
+  "id": "ResampReprojSubsetTest_Muscate",
+  "decodeQualification": "INTENDED",
+  "expectedContent": {
+    "sceneWidth": 2500,
+    "sceneHeight": 2500,
+    "startTime": "29-MAY-2018 10:18:26.293000",
+    "endTime": "29-MAY-2018 10:18:26.293000",
+    "geoCoding": {
+      "coordinates": [
+        {
+          "x": 1078.0,
+          "y": 1343.0,
+          "lat": 44.11369111538695,
+          "lon": 10.340493453254224
+        },
+        {
+          "x": 1856.0,
+          "y": 1622.0,
+          "lat": 44.08800304225646,
+          "lon": 10.412125427790142
+        }
+      ],
+      "reverseAccuracy": 1.4551915228366852E-11
+    },
+    "bands": [
+      {
+        "name": "Surface_Reflectance_B2",
+        "description": "Ground reflectance without the correction of slope effects, band B2",
+        "bandWidth": 2500,
+        "bandHeight": 2500,
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "492.4",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 130,
+            "y": 445,
+            "value": 0.0261
+          },
+          {
+            "x": 1712,
+            "y": 2126,
+            "value": 0.0166
+          }
+        ]
+      },
+      {
+        "name": "Surface_Reflectance_B3",
+        "description": "Ground reflectance without the correction of slope effects, band B3",
+        "bandWidth": 2500,
+        "bandHeight": 2500,
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "559.8",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 727,
+            "y": 642,
+            "value": 0.0563
+          },
+          {
+            "x": 1526,
+            "y": 913,
+            "value": 0.0807
+          }
+        ]
+      },
+      {
+        "name": "Surface_Reflectance_B4",
+        "description": "Ground reflectance without the correction of slope effects, band B4",
+        "bandWidth": 2500,
+        "bandHeight": 2500,
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "664.6",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 1375,
+            "y": 1863,
+            "value": 0.0044
+          },
+          {
+            "x": 1520,
+            "y": 2321,
+            "value": 0.0231
+          }
+        ]
+      },
+      {
+        "name": "Surface_Reflectance_B8",
+        "description": "Ground reflectance without the correction of slope effects, band B8",
+        "bandWidth": 2500,
+        "bandHeight": 2500,
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "832.8",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 395,
+            "y": 1665,
+            "value": 0.6851
+          },
+          {
+            "x": 1297,
+            "y": 2283,
+            "value": 0.3673
+          }
+        ]
+      }
+    ],
+    "metadata": [
+      {
+        "path": "history/SubsetInfo/ProductNodeName.4",
+        "value": "Surface_Reflectance_B8"
+      },
+      {
+        "path": "Metadata/Product_Organisation/Muscate_Product/Image_List/Image[2]/Image_Properties/NATURE",
+        "value": "Flat_Reflectance"
+      },
+      {
+        "path": "Metadata/Metadata_Identification/METADATA_INFORMATION",
+        "value": "PUBLIC"
+      },
+      {
+        "path": "Processing_Graph/node.2/parameters/noDataValue",
+        "value": "NaN"
+      },
+      {
+        "path": "Metadata/Product_Characteristics/Band_Group_List/Group/Band_List/BAND_ID[2]",
+        "value": "B3"
+      },
+      {
+        "path": "Metadata/Geometric_Informations/Mean_Value_List/Mean_Viewing_Incidence_Angle_List/Mean_Viewing_Incidence_Angle/AZIMUTH_ANGLE",
+        "value": "156.176605268916"
+      },
+      {
+        "path": "Metadata/Production_Informations/Processing_Jobs_List/Job/Products_List/Outputs_List/PRODUCT/ACQUISITION_DATE",
+        "value": "2018-05-29T10:18:26.293Z"
+      },
+      {
+        "path": "Processing_Graph/node.2/parameters/crs",
+        "value": "GEOGCS[\"WGS84(DD)\", \r\n  DATUM[\"WGS84\", \r\n    SPHEROID[\"WGS84\", 6378137.0, 298.257223563]], \r\n  PRIMEM[\"Greenwich\", 0.0], \r\n  UNIT[\"degree\", 0.017453292519943295], \r\n  AXIS[\"Geodetic longitude\", EAST], \r\n  AXIS[\"Geodetic latitude\", NORTH]]"
+      },
+      {
+        "path": "Metadata/Metadata_Identification/METADATA_INFORMATION",
+        "value": "PUBLIC"
+      },
+      {
+        "path": "Metadata/Radiometric_Informations/Spectral_Band_Informations_List/Spectral_Band_Informations[10]/Spectral_Response/VALUES",
+        "value": "0.01662953 0.06111857 0.17407094 0.38946454 0.6645915 0.87454114 0.93695988 0.96751014 0.9893391 0.9951269 1 0.97845762 0.98069118 0.9922335 0.98798379 0.99428313 0.98348041 0.97820013 0.95023367 0.95299604 0.92240308 0.85573828 0.70970227 0.46429542 0.21538427 0.06534121 0.01625596"
+      }
+    ]
+  }
+}

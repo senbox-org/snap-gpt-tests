@@ -18,7 +18,7 @@
     "outputs": [{
         "parameter": "out1",
         "outputName": "ResampReprojSubsetTest_Muscate",
-        "expected": "snap/expectedReprojection_S3A.json"
+        "expected": "snap/expectedResampReprojSubsetTest_Muscate.json"
     }]
 },
     {
@@ -27,7 +27,7 @@
         "frequency":"test",
         "graphPath": "snap/graphResampSubsetReproj.xml",
         "inputs": {
-            "input1": "s2tbx/S2/L1C/S2B_MSIL1C_20170315T013719_N0100_R000_T52LEK_20170315T013714.SAFE"
+            "input1": "s2tbx/S2/Maricopa/S2A_MSIL2A_20170207T182431_N0204_R084_T12SUB_20170207T182425.SAFE"
         },
         "parameters": {
             "targetResolution": "10",
