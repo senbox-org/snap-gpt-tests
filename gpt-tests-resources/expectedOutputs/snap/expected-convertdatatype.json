@@ -1,0 +1,93 @@
+{
+  "id" : "snap.convertdatatype",
+  "decodeQualification" : "INTENDED",
+  "expectedContent" : {
+    "sceneWidth" : 1012,
+    "sceneHeight" : 3168,
+    "geoCoding" : {
+      "coordinates" : [ {
+        "x" : 506.0,
+        "y" : 1584.0,
+        "lat" : 44.41219864044597,
+        "lon" : 37.81693425199395
+      } ]
+    },
+    "tiePointGrids" : [ {
+      "name" : "samples",
+      "description" : "range sample",
+      "offsetX" : 0.5,
+      "offsetY" : 0.5,
+      "subSamplingX" : 102.0,
+      "subSamplingY" : 132.0,
+      "expectedPixels" : [ {
+        "x" : 506.0,
+        "y" : 1584.0,
+        "value" : 503.15686
+      } ]
+    }, {
+      "name" : "slant_range_time",
+      "description" : "2 way slant range time",
+      "offsetX" : 0.5,
+      "offsetY" : 0.5,
+      "subSamplingX" : 102.0,
+      "subSamplingY" : 132.0,
+      "expectedPixels" : [ {
+        "x" : 506.0,
+        "y" : 1584.0,
+        "value" : 6715353.0
+      } ]
+    }, {
+      "name" : "incident_angle",
+      "description" : "Incident angle",
+      "offsetX" : 0.5,
+      "offsetY" : 0.5,
+      "subSamplingX" : 102.0,
+      "subSamplingY" : 132.0,
+      "expectedPixels" : [ {
+        "x" : 506.0,
+        "y" : 1584.0,
+        "value" : 40.977894
+      } ]
+    }, {
+      "name" : "latitude",
+      "description" : "Latitude of the tie points (WGS-84), positive N",
+      "offsetX" : 0.5,
+      "offsetY" : 0.5,
+      "subSamplingX" : 102.0,
+      "subSamplingY" : 132.0,
+      "expectedPixels" : [ {
+        "x" : 506.0,
+        "y" : 1584.0,
+        "value" : 44.412586
+      } ]
+    }, {
+      "name" : "longitude",
+      "description" : "Longitude of the tie points (WGS-84), Greenwich origin, positive E",
+      "offsetX" : 0.5,
+      "offsetY" : 0.5,
+      "subSamplingX" : 102.0,
+      "subSamplingY" : 132.0,
+      "expectedPixels" : [ {
+        "x" : 506.0,
+        "y" : 1584.0,
+        "value" : 37.817303
+      } ]
+    } ],
+    "bands" : [ {
+      "name" : "Amplitude",
+      "description" : "Image Mode Medium Resolution Image (stripline)",
+      "bandWidth" : 1012,
+      "bandHeight" : 3168,
+      "noDataValue" : 0.0,
+      "noDataValueUsed" : true,
+      "spectralWavelength" : 0.0,
+      "spectralBandwidth" : 0.0,
+      "expectedPixels" : [ {
+        "x" : 506.0,
+        "y" : 1584.0,
+        "value" : 14.0
+      } ]
+    } ],
+    "masks" : [ ]
+  }
+}
