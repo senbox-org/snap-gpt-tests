@@ -1,0 +1,144 @@
+<graph id="Graph">
+  <version>1.0</version>
+  <node id="Read">
+    <operator>Read</operator>
+    <sources/>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <file>$input1</file>
+    </parameters>
+  </node>
+  <node id="Read(2)">
+    <operator>Read</operator>
+    <sources/>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <file>$input2</file>
+    </parameters>
+  </node>
+  <node id="Resample">
+    <operator>Resample</operator>
+    <sources>
+      <sourceProduct refid="Read"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <referenceBand>$referenceBand</referenceBand>
+      <targetWidth/>
+      <targetHeight/>
+      <targetResolution/>
+      <upsampling>$upsampling</upsampling>
+      <downsampling>$downsampling</downsampling>
+      <flagDownsampling>$flagDownsampling</flagDownsampling>
+      <resampleOnPyramidLevels>true</resampleOnPyramidLevels>
+    </parameters>
+  </node>
+  <node id="Resample(2)">
+    <operator>Resample</operator>
+    <sources>
+      <sourceProduct refid="Read(2)"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <referenceBand>$referenceBand</referenceBand>
+      <targetWidth/>
+      <targetHeight/>
+      <targetResolution/>
+      <upsampling>$upsampling</upsampling>
+      <downsampling>$downsampling</downsampling>
+      <flagDownsampling>$flagDownsampling</flagDownsampling>
+      <resampleOnPyramidLevels>true</resampleOnPyramidLevels>
+    </parameters>
+  </node>
+  <node id="BandMaths">
+    <operator>BandMaths</operator>
+    <sources>
+      <sourceProduct refid="Resample"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <targetBands>
+        <targetBand>
+          <name>newBand</name>
+          <type>float32</type>
+          <expression>$expression1</expression>
+          <description/>
+          <unit/>
+          <noDataValue>0.0</noDataValue>
+        </targetBand>
+      </targetBands>
+      <variables/>
+    </parameters>
+  </node>
+  <node id="BandMaths(2)">
+    <operator>BandMaths</operator>
+    <sources>
+      <sourceProduct refid="Resample(2)"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <targetBands>
+        <targetBand>
+          <name>newBand</name>
+          <type>float32</type>
+          <expression>$expression2</expression>
+          <description/>
+          <unit/>
+          <noDataValue>0.0</noDataValue>
+        </targetBand>
+      </targetBands>
+      <variables/>
+    </parameters>
+  </node>
+  <node id="BandMaths(3)">
+    <operator>BandMaths</operator>
+    <sources>
+      <sourceProduct refid="BandMaths"/>
+      <sourceProduct.1 refid="BandMaths(2)"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <targetBands>
+        <targetBand>
+          <name>newBand</name>
+          <type>float32</type>
+          <expression>$expression3</expression>
+          <description/>
+          <unit/>
+          <noDataValue>0.0</noDataValue>
+        </targetBand>
+      </targetBands>
+      <variables/>
+    </parameters>
+  </node>
+  <node id="Write">
+    <operator>Write</operator>
+    <sources>
+      <sourceProduct refid="BandMaths(3)"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <file>$out1</file>
+      <formatName>$outputFormat</formatName>
+    </parameters>
+  </node>
+  <applicationData id="Presentation">
+    <Description/>
+    <node id="Read">
+            <displayPosition x="46.0" y="77.0"/>
+    </node>
+    <node id="Read(2)">
+      <displayPosition x="49.0" y="156.0"/>
+    </node>
+    <node id="Resample">
+      <displayPosition x="155.0" y="77.0"/>
+    </node>
+    <node id="Resample(2)">
+      <displayPosition x="158.0" y="156.0"/>
+    </node>
+    <node id="BandMaths">
+      <displayPosition x="286.0" y="74.0"/>
+    </node>
+    <node id="BandMaths(2)">
+      <displayPosition x="288.0" y="153.0"/>
+    </node>
+    <node id="BandMaths(3)">
+      <displayPosition x="417.0" y="112.0"/>
+    </node>
+    <node id="Write">
+            <displayPosition x="552.0" y="112.0"/>
+    </node>
+  </applicationData>
+</graph>

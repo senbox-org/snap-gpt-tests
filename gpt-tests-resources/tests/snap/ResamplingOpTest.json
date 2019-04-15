@@ -1,0 +1,43 @@
+[{
+    "id":"ResamplingTest_S2_1tile",
+    "description":"Do resampling operator on S2 one tile product",
+    "frequency":"test",
+    "graphPath": "snap/graphResample.xml",
+    "inputs": {
+        "input1": "s2tbx/S2/PSD14/L1C/S2A_MSIL1C_20160914T074612_N0204_R135_T36JTT_20160914T081456.SAFE"
+    },
+    "parameters": {
+        "targetResolution": "100",
+        "upsampling": "Nearest",
+        "downsampling": "First",
+        "flagDownsampling": "First",
+        "outputFormat": "BEAM-DIMAP"
+    },
+    "outputs": [{
+        "parameter": "out1",
+        "outputName": "ResamplingTest_S2_1tile",
+        "expected": "snap/expectedReprojection_S3A.json"
+    }]
+},
+    {
+        "id":"ResamplingTest_S2_2tile",
+        "description":"Do resampling operator on S2 two tiles product",
+        "frequency":"test",
+        "graphPath": "snap/graphResample.xml",
+        "inputs": {
+            "input1": "s2tbx/S2/L1C/Valencia/st/S2A_OPER_PRD_MSIL1C_PDMC_20160527T172127_R051_V20160511T105343_20160511T105343.SAFE"
+        },
+        "parameters": {
+            "targetResolution": "100",
+            "upsampling": "Nearest",
+            "downsampling": "First",
+            "flagDownsampling": "First",
+            "outputFormat": "BEAM-DIMAP"
+        },
+        "outputs": [{
+            "parameter": "out1",
+            "outputName": "ResamplingTest_S2_2tile",
+            "expected": "snap/expectedReprojection_S3A.json"
+        }]
+    }
+]
