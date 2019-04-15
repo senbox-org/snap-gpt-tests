@@ -1,0 +1,47 @@
+[{
+    "id":"ResampReprojSubset_Muscate",
+    "description":"Apply resampling, reprojection and subset to a S2 product in Muscate format",
+    "frequency":"test",
+    "graphPath": "snap/graphResampReprojSubset.xml",
+    "inputs": {
+        "input1": "s2tbx/S2/MUSCATE/SENTINEL2A_20180529-101826-293_L2A_T32TPP_D_V1-8/SENTINEL2A_20180529-101826-293_L2A_T32TPP_D_V1-8_MTD_ALL.xml"
+    },
+    "parameters": {
+        "targetResolution": "B2",
+        "upsampling": "Nearest",
+        "downsampling": "First",
+        "flagDownsampling": "First",
+        "sourceBands":"B2,B3,B4,B8",
+        "subsetRegion":"100,100,2500,2500",
+        "outputFormat": "BEAM-DIMAP"
+    },
+    "outputs": [{
+        "parameter": "out1",
+        "outputName": "ResampReprojSubsetTest_Muscate",
+        "expected": "snap/expectedResampReprojSubset_Muscate.json"
+    }]
+},
+    {
+        "id":"ResampSubsetReproj_Muscate",
+        "description":"Apply resampling,subset and reprojection to a S2 product in Muscate format",
+        "frequency":"test",
+        "graphPath": "snap/graphResampSubsetReproj.xml",
+        "inputs": {
+            "input1": "s2tbx/S2/MUSCATE/SENTINEL2A_20180529-101826-293_L2A_T32TPP_D_V1-8/SENTINEL2A_20180529-101826-293_L2A_T32TPP_D_V1-8_MTD_ALL.xml"
+        },
+        "parameters": {
+            "targetResolution": "B2",
+            "upsampling": "Nearest",
+            "downsampling": "First",
+            "flagDownsampling": "First",
+            "sourceBands":"B2,B3,B4,B8",
+            "subsetRegion":"100,100,2500,2500",
+            "outputFormat": "BEAM-DIMAP"
+        },
+        "outputs": [{
+            "parameter": "out1",
+            "outputName": "ResampSubsetReprojTest_Muscate",
+            "expected": "snap/expectedResampSubsetReproj_Muscate.json"
+        }]
+    }
+]

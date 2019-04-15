@@ -1,0 +1,22 @@
+[{
+    "id":"ResampReproject_S2",
+    "description":"Apply resampling operator and then reproject to lat/lon on S2L1C product",
+    "frequency":"test",
+    "graphPath": "snap/graphResampReproj.xml",
+    "inputs": {
+        "input1": "s2tbx/S2/L1C/S2B_MSIL1C_20170315T013719_N0100_R000_T52LEK_20170315T013714.SAFE"
+    },
+    "parameters": {
+        "targetResolution": "60",
+        "upsampling": "Nearest",
+        "downsampling": "First",
+        "flagDownsampling": "First",
+        "outputFormat": "BEAM-DIMAP"
+    },
+    "outputs": [{
+        "parameter": "out1",
+        "outputName": "ResampReprojTest_S2",
+        "expected": "snap/expectedResampReproj_S2.json"
+    }]
+}
+]

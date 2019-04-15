@@ -1,0 +1,107 @@
+<graph id="Graph">
+  <version>1.0</version>
+  <node id="Read">
+    <operator>Read</operator>
+    <sources/>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <file>$input1</file>
+    </parameters>
+  </node>
+  <node id="Resample">
+    <operator>Resample</operator>
+    <sources>
+      <sourceProduct refid="Read"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <referenceBand/>
+      <targetWidth/>
+      <targetHeight/>
+      <targetResolution>$targetResolution</targetResolution>
+      <upsampling>$upsampling</upsampling>
+      <downsampling>$downsampling</downsampling>
+      <flagDownsampling>$flagDownsampling</flagDownsampling>
+      <resampleOnPyramidLevels>true</resampleOnPyramidLevels>
+    </parameters>
+  </node>
+  <node id="DviOp">
+    <operator>DviOp</operator>
+    <sources>
+      <sourceProduct refid="Resample"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <resampleType>None</resampleType>
+      <upsampling>Nearest</upsampling>
+      <downsampling>First</downsampling>
+      <redFactor>1.0</redFactor>
+      <nirFactor>1.0</nirFactor>
+      <redSourceBand>B4</redSourceBand>
+      <nirSourceBand>B8</nirSourceBand>
+    </parameters>
+  </node>
+  <node id="NdwiOp">
+    <operator>NdwiOp</operator>
+    <sources>
+      <sourceProduct refid="Resample"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <resampleType>None</resampleType>
+      <upsampling>Nearest</upsampling>
+      <downsampling>First</downsampling>
+      <mirFactor>1.0</mirFactor>
+      <nirFactor>1.0</nirFactor>
+      <mirSourceBand>B12</mirSourceBand>
+      <nirSourceBand>B8</nirSourceBand>
+    </parameters>
+  </node>
+  <node id="BandMaths">
+    <operator>BandMaths</operator>
+    <sources>
+      <sourceProduct refid="DviOp"/>
+      <sourceProduct.1 refid="NdwiOp"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <targetBands>
+        <targetBand>
+          <name>newBand</name>
+          <type>float32</type>
+          <expression>if($1.dvi &gt; $2.ndwi) then 1 else 0</expression>
+          <description/>
+          <unit/>
+          <noDataValue>0.0</noDataValue>
+        </targetBand>
+      </targetBands>
+      <variables/>
+    </parameters>
+  </node>
+  <node id="Write">
+    <operator>Write</operator>
+    <sources>
+      <sourceProduct refid="BandMaths"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <file>$out1</file>
+      <formatName>$outputFormat</formatName>
+    </parameters>
+  </node>
+  <applicationData id="Presentation">
+    <Description/>
+    <node id="Read">
+            <displayPosition x="25.0" y="143.0"/>
+    </node>
+    <node id="Resample">
+      <displayPosition x="134.0" y="143.0"/>
+    </node>
+    <node id="DviOp">
+      <displayPosition x="237.0" y="103.0"/>
+    </node>
+    <node id="NdwiOp">
+      <displayPosition x="234.0" y="192.0"/>
+    </node>
+    <node id="BandMaths">
+      <displayPosition x="351.0" y="142.0"/>
+    </node>
+    <node id="Write">
+            <displayPosition x="455.0" y="135.0"/>
+    </node>
+  </applicationData>
+</graph>
