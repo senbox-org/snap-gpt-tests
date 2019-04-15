@@ -1,0 +1,98 @@
+{
+  "id": "tempGDAL",
+  "decodeQualification": "INTENDED",
+  "expectedContent": {
+    "sceneWidth": 789,
+    "sceneHeight": 601,
+    "geoCoding": {
+      "coordinates": [
+        {
+          "x": 340.0,
+          "y": 323.0,
+          "lat": 32.855615487310104,
+          "lon": 85.6220409406982
+        },
+        {
+          "x": 585.0,
+          "y": 389.0,
+          "lat": 32.808117312294115,
+          "lon": 85.7983599237121
+        }
+      ],
+      "reverseAccuracy": 1.4551915228366852E-11
+    },
+    "bands": [
+      {
+        "name": "band_1",
+        "description": "",
+        "bandWidth": 789,
+        "bandHeight": 601,
+        "noDataValue": "0.0",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 41,
+            "y": 107,
+            "value": 14.0
+          },
+          {
+            "x": 540,
+            "y": 511,
+            "value": 192.0
+          }
+        ]
+      }
+    ],
+    "masks": [
+      {
+        "name": "mask_band_1",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "255,255,255"
+      }
+    ],
+    "metadata": [
+      {
+        "path": "Image info/Component/signed",
+        "value": "true"
+      },
+      {
+        "path": "Processing_Graph/node.2/parameters/resampling",
+        "value": "Nearest"
+      },
+      {
+        "path": "history/SubsetInfo/SubRegion.width",
+        "value": "600"
+      },
+      {
+        "path": "Processing_Graph/node.3/parameters/deleteOutputOnFailure",
+        "value": "true"
+      },
+      {
+        "path": "history/SubsetInfo/SubSampling.y",
+        "value": "1"
+      },
+      {
+        "path": "history/SubsetInfo/SubRegion.x",
+        "value": "400"
+      },
+      {
+        "path": "Image info/Component/color interpretation",
+        "value": "Undefined"
+      },
+      {
+        "path": "Image info/Component/signed",
+        "value": "true"
+      },
+      {
+        "path": "Processing_Graph/node.2/sources/sourceProduct",
+        "value": "product:Subset_U_1001A.NTF"
+      },
+      {
+        "path": "Image info/Component/block size",
+        "value": "1024x1024"
+      }
+    ]
+  }
+}
