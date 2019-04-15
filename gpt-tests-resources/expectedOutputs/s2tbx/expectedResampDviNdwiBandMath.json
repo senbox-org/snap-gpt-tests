@@ -1,0 +1,96 @@
+{
+  "id": "ResampDviNdwiBandMath_S2",
+  "decodeQualification": "INTENDED",
+  "expectedContent": {
+    "sceneWidth": 5490,
+    "sceneHeight": 5490,
+    "geoCoding": {
+      "coordinates": [
+        {
+          "x": 2367.0,
+          "y": 2951.0,
+          "lat": -14.101718307059745,
+          "lon": 129.43837527469736
+        },
+        {
+          "x": 4076.0,
+          "y": 3562.0,
+          "lat": -14.211416285081986,
+          "lon": 129.75537038469267
+        }
+      ],
+      "reverseAccuracy": 1.0186340659856796E-10
+    },
+    "bands": [
+      {
+        "name": "newBand",
+        "description": "",
+        "bandWidth": 5490,
+        "bandHeight": 5490,
+        "noDataValue": "0.0",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 286,
+            "y": 978,
+            "value": "NaN"
+          },
+          {
+            "x": 3761,
+            "y": 4669,
+            "value": "NaN"
+          },
+          {
+            "x": 3028,
+            "y": 1920,
+            "value": 1.0000
+          }
+        ]
+      }
+    ],
+    "metadata": [
+      {
+        "path": "Processing_Graph/node.1/parameters/downsampling",
+        "value": "First"
+      },
+      {
+        "path": "Processing_Graph/node.4/sources/sourceProduct",
+        "value": "BandMaths"
+      },
+      {
+        "path": "Processing_Graph/node.4/parameters/deleteOutputOnFailure",
+        "value": "true"
+      },
+      {
+        "path": "Processing_Graph/node.2/sources/sourceProduct.1",
+        "value": "NdwiOp"
+      },
+      {
+        "path": "Processing_Graph/node.3/parameters/nirSourceBand",
+        "value": "B8"
+      },
+      {
+        "path": "Processing_Graph/node.0/parameters/upsampling",
+        "value": "Nearest"
+      },
+      {
+        "path": "Processing_Graph/node.1/parameters/targetResolution",
+        "value": "20"
+      },
+      {
+        "path": "Processing_Graph/node.2/parameters/targetBands/targetBand/noDataValue",
+        "value": "0.0"
+      },
+      {
+        "path": "Processing_Graph/node.3/parameters/mirSourceBand",
+        "value": "B12"
+      },
+      {
+        "path": "Processing_Graph/node.1/parameters/upsampling",
+        "value": "Nearest"
+      }
+    ]
+  }
+}

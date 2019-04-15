@@ -1,0 +1,89 @@
+{
+  "id": "Resamp2BandMath_S2",
+  "decodeQualification": "INTENDED",
+  "expectedContent": {
+    "sceneWidth": 1098,
+    "sceneHeight": 1098,
+    "startTime": "07-FEB-2017 18:24:31.026000",
+    "endTime": "07-FEB-2017 18:24:31.026000",
+    "geoCoding": {
+      "coordinates": [
+        {
+          "x": 473.0,
+          "y": 590.0,
+          "lat": 32.89672703952324,
+          "lon": -112.63263573556947
+        },
+        {
+          "x": 815.0,
+          "y": 712.0,
+          "lat": 32.790942417779,
+          "lon": -112.26550254562
+        }
+      ],
+      "reverseAccuracy": 1.711669028736651E-9
+    },
+    "bands": [
+      {
+        "name": "newBand",
+        "description": "",
+        "bandWidth": 1098,
+        "bandHeight": 1098,
+        "noDataValue": "0.0",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 57,
+            "y": 195,
+            "value": -0.018600002
+          },
+          {
+            "x": 752,
+            "y": 933,
+            "value": -0.0279
+          }
+        ]
+      }
+    ],
+    "metadata": [
+      {
+        "path": "Level-2A_User_Product/Geometric_Info/Coordinate_Reference_System/GEO_TABLES",
+        "value": "EPSG"
+      },
+      {
+        "path": "Level-2A_DataStrip_ID/Quality_Indicators_Info/Radiometric_Info/Radiometric_Quality_List/Radiometric_Quality[3]/Noise_Model/BETA",
+        "value": "0.03482"
+      },
+      {
+        "path": "Level-2A_DataStrip_ID/Image_Data_Info/Geometric_Info/Image_Refining/flag",
+        "value": "NOT_REFINED"
+      },
+      {
+        "path": "Level-2A_User_Product/Geometric_Info/Product_Footprint/Product_Footprint/Global_Footprint/EXT_POS_LIST",
+        "value": "33.42091875853871 -113.15103713342633 33.435778798872015 -111.97035505843513 32.44547285973725 -111.95959806134303 32.431162035367194 -113.12720908001293 33.42091875853871 -113.15103713342633 33.42091875853871 -113.15103713342633"
+      },
+      {
+        "path": "Level-2A_User_Product/Quality_Indicators_Info/Technical_Quality_Assessment/DEGRADED_ANC_DATA_PERCENTAGE",
+        "value": "0"
+      },
+      {
+        "path": "Level-2A_DataStrip_ID/Satellite_Ancillary_Data_Info/Attitudes/Corrected_Attitudes/Values[839]/QUATERNION_VALUES",
+        "value": "-0.701666274721509 0.517280740168736 0.451283924429748 0.190860929265815"
+      },
+      {
+        "path": "Processing_Graph/node.1/parameters/targetResolution",
+        "value": "100"
+      },
+      {
+        "path": "Level-2A_DataStrip_ID/Satellite_Ancillary_Data_Info/Attitudes/Raw_Attitudes/STR_List/STR[2]/Attitude_Data_List/Attitude_Data[561]/QUATERNION_VALUES",
+        "value": "0.811906919814646 0.1433827560395 -0.335133275017142 0.455998077988625"
+      },
+      {
+        "path": "Processing_Graph/node.1/parameters/targetResolution",
+        "value": "100"
+      }
+    ]
+  }
+}

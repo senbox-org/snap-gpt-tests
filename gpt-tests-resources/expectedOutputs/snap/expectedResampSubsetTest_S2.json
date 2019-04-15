@@ -1,0 +1,140 @@
+{
+  "id": "ResampSubsetTest_S2",
+  "decodeQualification": "INTENDED",
+  "expectedContent": {
+    "sceneWidth": 2500,
+    "sceneHeight": 2500,
+    "startTime": "11-MAY-2016 10:53:43.672000",
+    "endTime": "11-MAY-2016 10:53:43.672000",
+    "geoCoding": {
+      "coordinates": [
+        {
+          "x": 1078.0,
+          "y": 1343.0,
+          "lat": 40.5030953487194,
+          "lon": -0.5129279261441161
+        },
+        {
+          "x": 1856.0,
+          "y": 1622.0,
+          "lat": 40.47597384549454,
+          "lon": -0.42215966908261743
+        }
+      ],
+      "reverseAccuracy": 2.232263796031475E-7
+    },
+    "bands": [
+      {
+        "name": "B2",
+        "description": "Reflectance in band B2",
+        "bandWidth": 2500,
+        "bandHeight": 2500,
+        "geophysicalUnit": "dl",
+        "noDataValue": "0.0",
+        "noDataValueUsed": "false",
+        "spectralWavelength": "490.0",
+        "spectralBandwidth": "130.0",
+        "expectedPixels": [
+          {
+            "x": 130,
+            "y": 445,
+            "value": 0.2608
+          },
+          {
+            "x": 1712,
+            "y": 2126,
+            "value": 0.0651
+          }
+        ]
+      },
+      {
+        "name": "B3",
+        "description": "Reflectance in band B3",
+        "bandWidth": 2500,
+        "bandHeight": 2500,
+        "geophysicalUnit": "dl",
+        "noDataValue": "0.0",
+        "noDataValueUsed": "false",
+        "spectralWavelength": "560.0",
+        "spectralBandwidth": "100.0",
+        "expectedPixels": [
+          {
+            "x": 727,
+            "y": 642,
+            "value": 0.9399
+          },
+          {
+            "x": 1526,
+            "y": 913,
+            "value": 0.0757
+          }
+        ]
+      },
+      {
+        "name": "B4",
+        "description": "Reflectance in band B4",
+        "bandWidth": 2500,
+        "bandHeight": 2500,
+        "geophysicalUnit": "dl",
+        "noDataValue": "0.0",
+        "noDataValueUsed": "false",
+        "spectralWavelength": "665.0",
+        "spectralBandwidth": "90.0",
+        "expectedPixels": [
+          {
+            "x": 1375,
+            "y": 1863,
+            "value": 0.0357
+          },
+          {
+            "x": 1520,
+            "y": 2321,
+            "value": 0.0326
+          }
+        ]
+      }
+    ],
+    "metadata": [
+      {
+        "path": "Granules/Level-2A_Tile_30TYK/Quality_Indicators_Info/L2A_Image_Content_QI/AOT_RETRIEVAL_ACCURACY",
+        "value": "0.0"
+      },
+      {
+        "path": "Level-2A_DataStrip_ID/Image_Data_Info/Geometric_Info/metadataLevel",
+        "value": "Standard"
+      },
+      {
+        "path": "Level-2A_DataStrip_ID/Image_Data_Info/Sensor_Configuration/Acquisition_Configuration/TDI_Configuration_List/TDI_CONFIGURATION[4]",
+        "value": "APPLIED"
+      },
+      {
+        "path": "Granules/Level-2A_Tile_30TYK/Quality_Indicators_Info/L1C_Image_Content_QI/CLOUDY_PIXEL_PERCENTAGE",
+        "value": "9.7625"
+      },
+      {
+        "path": "Level-2A_User_Product/Quality_Indicators_Info/Technical_Quality_Assessment/DEGRADED_ANC_DATA_PERCENTAGE",
+        "value": "0"
+      },
+      {
+        "path": "Level-2A_DataStrip_ID/Satellite_Ancillary_Data_Info/Attitudes/Corrected_Attitudes/Values[5440]/QUATERNION_VALUES",
+        "value": "0.874475711595092 0.149617207290805 -0.423688386262911 0.182743187174483"
+      },
+      {
+        "path": "history/SubsetInfo/ProductNodeName.3",
+        "value": "B4"
+      },
+      {
+        "path": "history/SubsetInfo/SubRegion.y",
+        "value": "0"
+      },
+      {
+        "path": "Granules/Level-2A_Tile_30TYK/Geometric_Info/Tile_Angles/Viewing_Incidence_Angles_Grids[35]/Azimuth/Values_List/VALUES[10]",
+        "value": "NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN 265.208 266.916 268.38 269.649 270.757"
+      },
+      {
+        "path": "history/SubsetInfo/SubSampling.y",
+        "value": "1"
+      }
+    ]
+  }
+}
