@@ -119,16 +119,16 @@
                 "value": "true"
             },
             {
-                "path": "Processing_Graph/node.0/sources/source",
-                "value": "product:subset_0_of_S2A_MSIL1C_20161206T080312_N0204_R035_T34HFH_20161206T081929_resampled"
+                "path": "Processing_Graph/node.0/sources/sourceProduct",
+                "value": "product:Subset_S2A_MSIL1C_20161206T080312_N0204_R035_T34HFH_20161206T081929_resampled"
             },
             {
                 "path": "Processing_Graph/node.1/parameters/formatName",
                 "value": "BEAM-DIMAP"
             },
             {
-                "path": "Processing_Graph/node.0/parameters/upsampling",
-                "value": "Nearest"
+                "path": "Processing_Graph/node.0/parameters/redSourceBand5",
+                "value": "B5"
             },
             {
                 "path": "Processing_Graph/node.0/parameters/redB5Factor",
@@ -143,8 +143,8 @@
                 "value": "false"
             },
             {
-                "path": "Processing_Graph/node.0/parameters/redSourceBand5",
-                "value": "B5"
+                "path": "Processing_Graph/node.0/parameters/redSourceBand6",
+                "value": "B6"
             }
         ]
     }
