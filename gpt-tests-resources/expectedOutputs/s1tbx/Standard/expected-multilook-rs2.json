@@ -2,104 +2,120 @@
   "id" : "s1tbx.standard.multilook.rs2",
   "decodeQualification" : "INTENDED",
   "expectedContent" : {
-    "sceneWidth" : 1012,
-    "sceneHeight" : 3168,
+    "sceneWidth" : 166,
+    "sceneHeight" : 500,
     "geoCoding" : {
       "coordinates" : [ {
-        "x" : 506.0,
-        "y" : 1584.0,
-        "lat" : 44.41219864044597,
-        "lon" : 37.81693425199395
+        "x" : 83.0,
+        "y" : 250.0,
+        "lat" : 46.66298294395108,
+        "lon" : -71.09462714948961
       } ]
     },
     "tiePointGrids" : [ {
-      "name" : "samples",
-      "description" : "range sample",
-      "offsetX" : 0.5,
-      "offsetY" : 0.5,
-      "subSamplingX" : 102.0,
-      "subSamplingY" : 132.0,
-      "expectedPixels" : [ {
-        "x" : 506.0,
-        "y" : 1584.0,
-        "value" : 503.15686
-      } ]
-    }, {
-      "name" : "slant_range_time",
-      "description" : "2 way slant range time",
-      "offsetX" : 0.5,
-      "offsetY" : 0.5,
-      "subSamplingX" : 102.0,
-      "subSamplingY" : 132.0,
-      "expectedPixels" : [ {
-        "x" : 506.0,
-        "y" : 1584.0,
-        "value" : 6715353.0
-      } ]
-    }, {
-      "name" : "incident_angle",
-      "description" : "Incident angle",
-      "offsetX" : 0.5,
-      "offsetY" : 0.5,
-      "subSamplingX" : 102.0,
-      "subSamplingY" : 132.0,
-      "expectedPixels" : [ {
-        "x" : 506.0,
-        "y" : 1584.0,
-        "value" : 40.977894
-      } ]
-    }, {
       "name" : "latitude",
-      "description" : "Latitude of the tie points (WGS-84), positive N",
-      "offsetX" : 0.5,
-      "offsetY" : 0.5,
-      "subSamplingX" : 102.0,
-      "subSamplingY" : 132.0,
+      "description" : "",
+      "offsetX" : 0.0,
+      "offsetY" : 0.0,
+      "subSamplingX" : 16.600000381469727,
+      "subSamplingY" : 50.0,
       "expectedPixels" : [ {
-        "x" : 506.0,
-        "y" : 1584.0,
-        "value" : 44.412586
+        "x" : 83.0,
+        "y" : 250.0,
+        "value" : 46.662098
       } ]
     }, {
       "name" : "longitude",
-      "description" : "Longitude of the tie points (WGS-84), Greenwich origin, positive E",
-      "offsetX" : 0.5,
-      "offsetY" : 0.5,
-      "subSamplingX" : 102.0,
-      "subSamplingY" : 132.0,
+      "description" : "",
+      "offsetX" : 0.0,
+      "offsetY" : 0.0,
+      "subSamplingX" : 16.600000381469727,
+      "subSamplingY" : 50.0,
       "expectedPixels" : [ {
-        "x" : 506.0,
-        "y" : 1584.0,
-        "value" : 37.817303
+        "x" : 83.0,
+        "y" : 250.0,
+        "value" : -71.09415
+      } ]
+    }, {
+      "name" : "incident_angle",
+      "description" : "",
+      "offsetX" : 0.0,
+      "offsetY" : 0.0,
+      "subSamplingX" : 16.600000381469727,
+      "subSamplingY" : 50.0,
+      "expectedPixels" : [ {
+        "x" : 83.0,
+        "y" : 250.0,
+        "value" : 54.207287
+      } ]
+    }, {
+      "name" : "slant_range_time",
+      "description" : "",
+      "offsetX" : 0.0,
+      "offsetY" : 0.0,
+      "subSamplingX" : 16.600000381469727,
+      "subSamplingY" : 50.0,
+      "expectedPixels" : [ {
+        "x" : 83.0,
+        "y" : 250.0,
+        "value" : 70437.17
       } ]
     } ],
     "bands" : [ {
-      "name" : "Amplitude",
-      "description" : "Image Mode Medium Resolution Image (stripline)",
-      "bandWidth" : 1012,
-      "bandHeight" : 3168,
+      "name" : "Intensity_HH",
+      "description" : "",
+      "bandWidth" : 166,
+      "bandHeight" : 500,
       "noDataValue" : 0.0,
-      "noDataValueUsed" : true,
+      "noDataValueUsed" : false,
       "spectralWavelength" : 0.0,
       "spectralBandwidth" : 0.0,
       "expectedPixels" : [ {
-        "x" : 506.0,
-        "y" : 1584.0,
-        "value" : 483.0
+        "x" : 83.0,
+        "y" : 250.0,
+        "value" : 457.0
       } ]
     }, {
-      "name" : "Intensity",
-      "description" : "Intensity Image",
-      "bandWidth" : 1012,
-      "bandHeight" : 3168,
+      "name" : "Intensity_HV",
+      "description" : "",
+      "bandWidth" : 166,
+      "bandHeight" : 500,
       "noDataValue" : 0.0,
-      "noDataValueUsed" : true,
+      "noDataValueUsed" : false,
       "spectralWavelength" : 0.0,
       "spectralBandwidth" : 0.0,
       "expectedPixels" : [ {
-        "x" : 506.0,
-        "y" : 1584.0,
-        "value" : 233289.0
+        "x" : 83.0,
+        "y" : 250.0,
+        "value" : 224.0
+      } ]
+    }, {
+      "name" : "Intensity_VH",
+      "description" : "",
+      "bandWidth" : 166,
+      "bandHeight" : 500,
+      "noDataValue" : 0.0,
+      "noDataValueUsed" : false,
+      "spectralWavelength" : 0.0,
+      "spectralBandwidth" : 0.0,
+      "expectedPixels" : [ {
+        "x" : 83.0,
+        "y" : 250.0,
+        "value" : 1498.0
+      } ]
+    }, {
+      "name" : "Intensity_VV",
+      "description" : "",
+      "bandWidth" : 166,
+      "bandHeight" : 500,
+      "noDataValue" : 0.0,
+      "noDataValueUsed" : false,
+      "spectralWavelength" : 0.0,
+      "spectralBandwidth" : 0.0,
+      "expectedPixels" : [ {
+        "x" : 83.0,
+        "y" : 250.0,
+        "value" : 2366.0
       } ]
     } ],
     "masks" : [ ]

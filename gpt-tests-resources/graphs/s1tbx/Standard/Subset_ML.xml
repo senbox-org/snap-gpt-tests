@@ -14,7 +14,7 @@
     </sources>
     <parameters class="com.bc.ceres.binding.dom.XppDomElement">
       <formatName>BEAM-DIMAP</formatName>
-      <file>target.dim</file>
+      <file>$out1</file>
     </parameters>
   </node>
   <node id="3-Subset">
@@ -27,6 +27,7 @@
       <region>100,100,500,500</region>
       <subSamplingX>1</subSamplingX>
       <subSamplingY>1</subSamplingY>
+      <copyMetadata>true</copyMetadata>
       <geoRegion/>
     </parameters>
   </node>
@@ -40,7 +41,6 @@
       <nRgLooks>3</nRgLooks>
       <nAzLooks>1</nAzLooks>
       <outputIntensity>true</outputIntensity>
-      <note>Currently, detection for complex data is performed without any resampling</note>
     </parameters>
   </node>
   <applicationData id="Presentation">
