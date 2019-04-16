@@ -83,6 +83,7 @@ public class TestExecutor {
 
             } catch (AssertionError e) {
                 System.out.println("Error in test!!!");
+                System.out.println(e.getMessage());
                 testPassed = false;
 
             }

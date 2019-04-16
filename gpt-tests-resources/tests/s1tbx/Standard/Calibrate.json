@@ -11,7 +11,7 @@
   },
   "outputs": [{
     "parameter": "out1",
-    "outputName": "tempCal",
+    "outputName": "out-calibrate-asar",
     "expected": "s1tbx/Standard/expected-calibrate-asar.json"
   }]
 },
@@ -27,7 +27,7 @@
   },
   "outputs": [{
     "parameter": "out1",
-    "outputName": "tempCal",
+    "outputName": "out-calibrate-alos",
     "expected": "s1tbx/Standard/expected-calibrate-alos.json"
   }]
 },
@@ -43,7 +43,7 @@
   },
   "outputs": [{
     "parameter": "out1",
-    "outputName": "tempCal",
+    "outputName": "out-calibrate-ers",
     "expected": "s1tbx/Standard/expected-calibrate-ers.json"
   }]
 },
@@ -59,26 +59,26 @@
   },
   "outputs": [{
     "parameter": "out1",
-    "outputName": "tempCal",
+    "outputName": "out-calibrate-rs2",
     "expected": "s1tbx/Standard/expected-calibrate-rs2.json"
   }]
 },
 {
-  "id":"s1tbx.standard.calibrate.s1.grd",
-  "description":"execute calibrate processor with S1 GRD",
-  "frequency":"daily",
-  "graphPath": "s1tbx/Standard/Subset_Cal.xml",
-  "inputs": {
-    "input1": "s1tbx/SAR/S1/S1A_IW_GRDH_1ADV_20140819T224528_20140819T224546_002015_001F3B_979A.zip"
-  },
-  "parameters": {
-  },
-  "outputs": [{
-    "parameter": "out1",
-    "outputName": "tempCal",
-    "expected": "s1tbx/Standard/expected-calibrate-s1-grd.json"
-  }]
-}
+    "id":"s1tbx.standard.calibrate.s1.grd",
+    "description":"execute calibrate processor with S1 GRD",
+    "frequency":"daily",
+    "graphPath": "s1tbx/Standard/Subset_Cal.xml",
+    "inputs": {
+      "input1": "s1tbx/SAR/S1/S1A_S1_GRDM_1SDV_20140607T172812_20140607T172836_000947_000EBD_7543.zip"
+    },
+    "parameters": {
+    },
+    "outputs": [{
+      "parameter": "out1",
+      "outputName": "out-calibrate-s1-grd",
+      "expected": "s1tbx/Standard/expected-calibrate-s1-grd.json"
+    }]
+  }
 
 ]
 

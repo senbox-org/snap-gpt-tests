@@ -1,0 +1,303 @@
+{
+  "id" : "snap.glcm.asar",
+  "decodeQualification" : "INTENDED",
+  "expectedContent" : {
+    "sceneWidth" : 1012,
+    "sceneHeight" : 3168,
+    "geoCoding" : {
+      "coordinates" : [ {
+        "x" : 506.0,
+        "y" : 1584.0,
+        "lat" : 44.41219864044597,
+        "lon" : 37.81693425199395
+      } ]
+    },
+    "tiePointGrids" : [ {
+      "name" : "samples",
+      "description" : "range sample",
+      "offsetX" : 0.5,
+      "offsetY" : 0.5,
+      "subSamplingX" : 102.0,
+      "subSamplingY" : 132.0,
+      "expectedPixels" : [ {
+        "x" : 506.0,
+        "y" : 1584.0,
+        "value" : 503.15686
+      } ]
+    }, {
+      "name" : "slant_range_time",
+      "description" : "2 way slant range time",
+      "offsetX" : 0.5,
+      "offsetY" : 0.5,
+      "subSamplingX" : 102.0,
+      "subSamplingY" : 132.0,
+      "expectedPixels" : [ {
+        "x" : 506.0,
+        "y" : 1584.0,
+        "value" : 6715353.0
+      } ]
+    }, {
+      "name" : "incident_angle",
+      "description" : "Incident angle",
+      "offsetX" : 0.5,
+      "offsetY" : 0.5,
+      "subSamplingX" : 102.0,
+      "subSamplingY" : 132.0,
+      "expectedPixels" : [ {
+        "x" : 506.0,
+        "y" : 1584.0,
+        "value" : 40.977894
+      } ]
+    }, {
+      "name" : "latitude",
+      "description" : "Latitude of the tie points (WGS-84), positive N",
+      "offsetX" : 0.5,
+      "offsetY" : 0.5,
+      "subSamplingX" : 102.0,
+      "subSamplingY" : 132.0,
+      "expectedPixels" : [ {
+        "x" : 506.0,
+        "y" : 1584.0,
+        "value" : 44.412586
+      } ]
+    }, {
+      "name" : "longitude",
+      "description" : "Longitude of the tie points (WGS-84), Greenwich origin, positive E",
+      "offsetX" : 0.5,
+      "offsetY" : 0.5,
+      "subSamplingX" : 102.0,
+      "subSamplingY" : 132.0,
+      "expectedPixels" : [ {
+        "x" : 506.0,
+        "y" : 1584.0,
+        "value" : 37.817303
+      } ]
+    } ],
+    "bands" : [ {
+      "name" : "Amplitude_Homogeneity",
+      "description" : "",
+      "bandWidth" : 1012,
+      "bandHeight" : 3168,
+      "noDataValue" : 0.0,
+      "noDataValueUsed" : true,
+      "spectralWavelength" : 0.0,
+      "spectralBandwidth" : 0.0,
+      "expectedPixels" : [ {
+        "x" : 506.0,
+        "y" : 1584.0,
+        "value" : 0.7089247
+      } ]
+    }, {
+      "name" : "Amplitude_ASM",
+      "description" : "",
+      "bandWidth" : 1012,
+      "bandHeight" : 3168,
+      "noDataValue" : 0.0,
+      "noDataValueUsed" : true,
+      "spectralWavelength" : 0.0,
+      "spectralBandwidth" : 0.0,
+      "expectedPixels" : [ {
+        "x" : 506.0,
+        "y" : 1584.0,
+        "value" : 0.096938774
+      } ]
+    }, {
+      "name" : "Amplitude_Energy",
+      "description" : "",
+      "bandWidth" : 1012,
+      "bandHeight" : 3168,
+      "noDataValue" : 0.0,
+      "noDataValueUsed" : true,
+      "spectralWavelength" : 0.0,
+      "spectralBandwidth" : 0.0,
+      "expectedPixels" : [ {
+        "x" : 506.0,
+        "y" : 1584.0,
+        "value" : 0.31134993
+      } ]
+    }, {
+      "name" : "Amplitude_MAX",
+      "description" : "",
+      "bandWidth" : 1012,
+      "bandHeight" : 3168,
+      "noDataValue" : 0.0,
+      "noDataValueUsed" : true,
+      "spectralWavelength" : 0.0,
+      "spectralBandwidth" : 0.0,
+      "expectedPixels" : [ {
+        "x" : 506.0,
+        "y" : 1584.0,
+        "value" : 0.08571429
+      } ]
+    }, {
+      "name" : "Amplitude_Entropy",
+      "description" : "",
+      "bandWidth" : 1012,
+      "bandHeight" : 3168,
+      "noDataValue" : 0.0,
+      "noDataValueUsed" : true,
+      "spectralWavelength" : 0.0,
+      "spectralBandwidth" : 0.0,
+      "expectedPixels" : [ {
+        "x" : 506.0,
+        "y" : 1584.0,
+        "value" : 6.3458424
+      } ]
+    }, {
+      "name" : "Amplitude_GLCMMean",
+      "description" : "",
+      "bandWidth" : 1012,
+      "bandHeight" : 3168,
+      "noDataValue" : 0.0,
+      "noDataValueUsed" : true,
+      "spectralWavelength" : 0.0,
+      "spectralBandwidth" : 0.0,
+      "expectedPixels" : [ {
+        "x" : 506.0,
+        "y" : 1584.0,
+        "value" : 6.8428574
+      } ]
+    }, {
+      "name" : "Amplitude_GLCMVariance",
+      "description" : "",
+      "bandWidth" : 1012,
+      "bandHeight" : 3168,
+      "noDataValue" : 0.0,
+      "noDataValueUsed" : true,
+      "spectralWavelength" : 0.0,
+      "spectralBandwidth" : 0.0,
+      "expectedPixels" : [ {
+        "x" : 506.0,
+        "y" : 1584.0,
+        "value" : 30.37143
+      } ]
+    }, {
+      "name" : "Amplitude_GLCMCorrelation",
+      "description" : "",
+      "bandWidth" : 1012,
+      "bandHeight" : 3168,
+      "noDataValue" : 0.0,
+      "noDataValueUsed" : true,
+      "spectralWavelength" : 0.0,
+      "spectralBandwidth" : 0.0,
+      "expectedPixels" : [ {
+        "x" : 506.0,
+        "y" : 1584.0,
+        "value" : 0.7709313
+      } ]
+    }, {
+      "name" : "Intensity_Homogeneity",
+      "description" : "",
+      "bandWidth" : 1012,
+      "bandHeight" : 3168,
+      "noDataValue" : 0.0,
+      "noDataValueUsed" : true,
+      "spectralWavelength" : 0.0,
+      "spectralBandwidth" : 0.0,
+      "expectedPixels" : [ {
+        "x" : 506.0,
+        "y" : 1584.0,
+        "value" : 2.0
+      } ]
+    }, {
+      "name" : "Intensity_ASM",
+      "description" : "",
+      "bandWidth" : 1012,
+      "bandHeight" : 3168,
+      "noDataValue" : 0.0,
+      "noDataValueUsed" : true,
+      "spectralWavelength" : 0.0,
+      "spectralBandwidth" : 0.0,
+      "expectedPixels" : [ {
+        "x" : 506.0,
+        "y" : 1584.0,
+        "value" : 4.0
+      } ]
+    }, {
+      "name" : "Intensity_Energy",
+      "description" : "",
+      "bandWidth" : 1012,
+      "bandHeight" : 3168,
+      "noDataValue" : 0.0,
+      "noDataValueUsed" : true,
+      "spectralWavelength" : 0.0,
+      "spectralBandwidth" : 0.0,
+      "expectedPixels" : [ {
+        "x" : 506.0,
+        "y" : 1584.0,
+        "value" : 2.0
+      } ]
+    }, {
+      "name" : "Intensity_MAX",
+      "description" : "",
+      "bandWidth" : 1012,
+      "bandHeight" : 3168,
+      "noDataValue" : 0.0,
+      "noDataValueUsed" : true,
+      "spectralWavelength" : 0.0,
+      "spectralBandwidth" : 0.0,
+      "expectedPixels" : [ {
+        "x" : 506.0,
+        "y" : 1584.0,
+        "value" : 2.0
+      } ]
+    }, {
+      "name" : "Intensity_Entropy",
+      "description" : "",
+      "bandWidth" : 1012,
+      "bandHeight" : 3168,
+      "noDataValue" : 0.0,
+      "noDataValueUsed" : true,
+      "spectralWavelength" : 0.0,
+      "spectralBandwidth" : 0.0,
+      "expectedPixels" : [ {
+        "x" : 506.0,
+        "y" : 1584.0,
+        "value" : -1.3862944
+      } ]
+    }, {
+      "name" : "Intensity_GLCMMean",
+      "description" : "",
+      "bandWidth" : 1012,
+      "bandHeight" : 3168,
+      "noDataValue" : 0.0,
+      "noDataValueUsed" : true,
+      "spectralWavelength" : 0.0,
+      "spectralBandwidth" : 0.0,
+      "expectedPixels" : [ {
+        "x" : 506.0,
+        "y" : 1584.0,
+        "value" : 62.0
+      } ]
+    }, {
+      "name" : "Intensity_GLCMVariance",
+      "description" : "",
+      "bandWidth" : 1012,
+      "bandHeight" : 3168,
+      "noDataValue" : 0.0,
+      "noDataValueUsed" : true,
+      "spectralWavelength" : 0.0,
+      "spectralBandwidth" : 0.0,
+      "expectedPixels" : [ {
+        "x" : 506.0,
+        "y" : 1584.0,
+        "value" : 1922.0
+      } ]
+    }, {
+      "name" : "Intensity_GLCMCorrelation",
+      "description" : "",
+      "bandWidth" : 1012,
+      "bandHeight" : 3168,
+      "noDataValue" : 0.0,
+      "noDataValueUsed" : true,
+      "spectralWavelength" : 0.0,
+      "spectralBandwidth" : 0.0,
+      "expectedPixels" : [ {
+        "x" : 506.0,
+        "y" : 1584.0,
+        "value" : 1.0
+      } ]
+    } ],
+    "masks" : [ ]
+  }
+}

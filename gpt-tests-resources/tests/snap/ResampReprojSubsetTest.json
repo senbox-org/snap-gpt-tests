@@ -1,7 +1,7 @@
 [{
     "id":"ResampReprojSubset_Muscate",
     "description":"Apply resampling, reprojection and subset to a S2 product in Muscate format",
-    "frequency":"test",
+    "frequency":"daily",
     "graphPath": "snap/graphResampReprojSubset.xml",
     "inputs": {
         "input1": "s2tbx/S2/MUSCATE/SENTINEL2A_20180529-101826-293_L2A_T32TPP_D_V1-8/SENTINEL2A_20180529-101826-293_L2A_T32TPP_D_V1-8_MTD_ALL.xml"
@@ -11,37 +11,37 @@
         "upsampling": "Nearest",
         "downsampling": "First",
         "flagDownsampling": "First",
-        "sourceBands":"B2,B3,B4,B8",
+        "sourceBands":"Surface_Reflectance_B2,Surface_Reflectance_B3,Surface_Reflectance_B4,Surface_Reflectance_B8",
         "subsetRegion":"100,100,2500,2500",
         "outputFormat": "BEAM-DIMAP"
     },
     "outputs": [{
         "parameter": "out1",
         "outputName": "ResampReprojSubsetTest_Muscate",
-        "expected": "snap/expectedReprojection_S3A.json"
+        "expected": "snap/expectedResampReprojSubsetTest_Muscate.json"
     }]
 },
     {
         "id":"ResampSubsetReproj_SAFE",
         "description":"Apply resampling,subset and reprojection to a S2 product in SAFE format",
-        "frequency":"test",
+        "frequency":"daily",
         "graphPath": "snap/graphResampSubsetReproj.xml",
         "inputs": {
-            "input1": "s2tbx/S2/L1C/S2B_MSIL1C_20170315T013719_N0100_R000_T52LEK_20170315T013714.SAFE"
+            "input1": "s2tbx/S2/Maricopa/S2A_MSIL2A_20170207T182431_N0204_R084_T12SUB_20170207T182425.SAFE"
         },
         "parameters": {
             "targetResolution": "10",
             "upsampling": "Nearest",
             "downsampling": "First",
             "flagDownsampling": "First",
-            "sourceBands":"B2,B3,B4,B8",
+            "sourceBands":"B2,B3,B4",
             "subsetRegion":"100,100,2500,2500",
             "outputFormat": "BEAM-DIMAP"
         },
         "outputs": [{
             "parameter": "out1",
             "outputName": "ResampSubsetReprojTest_SAFE",
-            "expected": "snap/expectedReprojection_S3A.json"
+            "expected": "snap/expectedResampSubsetReprojTest_SAFE.json"
         }]
     }
 ]

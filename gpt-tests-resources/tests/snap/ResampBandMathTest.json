@@ -1,7 +1,7 @@
 [{
     "id":"ResampBandMath_S2",
     "description":"Apply resampling operator and then BandMath on S2L1C product",
-    "frequency":"test",
+    "frequency":"daily",
     "graphPath": "snap/graphResampBandMath.xml",
     "inputs": {
         "input1": "s2tbx/S2/PSD14/L1C/S2A_MSIL1C_20160914T074612_N0204_R135_T36JTT_20160914T081456.SAFE"
@@ -12,7 +12,7 @@
         "downsampling": "First",
         "flagDownsampling": "First",
         "expression":"(B8-B4)/(B8+B4)",
-        "outputFormat": "GeoTIFF"
+        "outputFormat": "BEAM-DIMAP"
     },
     "outputs": [{
         "parameter": "out1",

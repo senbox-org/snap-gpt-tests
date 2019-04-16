@@ -4,7 +4,7 @@
     <operator>Read</operator>
     <sources/>
     <parameters>
-      <file></file>
+      <file>$input1</file>
     </parameters>
   </node>
   <node id="2-Write">
@@ -14,7 +14,7 @@
     </sources>
     <parameters>
       <formatName>HDF5</formatName>
-      <file>target.h5</file>
+       <file>$out1</file>
     </parameters>
   </node>
   <applicationData id="Presentation">
