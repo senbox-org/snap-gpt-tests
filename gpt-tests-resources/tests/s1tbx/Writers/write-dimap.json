@@ -1,5 +1,6 @@
-[{
-  "id":"s1tbx.writers.write-Dimap",
+[
+{
+  "id":"s1tbx.writers.write-dimap",
   "description":"execute dimap writing",
   "frequency":"daily",
   "graphPath": "s1tbx/Writers/WriteDimap.xml",
@@ -10,10 +11,11 @@
   },
   "outputs": [{
     "parameter": "out1",
-    "outputName": "tempDimap",
-    "expected": "s1tbx/Writers/expectedDimap.json"
+    "outputName": "out-writer-Dimap",
+    "expected": "s1tbx/Writers/expected-Dimap.json"
   }]
-}]
+}
+]
 
 
 

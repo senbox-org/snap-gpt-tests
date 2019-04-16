@@ -4,6 +4,7 @@
     <operator>Read</operator>
     <sources/>
     <parameters>
+	<file>$input1</file>
     </parameters>
   </node>
   <node id="2-Write">
@@ -13,7 +14,7 @@
     </sources>
     <parameters>
       <formatName>GeoTIFF</formatName>
-      <file>target.tif</file>
+       <file>$out1</file>
     </parameters>
   </node>
   <applicationData id="Presentation">

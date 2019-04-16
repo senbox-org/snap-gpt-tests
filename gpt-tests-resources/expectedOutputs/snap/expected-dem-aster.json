@@ -1,5 +1,5 @@
 {
-  "id" : "s1tbx.standard.multilook.alos",
+  "id" : "snap.dem.aster",
   "decodeQualification" : "INTENDED",
   "expectedContent" : {
     "sceneWidth" : 1012,
@@ -100,6 +100,20 @@
         "x" : 506.0,
         "y" : 1584.0,
         "value" : 233289.0
+      } ]
+    }, {
+      "name" : "elevation",
+      "description" : "ASTER 1sec GDEM",
+      "bandWidth" : 1012,
+      "bandHeight" : 3168,
+      "noDataValue" : -9999.0,
+      "noDataValueUsed" : true,
+      "spectralWavelength" : 0.0,
+      "spectralBandwidth" : 0.0,
+      "expectedPixels" : [ {
+        "x" : 506.0,
+        "y" : 1584.0,
+        "value" : 14.2
       } ]
     } ],
     "masks" : [ ]

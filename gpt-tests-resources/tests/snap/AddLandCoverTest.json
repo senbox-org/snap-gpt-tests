@@ -1,0 +1,18 @@
+[{
+    "id":"snap.landcover.globcover",
+    "description":"execute Add Land Cover operator with GlobCover",
+    "frequency":"daily",
+    "graphPath": "snap/graphAddLandCover.xml",
+    "inputs": {
+        "input1": "s1tbx/SAR/ASAR/ASA_IMM.zip"
+    },
+    "parameters": {
+        "landCoverNames": "GlobCover"
+    },
+    "outputs": [{
+        "parameter": "out1",
+        "outputName": "out-landcover-globcover",
+        "expected": "snap/expected-landcover-globcover.json"
+    }]
+}
+]

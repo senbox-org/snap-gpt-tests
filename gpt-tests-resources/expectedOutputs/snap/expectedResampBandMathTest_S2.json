@@ -1,0 +1,93 @@
+{
+  "id": "ResampBandMathTest_S2",
+  "decodeQualification": "INTENDED",
+  "expectedContent": {
+    "sceneWidth": 10980,
+    "sceneHeight": 10980,
+    "startTime": "14-SEP-2016 07:46:12.026000",
+    "endTime": "14-SEP-2016 08:14:56.579000",
+    "geoCoding": {
+      "coordinates": [
+        {
+          "x": 4735.0,
+          "y": 5902.0,
+          "lat": -24.925460229090255,
+          "lon": 30.498102384081424
+        },
+        {
+          "x": 8152.0,
+          "y": 7125.0,
+          "lat": -25.041125829617172,
+          "lon": 30.83430971021546
+        }
+      ],
+      "reverseAccuracy": 9.951327228918672E-8
+    },
+    "bands": [
+      {
+        "name": "newBand",
+        "description": "",
+        "bandWidth": 10980,
+        "bandHeight": 10980,
+        "noDataValue": "0.0",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 572,
+            "y": 1956,
+            "value": 0.041005284
+          },
+          {
+            "x": 7522,
+            "y": 9339,
+            "value": "NaN"
+          }
+        ]
+      }
+    ],
+    "metadata": [
+      {
+        "path": "Level-1C_User_Product/Geometric_Info/Coordinate_Reference_System/GEO_TABLES",
+        "value": "EPSG"
+      },
+      {
+        "path": "Level-1C_DataStrip_ID/Quality_Indicators_Info/Radiometric_Info/Radiometric_Quality_List/Radiometric_Quality[3]/Noise_Model/BETA",
+        "value": "0.03482"
+      },
+      {
+        "path": "Processing_Graph/node.3/sources/sourceProduct",
+        "value": "BandMaths"
+      },
+      {
+        "path": "Level-1C_DataStrip_ID/Image_Data_Info/Geometric_Info/Image_Refining/flag",
+        "value": "NOT_REFINED"
+      },
+      {
+        "path": "Level-1C_User_Product/General_Info/Product_Info/Datatake/SENSING_ORBIT_DIRECTION",
+        "value": "DESCENDING"
+      },
+      {
+        "path": "Granules/Level-1C_Tile_36JTT/Quality_Indicators_Info/Image_Content_QI/CLOUDY_PIXEL_PERCENTAGE",
+        "value": "71.9619"
+      },
+      {
+        "path": "Level-1C_User_Product/Auxiliary_Data_Info/GIPP_List/GIPP_FILENAME[65]",
+        "value": "S2A_OPER_GIP_R2EOB2_MPC__20150827T165847_V20150819T000000_99999999T999999_B06"
+      },
+      {
+        "path": "Level-1C_DataStrip_ID/Satellite_Ancillary_Data_Info/Attitudes/Corrected_Attitudes/Values[2646]/QUATERNION_VALUES",
+        "value": "0.203423823003742 0.471042809832698 -0.152449585213438 0.844687245971969"
+      },
+      {
+        "path": "Processing_Graph/node.1/parameters/referenceBand",
+        "value": "B8"
+      },
+      {
+        "path": "Level-1C_DataStrip_ID/Satellite_Ancillary_Data_Info/Attitudes/Raw_Attitudes/STR_List/STR[2]/Attitude_Data_List/Attitude_Data[1741]/QUATERNION_VALUES",
+        "value": "-0.548525091260672 0.716257619671524 0.136325918138027 0.409280445426702"
+      }
+    ]
+  }
+}

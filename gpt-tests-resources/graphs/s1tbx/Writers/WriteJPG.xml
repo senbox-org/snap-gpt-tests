@@ -4,7 +4,7 @@
     <operator>Read</operator>
     <sources/>
     <parameters>
-      <file></file>
+      <file>$input1</file>
     </parameters>
   </node>
   <node id="2-Write">
@@ -14,7 +14,7 @@
     </sources>
     <parameters>
       <formatName>JPG</formatName>
-      <file>target.jpg</file>
+       <file>$out1</file>
     </parameters>
   </node>
   <applicationData id="Presentation">

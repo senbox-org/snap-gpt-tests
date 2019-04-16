@@ -11,24 +11,8 @@
   },
   "outputs": [{
     "parameter": "out1",
-    "outputName": "tempCal",
+    "outputName": "out-tc-asar",
     "expected": "s1tbx/Standard/expected-terraincorrect-asar.json"
-  }]
-},
-{
-  "id":"s1tbx.standard.terraincorrect.alos",
-  "description":"execute terraincorrect processor with ALOS",
-  "frequency":"daily",
-  "graphPath": "s1tbx/Standard/Subset_TC.xml",
-  "inputs": {
-    "input1": "s1tbx/SAR/ALOS/ALPSRS267172700-L1.5.zip"
-  },
-  "parameters": {
-  },
-  "outputs": [{
-    "parameter": "out1",
-    "outputName": "tempCal",
-    "expected": "s1tbx/Standard/expected-terraincorrect-alos.json"
   }]
 },
 {
@@ -43,7 +27,7 @@
   },
   "outputs": [{
     "parameter": "out1",
-    "outputName": "tempCal",
+    "outputName": "out-tc-ers",
     "expected": "s1tbx/Standard/expected-terraincorrect-ers.json"
   }]
 },
@@ -59,7 +43,7 @@
   },
   "outputs": [{
     "parameter": "out1",
-    "outputName": "tempCal",
+    "outputName": "out-tc-rs2",
     "expected": "s1tbx/Standard/expected-terraincorrect-rs2.json"
   }]
 },
@@ -69,13 +53,13 @@
   "frequency":"daily",
   "graphPath": "s1tbx/Standard/Subset_TC.xml",
   "inputs": {
-    "input1": "s1tbx/SAR/S1/S1A_IW_GRDH_1ADV_20140819T224528_20140819T224546_002015_001F3B_979A.zip"
+    "input1": "s1tbx/SAR/S1/S1A_S1_GRDM_1SDV_20140607T172812_20140607T172836_000947_000EBD_7543.zip"
   },
   "parameters": {
   },
   "outputs": [{
     "parameter": "out1",
-    "outputName": "tempCal",
+    "outputName": "out-tc-s1",
     "expected": "s1tbx/Standard/expected-terraincorrect-s1-grd.json"
   }]
 }
