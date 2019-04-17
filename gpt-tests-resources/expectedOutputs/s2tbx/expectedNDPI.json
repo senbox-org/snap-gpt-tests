@@ -57,12 +57,12 @@
           {
             "x": 15,
             "y": 53,
-            "value": -0.44144943
+            "value": 0.20439133
           },
           {
             "x": 205,
             "y": 255,
-            "value": -0.28675067
+            "value": -0.021762788
           }
         ]
       },
@@ -115,12 +115,8 @@
         "value": "false"
       },
       {
-        "path": "Processing_Graph/node.0/parameters/mirSourceBand",
-        "value": "B12"
-      },
-      {
-        "path": "Processing_Graph/node.1/sources/sourceProduct",
-        "value": "NdpiOp"
+        "path": "Processing_Graph/node.1/parameters/deleteOutputOnFailure",
+        "value": "true"
       },
       {
         "path": "Processing_Graph/node.0/sources/sourceProduct",
@@ -135,8 +131,20 @@
         "value": "B3"
       },
       {
-        "path": "Processing_Graph/node.0/parameters/resampleType",
-        "value": "None"
+        "path": "Processing_Graph/node.0/parameters/mirSourceBand",
+        "value": "B12"
+      },
+      {
+        "path": "Processing_Graph/node.1/parameters/deleteOutputOnFailure",
+        "value": "true"
+      },
+      {
+        "path": "Processing_Graph/node.1/parameters/clearCacheAfterRowWrite",
+        "value": "false"
+      },
+      {
+        "path": "Processing_Graph/node.0/parameters/greenSourceBand",
+        "value": "B3"
       }
     ]
   }
