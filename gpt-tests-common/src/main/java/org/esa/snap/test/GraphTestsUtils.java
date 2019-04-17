@@ -69,4 +69,47 @@ public class GraphTestsUtils {
         }
         return success;
     }
+
+    public static void createTestSummary (Path testFolderPath, Path outputPath) {
+        BufferedWriter writer = null;
+        try {
+            writer = new BufferedWriter(new FileWriter(outputPath.toFile(), false));
+
+            for (File file : FileUtils.listFiles(testFolderPath.toFile(), new WildcardFileFilter("*.json"), TrueFileFilter.INSTANCE)) {
+                GraphTest[] graphTests = null;
+                try {
+                    graphTests = GraphTestsUtils.mapGraphTests(file);
+                } catch (IOException e) {
+                    //ignore and continue with following files
+                    continue;
+                }
+
+                if (graphTests == null || graphTests.length == 0) {
+                    continue;
+                }
+                for (GraphTest graphTest : graphTests) {
+                    writer.write(graphTest.getId());
+                    writer.write(";");
+                    writer.write(graphTest.getDescription());
+                    writer.write(";");
+                    writer.write(graphTest.getFrequency());
+                    writer.write(";");
+                    writer.write(graphTest.getGraphPath());
+                    writer.write(";");
+                    writer.write(graphTest.getInputs().values().iterator().next());
+                    writer.write("\n");
+                }
+            }
+        } catch (IOException e) {
+        } finally {
+            if(writer != null) {
+                try {
+                    writer.close();
+                } catch (IOException e) {
+                    //ignore
+                }
+            }
+        }
+    }
+
 }
