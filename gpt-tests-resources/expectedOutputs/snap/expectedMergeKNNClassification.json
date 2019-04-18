@@ -1,0 +1,229 @@
+{
+  "id": "testClassif",
+  "decodeQualification": "INTENDED",
+  "expectedContent": {
+    "sceneWidth": 1771,
+    "sceneHeight": 796,
+    "startTime": "12-MAR-2016 10:50:37.460000",
+    "endTime": "12-MAR-2016 10:50:37.460000",
+    "geoCoding": {
+      "coordinates": [
+        {
+          "x": 763.0,
+          "y": 427.0,
+          "lat": 48.87065590427556,
+          "lon": 3.1144209827397793
+        },
+        {
+          "x": 1314.0,
+          "y": 516.0,
+          "lat": 48.85460103132238,
+          "lon": 3.21381688158472
+        }
+      ],
+      "reverseAccuracy": 0.0
+    },
+    "indexCodings": [
+      {
+        "name": "Classes",
+        "samples": [
+          {
+            "name": "no data",
+            "value": 4294967295,
+            "description": "no data"
+          },
+          {
+            "name": "train_plots_1",
+            "value": 0,
+            "description": ""
+          },
+          {
+            "name": "train_plots_2",
+            "value": 1,
+            "description": ""
+          },
+          {
+            "name": "train_plots_3",
+            "value": 2,
+            "description": ""
+          },
+          {
+            "name": "train_plots_4",
+            "value": 3,
+            "description": ""
+          },
+          {
+            "name": "train_plots_5",
+            "value": 4,
+            "description": ""
+          },
+          {
+            "name": "train_plots_6",
+            "value": 5,
+            "description": ""
+          },
+          {
+            "name": "train_plots_7",
+            "value": 6,
+            "description": ""
+          },
+          {
+            "name": "train_plots_8",
+            "value": 7,
+            "description": ""
+          },
+          {
+            "name": "train_plots_9",
+            "value": 8,
+            "description": ""
+          },
+          {
+            "name": "train_plots_10",
+            "value": 9,
+            "description": ""
+          },
+          {
+            "name": "train_plots_11",
+            "value": 10,
+            "description": ""
+          },
+          {
+            "name": "train_plots_12",
+            "value": 11,
+            "description": ""
+          },
+          {
+            "name": "train_plots_13",
+            "value": 12,
+            "description": ""
+          },
+          {
+            "name": "train_plots_14",
+            "value": 13,
+            "description": ""
+          },
+          {
+            "name": "train_plots_15",
+            "value": 14,
+            "description": ""
+          },
+          {
+            "name": "train_plots_16",
+            "value": 15,
+            "description": ""
+          },
+          {
+            "name": "train_plots_17",
+            "value": 16,
+            "description": ""
+          },
+          {
+            "name": "train_plots_18",
+            "value": 17,
+            "description": ""
+          },
+          {
+            "name": "train_plots_19",
+            "value": 18,
+            "description": ""
+          },
+          {
+            "name": "train_plots_20",
+            "value": 19,
+            "description": ""
+          }
+        ]
+      }
+    ],
+    "bands": [
+      {
+        "name": "LabeledClasses",
+        "description": "",
+        "bandWidth": 1771,
+        "bandHeight": 796,
+        "geophysicalUnit": "discrete classes",
+        "noDataValue": "-1.0",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 92,
+            "y": 141,
+            "value": 2.0
+          },
+          {
+            "x": 1213,
+            "y": 677,
+            "value": 16.0
+          }
+        ]
+      },
+      {
+        "name": "Confidence",
+        "description": "",
+        "bandWidth": 1771,
+        "bandHeight": 796,
+        "geophysicalUnit": "(0, 1]",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 515,
+            "y": 204,
+            "value": 1.0
+          },
+          {
+            "x": 1081,
+            "y": 290,
+            "value": 1.0
+          }
+        ]
+      }
+    ],
+    "metadata": [
+      {
+        "path": "Granules/Level-2A_Tile_31UEQ/Geometric_Info/Tile_Angles/Viewing_Incidence_Angles_Grids[24]/Azimuth/Values_List/VALUES[22]",
+        "value": "NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN"
+      },
+      {
+        "path": "Processing_Graph/node.3/parameters/geographicError",
+        "value": "1.0E-5"
+      },
+      {
+        "path": "Level-2A_DataStrip_ID/Auxiliary_Data_Info/IERS_Bulletin/GPS_TIME_TAI",
+        "value": "-19"
+      },
+      {
+        "path": "Level-2A_User_Product/Geometric_Info/Product_Footprint/Product_Footprint/Global_Footprint/EXT_POS_LIST",
+        "value": "49.61961011420237 -0.231485194959582 48.63304460468163 -0.285913342257581 48.5883487810417 1.200980618578431 48.64878448309814 1.2061385431306075 48.657376206712975 1.708337912131073 48.66460174366902 3.066139888020064 48.65581480408966 4.424290987569203 48.62982157570405 5.847478451946776 49.527603861244124 5.89944068972702 49.48562029230301 7.277370381662825 50.42521893388835 7.361691665835585 50.45044508487967 7.364073857802594 50.45686117062749 7.729300891794365 51.44399790803582 7.702092127176296 51.415883589517534 6.123708231698877 51.40812039862533 6.1241822803694195 51.411476306262045 6.016969519888855 51.41234265506691 6.017025008525815 51.413686280302684 5.946366439251198 51.41589769639834 5.875717288603333 51.41503073292773 5.875664359225905 51.43967797551486 4.579515067442993 51.44054116582309 4.579544021469633 51.4410149183699 4.509207911232941 51.44235231685392 4.438876794404744 51.441488815004725 4.438850408836756 51.45023422258088 3.140455380717382 51.451098078258774 3.140457957691326 51.45070820629918 3.070084949391756 51.45118220579359 2.999712175851301 51.45031833566943 2.999712181132087 51.44234525292824 1.560547850091258 50.542890299102645 1.588043005771612 50.51810003852152 0.178667516417683 49.60548153154605 0.2316232622942571 49.61961011420237 -0.231485194959582"
+      },
+      {
+        "path": "Level-2A_DataStrip_ID/Satellite_Ancillary_Data_Info/Attitudes/Corrected_Attitudes/Values[3924]/QUATERNION_VALUES",
+        "value": "0.892418077434975 -0.303585501821767 -0.333466546473634 -0.0150293224676295"
+      },
+      {
+        "path": "history/SubsetInfo/SubsetInfo/ProductNodeName.17",
+        "value": "Granules"
+      },
+      {
+        "path": "Granules/Level-2A_Tile_31UEQ/Geometric_Info/Tile_Angles/Viewing_Incidence_Angles_Grids[70]/Azimuth/Values_List/VALUES[10]",
+        "value": "NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN 299.223 298.615 298.084 297.613 297.196"
+      },
+      {
+        "path": "history/SubsetInfo/SubsetInfo/ProductNodeName.7",
+        "value": "B8A"
+      },
+      {
+        "path": "Granules/Level-2A_Tile_31UDQ/Geometric_Info/Tile_Geocoding/Size[3]/NROWS",
+        "value": "1830"
+      },
+      {
+        "path": "Level-2A_DataStrip_ID/Quality_Indicators_Info/Geometric_Info/Update_Absolute_Location/MEASUREMENT_DATE",
+        "value": "2009-12-11T17:02:22"
+      }
+    ]
+  }
+}

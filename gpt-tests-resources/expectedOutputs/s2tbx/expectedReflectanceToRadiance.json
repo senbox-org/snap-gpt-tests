@@ -1,0 +1,140 @@
+{
+  "id": "tempReflectanceToRadiance",
+  "decodeQualification": "INTENDED",
+  "expectedContent": {
+    "sceneWidth": 300,
+    "sceneHeight": 300,
+    "geoCoding": {
+      "coordinates": [
+        {
+          "x": 129.0,
+          "y": 161.0,
+          "lat": -33.997550770675396,
+          "lon": 22.695403893002247
+        },
+        {
+          "x": 222.0,
+          "y": 194.0,
+          "lat": -34.003221417975745,
+          "lon": 22.715655222867895
+        }
+      ],
+      "reverseAccuracy": 1.1314114090055227E-8
+    },
+    "bands": [
+      {
+        "name": "B4",
+        "description": "Reflectance in band B4",
+        "bandWidth": 300,
+        "bandHeight": 300,
+        "geophysicalUnit": "dl",
+        "noDataValue": "0.0",
+        "noDataValueUsed": "false",
+        "spectralWavelength": "665.0",
+        "spectralBandwidth": "90.0",
+        "expectedPixels": [
+          {
+            "x": 165,
+            "y": 223,
+            "value": 35.557106
+          },
+          {
+            "x": 182,
+            "y": 278,
+            "value": 101.408516
+          }
+        ]
+      },
+      {
+        "name": "B5",
+        "description": "Reflectance in band B5",
+        "bandWidth": 300,
+        "bandHeight": 300,
+        "geophysicalUnit": "dl",
+        "noDataValue": "0.0",
+        "noDataValueUsed": "false",
+        "spectralWavelength": "705.0",
+        "spectralBandwidth": "97.0",
+        "expectedPixels": [
+          {
+            "x": 47,
+            "y": 199,
+            "value": 66.4302
+          },
+          {
+            "x": 155,
+            "y": 274,
+            "value": 68.88903
+          }
+        ]
+      },
+      {
+        "name": "B6",
+        "description": "Reflectance in band B6",
+        "bandWidth": 300,
+        "bandHeight": 300,
+        "geophysicalUnit": "dl",
+        "noDataValue": "0.0",
+        "noDataValueUsed": "false",
+        "spectralWavelength": "740.0",
+        "spectralBandwidth": "40.0",
+        "expectedPixels": [
+          {
+            "x": 226,
+            "y": 145,
+            "value": 10.583316
+          },
+          {
+            "x": 285,
+            "y": 145,
+            "value": 60.072556
+          }
+        ]
+      }
+    ],
+    "metadata": [
+      {
+        "path": "Processing_Graph/node.1/sources/sourceProduct",
+        "value": "ReflectanceToRadianceOp"
+
+      },
+      {
+        "path": "Processing_Graph/node.0/sources/sourceProduct",
+        "value": "product:Subset_S2A_MSIL1C_20161206T080312_N0204_R035_T34HFH_20161206T081929_resampled"
+      },
+      {
+        "path": "Processing_Graph/node.1/parameters/formatName",
+        "value": "BEAM-DIMAP"
+      },
+      {
+        "path": "Processing_Graph/node.0/sources/sourceProduct",
+        "value": "product:Subset_S2A_MSIL1C_20161206T080312_N0204_R035_T34HFH_20161206T081929_resampled"
+      },
+      {
+        "path": "Processing_Graph/node.0/sources/sourceProduct",
+        "value": "product:Subset_S2A_MSIL1C_20161206T080312_N0204_R035_T34HFH_20161206T081929_resampled"
+      },
+      {
+        "path": "Processing_Graph/node.0/parameters/incidenceAngle",
+        "value": "0.0"
+      },
+      {
+        "path": "Processing_Graph/node.0/parameters/sourceBandNames",
+        "value": "B4,B5,B6,B7,B8"
+      },
+      {
+        "path": "Processing_Graph/node.0/parameters/copyMasks",
+        "value": "true"
+      },
+      {
+        "path": "Processing_Graph/node.1/sources/sourceProduct",
+        "value": "ReflectanceToRadianceOp"
+
+      },
+      {
+        "path": "Processing_Graph/node.0/sources/sourceProduct",
+        "value": "product:Subset_S2A_MSIL1C_20161206T080312_N0204_R035_T34HFH_20161206T081929_resampled"
+      }
+    ]
+  }
+}
