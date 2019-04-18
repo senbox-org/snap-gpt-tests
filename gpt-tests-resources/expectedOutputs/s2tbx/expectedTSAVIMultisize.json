@@ -1,0 +1,227 @@
+{
+  "id": "tempTSAVIMultisize",
+  "decodeQualification": "INTENDED",
+  "expectedContent": {
+    "sceneWidth": 300,
+    "sceneHeight": 300,
+    "geoCoding": {
+      "coordinates": [
+        {
+          "x": 129.0,
+          "y": 161.0,
+          "lat": -33.997550770675396,
+          "lon": 22.695403893002247
+        },
+        {
+          "x": 222.0,
+          "y": 194.0,
+          "lat": -34.003221417975745,
+          "lon": 22.715655222867895
+        }
+      ],
+      "reverseAccuracy": 1.1314114090055227E-8
+    },
+    "flagCodings": [
+      {
+        "name": "flags_M",
+        "samples": [
+          {
+            "name": "ARITHMETIC",
+            "value": 1,
+            "description": "Value calculation failed due to an arithmetic exception"
+          },
+          {
+            "name": "NEGATIVE",
+            "value": 2,
+            "description": "Index value is too low"
+          },
+          {
+            "name": "SATURATION",
+            "value": 4,
+            "description": "Index value is too high"
+          }
+        ]
+      },
+      {
+        "name": "flags_S",
+        "samples": [
+          {
+            "name": "ARITHMETIC",
+            "value": 1,
+            "description": "Value calculation failed due to an arithmetic exception"
+          },
+          {
+            "name": "NEGATIVE",
+            "value": 2,
+            "description": "Index value is too low"
+          },
+          {
+            "name": "SATURATION",
+            "value": 4,
+            "description": "Index value is too high"
+          }
+        ]
+      },
+      {
+        "name": "collocationFlags",
+        "samples": [
+          {
+            "name": "SLAVE_PRESENT",
+            "value": 1,
+            "description": "Data for the slave is present."
+          }
+        ]
+      }
+    ],
+    "bands": [
+      {
+        "name": "tsavi_M",
+        "description": "",
+        "bandWidth": 300,
+        "bandHeight": 300,
+        "noDataValue": "0.0",
+        "noDataValueUsed": "false",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 15,
+            "y": 53,
+            "value": 0.0
+          },
+          {
+            "x": 205,
+            "y": 255,
+            "value": 0.0
+          }
+        ]
+      },
+      {
+        "name": "flags_M",
+        "description": "tsavi specific flags",
+        "bandWidth": 300,
+        "bandHeight": 300,
+        "noDataValue": "0.0",
+        "noDataValueUsed": "false",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 87,
+            "y": 77,
+            "value": 0.0
+          },
+          {
+            "x": 183,
+            "y": 109,
+            "value": 0.0
+          }
+        ]
+      },
+      {
+        "name": "tsavi_S",
+        "description": "",
+        "bandWidth": 300,
+        "bandHeight": 300,
+        "noDataValue": "0.0",
+        "noDataValueUsed": "false",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 165,
+            "y": 223,
+            "value": 0.0
+          },
+          {
+            "x": 182,
+            "y": 278,
+            "value": -1.763581
+          }
+        ]
+      },
+      {
+        "name": "flags_S",
+        "description": "tsavi specific flags",
+        "bandWidth": 300,
+        "bandHeight": 300,
+        "noDataValue": "0.0",
+        "noDataValueUsed": "false",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 47,
+            "y": 199,
+            "value": 0.0
+          },
+          {
+            "x": 155,
+            "y": 274,
+            "value": 2.0
+          }
+        ]
+      },
+      {
+        "name": "collocationFlags",
+        "description": "",
+        "bandWidth": 300,
+        "bandHeight": 300,
+        "noDataValue": "0.0",
+        "noDataValueUsed": "false",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 226,
+            "y": 145,
+            "value": 0.0
+          },
+          {
+            "x": 285,
+            "y": 145,
+            "value": 0.0
+          }
+        ]
+      }
+    ],
+    "metadata": [
+      {
+        "path": "Processing_Graph/node.5/sources/sourceProduct",
+        "value": "Land-Sea-Mask"
+      },
+      {
+        "path": "Processing_Graph/node.1/sources/masterProduct",
+        "value": "TsaviOp"
+      },
+      {
+        "path": "Processing_Graph/node.3/parameters/downsampling",
+        "value": "First"
+      },
+      {
+        "path": "Processing_Graph/node.2/sources/sourceProduct",
+        "value": "Resample(2)"
+      },
+      {
+        "path": "Processing_Graph/node.2/sources/sourceProduct",
+        "value": "Resample(2)"
+      },
+      {
+        "path": "Processing_Graph/node.0/parameters/nirFactor",
+        "value": "1.0"
+      },
+      {
+        "path": "Processing_Graph/node.2/parameters/redSourceBand",
+        "value": "B4"
+      },
+      {
+        "path": "Processing_Graph/node.2/parameters/adjustment",
+        "value": "0.08"
+      },
+      {
+        "path": "Processing_Graph/node.2/sources/sourceProduct",
+        "value": "Resample(2)"
+      }
+    ]
+  }
+}

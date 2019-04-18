@@ -1,0 +1,27 @@
+[{
+  "id":"TSAVIMultisizeTest",
+  "description":"execute TSAVI operator for multisize S2 products using subset, reproject, collocation ",
+  "frequency":"daily",
+  "graphPath": "s2tbx/graphTSAVIOpMultisize.xml",
+  "inputs": {
+    "input1": "s2tbx/S2/L1C/S2A_MSIL1C_20161206T080312_N0204_R035_T34HFH_20161206T081929.SAFE",
+    "input2": "s2tbx/S2/L1C/S2A_MSIL1C_20161206T080312_N0204_R035_T34HFH_20161206T081929.SAFE"
+  },
+  "parameters": {
+    "resampleRefBand1": "B5",
+    "resampleRefBand2": "B5",
+    "subsetRegion": "2700,3000,300,300",
+    "redSourceBand1": "B4",
+    "nirSourceBand1": "B8",
+    "redSourceBand2": "B4",
+    "nirSourceBand2": "B8"
+  },
+  "outputs": [{
+    "parameter": "out1",
+    "outputName": "tempTSAVIMultisize",
+    "expected": "s2tbx/expectedTSAVIMultisize.json"
+  }]
+}]
+
+
+
