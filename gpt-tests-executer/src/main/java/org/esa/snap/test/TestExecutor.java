@@ -66,26 +66,32 @@ public class TestExecutor {
             return false;
         }
 
-        //todo check outputs
+        //check outputs
         for(Output output : graphTest.getOutputs()) {
             final ObjectMapper mapper = new ObjectMapper();
-            final ExpectedDataset expectedDataset = mapper.readValue(new File(expectedOutputFolder.resolve(output.getExpected()).toString()), ExpectedDataset.class);
+            boolean expectedIsDefined = true;
+            if(output.getExpected() == null || output.getExpected().length() == 0) {
+                expectedIsDefined = false;
+            }
 
             String outputNameWithExtension = findOutput(output, tempFolder);
             if(outputNameWithExtension == null) {
                 System.out.println("Output not found!!!");
                 return false;
             }
-            Product product = ProductIO.readProduct(outputNameWithExtension);
-            final ContentAssert contentAssert = new ContentAssert(expectedDataset.getExpectedContent(), output.getOutputName(), product);
-            try {
-                contentAssert.assertProductContent();
 
-            } catch (AssertionError e) {
-                System.out.println("Error in test!!!");
-                System.out.println(e.getMessage());
-                testPassed = false;
+            if(expectedIsDefined) { //if expected output is not defined, then skip this step
+                final ExpectedDataset expectedDataset = mapper.readValue(new File(expectedOutputFolder.resolve(output.getExpected()).toString()), ExpectedDataset.class);
+                Product product = ProductIO.readProduct(outputNameWithExtension);
+                final ContentAssert contentAssert = new ContentAssert(expectedDataset.getExpectedContent(), output.getOutputName(), product);
+                try {
+                    contentAssert.assertProductContent();
 
+                } catch (AssertionError e) {
+                    System.out.println("Error in test!!!");
+                    System.out.println(e.getMessage());
+                    testPassed = false;
+                }
             }
 
         }
