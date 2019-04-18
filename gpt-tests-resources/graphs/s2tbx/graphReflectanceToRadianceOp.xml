@@ -1,0 +1,83 @@
+<graph id="GraphReflectanceToRadianceOp">
+  <version>1.0</version>
+  <node id="Read">
+    <operator>Read</operator>
+    <sources/>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <file>$input1</file>
+    </parameters>
+  </node>
+  <node id="Resample">
+    <operator>Resample</operator>
+    <sources>
+      <sourceProduct refid="Read"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <referenceBand>$resampleRefBand</referenceBand>
+      <targetWidth/>
+      <targetHeight/>
+      <targetResolution/>
+      <upsampling>Nearest</upsampling>
+      <downsampling>First</downsampling>
+      <flagDownsampling>First</flagDownsampling>
+      <resampleOnPyramidLevels>true</resampleOnPyramidLevels>
+    </parameters>
+  </node>
+  <node id="Subset">
+    <operator>Subset</operator>
+    <sources>
+      <sourceProduct refid="Resample"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <sourceBands/>
+      <region>$subsetRegion</region>
+      <geoRegion/>
+      <subSamplingX>1</subSamplingX>
+      <subSamplingY>1</subSamplingY>
+      <fullSwath>false</fullSwath>
+      <tiePointGridNames/>
+      <copyMetadata>true</copyMetadata>
+    </parameters>
+  </node>
+  <node id="ReflectanceToRadianceOp">
+    <operator>ReflectanceToRadianceOp</operator>
+    <sources>
+      <sourceProduct refid="Subset"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <solarIrradiance>$solarIrradiance</solarIrradiance>
+      <u>$u</u>
+      <incidenceAngle>$incidenceAngle</incidenceAngle>
+      <sourceBandNames>$sourceBandNames</sourceBandNames>
+      <copyMasks>$copyMasks</copyMasks>
+    </parameters>
+  </node>
+  <node id="Write">
+    <operator>Write</operator>
+    <sources>
+      <sourceProduct refid="ReflectanceToRadianceOp"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <file>$out1</file>
+      <formatName>BEAM-DIMAP</formatName>
+    </parameters>
+  </node>
+  <applicationData id="Presentation">
+    <Description/>
+    <node id="Read">
+      <displayPosition x="20.0" y="136.0"/>
+    </node>
+    <node id="Resample">
+      <displayPosition x="140.0" y="136.0"/>
+    </node>
+    <node id="Subset">
+      <displayPosition x="260.0" y="136.0"/>
+    </node>
+    <node id="ReflectanceToRadianceOp">
+      <displayPosition x="380.0" y="136.0"/>
+    </node>
+    <node id="Write">
+       <displayPosition x="500.0" y="136.0"/>
+    </node>
+  </applicationData>
+</graph>

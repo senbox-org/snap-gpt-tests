@@ -1,0 +1,27 @@
+[{
+  "id":"ReflectanceToRadianceTest",
+  "description":"execute reflectance to radiance operator with S2",
+  "frequency":"daily",
+  "graphPath": "s2tbx/graphReflectanceToRadianceOp.xml",
+  "inputs": {
+    "input1": "s2tbx/S2/L1C/S2A_MSIL1C_20161206T080312_N0204_R035_T34HFH_20161206T081929.SAFE"
+  },
+  "parameters": {
+    "resampleRefBand": "B5",
+    "subsetRegion": "2700,3000,300,300",
+    "solarIrradiance": "0.0",
+    "u": "1.0293387",
+    "incidenceAngle": "0.0",
+    "sourceBandNames": "B4,B5,B6,B7,B8",
+    "copyMasks": "true",
+    "redSourceBand": "B4",
+    "nirSourceBand": "B8"
+  },
+  "outputs": [{
+    "parameter": "out1",
+    "outputName": "tempReflectanceToRadiance",
+    "expected": "s2tbx/expectedReflectanceToRadiance.json"
+  }]
+}]
+
+
