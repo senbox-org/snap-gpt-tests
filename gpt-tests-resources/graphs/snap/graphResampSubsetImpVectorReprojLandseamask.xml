@@ -1,0 +1,127 @@
+<graph id="Graph">
+  <version>1.0</version>
+  <node id="Read">
+    <operator>Read</operator>
+    <sources/>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <file>$input1</file>
+    </parameters>
+  </node>
+  <node id="Resample">
+    <operator>Resample</operator>
+    <sources>
+      <sourceProduct refid="Read"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <referenceBand>$referenceBand</referenceBand>
+      <targetWidth/>
+      <targetHeight/>
+      <targetResolution/>
+      <upsampling>Nearest</upsampling>
+      <downsampling>First</downsampling>
+      <flagDownsampling>First</flagDownsampling>
+      <resampleOnPyramidLevels>true</resampleOnPyramidLevels>
+    </parameters>
+  </node>
+  <node id="Subset">
+    <operator>Subset</operator>
+    <sources>
+      <sourceProduct refid="Resample"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <sourceBands>$subsetBands</sourceBands>
+      <region>$subsetRegion</region>
+      <geoRegion/>
+      <subSamplingX>1</subSamplingX>
+      <subSamplingY>1</subSamplingY>
+      <fullSwath>false</fullSwath>
+      <tiePointGridNames/>
+      <copyMetadata>true</copyMetadata>
+    </parameters>
+  </node>
+  <node id="Import-Vector">
+    <operator>Import-Vector</operator>
+    <sources>
+      <sourceProduct refid="Subset"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <vectorFile>$vectorFile</vectorFile>
+      <separateShapes>true</separateShapes>
+    </parameters>
+  </node>
+  <node id="Reproject">
+    <operator>Reproject</operator>
+    <sources>
+      <sourceProduct refid="Import-Vector"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <wktFile/>
+      <crs>EPSG:4326</crs>
+      <resampling>Nearest</resampling>
+      <referencePixelX/>
+      <referencePixelY/>
+      <easting/>
+      <northing/>
+      <orientation/>
+      <pixelSizeX/>
+      <pixelSizeY/>
+      <width/>
+      <height/>
+      <tileSizeX/>
+      <tileSizeY/>
+      <orthorectify>false</orthorectify>
+      <elevationModelName/>
+      <noDataValue>NaN</noDataValue>
+      <includeTiePointGrids>true</includeTiePointGrids>
+      <addDeltaBands>false</addDeltaBands>
+    </parameters>
+  </node>
+  <node id="Land-Sea-Mask">
+    <operator>Land-Sea-Mask</operator>
+    <sources>
+      <sourceProduct refid="Reproject"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <sourceBands/>
+      <landMask>false</landMask>
+      <useSRTM>true</useSRTM>
+      <geometry/>
+      <invertGeometry>false</invertGeometry>
+      <shorelineExtension>0</shorelineExtension>
+    </parameters>
+  </node>
+  <node id="Write">
+    <operator>Write</operator>
+    <sources>
+      <sourceProduct refid="Land-Sea-Mask"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <file>$out1</file>
+      <formatName>BEAM-DIMAP</formatName>
+    </parameters>
+  </node>
+  <applicationData id="Presentation">
+    <Description/>
+    <node id="Read">
+            <displayPosition x="37.0" y="134.0"/>
+    </node>
+    <node id="Resample">
+      <displayPosition x="102.0" y="133.0"/>
+    </node>
+    <node id="Subset">
+      <displayPosition x="174.0" y="134.0"/>
+    </node>
+    <node id="Import-Vector">
+      <displayPosition x="240.0" y="134.0"/>
+    </node>
+    <node id="Reproject">
+      <displayPosition x="337.0" y="133.0"/>
+    </node>
+    <node id="Land-Sea-Mask">
+      <displayPosition x="418.0" y="132.0"/>
+    </node>
+    <node id="Write">
+            <displayPosition x="531.0" y="131.0"/>
+    </node>
+  </applicationData>
+</graph>

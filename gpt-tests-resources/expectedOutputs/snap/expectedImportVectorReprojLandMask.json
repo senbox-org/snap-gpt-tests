@@ -1,0 +1,148 @@
+{
+  "id": "impVectorLandMask",
+  "decodeQualification": "INTENDED",
+  "expectedContent": {
+    "sceneWidth": 2481,
+    "sceneHeight": 1801,
+    "startTime": "01-JUN-2017 11:06:51.026000",
+    "endTime": "01-JUN-2017 11:06:51.026000",
+    "geoCoding": {
+      "coordinates": [
+        {
+          "x": 1070.0,
+          "y": 968.0,
+          "lat": 37.095591135901735,
+          "lon": -6.103773154555602
+        },
+        {
+          "x": 1842.0,
+          "y": 1168.0,
+          "lat": 37.05829112574108,
+          "lon": -5.959795115335465
+        }
+      ],
+      "reverseAccuracy": 2.9103830456733704E-11
+    },
+    "bands": [
+      {
+        "name": "B2",
+        "description": "Reflectance in band B2",
+        "bandWidth": 2481,
+        "bandHeight": 1801,
+        "geophysicalUnit": "dl",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "490.0",
+        "spectralBandwidth": "130.0",
+        "expectedPixels": [
+          {
+            "x": 129,
+            "y": 320,
+            "value": 0.1134
+          },
+          {
+            "x": 1699,
+            "y": 1531,
+            "value": 0.1616
+          }
+        ]
+      },
+      {
+        "name": "B3",
+        "description": "Reflectance in band B3",
+        "bandWidth": 2481,
+        "bandHeight": 1801,
+        "geophysicalUnit": "dl",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "560.0",
+        "spectralBandwidth": "100.0",
+        "expectedPixels": [
+          {
+            "x": 721,
+            "y": 462,
+            "value": 0.1352
+          },
+          {
+            "x": 1514,
+            "y": 657,
+            "value": 0.1302
+          }
+        ]
+      },
+      {
+        "name": "B4",
+        "description": "Reflectance in band B4",
+        "bandWidth": 2481,
+        "bandHeight": 1801,
+        "geophysicalUnit": "dl",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "665.0",
+        "spectralBandwidth": "90.0",
+        "expectedPixels": [
+          {
+            "x": 1364,
+            "y": 1342,
+            "value": 0.1158
+          },
+          {
+            "x": 1509,
+            "y": 1672,
+            "value": 0.1786
+          }
+        ]
+      }
+    ],
+    "masks": [
+      {
+        "name": "Study_Area_1",
+        "type": "org.esa.snap.core.datamodel.Mask$VectorDataType",
+        "color": "255,0,0",
+        "description": "Mask derived from geometries in 'Study_Area_1'"
+      }
+    ],
+    "metadata": [
+      {
+        "path": "Granules/Level-1C_Tile_30STG/Quality_Indicators_Info/Image_Content_QI/DEGRADED_MSI_DATA_PERCENTAGE",
+        "value": "0"
+      },
+      {
+        "path": "Level-1C_DataStrip_ID/Image_Data_Info/Geometric_Info/Image_Refining/flag",
+        "value": "NOT_REFINED"
+      },
+      {
+        "path": "Level-1C_User_Product/General_Info/Product_Info/Datatake/SENSING_ORBIT_DIRECTION",
+        "value": "DESCENDING"
+      },
+      {
+        "path": "Granules/Level-1C_Tile_30STG/Quality_Indicators_Info/Image_Content_QI/CLOUDY_PIXEL_PERCENTAGE",
+        "value": "0.0145"
+      },
+      {
+        "path": "Level-1C_User_Product/Auxiliary_Data_Info/GIPP_List/GIPP_FILENAME[67]",
+        "value": "S2A_OPER_GIP_R2EOB2_MPC__20150827T165847_V20150819T000000_99999999T999999_B04"
+      },
+      {
+        "path": "Level-1C_DataStrip_ID/Satellite_Ancillary_Data_Info/Attitudes/Corrected_Attitudes/Values[5621]/QUATERNION_VALUES",
+        "value": "-0.846778324665496 -0.311670518227355 0.356608120758971 -0.242195386317212"
+      },
+      {
+        "path": "history/SubsetInfo/ProductNodeName.3",
+        "value": "B4"
+      },
+      {
+        "path": "history/SubsetInfo/SubRegion.y",
+        "value": "3534"
+      },
+      {
+        "path": "Granules/Level-1C_Tile_30STG/Geometric_Info/Tile_Angles/Viewing_Incidence_Angles_Grids[41]/Azimuth/Values_List/VALUES[10]",
+        "value": "NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN 294.63 294.14 293.711"
+      },
+      {
+        "path": "Level-1C_User_Product/Auxiliary_Data_Info/GIPP_List/GIPP_FILENAME[99]",
+        "value": "S2A_OPER_GIP_R2L2NC_MPC__20150605T094742_V20150622T000000_21000101T000000_B09"
+      }
+    ]
+  }
+}

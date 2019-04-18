@@ -1,0 +1,20 @@
+[{
+  "id":"ImportVectorReprojLandMask",
+  "description":"Apply resampling, subset, importVector, reprojection, land/sea mask and finally write the output",
+  "frequency":"test",
+  "graphPath": "snap/graphResampSubsetImpVectorReprojLandseamask.xml",
+  "inputs": {
+    "input1": "s2tbx/S2/L1C/S2A_MSIL1C_20170601T110651_N0205_R137_T30STG_20170601T111225.zip",
+    "vectorFile": "s2tbx/S2/auxTestData/Study_Area.shp"
+  },
+  "parameters": {
+    "referenceBand": "B5",
+    "subsetBands": "B2,B3,B4",
+    "subsetRegion": "354,3534,2000,1800"
+  },
+  "outputs": [{
+    "parameter": "out1",
+    "outputName": "impVectorLandMask",
+    "expected": "snap/expectedImportVectorReprojLandMask.json"
+  }]
+}]
