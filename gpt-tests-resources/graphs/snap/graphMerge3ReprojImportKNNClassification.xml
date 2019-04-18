@@ -1,0 +1,141 @@
+<graph id="Graph">
+  <version>1.0</version>
+  <node id="Read">
+    <operator>Read</operator>
+    <sources/>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <file>$input1</file>
+    </parameters>
+  </node>
+  <node id="Read(2)">
+    <operator>Read</operator>
+    <sources/>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <file>$input2</file>
+    </parameters>
+  </node>
+  <node id="Read(3)">
+    <operator>Read</operator>
+    <sources/>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <file>$input3</file>
+    </parameters>
+  </node>
+  <node id="BandMerge">
+    <operator>BandMerge</operator>
+    <sources>
+      <sourceProduct refid="Read"/>
+      <sourceProduct.1 refid="Read(2)"/>
+      <sourceProduct.2 refid="Read(3)"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <sourceBands/>
+      <geographicError>1.0E-5</geographicError>
+    </parameters>
+  </node>
+  <node id="Import-Vector">
+    <operator>Import-Vector</operator>
+    <sources>
+      <sourceProduct refid="Reproject"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <vectorFile>$vectorFile</vectorFile>
+      <separateShapes>true</separateShapes>
+    </parameters>
+  </node>
+  <node id="Reproject">
+    <operator>Reproject</operator>
+    <sources>
+      <sourceProduct refid="BandMerge"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <wktFile/>
+      <crs>GEOGCS[&quot;WGS84(DD)&quot;, &#xd;
+  DATUM[&quot;WGS84&quot;, &#xd;
+    SPHEROID[&quot;WGS84&quot;, 6378137.0, 298.257223563]], &#xd;
+  PRIMEM[&quot;Greenwich&quot;, 0.0], &#xd;
+  UNIT[&quot;degree&quot;, 0.017453292519943295], &#xd;
+  AXIS[&quot;Geodetic longitude&quot;, EAST], &#xd;
+  AXIS[&quot;Geodetic latitude&quot;, NORTH]]</crs>
+      <resampling>Nearest</resampling>
+      <referencePixelX/>
+      <referencePixelY/>
+      <easting/>
+      <northing/>
+      <orientation/>
+      <pixelSizeX/>
+      <pixelSizeY/>
+      <width/>
+      <height/>
+      <tileSizeX/>
+      <tileSizeY/>
+      <orthorectify>false</orthorectify>
+      <elevationModelName/>
+      <noDataValue>NaN</noDataValue>
+      <includeTiePointGrids>true</includeTiePointGrids>
+      <addDeltaBands>false</addDeltaBands>
+    </parameters>
+  </node>
+  <node id="KNN-Classifier">
+    <operator>KNN-Classifier</operator>
+    <sources>
+      <sourceProduct refid="Import-Vector"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <numNeighbours>5</numNeighbours>
+      <numTrainSamples>5000</numTrainSamples>
+      <savedClassifierName>newClassifier</savedClassifierName>
+      <doLoadClassifier>false</doLoadClassifier>
+      <doClassValQuantization>true</doClassValQuantization>
+      <minClassValue>0.0</minClassValue>
+      <classValStepSize>5.0</classValStepSize>
+      <classLevels>101</classLevels>
+      <trainOnRaster>false</trainOnRaster>
+      <trainingBands/>
+      <trainingVectors/>
+      <featureBands>B2,B3,B4,B8A,NDVI,lai,B2_2,B3_2,B4_2,B8A_2,NDVI_2,lai_2,B2_3,B3_3,B4_3,B8A_3,NDVI_3,lai_3</featureBands>
+      <labelSource>VectorNodeName</labelSource>
+      <evaluateClassifier>false</evaluateClassifier>
+      <evaluateFeaturePowerSet>false</evaluateFeaturePowerSet>
+      <minPowerSetSize>2</minPowerSetSize>
+      <maxPowerSetSize>7</maxPowerSetSize>
+    </parameters>
+  </node>
+  <node id="Write">
+    <operator>Write</operator>
+    <sources>
+      <sourceProduct refid="KNN-Classifier"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <file>$out1</file>
+      <formatName>BEAM-DIMAP</formatName>
+    </parameters>
+  </node>
+  <applicationData id="Presentation">
+    <Description/>
+    <node id="Read">
+            <displayPosition x="39.0" y="58.0"/>
+    </node>
+    <node id="Read(2)">
+      <displayPosition x="39.0" y="138.0"/>
+    </node>
+    <node id="Read(3)">
+      <displayPosition x="39.0" y="215.0"/>
+    </node>
+    <node id="BandMerge">
+      <displayPosition x="154.0" y="138.0"/>
+    </node>
+    <node id="Import-Vector">
+      <displayPosition x="267.0" y="136.0"/>
+    </node>
+    <node id="Reproject">
+      <displayPosition x="412.0" y="139.0"/>
+    </node>
+    <node id="KNN-Classifier">
+      <displayPosition x="552.0" y="134.0"/>
+    </node>
+    <node id="Write">
+            <displayPosition x="717.0" y="142.0"/>
+    </node>
+  </applicationData>
+</graph>
