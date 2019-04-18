@@ -1,7 +1,7 @@
 [{
   "id":"MergeKNNClassification",
   "description":"Read and merge three inputs, reproject, import vector, KNNClassifier and finally write the output",
-  "frequency":"test",
+  "frequency":"weekly",
   "graphPath": "snap/graphMerge3ReprojImportKNNClassification.xml",
   "inputs": {
     "input1": "s2tbx/S2/preprocessed/20160312_preprocessed.dim",
