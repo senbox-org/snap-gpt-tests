@@ -1,0 +1,18 @@
+[{
+  "id":"BandsDifferenceTest",
+  "description":"execute Bands Difference processor",
+  "frequency":"daily",
+  "graphPath": "s2tbx/graphBandsDifferenceOp.xml",
+  "inputs": {
+    "input1": "s2tbx/_gpt_readers/alos/AL1_NESR_AV2_OBS_1C_20080715T181736_20080715T181748_013182_0539_1810_0410.SIP/AL1_NESR_AV2_OBS_1C_20080715T181736_20080715T181748_013182_0539_1810_0410.MD.XML"
+  },
+  "parameters": {
+    "sourceBandNames": "B1,B2,B3,B4,B5",
+    "sourceMaskNames": "no data,saturated"
+  },
+  "outputs": [{
+    "parameter": "out1",
+    "outputName": "tempBandsDifference",
+    "expected": "s2tbx/expectedBandsDifference.json"
+  }]
+}]

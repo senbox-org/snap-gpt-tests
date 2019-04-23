@@ -1,0 +1,133 @@
+{
+    "id": "tempBandsExtractorDifference",
+    "decodeQualification": "INTENDED",
+    "expectedContent": {
+        "sceneWidth": 200,
+        "sceneHeight": 200,
+        "geoCoding": {
+            "coordinates": [
+                {
+                    "x": 86.0,
+                    "y": 107.0,
+                    "lat": 82.10235358414072,
+                    "lon": -33.34224292390375
+                },
+                {
+                    "x": 148.0,
+                    "y": 129.0,
+                    "lat": 82.10041370090445,
+                    "lon": -33.30175164070044
+                }
+            ],
+            "reverseAccuracy": 2.3283064365386963E-10
+        },
+        "bands": [
+            {
+                "name": "band_1",
+                "description": "",
+                "bandWidth": 200,
+                "bandHeight": 200,
+                "noDataValue": "0.0",
+                "noDataValueUsed": "false",
+                "spectralWavelength": "0.0",
+                "spectralBandwidth": "0.0",
+                "expectedPixels": [
+                    {
+                        "x": 10,
+                        "y": 35,
+                        "value": 50.0
+                    },
+                    {
+                        "x": 137,
+                        "y": 170,
+                        "value": 47.0
+                    }
+                ]
+            },
+            {
+                "name": "band_2",
+                "description": "",
+                "bandWidth": 200,
+                "bandHeight": 200,
+                "noDataValue": "0.0",
+                "noDataValueUsed": "false",
+                "spectralWavelength": "0.0",
+                "spectralBandwidth": "0.0",
+                "expectedPixels": [
+                    {
+                        "x": 58,
+                        "y": 51,
+                        "value": 39.0
+                    },
+                    {
+                        "x": 122,
+                        "y": 73,
+                        "value": 38.0
+                    }
+                ]
+            },
+            {
+                "name": "band_3",
+                "description": "",
+                "bandWidth": 200,
+                "bandHeight": 200,
+                "noDataValue": "0.0",
+                "noDataValueUsed": "false",
+                "spectralWavelength": "0.0",
+                "spectralBandwidth": "0.0",
+                "expectedPixels": [
+                    {
+                        "x": 110,
+                        "y": 149,
+                        "value": 19.0
+                    },
+                    {
+                        "x": 121,
+                        "y": 185,
+                        "value": 38.0
+                    }
+                ]
+            },
+            {
+                "name": "band_4",
+                "description": "",
+                "bandWidth": 200,
+                "bandHeight": 200,
+                "noDataValue": "0.0",
+                "noDataValueUsed": "false",
+                "spectralWavelength": "0.0",
+                "spectralBandwidth": "0.0",
+                "expectedPixels": [
+                    {
+                        "x": 31,
+                        "y": 133,
+                        "value": 35.0
+                    },
+                    {
+                        "x": 103,
+                        "y": 182,
+                        "value": 26.0
+                    }
+                ]
+            }
+        ],
+        "metadata": [
+            {
+                "path": "Processing_Graph/node.0/moduleName",
+                "value": "Sentinel-2 Toolbox Forest Cover Change"
+            },
+            {
+                "path": "Processing_Graph/node.1/parameters/formatName",
+                "value": "BEAM-DIMAP"
+            },
+            {
+                "path": "Processing_Graph/node.1/sources/sourceProduct",
+                "value": "BandsDifferenceOp"
+            },
+            {
+                "path": "Processing_Graph/node.1/parameters/deleteOutputOnFailure",
+                "value": "true"
+            }
+        ]
+    }
+}
