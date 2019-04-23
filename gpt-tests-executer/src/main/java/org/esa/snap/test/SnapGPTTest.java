@@ -27,7 +27,7 @@ public class SnapGPTTest {
         final boolean FAIL_ON_MISSING_DATA = Boolean.parseBoolean(System.getProperty(PROPERTYNAME_FAIL_ON_MISSING_DATA, "true"));
 
 
-        boolean specificJSON = true;
+        boolean specificJSON = false;
         boolean success = true;
         //TODO check better the arguments
         if(args.length != 4) {
@@ -111,7 +111,7 @@ public class SnapGPTTest {
             }
             for(GraphTest graphTest : graphTests) {
                 if(!graphTest.inputExists(inputFolder) && !FAIL_ON_MISSING_DATA) {
-                    System.out.println(graphTest.getId() +" is missing input data. Skipping test.");
+                    System.out.println(graphTest.getId() +" is missing input data in input folder '" + inputFolder + "'. Skipping test.");
                     continue;
                 }
                 
