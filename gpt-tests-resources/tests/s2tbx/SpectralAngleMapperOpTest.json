@@ -1,0 +1,27 @@
+[{
+  "id":"SAMTest",
+  "description":"execute SAM processor with S2",
+  "frequency":"daily",
+  "graphPath": "s2tbx/graphSpectralAngleMapperOp.xml",
+  "inputs": {
+    "input1": "s2tbx/S2/S2-new-products/S2A_MSIL1C_20170628T092031_N0205_R093_T35UMP_20170628T092026.SAFE"
+  },
+  "parameters": {
+    "resampleRefBand": "B5",
+    "subsetRegion": "0,0,1000,1000",
+    "SAM_referenceBands": "B3,B5",
+    "SAM_thresholds": "0.25",
+    "spectrum_name": "Cropland",
+    "spectrum_xPixelPolygonPositions": "150",
+    "spectrum_yPixelPolygonPositions": "250",
+    "spectrum_isShapeDefined": "false"
+  },
+  "outputs": [{
+    "parameter": "out1",
+    "outputName": "tempSAM",
+    "expected": "s2tbx/expectedSAM.json"
+  }]
+}]
+
+
+
