@@ -1,0 +1,21 @@
+<graph id="SLSTR_PduStitching">
+    <version>1.0</version>
+    <node id="SlstrStitching">
+        <operator>PduStitching</operator>
+        <parameters>
+            <sourceProductPaths>${inputPaths}</sourceProductPaths>
+            <targetDir>${tempDir}</targetDir>
+        </parameters>
+    </node>
+    <node id="Write">
+        <operator>Write</operator>
+        <sources>
+            <sourceProduct refid="SlstrStitching"/>
+        </sources>
+        <parameters>
+            <file>${outFile}</file>
+            <formatName>BEAM-DIMAP</formatName>
+        </parameters>
+    </node>
+
+</graph>
