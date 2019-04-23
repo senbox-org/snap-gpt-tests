@@ -185,12 +185,12 @@
                     {
                         "x": 1006,
                         "y": 1363,
-                        "value": 0.0864
+                        "value": 0.0853
                     },
                     {
                         "x": 1113,
                         "y": 1699,
-                        "value": 0.0859
+                        "value": 0.0866
                     }
                 ]
             },
@@ -213,7 +213,7 @@
                     {
                         "x": 950,
                         "y": 1671,
-                        "value": 0.0528
+                        "value": 0.0542
                     }
                 ]
             },
@@ -231,12 +231,12 @@
                     {
                         "x": 1383,
                         "y": 886,
-                        "value": 0.1469
+                        "value": 0.0591
                     },
                     {
                         "x": 1739,
                         "y": 889,
-                        "value": 0.0887
+                        "value": 0.0633
                     }
                 ]
             },
@@ -300,12 +300,12 @@
                     {
                         "x": 1777,
                         "y": 1106,
-                        "value": 0.3861
+                        "value": 0.405
                     },
                     {
                         "x": 1047,
                         "y": 1311,
-                        "value": 0.0185
+                        "value": 0.0178
                     }
                 ]
             },
@@ -420,7 +420,7 @@
                     {
                         "x": 1044,
                         "y": 1029,
-                        "value": 0.2259
+                        "value": 0.2234
                     }
                 ]
             },
@@ -438,7 +438,7 @@
                     {
                         "x": 925,
                         "y": 954,
-                        "value": 0.29
+                        "value": 0.2942
                     },
                     {
                         "x": 824,
@@ -553,7 +553,7 @@
                     {
                         "x": 870,
                         "y": 1023,
-                        "value": "NaN"
+                        "value": 142.45381
                     },
                     {
                         "x": 174,
@@ -567,7 +567,7 @@
             {
                 "name": "IDEPIX_INVALID",
                 "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
-                "color": "230,223,118",
+                "color": "62,162,192",
                 "description": "Invalid pixels"
             },
             {
@@ -603,122 +603,122 @@
             {
                 "name": "IDEPIX_SNOW_ICE",
                 "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
-                "color": "20,85,24",
+                "color": "114,111,75",
                 "description": "Clear snow/ice pixels"
             },
             {
                 "name": "IDEPIX_BRIGHT",
                 "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
-                "color": "147,27,29",
+                "color": "172,241,244",
                 "description": "Bright pixels"
             },
             {
                 "name": "IDEPIX_WHITE",
                 "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
-                "color": "163,18,252",
+                "color": "84,54,166",
                 "description": "White pixels"
             },
             {
                 "name": "IDEPIX_COASTLINE",
                 "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
-                "color": "215,135,217",
+                "color": "120,67,24",
                 "description": "Pixels at a coastline"
             },
             {
                 "name": "IDEPIX_LAND",
                 "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
-                "color": "91,250,48",
+                "color": "43,134,38",
                 "description": "Clear land pixels"
             },
             {
                 "name": "IDEPIX_CIRRUS_SURE",
                 "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
-                "color": "135,23,4",
+                "color": "242,149,123",
                 "description": "Cirrus clouds with full confidence of their detection"
             },
             {
                 "name": "IDEPIX_CIRRUS_AMBIGUOUS",
                 "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
-                "color": "45,92,218",
+                "color": "12,23,244",
                 "description": "Cirrus clouds, or clouds where the detection level is uncertain"
             },
             {
                 "name": "IDEPIX_CLEAR_LAND",
                 "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
-                "color": "221,74,5",
+                "color": "130,167,105",
                 "description": "Clear land pixels"
             },
             {
                 "name": "IDEPIX_CLEAR_WATER",
                 "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
-                "color": "194,67,84",
+                "color": "82,242,163",
                 "description": "Clear water pixels"
             },
             {
                 "name": "IDEPIX_WATER",
                 "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
-                "color": "68,140,121",
+                "color": "133,243,21",
                 "description": "Water pixels"
             },
             {
                 "name": "IDEPIX_BRIGHTWHITE",
                 "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
-                "color": "231,165,119",
+                "color": "237,6,222",
                 "description": "'Brightwhite' pixels"
             },
             {
                 "name": "IDEPIX_VEG_RISK",
                 "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
-                "color": "159,239,14",
+                "color": "127,69,177",
                 "description": "Pixels with vegetation risk"
             },
             {
                 "name": "IDEPIX_MOUNTAIN_SHADOW",
                 "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
-                "color": "103,22,39",
+                "color": "83,95,6",
                 "description": "Pixel is affected by mountain shadow"
             }
         ],
         "metadata": [
             {
-                "path": "Level-1C_User_Product/General_Info/Product_Info/Product_Organisation/Granule_List/Granule/IMAGE_FILE[12]",
-                "value": "GRANULE/L1C_T34HFH_A007611_20161206T081929/IMG_DATA/T34HFH_20161206T080312_B03"
+                "path": "Level-1C_DataStrip_ID/Quality_Indicators_Info/Geometric_Info/Update_Absolute_Location/MEASUREMENT_DATE",
+                "value": "2009-12-11T17:02:22"
             },
             {
-                "path": "Processing_Graph/node.6/sources/sourceProduct",
-                "value": "product:Subset_S2A_MSIL1C_20161206T080312_N0204_R035_T34HFH_20161206T081929_resampled"
+                "path": "Granules/Level-1C_Tile_34HFH/Geometric_Info/Tile_Geocoding/Geoposition/XDIM",
+                "value": "10"
             },
             {
-                "path": "Granules/Level-1C_Tile_34HFH/Geometric_Info/Tile_Angles/Viewing_Incidence_Angles_Grids[28]/Zenith/Values_List/VALUES[6]",
-                "value": "NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN"
+                "path": "Granules/Level-1C_Tile_34HFH/General_Info/Archiving_Info/metadataLevel",
+                "value": "Expertise"
             },
             {
-                "path": "Processing_Graph/node.4/sources/sourceProduct",
-                "value": "Resample"
+                "path": "Level-1C_User_Product/Auxiliary_Data_Info/GIPP_List/GIPP_FILENAME[59]",
+                "value": "S2A_OPER_GIP_R2DENT_MPC__20150605T094742_V20150622T000000_21000101T000000_B09"
             },
             {
-                "path": "Granules/Level-1C_Tile_34HFH/General_Info/Archiving_Info/ARCHIVING_TIME",
-                "value": "2016-12-06T14:46:42.574198Z"
+                "path": "Granules/Level-1C_Tile_34HFH/Geometric_Info/Tile_Geocoding/Size[2]/NCOLS",
+                "value": "5490"
             },
             {
                 "path": "history/SubsetInfo/ProductNodeName.13",
                 "value": "B11"
             },
             {
-                "path": "Level-1C_DataStrip_ID/Satellite_Ancillary_Data_Info/Ephemeris/AOCS_Ephemeris_List/AOCS_Ephemeris[653]/VALID_FLAG",
-                "value": "true"
+                "path": "Level-1C_User_Product/Auxiliary_Data_Info/GIPP_List/GIPP_FILENAME[112]",
+                "value": "S2A_OPER_GIP_R2WAFI_MPC__20150605T094742_V20150622T000000_21000101T000000_B07"
             },
             {
-                "path": "history/SubsetInfo/ProductNodeName.15",
-                "value": "sun_zenith"
+                "path": "history/SubsetInfo/ProductNodeName.17",
+                "value": "sun_azimuth"
             },
             {
-                "path": "Level-1C_User_Product/Auxiliary_Data_Info/GIPP_List/GIPP_FILENAME[74]",
-                "value": "S2A_OPER_GIP_R2EOB2_MPC__20150827T165847_V20150819T000000_99999999T999999_B10"
+                "path": "Level-1C_DataStrip_ID/Auxiliary_Data_Info/IERS_Bulletin/POLE_U_ANGLE",
+                "value": "0.1201"
             },
             {
-                "path": "Level-1C_DataStrip_ID/Image_Data_Info/Sensor_Configuration/Time_Stamp/Band_Time_Stamp[10]/Detector[11]/detectorId",
-                "value": "11"
+                "path": "Granules/Level-1C_Tile_34HFH/General_Info/Archiving_Info/ARCHIVING_CENTRE",
+                "value": "SGS_"
             }
         ]
     }
