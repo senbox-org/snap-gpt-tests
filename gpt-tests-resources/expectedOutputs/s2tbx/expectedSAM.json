@@ -1,0 +1,93 @@
+{
+  "id": "tempSAM",
+  "decodeQualification": "INTENDED",
+  "expectedContent": {
+    "sceneWidth": 1000,
+    "sceneHeight": 1000,
+    "startTime": "28-JUN-2017 09:20:31.026000",
+    "endTime": "28-JUN-2017 09:20:31.026000",
+    "geoCoding": {
+      "coordinates": [
+        {
+          "x": 431.0,
+          "y": 537.0,
+          "lat": 48.64970729831991,
+          "lon": 25.758780099786907
+        },
+        {
+          "x": 742.0,
+          "y": 648.0,
+          "lat": 48.63061882363391,
+          "lon": 25.84366770057296
+        }
+      ],
+      "reverseAccuracy": 1.9208528101444244E-9
+    },
+    "bands": [
+      {
+        "name": "SpectralAngleMapperBand",
+        "description": "",
+        "bandWidth": 1000,
+        "bandHeight": 1000,
+        "noDataValue": "0.0",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 52,
+            "y": 178,
+            "value": 200.0
+          },
+          {
+            "x": 685,
+            "y": 850,
+            "value": 200.0
+          }
+        ]
+      }
+    ],
+    "metadata": [
+      {
+        "path": "Processing_Graph/node.0/parameters/hiddenSpectra/spectra/isShapeDefined",
+        "value": "false"
+      },
+      {
+        "path": "Processing_Graph/node.1/parameters/deleteOutputOnFailure",
+        "value": "true"
+      },
+      {
+        "path": "TIFF Metadata/GeoTIFF Metadata/GeoKeyDirectory/PCSCitationGeoKey",
+        "value": "WGS 84 / UTM zone 35N"
+      },
+      {
+        "path": "TIFF Metadata/GeoTIFF Metadata/GeoKeyDirectory/ProjectedCSTypeGeoKey",
+        "value": "PCS_WGS84_UTM_zone_35N"
+      },
+      {
+        "path": "Processing_Graph/node.0/sources/sourceProduct",
+        "value": "product:Subset_S2A_MSIL1C_20170628T092031_N0205_R093_T35UMP_20170628T092026_resampled"
+      },
+      {
+        "path": "Processing_Graph/node.0/parameters/spectra/spectra/name",
+        "value": "Cropland"
+      },
+      {
+        "path": "TIFF Metadata/GeoTIFF Metadata/GeoKeyDirectory/GTCitationGeoKey",
+        "value": "WGS 84 / UTM zone 35N"
+      },
+      {
+        "path": "Processing_Graph/node.1/parameters/deleteOutputOnFailure",
+        "value": "true"
+      },
+      {
+        "path": "Processing_Graph/node.1/sources/sourceProduct",
+        "value": "SpectralAngleMapper"
+      },
+      {
+        "path": "TIFF Metadata/GeoTIFF Metadata/GeoKeyDirectory/PCSCitationGeoKey",
+        "value": "WGS 84 / UTM zone 35N"
+      }
+    ]
+  }
+}
