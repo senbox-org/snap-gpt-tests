@@ -1,0 +1,77 @@
+[{
+  "id":"Subset_S2_B2B3",
+  "description":"execute subset operator in a S2L1C product",
+  "frequency":"test",
+  "graphPath": "snap/graphSubset.xml",
+  "inputs": {
+    "input1": "s2tbx/S2/L1C/S2A_MSIL1C_20181002T034551_N0206_R104_T47PMP_20181002T073417.SAFE"
+  },
+  "parameters": {
+    "subsetBands": "B2,B3",
+    "subsetRegion": "",
+    "subsetGeoRegion": ""
+  },
+  "outputs": [{
+    "parameter": "out1",
+    "outputName": "subsetS2Test_B2B3",
+    "expected": "snap/expectedElevation_S2.json"
+  }]
+},
+  {
+    "id":"Subset_S2_B1B2",
+    "description":"execute subset operator in a S2L1C product",
+    "frequency":"test",
+    "graphPath": "snap/graphSubset.xml",
+    "inputs": {
+      "input1": "s2tbx/S2/L1C/S2A_MSIL1C_20181002T034551_N0206_R104_T47PMP_20181002T073417.SAFE"
+    },
+    "parameters": {
+      "subsetBands": "B1,B2",
+      "subsetRegion": "",
+      "subsetGeoRegion": ""
+    },
+    "outputs": [{
+      "parameter": "out1",
+      "outputName": "subsetS2Test_B1B2",
+      "expected": "snap/expectedElevation_S2.json"
+    }]
+  },
+  {
+  "id":"Subset_S2_B1B5",
+  "description":"execute subset operator in a S2L1C product",
+  "frequency":"test",
+  "graphPath": "snap/graphSubset.xml",
+  "inputs": {
+    "input1": "s2tbx/S2/L1C/S2A_MSIL1C_20181002T034551_N0206_R104_T47PMP_20181002T073417.SAFE"
+  },
+  "parameters": {
+    "subsetBands": "B1,B5",
+    "subsetRegion": "",
+    "subsetGeoRegion": ""
+  },
+  "outputs": [{
+    "parameter": "out1",
+    "outputName": "subsetS2Test_B1B5",
+    "expected": "snap/expectedElevation_S2.json"
+  }]
+},
+  {
+    "id":"Subset_S2_B1",
+    "description":"execute subset operator in a S2L1C product",
+    "frequency":"test",
+    "graphPath": "snap/graphSubset.xml",
+    "inputs": {
+      "input1": "s2tbx/S2/L1C/S2A_MSIL1C_20181002T034551_N0206_R104_T47PMP_20181002T073417.SAFE"
+    },
+    "parameters": {
+      "subsetBands": "B1",
+      "subsetRegion": "",
+      "subsetGeoRegion": ""
+    },
+    "outputs": [{
+      "parameter": "out1",
+      "outputName": "subsetS2Test_B1",
+      "expected": "snap/expectedElevation_S2.json"
+    }]
+  }
+]
