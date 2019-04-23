@@ -821,36 +821,32 @@
     ],
     "metadata": [
       {
-        "path": "Processing_Graph/node.0/sources/sourceProduct",
-        "value": "Resample"
+        "path": "history/SubsetInfo/ProductNodeName.1",
+        "value": "latitude"
       },
       {
-        "path": "history/SubsetInfo/ProductNodeName.26",
-        "value": "radiance_11"
+        "path": "history/SubsetInfo/SubRegion.width",
+        "value": "300"
       },
       {
-        "path": "Processing_Graph/node.0/parameters/copyMetadata",
-        "value": "false"
+        "path": "Processing_Graph/node.1/sources/sourceProduct",
+        "value": "product:Subset_MER_FRS_1PNACR20040515_101402_000002112026_00466_11542_0000.N1"
       },
       {
-        "path": "history/SubsetInfo/SubSampling.y",
+        "path": "Processing_Graph/node.1/sources/sourceProduct",
+        "value": "product:Subset_MER_FRS_1PNACR20040515_101402_000002112026_00466_11542_0000.N1"
+      },
+      {
+        "path": "Processing_Graph/node.0/parameters/region",
+        "value": "1000,1000,300,300"
+      },
+      {
+        "path": "Processing_Graph/node.0/parameters/subSamplingX",
         "value": "1"
       },
       {
-        "path": "Processing_Graph/node.1/parameters/referenceBand",
-        "value": "radiance_2"
-      },
-      {
-        "path": "Processing_Graph/node.0/sources/sourceProduct",
-        "value": "Resample"
-      },
-      {
-        "path": "history/SubsetInfo/ProductNodeName.5",
-        "value": "lat_corr"
-      },
-      {
-        "path": "Processing_Graph/node.3/sources/sourceProduct",
-        "value": "Rad2ReflOp"
+        "path": "history/SubsetInfo/ProductNodeName.7",
+        "value": "sun_zenith"
       }
     ]
   }
