@@ -1,0 +1,95 @@
+{
+  "id" : "s1tbx.standard.applyorbit.ers",
+  "decodeQualification" : "INTENDED",
+  "expectedContent" : {
+    "sceneWidth" : 1489,
+    "sceneHeight" : 675,
+    "geoCoding" : {
+      "coordinates" : [ {
+        "x" : 744.0,
+        "y" : 337.0,
+        "lat" : 34.93058528311004,
+        "lon" : -5.7974050540228514
+      } ]
+    },
+    "tiePointGrids" : [ {
+      "name" : "incident_angle",
+      "description" : "",
+      "offsetX" : 0.0,
+      "offsetY" : 0.0,
+      "subSamplingX" : 148.0,
+      "subSamplingY" : 168.0,
+      "expectedPixels" : [ {
+        "x" : 744.0,
+        "y" : 337.0,
+        "value" : 22.836496
+      } ]
+    }, {
+      "name" : "slant_range_time",
+      "description" : "",
+      "offsetX" : 0.0,
+      "offsetY" : 0.0,
+      "subSamplingX" : 148.0,
+      "subSamplingY" : 168.0,
+      "expectedPixels" : [ {
+        "x" : 744.0,
+        "y" : 337.0,
+        "value" : 5605364.0
+      } ]
+    }, {
+      "name" : "latitude",
+      "description" : "",
+      "offsetX" : 0.0,
+      "offsetY" : 0.0,
+      "subSamplingX" : 148.0,
+      "subSamplingY" : 168.0,
+      "expectedPixels" : [ {
+        "x" : 744.0,
+        "y" : 337.0,
+        "value" : 34.930325
+      } ]
+    }, {
+      "name" : "longitude",
+      "description" : "",
+      "offsetX" : 0.0,
+      "offsetY" : 0.0,
+      "subSamplingX" : 148.0,
+      "subSamplingY" : 168.0,
+      "expectedPixels" : [ {
+        "x" : 744.0,
+        "y" : 337.0,
+        "value" : -5.797893
+      } ]
+    } ],
+    "bands" : [ {
+      "name" : "Amplitude",
+      "description" : "Image Mode Precision Image",
+      "bandWidth" : 1489,
+      "bandHeight" : 675,
+      "noDataValue" : 0.0,
+      "noDataValueUsed" : true,
+      "spectralWavelength" : 0.0,
+      "spectralBandwidth" : 0.0,
+      "expectedPixels" : [ {
+        "x" : 744.0,
+        "y" : 337.0,
+        "value" : 242.0
+      } ]
+    }, {
+      "name" : "Intensity",
+      "description" : "Intensity",
+      "bandWidth" : 1489,
+      "bandHeight" : 675,
+      "noDataValue" : 0.0,
+      "noDataValueUsed" : true,
+      "spectralWavelength" : 0.0,
+      "spectralBandwidth" : 0.0,
+      "expectedPixels" : [ {
+        "x" : 744.0,
+        "y" : 337.0,
+        "value" : 58564.0
+      } ]
+    } ],
+    "masks" : [ ]
+  }
+}

@@ -1,0 +1,107 @@
+{
+  "id" : "s1tbx.standard.specklefilter.s1.grd",
+  "decodeQualification" : "INTENDED",
+  "expectedContent" : {
+    "sceneWidth" : 1938,
+    "sceneHeight" : 4062,
+    "geoCoding" : {
+      "coordinates" : [ {
+        "x" : 969.0,
+        "y" : 2031.0,
+        "lat" : 48.59280397611427,
+        "lon" : 2.5634948637965094
+      } ]
+    },
+    "tiePointGrids" : [ {
+      "name" : "latitude",
+      "description" : "",
+      "offsetX" : 0.5,
+      "offsetY" : 0.5,
+      "subSamplingX" : 96.9,
+      "subSamplingY" : 312.46153846153845,
+      "expectedPixels" : [ {
+        "x" : 969.0,
+        "y" : 2031.0,
+        "value" : 48.593018
+      } ]
+    }, {
+      "name" : "longitude",
+      "description" : "",
+      "offsetX" : 0.5,
+      "offsetY" : 0.5,
+      "subSamplingX" : 96.9,
+      "subSamplingY" : 312.46153846153845,
+      "expectedPixels" : [ {
+        "x" : 969.0,
+        "y" : 2031.0,
+        "value" : 2.5637014
+      } ]
+    }, {
+      "name" : "incident_angle",
+      "description" : "",
+      "offsetX" : 0.5,
+      "offsetY" : 0.5,
+      "subSamplingX" : 96.9,
+      "subSamplingY" : 312.46153846153845,
+      "expectedPixels" : [ {
+        "x" : 969.0,
+        "y" : 2031.0,
+        "value" : 24.133867
+      } ]
+    }, {
+      "name" : "elevation_angle",
+      "description" : "",
+      "offsetX" : 0.5,
+      "offsetY" : 0.5,
+      "subSamplingX" : 96.9,
+      "subSamplingY" : 312.46153846153845,
+      "expectedPixels" : [ {
+        "x" : 969.0,
+        "y" : 2031.0,
+        "value" : 21.624466
+      } ]
+    }, {
+      "name" : "slant_range_time",
+      "description" : "",
+      "offsetX" : 0.5,
+      "offsetY" : 0.5,
+      "subSamplingX" : 96.9,
+      "subSamplingY" : 312.46153846153845,
+      "expectedPixels" : [ {
+        "x" : 969.0,
+        "y" : 2031.0,
+        "value" : 5045907.0
+      } ]
+    } ],
+    "bands" : [ {
+      "name" : "Amplitude_VH",
+      "description" : "",
+      "bandWidth" : 1938,
+      "bandHeight" : 4062,
+      "noDataValue" : 0.0,
+      "noDataValueUsed" : true,
+      "spectralWavelength" : 0.0,
+      "spectralBandwidth" : 0.0,
+      "expectedPixels" : [ {
+        "x" : 969.0,
+        "y" : 2031.0,
+        "value" : 24.081633
+      } ]
+    }, {
+      "name" : "Amplitude_VV",
+      "description" : "",
+      "bandWidth" : 1938,
+      "bandHeight" : 4062,
+      "noDataValue" : 0.0,
+      "noDataValueUsed" : true,
+      "spectralWavelength" : 0.0,
+      "spectralBandwidth" : 0.0,
+      "expectedPixels" : [ {
+        "x" : 969.0,
+        "y" : 2031.0,
+        "value" : 53.10204
+      } ]
+    } ],
+    "masks" : [ ]
+  }
+}
