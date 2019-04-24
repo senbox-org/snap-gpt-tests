@@ -1,0 +1,21 @@
+[
+  {
+    "id": "C2RCC_MODIS",
+    "description": "execute MODIS C2RCC with default nets",
+    "frequency": "marcop",
+    "graphPath": "s3tbx/graphC2RCC_MODIS.xml",
+    "inputs": {
+      "input": "s3tbx/sensors_platforms/MODIS/L1C/A2015194095000.L1C"
+    },
+    "parameters": {
+      "nets": "C2RCC-Nets"
+    },
+    "outputs": [
+      {
+        "parameter": "output",
+        "outputName": "C2RCC_MODIS",
+        "expected": "s3tbx/expectedC2RCC_MODIS.json"
+      }
+    ]
+  }
+]
