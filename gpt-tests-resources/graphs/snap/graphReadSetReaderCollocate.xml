@@ -1,0 +1,60 @@
+<graph id="Graph">
+  <version>1.0</version>
+  <node id="Read">
+    <operator>Read</operator>
+    <sources/>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <file>$input1</file>
+    </parameters>
+  </node>
+  <node id="Collocate">
+    <operator>Collocate</operator>
+    <sources>
+      <sourceProduct refid="Read"/>
+      <sourceProduct.4 refid="ProductSet-Reader"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <sourceProductPaths/>
+      <masterProductName>$masterProductName</masterProductName>
+      <targetProductName>_collocated</targetProductName>
+      <targetProductType>COLLOCATED</targetProductType>
+      <renameMasterComponents>true</renameMasterComponents>
+      <renameSlaveComponents>true</renameSlaveComponents>
+      <masterComponentPattern>${ORIGINAL_NAME}_M</masterComponentPattern>
+      <slaveComponentPattern>${ORIGINAL_NAME}_S${SLAVE_NUMBER_ID}</slaveComponentPattern>
+      <resamplingType>NEAREST_NEIGHBOUR</resamplingType>
+    </parameters>
+  </node>
+  <node id="Write">
+    <operator>Write</operator>
+    <sources>
+      <sourceProduct refid="Collocate"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <file>$out1</file>
+      <formatName>BEAM-DIMAP</formatName>
+    </parameters>
+  </node>
+  <node id="ProductSet-Reader">
+    <operator>ProductSet-Reader</operator>
+    <sources/>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <fileList>$fileList</fileList>
+    </parameters>
+  </node>
+  <applicationData id="Presentation">
+    <Description/>
+    <node id="Read">
+            <displayPosition x="57.0" y="94.0"/>
+    </node>
+    <node id="Collocate">
+      <displayPosition x="258.0" y="137.0"/>
+    </node>
+    <node id="Write">
+            <displayPosition x="455.0" y="135.0"/>
+    </node>
+    <node id="ProductSet-Reader">
+      <displayPosition x="43.0" y="226.0"/>
+    </node>
+  </applicationData>
+</graph>

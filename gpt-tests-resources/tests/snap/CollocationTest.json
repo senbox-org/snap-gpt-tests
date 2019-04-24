@@ -1,0 +1,37 @@
+[{
+  "id":"ReadReadCollocate",
+  "description":"Collocate a S2 product with a smaller image. Two Read used as input",
+  "frequency":"omar",
+  "graphPath": "snap/graphReadReadCollocate.xml",
+  "inputs": {
+    "input1": "s2tbx/_collocation/subset_0_of_NDSI_1703.dim",
+    "input2": "s2tbx/S2/L1C/S2A_MSIL1C_20170416T105031_N0204_R051_T30TYN_20170416T105601.SAFE"
+  },
+  "parameters": {
+    "masterProductName": "subset_0_of_NDSI_1703"
+  },
+  "outputs": [{
+    "parameter": "out1",
+    "outputName": "twoReadCollocated",
+    "expected": "snap/expectedElevation_S2.json"
+  }]
+},
+  {
+    "id":"ReadSetReaderCollocate",
+    "description":"Collocate multiple products defined with a Read and a ProductSetReader.",
+    "frequency":"omar",
+    "graphPath": "snap/graphReadReadCollocate.xml",
+    "inputs": {
+      "input1": "s2tbx/S2/L1C/S2A_MSIL1C_20170416T105031_N0204_R051_T30TYN_20170416T105601.SAFE"
+    },
+    "parameters": {
+      "masterProductName": "subset_0_of_NDSI_1703",
+      "fileList": "/data/ssd/testData/s2tbx/_collocation/subset_0_of_NDSI_1703.dim,/data/ssd/testData/s2tbx/_collocation/NDSI_1604.dim,/data/ssd/testData/s2tbx/_collocation/NDSI_1502.dim"
+    },
+    "outputs": [{
+      "parameter": "out1",
+      "outputName": "multipleCollocated",
+      "expected": "snap/expectedElevation_S2.json"
+    }]
+  }
+]
