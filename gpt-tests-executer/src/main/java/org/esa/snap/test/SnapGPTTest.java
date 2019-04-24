@@ -27,7 +27,7 @@ public class SnapGPTTest {
         final boolean FAIL_ON_MISSING_DATA = Boolean.parseBoolean(System.getProperty(PROPERTYNAME_FAIL_ON_MISSING_DATA, "true"));
 
 
-        boolean specificJSON = false;
+        boolean specificJSON = true;
         boolean success = true;
         //TODO check better the arguments
         if(args.length != 4) {
