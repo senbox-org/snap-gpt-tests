@@ -1,15 +1,42 @@
-[{
-  "id":"SLSTR_PduStitching_byPaths",
-  "description":"Stiches multiple SLSTR products",
-  "frequency":"marcop",
-  "graphPath": "s3tbx/graphSLSTR_PduStitching.xml",
-  "parameters": {
-    "inputPaths": "s3tbx/sensors_platforms/SENTINEL-3/SENTINEL-3/SLSTR_L1_for_Stitching_test/20160419T001932_20160419T003132/S3A_SL_1_RBT____201604*.SEN3",
-    "tempDir": "s3tbx/output"
+[
+  {
+    "id": "SLSTR_PduStitching_byPaths",
+    "description": "Stiches multiple SLSTR PDUs by path parameter",
+    "frequency": "marcop",
+    "graphPath": "s3tbx/graphSLSTR_PduStitching.xml",
+    "parameters": {
+      "inputPaths": "s3tbx/sensors_platforms/SENTINEL-3/SENTINEL-3/SLSTR_L1_for_Stitching_test/20160419T001932_20160419T003132/S3A_SL_1_RBT____201604*.SEN3",
+      "tempDir": "s3tbx/output"
+    },
+    "outputs": [
+      {
+        "parameter": "outFile",
+        "outputName": "SLSTR_PduStitching_byPaths",
+        "expected": "s3tbx/expectedSLSTR_PduStitching_byPaths.json"
+      }
+    ]
   },
-  "outputs": [{
-    "parameter": "outFile",
-    "outputName": "SLSTR_PduStitching_byPaths",
-    "expected": "s3tbx/expectedSLSTR_PduStitching_byPaths.json"
-  }]
-}]
+  {
+    "id": "SLSTR_PduStitching_byProducts",
+    "description": "Stiches multiple SLSTR PDUs by source products",
+    "frequency": "marcop",
+    "graphPath": "s3tbx/graphSLSTR_PduStitching.xml",
+    "inputs": {
+      "input1": "s3tbx/sensors_platforms/SENTINEL-3/SENTINEL-3/SLSTR_L1_for_Stitching_test/20160419T001932_20160419T003132/S3A_SL_1_RBT____20160419T001932_20160419T002232_20160420T181533_0179_003_144_6059_LN2_O_NT_001.SEN3",
+      "input2": "s3tbx/sensors_platforms/SENTINEL-3/SENTINEL-3/SLSTR_L1_for_Stitching_test/20160419T001932_20160419T003132/S3A_SL_1_RBT____20160419T002232_20160419T002532_20160420T181754_0179_003_144_6239_LN2_O_NT_001.SEN3",
+      "input3": "s3tbx/sensors_platforms/SENTINEL-3/SENTINEL-3/SLSTR_L1_for_Stitching_test/20160419T001932_20160419T003132/S3A_SL_1_RBT____20160419T002532_20160419T002832_20160420T181943_0179_003_144_6419_LN2_O_NT_001.SEN3",
+      "input4": "s3tbx/sensors_platforms/SENTINEL-3/SENTINEL-3/SLSTR_L1_for_Stitching_test/20160419T001932_20160419T003132/S3A_SL_1_RBT____20160419T002832_20160419T003132_20160420T182127_0179_003_144_6599_LN2_O_NT_001.SEN3",
+      "input5": "s3tbx/sensors_platforms/SENTINEL-3/SENTINEL-3/SLSTR_L1_for_Stitching_test/20160419T001932_20160419T003132/S3A_SL_1_RBT____20160419T003132_20160419T003432_20160420T182326_0179_003_144_6779_LN2_O_NT_001.SEN3"
+    },
+    "parameters": {
+      "tempDir": "s3tbx/output"
+    },
+    "outputs": [
+      {
+        "parameter": "outFile",
+        "outputName": "SLSTR_PduStitching_byProducts",
+        "expected": "s3tbx/expectedSLSTR_PduStitching.json"
+      }
+    ]
+  }
+]
