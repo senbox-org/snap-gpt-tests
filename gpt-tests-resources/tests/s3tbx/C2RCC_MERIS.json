@@ -1,0 +1,40 @@
+[
+  {
+    "id": "C2RCC_MERIS_c2rcc-nets",
+    "description": "execute MERIS C2RCC with default nets",
+    "frequency": "regular",
+    "graphPath": "s3tbx/graphC2RCC_MERIS.xml",
+    "inputs": {
+      "input": "s3tbx/sensors_platforms/MERIS/MER_FR__1P/N1/MER_FR__1PNUPA20040401_001107_000000982025_00331_10906_0250.N1"
+    },
+    "parameters": {
+      "nets": "C2RCC-Nets"
+    },
+    "outputs": [
+      {
+        "parameter": "output",
+        "outputName": "C2RCC_MERIS_c2rcc-nets",
+        "expected": "s3tbx/expectedC2RCC_MERIS.json"
+      }
+    ]
+  },
+  {
+    "id": "C2RCC_MERIS_c2x-nets",
+    "description": "execute MERIS C2RCC with extreme nets",
+    "frequency": "regular",
+    "graphPath": "s3tbx/graphC2RCC_MERIS.xml",
+    "inputs": {
+      "input": "s3tbx/sensors_platforms/MERIS/MER_FR__1P/N1/MER_FR__1PNUPA20040401_001107_000000982025_00331_10906_0250.N1"
+    },
+    "parameters": {
+      "nets": "C2X-Nets"
+    },
+    "outputs": [
+      {
+        "parameter": "output",
+        "outputName": "C2RCC_MERIS_c2x_nets",
+        "expected": "s3tbx/expectedC2RCC_MERIS.json"
+      }
+    ]
+  }
+]

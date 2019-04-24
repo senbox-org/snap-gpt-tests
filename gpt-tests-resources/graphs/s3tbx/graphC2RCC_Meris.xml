@@ -1,0 +1,57 @@
+<graph id="someGraphId">
+    <version>1.0</version>
+    <node id="Read">
+        <operator>Read</operator>
+        <sources/>
+        <parameters>
+            <file>$input</file>
+        </parameters>
+    </node>
+    <node id="meris_c2rcc">
+        <operator>c2rcc.meris</operator>
+        <sources>
+            <sourceProduct>Read</sourceProduct>
+        </sources>
+        <parameters>
+            <validPixelExpression>!l1_flags.INVALID &amp;&amp; !l1_flags.LAND_OCEAN</validPixelExpression>
+            <salinity>35.0</salinity>
+            <temperature>15.0</temperature>
+            <ozone>330.0</ozone>
+            <press>1000.0</press>
+            <TSMfakBpart>1.72</TSMfakBpart>
+            <TSMfakBwit>3.1</TSMfakBwit>
+            <CHLexp>1.04</CHLexp>
+            <CHLfak>21.0</CHLfak>
+            <thresholdRtosaOOS>0.003</thresholdRtosaOOS>
+            <thresholdAcReflecOos>0.1</thresholdAcReflecOos>
+            <thresholdCloudTDown865>0.955</thresholdCloudTDown865>
+            <netSet>$nets</netSet>
+            <outputAsRrs>true</outputAsRrs>
+            <deriveRwFromPathAndTransmittance>false</deriveRwFromPathAndTransmittance>
+            <useDefaultSolarFlux>false</useDefaultSolarFlux>
+            <useEcmwfAuxData>true</useEcmwfAuxData>
+            <outputRtoa>true</outputRtoa>
+            <outputRtosaGc>true</outputRtosaGc>
+            <outputRtosaGcAann>true</outputRtosaGcAann>
+            <outputRpath>true</outputRpath>
+            <outputTdown>true</outputTdown>
+            <outputTup>true</outputTup>
+            <outputAcReflectance>true</outputAcReflectance>
+            <outputRhown>true</outputRhown>
+            <outputOos>true</outputOos>
+            <outputKd>true</outputKd>
+            <outputUncertainties>true</outputUncertainties>
+        </parameters>
+    </node>
+    <node id="Write">
+        <operator>Write</operator>
+        <sources>
+            <sourceProduct>meris_c2rcc</sourceProduct>
+        </sources>
+        <parameters>
+            <file>$output</file>
+            <formatName>BEAM-DIMAP</formatName>
+        </parameters>
+    </node>
+
+</graph>
