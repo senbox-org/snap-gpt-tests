@@ -1,5 +1,12 @@
 <graph id="Graph">
   <version>1.0</version>
+  <node id="ProductSet-Reader">
+    <operator>ProductSet-Reader</operator>
+    <sources/>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <fileList>$fileList</fileList>
+    </parameters>
+  </node>
   <node id="Read">
     <operator>Read</operator>
     <sources/>
@@ -35,13 +42,7 @@
       <formatName>BEAM-DIMAP</formatName>
     </parameters>
   </node>
-  <node id="ProductSet-Reader">
-    <operator>ProductSet-Reader</operator>
-    <sources/>
-    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
-      <fileList>$fileList</fileList>
-    </parameters>
-  </node>
+
   <applicationData id="Presentation">
     <Description/>
     <node id="Read">
