@@ -2,7 +2,7 @@
   {
     "id": "C2RCC_L8_c2rcc-nets_unc",
     "description": "execute Landsat8 C2RCC with default nets and uncertainties",
-    "frequency": "marcop",
+    "frequency": "weekly",
     "graphPath": "s3tbx/graphC2RCC_Landsat8.xml",
     "inputs": {
       "input": "s3tbx/sensors_platforms/LANDSAT/LANDSAT_8_OLI_TIRS/geotiff/LC82010282013102LGN01/LC82010282013102LGN01_MTL.txt"
@@ -22,7 +22,7 @@
   {
     "id": "C2RCC_L8_c2x-nets",
     "description": "execute Landsat8 C2RCC with extreme nets",
-    "frequency": "marcop",
+    "frequency": "daily",
     "graphPath": "s3tbx/graphC2RCC_Landsat8.xml",
     "inputs": {
       "input": "s3tbx/sensors_platforms/LANDSAT/LANDSAT_8_OLI_TIRS/geotiff/LC82010282013102LGN01/LC82010282013102LGN01_MTL.txt"
