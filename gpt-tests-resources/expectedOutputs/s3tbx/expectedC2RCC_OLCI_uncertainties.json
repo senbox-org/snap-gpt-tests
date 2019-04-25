@@ -2584,6 +2584,305 @@
         ]
       },
       {
+        "name": "unc_apig",
+        "description": "uncertainty of pigment absorption coefficient",
+        "bandWidth": 4865,
+        "bandHeight": 2728,
+        "geophysicalUnit": "m^-1",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 841,
+            "y": 1715,
+            "value": "NaN"
+          },
+          {
+            "x": 2603,
+            "y": 2109,
+            "value": "NaN"
+          }
+        ]
+      },
+      {
+        "name": "unc_adet",
+        "description": "uncertainty of detritus absorption coefficient",
+        "bandWidth": 4865,
+        "bandHeight": 2728,
+        "geophysicalUnit": "m^-1",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 1954,
+            "y": 960,
+            "value": "NaN"
+          },
+          {
+            "x": 2163,
+            "y": 2477,
+            "value": "NaN"
+          }
+        ]
+      },
+      {
+        "name": "unc_agelb",
+        "description": "uncertainty of dissolved gelbstoff absorption coefficient",
+        "bandWidth": 4865,
+        "bandHeight": 2728,
+        "geophysicalUnit": "m^-1",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 618,
+            "y": 484,
+            "value": 0.0033318168
+          },
+          {
+            "x": 139,
+            "y": 1644,
+            "value": "NaN"
+          }
+        ]
+      },
+      {
+        "name": "unc_bpart",
+        "description": "uncertainty of particle scattering coefficient",
+        "bandWidth": 4865,
+        "bandHeight": 2728,
+        "geophysicalUnit": "m^-1",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 1736,
+            "y": 162,
+            "value": 0.0066866227
+          },
+          {
+            "x": 3121,
+            "y": 1351,
+            "value": "NaN"
+          }
+        ]
+      },
+      {
+        "name": "unc_bwit",
+        "description": "uncertainty of white particle scattering coefficient",
+        "bandWidth": 4865,
+        "bandHeight": 2728,
+        "geophysicalUnit": "m^-1",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 4333,
+            "y": 1583,
+            "value": "NaN"
+          },
+          {
+            "x": 1985,
+            "y": 544,
+            "value": 0.0044976305
+          }
+        ]
+      },
+      {
+        "name": "unc_adg",
+        "description": "uncertainty of total gelbstoff absorption coefficient",
+        "bandWidth": 4865,
+        "bandHeight": 2728,
+        "geophysicalUnit": "m^-1",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 23,
+            "y": 1747,
+            "value": "NaN"
+          },
+          {
+            "x": 9,
+            "y": 336,
+            "value": "NaN"
+          }
+        ]
+      },
+      {
+        "name": "unc_atot",
+        "description": "uncertainty of total water constituent absorption coefficient",
+        "bandWidth": 4865,
+        "bandHeight": 2728,
+        "geophysicalUnit": "m^-1",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 2663,
+            "y": 1231,
+            "value": "NaN"
+          },
+          {
+            "x": 363,
+            "y": 1253,
+            "value": "NaN"
+          }
+        ]
+      },
+      {
+        "name": "unc_btot",
+        "description": "uncertainty of total water constituent scattering coefficient",
+        "bandWidth": 4865,
+        "bandHeight": 2728,
+        "geophysicalUnit": "m^-1",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 497,
+            "y": 574,
+            "value": 0.25196484
+          },
+          {
+            "x": 3412,
+            "y": 2451,
+            "value": "NaN"
+          }
+        ]
+      },
+      {
+        "name": "unc_tsm",
+        "description": "uncertainty of total suspended matter (TSM) dry weight concentration",
+        "bandWidth": 4865,
+        "bandHeight": 2728,
+        "geophysicalUnit": "g m^-3",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 2917,
+            "y": 1586,
+            "value": "NaN"
+          },
+          {
+            "x": 1802,
+            "y": 1057,
+            "value": "NaN"
+          }
+        ]
+      },
+      {
+        "name": "unc_chl",
+        "description": "uncertainty of chlorophylll concentration",
+        "bandWidth": 4865,
+        "bandHeight": 2728,
+        "geophysicalUnit": "mg m^-3",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 2992,
+            "y": 2234,
+            "value": "NaN"
+          },
+          {
+            "x": 2959,
+            "y": 1414,
+            "value": "NaN"
+          }
+        ]
+      },
+      {
+        "name": "unc_kd489",
+        "description": "uncertainty of irradiance attenuation coefficient",
+        "bandWidth": 4865,
+        "bandHeight": 2728,
+        "geophysicalUnit": "m^-1",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 3609,
+            "y": 2210,
+            "value": "NaN"
+          },
+          {
+            "x": 2651,
+            "y": 2374,
+            "value": "NaN"
+          }
+        ]
+      },
+      {
+        "name": "unc_kdmin",
+        "description": "uncertainty of mean irradiance attenuation coefficient",
+        "bandWidth": 4865,
+        "bandHeight": 2728,
+        "geophysicalUnit": "m^-1",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 826,
+            "y": 1584,
+            "value": "NaN"
+          },
+          {
+            "x": 2425,
+            "y": 1149,
+            "value": "NaN"
+          }
+        ]
+      },
+      {
+        "name": "unc_kd_z90max",
+        "description": "uncertainty of depth of the water column from which 90% of the water leaving irradiance comes from",
+        "bandWidth": 4865,
+        "bandHeight": 2728,
+        "geophysicalUnit": "m",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 2878,
+            "y": 1759,
+            "value": "NaN"
+          },
+          {
+            "x": 4782,
+            "y": 260,
+            "value": "NaN"
+          }
+        ]
+      },
+      {
         "name": "c2rcc_flags",
         "description": "C2RCC quality flags",
         "bandWidth": 4865,
