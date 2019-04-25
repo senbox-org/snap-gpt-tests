@@ -4,7 +4,7 @@
   {
     "id": "SLSTR_PduStitching_byProducts",
     "description": "Stitches multiple SLSTR PDUs by source products",
-    "frequency": "marcop",
+    "frequency": "fail",
     "graphPath": "s3tbx/graphSLSTR_PduStitching_byProducts.xml",
     "inputs": {
       "input1": "s3tbx/sensors_platforms/SENTINEL-3/SLSTR_L1_for_Stitching_test/20160419T001932_20160419T003132/S3A_SL_1_RBT____20160419T001932_20160419T002232_20160420T181533_0179_003_144_6059_LN2_O_NT_001.SEN3/xfdumanifest.xml",

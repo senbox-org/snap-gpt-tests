@@ -3,7 +3,7 @@
   {
     "id": "SLSTR_PduStitching_byPaths",
     "description": "Stitches multiple SLSTR PDUs by path parameter",
-    "frequency": "marcop",
+    "frequency": "fail",
     "graphPath": "s3tbx/graphSLSTR_PduStitching_byPaths.xml",
     "parameters": {
       "inputPaths": "s3tbx/sensors_platforms/SENTINEL-3/SENTINEL-3/SLSTR_L1_for_Stitching_test/20160419T001932_20160419T003132/S3A_SL_1_RBT____201604*.SEN3",
