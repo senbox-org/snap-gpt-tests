@@ -114,8 +114,28 @@ public class SnapGPTTest {
                     System.out.println(graphTest.getId() +" is missing input data in input folder '" + inputFolder + "'. Skipping test.");
                     continue;
                 }
-                
-                if (graphTest.getFrequency().toLowerCase().contains(scope.toLowerCase())) {
+
+                boolean hasToBeExecuted = false;
+                if(scope.toLowerCase().equals("release")) {
+                    if (graphTest.getFrequency().toLowerCase().contains("release") ||
+                            graphTest.getFrequency().toLowerCase().contains("weekly") ||
+                            graphTest.getFrequency().toLowerCase().contains("daily")) {
+                        hasToBeExecuted = true;
+                    }
+                } else if (scope.toLowerCase().equals("weekly")) {
+                    if (graphTest.getFrequency().toLowerCase().contains("weekly") ||
+                            graphTest.getFrequency().toLowerCase().contains("daily")) {
+                        hasToBeExecuted = true;
+                    }
+                } else {
+                    if (graphTest.getFrequency().toLowerCase().contains(scope.toLowerCase())) {
+                        hasToBeExecuted = true;
+                    }
+                }
+
+
+
+                if (hasToBeExecuted) {
                     if(report) {
                         writer.write(graphTest.getId());
                         writer.write(" - ");
