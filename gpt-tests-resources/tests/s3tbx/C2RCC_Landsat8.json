@@ -1,0 +1,43 @@
+[
+  {
+    "id": "C2RCC_L8_c2rcc-nets_unc",
+    "description": "execute Landsat8 C2RCC with default nets and uncertainties",
+    "frequency": "marcop",
+    "graphPath": "s3tbx/graphC2RCC_Landsat8.xml",
+    "inputs": {
+      "input": "s3tbx/sensors_platforms/LANDSAT/LANDSAT_8_OLI_TIRS/geotiff/LC81970222013122LGN01/LC81970222013122LGN01_MTL.txt"
+    },
+    "parameters": {
+      "nets": "C2RCC-Nets",
+      "computeUnc": "true"
+    },
+    "outputs": [
+      {
+        "parameter": "output",
+        "outputName": "C2RCC_L8_c2rcc-nets_unc",
+        "expected": "s3tbx/expectedC2RCC_L8_c2rcc-nets_unc.json"
+      }
+    ]
+  },
+  {
+    "id": "C2RCC_L8_c2x-nets",
+    "description": "execute Landsat8 C2RCC with extreme nets",
+    "frequency": "marcop",
+    "graphPath": "s3tbx/graphC2RCC_Landsat8.xml",
+    "inputs": {
+      "input": "s3tbx/sensors_platforms/LANDSAT/LANDSAT_8_OLI_TIRS/geotiff/LC81970222013122LGN01/LC81970222013122LGN01_MTL.txt"
+    },
+    "parameters": {
+      "nets": "C2X-Nets",
+      "computeUnc": "false"
+    },
+    "outputs": [
+      {
+        "parameter": "output",
+        "outputName": "C2RCC_L8_c2x-nets",
+        "expected": "s3tbx/expectedC2RCC_L8_c2x-nets.json"
+      }
+    ]
+  }
+
+]
