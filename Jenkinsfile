@@ -120,6 +120,7 @@ pipeline {
             }
             post {
                 always {
+                    sh "rm -rf $WORKSPACE/report"
                     sh "cp -r ${outputDir}/report $WORKSPACE"
                     sh "cat report/*.txt > report/report.txt"
                     archiveArtifacts artifacts: "report/**/*.*", fingerprint: true
