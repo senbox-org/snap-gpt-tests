@@ -1,7 +1,7 @@
 [{
   "id":"ReadReadCollocate",
   "description":"Collocate a S2 product with a smaller image. Two Read used as input",
-  "frequency":"daily",
+  "frequency":"daily,test",
   "graphPath": "snap/graphReadReadCollocate.xml",
   "inputs": {
     "input1": "s2tbx/_collocation/subset_0_of_NDSI_1703.dim",
