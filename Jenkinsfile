@@ -58,7 +58,7 @@ pipeline {
     }
     agent { label 'snap-test' }
     parameters {
-        string(name: 'dockerTagName', defaultValue: "snap:${branchVersion}", description: 'Snap version to use to launch tests')
+        string(name: 'dockerTagName', defaultValue: "snap:${env.GIT_BRANCH}", description: 'Snap version to use to launch tests')
         string(name: 'testScope', defaultValue: 'REGULAR', description: 'Scope of the tests to launch (PUSH, DAILY, REGULAR, WEEKLY, RELEASE)')
         string(name: 'outputReportDir', defaultValue: '/home/snap/', description: 'Path to directory where gpt test will write report')
         string(name: 'jsonPath', defaultValue: '', description: 'Path to json file describing tests')
