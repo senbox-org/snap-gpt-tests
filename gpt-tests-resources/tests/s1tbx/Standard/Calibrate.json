@@ -66,7 +66,7 @@
 {
     "id":"s1tbx.standard.calibrate.s1.grd",
     "description":"execute calibrate processor with S1 GRD",
-    "frequency":"daily",
+    "frequency":"daily/failrc1",
     "graphPath": "s1tbx/Standard/Subset_Cal.xml",
     "inputs": {
       "input1": "s1tbx/SAR/S1/S1A_S1_GRDM_1SDV_20140607T172812_20140607T172836_000947_000EBD_7543.zip"

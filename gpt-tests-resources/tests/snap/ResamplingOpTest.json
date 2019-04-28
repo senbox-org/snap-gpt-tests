@@ -22,7 +22,7 @@
     {
         "id":"ResamplingTest_S2_2tile",
         "description":"Do resampling operator on S2 two tiles product",
-        "frequency":"daily",
+        "frequency":"daily/failrc1",
         "graphPath": "snap/graphResampleWithFormat.xml",
         "inputs": {
             "input1": "s2tbx/S2/L1C/Valencia/st/S2A_OPER_PRD_MSIL1C_PDMC_20160527T172127_R051_V20160511T105343_20160511T105343.SAFE"
