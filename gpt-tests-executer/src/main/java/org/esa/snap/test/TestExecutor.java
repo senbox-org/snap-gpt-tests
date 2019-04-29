@@ -83,6 +83,11 @@ public class TestExecutor {
             if(expectedIsDefined) { //if expected output is not defined, then skip this step
                 final ExpectedDataset expectedDataset = mapper.readValue(new File(expectedOutputFolder.resolve(output.getExpected()).toString()), ExpectedDataset.class);
                 Product product = ProductIO.readProduct(outputNameWithExtension);
+                if(product == null){
+                    System.out.println("Cannot read output file: " + outputNameWithExtension);
+                    testPassed = false;
+                    break;
+                }
                 final ContentAssert contentAssert = new ContentAssert(expectedDataset.getExpectedContent(), output.getOutputName(), product);
                 try {
                     contentAssert.assertProductContent();
