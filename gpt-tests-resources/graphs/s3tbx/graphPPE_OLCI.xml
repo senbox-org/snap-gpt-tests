@@ -1,0 +1,32 @@
+<graph id="someGraphId">
+    <version>1.0</version>
+    <node id="Read">
+        <operator>Read</operator>
+        <sources/>
+        <parameters>
+            <file>$input</file>
+        </parameters>
+    </node>
+    <node id="PpeFiltering">
+        <operator>PpeFiltering</operator>
+        <sources>
+            <source>Read</source>
+        </sources>
+        <parameters>
+            <cutOff>0.7</cutOff>
+            <numberOfMAD>10.0</numberOfMAD>
+            <validExpression>not quality_flags_land</validExpression>
+        </parameters>
+    </node>
+    <node id="Write">
+        <operator>Write</operator>
+        <sources>
+            <sourceProduct>PpeFiltering</sourceProduct>
+        </sources>
+        <parameters>
+            <file>$output</file>
+            <formatName>BEAM-DIMAP</formatName>
+        </parameters>
+    </node>
+
+</graph>
