@@ -111,6 +111,7 @@
                             <manifest>
                                 <addClasspath>true</addClasspath>
                                 <classpathPrefix>libs/</classpathPrefix>
+                                <useUniqueVersions>false</useUniqueVersions>
                                 <mainClass>
                                     org.esa.snap.test.FilterTestJSON
                                 </mainClass>
@@ -128,6 +129,7 @@
                             <manifest>
                                 <addClasspath>true</addClasspath>
                                 <classpathPrefix>libs/</classpathPrefix>
+                                <useUniqueVersions>false</useUniqueVersions>
                                 <mainClass>
                                     org.esa.snap.test.SnapGPTTest
                                 </mainClass>
