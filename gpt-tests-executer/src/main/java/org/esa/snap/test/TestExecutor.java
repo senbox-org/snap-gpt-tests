@@ -2,14 +2,12 @@ package org.esa.snap.test;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.filefilter.TrueFileFilter;
 import org.apache.commons.io.filefilter.WildcardFileFilter;
 import org.esa.snap.core.dataio.ProductIO;
-import org.esa.snap.core.dataio.ProductIOPlugInManager;
 import org.esa.snap.core.datamodel.Product;
 import org.esa.snap.dataio.ContentAssert;
 import org.esa.snap.dataio.ExpectedDataset;
-import org.esa.snap.dataio.bigtiff.BigGeoTiffProductReaderPlugIn;
-import org.esa.snap.dataio.geotiff.GeoTiffProductReaderPlugIn;
 
 import java.io.File;
 import java.io.IOException;
@@ -84,11 +82,6 @@ public class TestExecutor {
 
             if(expectedIsDefined) { //if expected output is not defined, then skip this step
                 final ExpectedDataset expectedDataset = mapper.readValue(new File(expectedOutputFolder.resolve(output.getExpected()).toString()), ExpectedDataset.class);
-
-                ProductIOPlugInManager registry = ProductIOPlugInManager.getInstance();
-                registry.addReaderPlugIn(new GeoTiffProductReaderPlugIn());
-                registry.addReaderPlugIn(new BigGeoTiffProductReaderPlugIn());
-
                 Product product = ProductIO.readProduct(outputNameWithExtension);
                 if(product == null){
                     System.out.println("Cannot read output file: " + outputNameWithExtension);
