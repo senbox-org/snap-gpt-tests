@@ -1,0 +1,146 @@
+{
+  "id": "ReprojSubset_S2",
+  "decodeQualification": "INTENDED",
+  "expectedContent": {
+    "sceneWidth": 14917,
+    "sceneHeight": 10981,
+    "startTime": "16-APR-2017 10:50:31.026000",
+    "endTime": "16-APR-2017 10:50:31.026000",
+    "bands": [
+      {
+        "name": "B1",
+        "description": "Reflectance in band B1",
+        "bandWidth": 300,
+        "bandHeight": 300,
+        "geophysicalUnit": "dl",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "443.0",
+        "spectralBandwidth": "58.0",
+        "expectedPixels": [
+          {
+            "x": 129,
+            "y": 161,
+            "value": 0.6779
+          },
+          {
+            "x": 222,
+            "y": 194,
+            "value": 0.7135
+          }
+        ]
+      },
+      {
+        "name": "B2",
+        "description": "Reflectance in band B2",
+        "bandWidth": 1800,
+        "bandHeight": 1800,
+        "geophysicalUnit": "dl",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "490.0",
+        "spectralBandwidth": "130.0",
+        "expectedPixels": [
+          {
+            "x": 93,
+            "y": 320,
+            "value": "NaN"
+          },
+          {
+            "x": 1233,
+            "y": 1531,
+            "value": 0.6006
+          }
+        ]
+      },
+      {
+        "name": "B5",
+        "description": "Reflectance in band B5",
+        "bandWidth": 900,
+        "bandHeight": 900,
+        "geophysicalUnit": "dl",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "705.0",
+        "spectralBandwidth": "97.0",
+        "expectedPixels": [
+          {
+            "x": 261,
+            "y": 231,
+            "value": 0.7499
+          },
+          {
+            "x": 549,
+            "y": 328,
+            "value": 0.7894
+          }
+        ]
+      },
+      {
+        "name": "view_zenith_mean",
+        "description": "Viewing incidence zenith angle",
+        "bandWidth": 4,
+        "bandHeight": 4,
+        "geophysicalUnit": "°",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 2,
+            "y": 2,
+            "value": 8.452503
+          },
+          {
+            "x": 2,
+            "y": 3,
+            "value": 8.370762
+          }
+        ]
+      }
+    ],
+    "metadata": [
+      {
+        "path": "Granules/Level-1C_Tile_30TYN/Quality_Indicators_Info/Image_Content_QI/DEGRADED_MSI_DATA_PERCENTAGE",
+        "value": "0"
+      },
+      {
+        "path": "Level-1C_DataStrip_ID/Image_Data_Info/Geometric_Info/Image_Refining/flag",
+        "value": "NOT_REFINED"
+      },
+      {
+        "path": "Level-1C_User_Product/General_Info/Product_Info/Datatake/SENSING_ORBIT_DIRECTION",
+        "value": "DESCENDING"
+      },
+      {
+        "path": "Granules/Level-1C_Tile_30TYN/Quality_Indicators_Info/Image_Content_QI/CLOUDY_PIXEL_PERCENTAGE",
+        "value": "39.4934"
+      },
+      {
+        "path": "Level-1C_User_Product/Auxiliary_Data_Info/GIPP_List/GIPP_FILENAME[67]",
+        "value": "S2A_OPER_GIP_R2EOB2_MPC__20150827T165847_V20150819T000000_99999999T999999_B04"
+      },
+      {
+        "path": "Level-1C_DataStrip_ID/Satellite_Ancillary_Data_Info/Attitudes/Corrected_Attitudes/Values[5627]/QUATERNION_VALUES",
+        "value": "-0.844438626653746 0.0501612474155434 0.525786168360307 -0.089197310687259"
+      },
+      {
+        "path": "history/SubsetInfo/ProductNodeName.4",
+        "value": "view_zenith_mean"
+      },
+      {
+        "path": "history/SubsetInfo/ProductNodeName.1",
+        "value": "B1"
+      },
+      {
+        "path": "Granules/Level-1C_Tile_30TYN/Geometric_Info/Tile_Angles/Viewing_Incidence_Angles_Grids[35]/Azimuth/Values_List/VALUES[10]",
+        "value": "NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN 76.6488 70.7041 61.9766 48.8795 29.9441 NaN NaN"
+      },
+      {
+        "path": "Level-1C_User_Product/Auxiliary_Data_Info/GIPP_List/GIPP_FILENAME[99]",
+        "value": "S2A_OPER_GIP_R2L2NC_MPC__20150605T094742_V20150622T000000_21000101T000000_B09"
+      }
+    ]
+  }
+}
