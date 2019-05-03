@@ -2,44 +2,44 @@
   "id" : "s1tbx.standard.terraincorrect.s1.grd",
   "decodeQualification" : "INTENDED",
   "expectedContent" : {
-    "sceneWidth" : 891,
-    "sceneHeight" : 599,
+    "sceneWidth" : 619,
+    "sceneHeight" : 597,
     "geoCoding" : {
       "coordinates" : [ {
-        "x" : 445.0,
-        "y" : 299.0,
-        "lat" : 47.94838101404527,
-        "lon" : 2.4351763845488295
+        "x" : 309.0,
+        "y" : 298.0,
+        "lat" : 18.21239999043441,
+        "lon" : -156.54161258817362
       } ]
     },
     "tiePointGrids" : [ ],
     "bands" : [ {
       "name" : "Amplitude_VH",
       "description" : "",
-      "bandWidth" : 891,
-      "bandHeight" : 599,
+      "bandWidth" : 619,
+      "bandHeight" : 597,
       "noDataValue" : 0.0,
       "noDataValueUsed" : true,
       "spectralWavelength" : 0.0,
       "spectralBandwidth" : 0.0,
       "expectedPixels" : [ {
-        "x" : 445.0,
-        "y" : 299.0,
-        "value" : 22.790895
+        "x" : 309.0,
+        "y" : 298.0,
+        "value" : 40.17183
       } ]
     }, {
       "name" : "Amplitude_VV",
       "description" : "",
-      "bandWidth" : 891,
-      "bandHeight" : 599,
+      "bandWidth" : 619,
+      "bandHeight" : 597,
       "noDataValue" : 0.0,
       "noDataValueUsed" : true,
       "spectralWavelength" : 0.0,
       "spectralBandwidth" : 0.0,
       "expectedPixels" : [ {
-        "x" : 445.0,
-        "y" : 299.0,
-        "value" : 43.35501
+        "x" : 309.0,
+        "y" : 298.0,
+        "value" : 405.8751
       } ]
     } ],
     "masks" : [ ]
