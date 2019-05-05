@@ -1,0 +1,140 @@
+{
+  "id": "advResamplingSubsetWithoutPreset",
+  "decodeQualification": "INTENDED",
+  "expectedContent": {
+    "sceneWidth": 500,
+    "sceneHeight": 500,
+    "startTime": "16-APR-2017 10:50:31.026000",
+    "endTime": "16-APR-2017 10:50:31.026000",
+    "geoCoding": {
+      "coordinates": [
+        {
+          "x": 215.0,
+          "y": 268.0,
+          "lat": 43.301572837937464,
+          "lon": -0.5082033084835611
+        },
+        {
+          "x": 371.0,
+          "y": 324.0,
+          "lat": 43.29611463303943,
+          "lon": -0.48919569036949606
+        }
+      ],
+      "reverseAccuracy": 2.193264663219452E-7
+    },
+    "bands": [
+      {
+        "name": "B1",
+        "description": "Reflectance in band B1",
+        "bandWidth": 500,
+        "bandHeight": 500,
+        "geophysicalUnit": "dl",
+        "noDataValue": "0.0",
+        "noDataValueUsed": "false",
+        "spectralWavelength": "443.0",
+        "spectralBandwidth": "58.0",
+        "expectedPixels": [
+          {
+            "x": 26,
+            "y": 89,
+            "value": 0.5686
+          },
+          {
+            "x": 342,
+            "y": 425,
+            "value": 0.7481
+          }
+        ]
+      },
+      {
+        "name": "B2",
+        "description": "Reflectance in band B2",
+        "bandWidth": 500,
+        "bandHeight": 500,
+        "geophysicalUnit": "dl",
+        "noDataValue": "0.0",
+        "noDataValueUsed": "false",
+        "spectralWavelength": "490.0",
+        "spectralBandwidth": "130.0",
+        "expectedPixels": [
+          {
+            "x": 145,
+            "y": 128,
+            "value": 0.5225
+          },
+          {
+            "x": 305,
+            "y": 182,
+            "value": 0.4986
+          }
+        ]
+      },
+      {
+        "name": "view_zenith_mean",
+        "description": "Viewing incidence zenith angle",
+        "bandWidth": 500,
+        "bandHeight": 500,
+        "geophysicalUnit": "°",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 275,
+            "y": 372,
+            "value": 8.962892
+          },
+          {
+            "x": 304,
+            "y": 464,
+            "value": 8.925539
+          }
+        ]
+      }
+    ],
+    "metadata": [
+      {
+        "path": "Granules/Level-1C_Tile_30TYN/Quality_Indicators_Info/Image_Content_QI/DEGRADED_MSI_DATA_PERCENTAGE",
+        "value": "0"
+      },
+      {
+        "path": "Level-1C_DataStrip_ID/Image_Data_Info/Geometric_Info/Image_Refining/flag",
+        "value": "NOT_REFINED"
+      },
+      {
+        "path": "Level-1C_User_Product/General_Info/Product_Info/Datatake/SENSING_ORBIT_DIRECTION",
+        "value": "DESCENDING"
+      },
+      {
+        "path": "Granules/Level-1C_Tile_30TYN/Quality_Indicators_Info/Image_Content_QI/CLOUDY_PIXEL_PERCENTAGE",
+        "value": "39.4934"
+      },
+      {
+        "path": "Level-1C_User_Product/Auxiliary_Data_Info/GIPP_List/GIPP_FILENAME[67]",
+        "value": "S2A_OPER_GIP_R2EOB2_MPC__20150827T165847_V20150819T000000_99999999T999999_B04"
+      },
+      {
+        "path": "Level-1C_DataStrip_ID/Satellite_Ancillary_Data_Info/Attitudes/Corrected_Attitudes/Values[5627]/QUATERNION_VALUES",
+        "value": "-0.844438626653746 0.0501612474155434 0.525786168360307 -0.089197310687259"
+      },
+      {
+        "path": "history/SubsetInfo/ProductNodeName.3",
+        "value": "view_zenith_mean"
+      },
+      {
+        "path": "history/SubsetInfo/SubRegion.y",
+        "value": "0"
+      },
+      {
+        "path": "Granules/Level-1C_Tile_30TYN/Geometric_Info/Tile_Angles/Viewing_Incidence_Angles_Grids[35]/Azimuth/Values_List/VALUES[10]",
+        "value": "NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN 76.6488 70.7041 61.9766 48.8795 29.9441 NaN NaN"
+      },
+      {
+        "path": "Level-1C_User_Product/Auxiliary_Data_Info/GIPP_List/GIPP_FILENAME[99]",
+        "value": "S2A_OPER_GIP_R2L2NC_MPC__20150605T094742_V20150622T000000_21000101T000000_B09"
+      }
+    ]
+  }
+}
