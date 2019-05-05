@@ -17,7 +17,7 @@
   "outputs": [{
     "parameter": "out1",
     "outputName": "advResamplingSubsetWithPreset",
-    "expected": "snap/expected-dem-srtm3sec.json"
+    "expected": "snap/expectedAdvResampSubsetWithPreset.json"
   }]
 },{
   "id":"advResamplingSubsetWithoutPreset",
@@ -38,6 +38,6 @@
   "outputs": [{
     "parameter": "out1",
     "outputName": "advResamplingSubsetWithoutPreset",
-    "expected": "snap/expected-dem-srtm3sec.json"
+    "expected": "snap/expectedAdvResampSubsetWithoutPreset.json"
   }]
 }]
