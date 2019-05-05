@@ -1,7 +1,7 @@
 [{
   "id":"advResampling",
   "description":"Apply Resampling operator to a S2 L1C product using specific band resampling.",
-  "frequency":"daily",
+  "frequency":"daily/rc2fail",
   "graphPath": "snap/graphAdvancedResample.xml",
   "inputs": {
     "input1": "s2tbx/S2/L1C/S2A_MSIL1C_20181002T034551_N0206_R104_T47PMP_20181002T073417.SAFE"

@@ -1,7 +1,7 @@
 [{
     "id":"MERIS_Correct-Radiometry_owtTest",
     "description":"execute Meris Correct Radiometry operator",
-    "frequency":"daily/failrc1",
+    "frequency":"daily/rc2fail",
     "graphPath": "s3tbx/defaultGraphs/graphMERIS_Correct-Radiometry_owt.xml",
     "inputs": {
         "input1": "s3tbx/sensors_platforms/MERIS/MER_FRS_1P/N1/MER_FRS_1PNMAP20100826_083555_000002002092_00236_44378_0001.N1"
