@@ -1,0 +1,69 @@
+<graph id="Graph">
+  <version>1.0</version>
+  <node id="Read">
+    <operator>Read</operator>
+    <sources/>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <file>$input1</file>
+    </parameters>
+  </node>
+  <node id="Resample">
+    <operator>Resample</operator>
+    <sources>
+      <sourceProduct refid="Read"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <referenceBand>$referenceBand</referenceBand>
+      <targetWidth/>
+      <targetHeight/>
+      <targetResolution>$targetResolution</targetResolution>
+      <upsampling>Bilinear</upsampling>
+      <downsampling>Min</downsampling>
+      <flagDownsampling>FlagOr</flagDownsampling>
+      <resamplingPreset>$resamplingPreset</resamplingPreset>
+      <bandResamplings>$bandResampling</bandResamplings>
+      <resampleOnPyramidLevels>true</resampleOnPyramidLevels>
+    </parameters>
+  </node>
+  <node id="Subset">
+    <operator>Subset</operator>
+    <sources>
+      <sourceProduct refid="Resample"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <sourceBands>$subsetBands</sourceBands>
+      <region>$subsetRegion</region>
+      <geoRegion/>
+      <subSamplingX>1</subSamplingX>
+      <subSamplingY>1</subSamplingY>
+      <fullSwath>false</fullSwath>
+      <tiePointGridNames/>
+      <copyMetadata>true</copyMetadata>
+    </parameters>
+  </node>
+  <node id="Write">
+    <operator>Write</operator>
+    <sources>
+      <sourceProduct refid="Subset"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <file>$out1</file>
+      <formatName>BEAM-DIMAP</formatName>
+    </parameters>
+  </node>
+  <applicationData id="Presentation">
+    <Description/>
+    <node id="Read">
+            <displayPosition x="37.0" y="134.0"/>
+    </node>
+    <node id="Resample">
+      <displayPosition x="179.0" y="133.0"/>
+    </node>
+    <node id="Subset">
+      <displayPosition x="306.0" y="134.0"/>
+    </node>
+    <node id="Write">
+            <displayPosition x="428.0" y="133.0"/>
+    </node>
+  </applicationData>
+</graph>
