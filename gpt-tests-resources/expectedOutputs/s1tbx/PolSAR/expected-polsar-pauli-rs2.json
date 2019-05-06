@@ -1,0 +1,109 @@
+{
+  "id" : "s1tbx.polsar.pauli.rs2",
+  "decodeQualification" : "INTENDED",
+  "expectedContent" : {
+    "sceneWidth" : 2120,
+    "sceneHeight" : 7863,
+    "geoCoding" : {
+      "coordinates" : [ {
+        "x" : 1060.0,
+        "y" : 3931.0,
+        "lat" : 49.22295223304983,
+        "lon" : -123.08368635690398
+      } ]
+    },
+    "tiePointGrids" : [ {
+      "name" : "latitude",
+      "description" : "",
+      "offsetX" : 0.5,
+      "offsetY" : 0.5,
+      "subSamplingX" : 211.9,
+      "subSamplingY" : 524.1333333333333,
+      "expectedPixels" : [ {
+        "x" : 1060.0,
+        "y" : 3931.0,
+        "value" : 49.222916
+      } ]
+    }, {
+      "name" : "longitude",
+      "description" : "",
+      "offsetX" : 0.5,
+      "offsetY" : 0.5,
+      "subSamplingX" : 211.9,
+      "subSamplingY" : 524.1333333333333,
+      "expectedPixels" : [ {
+        "x" : 1060.0,
+        "y" : 3931.0,
+        "value" : -123.0836
+      } ]
+    }, {
+      "name" : "incident_angle",
+      "description" : "",
+      "offsetX" : 0.0,
+      "offsetY" : 0.0,
+      "subSamplingX" : 212.0,
+      "subSamplingY" : 786.0,
+      "expectedPixels" : [ {
+        "x" : 1060.0,
+        "y" : 3931.0,
+        "value" : 20.837048
+      } ]
+    }, {
+      "name" : "slant_range_time",
+      "description" : "",
+      "offsetX" : 0.0,
+      "offsetY" : 0.0,
+      "subSamplingX" : 212.0,
+      "subSamplingY" : 786.0,
+      "expectedPixels" : [ {
+        "x" : 1060.0,
+        "y" : 3931.0,
+        "value" : 5656589.0
+      } ]
+    } ],
+    "bands" : [ {
+      "name" : "Pauli_r",
+      "description" : "",
+      "bandWidth" : 2120,
+      "bandHeight" : 7863,
+      "noDataValue" : 0.0,
+      "noDataValueUsed" : true,
+      "spectralWavelength" : 0.0,
+      "spectralBandwidth" : 0.0,
+      "expectedPixels" : [ {
+        "x" : 1060.0,
+        "y" : 3931.0,
+        "value" : -19.716028
+      } ]
+    }, {
+      "name" : "Pauli_g",
+      "description" : "",
+      "bandWidth" : 2120,
+      "bandHeight" : 7863,
+      "noDataValue" : 0.0,
+      "noDataValueUsed" : true,
+      "spectralWavelength" : 0.0,
+      "spectralBandwidth" : 0.0,
+      "expectedPixels" : [ {
+        "x" : 1060.0,
+        "y" : 3931.0,
+        "value" : -15.659592
+      } ]
+    }, {
+      "name" : "Pauli_b",
+      "description" : "",
+      "bandWidth" : 2120,
+      "bandHeight" : 7863,
+      "noDataValue" : 0.0,
+      "noDataValueUsed" : true,
+      "spectralWavelength" : 0.0,
+      "spectralBandwidth" : 0.0,
+      "expectedPixels" : [ {
+        "x" : 1060.0,
+        "y" : 3931.0,
+        "value" : -11.730007
+      } ]
+    } ],
+    "masks" : [ ]
+  }
+}

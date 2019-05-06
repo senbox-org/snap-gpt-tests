@@ -8,57 +8,57 @@
       "coordinates" : [ {
         "x" : 250.0,
         "y" : 250.0,
-        "lat" : 46.66298481353348,
-        "lon" : -71.09462930862284
+        "lat" : 49.394314605627315,
+        "lon" : -123.15383500877897
       } ]
     },
     "tiePointGrids" : [ {
       "name" : "latitude",
       "description" : "",
-      "offsetX" : -31.299999999999997,
+      "offsetX" : -99.5,
       "offsetY" : -99.5,
-      "subSamplingX" : 68.2,
-      "subSamplingY" : 205.4,
+      "subSamplingX" : 211.9,
+      "subSamplingY" : 524.1333333333333,
       "expectedPixels" : [ {
         "x" : 250.0,
         "y" : 250.0,
-        "value" : 46.662674
+        "value" : 49.39428
       } ]
     }, {
       "name" : "longitude",
       "description" : "",
-      "offsetX" : -31.299999999999997,
+      "offsetX" : -99.5,
       "offsetY" : -99.5,
-      "subSamplingX" : 68.2,
-      "subSamplingY" : 205.4,
+      "subSamplingX" : 211.9,
+      "subSamplingY" : 524.1333333333333,
       "expectedPixels" : [ {
         "x" : 250.0,
         "y" : 250.0,
-        "value" : -71.09453
+        "value" : -123.153755
       } ]
     }, {
       "name" : "incident_angle",
       "description" : "",
-      "offsetX" : -32.0,
+      "offsetX" : -100.0,
       "offsetY" : -100.0,
-      "subSamplingX" : 68.0,
-      "subSamplingY" : 205.0,
+      "subSamplingX" : 212.0,
+      "subSamplingY" : 786.0,
       "expectedPixels" : [ {
         "x" : 250.0,
         "y" : 250.0,
-        "value" : 54.238216
+        "value" : 21.505716
       } ]
     }, {
       "name" : "slant_range_time",
       "description" : "",
-      "offsetX" : -32.0,
+      "offsetX" : -100.0,
       "offsetY" : -100.0,
-      "subSamplingX" : 68.0,
-      "subSamplingY" : 205.0,
+      "subSamplingX" : 212.0,
+      "subSamplingY" : 786.0,
       "expectedPixels" : [ {
         "x" : 250.0,
         "y" : 250.0,
-        "value" : 70468.58
+        "value" : 5679008.0
       } ]
     } ],
     "bands" : [ {
@@ -73,7 +73,7 @@
       "expectedPixels" : [ {
         "x" : 250.0,
         "y" : 250.0,
-        "value" : 1.4679889E-4
+        "value" : 0.06962866
       } ]
     }, {
       "name" : "Sigma0_HV",
@@ -87,7 +87,7 @@
       "expectedPixels" : [ {
         "x" : 250.0,
         "y" : 250.0,
-        "value" : 8.605452E-5
+        "value" : 0.0035445034
       } ]
     }, {
       "name" : "Sigma0_VH",
@@ -101,7 +101,7 @@
       "expectedPixels" : [ {
         "x" : 250.0,
         "y" : 250.0,
-        "value" : 7.390565E-4
+        "value" : 0.001655746
       } ]
     }, {
       "name" : "Sigma0_VV",
@@ -115,7 +115,7 @@
       "expectedPixels" : [ {
         "x" : 250.0,
         "y" : 250.0,
-        "value" : 0.0015116489
+        "value" : 0.021274038
       } ]
     } ],
     "masks" : [ ]

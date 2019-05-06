@@ -1,0 +1,56 @@
+<graph id="C2RCC_Landsat8">
+    <version>1.0</version>
+    <node id="Read">
+        <operator>Read</operator>
+        <sources/>
+        <parameters>
+            <file>$input</file>
+        </parameters>
+    </node>
+    <node id="L8_c2rcc">
+        <operator>c2rcc.landsat8</operator>
+        <sources>
+            <sourceProduct>Read</sourceProduct>
+        </sources>
+        <parameters>
+            <validPixelExpression>water_confidence_low or water_confidence_mid or water_confidence_high</validPixelExpression>
+            <salinity>35.0</salinity>
+            <temperature>15.0</temperature>
+            <ozone>330.0</ozone>
+            <press>1000.0</press>
+            <elevation>0.0</elevation>
+            <TSMfakBpart>1.72</TSMfakBpart>
+            <TSMfakBwit>3.1</TSMfakBwit>
+            <CHLexp>1.04</CHLexp>
+            <CHLfak>21.0</CHLfak>
+            <thresholdRtosaOOS>0.05</thresholdRtosaOOS>
+            <thresholdAcReflecOos>0.1</thresholdAcReflecOos>
+            <thresholdCloudTDown865>0.955</thresholdCloudTDown865>
+            <netSet>$nets</netSet>
+            <outputAsRrs>false</outputAsRrs>
+            <deriveRwFromPathAndTransmittance>false</deriveRwFromPathAndTransmittance>
+            <outputRtoa>true</outputRtoa>
+            <outputRtosaGc>false</outputRtosaGc>
+            <outputRtosaGcAann>false</outputRtosaGcAann>
+            <outputRpath>false</outputRpath>
+            <outputTdown>false</outputTdown>
+            <outputTup>false</outputTup>
+            <outputAcReflectance>true</outputAcReflectance>
+            <outputRhown>true</outputRhown>
+            <outputOos>false</outputOos>
+            <outputKd>true</outputKd>
+            <outputUncertainties>$computeUnc</outputUncertainties>
+        </parameters>
+    </node>
+    <node id="Write">
+        <operator>Write</operator>
+        <sources>
+            <sourceProduct>L8_c2rcc</sourceProduct>
+        </sources>
+        <parameters>
+            <file>$output</file>
+            <formatName>BEAM-DIMAP</formatName>
+        </parameters>
+    </node>
+
+</graph>

@@ -1,0 +1,21 @@
+[{
+  "id":"BandsExtractorTest",
+  "description":"execute Bands Extractor processor",
+  "frequency":"daily",
+  "graphPath": "s2tbx/graphBandsExtractorOp.xml",
+  "inputs": {
+    "input1": "s2tbx/_gpt_readers/alos/AL1_NESR_AV2_OBS_1C_20080715T181736_20080715T181748_013182_0539_1810_0410.SIP/AL1_NESR_AV2_OBS_1C_20080715T181736_20080715T181748_013182_0539_1810_0410.MD.XML"
+  },
+  "parameters": {
+    "sourceBandNames": "Band_1(blue),Band_3(red)",
+    "sourceMaskNames": "no data,saturated"
+  },
+  "outputs": [{
+    "parameter": "out1",
+    "outputName": "tempBandsExtractor",
+    "expected": "s2tbx/expectedBandsExtractor.json"
+  }]
+}]
+
+
+

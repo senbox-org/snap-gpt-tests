@@ -1,0 +1,21 @@
+[
+  {
+    "id": "Cloud_Probability",
+    "description": "execute MERIS Cloud Probability operator",
+    "frequency": "regular",
+    "graphPath": "s3tbx/graphCloudProb.xml",
+    "inputs": {
+      "input": "s3tbx/sensors_platforms/MERIS/MER_RR__1P/N1/MER_RR__1PTACR20080617_090305_000026432069_00308_32927_0000.N1"
+    },
+    "parameters": {
+      "dummy": "just a dummy, because parameters are needed by gpt framework"
+    },
+    "outputs": [
+      {
+        "parameter": "output",
+        "outputName": "Cloud_Probability",
+        "expected": "s3tbx/expectedCloudProb.json"
+      }
+    ]
+  }
+]

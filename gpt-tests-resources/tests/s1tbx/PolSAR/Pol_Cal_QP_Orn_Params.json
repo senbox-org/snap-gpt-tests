@@ -1,0 +1,22 @@
+[
+{
+  "id":"s1tbx.polsar.param.rs2",
+  "description":"execute polarimetric matric, orientation correction, speckle filter, pol parameters processor with RS2",
+  "frequency":"daily",
+  "graphPath": "s1tbx/PolSAR/Pol_Cal_Mat_Orn_Spk_Params.xml",
+  "inputs": {
+    "input1": "s1tbx/SAR/RS2/RS2_OK76385_PK678063_DK606752_FQ2_20080415_143807_HH_VV_HV_VH_SLC.zip"
+  },
+  "parameters": {
+	"subsetRegion": "2000,3000,3000,3000"
+  },
+  "outputs": [{
+    "parameter": "out1",
+    "outputName": "out-polsar-param-rs2",
+    "expected": "s1tbx/PolSAR/expected-polsar-param-rs2.json"
+  }]
+}
+]
+
+
+

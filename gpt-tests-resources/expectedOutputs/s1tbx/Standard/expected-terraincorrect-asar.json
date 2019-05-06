@@ -2,21 +2,21 @@
   "id" : "s1tbx.standard.terraincorrect.asar",
   "decodeQualification" : "INTENDED",
   "expectedContent" : {
-    "sceneWidth" : 792,
+    "sceneWidth" : 793,
     "sceneHeight" : 577,
     "geoCoding" : {
       "coordinates" : [ {
         "x" : 396.0,
         "y" : 288.0,
-        "lat" : 43.57391763863489,
-        "lon" : 37.867850321214334
+        "lat" : 43.640502449559364,
+        "lon" : 37.85195774810528
       } ]
     },
     "tiePointGrids" : [ ],
     "bands" : [ {
       "name" : "Amplitude_VV",
       "description" : "Image Mode Medium Resolution Image (stripline)",
-      "bandWidth" : 792,
+      "bandWidth" : 793,
       "bandHeight" : 577,
       "noDataValue" : 0.0,
       "noDataValueUsed" : true,
@@ -25,7 +25,7 @@
       "expectedPixels" : [ {
         "x" : 396.0,
         "y" : 288.0,
-        "value" : 0.0
+        "value" : 749.834
       } ]
     } ],
     "masks" : [ ]

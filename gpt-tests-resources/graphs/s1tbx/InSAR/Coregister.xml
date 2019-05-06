@@ -1,0 +1,142 @@
+<graph id="Graph">
+  <version>1.0</version>
+  <node id="Read">
+    <operator>Read</operator>
+    <sources/>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <file>$input1</file>
+    </parameters>
+  </node>
+  <node id="Read(2)">
+    <operator>Read</operator>
+    <sources/>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <file>$input2</file>
+    </parameters>
+  </node>
+  <node id="CreateStack">
+    <operator>CreateStack</operator>
+    <sources>
+      <sourceProduct refid="Subset"/>
+      <sourceProduct.1 refid="Subset(2)"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <masterBands/>
+      <sourceBands/>
+      <resamplingType>NONE</resamplingType>
+      <extent>Master</extent>
+      <initialOffsetMethod>Orbit</initialOffsetMethod>
+    </parameters>
+  </node>
+  <node id="Cross-Correlation">
+    <operator>Cross-Correlation</operator>
+    <sources>
+      <sourceProduct refid="CreateStack"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <numGCPtoGenerate>2000</numGCPtoGenerate>
+      <coarseRegistrationWindowWidth>128</coarseRegistrationWindowWidth>
+      <coarseRegistrationWindowHeight>128</coarseRegistrationWindowHeight>
+      <rowInterpFactor>4</rowInterpFactor>
+      <columnInterpFactor>4</columnInterpFactor>
+      <maxIteration>10</maxIteration>
+      <gcpTolerance>0.25</gcpTolerance>
+      <applyFineRegistration>true</applyFineRegistration>
+      <inSAROptimized>true</inSAROptimized>
+      <fineRegistrationWindowWidth>32</fineRegistrationWindowWidth>
+      <fineRegistrationWindowHeight>32</fineRegistrationWindowHeight>
+      <fineRegistrationWindowAccAzimuth>16</fineRegistrationWindowAccAzimuth>
+      <fineRegistrationWindowAccRange>16</fineRegistrationWindowAccRange>
+      <fineRegistrationOversampling>16</fineRegistrationOversampling>
+      <coherenceWindowSize>3</coherenceWindowSize>
+      <coherenceThreshold>0.6</coherenceThreshold>
+      <useSlidingWindow>false</useSlidingWindow>
+      <computeOffset>false</computeOffset>
+      <onlyGCPsOnLand>false</onlyGCPsOnLand>
+    </parameters>
+  </node>
+  <node id="Warp">
+    <operator>Warp</operator>
+    <sources>
+      <sourceProduct refid="Cross-Correlation"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <rmsThreshold>0.05</rmsThreshold>
+      <warpPolynomialOrder>1</warpPolynomialOrder>
+      <interpolationMethod>Cubic convolution (6 points)</interpolationMethod>
+      <demRefinement/>
+      <demName/>
+      <excludeMaster>false</excludeMaster>
+      <openResidualsFile>false</openResidualsFile>
+    </parameters>
+  </node>
+  <node id="Subset">
+    <operator>Subset</operator>
+    <sources>
+      <sourceProduct refid="Read"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <sourceBands/>
+      <region>$subsetRegion</region>
+      <geoRegion/>
+      <subSamplingX>1</subSamplingX>
+      <subSamplingY>1</subSamplingY>
+      <fullSwath>false</fullSwath>
+      <tiePointGridNames/>
+      <copyMetadata>true</copyMetadata>
+    </parameters>
+  </node>
+  <node id="Subset(2)">
+    <operator>Subset</operator>
+    <sources>
+      <sourceProduct refid="Read(2)"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <sourceBands/>
+      <region>$subsetRegion</region>
+      <geoRegion/>
+      <subSamplingX>1</subSamplingX>
+      <subSamplingY>1</subSamplingY>
+      <fullSwath>false</fullSwath>
+      <tiePointGridNames/>
+      <copyMetadata>true</copyMetadata>
+    </parameters>
+  </node>
+  <node id="Write">
+    <operator>Write</operator>
+    <sources>
+      <sourceProduct refid="Warp"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <file>$out1</file>
+      <formatName>BEAM-DIMAP</formatName>
+    </parameters>
+  </node>
+  <applicationData id="Presentation">
+    <Description/>
+    <node id="Read">
+      <displayPosition x="33.0" y="13.0"/>
+    </node>
+    <node id="Read(2)">
+      <displayPosition x="33.0" y="169.0"/>
+    </node>
+    <node id="CreateStack">
+      <displayPosition x="85.0" y="94.0"/>
+    </node>
+    <node id="Cross-Correlation">
+      <displayPosition x="184.0" y="93.0"/>
+    </node>
+    <node id="Warp">
+      <displayPosition x="368.0" y="94.0"/>
+    </node>
+    <node id="Subset">
+      <displayPosition x="39.0" y="53.0"/>
+    </node>
+    <node id="Subset(2)">
+      <displayPosition x="35.0" y="131.0"/>
+    </node>
+    <node id="Write">
+      <displayPosition x="456.0" y="93.0"/>
+    </node>
+  </applicationData>
+</graph>

@@ -1,0 +1,167 @@
+[
+{
+  "id":"s1tbx.polsar.freemandurden.rs2",
+  "description":"execute decomposition processor with RS2",
+  "frequency":"daily",
+  "graphPath": "s1tbx/PolSAR/Pol_Cal_Decomp.xml",
+  "inputs": {
+    "input1": "s1tbx/SAR/RS2/RS2_OK76385_PK678063_DK606752_FQ2_20080415_143807_HH_VV_HV_VH_SLC.zip"
+  },
+  "parameters": {
+    "srcBands": "",
+	"decomposition": "Freeman-Durden Decomposition"
+  },
+  "outputs": [{
+    "parameter": "out1",
+    "outputName": "out-polsar-freemandurden-rs2",
+    "expected": "s1tbx/PolSAR/expected-polsar-freemandurden-rs2.json"
+  }]
+},
+{
+  "id":"s1tbx.polsar.generalizedFD.rs2",
+  "description":"execute decomposition processor with RS2",
+  "frequency":"daily",
+  "graphPath": "s1tbx/PolSAR/Pol_Cal_Decomp.xml",
+  "inputs": {
+    "input1": "s1tbx/SAR/RS2/RS2_OK76385_PK678063_DK606752_FQ2_20080415_143807_HH_VV_HV_VH_SLC.zip"
+  },
+  "parameters": {
+    "srcBands": "",
+	"decomposition": "Generalized Freeman-Durden Decomposition"
+  },
+  "outputs": [{
+    "parameter": "out1",
+    "outputName": "out-polsar-generalizedFD-rs2",
+    "expected": "s1tbx/PolSAR/expected-polsar-generalizedFD-rs2.json"
+  }]
+},
+{
+  "id":"s1tbx.polsar.sinclair.rs2",
+  "description":"execute decomposition processor with RS2",
+  "frequency":"daily",
+  "graphPath": "s1tbx/PolSAR/Pol_Cal_Decomp.xml",
+  "inputs": {
+    "input1": "s1tbx/SAR/RS2/RS2_OK76385_PK678063_DK606752_FQ2_20080415_143807_HH_VV_HV_VH_SLC.zip"
+  },
+  "parameters": {
+    "srcBands": "",
+	"decomposition": "Sinclair Decomposition"
+  },
+  "outputs": [{
+    "parameter": "out1",
+    "outputName": "out-polsar-sinclair-rs2",
+    "expected": "s1tbx/PolSAR/expected-polsar-sinclair-rs2.json"
+  }]
+},
+{
+  "id":"s1tbx.polsar.pauli.rs2",
+  "description":"execute decomposition processor with RS2",
+  "frequency":"daily",
+  "graphPath": "s1tbx/PolSAR/Pol_Cal_Decomp.xml",
+  "inputs": {
+    "input1": "s1tbx/SAR/RS2/RS2_OK76385_PK678063_DK606752_FQ2_20080415_143807_HH_VV_HV_VH_SLC.zip"
+  },
+  "parameters": {
+    "srcBands": "",
+	"decomposition": "Pauli Decomposition"
+  },
+  "outputs": [{
+    "parameter": "out1",
+    "outputName": "out-polsar-pauli-rs2",
+    "expected": "s1tbx/PolSAR/expected-polsar-pauli-rs2.json"
+  }]
+},
+{
+  "id":"s1tbx.polsar.yamaguchi.rs2",
+  "description":"execute decomposition processor with RS2",
+  "frequency":"daily",
+  "graphPath": "s1tbx/PolSAR/Pol_Cal_Decomp.xml",
+  "inputs": {
+    "input1": "s1tbx/SAR/RS2/RS2_OK76385_PK678063_DK606752_FQ2_20080415_143807_HH_VV_HV_VH_SLC.zip"
+  },
+  "parameters": {
+    "srcBands": "",
+	"decomposition": "Yamaguchi Decomposition"
+  },
+  "outputs": [{
+    "parameter": "out1",
+    "outputName": "out-polsar-yamaguchi-rs2",
+    "expected": "s1tbx/PolSAR/expected-polsar-yamaguchi-rs2.json"
+  }]
+},
+{
+  "id":"s1tbx.polsar.vanzyl.rs2",
+  "description":"execute decomposition processor with RS2",
+  "frequency":"daily",
+  "graphPath": "s1tbx/PolSAR/Pol_Cal_Decomp.xml",
+  "inputs": {
+    "input1": "s1tbx/SAR/RS2/RS2_OK76385_PK678063_DK606752_FQ2_20080415_143807_HH_VV_HV_VH_SLC.zip"
+  },
+  "parameters": {
+    "srcBands": "",
+	"decomposition": "van Zyl Decomposition"
+  },
+  "outputs": [{
+    "parameter": "out1",
+    "outputName": "out-polsar-vanzyl-rs2",
+    "expected": "s1tbx/PolSAR/expected-polsar-vanzyl-rs2.json"
+  }]
+},
+{
+  "id":"s1tbx.polsar.haalpha.rs2",
+  "description":"execute decomposition processor with RS2",
+  "frequency":"daily",
+  "graphPath": "s1tbx/PolSAR/Pol_Cal_Decomp.xml",
+  "inputs": {
+    "input1": "s1tbx/SAR/RS2/RS2_OK76385_PK678063_DK606752_FQ2_20080415_143807_HH_VV_HV_VH_SLC.zip"
+  },
+  "parameters": {
+    "srcBands": "",
+	"decomposition": "H-A-Alpha Quad Pol Decomposition"
+  },
+  "outputs": [{
+    "parameter": "out1",
+    "outputName": "out-polsar-haalpha-rs2",
+    "expected": "s1tbx/PolSAR/expected-polsar-haalpha-rs2.json"
+  }]
+},
+{
+  "id":"s1tbx.polsar.cloude.rs2",
+  "description":"execute decomposition processor with RS2",
+  "frequency":"daily",
+  "graphPath": "s1tbx/PolSAR/Pol_Cal_Decomp.xml",
+  "inputs": {
+    "input1": "s1tbx/SAR/RS2/RS2_OK76385_PK678063_DK606752_FQ2_20080415_143807_HH_VV_HV_VH_SLC.zip"
+  },
+  "parameters": {
+    "srcBands": "",
+	"decomposition": "Cloude Decomposition"
+  },
+  "outputs": [{
+    "parameter": "out1",
+    "outputName": "out-polsar-cloude-rs2",
+    "expected": "s1tbx/PolSAR/expected-polsar-cloude-rs2.json"
+  }]
+},
+{
+  "id":"s1tbx.polsar.touzi.rs2",
+  "description":"execute decomposition processor with RS2",
+  "frequency":"daily",
+  "graphPath": "s1tbx/PolSAR/Pol_Cal_Decomp.xml",
+  "inputs": {
+    "input1": "s1tbx/SAR/RS2/RS2_OK76385_PK678063_DK606752_FQ2_20080415_143807_HH_VV_HV_VH_SLC.zip"
+  },
+  "parameters": {
+    "srcBands": "",
+	"decomposition": "Touzi Decomposition"
+  },
+  "outputs": [{
+    "parameter": "out1",
+    "outputName": "out-polsar-touzi-rs2",
+    "expected": "s1tbx/PolSAR/expected-polsar-touzi-rs2.json"
+  }]
+}
+]
+
+
+

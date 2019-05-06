@@ -1,0 +1,127 @@
+{
+    "id": "tempBandsExtractor",
+    "decodeQualification": "INTENDED",
+    "expectedContent": {
+        "sceneWidth": 200,
+        "sceneHeight": 200,
+        "startTime": "15-JUL-2008 18:17:42.204021",
+        "endTime": "15-JUL-2008 18:17:42.204021",
+        "geoCoding": {
+            "coordinates": [
+                {
+                    "x": 86.0,
+                    "y": 107.0,
+                    "lat": 82.10235358414072,
+                    "lon": -33.34224292390375
+                },
+                {
+                    "x": 148.0,
+                    "y": 129.0,
+                    "lat": 82.10041370090445,
+                    "lon": -33.30175164070044
+                }
+            ],
+            "reverseAccuracy": 2.3283064365386963E-10
+        },
+        "bands": [
+            {
+                "name": "Band_1(blue)",
+                "description": "",
+                "bandWidth": 200,
+                "bandHeight": 200,
+                "geophysicalUnit": "W.M-2.SR-1.uM-1",
+                "noDataValue": "0.057500001043081284",
+                "noDataValueUsed": "false",
+                "spectralWavelength": "0.0",
+                "spectralBandwidth": "0.0",
+                "expectedPixels": [
+                    {
+                        "x": 10,
+                        "y": 35,
+                        "value": 50.0375
+                    },
+                    {
+                        "x": 137,
+                        "y": 170,
+                        "value": 47.6855
+                    }
+                ]
+            },
+            {
+                "name": "Band_3(red)",
+                "description": "",
+                "bandWidth": 200,
+                "bandHeight": 200,
+                "geophysicalUnit": "W.M-2.SR-1.uM-1",
+                "noDataValue": "0.057500001043081284",
+                "noDataValueUsed": "false",
+                "spectralWavelength": "0.0",
+                "spectralBandwidth": "0.0",
+                "expectedPixels": [
+                    {
+                        "x": 58,
+                        "y": 51,
+                        "value": 35.699497
+                    },
+                    {
+                        "x": 122,
+                        "y": 73,
+                        "value": 35.1975
+                    }
+                ]
+            }
+        ],
+        "masks": [
+            {
+                "name": "no data",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "0,0,0",
+                "description": "no data"
+            },
+            {
+                "name": "saturated",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "255,255,255",
+                "description": "saturated"
+            }
+        ],
+        "metadata": [
+            {
+                "path": "TIFF Metadata/GeoTIFF Metadata/GeoKeyDirectory/ProjLinearUnitsGeoKey",
+                "value": "Linear_Meter"
+            },
+            {
+                "path": "ALOS/Raster_Encoding/NBITS",
+                "value": "8"
+            },
+            {
+                "path": "Processing_Graph/node.2/sources/sourceProduct",
+                "value": "BandsExtractorOp"
+            },
+            {
+                "path": "TIFF Metadata/GeoTIFF Metadata/GeoKeyDirectory/GTModelTypeGeoKey",
+                "value": "ModelTypeProjected"
+            },
+            {
+                "path": "TIFF Metadata/GeoTIFF Metadata/GeoKeyDirectory/GTRasterTypeGeoKey",
+                "value": "RasterPixelIsArea"
+            },
+            {
+                "path": "ALOS/Data_Strip/Ephemeris/Orbital_Bulletin/TRUE_ANOMALY",
+                "value": "-3.010445"
+            },
+            {
+                "path": "ALOS/Raster_CS/RASTER_CS_TYPE",
+                "value": "POINT"
+            },
+            {
+                "path": "TIFF Metadata/GeoTIFF Metadata/GeoKeyDirectory/GeogAngularUnitsGeoKey",
+                "value": "Angular_Degree"
+            },
+            {
+                "path": "ALOS/Data_Strip/Ephemeris/Orbital_Bulletin/LATITUDE_ARGUMENT",
+                "value": "1.543273"
+            }
+        ]
+    }
+}

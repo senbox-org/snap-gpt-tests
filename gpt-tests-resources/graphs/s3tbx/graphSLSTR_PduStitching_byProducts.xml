@@ -1,0 +1,68 @@
+<graph id="SLSTR_PduStitching">
+    <version>1.0</version>
+    <node id="Read1">
+        <operator>Read</operator>
+        <sources/>
+        <parameters>
+            <file>$input1</file>
+            <formatName>Sen3</formatName>
+        </parameters>
+    </node>
+    <node id="Read2">
+        <operator>Read</operator>
+        <sources/>
+        <parameters>
+            <file>$input2</file>
+            <formatName>Sen3</formatName>
+        </parameters>
+    </node>
+    <node id="Read3">
+        <operator>Read</operator>
+        <sources/>
+        <parameters>
+            <file>$input3</file>
+            <formatName>Sen3</formatName>
+        </parameters>
+    </node>
+    <node id="Read4">
+        <operator>Read</operator>
+        <sources/>
+        <parameters>
+            <file>$input4</file>
+            <formatName>Sen3</formatName>
+        </parameters>
+    </node>
+    <node id="Read5">
+        <operator>Read</operator>
+        <sources/>
+        <parameters>
+            <file>$input5</file>
+            <formatName>Sen3</formatName>
+        </parameters>
+    </node>
+
+    <node id="SlstrStitching">
+        <operator>PduStitching</operator>
+        <sources>
+            <sourceProduct1 refid="Read1"/>
+            <sourceProduct2 refid="Read2"/>
+            <sourceProduct3 refid="Read3"/>
+            <sourceProduct4 refid="Read4"/>
+            <sourceProduct5 refid="Read5"/>
+        </sources>
+        <parameters>
+            <targetDir>${tempDir}</targetDir>
+        </parameters>
+    </node>
+    <node id="Write">
+        <operator>Write</operator>
+        <sources>
+            <sourceProduct refid="SlstrStitching"/>
+        </sources>
+        <parameters>
+            <file>${outFile}</file>
+            <formatName>BEAM-DIMAP</formatName>
+        </parameters>
+    </node>
+
+</graph>

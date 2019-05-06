@@ -27,7 +27,7 @@ public class SnapGPTTest {
         final boolean FAIL_ON_MISSING_DATA = Boolean.parseBoolean(System.getProperty(PROPERTYNAME_FAIL_ON_MISSING_DATA, "true"));
 
 
-        boolean specificJSON = false;
+        boolean specificJSON = true;
         boolean success = true;
         //TODO check better the arguments
         if(args.length != 4) {
@@ -114,8 +114,28 @@ public class SnapGPTTest {
                     System.out.println(graphTest.getId() +" is missing input data in input folder '" + inputFolder + "'. Skipping test.");
                     continue;
                 }
-                
-                if (graphTest.getFrequency().toLowerCase().contains(scope.toLowerCase())) {
+
+                boolean hasToBeExecuted = false;
+                if(scope.toLowerCase().equals("release")) {
+                    if (graphTest.getFrequency().toLowerCase().contains("release") ||
+                            graphTest.getFrequency().toLowerCase().contains("weekly") ||
+                            graphTest.getFrequency().toLowerCase().contains("daily")) {
+                        hasToBeExecuted = true;
+                    }
+                } else if (scope.toLowerCase().equals("weekly")) {
+                    if (graphTest.getFrequency().toLowerCase().contains("weekly") ||
+                            graphTest.getFrequency().toLowerCase().contains("daily")) {
+                        hasToBeExecuted = true;
+                    }
+                } else {
+                    if (graphTest.getFrequency().toLowerCase().contains(scope.toLowerCase())) {
+                        hasToBeExecuted = true;
+                    }
+                }
+
+
+
+                if (hasToBeExecuted) {
                     if(report) {
                         writer.write(graphTest.getId());
                         writer.write(" - ");

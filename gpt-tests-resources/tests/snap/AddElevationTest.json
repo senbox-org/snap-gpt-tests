@@ -33,23 +33,6 @@
         }]
     },
     {
-        "id":"snap.dem.aster",
-        "description":"execute DEM operator with ASTER 1sec",
-        "frequency":"daily",
-        "graphPath": "snap/graphAddDEM.xml",
-        "inputs": {
-            "input1": "s1tbx/SAR/ASAR/ASA_IMM.zip"
-        },
-        "parameters": {
-            "demName": "ASTER 1sec GDEM"
-        },
-        "outputs": [{
-            "parameter": "out1",
-            "outputName": "out-dem-aster",
-            "expected": "snap/expected-dem-aster.json"
-        }]
-    },
-    {
         "id":"snap.dem.getasse30",
         "description":"execute DEM operator with GETASSE30",
         "frequency":"daily",

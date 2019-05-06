@@ -1,0 +1,42 @@
+<graph id="GraphBandsExtractorOp">
+  <version>1.0</version>
+  <node id="Read">
+    <operator>Read</operator>
+    <sources/>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <file>$input1</file>
+    </parameters>
+  </node>
+  <node id="BandsExtractorOp">
+    <operator>BandsExtractorOp</operator>
+    <sources>
+      <sourceProduct refid="Read"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <sourceBandNames>$sourceBandNames</sourceBandNames>
+      <sourceMaskNames>$sourceMaskNames</sourceMaskNames>
+    </parameters>
+  </node>
+  <node id="Write">
+    <operator>Write</operator>
+    <sources>
+      <sourceProduct refid="BandsExtractorOp"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <file>$out1</file>
+      <formatName>BEAM-DIMAP</formatName>
+    </parameters>
+  </node>
+  <applicationData id="Presentation">
+    <Description/>
+    <node id="Read">
+      <displayPosition x="20.0" y="136.0"/>
+    </node>
+    <node id="BandsExtractorOp">
+      <displayPosition x="140.0" y="136.0"/>
+    </node>
+    <node id="Write">
+       <displayPosition x="500.0" y="136.0"/>
+    </node>
+  </applicationData>
+</graph>

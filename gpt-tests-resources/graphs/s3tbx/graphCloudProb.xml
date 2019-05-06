@@ -1,0 +1,28 @@
+<graph id="someGraphId">
+    <version>1.0</version>
+    <node id="Read">
+        <operator>Read</operator>
+        <sources/>
+        <parameters>
+            <file>$input</file>
+        </parameters>
+    </node>
+    <node id="CloudProbability">
+        <operator>CloudProb</operator>
+        <sources>
+            <source>Read</source>
+        </sources>
+        <parameters/>
+    </node>
+    <node id="Write">
+        <operator>Write</operator>
+        <sources>
+            <sourceProduct>CloudProbability</sourceProduct>
+        </sources>
+        <parameters>
+            <file>$output</file>
+            <formatName>BEAM-DIMAP</formatName>
+        </parameters>
+    </node>
+
+</graph>

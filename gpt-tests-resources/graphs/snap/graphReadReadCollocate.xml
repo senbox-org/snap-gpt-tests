@@ -1,0 +1,60 @@
+<graph id="Graph">
+  <version>1.0</version>
+  <node id="Read">
+    <operator>Read</operator>
+    <sources/>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <file>$input1</file>
+    </parameters>
+  </node>
+  <node id="Read(2)">
+    <operator>Read</operator>
+    <sources/>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <file>$input2</file>
+    </parameters>
+  </node>
+  <node id="Collocate">
+    <operator>Collocate</operator>
+    <sources>
+      <sourceProduct refid="Read"/>
+      <sourceProduct.1 refid="Read(2)"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <sourceProductPaths/>
+      <masterProductName>$masterProductName</masterProductName>
+      <targetProductName>_collocated</targetProductName>
+      <targetProductType>COLLOCATED</targetProductType>
+      <renameMasterComponents>true</renameMasterComponents>
+      <renameSlaveComponents>true</renameSlaveComponents>
+      <masterComponentPattern>${ORIGINAL_NAME}_M</masterComponentPattern>
+      <slaveComponentPattern>${ORIGINAL_NAME}_S</slaveComponentPattern>
+      <resamplingType>NEAREST_NEIGHBOUR</resamplingType>
+    </parameters>
+  </node>
+  <node id="Write">
+    <operator>Write</operator>
+    <sources>
+      <sourceProduct refid="Collocate"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <file>$out1</file>
+      <formatName>BEAM-DIMAP</formatName>
+    </parameters>
+  </node>
+  <applicationData id="Presentation">
+    <Description/>
+    <node id="Read">
+            <displayPosition x="104.0" y="93.0"/>
+    </node>
+    <node id="Read(2)">
+      <displayPosition x="106.0" y="183.0"/>
+    </node>
+    <node id="Collocate">
+      <displayPosition x="278.0" y="141.0"/>
+    </node>
+    <node id="Write">
+            <displayPosition x="455.0" y="135.0"/>
+    </node>
+  </applicationData>
+</graph>

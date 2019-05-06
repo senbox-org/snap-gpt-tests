@@ -1,0 +1,57 @@
+[{
+  "id":"Reproject_S2",
+  "description":"Reproject a S2 L1C product preserving resolution.",
+  "frequency":"daily",
+  "graphPath": "snap/graphReproject.xml",
+  "inputs": {
+    "input1": "s2tbx/S2/L1C/S2A_MSIL1C_20170416T105031_N0204_R051_T30TYN_20170416T105601.SAFE"
+  },
+  "parameters": {
+    "crs": "EPSG:4326",
+    "outputFormat": "BEAM-DIMAP"
+  },
+  "outputs": [{
+    "parameter": "out1",
+    "outputName": "Reproj_S2",
+    "expected": "snap/expectedReproj_S2.json"
+  }]
+},
+  {
+    "id":"ReprojectSubset_S2",
+    "description":"Reproject a S2 L1C product preserving resolution and apply and spatial and band subset (B1,B2,B5,view_senith_mean)",
+    "frequency":"daily",
+    "graphPath": "snap/graphReprojectSubset.xml",
+    "inputs": {
+      "input1": "s2tbx/S2/L1C/S2A_MSIL1C_20170416T105031_N0204_R051_T30TYN_20170416T105601.SAFE"
+    },
+    "parameters": {
+      "sourceBands": "B1,B2,B5,view_zenith_mean",
+      "region": "0,0,300,300",
+      "referenceBand": "B1"
+    },
+    "outputs": [{
+      "parameter": "out1",
+      "outputName": "ReprojSubset_S2",
+      "expected": "snap/expectedReprojSubset_S2.json"
+    }]
+  },
+  {
+    "id":"ReprojectSubsetonlyB1_S2",
+    "description":"Reproject a S2 L1C product preserving resolution and apply and spatial and band subset (only B1)",
+    "frequency":"daily",
+    "graphPath": "snap/graphReprojectSubset.xml",
+    "inputs": {
+      "input1": "s2tbx/S2/L1C/S2A_MSIL1C_20170416T105031_N0204_R051_T30TYN_20170416T105601.SAFE"
+    },
+    "parameters": {
+      "sourceBands": "B1",
+      "region": "0,0,1500,1500",
+      "referenceBand": "B1"
+    },
+    "outputs": [{
+      "parameter": "out1",
+      "outputName": "ReprojSubsetB1_S2",
+      "expected": "snap/expectedReprojSubsetB1_S2.json"
+    }]
+  }
+]

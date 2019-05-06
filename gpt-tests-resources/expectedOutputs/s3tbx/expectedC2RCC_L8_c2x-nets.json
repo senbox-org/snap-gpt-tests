@@ -1,0 +1,1642 @@
+{
+  "id": "C2RCC_L8_c2x-nets",
+  "decodeQualification": "INTENDED",
+  "expectedContent": {
+    "sceneWidth": 7651,
+    "sceneHeight": 7451,
+    "startTime": "12-APR-2013 10:55:46.338000",
+    "endTime": "12-APR-2013 10:55:46.338000",
+    "geoCoding": {
+      "coordinates": [
+        {
+          "x": 2737.5,
+          "y": 1357.5,
+          "lat": 46.66743838817284,
+          "lon": -2.239044044989378
+        },
+        {
+          "x": 3577.5,
+          "y": 2291.5,
+          "lat": 46.412653306901845,
+          "lon": -1.9147018063488137
+        },
+        {
+          "x": 2528.5,
+          "y": 2406.5,
+          "lat": 46.384759285977424,
+          "lon": -2.3245225953375717
+        },
+        {
+          "x": 4699.5,
+          "y": 4997.5,
+          "lat": 45.67727195432049,
+          "lon": -1.4968103822572532
+        },
+        {
+          "x": 5394.5,
+          "y": 4787.5,
+          "lat": 45.730114649287806,
+          "lon": -1.22742297141405
+        }
+      ],
+      "reverseAccuracy": 0.000009
+    },
+    "flagCodings": [
+      {
+        "name": "flags",
+        "samples": [
+          {
+            "name": "designated_fill",
+            "value": 1,
+            "description": "Designated Fill"
+          },
+          {
+            "name": "dropped_frame",
+            "value": 2,
+            "description": "Dropped Frame"
+          },
+          {
+            "name": "terrain_occlusion",
+            "value": 4,
+            "description": "Terrain Occlusion"
+          },
+          {
+            "name": "reserved_1",
+            "value": 8,
+            "description": "Reserved for a future 1-bit class artifact designation"
+          },
+          {
+            "name": "water_confidence_one",
+            "value": 16,
+            "description": "Water confidence bit one"
+          },
+          {
+            "name": "water_confidence_two",
+            "value": 32,
+            "description": "Water confidence bit two"
+          },
+          {
+            "name": "reserved_2_one",
+            "value": 64,
+            "description": "Reserved for a future 2-bit class artifact designation"
+          },
+          {
+            "name": "reserved_2_two",
+            "value": 128,
+            "description": "Reserved for a future 2-bit class artifact designation"
+          },
+          {
+            "name": "reserved_3_one",
+            "value": 256,
+            "description": "Reserved for a future 2-bit class artifact designation"
+          },
+          {
+            "name": "reserved_3_two",
+            "value": 512,
+            "description": "Reserved for a future 2-bit class artifact designation"
+          },
+          {
+            "name": "snow_ice_confidence_one",
+            "value": 1024,
+            "description": "Snow/ice confidence bit one"
+          },
+          {
+            "name": "snow_ice_confidence_two",
+            "value": 2048,
+            "description": "Snow/ice confidence bit two"
+          },
+          {
+            "name": "cirrus_confidence_one",
+            "value": 4096,
+            "description": "Cirrus confidence bit one"
+          },
+          {
+            "name": "cirrus_confidence_two",
+            "value": 8192,
+            "description": "Cirrus confidence bit two"
+          },
+          {
+            "name": "cloud_confidence_one",
+            "value": 16384,
+            "description": "Cloud confidence bit one"
+          },
+          {
+            "name": "cloud_confidence_two",
+            "value": 32768,
+            "description": "Cloud confidence bit two"
+          }
+        ]
+      },
+      {
+        "name": "c2rcc_flags",
+        "samples": [
+          {
+            "name": "Rtosa_OOS",
+            "value": 1,
+            "description": "The input spectrum to the atmospheric correction neural net was out of the scope of the training range and the inversion is likely to be wrong"
+          },
+          {
+            "name": "Rtosa_OOR",
+            "value": 2,
+            "description": "The input spectrum to the atmospheric correction neural net out of training range"
+          },
+          {
+            "name": "Rhow_OOR",
+            "value": 4,
+            "description": "One of the inputs to the IOP retrieval neural net is out of training range"
+          },
+          {
+            "name": "Cloud_risk",
+            "value": 8,
+            "description": "High downwelling transmission is indicating cloudy conditions"
+          },
+          {
+            "name": "Iop_OOR",
+            "value": 16,
+            "description": "One of the IOPs is out of range"
+          },
+          {
+            "name": "Apig_at_max",
+            "value": 32,
+            "description": "Apig output of the IOP retrieval neural net is at its maximum. This means that the true value is this value or higher."
+          },
+          {
+            "name": "Adet_at_max",
+            "value": 64,
+            "description": "Adet output of the IOP retrieval neural net is at its maximum. This means that the true value is this value or higher."
+          },
+          {
+            "name": "Agelb_at_max",
+            "value": 128,
+            "description": "Agelb output of the IOP retrieval neural net is at its maximum. This means that the true value is this value or higher."
+          },
+          {
+            "name": "Bpart_at_max",
+            "value": 256,
+            "description": "Bpart output of the IOP retrieval neural net is at its maximum. This means that the true value is this value or higher."
+          },
+          {
+            "name": "Bwit_at_max",
+            "value": 512,
+            "description": "Bwit output of the IOP retrieval neural net is at its maximum. This means that the true value is this value or higher."
+          },
+          {
+            "name": "Apig_at_min",
+            "value": 1024,
+            "description": "Apig output of the IOP retrieval neural net is at its minimum. This means that the true value is this value or lower."
+          },
+          {
+            "name": "Adet_at_min",
+            "value": 2048,
+            "description": "Adet output of the IOP retrieval neural net is at its minimum. This means that the true value is this value or lower."
+          },
+          {
+            "name": "Agelb_at_min",
+            "value": 4096,
+            "description": "Agelb output of the IOP retrieval neural net is at its minimum. This means that the true value is this value or lower."
+          },
+          {
+            "name": "Bpart_at_min",
+            "value": 8192,
+            "description": "Bpart output of the IOP retrieval neural net is at its minimum. This means that the true value is this value or lower."
+          },
+          {
+            "name": "Bwit_at_min",
+            "value": 16384,
+            "description": "Bwit output of the IOP retrieval neural net is at its minimum. This means that the true value is this value or lower."
+          },
+          {
+            "name": "Rhow_OOS",
+            "value": 32768,
+            "description": "The Rhow input spectrum to IOP neural net is probably not within the training range of the neural net, and the inversion is likely to be wrong."
+          },
+          {
+            "name": "Kd489_OOR",
+            "value": 65536,
+            "description": "Kd489 is out of range"
+          },
+          {
+            "name": "Kdmin_OOR",
+            "value": 131072,
+            "description": "Kdmin is out of range"
+          },
+          {
+            "name": "Kd489_at_max",
+            "value": 262144,
+            "description": "Kdmin is at max"
+          },
+          {
+            "name": "Kdmin_at_max",
+            "value": 524288,
+            "description": "Kdmin is at max"
+          },
+          {
+            "name": "Valid_PE",
+            "value": 2147483648,
+            "description": "The operators valid pixel expression has resolved to true"
+          }
+        ]
+      }
+    ],
+    "bands": [
+      {
+        "name": "flags",
+        "description": "Quality Band",
+        "bandWidth": 7651,
+        "bandHeight": 7451,
+        "noDataValue": "0.0",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 2737,
+            "y": 1357,
+            "value": 20512.0
+          },
+          {
+            "x": 3577,
+            "y": 2291,
+            "value": 20512.0
+          },
+          {
+            "x": 2528,
+            "y": 2406,
+            "value": 20512.0
+          },
+          {
+            "x": 4699,
+            "y": 4997,
+            "value": 20512.0
+          },
+          {
+            "x": 5394,
+            "y": 4787,
+            "value": 20512.0
+          }
+        ]
+      },
+      {
+        "name": "rtoa_1",
+        "description": "Top-of-atmosphere reflectance",
+        "bandWidth": 7651,
+        "bandHeight": 7451,
+        "geophysicalUnit": "1",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "440.0",
+        "spectralBandwidth": "20.0",
+        "expectedPixels": [
+          {
+            "x": 2737,
+            "y": 1357,
+            "value": 0.14303327
+          },
+          {
+            "x": 3577,
+            "y": 2291,
+            "value": 0.14039129
+          },
+          {
+            "x": 2528,
+            "y": 2406,
+            "value": 0.12312684
+          },
+          {
+            "x": 4699,
+            "y": 4997,
+            "value": 0.14010355
+          },
+          {
+            "x": 5394,
+            "y": 4787,
+            "value": 0.122629836
+          }
+        ]
+      },
+      {
+        "name": "rtoa_2",
+        "description": "Top-of-atmosphere reflectance",
+        "bandWidth": 7651,
+        "bandHeight": 7451,
+        "geophysicalUnit": "1",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "480.0",
+        "spectralBandwidth": "60.0",
+        "expectedPixels": [
+          {
+            "x": 2737,
+            "y": 1357,
+            "value": 0.13066041
+          },
+          {
+            "x": 3577,
+            "y": 2291,
+            "value": 0.12419933
+          },
+          {
+            "x": 2528,
+            "y": 2406,
+            "value": 0.101520136
+          },
+          {
+            "x": 4699,
+            "y": 4997,
+            "value": 0.12336227
+          },
+          {
+            "x": 5394,
+            "y": 4787,
+            "value": 0.09730866
+          }
+        ]
+      },
+      {
+        "name": "rtoa_3",
+        "description": "Top-of-atmosphere reflectance",
+        "bandWidth": 7651,
+        "bandHeight": 7451,
+        "geophysicalUnit": "1",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "560.0",
+        "spectralBandwidth": "60.0",
+        "expectedPixels": [
+          {
+            "x": 2737,
+            "y": 1357,
+            "value": 0.11616875
+          },
+          {
+            "x": 3577,
+            "y": 2291,
+            "value": 0.09895663
+          },
+          {
+            "x": 2528,
+            "y": 2406,
+            "value": 0.06267515
+          },
+          {
+            "x": 4699,
+            "y": 4997,
+            "value": 0.0961577
+          },
+          {
+            "x": 5394,
+            "y": 4787,
+            "value": 0.06623267
+          }
+        ]
+      },
+      {
+        "name": "rtoa_4",
+        "description": "Top-of-atmosphere reflectance",
+        "bandWidth": 7651,
+        "bandHeight": 7451,
+        "geophysicalUnit": "1",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "655.0",
+        "spectralBandwidth": "30.0",
+        "expectedPixels": [
+          {
+            "x": 2737,
+            "y": 1357,
+            "value": 0.06874386
+          },
+          {
+            "x": 3577,
+            "y": 2291,
+            "value": 0.056763384
+          },
+          {
+            "x": 2528,
+            "y": 2406,
+            "value": 0.03510436
+          },
+          {
+            "x": 4699,
+            "y": 4997,
+            "value": 0.053493604
+          },
+          {
+            "x": 5394,
+            "y": 4787,
+            "value": 0.04970066
+          }
+        ]
+      },
+      {
+        "name": "rtoa_5",
+        "description": "Top-of-atmosphere reflectance",
+        "bandWidth": 7651,
+        "bandHeight": 7451,
+        "geophysicalUnit": "1",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "865.0",
+        "spectralBandwidth": "30.0",
+        "expectedPixels": [
+          {
+            "x": 2737,
+            "y": 1357,
+            "value": 0.02275767
+          },
+          {
+            "x": 3577,
+            "y": 2291,
+            "value": 0.029951187
+          },
+          {
+            "x": 2528,
+            "y": 2406,
+            "value": 0.018703142
+          },
+          {
+            "x": 4699,
+            "y": 4997,
+            "value": 0.028983332
+          },
+          {
+            "x": 5394,
+            "y": 4787,
+            "value": 0.114887
+          }
+        ]
+      },
+      {
+        "name": "rhow_1",
+        "description": "Atmospherically corrected Angular dependent water leaving reflectances",
+        "bandWidth": 7651,
+        "bandHeight": 7451,
+        "geophysicalUnit": "1",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "440.0",
+        "spectralBandwidth": "20.0",
+        "expectedPixels": [
+          {
+            "x": 2737,
+            "y": 1357,
+            "value": 0.027088173
+          },
+          {
+            "x": 3577,
+            "y": 2291,
+            "value": 0.015852071
+          },
+          {
+            "x": 2528,
+            "y": 2406,
+            "value": 0.012847653
+          },
+          {
+            "x": 4699,
+            "y": 4997,
+            "value": 0.015826117
+          },
+          {
+            "x": 5394,
+            "y": 4787,
+            "value": 0.0015374821
+          }
+        ]
+      },
+      {
+        "name": "rhow_2",
+        "description": "Atmospherically corrected Angular dependent water leaving reflectances",
+        "bandWidth": 7651,
+        "bandHeight": 7451,
+        "geophysicalUnit": "1",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "480.0",
+        "spectralBandwidth": "60.0",
+        "expectedPixels": [
+          {
+            "x": 2737,
+            "y": 1357,
+            "value": 0.040851694
+          },
+          {
+            "x": 3577,
+            "y": 2291,
+            "value": 0.0266017
+          },
+          {
+            "x": 2528,
+            "y": 2406,
+            "value": 0.017293334
+          },
+          {
+            "x": 4699,
+            "y": 4997,
+            "value": 0.026873453
+          },
+          {
+            "x": 5394,
+            "y": 4787,
+            "value": 0.0024391979
+          }
+        ]
+      },
+      {
+        "name": "rhow_3",
+        "description": "Atmospherically corrected Angular dependent water leaving reflectances",
+        "bandWidth": 7651,
+        "bandHeight": 7451,
+        "geophysicalUnit": "1",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "560.0",
+        "spectralBandwidth": "60.0",
+        "expectedPixels": [
+          {
+            "x": 2737,
+            "y": 1357,
+            "value": 0.066241324
+          },
+          {
+            "x": 3577,
+            "y": 2291,
+            "value": 0.04536405
+          },
+          {
+            "x": 2528,
+            "y": 2406,
+            "value": 0.017401844
+          },
+          {
+            "x": 4699,
+            "y": 4997,
+            "value": 0.042693667
+          },
+          {
+            "x": 5394,
+            "y": 4787,
+            "value": 0.004417558
+          }
+        ]
+      },
+      {
+        "name": "rhow_4",
+        "description": "Atmospherically corrected Angular dependent water leaving reflectances",
+        "bandWidth": 7651,
+        "bandHeight": 7451,
+        "geophysicalUnit": "1",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "655.0",
+        "spectralBandwidth": "30.0",
+        "expectedPixels": [
+          {
+            "x": 2737,
+            "y": 1357,
+            "value": 0.032374248
+          },
+          {
+            "x": 3577,
+            "y": 2291,
+            "value": 0.012626507
+          },
+          {
+            "x": 2528,
+            "y": 2406,
+            "value": 0.0029555957
+          },
+          {
+            "x": 4699,
+            "y": 4997,
+            "value": 0.010278767
+          },
+          {
+            "x": 5394,
+            "y": 4787,
+            "value": 0.0070684846
+          }
+        ]
+      },
+      {
+        "name": "rhow_5",
+        "description": "Atmospherically corrected Angular dependent water leaving reflectances",
+        "bandWidth": 7651,
+        "bandHeight": 7451,
+        "geophysicalUnit": "1",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "865.0",
+        "spectralBandwidth": "30.0",
+        "expectedPixels": [
+          {
+            "x": 2737,
+            "y": 1357,
+            "value": 0.002251787
+          },
+          {
+            "x": 3577,
+            "y": 2291,
+            "value": 6.069559E-4
+          },
+          {
+            "x": 2528,
+            "y": 2406,
+            "value": 1.5884785E-4
+          },
+          {
+            "x": 4699,
+            "y": 4997,
+            "value": 5.6110125E-4
+          },
+          {
+            "x": 5394,
+            "y": 4787,
+            "value": 0.004271039
+          }
+        ]
+      },
+      {
+        "name": "rhown_1",
+        "description": "Normalized water leaving reflectances",
+        "bandWidth": 7651,
+        "bandHeight": 7451,
+        "geophysicalUnit": "1",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "440.0",
+        "spectralBandwidth": "20.0",
+        "expectedPixels": [
+          {
+            "x": 2737,
+            "y": 1357,
+            "value": 0.02724775
+          },
+          {
+            "x": 3577,
+            "y": 2291,
+            "value": 0.015771812
+          },
+          {
+            "x": 2528,
+            "y": 2406,
+            "value": 0.012819652
+          },
+          {
+            "x": 4699,
+            "y": 4997,
+            "value": 0.015799629
+          },
+          {
+            "x": 5394,
+            "y": 4787,
+            "value": 0.0015199851
+          }
+        ]
+      },
+      {
+        "name": "rhown_2",
+        "description": "Normalized water leaving reflectances",
+        "bandWidth": 7651,
+        "bandHeight": 7451,
+        "geophysicalUnit": "1",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "480.0",
+        "spectralBandwidth": "60.0",
+        "expectedPixels": [
+          {
+            "x": 2737,
+            "y": 1357,
+            "value": 0.041085154
+          },
+          {
+            "x": 3577,
+            "y": 2291,
+            "value": 0.026755083
+          },
+          {
+            "x": 2528,
+            "y": 2406,
+            "value": 0.017413843
+          },
+          {
+            "x": 4699,
+            "y": 4997,
+            "value": 0.027040822
+          },
+          {
+            "x": 5394,
+            "y": 4787,
+            "value": 0.0022896926
+          }
+        ]
+      },
+      {
+        "name": "rhown_3",
+        "description": "Normalized water leaving reflectances",
+        "bandWidth": 7651,
+        "bandHeight": 7451,
+        "geophysicalUnit": "1",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "560.0",
+        "spectralBandwidth": "60.0",
+        "expectedPixels": [
+          {
+            "x": 2737,
+            "y": 1357,
+            "value": 0.06795178
+          },
+          {
+            "x": 3577,
+            "y": 2291,
+            "value": 0.045620196
+          },
+          {
+            "x": 2528,
+            "y": 2406,
+            "value": 0.017405735
+          },
+          {
+            "x": 4699,
+            "y": 4997,
+            "value": 0.042879395
+          },
+          {
+            "x": 5394,
+            "y": 4787,
+            "value": 0.0043012057
+          }
+        ]
+      },
+      {
+        "name": "rhown_4",
+        "description": "Normalized water leaving reflectances",
+        "bandWidth": 7651,
+        "bandHeight": 7451,
+        "geophysicalUnit": "1",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "655.0",
+        "spectralBandwidth": "30.0",
+        "expectedPixels": [
+          {
+            "x": 2737,
+            "y": 1357,
+            "value": 0.033171847
+          },
+          {
+            "x": 3577,
+            "y": 2291,
+            "value": 0.012559635
+          },
+          {
+            "x": 2528,
+            "y": 2406,
+            "value": 0.002951758
+          },
+          {
+            "x": 4699,
+            "y": 4997,
+            "value": 0.010241781
+          },
+          {
+            "x": 5394,
+            "y": 4787,
+            "value": 0.00764195
+          }
+        ]
+      },
+      {
+        "name": "rhown_5",
+        "description": "Normalized water leaving reflectances",
+        "bandWidth": 7651,
+        "bandHeight": 7451,
+        "geophysicalUnit": "1",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "865.0",
+        "spectralBandwidth": "30.0",
+        "expectedPixels": [
+          {
+            "x": 2737,
+            "y": 1357,
+            "value": 0.002271809
+          },
+          {
+            "x": 3577,
+            "y": 2291,
+            "value": 6.0924306E-4
+          },
+          {
+            "x": 2528,
+            "y": 2406,
+            "value": 1.5951236E-4
+          },
+          {
+            "x": 4699,
+            "y": 4997,
+            "value": 5.68543E-4
+          },
+          {
+            "x": 5394,
+            "y": 4787,
+            "value": 0.0042485017
+          }
+        ]
+      },
+      {
+        "name": "iop_apig",
+        "description": "Absorption coefficient of phytoplankton pigments at 443 nm",
+        "bandWidth": 7651,
+        "bandHeight": 7451,
+        "geophysicalUnit": "m^-1",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 2737,
+            "y": 1357,
+            "value": 0.19149339
+          },
+          {
+            "x": 3577,
+            "y": 2291,
+            "value": 0.1619963
+          },
+          {
+            "x": 2528,
+            "y": 2406,
+            "value": 0.074917234
+          },
+          {
+            "x": 4699,
+            "y": 4997,
+            "value": 0.12014697
+          },
+          {
+            "x": 5394,
+            "y": 4787,
+            "value": 0.2988029
+          }
+        ]
+      },
+      {
+        "name": "iop_adet",
+        "description": "Absorption coefficient of detritus at 443 nm",
+        "bandWidth": 7651,
+        "bandHeight": 7451,
+        "geophysicalUnit": "m^-1",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 2737,
+            "y": 1357,
+            "value": 0.3973797
+          },
+          {
+            "x": 3577,
+            "y": 2291,
+            "value": 0.18934824
+          },
+          {
+            "x": 2528,
+            "y": 2406,
+            "value": 0.03583471
+          },
+          {
+            "x": 4699,
+            "y": 4997,
+            "value": 0.11279849
+          },
+          {
+            "x": 5394,
+            "y": 4787,
+            "value": 20.75748
+          }
+        ]
+      },
+      {
+        "name": "iop_agelb",
+        "description": "Absorption coefficient of gelbstoff at 443 nm",
+        "bandWidth": 7651,
+        "bandHeight": 7451,
+        "geophysicalUnit": "m^-1",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 2737,
+            "y": 1357,
+            "value": 0.10736892
+          },
+          {
+            "x": 3577,
+            "y": 2291,
+            "value": 0.4159145
+          },
+          {
+            "x": 2528,
+            "y": 2406,
+            "value": 0.060364876
+          },
+          {
+            "x": 4699,
+            "y": 4997,
+            "value": 0.25708073
+          },
+          {
+            "x": 5394,
+            "y": 4787,
+            "value": 20.584732
+          }
+        ]
+      },
+      {
+        "name": "iop_bpart",
+        "description": "Scattering coefficient of marine paticles at 443 nm",
+        "bandWidth": 7651,
+        "bandHeight": 7451,
+        "geophysicalUnit": "m^-1",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 2737,
+            "y": 1357,
+            "value": 1.9661789
+          },
+          {
+            "x": 3577,
+            "y": 2291,
+            "value": 4.020162
+          },
+          {
+            "x": 2528,
+            "y": 2406,
+            "value": 0.6427666
+          },
+          {
+            "x": 4699,
+            "y": 4997,
+            "value": 1.898226
+          },
+          {
+            "x": 5394,
+            "y": 4787,
+            "value": 39.345768
+          }
+        ]
+      },
+      {
+        "name": "iop_bwit",
+        "description": "Scattering coefficient of white particles at 443 nm",
+        "bandWidth": 7651,
+        "bandHeight": 7451,
+        "geophysicalUnit": "m^-1",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 2737,
+            "y": 1357,
+            "value": 4.929831
+          },
+          {
+            "x": 3577,
+            "y": 2291,
+            "value": 0.552936
+          },
+          {
+            "x": 2528,
+            "y": 2406,
+            "value": 0.39140725
+          },
+          {
+            "x": 4699,
+            "y": 4997,
+            "value": 1.8615477
+          },
+          {
+            "x": 5394,
+            "y": 4787,
+            "value": 3.7719283
+          }
+        ]
+      },
+      {
+        "name": "iop_adg",
+        "description": "Detritus + gelbstoff absorption at 443 nm",
+        "bandWidth": 7651,
+        "bandHeight": 7451,
+        "geophysicalUnit": "m^-1",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 2737,
+            "y": 1357,
+            "value": 0.50474864
+          },
+          {
+            "x": 3577,
+            "y": 2291,
+            "value": 0.60526276
+          },
+          {
+            "x": 2528,
+            "y": 2406,
+            "value": 0.09619959
+          },
+          {
+            "x": 4699,
+            "y": 4997,
+            "value": 0.36987922
+          },
+          {
+            "x": 5394,
+            "y": 4787,
+            "value": 41.342213
+          }
+        ]
+      },
+      {
+        "name": "iop_atot",
+        "description": "phytoplankton + detritus + gelbstoff absorption at 443 nm",
+        "bandWidth": 7651,
+        "bandHeight": 7451,
+        "geophysicalUnit": "m^-1",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 2737,
+            "y": 1357,
+            "value": 0.69624203
+          },
+          {
+            "x": 3577,
+            "y": 2291,
+            "value": 0.76725906
+          },
+          {
+            "x": 2528,
+            "y": 2406,
+            "value": 0.17111683
+          },
+          {
+            "x": 4699,
+            "y": 4997,
+            "value": 0.49002618
+          },
+          {
+            "x": 5394,
+            "y": 4787,
+            "value": 41.641014
+          }
+        ]
+      },
+      {
+        "name": "iop_btot",
+        "description": "total particle scattering at 443 nm",
+        "bandWidth": 7651,
+        "bandHeight": 7451,
+        "geophysicalUnit": "m^-1",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 2737,
+            "y": 1357,
+            "value": 6.89601
+          },
+          {
+            "x": 3577,
+            "y": 2291,
+            "value": 4.573098
+          },
+          {
+            "x": 2528,
+            "y": 2406,
+            "value": 1.0341738
+          },
+          {
+            "x": 4699,
+            "y": 4997,
+            "value": 3.7597737
+          },
+          {
+            "x": 5394,
+            "y": 4787,
+            "value": 43.117695
+          }
+        ]
+      },
+      {
+        "name": "kd489",
+        "description": "Irradiance attenuation coefficient at 489 nm",
+        "bandWidth": 7651,
+        "bandHeight": 7451,
+        "geophysicalUnit": "m^-1",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 2737,
+            "y": 1357,
+            "value": 1.2307322
+          },
+          {
+            "x": 3577,
+            "y": 2291,
+            "value": 0.69637656
+          },
+          {
+            "x": 2528,
+            "y": 2406,
+            "value": 0.18591838
+          },
+          {
+            "x": 4699,
+            "y": 4997,
+            "value": 0.4454721
+          },
+          {
+            "x": 5394,
+            "y": 4787,
+            "value": 214.17027
+          }
+        ]
+      },
+      {
+        "name": "kdmin",
+        "description": "Mean irradiance attenuation coefficient at the three bands with minimum kd",
+        "bandWidth": 7651,
+        "bandHeight": 7451,
+        "geophysicalUnit": "m^-1",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 2737,
+            "y": 1357,
+            "value": 0.80348575
+          },
+          {
+            "x": 3577,
+            "y": 2291,
+            "value": 0.37343162
+          },
+          {
+            "x": 2528,
+            "y": 2406,
+            "value": 0.14680555
+          },
+          {
+            "x": 4699,
+            "y": 4997,
+            "value": 0.2749419
+          },
+          {
+            "x": 5394,
+            "y": 4787,
+            "value": 7.26514
+          }
+        ]
+      },
+      {
+        "name": "kd_z90max",
+        "description": "Depth of the water column from which 90% of the water leaving irradiance comes from",
+        "bandWidth": 7651,
+        "bandHeight": 7451,
+        "geophysicalUnit": "m",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 2737,
+            "y": 1357,
+            "value": 1.2445772
+          },
+          {
+            "x": 3577,
+            "y": 2291,
+            "value": 2.6778665
+          },
+          {
+            "x": 2528,
+            "y": 2406,
+            "value": 6.8117313
+          },
+          {
+            "x": 4699,
+            "y": 4997,
+            "value": 3.6371322
+          },
+          {
+            "x": 5394,
+            "y": 4787,
+            "value": 0.13764359
+          }
+        ]
+      },
+      {
+        "name": "conc_tsm",
+        "description": "Total suspended matter dry weight concentration",
+        "bandWidth": 7651,
+        "bandHeight": 7451,
+        "geophysicalUnit": "g m^-3",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 2737,
+            "y": 1357,
+            "value": 18.664305
+          },
+          {
+            "x": 3577,
+            "y": 2291,
+            "value": 8.62878
+          },
+          {
+            "x": 2528,
+            "y": 2406,
+            "value": 2.318921
+          },
+          {
+            "x": 4699,
+            "y": 4997,
+            "value": 9.035747
+          },
+          {
+            "x": 5394,
+            "y": 4787,
+            "value": 79.3677
+          }
+        ]
+      },
+      {
+        "name": "conc_chl",
+        "description": "Chlorophylll concentration",
+        "bandWidth": 7651,
+        "bandHeight": 7451,
+        "geophysicalUnit": "mg m^-3",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 2737,
+            "y": 1357,
+            "value": 3.7640834
+          },
+          {
+            "x": 3577,
+            "y": 2291,
+            "value": 3.1630394
+          },
+          {
+            "x": 2528,
+            "y": 2406,
+            "value": 1.4183528
+          },
+          {
+            "x": 4699,
+            "y": 4997,
+            "value": 2.3180385
+          },
+          {
+            "x": 5394,
+            "y": 4787,
+            "value": 5.9788756
+          }
+        ]
+      },
+      {
+        "name": "c2rcc_flags",
+        "description": "C2RCC quality flags",
+        "bandWidth": 7651,
+        "bandHeight": 7451,
+        "noDataValue": "0.0",
+        "noDataValueUsed": "false",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 2737,
+            "y": 1357,
+            "value": 2.14748365E9
+          },
+          {
+            "x": 3577,
+            "y": 2291,
+            "value": 2.14748365E9
+          },
+          {
+            "x": 2528,
+            "y": 2406,
+            "value": 2.14748365E9
+          },
+          {
+            "x": 4699,
+            "y": 4997,
+            "value": 2.14748365E9
+          },
+          {
+            "x": 5394,
+            "y": 4787,
+            "value": 2.14748365E9
+          }
+        ]
+      }
+    ],
+    "masks": [
+      {
+        "name": "designated_fill",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "255,0,0",
+        "description": "Designated Fill"
+      },
+      {
+        "name": "dropped_frame",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "178,0,0",
+        "description": "Dropped Frame"
+      },
+      {
+        "name": "terrain_occlusion",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "124,0,0",
+        "description": "Terrain Occlusion"
+      },
+      {
+        "name": "water_confidence_low",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "0,0,255",
+        "description": "Water confidence 0-35%"
+      },
+      {
+        "name": "water_confidence_mid",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "0,0,178",
+        "description": "Water confidence 36-64%"
+      },
+      {
+        "name": "water_confidence_high",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "0,0,124",
+        "description": "Water confidence 65-100%"
+      },
+      {
+        "name": "snow_ice_confidence_low",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "0,255,0",
+        "description": "Snow/ice confidence 0-35%"
+      },
+      {
+        "name": "snow_ice_confidence_mid",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "0,178,0",
+        "description": "Snow/ice confidence 36-64%"
+      },
+      {
+        "name": "snow_ice_confidence_high",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "0,124,0",
+        "description": "Snow/ice confidence 65-100%"
+      },
+      {
+        "name": "cirrus_confidence_low",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "255,255,0",
+        "description": "Cirrus confidence 0-35%"
+      },
+      {
+        "name": "cirrus_confidence_mid",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "178,178,0",
+        "description": "Cirrus confidence 36-64%"
+      },
+      {
+        "name": "cirrus_confidence_high",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "124,124,0",
+        "description": "Cirrus confidence 65-100%"
+      },
+      {
+        "name": "cloud_confidence_low",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "255,0,255",
+        "description": "Cloud confidence 0-35%"
+      },
+      {
+        "name": "cloud_confidence_mid",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "178,0,178",
+        "description": "Cloud confidence 36-64%"
+      },
+      {
+        "name": "cloud_confidence_high",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "124,0,124",
+        "description": "Cloud confidence 65-100%"
+      },
+      {
+        "name": "Rtosa_OOS",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "255,0,0",
+        "description": "The input spectrum to the atmospheric correction neural net was out of the scope of the training range and the inversion is likely to be wrong"
+      },
+      {
+        "name": "Rtosa_OOR",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "255,200,0",
+        "description": "The input spectrum to the atmospheric correction neural net out of training range"
+      },
+      {
+        "name": "Rhow_OOR",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "255,255,0",
+        "description": "One of the inputs to the IOP retrieval neural net is out of training range"
+      },
+      {
+        "name": "Cloud_risk",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "192,192,192",
+        "description": "High downwelling transmission is indicating cloudy conditions"
+      },
+      {
+        "name": "Iop_OOR",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "0,255,0",
+        "description": "One of the IOPs is out of range"
+      },
+      {
+        "name": "Apig_at_max",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "255,175,175",
+        "description": "Apig output of the IOP retrieval neural net is at its maximum. This means that the true value is this value or higher."
+      },
+      {
+        "name": "Adet_at_max",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "255,0,255",
+        "description": "Adet output of the IOP retrieval neural net is at its maximum. This means that the true value is this value or higher."
+      },
+      {
+        "name": "Agelb_at_max",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "0,255,255",
+        "description": "Agelb output of the IOP retrieval neural net is at its maximum. This means that the true value is this value or higher."
+      },
+      {
+        "name": "Bpart_at_max",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "128,128,128",
+        "description": "Bpart output of the IOP retrieval neural net is at its maximum. This means that the true value is this value or higher."
+      },
+      {
+        "name": "Bwit_at_max",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "255,0,0",
+        "description": "Bwit output of the IOP retrieval neural net is at its maximum. This means that the true value is this value or higher."
+      },
+      {
+        "name": "Apig_at_min",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "255,200,0",
+        "description": "Apig output of the IOP retrieval neural net is at its minimum. This means that the true value is this value or lower."
+      },
+      {
+        "name": "Adet_at_min",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "255,255,0",
+        "description": "Adet output of the IOP retrieval neural net is at its minimum. This means that the true value is this value or lower."
+      },
+      {
+        "name": "Agelb_at_min",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "0,0,255",
+        "description": "Agelb output of the IOP retrieval neural net is at its minimum. This means that the true value is this value or lower."
+      },
+      {
+        "name": "Bpart_at_min",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "0,255,0",
+        "description": "Bpart output of the IOP retrieval neural net is at its minimum. This means that the true value is this value or lower."
+      },
+      {
+        "name": "Bwit_at_min",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "255,175,175",
+        "description": "Bwit output of the IOP retrieval neural net is at its minimum. This means that the true value is this value or lower."
+      },
+      {
+        "name": "Rhow_OOS",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "255,0,255",
+        "description": "The Rhow input spectrum to IOP neural net is probably not within the training range of the neural net, and the inversion is likely to be wrong."
+      },
+      {
+        "name": "Kd489_OOR",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "0,255,255",
+        "description": "Kd489 is out of range"
+      },
+      {
+        "name": "Kdmin_OOR",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "128,128,128",
+        "description": "Kdmin is out of range"
+      },
+      {
+        "name": "Kd489_at_max",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "255,0,0",
+        "description": "Kdmin is at max"
+      },
+      {
+        "name": "Kdmin_at_max",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "255,200,0",
+        "description": "Kdmin is at max"
+      },
+      {
+        "name": "Valid_PE",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "255,255,0",
+        "description": "The operators valid pixel expression has resolved to true"
+      }
+    ],
+    "metadata": [
+      {
+        "path": "L1_METADATA_FILE/MIN_MAX_REFLECTANCE/REFLECTANCE_MINIMUM_BAND_7",
+        "value": "-0.09998"
+      },
+      {
+        "path": "L1_METADATA_FILE/METADATA_FILE_INFO/REQUEST_ID",
+        "value": "0501306021186_00006"
+      },
+      {
+        "path": "Processing_Graph/node.3/sources/sourceProduct",
+        "value": "L8_c2rcc"
+      },
+      {
+        "path": "L1_METADATA_FILE/MIN_MAX_RADIANCE/RADIANCE_MAXIMUM_BAND_7",
+        "value": "30.56465"
+      },
+      {
+        "path": "Processing_Graph/node.2/neuronalNets/usedNeuralNet[2]",
+        "value": "/auxdata/nets/landsat/l8_hitsm_20161115/rtosa_rw/31x77x57x37_160378.5.net"
+      },
+      {
+        "path": "L1_METADATA_FILE/MIN_MAX_REFLECTANCE/REFLECTANCE_MAXIMUM_BAND_9",
+        "value": "1.2107"
+      },
+      {
+        "path": "Processing_Graph/node.1/parameters/resampleOnPyramidLevels",
+        "value": "true"
+      },
+      {
+        "path": "L1_METADATA_FILE/PROJECTION_PARAMETERS/MAP_PROJECTION",
+        "value": "UTM"
+      },
+      {
+        "path": "L1_METADATA_FILE/IMAGE_ATTRIBUTES/IMAGE_QUALITY_OLI",
+        "value": "9"
+      },
+      {
+        "path": "Processing_Graph/node.2/parameters/salinity",
+        "value": "35.0"
+      }
+    ]
+  }
+}

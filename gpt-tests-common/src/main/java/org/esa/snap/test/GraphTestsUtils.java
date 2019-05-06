@@ -8,6 +8,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.filefilter.TrueFileFilter;
 import org.apache.commons.io.filefilter.WildcardFileFilter;
@@ -49,11 +50,29 @@ public class GraphTestsUtils {
                     continue;
                 }
                 for (GraphTest graphTest : graphTests) {
-                    if (graphTest.getFrequency().toLowerCase().contains(scope.toLowerCase())) {
-                        writer.write(file.getPath());
-                        writer.write("\n");
-                        break; //Once the file is included in the list, it is not needed to continue
+                    if(scope.toLowerCase().equals("release")) {
+                        if (graphTest.getFrequency().toLowerCase().contains("release") ||
+                                graphTest.getFrequency().toLowerCase().contains("weekly") ||
+                                graphTest.getFrequency().toLowerCase().contains("daily")) {
+                            writer.write(file.getPath());
+                            writer.write("\n");
+                            break; //Once the file is included in the list, it is not needed to continue
+                        }
+                    } else if (scope.toLowerCase().equals("weekly")) {
+                        if (graphTest.getFrequency().toLowerCase().contains("weekly") ||
+                                graphTest.getFrequency().toLowerCase().contains("daily")) {
+                            writer.write(file.getPath());
+                            writer.write("\n");
+                            break; //Once the file is included in the list, it is not needed to continue
+                        }
+                    } else {
+                        if (graphTest.getFrequency().toLowerCase().contains(scope.toLowerCase())) {
+                            writer.write(file.getPath());
+                            writer.write("\n");
+                            break; //Once the file is included in the list, it is not needed to continue
+                        }
                     }
+
                 }
             }
         } catch (IOException e) {

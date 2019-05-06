@@ -1,0 +1,615 @@
+{
+  "id": "Cloud_Probability",
+  "decodeQualification": "INTENDED",
+  "expectedContent": {
+    "sceneWidth": 1121,
+    "sceneHeight": 15025,
+    "startTime": "17-JUN-2008 09:03:05.265336",
+    "endTime": "17-JUN-2008 09:47:09.309035",
+    "geoCoding": {
+      "coordinates": [
+        {
+          "x": 483.0,
+          "y": 8076.0,
+          "lat": 24.411333510652184,
+          "lon": 11.408737584786042
+        },
+        {
+          "x": 832.0,
+          "y": 9749.0,
+          "lat": 6.2430436834692955,
+          "lon": 10.607451506878864
+        }
+      ],
+      "reverseAccuracy": 0.05125453233767985
+    },
+    "flagCodings": [
+      {
+        "name": "cloud_flag",
+        "samples": [
+          {
+            "name": "cloudy",
+            "value": 1,
+            "description": "is with more than 80% cloudy"
+          },
+          {
+            "name": "cloudfree",
+            "value": 2,
+            "description": "is with less than 20% cloudy"
+          },
+          {
+            "name": "cloud_uncertain",
+            "value": 4,
+            "description": "is with between 20% and 80% cloudy"
+          }
+        ]
+      },
+      {
+        "name": "l1_flags",
+        "samples": [
+          {
+            "name": "COSMETIC",
+            "value": 1,
+            "description": "Pixel is cosmetic"
+          },
+          {
+            "name": "DUPLICATED",
+            "value": 2,
+            "description": "Pixel has been duplicated (filled in)"
+          },
+          {
+            "name": "GLINT_RISK",
+            "value": 4,
+            "description": "Pixel has glint risk"
+          },
+          {
+            "name": "SUSPECT",
+            "value": 8,
+            "description": "Pixel is suspect"
+          },
+          {
+            "name": "LAND_OCEAN",
+            "value": 16,
+            "description": "Pixel is over land, not ocean"
+          },
+          {
+            "name": "BRIGHT",
+            "value": 32,
+            "description": "Pixel is bright"
+          },
+          {
+            "name": "COASTLINE",
+            "value": 64,
+            "description": "Pixel is part of a coastline"
+          },
+          {
+            "name": "INVALID",
+            "value": 128,
+            "description": "Pixel is invalid"
+          }
+        ]
+      }
+    ],
+    "tiePointGrids": [
+      {
+        "name": "latitude",
+        "description": "Latitude of the tie points (WGS-84), positive N",
+        "offsetX": "0.5",
+        "offsetY": "0.5",
+        "subSamplingX": "16.0",
+        "subSamplingY": "16.0",
+        "expectedPixels": [
+          {
+            "x": 58,
+            "y": 2676,
+            "value": 80.53421
+          },
+          {
+            "x": 767,
+            "y": 12780,
+            "value": -25.230942
+          }
+        ]
+      },
+      {
+        "name": "longitude",
+        "description": "Longitude of the tie points (WGS-84), Greenwich origin, positive E",
+        "offsetX": "0.5",
+        "offsetY": "0.5",
+        "subSamplingX": "16.0",
+        "subSamplingY": "16.0",
+        "expectedPixels": [
+          {
+            "x": 326,
+            "y": 3859,
+            "value": 26.991018
+          },
+          {
+            "x": 684,
+            "y": 5488,
+            "value": 22.603176
+          }
+        ]
+      },
+      {
+        "name": "dem_alt",
+        "description": "Digital elevation model altitude",
+        "offsetX": "0.5",
+        "offsetY": "0.5",
+        "subSamplingX": "16.0",
+        "subSamplingY": "16.0",
+        "expectedPixels": [
+          {
+            "x": 616,
+            "y": 11198,
+            "value": -5210.5625
+          },
+          {
+            "x": 681,
+            "y": 13950,
+            "value": -4721.9375
+          }
+        ]
+      },
+      {
+        "name": "dem_rough",
+        "description": "Digital elevation model roughness",
+        "offsetX": "0.5",
+        "offsetY": "0.5",
+        "subSamplingX": "16.0",
+        "subSamplingY": "16.0",
+        "expectedPixels": [
+          {
+            "x": 177,
+            "y": 10007,
+            "value": 0.0
+          },
+          {
+            "x": 581,
+            "y": 13725,
+            "value": 0.0
+          }
+        ]
+      },
+      {
+        "name": "lat_corr",
+        "description": "Digital elevation model latitude corrections",
+        "offsetX": "0.5",
+        "offsetY": "0.5",
+        "subSamplingX": "16.0",
+        "subSamplingY": "16.0",
+        "expectedPixels": [
+          {
+            "x": 847,
+            "y": 7281,
+            "value": 0.0
+          },
+          {
+            "x": 1065,
+            "y": 7300,
+            "value": 0.0
+          }
+        ]
+      },
+      {
+        "name": "lon_corr",
+        "description": "Digital elevation model longitude corrections",
+        "offsetX": "0.5",
+        "offsetY": "0.5",
+        "subSamplingX": "16.0",
+        "subSamplingY": "16.0",
+        "expectedPixels": [
+          {
+            "x": 381,
+            "y": 13513,
+            "value": 0.0
+          },
+          {
+            "x": 11,
+            "y": 7073,
+            "value": -0.007205664
+          }
+        ]
+      },
+      {
+        "name": "sun_zenith",
+        "description": "Sun zenith angle",
+        "offsetX": "0.5",
+        "offsetY": "0.5",
+        "subSamplingX": "16.0",
+        "subSamplingY": "16.0",
+        "expectedPixels": [
+          {
+            "x": 367,
+            "y": 2961,
+            "value": 53.151993
+          },
+          {
+            "x": 306,
+            "y": 648,
+            "value": 74.742485
+          }
+        ]
+      },
+      {
+        "name": "sun_azimuth",
+        "description": "Sun azimuth angles",
+        "offsetX": "0.5",
+        "offsetY": "0.5",
+        "subSamplingX": "16.0",
+        "subSamplingY": "16.0",
+        "expectedPixels": [
+          {
+            "x": 1089,
+            "y": 9086,
+            "value": 60.602474
+          },
+          {
+            "x": 641,
+            "y": 10769,
+            "value": 45.50944
+          }
+        ]
+      },
+      {
+        "name": "view_zenith",
+        "description": "Viewing zenith angles",
+        "offsetX": "0.5",
+        "offsetY": "0.5",
+        "subSamplingX": "16.0",
+        "subSamplingY": "16.0",
+        "expectedPixels": [
+          {
+            "x": 260,
+            "y": 7475,
+            "value": 24.210669
+          },
+          {
+            "x": 359,
+            "y": 10856,
+            "value": 16.668245
+          }
+        ]
+      },
+      {
+        "name": "view_azimuth",
+        "description": "Viewing azimuth angles",
+        "offsetX": "0.5",
+        "offsetY": "0.5",
+        "subSamplingX": "16.0",
+        "subSamplingY": "16.0",
+        "expectedPixels": [
+          {
+            "x": 401,
+            "y": 7485,
+            "value": 102.42302
+          },
+          {
+            "x": 451,
+            "y": 6645,
+            "value": 103.23466
+          }
+        ]
+      },
+      {
+        "name": "zonal_wind",
+        "description": "Zonal wind",
+        "offsetX": "0.5",
+        "offsetY": "0.5",
+        "subSamplingX": "16.0",
+        "subSamplingY": "16.0",
+        "expectedPixels": [
+          {
+            "x": 644,
+            "y": 1379,
+            "value": -5.4875
+          },
+          {
+            "x": 723,
+            "y": 237,
+            "value": -5.2464843
+          }
+        ]
+      },
+      {
+        "name": "merid_wind",
+        "description": "Meridional wind",
+        "offsetX": "0.5",
+        "offsetY": "0.5",
+        "subSamplingX": "16.0",
+        "subSamplingY": "16.0",
+        "expectedPixels": [
+          {
+            "x": 1093,
+            "y": 5518,
+            "value": 0.59765625
+          },
+          {
+            "x": 1065,
+            "y": 14219,
+            "value": -8.751172
+          }
+        ]
+      },
+      {
+        "name": "atm_press",
+        "description": "Mean sea level pressure",
+        "offsetX": "0.5",
+        "offsetY": "0.5",
+        "subSamplingX": "16.0",
+        "subSamplingY": "16.0",
+        "expectedPixels": [
+          {
+            "x": 124,
+            "y": 6789,
+            "value": 1010.8797
+          },
+          {
+            "x": 639,
+            "y": 8450,
+            "value": 1009.0938
+          }
+        ]
+      },
+      {
+        "name": "ozone",
+        "description": "Total ozone",
+        "offsetX": "0.5",
+        "offsetY": "0.5",
+        "subSamplingX": "16.0",
+        "subSamplingY": "16.0",
+        "expectedPixels": [
+          {
+            "x": 567,
+            "y": 7837,
+            "value": 277.15866
+          },
+          {
+            "x": 505,
+            "y": 8729,
+            "value": 279.91562
+          }
+        ]
+      },
+      {
+        "name": "rel_hum",
+        "description": "Relative humidity",
+        "offsetX": "0.5",
+        "offsetY": "0.5",
+        "subSamplingX": "16.0",
+        "subSamplingY": "16.0",
+        "expectedPixels": [
+          {
+            "x": 16,
+            "y": 6380,
+            "value": 78.275
+          },
+          {
+            "x": 78,
+            "y": 14917,
+            "value": 76.50235
+          }
+        ]
+      }
+    ],
+    "bands": [
+      {
+        "name": "cloud_prob",
+        "description": "Probability of clouds",
+        "bandWidth": 1121,
+        "bandHeight": 15025,
+        "noDataValue": "-9.999999747378752E-5",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 332,
+            "y": 11195,
+            "value": 0.9996
+          },
+          {
+            "x": 900,
+            "y": 11064,
+            "value": 0.98499995
+          },
+          {
+            "x": 1022,
+            "y": 2086,
+            "value": 0.023599999
+          },
+          {
+            "x": 1022,
+            "y": 2086,
+            "value": 0.023599999
+          },
+          {
+            "x": 740,
+            "y": 6984,
+            "value": 0.5154
+          },
+          {
+            "x": 204,
+            "y": 6566,
+            "value": 0.99979997
+          }
+        ]
+      },
+      {
+        "name": "cloud_flag",
+        "description": "Cloud specific flags",
+        "bandWidth": 1121,
+        "bandHeight": 15025,
+        "noDataValue": "0.0",
+        "noDataValueUsed": "false",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 935,
+            "y": 14206,
+            "value": 1.0
+          },
+          {
+            "x": 278,
+            "y": 7990,
+            "value": 2.0
+          },
+          {
+            "x": 1022,
+            "y": 2086,
+            "value": 2.0
+          },
+          {
+            "x": 740,
+            "y": 6984,
+            "value": 4.0
+          },
+          {
+            "x": 204,
+            "y": 6566,
+            "value": 1.0
+          }
+        ]
+      },
+      {
+        "name": "l1_flags",
+        "description": "Level 1b classification and quality flags",
+        "bandWidth": 1121,
+        "bandHeight": 15025,
+        "noDataValue": "0.0",
+        "noDataValueUsed": "false",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 684,
+            "y": 3907,
+            "value": 0.0
+          },
+          {
+            "x": 619,
+            "y": 2268,
+            "value": 32.0
+          }
+        ]
+      }
+    ],
+    "masks": [
+      {
+        "name": "cloudy",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "238,64,17",
+        "description": "is with more than 80% cloudy"
+      },
+      {
+        "name": "cloudfree",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "17,64,238",
+        "description": "is with less than 20% cloudy"
+      },
+      {
+        "name": "cloud_uncertain",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "128,255,128",
+        "description": "is with between 20% and 80% cloudy"
+      },
+      {
+        "name": "coastline",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "0,255,0",
+        "description": "Pixel is part of a coastline"
+      },
+      {
+        "name": "land",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "51,153,0",
+        "description": "Pixel is over land, not ocean"
+      },
+      {
+        "name": "water",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "153,153,255",
+        "description": "Not Pixel is over land, not ocean"
+      },
+      {
+        "name": "cosmetic",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "204,153,255",
+        "description": "Pixel is cosmetic"
+      },
+      {
+        "name": "duplicated",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "255,200,0",
+        "description": "Pixel has been duplicated (filled in)"
+      },
+      {
+        "name": "glint_risk",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "255,0,255",
+        "description": "Pixel has glint risk"
+      },
+      {
+        "name": "suspect",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "204,102,255",
+        "description": "Pixel is suspect"
+      },
+      {
+        "name": "bright",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "255,255,0",
+        "description": "Pixel is bright"
+      },
+      {
+        "name": "invalid",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "255,0,0",
+        "description": "Pixel is invalid"
+      }
+    ],
+    "metadata": [
+      {
+        "path": "DSD/DSD.17/DATASET_NAME",
+        "value": "Radiance MDS(14)"
+      },
+      {
+        "path": "Tie_points_ADS/Tie_points_ADS.91/attach_flag",
+        "value": "0"
+      },
+      {
+        "path": "DSD/DSD.21/OFFSET",
+        "value": "0"
+      },
+      {
+        "path": "Processing_Graph/node.2/parameters/clearCacheAfterRowWrite",
+        "value": "false"
+      },
+      {
+        "path": "DSD/DSD.3/SIZE",
+        "value": "3349220"
+      },
+      {
+        "path": "Scaling_Factor_GADS/sf_rel_hum",
+        "value": "0.1"
+      },
+      {
+        "path": "SPH/FIRST_MID_LAT",
+        "value": "69042674"
+      },
+      {
+        "path": "Scaling_Factor_GADS/sf_rad",
+        "value": "0.009474839,0.010603477,0.01158433,0.01070568,0.00932934,0.008188124,0.0068480745,0.0069379713,0.0063089724,0.008664634,0.0088729495,0.0036326132,0.0035543414,0.0061037163,0.005430559"
+      },
+      {
+        "path": "DSD/DSD.16/SIZE",
+        "value": "33881375"
+      },
+      {
+        "path": "DSD/DSD.7/DATASET_TYPE",
+        "value": "M"
+      }
+    ]
+  }
+}

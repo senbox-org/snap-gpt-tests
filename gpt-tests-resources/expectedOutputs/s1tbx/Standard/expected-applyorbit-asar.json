@@ -1,0 +1,95 @@
+{
+  "id" : "s1tbx.standard.applyorbit.asar",
+  "decodeQualification" : "INTENDED",
+  "expectedContent" : {
+    "sceneWidth" : 1012,
+    "sceneHeight" : 3168,
+    "geoCoding" : {
+      "coordinates" : [ {
+        "x" : 506.0,
+        "y" : 1584.0,
+        "lat" : 44.41141292519365,
+        "lon" : 37.81723007726923
+      } ]
+    },
+    "tiePointGrids" : [ {
+      "name" : "incident_angle",
+      "description" : "",
+      "offsetX" : 0.0,
+      "offsetY" : 0.0,
+      "subSamplingX" : 101.0,
+      "subSamplingY" : 137.0,
+      "expectedPixels" : [ {
+        "x" : 506.0,
+        "y" : 1584.0,
+        "value" : 40.978626
+      } ]
+    }, {
+      "name" : "slant_range_time",
+      "description" : "",
+      "offsetX" : 0.0,
+      "offsetY" : 0.0,
+      "subSamplingX" : 101.0,
+      "subSamplingY" : 137.0,
+      "expectedPixels" : [ {
+        "x" : 506.0,
+        "y" : 1584.0,
+        "value" : 6715377.0
+      } ]
+    }, {
+      "name" : "latitude",
+      "description" : "",
+      "offsetX" : 0.0,
+      "offsetY" : 0.0,
+      "subSamplingX" : 101.0,
+      "subSamplingY" : 137.0,
+      "expectedPixels" : [ {
+        "x" : 506.0,
+        "y" : 1584.0,
+        "value" : 44.411804
+      } ]
+    }, {
+      "name" : "longitude",
+      "description" : "",
+      "offsetX" : 0.0,
+      "offsetY" : 0.0,
+      "subSamplingX" : 101.0,
+      "subSamplingY" : 137.0,
+      "expectedPixels" : [ {
+        "x" : 506.0,
+        "y" : 1584.0,
+        "value" : 37.81763
+      } ]
+    } ],
+    "bands" : [ {
+      "name" : "Amplitude",
+      "description" : "Image Mode Medium Resolution Image (stripline)",
+      "bandWidth" : 1012,
+      "bandHeight" : 3168,
+      "noDataValue" : 0.0,
+      "noDataValueUsed" : true,
+      "spectralWavelength" : 0.0,
+      "spectralBandwidth" : 0.0,
+      "expectedPixels" : [ {
+        "x" : 506.0,
+        "y" : 1584.0,
+        "value" : 483.0
+      } ]
+    }, {
+      "name" : "Intensity",
+      "description" : "Intensity Image",
+      "bandWidth" : 1012,
+      "bandHeight" : 3168,
+      "noDataValue" : 0.0,
+      "noDataValueUsed" : true,
+      "spectralWavelength" : 0.0,
+      "spectralBandwidth" : 0.0,
+      "expectedPixels" : [ {
+        "x" : 506.0,
+        "y" : 1584.0,
+        "value" : 233289.0
+      } ]
+    } ],
+    "masks" : [ ]
+  }
+}

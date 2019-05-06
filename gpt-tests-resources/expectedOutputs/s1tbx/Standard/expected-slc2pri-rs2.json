@@ -1,0 +1,123 @@
+{
+  "id" : "s1tbx.standard.slc2pri.rs2",
+  "decodeQualification" : "INTENDED",
+  "expectedContent" : {
+    "sceneWidth" : 118,
+    "sceneHeight" : 3000,
+    "geoCoding" : {
+      "coordinates" : [ {
+        "x" : 59.0,
+        "y" : 1500.0,
+        "lat" : 49.17123031618893,
+        "lon" : -122.9104781140615
+      } ]
+    },
+    "tiePointGrids" : [ {
+      "name" : "latitude",
+      "description" : "",
+      "offsetX" : 0.0,
+      "offsetY" : 0.0,
+      "subSamplingX" : 11.800000190734863,
+      "subSamplingY" : 300.0,
+      "expectedPixels" : [ {
+        "x" : 59.0,
+        "y" : 1500.0,
+        "value" : 49.171196
+      } ]
+    }, {
+      "name" : "longitude",
+      "description" : "",
+      "offsetX" : 0.0,
+      "offsetY" : 0.0,
+      "subSamplingX" : 11.800000190734863,
+      "subSamplingY" : 300.0,
+      "expectedPixels" : [ {
+        "x" : 59.0,
+        "y" : 1500.0,
+        "value" : -122.91039
+      } ]
+    }, {
+      "name" : "incident_angle",
+      "description" : "",
+      "offsetX" : 0.0,
+      "offsetY" : 0.0,
+      "subSamplingX" : 11.800000190734863,
+      "subSamplingY" : 300.0,
+      "expectedPixels" : [ {
+        "x" : 59.0,
+        "y" : 1500.0,
+        "value" : 19.849915
+      } ]
+    }, {
+      "name" : "slant_range_time",
+      "description" : "",
+      "offsetX" : 0.0,
+      "offsetY" : 0.0,
+      "subSamplingX" : 11.800000190734863,
+      "subSamplingY" : 300.0,
+      "expectedPixels" : [ {
+        "x" : 59.0,
+        "y" : 1500.0,
+        "value" : 5625035.5
+      } ]
+    } ],
+    "bands" : [ {
+      "name" : "Sigma0_HH",
+      "description" : "",
+      "bandWidth" : 118,
+      "bandHeight" : 3000,
+      "noDataValue" : 0.0,
+      "noDataValueUsed" : true,
+      "spectralWavelength" : 0.0,
+      "spectralBandwidth" : 0.0,
+      "expectedPixels" : [ {
+        "x" : 59.0,
+        "y" : 1500.0,
+        "value" : 1.0661765
+      } ]
+    }, {
+      "name" : "Sigma0_HV",
+      "description" : "",
+      "bandWidth" : 118,
+      "bandHeight" : 3000,
+      "noDataValue" : 0.0,
+      "noDataValueUsed" : true,
+      "spectralWavelength" : 0.0,
+      "spectralBandwidth" : 0.0,
+      "expectedPixels" : [ {
+        "x" : 59.0,
+        "y" : 1500.0,
+        "value" : 0.002776006
+      } ]
+    }, {
+      "name" : "Sigma0_VH",
+      "description" : "",
+      "bandWidth" : 118,
+      "bandHeight" : 3000,
+      "noDataValue" : 0.0,
+      "noDataValueUsed" : true,
+      "spectralWavelength" : 0.0,
+      "spectralBandwidth" : 0.0,
+      "expectedPixels" : [ {
+        "x" : 59.0,
+        "y" : 1500.0,
+        "value" : 0.007850502
+      } ]
+    }, {
+      "name" : "Sigma0_VV",
+      "description" : "",
+      "bandWidth" : 118,
+      "bandHeight" : 3000,
+      "noDataValue" : 0.0,
+      "noDataValueUsed" : true,
+      "spectralWavelength" : 0.0,
+      "spectralBandwidth" : 0.0,
+      "expectedPixels" : [ {
+        "x" : 59.0,
+        "y" : 1500.0,
+        "value" : 0.803447
+      } ]
+    } ],
+    "masks" : [ ]
+  }
+}

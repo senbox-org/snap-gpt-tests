@@ -1,0 +1,37 @@
+<graph id="someGraphId">
+    <version>1.0</version>
+    <node id="Read">
+        <operator>Read</operator>
+        <sources/>
+        <parameters>
+            <file>$input</file>
+        </parameters>
+    </node>
+    <node id="modis_c2rcc">
+        <operator>c2rcc.modis</operator>
+        <sources>
+            <sourceProduct>Read</sourceProduct>
+        </sources>
+        <parameters>
+            <validPixelExpression>!(l2_flags.LAND ||  max(rhot_412,max(rhot_443,max(rhot_488,max(rhot_531,max(rhot_547,max(rhot_555,max(rhot_667,max(rhot_678,max(rhot_748,rhot_869)))))))))&gt;0.25)</validPixelExpression>
+            <salinity>35.0</salinity>
+            <temperature>15.0</temperature>
+            <ozone>330.0</ozone>
+            <press>1000.0</press>
+            <outputRtosa>false</outputRtosa>
+            <outputAsRrs>false</outputAsRrs>
+            <outputAngles>false</outputAngles>
+        </parameters>
+    </node>
+    <node id="Write">
+        <operator>Write</operator>
+        <sources>
+            <sourceProduct>modis_c2rcc</sourceProduct>
+        </sources>
+        <parameters>
+            <file>$output</file>
+            <formatName>BEAM-DIMAP</formatName>
+        </parameters>
+    </node>
+
+</graph>

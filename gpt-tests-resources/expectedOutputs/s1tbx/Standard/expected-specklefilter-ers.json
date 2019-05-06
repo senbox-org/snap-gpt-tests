@@ -1,0 +1,81 @@
+{
+  "id" : "s1tbx.standard.specklefilter.ers",
+  "decodeQualification" : "INTENDED",
+  "expectedContent" : {
+    "sceneWidth" : 1489,
+    "sceneHeight" : 675,
+    "geoCoding" : {
+      "coordinates" : [ {
+        "x" : 744.0,
+        "y" : 337.0,
+        "lat" : 34.92977109444903,
+        "lon" : -5.797614702291966
+      } ]
+    },
+    "tiePointGrids" : [ {
+      "name" : "slant_range_time",
+      "description" : "2 way slant range time",
+      "offsetX" : 0.5,
+      "offsetY" : 0.5,
+      "subSamplingX" : 149.0,
+      "subSamplingY" : 135.0,
+      "expectedPixels" : [ {
+        "x" : 744.0,
+        "y" : 337.0,
+        "value" : 5605376.5
+      } ]
+    }, {
+      "name" : "incident_angle",
+      "description" : "Incident angle",
+      "offsetX" : 0.5,
+      "offsetY" : 0.5,
+      "subSamplingX" : 149.0,
+      "subSamplingY" : 135.0,
+      "expectedPixels" : [ {
+        "x" : 744.0,
+        "y" : 337.0,
+        "value" : 22.836037
+      } ]
+    }, {
+      "name" : "latitude",
+      "description" : "Latitude of the tie points (WGS-84), positive N",
+      "offsetX" : 0.5,
+      "offsetY" : 0.5,
+      "subSamplingX" : 149.0,
+      "subSamplingY" : 135.0,
+      "expectedPixels" : [ {
+        "x" : 744.0,
+        "y" : 337.0,
+        "value" : 34.92951
+      } ]
+    }, {
+      "name" : "longitude",
+      "description" : "Longitude of the tie points (WGS-84), Greenwich origin, positive E",
+      "offsetX" : 0.5,
+      "offsetY" : 0.5,
+      "subSamplingX" : 149.0,
+      "subSamplingY" : 135.0,
+      "expectedPixels" : [ {
+        "x" : 744.0,
+        "y" : 337.0,
+        "value" : -5.7980976
+      } ]
+    } ],
+    "bands" : [ {
+      "name" : "Amplitude",
+      "description" : "Image Mode Precision Image",
+      "bandWidth" : 1489,
+      "bandHeight" : 675,
+      "noDataValue" : 0.0,
+      "noDataValueUsed" : true,
+      "spectralWavelength" : 0.0,
+      "spectralBandwidth" : 0.0,
+      "expectedPixels" : [ {
+        "x" : 744.0,
+        "y" : 337.0,
+        "value" : 318.0408
+      } ]
+    } ],
+    "masks" : [ ]
+  }
+}

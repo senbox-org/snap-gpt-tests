@@ -24,7 +24,7 @@
     </sources>
     <parameters class="com.bc.ceres.binding.dom.XppDomElement">
       <sourceBands/>
-      <region>100,100,500,500</region>
+      <region>$regionX,$regionY,$regionWidth,$regionHeight</region>
       <subSamplingX>1</subSamplingX>
       <subSamplingY>1</subSamplingY>
       <copyMetadata>true</copyMetadata>
@@ -52,7 +52,7 @@
   UNIT[&quot;degree&quot;, 0.017453292519943295], &#xd;
   AXIS[&quot;Geodetic longitude&quot;, EAST], &#xd;
   AXIS[&quot;Geodetic latitude&quot;, NORTH]]</mapProjection>
-      <nodataValueAtSea>true</nodataValueAtSea>
+      <nodataValueAtSea>false</nodataValueAtSea>
       <saveDEM>false</saveDEM>
       <saveLocalIncidenceAngle>false</saveLocalIncidenceAngle>
       <saveProjectedLocalIncidenceAngle>false</saveProjectedLocalIncidenceAngle>
