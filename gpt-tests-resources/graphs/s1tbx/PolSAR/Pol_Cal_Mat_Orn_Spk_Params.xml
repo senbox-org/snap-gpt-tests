@@ -1,0 +1,139 @@
+<graph id="Graph">
+  <version>1.0</version>
+  <node id="Read">
+    <operator>Read</operator>
+    <sources/>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <file>$input1</file>
+    </parameters>
+  </node>
+  <node id="Calibration">
+    <operator>Calibration</operator>
+    <sources>
+      <sourceProduct refid="Subset"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <sourceBands/>
+      <auxFile>Latest Auxiliary File</auxFile>
+      <externalAuxFile/>
+      <outputImageInComplex>true</outputImageInComplex>
+      <outputImageScaleInDb>false</outputImageScaleInDb>
+      <createGammaBand>false</createGammaBand>
+      <createBetaBand>false</createBetaBand>
+      <selectedPolarisations/>
+      <outputSigmaBand>true</outputSigmaBand>
+      <outputGammaBand>false</outputGammaBand>
+      <outputBetaBand>false</outputBetaBand>
+    </parameters>
+  </node>
+  <node id="Polarimetric-Matrices">
+    <operator>Polarimetric-Matrices</operator>
+    <sources>
+      <sourceProduct refid="Calibration"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <matrix>T3</matrix>
+    </parameters>
+  </node>
+  <node id="Orientation-Angle-Correction">
+    <operator>Orientation-Angle-Correction</operator>
+    <sources>
+      <sourceProduct refid="Polarimetric-Matrices"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <outputOrientationAngle>false</outputOrientationAngle>
+    </parameters>
+  </node>
+  <node id="Polarimetric-Speckle-Filter">
+    <operator>Polarimetric-Speckle-Filter</operator>
+    <sources>
+      <sourceProduct refid="Orientation-Angle-Correction"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <filter>Refined Lee Filter</filter>
+      <filterSize>5</filterSize>
+      <numLooksStr>1</numLooksStr>
+      <windowSize>7x7</windowSize>
+      <targetWindowSizeStr>3x3</targetWindowSizeStr>
+      <anSize>50</anSize>
+      <sigmaStr>0.9</sigmaStr>
+      <patchSizeStr>5</patchSizeStr>
+      <scaleSizeStr>1</scaleSizeStr>
+    </parameters>
+  </node>
+  <node id="Polarimetric-Parameters">
+    <operator>Polarimetric-Parameters</operator>
+    <sources>
+      <sourceProduct refid="Polarimetric-Speckle-Filter"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <useMeanMatrix>true</useMeanMatrix>
+      <windowSizeXStr>5</windowSizeXStr>
+      <windowSizeYStr>5</windowSizeYStr>
+      <outputSpan>true</outputSpan>
+      <outputPedestalHeight>false</outputPedestalHeight>
+      <outputRVI>false</outputRVI>
+      <outputRFDI>false</outputRFDI>
+      <outputCSI>false</outputCSI>
+      <outputVSI>false</outputVSI>
+      <outputBMI>false</outputBMI>
+      <outputITI>false</outputITI>
+      <outputHHVVRatio>false</outputHHVVRatio>
+      <outputHHHVRatio>false</outputHHHVRatio>
+      <outputVVVHRatio>false</outputVVVHRatio>
+    </parameters>
+  </node>
+  <node id="Subset">
+    <operator>Subset</operator>
+    <sources>
+      <sourceProduct refid="Read"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <sourceBands/>
+      <region>$subsetRegion</region>
+      <geoRegion/>
+      <subSamplingX>1</subSamplingX>
+      <subSamplingY>1</subSamplingY>
+      <fullSwath>false</fullSwath>
+      <tiePointGridNames/>
+      <copyMetadata>true</copyMetadata>
+    </parameters>
+  </node>
+  <node id="Write">
+    <operator>Write</operator>
+    <sources>
+      <sourceProduct refid="Polarimetric-Parameters"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <file>$out1</file>
+      <formatName>BEAM-DIMAP</formatName>
+    </parameters>
+  </node>
+  <applicationData id="Presentation">
+    <Description/>
+    <node id="Read">
+            <displayPosition x="33.0" y="15.0"/>
+    </node>
+    <node id="Calibration">
+      <displayPosition x="122.0" y="56.0"/>
+    </node>
+    <node id="Polarimetric-Matrices">
+      <displayPosition x="219.0" y="57.0"/>
+    </node>
+    <node id="Orientation-Angle-Correction">
+      <displayPosition x="195.0" y="109.0"/>
+    </node>
+    <node id="Polarimetric-Speckle-Filter">
+      <displayPosition x="204.0" y="160.0"/>
+    </node>
+    <node id="Polarimetric-Parameters">
+      <displayPosition x="214.0" y="216.0"/>
+    </node>
+    <node id="Subset">
+      <displayPosition x="34.0" y="57.0"/>
+    </node>
+    <node id="Write">
+            <displayPosition x="261.0" y="267.0"/>
+    </node>
+  </applicationData>
+</graph>

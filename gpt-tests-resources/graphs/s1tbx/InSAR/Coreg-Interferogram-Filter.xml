@@ -1,0 +1,136 @@
+<graph id="Graph">
+  <version>1.0</version>
+  <node id="CreateStack">
+    <operator>CreateStack</operator>
+    <sources>
+      <sourceProduct refid="ProductSet-Reader"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <masterBands/>
+      <sourceBands/>
+      <resamplingType>NONE</resamplingType>
+      <extent>Master</extent>
+      <initialOffsetMethod>Orbit</initialOffsetMethod>
+    </parameters>
+  </node>
+  <node id="Cross-Correlation">
+    <operator>Cross-Correlation</operator>
+    <sources>
+      <sourceProduct refid="CreateStack"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <numGCPtoGenerate>2000</numGCPtoGenerate>
+      <coarseRegistrationWindowWidth>128</coarseRegistrationWindowWidth>
+      <coarseRegistrationWindowHeight>128</coarseRegistrationWindowHeight>
+      <rowInterpFactor>4</rowInterpFactor>
+      <columnInterpFactor>4</columnInterpFactor>
+      <maxIteration>10</maxIteration>
+      <gcpTolerance>0.25</gcpTolerance>
+      <applyFineRegistration>true</applyFineRegistration>
+      <inSAROptimized>true</inSAROptimized>
+      <fineRegistrationWindowWidth>32</fineRegistrationWindowWidth>
+      <fineRegistrationWindowHeight>32</fineRegistrationWindowHeight>
+      <fineRegistrationWindowAccAzimuth>16</fineRegistrationWindowAccAzimuth>
+      <fineRegistrationWindowAccRange>16</fineRegistrationWindowAccRange>
+      <fineRegistrationOversampling>16</fineRegistrationOversampling>
+      <coherenceWindowSize>3</coherenceWindowSize>
+      <coherenceThreshold>0.6</coherenceThreshold>
+      <useSlidingWindow>false</useSlidingWindow>
+      <computeOffset>false</computeOffset>
+      <onlyGCPsOnLand>false</onlyGCPsOnLand>
+    </parameters>
+  </node>
+  <node id="Warp">
+    <operator>Warp</operator>
+    <sources>
+      <sourceProduct refid="Cross-Correlation"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <rmsThreshold>0.05</rmsThreshold>
+      <warpPolynomialOrder>1</warpPolynomialOrder>
+      <interpolationMethod>Cubic convolution (6 points)</interpolationMethod>
+      <demRefinement/>
+      <demName/>
+      <excludeMaster>false</excludeMaster>
+      <openResidualsFile>false</openResidualsFile>
+    </parameters>
+  </node>
+  <node id="Interferogram">
+    <operator>Interferogram</operator>
+    <sources>
+      <sourceProduct refid="Warp"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <subtractFlatEarthPhase>true</subtractFlatEarthPhase>
+      <srpPolynomialDegree>5</srpPolynomialDegree>
+      <srpNumberPoints>501</srpNumberPoints>
+      <orbitDegree>3</orbitDegree>
+      <includeCoherence>true</includeCoherence>
+      <cohWinAz>2</cohWinAz>
+      <cohWinRg>10</cohWinRg>
+      <squarePixel>true</squarePixel>
+      <subtractTopographicPhase>false</subtractTopographicPhase>
+      <demName/>
+      <externalDEMFile/>
+      <externalDEMNoDataValue>0.0</externalDEMNoDataValue>
+      <externalDEMApplyEGM/>
+      <tileExtensionPercent/>
+      <outputElevation>false</outputElevation>
+      <outputLatLon>false</outputLatLon>
+    </parameters>
+  </node>
+  <node id="GoldsteinPhaseFiltering">
+    <operator>GoldsteinPhaseFiltering</operator>
+    <sources>
+      <sourceProduct refid="Interferogram"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <alpha>1.0</alpha>
+      <FFTSizeString>64</FFTSizeString>
+      <windowSizeString>3</windowSizeString>
+      <useCoherenceMask>false</useCoherenceMask>
+      <coherenceThreshold>0.0</coherenceThreshold>
+    </parameters>
+  </node>
+  <node id="ProductSet-Reader">
+    <operator>ProductSet-Reader</operator>
+    <sources/>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <fileList>${input1},${input2}</fileList>
+    </parameters>
+  </node>
+  <node id="Write">
+    <operator>Write</operator>
+    <sources>
+      <sourceProduct refid="GoldsteinPhaseFiltering"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <file>$out1</file>
+      <formatName>BEAM-DIMAP</formatName>
+    </parameters>
+  </node>
+  <applicationData id="Presentation">
+    <Description/>
+    <node id="CreateStack">
+      <displayPosition x="85.0" y="94.0"/>
+    </node>
+    <node id="Cross-Correlation">
+      <displayPosition x="184.0" y="93.0"/>
+    </node>
+    <node id="Warp">
+      <displayPosition x="368.0" y="94.0"/>
+    </node>
+    <node id="Interferogram">
+      <displayPosition x="357.0" y="134.0"/>
+    </node>
+    <node id="GoldsteinPhaseFiltering">
+      <displayPosition x="331.0" y="182.0"/>
+    </node>
+    <node id="ProductSet-Reader">
+      <displayPosition x="68.0" y="38.0"/>
+    </node>
+    <node id="Write">
+      <displayPosition x="371.0" y="228.0"/>
+    </node>
+  </applicationData>
+</graph>
