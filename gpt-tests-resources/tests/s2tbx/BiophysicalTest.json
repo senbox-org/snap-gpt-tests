@@ -15,6 +15,23 @@
     "outputName": "temp1",
     "expected": "s2tbx/expectedLAI.json"
   }]
+},{
+    "id":"biophysicalTestsFull",
+    "description":"execute biophysical processor with S2 (full product)",
+    "frequency":"testGP",
+    "graphPath": "s2tbx/graphLAI.xml",
+    "inputs": {
+      "input1": "s2tbx/S2/PSD14/L1C/S2A_MSIL1C_20160914T074612_N0204_R135_T36JTT_20160914T081456.SAFE"
+    },
+    "parameters": {
+      "refBand": "B1",
+      "subsetRegion": "0,0,1830,1830"
+    },
+    "outputs": [{
+      "parameter": "out1",
+      "outputName": "temp2",
+      "expected": "s2tbx/expectedLAI.json"
+    }]
 }]
 
 
