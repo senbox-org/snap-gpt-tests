@@ -19,6 +19,27 @@
     "outputName": "tempGRM1",
     "expected": "s2tbx/expectedGRM1.json"
   }]
+},{
+  "id":"GRMTest1Full",
+  "description":"execute GRM processor (full product)",
+  "frequency":"weekdly/testGP",
+  "graphPath": "s2tbx/graphGRMOp.xml",
+  "inputs": {
+    "input1": "s2tbx/_FCC_gpt/S2B_MSIL1C_20170812T092029_N0205_R093_T34TGQ_20170812T092453.SAFE"
+  },
+  "parameters": {
+    "resampleRefBand": "B5",
+    "subsetSourceBands": "B1,B2,B3,B4,B5",
+    "subsetRegion": "0,0,5490,5490",
+    "mergingCostCriterion": "Baatz &amp; Schape",
+    "regionMergingCriterion": "Best Fitting",
+    "sourceBandNames": "B5"
+  },
+  "outputs": [{
+    "parameter": "out1",
+    "outputName": "tempGRM1Full",
+    "expected": "s2tbx/expectedGRM1.json"
+  }]
 }]
 
 

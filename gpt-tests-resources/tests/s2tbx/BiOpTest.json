@@ -17,6 +17,25 @@
     "outputName": "tempBI",
     "expected": "s2tbx/expectedBI.json"
   }]
+},{
+  "id":"BITestFull",
+  "description":"execute BI processor with S2 (full size)",
+  "frequency":"weekly/testGP",
+  "graphPath": "s2tbx/graphBiOp.xml",
+  "inputs": {
+    "input1": "s2tbx/S2/L1C/S2A_MSIL1C_20161206T080312_N0204_R035_T34HFH_20161206T081929.SAFE"
+  },
+  "parameters": {
+    "resampleRefBand": "B5",
+    "subsetRegion": "0,0,5490,5490",
+    "redSourceBand": "B4",
+    "greenSourceBand": "B3"
+  },
+  "outputs": [{
+    "parameter": "out1",
+    "outputName": "tempBIFull",
+    "expected": "s2tbx/expectedBI.json"
+  }]
 }]
 
 
