@@ -1,44 +1,73 @@
-[{
-    "id":"ResamplingTest_S2_1tile",
-    "description":"Do resampling operator on S2 one tile product",
-    "frequency":"daily",
+[
+  {
+    "id": "ResamplingTest_S2_1tile",
+    "description": "Do resampling operator on S2 one tile product",
+    "frequency": "daily",
     "graphPath": "snap/graphResample.xml",
     "inputs": {
-        "input1": "s2tbx/S2/PSD14/L1C/S2A_MSIL1C_20160914T074612_N0204_R135_T36JTT_20160914T081456.SAFE"
+      "input1": "s2tbx/S2/PSD14/L1C/S2A_MSIL1C_20160914T074612_N0204_R135_T36JTT_20160914T081456.SAFE"
     },
     "parameters": {
-        "targetResolution": "100",
-        "upsampling": "Nearest",
-        "downsampling": "First",
-        "flagDownsampling": "First",
-        "outputFormat": "BEAM-DIMAP"
+      "targetResolution": "100",
+      "upsampling": "Nearest",
+      "downsampling": "First",
+      "flagDownsampling": "First",
+      "outputFormat": "BEAM-DIMAP"
     },
-    "outputs": [{
+    "outputs": [
+      {
         "parameter": "out1",
         "outputName": "ResamplingTest_S2_1tile",
         "expected": "snap/expectedResamplingTest_S2_1tile.json"
-    }]
-},
-    {
-        "id":"ResamplingTest_S2_2tile",
-        "description":"Do resampling operator on S2 two tiles product",
-        "frequency":"daily",
-        "graphPath": "snap/graphResampleWithFormat.xml",
-        "inputs": {
-            "input1": "s2tbx/S2/L1C/Valencia/st/S2A_OPER_PRD_MSIL1C_PDMC_20160527T172127_R051_V20160511T105343_20160511T105343.SAFE"
-        },
-        "parameters": {
-            "targetResolution": "100",
-            "inputFormatName": "SENTINEL-2-MSI-MultiRes-UTM30N",
-            "upsampling": "Nearest",
-            "downsampling": "First",
-            "flagDownsampling": "First",
-            "outputFormat": "BEAM-DIMAP"
-        },
-        "outputs": [{
-            "parameter": "out1",
-            "outputName": "ResamplingTest_S2_2tile",
-            "expected": "snap/expectedResamplingTest_S2_2tile.json"
-        }]
-    }
+      }
+    ]
+  },
+  {
+    "id": "ResamplingTest_S2_2tile",
+    "description": "Do resampling operator on S2 two tiles product",
+    "frequency": "daily",
+    "graphPath": "snap/graphResampleWithFormat.xml",
+    "inputs": {
+      "input1": "s2tbx/S2/L1C/Valencia/st/S2A_OPER_PRD_MSIL1C_PDMC_20160527T172127_R051_V20160511T105343_20160511T105343.SAFE"
+    },
+    "parameters": {
+      "targetResolution": "100",
+      "inputFormatName": "SENTINEL-2-MSI-MultiRes-UTM30N",
+      "upsampling": "Nearest",
+      "downsampling": "First",
+      "flagDownsampling": "First",
+      "outputFormat": "BEAM-DIMAP"
+    },
+    "outputs": [
+      {
+        "parameter": "out1",
+        "outputName": "ResamplingTest_S2_2tile",
+        "expected": "snap/expectedResamplingTest_S2_2tile.json"
+      }
+    ]
+  },
+  {
+    "id": "ResampleS2_WriteNetCDF",
+    "description": "Do resampling S2 product and safe as NetCDF [SNAP-1088]",
+    "frequency": "marcop",
+    "graphPath": "snap/graphResampleWithFormat.xml",
+    "inputs": {
+      "input1": "s2tbx/S2/PSD14/L1C/S2A_MSIL1C_20160914T074612_N0204_R135_T36JTT_20160914T081456.SAFE"
+    },
+    "parameters": {
+      "targetResolution": "60",
+      "inputFormatName": "SENTINEL-2-MSI-MultiRes-UTM30N",
+      "upsampling": "Nearest",
+      "downsampling": "First",
+      "flagDownsampling": "First",
+      "outputFormat": "NetCDF4-CF"
+    },
+    "outputs": [
+      {
+        "parameter": "out1",
+        "outputName": "ResampleS2_WriteNetCDF",
+        "expected": "snap/expectedResampleS2_WriteNetCDF.json"
+      }
+    ]
+  }
 ]
