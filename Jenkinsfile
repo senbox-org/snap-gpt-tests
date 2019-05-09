@@ -58,7 +58,7 @@ pipeline {
     }
     agent { label 'snap-test' }
     parameters {
-        string(name: 'dockerTagName', defaultValue: "snap:${env.GIT_BRANCH}", description: 'Snap version to use to launch tests')
+        string(name: 'dockerTagName', defaultValue: "snap:master", description: 'Snap version to use to launch tests')
         string(name: 'testScope', defaultValue: 'REGULAR', description: 'Scope of the tests to launch (PUSH, DAILY, REGULAR, WEEKLY, RELEASE)')
         string(name: 'outputReportDir', defaultValue: '/home/snap/', description: 'Path to directory where gpt test will write report')
         string(name: 'jsonPath', defaultValue: '', description: 'Path to json file describing tests')
@@ -84,7 +84,7 @@ pipeline {
                 echo "Launch Filter JSON from ${env.JOB_NAME} from ${env.GIT_BRANCH} with commit ${env.GIT_COMMIT} using docker image snap-build-server.tilaa.cloud/${params.dockerTagName}"
                 sh "mkdir -p ${outputDir}"
                 sh "mvn -Duser.home=/var/maven clean package install"
-                sh "java -jar ./gpt-tests-executer/target/FilterTestJSON.jar ./gpt-tests-resources/tests ${params.testScope} ${outputDir}"
+                sh "java -jar ./gpt-tests-executer/target/FilterTestJSON.jar ./gpt-tests-resources/tests \"${params.testScope}\" ${outputDir}"
                 sh "more ${outputDir}/JSONTestFiles.txt"
                 sh "cp -r ./gpt-tests-executer/target/ ${outputDir}/gptExecutorTarget"
                 // sh "/opt/launchGpt.sh ${propertiesFilePath} ${outputDir}/FilterJson.vsofig ${scope}"
@@ -146,7 +146,7 @@ pipeline {
                 echo "Launch GPT Tests from ${env.JOB_NAME} from ${env.GIT_BRANCH} with commit ${env.GIT_COMMIT}"
                 sh "mkdir -p ${outputReportDir}/report"
                 sh "mkdir -p /home/snap/tmpDir"
-                sh "export LD_LIBRARY_PATH=. && /home/snap/snap/jre/bin/java -Dncsa.hdf.hdflib.HDFLibrary.hdflib=/home/snap/snap/snap/modules/lib/amd64/libjhdf.so -Dncsa.hdf.hdf5lib.H5.hdf5lib=/home/snap/snap/snap/modules/lib/amd64/libjhdf5.so -jar ${outputReportDir}/gptExecutorTarget/SnapGPTTest-jar-with-dependencies.jar /opt/snap-gpt-tests/gpt-tests-executer.properties ${params.testScope} ${params.jsonPath} ${outputReportDir}/report"
+                sh "export LD_LIBRARY_PATH=. && /home/snap/snap/jre/bin/java -Dncsa.hdf.hdflib.HDFLibrary.hdflib=/home/snap/snap/snap/modules/lib/amd64/libjhdf.so -Dncsa.hdf.hdf5lib.H5.hdf5lib=/home/snap/snap/snap/modules/lib/amd64/libjhdf5.so -jar ${outputReportDir}/gptExecutorTarget/SnapGPTTest-jar-with-dependencies.jar /opt/snap-gpt-tests/gpt-tests-executer.properties \"${params.testScope}\" ${params.jsonPath} ${outputReportDir}/report"
             }
         }
     }
