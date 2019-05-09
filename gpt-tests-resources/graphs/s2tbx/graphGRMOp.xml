@@ -23,27 +23,10 @@
       <resampleOnPyramidLevels>true</resampleOnPyramidLevels>
     </parameters>
   </node>
-  <node id="Subset">
-    <operator>Subset</operator>
-    <sources>
-      <sourceProduct refid="Resample"/>
-    </sources>
-    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
-      <!--<sourceBands>$subsetSourceBands</sourceBands>-->
-      <sourceBands/>
-      <region>$subsetRegion</region>
-      <geoRegion/>
-      <subSamplingX>1</subSamplingX>
-      <subSamplingY>1</subSamplingY>
-      <fullSwath>false</fullSwath>
-      <tiePointGridNames/>
-      <copyMetadata>true</copyMetadata>
-    </parameters>
-  </node>
   <node id="GenericRegionMergingOp">
     <operator>GenericRegionMergingOp</operator>
     <sources>
-      <sourceProduct refid="Subset"/>
+      <sourceProduct refid="Resample"/>
     </sources>
     <parameters class="com.bc.ceres.binding.dom.XppDomElement">
       <mergingCostCriterion>$mergingCostCriterion</mergingCostCriterion>
@@ -73,14 +56,11 @@
     <node id="Resample">
       <displayPosition x="140.0" y="136.0"/>
     </node>
-    <node id="Subset">
+    <node id="GenericRegionMergingOp">
       <displayPosition x="260.0" y="136.0"/>
     </node>
-    <node id="GenericRegionMergingOp">
-      <displayPosition x="380.0" y="136.0"/>
-    </node>
     <node id="Write">
-       <displayPosition x="500.0" y="136.0"/>
+      <displayPosition x="380.0" y="136.0"/>
     </node>
   </applicationData>
 </graph>

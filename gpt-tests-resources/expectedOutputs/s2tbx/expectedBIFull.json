@@ -1,0 +1,151 @@
+{
+    "id": "tempBIFull",
+    "decodeQualification": "INTENDED",
+    "expectedContent": {
+        "sceneWidth": 5490,
+        "sceneHeight": 5490,
+        "geoCoding": {
+            "coordinates": [
+                {
+                    "x": 2367.0,
+                    "y": 2951.0,
+                    "lat": -33.96102390979432,
+                    "lon": 22.594683505612938
+                },
+                {
+                    "x": 4076.0,
+                    "y": 3562.0,
+                    "lat": -34.06582241918215,
+                    "lon": 22.966985391730564
+                }
+            ],
+            "reverseAccuracy": 2.3566826712340117E-8
+        },
+        "flagCodings": [
+            {
+                "name": "flags",
+                "samples": [
+                    {
+                        "name": "ARITHMETIC",
+                        "value": 1,
+                        "description": "Value calculation failed due to an arithmetic exception"
+                    },
+                    {
+                        "name": "NEGATIVE",
+                        "value": 2,
+                        "description": "Index value is too low"
+                    },
+                    {
+                        "name": "SATURATION",
+                        "value": 4,
+                        "description": "Index value is too high"
+                    }
+                ]
+            }
+        ],
+        "bands": [
+            {
+                "name": "bi",
+                "description": "",
+                "bandWidth": 5490,
+                "bandHeight": 5490,
+                "noDataValue": "0.0",
+                "noDataValueUsed": "false",
+                "spectralWavelength": "0.0",
+                "spectralBandwidth": "0.0",
+                "expectedPixels": [
+                    {
+                        "x": 286,
+                        "y": 978,
+                        "value": 0.0
+                    },
+                    {
+                        "x": 3761,
+                        "y": 4669,
+                        "value": 0.043304157
+                    }
+                ]
+            },
+            {
+                "name": "flags",
+                "description": "bi specific flags",
+                "bandWidth": 5490,
+                "bandHeight": 5490,
+                "noDataValue": "0.0",
+                "noDataValueUsed": "false",
+                "spectralWavelength": "0.0",
+                "spectralBandwidth": "0.0",
+                "expectedPixels": [
+                    {
+                        "x": 1596,
+                        "y": 1410,
+                        "value": 0.0
+                    },
+                    {
+                        "x": 3351,
+                        "y": 2005,
+                        "value": 0.0
+                    }
+                ]
+            }
+        ],
+        "masks": [
+            {
+                "name": "ARITHMETIC",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "255,0,0",
+                "description": "An arithmetic exception occurred."
+            },
+            {
+                "name": "NEGATIVE",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "255,0,0",
+                "description": "Index value is too low."
+            },
+            {
+                "name": "SATURATION",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "178,0,0",
+                "description": "Index value is too high."
+            }
+        ],
+        "metadata": [
+            {
+                "path": "Processing_Graph/node.1/parameters/clearCacheAfterRowWrite",
+                "value": "false"
+            },
+            {
+                "path": "Processing_Graph/node.1/parameters/deleteOutputOnFailure",
+                "value": "true"
+            },
+            {
+                "path": "Processing_Graph/node.0/sources/sourceProduct",
+                "value": "product:Subset_S2A_MSIL1C_20161206T080312_N0204_R035_T34HFH_20161206T081929_resampled"
+            },
+            {
+                "path": "Processing_Graph/node.1/parameters/formatName",
+                "value": "BEAM-DIMAP"
+            },
+            {
+                "path": "Processing_Graph/node.0/parameters/greenSourceBand",
+                "value": "B3"
+            },
+            {
+                "path": "Processing_Graph/node.0/parameters/redSourceBand",
+                "value": "B4"
+            },
+            {
+                "path": "Processing_Graph/node.1/parameters/deleteOutputOnFailure",
+                "value": "true"
+            },
+            {
+                "path": "Processing_Graph/node.1/parameters/clearCacheAfterRowWrite",
+                "value": "false"
+            },
+            {
+                "path": "Processing_Graph/node.0/parameters/greenSourceBand",
+                "value": "B3"
+            }
+        ]
+    }
+}
