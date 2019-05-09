@@ -10,7 +10,7 @@
   <node id="GenericRegionMergingOp">
     <operator>GenericRegionMergingOp</operator>
     <sources>
-      <sourceProduct refid="Subset"/>
+      <sourceProduct refid="Read"/>
     </sources>
     <parameters class="com.bc.ceres.binding.dom.XppDomElement">
       <mergingCostCriterion>$mergingCostCriterion</mergingCostCriterion>
