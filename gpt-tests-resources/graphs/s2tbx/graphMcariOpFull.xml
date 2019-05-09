@@ -1,0 +1,49 @@
+<graph id="GraphMcariOp">
+  <version>1.0</version>
+  <node id="Read">
+    <operator>Read</operator>
+    <sources/>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <file>$input1</file>
+    </parameters>
+  </node>
+  <node id="McariOp">
+    <operator>McariOp</operator>
+    <sources>
+      <sourceProduct refid="Subset"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <resampleType>None</resampleType>
+      <upsampling/>
+      <downsampling/>
+      <red1Factor>1.0</red1Factor>
+      <red2Factor>1.0</red2Factor>
+      <greenFactor>1.0</greenFactor>
+      <red1SourceBand>$red1SourceBand</red1SourceBand>
+      <red2SourceBand>$red2SourceBand</red2SourceBand>
+      <greenSourceBand>$greenSourceBand</greenSourceBand>
+    </parameters>
+  </node>
+  <node id="Write">
+    <operator>Write</operator>
+    <sources>
+      <sourceProduct refid="McariOp"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <file>$out1</file>
+      <formatName>BEAM-DIMAP</formatName>
+    </parameters>
+  </node>
+  <applicationData id="Presentation">
+    <Description/>
+    <node id="Read">
+      <displayPosition x="20.0" y="136.0"/>
+    </node>
+    <node id="McariOp">
+      <displayPosition x="140.0" y="136.0"/>
+    </node>
+    <node id="Write">
+      <displayPosition x="260.0" y="136.0"/>
+    </node>
+  </applicationData>
+</graph>

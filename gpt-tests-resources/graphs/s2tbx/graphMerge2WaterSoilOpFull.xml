@@ -1,0 +1,86 @@
+<graph id="GraphMerge2WaterSoilOp">
+    <version>1.0</version>
+    <node id="Read">
+        <operator>Read</operator>
+        <sources/>
+        <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+            <file>$input1</file>
+        </parameters>
+    </node>
+    <node id="Read(2)">
+        <operator>Read</operator>
+        <sources/>
+        <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+            <file>$input2</file>
+        </parameters>
+    </node>
+    <node id="RiOp">
+        <operator>RiOp</operator>
+        <sources>
+            <sourceProduct refid="Read"/>
+        </sources>
+        <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+            <resampleType>None</resampleType>
+            <upsampling/>
+            <downsampling/>
+            <redFactor>1.0</redFactor>
+            <greenFactor>1.0</greenFactor>
+            <redSourceBand>$redSourceBand</redSourceBand>
+            <greenSourceBand>$greenSourceBand</greenSourceBand>
+        </parameters>
+    </node>
+    <node id="NdtiOp">
+        <operator>NdtiOp</operator>
+        <sources>
+            <sourceProduct refid="Read(2)"/>
+        </sources>
+        <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+            <resampleType>None</resampleType>
+            <upsampling/>
+            <downsampling/>
+            <redFactor>1.0</redFactor>
+            <greenFactor>1.0</greenFactor>
+            <redSourceBand>$redSourceBand</redSourceBand>
+            <greenSourceBand>$greenSourceBand</greenSourceBand>
+        </parameters>
+    </node>
+    <node id="BandMerge">
+        <operator>BandMerge</operator>
+        <sources>
+            <sourceProduct refid="RiOp"/>
+            <sourceProduct.1 refid="NdtiOp"/>
+        </sources>
+        <parameters class="com.bc.ceres.binding.dom.XppDomElement"/>
+    </node>
+    <node id="Write">
+        <operator>Write</operator>
+        <sources>
+            <sourceProduct refid="BandMerge"/>
+        </sources>
+        <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+            <file>$out1</file>
+            <formatName>BEAM-DIMAP</formatName>
+        </parameters>
+    </node>
+    <applicationData id="Presentation">
+        <Description/>
+        <node id="Read">
+            <displayPosition x="37.0" y="134.0"/>
+        </node>
+        <node id="Read(2)">
+            <displayPosition x="34.0" y="212.0"/>
+        </node>
+        <node id="RiOp">
+            <displayPosition x="133.0" y="129.0"/>
+        </node>
+        <node id="NdtiOp">
+            <displayPosition x="124.0" y="210.0"/>
+        </node>
+        <node id="BandMerge">
+            <displayPosition x="245.0" y="132.0"/>
+        </node>
+        <node id="Write">
+            <displayPosition x="232.0" y="207.0"/>
+        </node>
+    </applicationData>
+</graph>
