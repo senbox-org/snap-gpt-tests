@@ -11,6 +11,7 @@ import org.esa.snap.dataio.ExpectedDataset;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -108,6 +109,10 @@ public class TestExecutor {
         if(filelist.size() == 1) {
             File[] files = filelist.toArray(new File[filelist.size()]);
             return files[0].getAbsolutePath();
+        }
+        Path outPath = tempFolder.resolve(output.getOutputName());
+        if(Files.exists(outPath)) {
+            return outPath.toAbsolutePath().toString();
         }
 
         //TODO check
