@@ -156,7 +156,7 @@ public class SnapGPTTest {
                             success = false;
                             //copy  output product to report
                             for(Output output : graphTest.getOutputs()) {
-                                Collection<File> outputFiles = FileUtils.listFilesAndDirs(tempFolder.toFile(), new WildcardFileFilter(String.format("%s.*",output.getOutputName())), new WildcardFileFilter(String.format("%s.*",output.getOutputName())));
+                                Collection<File> outputFiles = FileUtils.listFilesAndDirs(tempFolder.toFile(), new WildcardFileFilter(String.format("%s*",output.getOutputName())), new WildcardFileFilter(String.format("%s*",output.getOutputName())));
                                 for (File outputFile : outputFiles) {
                                     if(outputFile.toString().equals(tempFolder.toString())) {
                                         continue;
