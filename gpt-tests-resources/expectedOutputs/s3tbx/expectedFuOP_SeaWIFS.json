@@ -1,0 +1,428 @@
+{
+    "id": "FuTest_SeaWIFS",
+    "decodeQualification": "INTENDED",
+    "expectedContent": {
+        "sceneWidth": 100,
+        "sceneHeight": 300,
+        "startTime": "14-JAN-2001 01:33:27.593847",
+        "endTime": "14-JAN-2001 01:36:46.927155",
+        "geoCoding": {
+            "coordinates": [
+                {
+                    "x": 43.0,
+                    "y": 161.0,
+                    "lat": -21.91886329650879,
+                    "lon": 154.16549682617188
+                },
+                {
+                    "x": 74.0,
+                    "y": 194.0,
+                    "lat": -23.446598052978516,
+                    "lon": 155.40982055664062
+                }
+            ],
+            "reverseAccuracy": 0.5
+        },
+        "indexCodings": [
+            {
+                "name": "Forel-Ule Scale",
+                "samples": [
+                    {
+                        "name": "undefined",
+                        "value": 0,
+                        "description": ""
+                    },
+                    {
+                        "name": "FU_ 1",
+                        "value": 1,
+                        "description": ""
+                    },
+                    {
+                        "name": "FU_ 2",
+                        "value": 2,
+                        "description": ""
+                    },
+                    {
+                        "name": "FU_ 3",
+                        "value": 3,
+                        "description": ""
+                    },
+                    {
+                        "name": "FU_ 4",
+                        "value": 4,
+                        "description": ""
+                    },
+                    {
+                        "name": "FU_ 5",
+                        "value": 5,
+                        "description": ""
+                    },
+                    {
+                        "name": "FU_ 6",
+                        "value": 6,
+                        "description": ""
+                    },
+                    {
+                        "name": "FU_ 7",
+                        "value": 7,
+                        "description": ""
+                    },
+                    {
+                        "name": "FU_ 8",
+                        "value": 8,
+                        "description": ""
+                    },
+                    {
+                        "name": "FU_ 9",
+                        "value": 9,
+                        "description": ""
+                    },
+                    {
+                        "name": "FU_10",
+                        "value": 10,
+                        "description": ""
+                    },
+                    {
+                        "name": "FU_11",
+                        "value": 11,
+                        "description": ""
+                    },
+                    {
+                        "name": "FU_12",
+                        "value": 12,
+                        "description": ""
+                    },
+                    {
+                        "name": "FU_13",
+                        "value": 13,
+                        "description": ""
+                    },
+                    {
+                        "name": "FU_14",
+                        "value": 14,
+                        "description": ""
+                    },
+                    {
+                        "name": "FU_15",
+                        "value": 15,
+                        "description": ""
+                    },
+                    {
+                        "name": "FU_16",
+                        "value": 16,
+                        "description": ""
+                    },
+                    {
+                        "name": "FU_17",
+                        "value": 17,
+                        "description": ""
+                    },
+                    {
+                        "name": "FU_18",
+                        "value": 18,
+                        "description": ""
+                    },
+                    {
+                        "name": "FU_19",
+                        "value": 19,
+                        "description": ""
+                    },
+                    {
+                        "name": "FU_20",
+                        "value": 20,
+                        "description": ""
+                    },
+                    {
+                        "name": "FU_21",
+                        "value": 21,
+                        "description": ""
+                    }
+                ]
+            }
+        ],
+        "bands": [
+            {
+                "name": "latitude",
+                "description": "Latitudes at control points",
+                "bandWidth": 100,
+                "bandHeight": 300,
+                "geophysicalUnit": "degrees",
+                "noDataValue": "-999.0",
+                "noDataValueUsed": "true",
+                "spectralWavelength": "0.0",
+                "spectralBandwidth": "0.0",
+                "expectedPixels": [
+                    {
+                        "x": 5,
+                        "y": 53,
+                        "value": -12.739368
+                    },
+                    {
+                        "x": 68,
+                        "y": 255,
+                        "value": -25.85207
+                    }
+                ]
+            },
+            {
+                "name": "longitude",
+                "description": "Longitudes at control points",
+                "bandWidth": 100,
+                "bandHeight": 300,
+                "geophysicalUnit": "degrees",
+                "noDataValue": "-999.0",
+                "noDataValueUsed": "true",
+                "spectralWavelength": "0.0",
+                "spectralBandwidth": "0.0",
+                "expectedPixels": [
+                    {
+                        "x": 29,
+                        "y": 77,
+                        "value": 154.51442
+                    },
+                    {
+                        "x": 61,
+                        "y": 109,
+                        "value": 155.50253
+                    }
+                ]
+            },
+            {
+                "name": "X3_SEAWIFS",
+                "description": "",
+                "bandWidth": 100,
+                "bandHeight": 300,
+                "noDataValue": "NaN",
+                "noDataValueUsed": "true",
+                "spectralWavelength": "0.0",
+                "spectralBandwidth": "0.0",
+                "expectedPixels": [
+                    {
+                        "x": 55,
+                        "y": 223,
+                        "value": 0.4064702
+                    },
+                    {
+                        "x": 60,
+                        "y": 278,
+                        "value": 0.23510769
+                    }
+                ]
+            },
+            {
+                "name": "Y3_SEAWIFS",
+                "description": "",
+                "bandWidth": 100,
+                "bandHeight": 300,
+                "noDataValue": "NaN",
+                "noDataValueUsed": "true",
+                "spectralWavelength": "0.0",
+                "spectralBandwidth": "0.0",
+                "expectedPixels": [
+                    {
+                        "x": 15,
+                        "y": 199,
+                        "value": 0.24548292
+                    },
+                    {
+                        "x": 51,
+                        "y": 274,
+                        "value": "NaN"
+                    }
+                ]
+            },
+            {
+                "name": "Z3_SEAWIFS",
+                "description": "",
+                "bandWidth": 100,
+                "bandHeight": 300,
+                "noDataValue": "NaN",
+                "noDataValueUsed": "true",
+                "spectralWavelength": "0.0",
+                "spectralBandwidth": "0.0",
+                "expectedPixels": [
+                    {
+                        "x": 75,
+                        "y": 145,
+                        "value": 1.0468354
+                    },
+                    {
+                        "x": 95,
+                        "y": 145,
+                        "value": 1.0381013
+                    }
+                ]
+            },
+            {
+                "name": "chrX_SEAWIFS",
+                "description": "",
+                "bandWidth": 100,
+                "bandHeight": 300,
+                "noDataValue": "NaN",
+                "noDataValueUsed": "true",
+                "spectralWavelength": "0.0",
+                "spectralBandwidth": "0.0",
+                "expectedPixels": [
+                    {
+                        "x": 34,
+                        "y": 269,
+                        "value": "NaN"
+                    },
+                    {
+                        "x": 0,
+                        "y": 141,
+                        "value": 0.1765821
+                    }
+                ]
+            },
+            {
+                "name": "chrY_SEAWIFS",
+                "description": "",
+                "bandWidth": 100,
+                "bandHeight": 300,
+                "noDataValue": "NaN",
+                "noDataValueUsed": "true",
+                "spectralWavelength": "0.0",
+                "spectralBandwidth": "0.0",
+                "expectedPixels": [
+                    {
+                        "x": 32,
+                        "y": 59,
+                        "value": "NaN"
+                    },
+                    {
+                        "x": 27,
+                        "y": 12,
+                        "value": "NaN"
+                    }
+                ]
+            },
+            {
+                "name": "poly_corr_SEAWIFS",
+                "description": "",
+                "bandWidth": 100,
+                "bandHeight": 300,
+                "noDataValue": "NaN",
+                "noDataValueUsed": "true",
+                "spectralWavelength": "0.0",
+                "spectralBandwidth": "0.0",
+                "expectedPixels": [
+                    {
+                        "x": 97,
+                        "y": 181,
+                        "value": -1.4315203
+                    },
+                    {
+                        "x": 57,
+                        "y": 215,
+                        "value": "NaN"
+                    }
+                ]
+            },
+            {
+                "name": "hue_band_SEAWIFS",
+                "description": "",
+                "bandWidth": 100,
+                "bandHeight": 300,
+                "noDataValue": "NaN",
+                "noDataValueUsed": "true",
+                "spectralWavelength": "0.0",
+                "spectralBandwidth": "0.0",
+                "expectedPixels": [
+                    {
+                        "x": 23,
+                        "y": 149,
+                        "value": "NaN"
+                    },
+                    {
+                        "x": 32,
+                        "y": 216,
+                        "value": "NaN"
+                    }
+                ]
+            },
+            {
+                "name": "hue_angle",
+                "description": "",
+                "bandWidth": 100,
+                "bandHeight": 300,
+                "noDataValue": "NaN",
+                "noDataValueUsed": "true",
+                "spectralWavelength": "0.0",
+                "spectralBandwidth": "0.0",
+                "expectedPixels": [
+                    {
+                        "x": 35,
+                        "y": 149,
+                        "value": 229.5173
+                    },
+                    {
+                        "x": 40,
+                        "y": 132,
+                        "value": "NaN"
+                    }
+                ]
+            },
+            {
+                "name": "FU",
+                "description": "",
+                "bandWidth": 100,
+                "bandHeight": 300,
+                "noDataValue": "127.0",
+                "noDataValueUsed": "true",
+                "spectralWavelength": "0.0",
+                "spectralBandwidth": "0.0",
+                "expectedPixels": [
+                    {
+                        "x": 57,
+                        "y": 27,
+                        "value": "NaN"
+                    },
+                    {
+                        "x": 64,
+                        "y": 4,
+                        "value": "NaN"
+                    }
+                ]
+            }
+        ],
+        "metadata": [
+            {
+                "path": "Processing_Graph/node.1/parameters/instrument",
+                "value": "SEAWIFS"
+            },
+            {
+                "path": "history/SubsetInfo/ProductNodeName.7",
+                "value": "Rrs_555"
+            },
+            {
+                "path": "Processing_Graph/node.1/parameters/inputIsIrradianceReflectance",
+                "value": "false"
+            },
+            {
+                "path": "Processing_Graph/node.0/parameters/region",
+                "value": "100,1800,100,300"
+            },
+            {
+                "path": "Processing_Graph/node.2/parameters/file",
+                "value": "FuOp_SeaWiFS_L2"
+            },
+            {
+                "path": "Processing_Graph/node.1/sources/sourceProduct",
+                "value": "product:Subset_S2001014011328.L2_GAC_OC"
+            },
+            {
+                "path": "history/SubsetInfo/ProductNodeName.7",
+                "value": "Rrs_555"
+            },
+            {
+                "path": "history/SubsetInfo/SubSampling.y",
+                "value": "1"
+            },
+            {
+                "path": "history/SubsetInfo/ProductNodeName.10",
+                "value": "Kd_490"
+            }
+        ]
+    }
+}
