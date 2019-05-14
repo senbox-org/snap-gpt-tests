@@ -1,10 +1,10 @@
-<graph id="GraphFuOp">
+<graph id="GraphMphChlOp">
     <version>1.0</version>
     <node id="Read">
         <operator>Read</operator>
         <sources/>
         <parameters>
-            <file>$input1</file>
+            <file>$input</file>
         </parameters>
     </node>
 
@@ -19,25 +19,24 @@
         </parameters>
     </node>
 
-    <node id="FuOp">
-        <operator>FuClassification</operator>
+    <node id="MphChl">
+        <operator>MphChl</operator>
         <sources>
             <sourceProduct refid="Subset"/>
         </sources>
         <parameters>
-            <copyAllSourceBands>$copyAllSourceBands</copyAllSourceBands>
-            <inputIsIrradianceReflectance>$inputIsIrradianceReflectance</inputIsIrradianceReflectance>
-            <validExpression>$validExpression</validExpression>
-            <reflectanceNamePattern>$reflectanceNamePattern</reflectanceNamePattern>
-            <instrument>$instrument</instrument>
-            <includeIntermediateResults>$includeIntermediateResults</includeIntermediateResults>
+            <validPixelExpression>$validPixelExpression</validPixelExpression>
+            <cyanoMaxValue>$cyanoMaxValue</cyanoMaxValue>
+            <chlThreshForFloatFlag>$chlThreshForFloatFlag</chlThreshForFloatFlag>
+            <exportMph>$exportMph</exportMph>
+            <applyLowPassFilter>$applyLowPassFilter</applyLowPassFilter>
         </parameters>
     </node>
 
     <node id="Write">
         <operator>Write</operator>
         <sources>
-            <sourceProduct refid="FuOp"/>
+            <sourceProduct refid="MphChl"/>
         </sources>
         <parameters>
             <file>$output</file>
