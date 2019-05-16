@@ -1,0 +1,107 @@
+<graph id="GraphSpectralUnmixing_S2A_L1C">
+    <version>1.0</version>
+    <node id="Read">
+        <operator>Read</operator>
+        <sources/>
+        <parameters>
+            <file>
+               $input
+            </file>
+        </parameters>
+    </node>
+
+    <node id="Resample">
+        <operator>Resample</operator>
+        <sources>
+            <sourceProduct refid="Read"/>
+        </sources>
+        <parameters>
+            <referenceBand>$resampleRefBand</referenceBand>
+            <upsampling>Nearest</upsampling>
+            <downsampling>First</downsampling>
+            <flagDownsampling>First</flagDownsampling>
+            <resampleOnPyramidLevels>true</resampleOnPyramidLevels>
+        </parameters>
+    </node>
+
+    <node id="Subset">
+        <operator>Subset</operator>
+        <sources>
+            <sourceProduct refid="Resample"/>
+        </sources>
+        <parameters>
+            <region>$subsetRegion</region>
+            <copyMetadata>false</copyMetadata>
+        </parameters>
+    </node>
+
+    <node id="Unmix">
+        <operator>Unmix</operator>
+        <sources>
+            <sourceProduct refid="Subset"/>
+        </sources>
+        <parameters>
+            <sourceBands>
+                <band>B4</band>
+                <band>B5</band>
+                <band>B6</band>
+                <band>B7</band>
+                <band>B8A</band>
+            </sourceBands>
+            <endmembers>
+                <endmember>
+                    <name>Forest</name>
+                    <wavelengths>
+                        $forestWavelengths
+                    </wavelengths>
+                    <radiations>
+                        $forestRadiations
+                    </radiations>
+                </endmember>
+                <endmember>
+                    <name>Cropland</name>
+                    <wavelengths>
+                        $croplandWavelengths
+                    </wavelengths>
+                    <radiations>
+                        $croplandRadiations
+                    </radiations>
+                </endmember>
+                <endmember>
+                    <name>Cloud</name>
+                    <wavelengths>
+                        $cloudWavelengths
+                    </wavelengths>
+                    <radiations>
+                        $cloudRadiations
+                    </radiations>
+                </endmember>
+                <endmember>
+                    <name>Ocean</name>
+                    <wavelengths>
+                        $oceanWavelengths
+                    </wavelengths>
+                    <radiations>
+                        $oceanRadiations
+                    </radiations>
+                </endmember>
+            </endmembers>
+            <unmixingModelName>$unmixingModelName</unmixingModelName>
+            <abundanceBandNameSuffix>$abundanceBandNameSuffix</abundanceBandNameSuffix>
+            <errorBandNameSuffix>$errorBandNameSuffix</errorBandNameSuffix>
+            <computeErrorBands>$computeErrorBands</computeErrorBands>
+            <minBandwidth>$minBandwidth</minBandwidth>
+        </parameters>
+    </node>
+
+    <node id="Write">
+        <operator>Write</operator>
+        <sources>
+            <sourceProduct refid="Unmix"/>
+        </sources>
+        <parameters>
+            <file>Unmix_L1C</file>
+            <formatName>BEAM-DIMAP</formatName>
+        </parameters>
+    </node>
+</graph>
