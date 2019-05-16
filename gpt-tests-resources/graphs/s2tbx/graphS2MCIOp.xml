@@ -1,0 +1,64 @@
+<graph id="GraphS2MCIOp">
+    <version>1.0</version>
+    <node id="Read">
+        <operator>Read</operator>
+        <sources/>
+        <parameters>
+            <file>$input</file>
+        </parameters>
+    </node>
+
+    <node id="Resample">
+        <operator>Resample</operator>
+        <sources>
+            <sourceProduct refid="Read"/>
+        </sources>
+        <parameters>
+            <referenceBand>$resampleRefBand</referenceBand>
+            <upsampling>Nearest</upsampling>
+            <downsampling>First</downsampling>
+            <flagDownsampling>First</flagDownsampling>
+            <resampleOnPyramidLevels>true</resampleOnPyramidLevels>
+        </parameters>
+    </node>
+
+    <node id="Subset">
+        <operator>Subset</operator>
+        <sources>
+            <sourceProduct refid="Resample"/>
+        </sources>
+        <parameters>
+            <region>$subsetRegion</region>
+            <copyMetadata>false</copyMetadata>
+        </parameters>
+    </node>
+
+    <node id="Mci.s2">
+        <operator>Mci.s2</operator>
+        <sources>
+            <sourceProduct refid="Subset"/>
+        </sources>
+        <parameters>
+            <lowerBaselineBandName>$lowerBaselineBandName</lowerBaselineBandName>
+            <upperBaselineBandName>$upperBaselineBandName</upperBaselineBandName>
+            <signalBandName>$signalBandName</signalBandName>
+            <lineHeightBandName>$lineHeightBandName</lineHeightBandName>
+            <slope>$slope</slope>
+            <slopeBandName>$slopeBandName</slopeBandName>
+            <maskExpression>$maskExpression</maskExpression>
+            <cloudCorrectionFactor>$cloudCorrectionFactor</cloudCorrectionFactor>
+            <invalidMciValue>$invalidMciValue</invalidMciValue>
+        </parameters>
+    </node>
+
+    <node id="Write">
+        <operator>Write</operator>
+        <sources>
+            <sourceProduct refid="Mci.s2"/>
+        </sources>
+        <parameters>
+            <file>$output</file>
+            <formatName>BEAM-DIMAP</formatName>
+        </parameters>
+    </node>
+</graph>

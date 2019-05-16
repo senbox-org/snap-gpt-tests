@@ -1,0 +1,197 @@
+{
+    "id": "S2MCI_L2A",
+    "decodeQualification": "INTENDED",
+    "expectedContent": {
+        "sceneWidth": 200,
+        "sceneHeight": 200,
+        "startTime": "09-MAY-2019 21:19:21.024000",
+        "endTime": "09-MAY-2019 21:19:21.024000",
+        "geoCoding": {
+            "coordinates": [
+                {
+                    "x": 63.5,
+                    "y": 64.5,
+                    "lat": 21.756495311518314,
+                    "lon": -158.09293378886258
+                },
+                {
+                    "x": 54.5,
+                    "y": 98.5,
+                    "lat": 21.738095068189757,
+                    "lon": -158.098270812434
+                },
+                {
+                    "x": 46.5,
+                    "y": 149.5,
+                    "lat": 21.710476983642415,
+                    "lon": -158.10308343806108
+                },
+                {
+                    "x": 104.5,
+                    "y": 36.5,
+                    "lat": 21.771539680581885,
+                    "lon": -158.0690469992539
+                },
+                {
+                    "x": 161.5,
+                    "y": 9.5,
+                    "lat": 21.78598447736578,
+                    "lon": -158.03587362320067
+                },
+                {
+                    "x": 188.5,
+                    "y": 173.5,
+                    "lat": 21.69700245219165,
+                    "lon": -158.02080735002355
+                },
+                {
+                    "x": 164.5,
+                    "y": 183.5,
+                    "lat": 21.691663897188878,
+                    "lon": -158.0347627521709
+                }
+            ],
+            "reverseAccuracy": 6.366462912410498E-11
+        },
+        "bands": [
+            {
+                "name": "MCI_test",
+                "description": "Line height band",
+                "bandWidth": 200,
+                "bandHeight": 200,
+                "geophysicalUnit": "dl",
+                "noDataValue": "NaN",
+                "noDataValueUsed": "true",
+                "spectralWavelength": "705.0",
+                "spectralBandwidth": "97.0",
+                "expectedPixels": [
+                    {
+                        "x": 63,
+                        "y": 64,
+                        "value": 0.0073218737
+                    },
+                    {
+                        "x": 54,
+                        "y": 98,
+                        "value": 0.015645541
+                    },
+                    {
+                        "x": 46,
+                        "y": 149,
+                        "value": 0.010291375
+                    },
+                    {
+                        "x": 104,
+                        "y": 36,
+                        "value": 0.006928293
+                    },
+                    {
+                        "x": 161,
+                        "y": 9,
+                        "value": "NaN"
+                    },
+                    {
+                        "x": 188,
+                        "y": 173,
+                        "value": 0.0010914857
+                    },
+                    {
+                        "x": 164,
+                        "y": 183,
+                        "value": -0.001965691
+                    }
+                ]
+            },
+            {
+                "name": "MCI_slope_test",
+                "description": "Baseline slope band",
+                "bandWidth": 200,
+                "bandHeight": 200,
+                "geophysicalUnit": "dl nm-1",
+                "noDataValue": "NaN",
+                "noDataValueUsed": "true",
+                "spectralWavelength": "0.0",
+                "spectralBandwidth": "0.0",
+                "expectedPixels": [
+                    {
+                        "x": 63,
+                        "y": 64,
+                        "value": -9.058296E-5
+                    },
+                    {
+                        "x": 54,
+                        "y": 98,
+                        "value": 5.9641265E-5
+                    },
+                    {
+                        "x": 46,
+                        "y": 149,
+                        "value": 1.2242152E-4
+                    },
+                    {
+                        "x": 104,
+                        "y": 36,
+                        "value": 3.1389998E-6
+                    },
+                    {
+                        "x": 161,
+                        "y": 9,
+                        "value": "NaN"
+                    },
+                    {
+                        "x": 188,
+                        "y": 173,
+                        "value": -4.609866E-4
+                    },
+                    {
+                        "x": 164,
+                        "y": 183,
+                        "value": -1.2286997E-4
+                    }
+                ]
+            }
+        ],
+        "metadata": [
+            {
+                "path": "Processing_Graph/node.1/parameters/formatName",
+                "value": "BEAM-DIMAP"
+            },
+            {
+                "path": "Processing_Graph/node.0/parameters/lineHeightBandName",
+                "value": "MCI_test"
+            },
+            {
+                "path": "Processing_Graph/node.0/parameters/cloudCorrectionFactor",
+                "value": "1.01"
+            },
+            {
+                "path": "Processing_Graph/node.1/parameters/clearCacheAfterRowWrite",
+                "value": "false"
+            },
+            {
+                "path": "Processing_Graph/node.1/parameters/clearCacheAfterRowWrite",
+                "value": "false"
+            },
+            {
+                "path": "Processing_Graph/node.0/parameters/invalidMciValue",
+                "value": "NaN"
+            },
+            {
+                "path": "Processing_Graph/node.1/sources/sourceProduct",
+                "value": "Mci.s2"
+            },
+            {
+                "path": "Processing_Graph/node.0/sources/sourceProduct",
+                "value": "product:Subset_S2A_MSIL2A_20190509T211921_N0212_R100_T04QEK_20190512T092011_resampled"
+            },
+            {
+                "path": "Processing_Graph/node.1/parameters/formatName",
+                "value": "BEAM-DIMAP"
+            },
+            {
+                "path": "Processing_Graph/node.0/sources/sourceProduct",
+                "value": "product:Subset_S2A_MSIL2A_20190509T211921_N0212_R100_T04QEK_20190512T092011_resampled"
+            }
+        ]
+    }
+}
