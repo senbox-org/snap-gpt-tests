@@ -1,0 +1,56 @@
+[{
+    "id":"SMACTest-AATSR",
+    "description":"execute SMAC operator with AATSR product",
+    "frequency":"daily",
+    "graphPath": "s3tbx/graphSMACOp.xml",
+    "inputs": {
+        "input": "s3tbx/sensors_platforms/AATSR/TOA/N1/ATS_TOA_1COLRA20030530_104438_000000762016_00451_06517_1067.N1"
+    },
+    "parameters": {
+        "subsetRegion": "250,250,200,200",
+        "tauAero550": "0.15",
+        "uH2o": "2.5",
+        "uO3": "0.12",
+        "surfPress": "1001.0",
+        "useMerisADS": "true",
+        "aerosolType": "CONTINENTAL",
+        "invalidPixel": "0.0",
+        "maskExpression": "not confid_flags_nadir.NO_SIGNAL",
+        "maskExpressionForward": "not confid_flags_nadir.NO_SIGNAL",
+        "bandNames": "btemp_nadir_1200,btemp_nadir_1100,btemp_nadir_0370,reflec_nadir_1600,reflec_nadir_0870,reflec_nadir_0670,reflec_nadir_0550,btemp_fward_1200,btemp_fward_1100,btemp_fward_0370,reflec_fward_1600,reflec_fward_0870,reflec_fward_0670,reflec_fward_0550,confid_flags_nadir,confid_flags_fward,cloud_flags_nadir,cloud_flags_fward"
+    },
+    "outputs": [{
+        "parameter": "output",
+        "outputName": "SMAC_AATSR",
+        "expected": "s3tbx/expectedSMAC_AATSR.json"
+    }]
+},
+
+    {
+        "id":"SMACTest-MERIS",
+        "description":"execute SMAC operator with MERIS L1b product",
+        "frequency":"daily",
+        "graphPath": "s3tbx/graphSMACOp.xml",
+        "inputs": {
+            "input": "s3tbx/sensors_platforms/MERIS/for_mosaic1/MER_RR__1PQBCM20030407_100459_000007352015_00194_05759_0002.N1"
+        },
+        "parameters": {
+            "subsetRegion": "800,3600,200,200",
+            "tauAero550": "0.2",
+            "uH2o": "3.0",
+            "uO3": "0.15",
+            "surfPress": "1013.0",
+            "useMerisADS": "true",
+            "aerosolType": "DESERT",
+            "invalidPixel": "0.0",
+            "maskExpression": "not (l1_flags.INVALID or l1_flags.BRIGHT)",
+            "maskExpressionForward": "not confid_flags_nadir.NO_SIGNAL",
+            "bandNames": "radiance_1,radiance_2,radiance_3,radiance_4,radiance_5,radiance_6,radiance_7,radiance_8,radiance_9,radiance_10,radiance_11,radiance_12,radiance_13,radiance_14,radiance_15"
+        },
+        "outputs": [{
+            "parameter": "output",
+            "outputName": "SMAC_MERIS",
+            "expected": "s3tbx/expectedSMAC_MERIS.json"
+        }]
+    }
+]

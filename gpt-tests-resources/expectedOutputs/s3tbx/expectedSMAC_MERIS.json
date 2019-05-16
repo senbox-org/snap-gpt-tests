@@ -1,0 +1,1329 @@
+{
+    "id": "SMAC_MERIS",
+    "decodeQualification": "INTENDED",
+    "expectedContent": {
+        "sceneWidth": 200,
+        "sceneHeight": 200,
+        "geoCoding": {
+            "coordinates": [
+                {
+                    "x": 128.5,
+                    "y": 76.5,
+                    "lat": 33.14382839202881,
+                    "lon": 5.860011356411941
+                },
+                {
+                    "x": 95.5,
+                    "y": 49.5,
+                    "lat": 33.50532075762749,
+                    "lon": 5.598047135528464
+                },
+                {
+                    "x": 47.5,
+                    "y": 33.5,
+                    "lat": 33.79015038907528,
+                    "lon": 5.133963739382394
+                },
+                {
+                    "x": 192.5,
+                    "y": 80.5,
+                    "lat": 32.938011169433594,
+                    "lon": 6.531249373331598
+                },
+                {
+                    "x": 184.5,
+                    "y": 77.5,
+                    "lat": 32.98959469795227,
+                    "lon": 6.45629495391303
+                }
+            ],
+            "reverseAccuracy": 0.044224023871493046
+        },
+        "flagCodings": [
+            {
+                "name": "l1_flags",
+                "samples": [
+                    {
+                        "name": "COSMETIC",
+                        "value": 1,
+                        "description": "Pixel is cosmetic"
+                    },
+                    {
+                        "name": "DUPLICATED",
+                        "value": 2,
+                        "description": "Pixel has been duplicated (filled in)"
+                    },
+                    {
+                        "name": "GLINT_RISK",
+                        "value": 4,
+                        "description": "Pixel has glint risk"
+                    },
+                    {
+                        "name": "SUSPECT",
+                        "value": 8,
+                        "description": "Pixel is suspect"
+                    },
+                    {
+                        "name": "LAND_OCEAN",
+                        "value": 16,
+                        "description": "Pixel is over land, not ocean"
+                    },
+                    {
+                        "name": "BRIGHT",
+                        "value": 32,
+                        "description": "Pixel is bright"
+                    },
+                    {
+                        "name": "COASTLINE",
+                        "value": 64,
+                        "description": "Pixel is part of a coastline"
+                    },
+                    {
+                        "name": "INVALID",
+                        "value": 128,
+                        "description": "Pixel is invalid"
+                    }
+                ]
+            }
+        ],
+        "tiePointGrids": [
+            {
+                "name": "latitude",
+                "description": "Latitude of the tie points (WGS-84), positive N",
+                "offsetX": "-15.5",
+                "offsetY": "-15.5",
+                "subSamplingX": "16.0",
+                "subSamplingY": "16.0",
+                "expectedPixels": [
+                    {
+                        "x": 128,
+                        "y": 76,
+                        "value": 33.14383
+                    },
+                    {
+                        "x": 95,
+                        "y": 49,
+                        "value": 33.50532
+                    },
+                    {
+                        "x": 47,
+                        "y": 33,
+                        "value": 33.79015
+                    },
+                    {
+                        "x": 192,
+                        "y": 80,
+                        "value": 32.93801
+                    },
+                    {
+                        "x": 184,
+                        "y": 77,
+                        "value": 32.989594
+                    }
+                ]
+            },
+            {
+                "name": "longitude",
+                "description": "Longitude of the tie points (WGS-84), Greenwich origin, positive E",
+                "offsetX": "-15.5",
+                "offsetY": "-15.5",
+                "subSamplingX": "16.0",
+                "subSamplingY": "16.0",
+                "expectedPixels": [
+                    {
+                        "x": 128,
+                        "y": 76,
+                        "value": 5.8600116
+                    },
+                    {
+                        "x": 95,
+                        "y": 49,
+                        "value": 5.5980473
+                    },
+                    {
+                        "x": 47,
+                        "y": 33,
+                        "value": 5.1339636
+                    },
+                    {
+                        "x": 192,
+                        "y": 80,
+                        "value": 6.5312495
+                    },
+                    {
+                        "x": 184,
+                        "y": 77,
+                        "value": 6.456295
+                    }
+                ]
+            },
+            {
+                "name": "dem_alt",
+                "description": "Digital elevation model altitude",
+                "offsetX": "-15.5",
+                "offsetY": "-15.5",
+                "subSamplingX": "16.0",
+                "subSamplingY": "16.0",
+                "expectedPixels": [
+                    {
+                        "x": 128,
+                        "y": 76,
+                        "value": 98.25
+                    },
+                    {
+                        "x": 95,
+                        "y": 49,
+                        "value": 145.15625
+                    },
+                    {
+                        "x": 47,
+                        "y": 33,
+                        "value": 267.33203
+                    },
+                    {
+                        "x": 192,
+                        "y": 80,
+                        "value": 145.0
+                    },
+                    {
+                        "x": 184,
+                        "y": 77,
+                        "value": 133.1875
+                    }
+                ]
+            },
+            {
+                "name": "dem_rough",
+                "description": "Digital elevation model roughness",
+                "offsetX": "-15.5",
+                "offsetY": "-15.5",
+                "subSamplingX": "16.0",
+                "subSamplingY": "16.0",
+                "expectedPixels": [
+                    {
+                        "x": 128,
+                        "y": 76,
+                        "value": 2.5
+                    },
+                    {
+                        "x": 95,
+                        "y": 49,
+                        "value": 6.5195312
+                    },
+                    {
+                        "x": 47,
+                        "y": 33,
+                        "value": 13.332031
+                    },
+                    {
+                        "x": 192,
+                        "y": 80,
+                        "value": 3.0
+                    },
+                    {
+                        "x": 184,
+                        "y": 77,
+                        "value": 5.9375
+                    }
+                ]
+            },
+            {
+                "name": "lat_corr",
+                "description": "Digital elevation model latitude corrections",
+                "offsetX": "-15.5",
+                "offsetY": "-15.5",
+                "subSamplingX": "16.0",
+                "subSamplingY": "16.0",
+                "expectedPixels": [
+                    {
+                        "x": 128,
+                        "y": 76,
+                        "value": 1.3325E-4
+                    },
+                    {
+                        "x": 95,
+                        "y": 49,
+                        "value": 1.7615626E-4
+                    },
+                    {
+                        "x": 47,
+                        "y": 33,
+                        "value": 2.732578E-4
+                    },
+                    {
+                        "x": 192,
+                        "y": 80,
+                        "value": 2.37E-4
+                    },
+                    {
+                        "x": 184,
+                        "y": 77,
+                        "value": 2.1359375E-4
+                    }
+                ]
+            },
+            {
+                "name": "lon_corr",
+                "description": "Digital elevation model longitude corrections",
+                "offsetX": "-15.5",
+                "offsetY": "-15.5",
+                "subSamplingX": "16.0",
+                "subSamplingY": "16.0",
+                "expectedPixels": [
+                    {
+                        "x": 128,
+                        "y": 76,
+                        "value": 5.6375004E-4
+                    },
+                    {
+                        "x": 95,
+                        "y": 49,
+                        "value": 7.5852737E-4
+                    },
+                    {
+                        "x": 47,
+                        "y": 33,
+                        "value": 0.0011990274
+                    },
+                    {
+                        "x": 192,
+                        "y": 80,
+                        "value": 9.78E-4
+                    },
+                    {
+                        "x": 184,
+                        "y": 77,
+                        "value": 8.828125E-4
+                    }
+                ]
+            },
+            {
+                "name": "sun_zenith",
+                "description": "Sun zenith angle",
+                "offsetX": "-15.5",
+                "offsetY": "-15.5",
+                "subSamplingX": "16.0",
+                "subSamplingY": "16.0",
+                "expectedPixels": [
+                    {
+                        "x": 128,
+                        "y": 76,
+                        "value": 32.67673
+                    },
+                    {
+                        "x": 95,
+                        "y": 49,
+                        "value": 33.10427
+                    },
+                    {
+                        "x": 47,
+                        "y": 33,
+                        "value": 33.57913
+                    },
+                    {
+                        "x": 192,
+                        "y": 80,
+                        "value": 32.15416
+                    },
+                    {
+                        "x": 184,
+                        "y": 77,
+                        "value": 32.235348
+                    }
+                ]
+            },
+            {
+                "name": "sun_azimuth",
+                "description": "Sun azimuth angles",
+                "offsetX": "-15.5",
+                "offsetY": "-15.5",
+                "subSamplingX": "16.0",
+                "subSamplingY": "16.0",
+                "expectedPixels": [
+                    {
+                        "x": 128,
+                        "y": 76,
+                        "value": 139.28314
+                    },
+                    {
+                        "x": 95,
+                        "y": 49,
+                        "value": 139.21756
+                    },
+                    {
+                        "x": 47,
+                        "y": 33,
+                        "value": 138.78357
+                    },
+                    {
+                        "x": 192,
+                        "y": 80,
+                        "value": 140.12004
+                    },
+                    {
+                        "x": 184,
+                        "y": 77,
+                        "value": 140.05183
+                    }
+                ]
+            },
+            {
+                "name": "view_zenith",
+                "description": "Viewing zenith angles",
+                "offsetX": "-15.5",
+                "offsetY": "-15.5",
+                "subSamplingX": "16.0",
+                "subSamplingY": "16.0",
+                "expectedPixels": [
+                    {
+                        "x": 128,
+                        "y": 76,
+                        "value": 28.99541
+                    },
+                    {
+                        "x": 95,
+                        "y": 49,
+                        "value": 26.706274
+                    },
+                    {
+                        "x": 47,
+                        "y": 33,
+                        "value": 23.242208
+                    },
+                    {
+                        "x": 192,
+                        "y": 80,
+                        "value": 33.207108
+                    },
+                    {
+                        "x": 184,
+                        "y": 77,
+                        "value": 32.694473
+                    }
+                ]
+            },
+            {
+                "name": "view_azimuth",
+                "description": "Viewing azimuth angles",
+                "offsetX": "-15.5",
+                "offsetY": "-15.5",
+                "subSamplingX": "16.0",
+                "subSamplingY": "16.0",
+                "expectedPixels": [
+                    {
+                        "x": 128,
+                        "y": 76,
+                        "value": 285.74957
+                    },
+                    {
+                        "x": 95,
+                        "y": 49,
+                        "value": 285.59985
+                    },
+                    {
+                        "x": 47,
+                        "y": 33,
+                        "value": 285.33786
+                    },
+                    {
+                        "x": 192,
+                        "y": 80,
+                        "value": 286.1163
+                    },
+                    {
+                        "x": 184,
+                        "y": 77,
+                        "value": 286.07526
+                    }
+                ]
+            },
+            {
+                "name": "zonal_wind",
+                "description": "Zonal wind",
+                "offsetX": "-15.5",
+                "offsetY": "-15.5",
+                "subSamplingX": "16.0",
+                "subSamplingY": "16.0",
+                "expectedPixels": [
+                    {
+                        "x": 128,
+                        "y": 76,
+                        "value": 3.45
+                    },
+                    {
+                        "x": 95,
+                        "y": 49,
+                        "value": 3.00625
+                    },
+                    {
+                        "x": 47,
+                        "y": 33,
+                        "value": 2.3125
+                    },
+                    {
+                        "x": 192,
+                        "y": 80,
+                        "value": 3.9
+                    },
+                    {
+                        "x": 184,
+                        "y": 77,
+                        "value": 3.85
+                    }
+                ]
+            },
+            {
+                "name": "merid_wind",
+                "description": "Meridional wind",
+                "offsetX": "-15.5",
+                "offsetY": "-15.5",
+                "subSamplingX": "16.0",
+                "subSamplingY": "16.0",
+                "expectedPixels": [
+                    {
+                        "x": 128,
+                        "y": 76,
+                        "value": 0.65
+                    },
+                    {
+                        "x": 95,
+                        "y": 49,
+                        "value": 0.30664062
+                    },
+                    {
+                        "x": 47,
+                        "y": 33,
+                        "value": 0.012109376
+                    },
+                    {
+                        "x": 192,
+                        "y": 80,
+                        "value": 0.5
+                    },
+                    {
+                        "x": 184,
+                        "y": 77,
+                        "value": 0.53125
+                    }
+                ]
+            },
+            {
+                "name": "atm_press",
+                "description": "Mean sea level pressure",
+                "offsetX": "-15.5",
+                "offsetY": "-15.5",
+                "subSamplingX": "16.0",
+                "subSamplingY": "16.0",
+                "expectedPixels": [
+                    {
+                        "x": 128,
+                        "y": 76,
+                        "value": 1010.075
+                    },
+                    {
+                        "x": 95,
+                        "y": 49,
+                        "value": 1009.80585
+                    },
+                    {
+                        "x": 47,
+                        "y": 33,
+                        "value": 1009.60626
+                    },
+                    {
+                        "x": 192,
+                        "y": 80,
+                        "value": 1010.3
+                    },
+                    {
+                        "x": 184,
+                        "y": 77,
+                        "value": 1010.22186
+                    }
+                ]
+            },
+            {
+                "name": "ozone",
+                "description": "Total ozone",
+                "offsetX": "-15.5",
+                "offsetY": "-15.5",
+                "subSamplingX": "16.0",
+                "subSamplingY": "16.0",
+                "expectedPixels": [
+                    {
+                        "x": 128,
+                        "y": 76,
+                        "value": 332.84998
+                    },
+                    {
+                        "x": 95,
+                        "y": 49,
+                        "value": 338.43848
+                    },
+                    {
+                        "x": 47,
+                        "y": 33,
+                        "value": 341.56882
+                    },
+                    {
+                        "x": 192,
+                        "y": 80,
+                        "value": 330.37
+                    },
+                    {
+                        "x": 184,
+                        "y": 77,
+                        "value": 330.99844
+                    }
+                ]
+            },
+            {
+                "name": "rel_hum",
+                "description": "Relative humidity",
+                "offsetX": "-15.5",
+                "offsetY": "-15.5",
+                "subSamplingX": "16.0",
+                "subSamplingY": "16.0",
+                "expectedPixels": [
+                    {
+                        "x": 128,
+                        "y": 76,
+                        "value": 20.1
+                    },
+                    {
+                        "x": 95,
+                        "y": 49,
+                        "value": 22.750391
+                    },
+                    {
+                        "x": 47,
+                        "y": 33,
+                        "value": 22.74492
+                    },
+                    {
+                        "x": 192,
+                        "y": 80,
+                        "value": 20.7
+                    },
+                    {
+                        "x": 184,
+                        "y": 77,
+                        "value": 20.737501
+                    }
+                ]
+            }
+        ],
+        "bands": [
+            {
+                "name": "reflec_1",
+                "description": "Atmosphere corrected MERIS band radiance_1",
+                "bandWidth": 200,
+                "bandHeight": 200,
+                "geophysicalUnit": "dl",
+                "noDataValue": "0.0",
+                "noDataValueUsed": "false",
+                "spectralWavelength": "412.691",
+                "spectralBandwidth": "9.937",
+                "expectedPixels": [
+                    {
+                        "x": 128,
+                        "y": 76,
+                        "value": 0.0
+                    },
+                    {
+                        "x": 95,
+                        "y": 49,
+                        "value": 0.08909316
+                    },
+                    {
+                        "x": 47,
+                        "y": 33,
+                        "value": 0.10657729
+                    },
+                    {
+                        "x": 192,
+                        "y": 80,
+                        "value": 0.12304444
+                    },
+                    {
+                        "x": 184,
+                        "y": 77,
+                        "value": 0.12217669
+                    }
+                ]
+            },
+            {
+                "name": "reflec_2",
+                "description": "Atmosphere corrected MERIS band radiance_2",
+                "bandWidth": 200,
+                "bandHeight": 200,
+                "geophysicalUnit": "dl",
+                "noDataValue": "0.0",
+                "noDataValueUsed": "false",
+                "spectralWavelength": "442.55902",
+                "spectralBandwidth": "9.946",
+                "expectedPixels": [
+                    {
+                        "x": 128,
+                        "y": 76,
+                        "value": 0.0
+                    },
+                    {
+                        "x": 95,
+                        "y": 49,
+                        "value": 0.11102373
+                    },
+                    {
+                        "x": 47,
+                        "y": 33,
+                        "value": 0.13573937
+                    },
+                    {
+                        "x": 192,
+                        "y": 80,
+                        "value": 0.16621786
+                    },
+                    {
+                        "x": 184,
+                        "y": 77,
+                        "value": 0.16480044
+                    }
+                ]
+            },
+            {
+                "name": "reflec_3",
+                "description": "Atmosphere corrected MERIS band radiance_3",
+                "bandWidth": 200,
+                "bandHeight": 200,
+                "geophysicalUnit": "dl",
+                "noDataValue": "0.0",
+                "noDataValueUsed": "false",
+                "spectralWavelength": "489.88202",
+                "spectralBandwidth": "9.957001",
+                "expectedPixels": [
+                    {
+                        "x": 128,
+                        "y": 76,
+                        "value": 0.0
+                    },
+                    {
+                        "x": 95,
+                        "y": 49,
+                        "value": 0.1396564
+                    },
+                    {
+                        "x": 47,
+                        "y": 33,
+                        "value": 0.16206746
+                    },
+                    {
+                        "x": 192,
+                        "y": 80,
+                        "value": 0.21406181
+                    },
+                    {
+                        "x": 184,
+                        "y": 77,
+                        "value": 0.21195568
+                    }
+                ]
+            },
+            {
+                "name": "reflec_4",
+                "description": "Atmosphere corrected MERIS band radiance_4",
+                "bandWidth": 200,
+                "bandHeight": 200,
+                "geophysicalUnit": "dl",
+                "noDataValue": "0.0",
+                "noDataValueUsed": "false",
+                "spectralWavelength": "509.81903",
+                "spectralBandwidth": "9.961",
+                "expectedPixels": [
+                    {
+                        "x": 128,
+                        "y": 76,
+                        "value": 0.0
+                    },
+                    {
+                        "x": 95,
+                        "y": 49,
+                        "value": 0.15360543
+                    },
+                    {
+                        "x": 47,
+                        "y": 33,
+                        "value": 0.17256603
+                    },
+                    {
+                        "x": 192,
+                        "y": 80,
+                        "value": 0.23851515
+                    },
+                    {
+                        "x": 184,
+                        "y": 77,
+                        "value": 0.23611468
+                    }
+                ]
+            },
+            {
+                "name": "reflec_5",
+                "description": "Atmosphere corrected MERIS band radiance_5",
+                "bandWidth": 200,
+                "bandHeight": 200,
+                "geophysicalUnit": "dl",
+                "noDataValue": "0.0",
+                "noDataValueUsed": "false",
+                "spectralWavelength": "559.69403",
+                "spectralBandwidth": "9.97",
+                "expectedPixels": [
+                    {
+                        "x": 128,
+                        "y": 76,
+                        "value": 0.0
+                    },
+                    {
+                        "x": 95,
+                        "y": 49,
+                        "value": 0.21613045
+                    },
+                    {
+                        "x": 47,
+                        "y": 33,
+                        "value": 0.23166943
+                    },
+                    {
+                        "x": 192,
+                        "y": 80,
+                        "value": 0.33130148
+                    },
+                    {
+                        "x": 184,
+                        "y": 77,
+                        "value": 0.32852545
+                    }
+                ]
+            },
+            {
+                "name": "reflec_6",
+                "description": "Atmosphere corrected MERIS band radiance_6",
+                "bandWidth": 200,
+                "bandHeight": 200,
+                "geophysicalUnit": "dl",
+                "noDataValue": "0.0",
+                "noDataValueUsed": "false",
+                "spectralWavelength": "619.601",
+                "spectralBandwidth": "9.979",
+                "expectedPixels": [
+                    {
+                        "x": 128,
+                        "y": 76,
+                        "value": 0.0
+                    },
+                    {
+                        "x": 95,
+                        "y": 49,
+                        "value": 0.32606333
+                    },
+                    {
+                        "x": 47,
+                        "y": 33,
+                        "value": 0.3206194
+                    },
+                    {
+                        "x": 192,
+                        "y": 80,
+                        "value": 0.4446054
+                    },
+                    {
+                        "x": 184,
+                        "y": 77,
+                        "value": 0.44332933
+                    }
+                ]
+            },
+            {
+                "name": "reflec_7",
+                "description": "Atmosphere corrected MERIS band radiance_7",
+                "bandWidth": 200,
+                "bandHeight": 200,
+                "geophysicalUnit": "dl",
+                "noDataValue": "0.0",
+                "noDataValueUsed": "false",
+                "spectralWavelength": "664.57306",
+                "spectralBandwidth": "9.985001",
+                "expectedPixels": [
+                    {
+                        "x": 128,
+                        "y": 76,
+                        "value": 0.0
+                    },
+                    {
+                        "x": 95,
+                        "y": 49,
+                        "value": 0.37871376
+                    },
+                    {
+                        "x": 47,
+                        "y": 33,
+                        "value": 0.3664329
+                    },
+                    {
+                        "x": 192,
+                        "y": 80,
+                        "value": 0.5032284
+                    },
+                    {
+                        "x": 184,
+                        "y": 77,
+                        "value": 0.501943
+                    }
+                ]
+            },
+            {
+                "name": "reflec_8",
+                "description": "Atmosphere corrected MERIS band radiance_8",
+                "bandWidth": 200,
+                "bandHeight": 200,
+                "geophysicalUnit": "dl",
+                "noDataValue": "0.0",
+                "noDataValueUsed": "false",
+                "spectralWavelength": "680.82104",
+                "spectralBandwidth": "7.4880004",
+                "expectedPixels": [
+                    {
+                        "x": 128,
+                        "y": 76,
+                        "value": 0.0
+                    },
+                    {
+                        "x": 95,
+                        "y": 49,
+                        "value": 0.39579758
+                    },
+                    {
+                        "x": 47,
+                        "y": 33,
+                        "value": 0.37859505
+                    },
+                    {
+                        "x": 192,
+                        "y": 80,
+                        "value": 0.52156365
+                    },
+                    {
+                        "x": 184,
+                        "y": 77,
+                        "value": 0.5197734
+                    }
+                ]
+            },
+            {
+                "name": "reflec_9",
+                "description": "Atmosphere corrected MERIS band radiance_9",
+                "bandWidth": 200,
+                "bandHeight": 200,
+                "geophysicalUnit": "dl",
+                "noDataValue": "0.0",
+                "noDataValueUsed": "false",
+                "spectralWavelength": "708.32904",
+                "spectralBandwidth": "9.992001",
+                "expectedPixels": [
+                    {
+                        "x": 128,
+                        "y": 76,
+                        "value": 0.0
+                    },
+                    {
+                        "x": 95,
+                        "y": 49,
+                        "value": 0.42998758
+                    },
+                    {
+                        "x": 47,
+                        "y": 33,
+                        "value": 0.4121751
+                    },
+                    {
+                        "x": 192,
+                        "y": 80,
+                        "value": 0.5556208
+                    },
+                    {
+                        "x": 184,
+                        "y": 77,
+                        "value": 0.5543836
+                    }
+                ]
+            },
+            {
+                "name": "reflec_10",
+                "description": "Atmosphere corrected MERIS band radiance_10",
+                "bandWidth": 200,
+                "bandHeight": 200,
+                "geophysicalUnit": "dl",
+                "noDataValue": "0.0",
+                "noDataValueUsed": "false",
+                "spectralWavelength": "753.37103",
+                "spectralBandwidth": "7.4950004",
+                "expectedPixels": [
+                    {
+                        "x": 128,
+                        "y": 76,
+                        "value": 0.0
+                    },
+                    {
+                        "x": 95,
+                        "y": 49,
+                        "value": 0.4514464
+                    },
+                    {
+                        "x": 47,
+                        "y": 33,
+                        "value": 0.42861795
+                    },
+                    {
+                        "x": 192,
+                        "y": 80,
+                        "value": 0.5766082
+                    },
+                    {
+                        "x": 184,
+                        "y": 77,
+                        "value": 0.5747696
+                    }
+                ]
+            },
+            {
+                "name": "reflec_11",
+                "description": "Atmosphere corrected MERIS band radiance_11",
+                "bandWidth": 200,
+                "bandHeight": 200,
+                "geophysicalUnit": "dl",
+                "noDataValue": "0.0",
+                "noDataValueUsed": "false",
+                "spectralWavelength": "761.50806",
+                "spectralBandwidth": "3.7440002",
+                "expectedPixels": [
+                    {
+                        "x": 128,
+                        "y": 76,
+                        "value": 0.0
+                    },
+                    {
+                        "x": 95,
+                        "y": 49,
+                        "value": 0.4116241
+                    },
+                    {
+                        "x": 47,
+                        "y": 33,
+                        "value": 0.39221385
+                    },
+                    {
+                        "x": 192,
+                        "y": 80,
+                        "value": 0.470834
+                    },
+                    {
+                        "x": 184,
+                        "y": 77,
+                        "value": 0.47152162
+                    }
+                ]
+            },
+            {
+                "name": "reflec_12",
+                "description": "Atmosphere corrected MERIS band radiance_12",
+                "bandWidth": 200,
+                "bandHeight": 200,
+                "geophysicalUnit": "dl",
+                "noDataValue": "0.0",
+                "noDataValueUsed": "false",
+                "spectralWavelength": "778.40906",
+                "spectralBandwidth": "15.010001",
+                "expectedPixels": [
+                    {
+                        "x": 128,
+                        "y": 76,
+                        "value": 0.0
+                    },
+                    {
+                        "x": 95,
+                        "y": 49,
+                        "value": 0.46232975
+                    },
+                    {
+                        "x": 47,
+                        "y": 33,
+                        "value": 0.43752703
+                    },
+                    {
+                        "x": 192,
+                        "y": 80,
+                        "value": 0.5892814
+                    },
+                    {
+                        "x": 184,
+                        "y": 77,
+                        "value": 0.5859542
+                    }
+                ]
+            },
+            {
+                "name": "reflec_13",
+                "description": "Atmosphere corrected MERIS band radiance_13",
+                "bandWidth": 200,
+                "bandHeight": 200,
+                "geophysicalUnit": "dl",
+                "noDataValue": "0.0",
+                "noDataValueUsed": "false",
+                "spectralWavelength": "864.87604",
+                "spectralBandwidth": "20.047",
+                "expectedPixels": [
+                    {
+                        "x": 128,
+                        "y": 76,
+                        "value": 0.0
+                    },
+                    {
+                        "x": 95,
+                        "y": 49,
+                        "value": 0.47368854
+                    },
+                    {
+                        "x": 47,
+                        "y": 33,
+                        "value": 0.44818798
+                    },
+                    {
+                        "x": 192,
+                        "y": 80,
+                        "value": 0.598989
+                    },
+                    {
+                        "x": 184,
+                        "y": 77,
+                        "value": 0.5949962
+                    }
+                ]
+            },
+            {
+                "name": "reflec_14",
+                "description": "Atmosphere corrected MERIS band radiance_14",
+                "bandWidth": 200,
+                "bandHeight": 200,
+                "geophysicalUnit": "dl",
+                "noDataValue": "0.0",
+                "noDataValueUsed": "false",
+                "spectralWavelength": "884.94403",
+                "spectralBandwidth": "10.018001",
+                "expectedPixels": [
+                    {
+                        "x": 128,
+                        "y": 76,
+                        "value": 0.0
+                    },
+                    {
+                        "x": 95,
+                        "y": 49,
+                        "value": 0.4763583
+                    },
+                    {
+                        "x": 47,
+                        "y": 33,
+                        "value": 0.44747475
+                    },
+                    {
+                        "x": 192,
+                        "y": 80,
+                        "value": 0.5993219
+                    },
+                    {
+                        "x": 184,
+                        "y": 77,
+                        "value": 0.5956032
+                    }
+                ]
+            },
+            {
+                "name": "reflec_15",
+                "description": "Atmosphere corrected MERIS band radiance_15",
+                "bandWidth": 200,
+                "bandHeight": 200,
+                "geophysicalUnit": "dl",
+                "noDataValue": "0.0",
+                "noDataValueUsed": "false",
+                "spectralWavelength": "900.00006",
+                "spectralBandwidth": "10.02",
+                "expectedPixels": [
+                    {
+                        "x": 128,
+                        "y": 76,
+                        "value": 0.0
+                    },
+                    {
+                        "x": 95,
+                        "y": 49,
+                        "value": 0.3804644
+                    },
+                    {
+                        "x": 47,
+                        "y": 33,
+                        "value": 0.36721578
+                    },
+                    {
+                        "x": 192,
+                        "y": 80,
+                        "value": 0.46950334
+                    },
+                    {
+                        "x": 184,
+                        "y": 77,
+                        "value": 0.4686925
+                    }
+                ]
+            },
+            {
+                "name": "l1_flags",
+                "description": "Level 1b classification and quality flags",
+                "bandWidth": 200,
+                "bandHeight": 200,
+                "noDataValue": "0.0",
+                "noDataValueUsed": "false",
+                "spectralWavelength": "0.0",
+                "spectralBandwidth": "0.0",
+                "expectedPixels": [
+                    {
+                        "x": 128,
+                        "y": 76,
+                        "value": 48.0
+                    },
+                    {
+                        "x": 95,
+                        "y": 49,
+                        "value": 16.0
+                    },
+                    {
+                        "x": 47,
+                        "y": 33,
+                        "value": 18.0
+                    },
+                    {
+                        "x": 192,
+                        "y": 80,
+                        "value": 16.0
+                    },
+                    {
+                        "x": 184,
+                        "y": 77,
+                        "value": 16.0
+                    }
+                ]
+            }
+        ],
+        "masks": [
+            {
+                "name": "coastline",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "0,255,0",
+                "description": "Pixel is part of a coastline"
+            },
+            {
+                "name": "land",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "51,153,0",
+                "description": "Pixel is over land, not ocean"
+            },
+            {
+                "name": "water",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "153,153,255",
+                "description": "Not Pixel is over land, not ocean"
+            },
+            {
+                "name": "cosmetic",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "204,153,255",
+                "description": "Pixel is cosmetic"
+            },
+            {
+                "name": "duplicated",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "255,200,0",
+                "description": "Pixel has been duplicated (filled in)"
+            },
+            {
+                "name": "glint_risk",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "255,0,255",
+                "description": "Pixel has glint risk"
+            },
+            {
+                "name": "suspect",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "204,102,255",
+                "description": "Pixel is suspect"
+            },
+            {
+                "name": "bright",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "255,255,0",
+                "description": "Pixel is bright"
+            },
+            {
+                "name": "invalid",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "255,0,0",
+                "description": "Pixel is invalid"
+            },
+            {
+                "name": "smac_mask",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "0,0,0"
+            }
+        ],
+        "metadata": [
+            {
+                "path": "Processing_Graph/node.1/parameters/formatName",
+                "value": "BEAM-DIMAP"
+            },
+            {
+                "path": "Processing_Graph/node.0/parameters/invalidPixel",
+                "value": "0.0"
+            },
+            {
+                "path": "Processing_Graph/node.0/parameters/surfPress",
+                "value": "1013.0"
+            },
+            {
+                "path": "Processing_Graph/node.1/parameters/clearCacheAfterRowWrite",
+                "value": "false"
+            },
+            {
+                "path": "Processing_Graph/node.1/parameters/clearCacheAfterRowWrite",
+                "value": "false"
+            },
+            {
+                "path": "Processing_Graph/node.0/parameters/uH2o",
+                "value": "3.0"
+            },
+            {
+                "path": "Processing_Graph/node.1/sources/sourceProduct",
+                "value": "SMAC"
+            },
+            {
+                "path": "Processing_Graph/node.0/sources/sourceProduct",
+                "value": "product:Subset_MER_RR__1PQBCM20030407_100459_000007352015_00194_05759_0002.N1"
+            },
+            {
+                "path": "Processing_Graph/node.1/parameters/formatName",
+                "value": "BEAM-DIMAP"
+            },
+            {
+                "path": "Processing_Graph/node.0/sources/sourceProduct",
+                "value": "product:Subset_MER_RR__1PQBCM20030407_100459_000007352015_00194_05759_0002.N1"
+            }
+        ]
+    }
+}

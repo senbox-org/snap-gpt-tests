@@ -1,10 +1,10 @@
-<graph id="FUB_Water">
+<graph id="graphAatsr_SSTOp">
     <version>1.0</version>
     <node id="Read">
         <operator>Read</operator>
         <sources/>
         <parameters>
-            <file>$input</file>
+          <file>$input</file>
         </parameters>
     </node>
 
@@ -19,25 +19,26 @@
         </parameters>
     </node>
 
-    <node id="FUB.Water">
-        <operator>FUB.Water</operator>
+    <node id="Aatsr.SST">
+        <operator>Aatsr.SST</operator>
         <sources>
             <sourceProduct refid="Subset"/>
         </sources>
         <parameters>
-            <computeCHL>$computeCHL</computeCHL>
-            <computeYS>$computeYS</computeYS>
-            <computeTSM>$computeTSM</computeTSM>
-            <computeAtmCorr>$computeAtmCorr</computeAtmCorr>
-            <checkWhetherSuspectIsValid>$checkWhetherSuspectIsValid</checkWhetherSuspectIsValid>
-            <expression>$expression</expression>
+            <dual>$dual</dual>
+            <dualCoefficientsFile>$dualCoefficientsFile</dualCoefficientsFile>
+            <dualMaskExpression>$dualMaskExpression</dualMaskExpression>
+            <nadir>$nadir</nadir>
+            <nadirCoefficientsFile>$nadirCoefficientsFile</nadirCoefficientsFile>
+            <nadirMaskExpression>$nadirMaskExpression</nadirMaskExpression>
+            <invalidSstValue>$invalidSstValue</invalidSstValue>
         </parameters>
     </node>
 
     <node id="Write">
         <operator>Write</operator>
         <sources>
-            <sourceProduct refid="FUB.Water"/>
+            <sourceProduct refid="Aatsr.SST"/>
         </sources>
         <parameters>
             <file>$output</file>

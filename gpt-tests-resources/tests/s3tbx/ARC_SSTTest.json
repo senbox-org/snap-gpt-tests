@@ -1,0 +1,86 @@
+[{
+    "id":"ARC_SSTTest-1",
+    "description":"execute ARC_SST operator with AATSR product",
+    "frequency":"daily",
+    "graphPath": "s3tbx/graphARC_SST.xml",
+    "inputs": {
+        "input": "s3tbx/sensors_platforms/AATSR/TOA/N1/ATS_TOA_1COLRA20030530_104438_000000762016_00451_06517_1067.N1"
+    },
+    "parameters": {
+        "subsetRegion": "250,250,200,200",
+        "tcwvExpression": "30.0",
+        "asdi": "false",
+        "asdiCoefficientsFile": "ASDI_AATSR",
+        "asdiMaskExpression": "!cloud_flags_nadir.LAND",
+        "dual": "true",
+        "dualCoefficientsFile": "ARC_D2_AATSR",
+        "dualMaskExpression": "!cloud_flags_nadir.LAND",
+        "nadir": "true",
+        "nadirCoefficientsFile": "ARC_N2_AATSR",
+        "nadirMaskExpression": "!cloud_flags_nadir.LAND",
+        "invalidSstValue": "-999.0"
+    },
+    "outputs": [{
+        "parameter": "output",
+        "outputName": "ARC_SST-1",
+        "expected": "s3tbx/expectedARC_SST-1.json"
+    }]
+},
+    {
+        "id":"ARC_SSTTest-2",
+        "description":"execute ARC_SST operator with AATSR product",
+        "frequency":"daily",
+        "graphPath": "s3tbx/graphARC_SST.xml",
+        "inputs": {
+            "input": "s3tbx/sensors_platforms/AATSR/TOA/N1/ATS_TOA_1COLRA20030530_104438_000000762016_00451_06517_1067.N1"
+        },
+        "parameters": {
+            "subsetRegion": "250,250,200,200",
+            "tcwvExpression": "30.0",
+            "asdi": "true",
+            "asdiCoefficientsFile": "ASDI_AATSR",
+            "asdiMaskExpression": "!cloud_flags_nadir.LAND",
+            "dual": "false",
+            "dualCoefficientsFile": "ARC_D2_AATSR",
+            "dualMaskExpression": "!cloud_flags_nadir.LAND",
+            "nadir": "false",
+            "nadirCoefficientsFile": "ARC_N2_AATSR",
+            "nadirMaskExpression": "!cloud_flags_nadir.LAND",
+            "invalidSstValue": "-999.0"
+        },
+        "outputs": [{
+            "parameter": "output",
+            "outputName": "ARC_SST-2",
+            "expected": "s3tbx/expectedARC_SST-2.json"
+        }]
+    },
+
+    {
+        "id":"ARC_SSTTest-3",
+        "description":"execute ARC_SST operator with AATSR product",
+        "frequency":"daily",
+        "graphPath": "s3tbx/graphARC_SST.xml",
+        "inputs": {
+            "input": "s3tbx/sensors_platforms/AATSR/TOA/N1/ATS_TOA_1COLRA20030530_104438_000000762016_00451_06517_1067.N1"
+        },
+        "parameters": {
+            "subsetRegion": "250,250,200,200",
+            "tcwvExpression": "btemp_nadir_1200",
+            "asdi": "true",
+            "asdiCoefficientsFile": "ASDI_ATSR2",
+            "asdiMaskExpression": "!cloud_flags_nadir.LAND",
+            "dual": "true",
+            "dualCoefficientsFile": "ARC_D3_ATSR2",
+            "dualMaskExpression": "!cloud_flags_nadir.LAND",
+            "nadir": "true",
+            "nadirCoefficientsFile": "ARC_N3_AATSR",
+            "nadirMaskExpression": "!cloud_flags_nadir.LAND",
+            "invalidSstValue": "-999.0"
+        },
+        "outputs": [{
+            "parameter": "output",
+            "outputName": "ARC_SST-3",
+            "expected": "s3tbx/expectedARC_SST-3.json"
+        }]
+    }
+]

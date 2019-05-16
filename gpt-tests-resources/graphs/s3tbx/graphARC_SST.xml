@@ -1,4 +1,4 @@
-<graph id="FUB_Water">
+<graph id="graphARC_SST">
     <version>1.0</version>
     <node id="Read">
         <operator>Read</operator>
@@ -19,25 +19,30 @@
         </parameters>
     </node>
 
-    <node id="FUB.Water">
-        <operator>FUB.Water</operator>
+    <node id="ArcSST">
+        <operator>Arc.SST</operator>
         <sources>
             <sourceProduct refid="Subset"/>
         </sources>
         <parameters>
-            <computeCHL>$computeCHL</computeCHL>
-            <computeYS>$computeYS</computeYS>
-            <computeTSM>$computeTSM</computeTSM>
-            <computeAtmCorr>$computeAtmCorr</computeAtmCorr>
-            <checkWhetherSuspectIsValid>$checkWhetherSuspectIsValid</checkWhetherSuspectIsValid>
-            <expression>$expression</expression>
+            <tcwvExpression>$tcwvExpression</tcwvExpression>
+            <asdi>$asdi</asdi>
+            <asdiCoefficientsFile>$asdiCoefficientsFile</asdiCoefficientsFile>
+            <asdiMaskExpression>$asdiMaskExpression</asdiMaskExpression>
+            <dual>$dual</dual>
+            <dualCoefficientsFile>$dualCoefficientsFile</dualCoefficientsFile>
+            <dualMaskExpression>$dualMaskExpression</dualMaskExpression>
+            <nadir>$nadir</nadir>
+            <nadirCoefficientsFile>$nadirCoefficientsFile</nadirCoefficientsFile>
+            <nadirMaskExpression>$nadirMaskExpression</nadirMaskExpression>
+            <invalidSstValue>$invalidSstValue</invalidSstValue>
         </parameters>
     </node>
 
     <node id="Write">
         <operator>Write</operator>
         <sources>
-            <sourceProduct refid="FUB.Water"/>
+            <sourceProduct refid="ArcSST"/>
         </sources>
         <parameters>
             <file>$output</file>
