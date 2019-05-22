@@ -37,17 +37,32 @@ public class TestExecutor {
 
         //inputs
         for(Map.Entry<String, String> entry : graphTest.getInputs().entrySet()) {
-            params.add(String.format("-P%s=%s", entry.getKey(), inputFolder.resolve(entry.getValue()).toString()));
+            String value = entry.getValue();
+            value.replaceAll("\\$graphFolder",graphFolder.toString());
+            value.replaceAll("\\$inputFolder",inputFolder.toString());
+            value.replaceAll("\\$expectedOutputFolder",expectedOutputFolder.toString());
+            value.replaceAll("\\$tempFolder",tempFolder.toString());
+            params.add(String.format("-P%s=%s", entry.getKey(), inputFolder.resolve(value).toString()));
         }
 
         //parameters
         for(Map.Entry<String, String> entry : graphTest.getParameters().entrySet()) {
-            params.add(String.format("-P%s=%s",entry.getKey(),entry.getValue()));
+            String value = entry.getValue();
+            value.replaceAll("\\$graphFolder",graphFolder.toString());
+            value.replaceAll("\\$inputFolder",inputFolder.toString());
+            value.replaceAll("\\$expectedOutputFolder",expectedOutputFolder.toString());
+            value.replaceAll("\\$tempFolder",tempFolder.toString());
+            params.add(String.format("-P%s=%s",entry.getKey(),value));
         }
 
         //outputs
         for(Output output : graphTest.getOutputs()) {
-            params.add(String.format("-P%s=%s",output.getParameter(), tempFolder.resolve(output.getOutputName()).toString()));
+            String value = output.getOutputName();
+            value.replaceAll("\\$graphFolder",graphFolder.toString());
+            value.replaceAll("\\$inputFolder",inputFolder.toString());
+            value.replaceAll("\\$expectedOutputFolder",expectedOutputFolder.toString());
+            value.replaceAll("\\$tempFolder",tempFolder.toString());
+            params.add(String.format("-P%s=%s",output.getParameter(), tempFolder.resolve(value).toString()));
         }
 
         //execute graph

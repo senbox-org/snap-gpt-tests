@@ -19,14 +19,14 @@
   {
     "id":"ReadSetReaderCollocate",
     "description":"Collocate multiple products defined with a Read and a ProductSetReader.",
-    "frequency":"daily",
+    "frequency":"daily/testOmar",
     "graphPath": "snap/graphReadSetReaderCollocate.xml",
     "inputs": {
       "input1": "s2tbx/S2/L1C/S2A_MSIL1C_20170416T105031_N0204_R051_T30TYN_20170416T105601.SAFE"
     },
     "parameters": {
       "masterProductName": "subset_0_of_NDSI_1703",
-      "fileList": "/data/ssd/testData/s2tbx/_collocation/subset_0_of_NDSI_1703.dim,/data/ssd/testData/s2tbx/_collocation/NDSI_1604.dim,/data/ssd/testData/s2tbx/_collocation/NDSI_1502.dim"
+      "fileList": "$inputFolder/s2tbx/_collocation/subset_0_of_NDSI_1703.dim,$inputFolder/s2tbx/_collocation/NDSI_1604.dim,$inputFolder/s2tbx/_collocation/NDSI_1502.dim"
     },
     "outputs": [{
       "parameter": "out1",
