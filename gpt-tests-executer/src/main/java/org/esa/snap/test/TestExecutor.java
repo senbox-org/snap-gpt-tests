@@ -38,30 +38,30 @@ public class TestExecutor {
         //inputs
         for(Map.Entry<String, String> entry : graphTest.getInputs().entrySet()) {
             String value = entry.getValue();
-            value.replaceAll("\\$graphFolder",graphFolder.toString());
-            value.replaceAll("\\$inputFolder",inputFolder.toString());
-            value.replaceAll("\\$expectedOutputFolder",expectedOutputFolder.toString());
-            value.replaceAll("\\$tempFolder",tempFolder.toString());
+            value = value.replaceAll("\\$graphFolder",graphFolder.toString());
+            value = value.replaceAll("\\$inputFolder",inputFolder.toString());
+            value = value.replaceAll("\\$expectedOutputFolder",expectedOutputFolder.toString());
+            value = value.replaceAll("\\$tempFolder",tempFolder.toString());
             params.add(String.format("-P%s=%s", entry.getKey(), inputFolder.resolve(value).toString()));
         }
 
         //parameters
         for(Map.Entry<String, String> entry : graphTest.getParameters().entrySet()) {
             String value = entry.getValue();
-            value.replaceAll("\\$graphFolder",graphFolder.toString());
-            value.replaceAll("\\$inputFolder",inputFolder.toString());
-            value.replaceAll("\\$expectedOutputFolder",expectedOutputFolder.toString());
-            value.replaceAll("\\$tempFolder",tempFolder.toString());
+            value = value.replaceAll("\\$graphFolder",graphFolder.toString());
+            value = value.replaceAll("\\$inputFolder",inputFolder.toString());
+            value = value.replaceAll("\\$expectedOutputFolder",expectedOutputFolder.toString());
+            value = value.replaceAll("\\$tempFolder",tempFolder.toString());
             params.add(String.format("-P%s=%s",entry.getKey(),value));
         }
 
         //outputs
         for(Output output : graphTest.getOutputs()) {
             String value = output.getOutputName();
-            value.replaceAll("\\$graphFolder",graphFolder.toString());
-            value.replaceAll("\\$inputFolder",inputFolder.toString());
-            value.replaceAll("\\$expectedOutputFolder",expectedOutputFolder.toString());
-            value.replaceAll("\\$tempFolder",tempFolder.toString());
+            value = value.replaceAll("\\$graphFolder",graphFolder.toString());
+            value = value.replaceAll("\\$inputFolder",inputFolder.toString());
+            value = value.replaceAll("\\$expectedOutputFolder",expectedOutputFolder.toString());
+            value = value.replaceAll("\\$tempFolder",tempFolder.toString());
             params.add(String.format("-P%s=%s",output.getParameter(), tempFolder.resolve(value).toString()));
         }
 
