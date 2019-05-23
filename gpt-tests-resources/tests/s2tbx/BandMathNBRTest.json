@@ -1,0 +1,22 @@
+[{
+  "id":"BandMathNBRTest",
+  "description":"execute BandMath NBR processor with S2",
+  "frequency":"daily/testGP",
+  "graphPath": "s2tbx/graphBandMathNBR.xml",
+  "inputs": {
+    "input1": "s2tbx/S2/L2A/PSD143/S2A_MSIL2A_20171103T102201_N0206_R065_T32TNS_20171106T195236.SAFE"
+  },
+  "parameters": {
+    "subsetRegion": "1200,3700,1000,1000",
+    "mathExpression": "if(scl_cloud_shadow || scl_cloud_medium_proba || scl_cloud_high_proba || scl_thin_cirrus) then NaN else (B8 - B12)/(B8+ B12)",
+    "sourceBands": "B2,B3,B4,NBR"
+  },
+  "outputs": [{
+    "parameter": "out1",
+    "outputName": "tempBandMathNBR",
+    "expected": "s2tbx/expectedBandMathNBR.json"
+  }]
+}]
+
+
+
