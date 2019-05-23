@@ -1,0 +1,117 @@
+<graph id="GraphOpticalPreprocessing">
+  <version>1.0</version>
+  <node id="Read">
+    <operator>Read</operator>
+    <sources/>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <file>$input1</file>
+    </parameters>
+  </node>
+  <node id="S2Resampling">
+    <operator>S2Resampling</operator>
+    <sources>
+      <sourceProduct refid="Read"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <resolution>$resolution</resolution>
+      <upsampling>Bilinear</upsampling>
+      <downsampling>Mean</downsampling>
+      <flagDownsampling>First</flagDownsampling>
+      <resampleOnPyramidLevels>true</resampleOnPyramidLevels>
+    </parameters>
+  </node>
+  <node id="Subset">
+    <operator>Subset</operator>
+    <sources>
+      <sourceProduct refid="S2Resampling"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <sourceBands>$subsetSourceBands</sourceBands>
+      <region>$subsetRegion</region>
+      <geoRegion/>
+      <subSamplingX>1</subSamplingX>
+      <subSamplingY>1</subSamplingY>
+      <fullSwath>false</fullSwath>
+      <tiePointGridNames/>
+      <copyMetadata>true</copyMetadata>
+    </parameters>
+  </node>
+  <node id="BandMaths">
+    <operator>BandMaths</operator>
+    <sources>
+      <sourceProduct refid="Subset"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <targetBands>
+        <targetBand>
+          <name>NDVI</name>
+          <type>float32</type>
+          <expression>$expression</expression>
+          <description/>
+          <unit/>
+          <noDataValue>0.0</noDataValue>
+        </targetBand>
+      </targetBands>
+      <variables/>
+    </parameters>
+  </node>
+  <node id="BiophysicalOp">
+    <operator>BiophysicalOp</operator>
+    <sources>
+      <sourceProduct refid="Subset"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <computeLAI>true</computeLAI>
+      <computeFapar>false</computeFapar>
+      <computeFcover>false</computeFcover>
+      <computeCab>false</computeCab>
+      <computeCw>false</computeCw>
+    </parameters>
+  </node>
+  <node id="BandMerge">
+    <operator>BandMerge</operator>
+    <sources>
+      <sourceProduct refid="Subset"/>
+      <sourceProduct.1 refid="BandMaths"/>
+      <sourceProduct.2 refid="BiophysicalOp"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <sourceBands>$mergeSourceBands</sourceBands>
+      <geographicError>1.0E-5</geographicError>
+    </parameters>
+  </node>
+  <node id="Write">
+    <operator>Write</operator>
+    <sources>
+      <sourceProduct refid="BandMerge"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <file>$out1</file>
+      <formatName>BEAM-DIMAP</formatName>
+    </parameters>
+  </node>
+  <applicationData id="Presentation">
+    <Description/>
+    <node id="Read">
+            <displayPosition x="37.0" y="134.0"/>
+    </node>
+    <node id="S2Resampling">
+      <displayPosition x="121.0" y="136.0"/>
+    </node>
+    <node id="Subset">
+      <displayPosition x="243.0" y="136.0"/>
+    </node>
+    <node id="BandMaths">
+      <displayPosition x="367.0" y="181.0"/>
+    </node>
+    <node id="BiophysicalOp">
+      <displayPosition x="356.0" y="264.0"/>
+    </node>
+    <node id="BandMerge">
+      <displayPosition x="517.0" y="134.0"/>
+    </node>
+    <node id="Write">
+      <displayPosition x="646.0" y="134.0"/>
+    </node>
+  </applicationData>
+</graph>

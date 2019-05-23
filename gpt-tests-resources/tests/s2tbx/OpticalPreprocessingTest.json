@@ -1,0 +1,24 @@
+[{
+  "id":"OpticalPreprocessingTest",
+  "description":"execute Optical Preprocessing with S2",
+  "frequency":"testGP",
+  "graphPath": "s2tbx/graphOpticalPreprocessing.xml",
+  "inputs": {
+    "input1": "s2tbx/S2/L2A/PSD143/S2A_MSIL2A_20171103T102201_N0206_R065_T32TNS_20171106T195236.SAFE"
+  },
+  "parameters": {
+    "resolution": "20",
+    "subsetRegion": "4917,3919,1169,795",
+    "subsetSourceBands": "B2,B3,B4,B5,B6,B7,B8A,B11,B12,view_zenith_mean,view_azimuth_mean,sun_zenith,sun_azimuth",
+    "expression": "(B8A-B4)/(B8A+B4)",
+    "mergeSourceBands": "B2,B3,B4,B5,B6,B7,B8A,B11,B12,NDVI,lai"
+  },
+  "outputs": [{
+    "parameter": "out1",
+    "outputName": "tempOpticalPreprocessing",
+    "expected": "s2tbx/expectedOpticalPreprocessing.json"
+  }]
+}]
+
+
+
