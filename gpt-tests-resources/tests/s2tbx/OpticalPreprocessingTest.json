@@ -1,7 +1,7 @@
 [{
   "id":"OpticalPreprocessingTest",
   "description":"execute Optical Preprocessing with S2",
-  "frequency":"testGP",
+  "frequency":"daily",
   "graphPath": "s2tbx/graphOpticalPreprocessing.xml",
   "inputs": {
     "input1": "s2tbx/S2/L2A/PSD143/S2A_MSIL2A_20171103T102201_N0206_R065_T32TNS_20171106T195236.SAFE"
