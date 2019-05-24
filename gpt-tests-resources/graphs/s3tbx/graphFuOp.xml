@@ -1,0 +1,47 @@
+<graph id="GraphFuOp">
+    <version>1.0</version>
+    <node id="Read">
+        <operator>Read</operator>
+        <sources/>
+        <parameters>
+            <file>$input1</file>
+        </parameters>
+    </node>
+
+    <node id="Subset">
+        <operator>Subset</operator>
+        <sources>
+            <sourceProduct refid="Read"/>
+        </sources>
+        <parameters>
+            <region>$subsetRegion</region>
+            <copyMetadata>false</copyMetadata>
+        </parameters>
+    </node>
+
+    <node id="FuOp">
+        <operator>FuClassification</operator>
+        <sources>
+            <sourceProduct refid="Subset"/>
+        </sources>
+        <parameters>
+            <copyAllSourceBands>$copyAllSourceBands</copyAllSourceBands>
+            <inputIsIrradianceReflectance>$inputIsIrradianceReflectance</inputIsIrradianceReflectance>
+            <validExpression>$validExpression</validExpression>
+            <reflectanceNamePattern>$reflectanceNamePattern</reflectanceNamePattern>
+            <instrument>$instrument</instrument>
+            <includeIntermediateResults>$includeIntermediateResults</includeIntermediateResults>
+        </parameters>
+    </node>
+
+    <node id="Write">
+        <operator>Write</operator>
+        <sources>
+            <sourceProduct refid="FuOp"/>
+        </sources>
+        <parameters>
+            <file>$output</file>
+            <formatName>BEAM-DIMAP</formatName>
+        </parameters>
+    </node>
+</graph>

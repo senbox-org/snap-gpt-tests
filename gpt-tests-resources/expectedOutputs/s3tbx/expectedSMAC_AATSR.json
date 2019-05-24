@@ -1,0 +1,2075 @@
+{
+    "id": "SMAC_AATSR",
+    "decodeQualification": "INTENDED",
+    "expectedContent": {
+        "sceneWidth": 200,
+        "sceneHeight": 200,
+        "geoCoding": {
+            "coordinates": [
+                {
+                    "x": 92.5,
+                    "y": 170.5,
+                    "lat": 49.82384603023529,
+                    "lon": 0.03993430896283353
+                },
+                {
+                    "x": 86.5,
+                    "y": 111.5,
+                    "lat": 50.35161451101303,
+                    "lon": 0.19947720588305656
+                },
+                {
+                    "x": 34.5,
+                    "y": 78.5,
+                    "lat": 50.77150504112244,
+                    "lon": -0.37012975467062353
+                },
+                {
+                    "x": 132.5,
+                    "y": 62.5,
+                    "lat": 50.65483465075493,
+                    "lon": 1.0240540229476787
+                },
+                {
+                    "x": 140.5,
+                    "y": 7.5,
+                    "lat": 51.10891641259194,
+                    "lon": 1.3694725908457253
+                },
+                {
+                    "x": 158.5,
+                    "y": 39.5,
+                    "lat": 50.78326658010483,
+                    "lon": 1.4741040698123022
+                }
+            ],
+            "reverseAccuracy": 0.11017191365806411
+        },
+        "flagCodings": [
+            {
+                "name": "confid_flags_nadir",
+                "samples": [
+                    {
+                        "name": "BLANKING",
+                        "value": 1,
+                        "description": "Blanking Pulse"
+                    },
+                    {
+                        "name": "COSMETIC",
+                        "value": 2,
+                        "description": "Cosmetic Fill Pixel"
+                    },
+                    {
+                        "name": "SCAN_ABSENT",
+                        "value": 4,
+                        "description": "Entire scan absent from telemetry"
+                    },
+                    {
+                        "name": "ABSENT",
+                        "value": 8,
+                        "description": "Pixel absent from telemetry"
+                    },
+                    {
+                        "name": "NOT_DECOMPR",
+                        "value": 16,
+                        "description": "Pixel not decompressed owing to error in packet validation"
+                    },
+                    {
+                        "name": "NO_SIGNAL",
+                        "value": 32,
+                        "description": "No signal in some channel (zero count)"
+                    },
+                    {
+                        "name": "SATURATION",
+                        "value": 64,
+                        "description": "Saturation in some channel (maximum count)"
+                    },
+                    {
+                        "name": "OUT_OF_RANGE",
+                        "value": 128,
+                        "description": "Derived radiance of some channel outside range of calibration"
+                    },
+                    {
+                        "name": "NO_CALIB_PARAM",
+                        "value": 256,
+                        "description": "Calibration Parameters unavailable for pixel"
+                    },
+                    {
+                        "name": "UNFILLED",
+                        "value": 512,
+                        "description": "Pixel unfilled (cosmetic fill algorithm unable to find nearest neighbour pixel)"
+                    }
+                ]
+            },
+            {
+                "name": "confid_flags_fward",
+                "samples": [
+                    {
+                        "name": "BLANKING",
+                        "value": 1,
+                        "description": "Blanking Pulse"
+                    },
+                    {
+                        "name": "COSMETIC",
+                        "value": 2,
+                        "description": "Cosmetic Fill Pixel"
+                    },
+                    {
+                        "name": "SCAN_ABSENT",
+                        "value": 4,
+                        "description": "Entire scan absent from telemetry"
+                    },
+                    {
+                        "name": "ABSENT",
+                        "value": 8,
+                        "description": "Pixel absent from telemetry"
+                    },
+                    {
+                        "name": "NOT_DECOMPR",
+                        "value": 16,
+                        "description": "Pixel not decompressed owing to error in packet validation"
+                    },
+                    {
+                        "name": "NO_SIGNAL",
+                        "value": 32,
+                        "description": "No signal in some channel (zero count)"
+                    },
+                    {
+                        "name": "SATURATION",
+                        "value": 64,
+                        "description": "Saturation in some channel (maximum count)"
+                    },
+                    {
+                        "name": "OUT_OF_RANGE",
+                        "value": 128,
+                        "description": "Derived radiance of some channel outside range of calibration"
+                    },
+                    {
+                        "name": "NO_CALIB_PARAM",
+                        "value": 256,
+                        "description": "Calibration Parameters unavailable for pixel"
+                    },
+                    {
+                        "name": "UNFILLED",
+                        "value": 512,
+                        "description": "Pixel unfilled (cosmetic fill algorithm unable to find nearest neighbour pixel)"
+                    }
+                ]
+            },
+            {
+                "name": "cloud_flags_nadir",
+                "samples": [
+                    {
+                        "name": "LAND",
+                        "value": 1,
+                        "description": "Pixel is over land"
+                    },
+                    {
+                        "name": "CLOUDY",
+                        "value": 2,
+                        "description": "Pixel is cloudy (result of all cloud tests)"
+                    },
+                    {
+                        "name": "SUN_GLINT",
+                        "value": 4,
+                        "description": "Sunglint detected in pixel"
+                    },
+                    {
+                        "name": "CLOUDY_REFL_HIST",
+                        "value": 8,
+                        "description": "1.6 micron reflectance histogram test shows pixel cloudy (day-time only)"
+                    },
+                    {
+                        "name": "CLOUDY_SPAT_COHER_16",
+                        "value": 16,
+                        "description": "1.6 micron spatial coherence test shows pixel cloudy (day-time only)"
+                    },
+                    {
+                        "name": "CLOUDY_SPAT_COHER_11",
+                        "value": 32,
+                        "description": "11 micron spatial coherence test shows pixel cloudy"
+                    },
+                    {
+                        "name": "CLOUDY_GROSS_12",
+                        "value": 64,
+                        "description": "12 micron gross cloud test shows pixel cloudy"
+                    },
+                    {
+                        "name": "CLOUDY_CIRRUS_11_12",
+                        "value": 128,
+                        "description": "11/12 micron thin cirrus test shows pixel cloudy"
+                    },
+                    {
+                        "name": "CLOUDY_MED_HI_LEVEL_37_12",
+                        "value": 256,
+                        "description": "3.7/12 micron medium/high level test shows pixel cloudy (night-time only)"
+                    },
+                    {
+                        "name": "CLOUDY_FOG_LOW_STRATUS_11_37",
+                        "value": 512,
+                        "description": "11/3.7 micron fog/low stratus test shows pixel cloudy (night-time only)"
+                    },
+                    {
+                        "name": "CLOUDY_VW_DIFF_11_12",
+                        "value": 1024,
+                        "description": "11/12 micron view-difference test shows pixel cloudy"
+                    },
+                    {
+                        "name": "CLOUDY_VW_DIFF_37_11",
+                        "value": 2048,
+                        "description": "3.7/11 micron view-difference test shows pixel cloudy (night-time only)"
+                    },
+                    {
+                        "name": "CLOUDY_THERM_HIST_11_12",
+                        "value": 4096,
+                        "description": "11/12 micron thermal histogram test shows pixel cloudy"
+                    },
+                    {
+                        "name": "CLOUDY_VIS_CHANNEL",
+                        "value": 8192,
+                        "description": "Visible channel cloud test shows pixel cloudy"
+                    },
+                    {
+                        "name": "CLOUDY_NDSI",
+                        "value": 16384,
+                        "description": "NDSI snow flag"
+                    }
+                ]
+            },
+            {
+                "name": "cloud_flags_fward",
+                "samples": [
+                    {
+                        "name": "LAND",
+                        "value": 1,
+                        "description": "Pixel is over land"
+                    },
+                    {
+                        "name": "CLOUDY",
+                        "value": 2,
+                        "description": "Pixel is cloudy (result of all cloud tests)"
+                    },
+                    {
+                        "name": "SUN_GLINT",
+                        "value": 4,
+                        "description": "Sunglint detected in pixel"
+                    },
+                    {
+                        "name": "CLOUDY_REFL_HIST",
+                        "value": 8,
+                        "description": "1.6 micron reflectance histogram test shows pixel cloudy (day-time only)"
+                    },
+                    {
+                        "name": "CLOUDY_SPAT_COHER_16",
+                        "value": 16,
+                        "description": "1.6 micron spatial coherence test shows pixel cloudy (day-time only)"
+                    },
+                    {
+                        "name": "CLOUDY_SPAT_COHER_11",
+                        "value": 32,
+                        "description": "11 micron spatial coherence test shows pixel cloudy"
+                    },
+                    {
+                        "name": "CLOUDY_GROSS_12",
+                        "value": 64,
+                        "description": "12 micron gross cloud test shows pixel cloudy"
+                    },
+                    {
+                        "name": "CLOUDY_CIRRUS_11_12",
+                        "value": 128,
+                        "description": "11/12 micron thin cirrus test shows pixel cloudy"
+                    },
+                    {
+                        "name": "CLOUDY_MED_HI_LEVEL_37_12",
+                        "value": 256,
+                        "description": "3.7/12 micron medium/high level test shows pixel cloudy (night-time only)"
+                    },
+                    {
+                        "name": "CLOUDY_FOG_LOW_STRATUS_11_37",
+                        "value": 512,
+                        "description": "11/3.7 micron fog/low stratus test shows pixel cloudy (night-time only)"
+                    },
+                    {
+                        "name": "CLOUDY_VW_DIFF_11_12",
+                        "value": 1024,
+                        "description": "11/12 micron view-difference test shows pixel cloudy"
+                    },
+                    {
+                        "name": "CLOUDY_VW_DIFF_37_11",
+                        "value": 2048,
+                        "description": "3.7/11 micron view-difference test shows pixel cloudy (night-time only)"
+                    },
+                    {
+                        "name": "CLOUDY_THERM_HIST_11_12",
+                        "value": 4096,
+                        "description": "11/12 micron thermal histogram test shows pixel cloudy"
+                    },
+                    {
+                        "name": "CLOUDY_VIS_CHANNEL",
+                        "value": 8192,
+                        "description": "Visible channel cloud test shows pixel cloudy"
+                    },
+                    {
+                        "name": "CLOUDY_NDSI",
+                        "value": 16384,
+                        "description": "NDSI snow flag"
+                    }
+                ]
+            }
+        ],
+        "tiePointGrids": [
+            {
+                "name": "latitude",
+                "description": "Latitudes",
+                "offsetX": "-19.0",
+                "offsetY": "-26.0",
+                "subSamplingX": "25.0",
+                "subSamplingY": "32.0",
+                "expectedPixels": [
+                    {
+                        "x": 92,
+                        "y": 170,
+                        "value": 49.823845
+                    },
+                    {
+                        "x": 86,
+                        "y": 111,
+                        "value": 50.351616
+                    },
+                    {
+                        "x": 34,
+                        "y": 78,
+                        "value": 50.771503
+                    },
+                    {
+                        "x": 132,
+                        "y": 62,
+                        "value": 50.654835
+                    },
+                    {
+                        "x": 140,
+                        "y": 7,
+                        "value": 51.108917
+                    },
+                    {
+                        "x": 158,
+                        "y": 39,
+                        "value": 50.783268
+                    }
+                ]
+            },
+            {
+                "name": "longitude",
+                "description": "Longitudes",
+                "offsetX": "-19.0",
+                "offsetY": "-26.0",
+                "subSamplingX": "25.0",
+                "subSamplingY": "32.0",
+                "expectedPixels": [
+                    {
+                        "x": 92,
+                        "y": 170,
+                        "value": 0.039934307
+                    },
+                    {
+                        "x": 86,
+                        "y": 111,
+                        "value": 0.19947721
+                    },
+                    {
+                        "x": 34,
+                        "y": 78,
+                        "value": -0.37012976
+                    },
+                    {
+                        "x": 132,
+                        "y": 62,
+                        "value": 1.024054
+                    },
+                    {
+                        "x": 140,
+                        "y": 7,
+                        "value": 1.3694726
+                    },
+                    {
+                        "x": 158,
+                        "y": 39,
+                        "value": 1.474104
+                    }
+                ]
+            },
+            {
+                "name": "lat_corr_nadir",
+                "description": "Latitude corrections, nadir view",
+                "offsetX": "-19.0",
+                "offsetY": "-26.0",
+                "subSamplingX": "25.0",
+                "subSamplingY": "32.0",
+                "expectedPixels": [
+                    {
+                        "x": 92,
+                        "y": 170,
+                        "value": 2.7815624E-6
+                    },
+                    {
+                        "x": 86,
+                        "y": 111,
+                        "value": 0.0
+                    },
+                    {
+                        "x": 34,
+                        "y": 78,
+                        "value": 6.6240623E-6
+                    },
+                    {
+                        "x": 132,
+                        "y": 62,
+                        "value": 0.0
+                    },
+                    {
+                        "x": 140,
+                        "y": 7,
+                        "value": 4.7865935E-5
+                    },
+                    {
+                        "x": 158,
+                        "y": 39,
+                        "value": 9.110938E-6
+                    }
+                ]
+            },
+            {
+                "name": "lon_corr_nadir",
+                "description": "Longitude corrections, nadir view",
+                "offsetX": "-19.0",
+                "offsetY": "-26.0",
+                "subSamplingX": "25.0",
+                "subSamplingY": "32.0",
+                "expectedPixels": [
+                    {
+                        "x": 92,
+                        "y": 170,
+                        "value": -8.926875E-6
+                    },
+                    {
+                        "x": 86,
+                        "y": 111,
+                        "value": 0.0
+                    },
+                    {
+                        "x": 34,
+                        "y": 78,
+                        "value": -3.049125E-5
+                    },
+                    {
+                        "x": 132,
+                        "y": 62,
+                        "value": 0.0
+                    },
+                    {
+                        "x": 140,
+                        "y": 7,
+                        "value": -1.3946125E-4
+                    },
+                    {
+                        "x": 158,
+                        "y": 39,
+                        "value": -2.168125E-5
+                    }
+                ]
+            },
+            {
+                "name": "lat_corr_fward",
+                "description": "Latitude corrections, forward view",
+                "offsetX": "-19.0",
+                "offsetY": "-26.0",
+                "subSamplingX": "25.0",
+                "subSamplingY": "32.0",
+                "expectedPixels": [
+                    {
+                        "x": 92,
+                        "y": 170,
+                        "value": 6.2746876E-5
+                    },
+                    {
+                        "x": 86,
+                        "y": 111,
+                        "value": 0.0
+                    },
+                    {
+                        "x": 34,
+                        "y": 78,
+                        "value": 7.955191E-4
+                    },
+                    {
+                        "x": 132,
+                        "y": 62,
+                        "value": 0.0
+                    },
+                    {
+                        "x": 140,
+                        "y": 7,
+                        "value": 4.367028E-4
+                    },
+                    {
+                        "x": 158,
+                        "y": 39,
+                        "value": 8.7692184E-5
+                    }
+                ]
+            },
+            {
+                "name": "lon_corr_fward",
+                "description": "Longitude corrections, forward view",
+                "offsetX": "-19.0",
+                "offsetY": "-26.0",
+                "subSamplingX": "25.0",
+                "subSamplingY": "32.0",
+                "expectedPixels": [
+                    {
+                        "x": 92,
+                        "y": 170,
+                        "value": 1.7142189E-5
+                    },
+                    {
+                        "x": 86,
+                        "y": 111,
+                        "value": 0.0
+                    },
+                    {
+                        "x": 34,
+                        "y": 78,
+                        "value": 3.2034906E-4
+                    },
+                    {
+                        "x": 132,
+                        "y": 62,
+                        "value": 0.0
+                    },
+                    {
+                        "x": 140,
+                        "y": 7,
+                        "value": 1.12278125E-4
+                    },
+                    {
+                        "x": 158,
+                        "y": 39,
+                        "value": 1.5153125E-5
+                    }
+                ]
+            },
+            {
+                "name": "altitude",
+                "description": "Topographic altitude",
+                "offsetX": "-19.0",
+                "offsetY": "-26.0",
+                "subSamplingX": "25.0",
+                "subSamplingY": "32.0",
+                "expectedPixels": [
+                    {
+                        "x": 92,
+                        "y": 170,
+                        "value": -23.65125
+                    },
+                    {
+                        "x": 86,
+                        "y": 111,
+                        "value": -46.04094
+                    },
+                    {
+                        "x": 34,
+                        "y": 78,
+                        "value": 49.134064
+                    },
+                    {
+                        "x": 132,
+                        "y": 62,
+                        "value": -37.819374
+                    },
+                    {
+                        "x": 140,
+                        "y": 7,
+                        "value": 46.338123
+                    },
+                    {
+                        "x": 158,
+                        "y": 39,
+                        "value": -28.95625
+                    }
+                ]
+            },
+            {
+                "name": "sun_elev_nadir",
+                "description": "Solar elevation, nadir view",
+                "offsetX": "-44.0",
+                "offsetY": "-26.0",
+                "subSamplingX": "50.0",
+                "subSamplingY": "32.0",
+                "expectedPixels": [
+                    {
+                        "x": 92,
+                        "y": 170,
+                        "value": 58.563866
+                    },
+                    {
+                        "x": 86,
+                        "y": 111,
+                        "value": 58.16386
+                    },
+                    {
+                        "x": 34,
+                        "y": 78,
+                        "value": 57.609924
+                    },
+                    {
+                        "x": 132,
+                        "y": 62,
+                        "value": 58.169712
+                    },
+                    {
+                        "x": 140,
+                        "y": 7,
+                        "value": 57.878418
+                    },
+                    {
+                        "x": 158,
+                        "y": 39,
+                        "value": 58.197674
+                    }
+                ]
+            },
+            {
+                "name": "view_elev_nadir",
+                "description": "Satellite elevation, nadir view",
+                "offsetX": "-44.0",
+                "offsetY": "-26.0",
+                "subSamplingX": "50.0",
+                "subSamplingY": "32.0",
+                "expectedPixels": [
+                    {
+                        "x": 92,
+                        "y": 170,
+                        "value": 82.9063
+                    },
+                    {
+                        "x": 86,
+                        "y": 111,
+                        "value": 83.3971
+                    },
+                    {
+                        "x": 34,
+                        "y": 78,
+                        "value": 87.65801
+                    },
+                    {
+                        "x": 132,
+                        "y": 62,
+                        "value": 79.56964
+                    },
+                    {
+                        "x": 140,
+                        "y": 7,
+                        "value": 78.89572
+                    },
+                    {
+                        "x": 158,
+                        "y": 39,
+                        "value": 77.37455
+                    }
+                ]
+            },
+            {
+                "name": "sun_azimuth_nadir",
+                "description": "Solar azimuth, nadir view",
+                "offsetX": "-44.0",
+                "offsetY": "-26.0",
+                "subSamplingX": "50.0",
+                "subSamplingY": "32.0",
+                "expectedPixels": [
+                    {
+                        "x": 92,
+                        "y": 170,
+                        "value": 146.77673
+                    },
+                    {
+                        "x": 86,
+                        "y": 111,
+                        "value": 147.44606
+                    },
+                    {
+                        "x": 34,
+                        "y": 78,
+                        "value": 146.85938
+                    },
+                    {
+                        "x": 132,
+                        "y": 62,
+                        "value": 148.99246
+                    },
+                    {
+                        "x": 140,
+                        "y": 7,
+                        "value": 149.8733
+                    },
+                    {
+                        "x": 158,
+                        "y": 39,
+                        "value": 149.81111
+                    }
+                ]
+            },
+            {
+                "name": "view_azimuth_nadir",
+                "description": "Satellite azimuth, nadir view",
+                "offsetX": "-44.0",
+                "offsetY": "-26.0",
+                "subSamplingX": "50.0",
+                "subSamplingY": "32.0",
+                "expectedPixels": [
+                    {
+                        "x": 92,
+                        "y": 170,
+                        "value": -65.447
+                    },
+                    {
+                        "x": 86,
+                        "y": 111,
+                        "value": -65.878944
+                    },
+                    {
+                        "x": 34,
+                        "y": 78,
+                        "value": -33.622597
+                    },
+                    {
+                        "x": 132,
+                        "y": 62,
+                        "value": -61.316772
+                    },
+                    {
+                        "x": 140,
+                        "y": 7,
+                        "value": -60.38893
+                    },
+                    {
+                        "x": 158,
+                        "y": 39,
+                        "value": -58.694244
+                    }
+                ]
+            },
+            {
+                "name": "sun_elev_fward",
+                "description": "Solar elevation, forward view",
+                "offsetX": "-44.0",
+                "offsetY": "-26.0",
+                "subSamplingX": "50.0",
+                "subSamplingY": "32.0",
+                "expectedPixels": [
+                    {
+                        "x": 92,
+                        "y": 170,
+                        "value": 58.36399
+                    },
+                    {
+                        "x": 86,
+                        "y": 111,
+                        "value": 57.961678
+                    },
+                    {
+                        "x": 34,
+                        "y": 78,
+                        "value": 57.402977
+                    },
+                    {
+                        "x": 132,
+                        "y": 62,
+                        "value": 57.98571
+                    },
+                    {
+                        "x": 140,
+                        "y": 7,
+                        "value": 57.70154
+                    },
+                    {
+                        "x": 158,
+                        "y": 39,
+                        "value": 58.022476
+                    }
+                ]
+            },
+            {
+                "name": "view_elev_fward",
+                "description": "Satellite elevation, forward view",
+                "offsetX": "-44.0",
+                "offsetY": "-26.0",
+                "subSamplingX": "50.0",
+                "subSamplingY": "32.0",
+                "expectedPixels": [
+                    {
+                        "x": 92,
+                        "y": 170,
+                        "value": 35.02134
+                    },
+                    {
+                        "x": 86,
+                        "y": 111,
+                        "value": 34.98743
+                    },
+                    {
+                        "x": 34,
+                        "y": 78,
+                        "value": 34.79088
+                    },
+                    {
+                        "x": 132,
+                        "y": 62,
+                        "value": 35.33168
+                    },
+                    {
+                        "x": 140,
+                        "y": 7,
+                        "value": 35.403687
+                    },
+                    {
+                        "x": 158,
+                        "y": 39,
+                        "value": 35.580055
+                    }
+                ]
+            },
+            {
+                "name": "sun_azimuth_fward",
+                "description": "Solar azimuth, forward view",
+                "offsetX": "-44.0",
+                "offsetY": "-26.0",
+                "subSamplingX": "50.0",
+                "subSamplingY": "32.0",
+                "expectedPixels": [
+                    {
+                        "x": 92,
+                        "y": 170,
+                        "value": 145.86238
+                    },
+                    {
+                        "x": 86,
+                        "y": 111,
+                        "value": 146.53418
+                    },
+                    {
+                        "x": 34,
+                        "y": 78,
+                        "value": 145.9472
+                    },
+                    {
+                        "x": 132,
+                        "y": 62,
+                        "value": 148.10962
+                    },
+                    {
+                        "x": 140,
+                        "y": 7,
+                        "value": 149.00043
+                    },
+                    {
+                        "x": 158,
+                        "y": 39,
+                        "value": 148.94424
+                    }
+                ]
+            },
+            {
+                "name": "view_azimuth_fward",
+                "description": "Satellite azimuth, forward view",
+                "offsetX": "-44.0",
+                "offsetY": "-26.0",
+                "subSamplingX": "50.0",
+                "subSamplingY": "32.0",
+                "expectedPixels": [
+                    {
+                        "x": 92,
+                        "y": 170,
+                        "value": 10.871837
+                    },
+                    {
+                        "x": 86,
+                        "y": 111,
+                        "value": 11.344102
+                    },
+                    {
+                        "x": 34,
+                        "y": 78,
+                        "value": 14.110068
+                    },
+                    {
+                        "x": 132,
+                        "y": 62,
+                        "value": 8.960342
+                    },
+                    {
+                        "x": 140,
+                        "y": 7,
+                        "value": 8.6569
+                    },
+                    {
+                        "x": 158,
+                        "y": 39,
+                        "value": 7.5793543
+                    }
+                ]
+            }
+        ],
+        "bands": [
+            {
+                "name": "btemp_nadir_1200",
+                "description": "Atmosphere corrected band btemp_nadir_1200",
+                "bandWidth": 200,
+                "bandHeight": 200,
+                "geophysicalUnit": "K",
+                "noDataValue": "0.0",
+                "noDataValueUsed": "false",
+                "spectralWavelength": "12000.0",
+                "spectralBandwidth": "1000.0",
+                "expectedPixels": [
+                    {
+                        "x": 92,
+                        "y": 170,
+                        "value": 0.0
+                    },
+                    {
+                        "x": 86,
+                        "y": 111,
+                        "value": 0.0
+                    },
+                    {
+                        "x": 34,
+                        "y": 78,
+                        "value": 0.0
+                    },
+                    {
+                        "x": 132,
+                        "y": 62,
+                        "value": 0.0
+                    },
+                    {
+                        "x": 140,
+                        "y": 7,
+                        "value": 0.0
+                    },
+                    {
+                        "x": 158,
+                        "y": 39,
+                        "value": 0.0
+                    }
+                ]
+            },
+            {
+                "name": "btemp_nadir_1100",
+                "description": "Atmosphere corrected band btemp_nadir_1100",
+                "bandWidth": 200,
+                "bandHeight": 200,
+                "geophysicalUnit": "K",
+                "noDataValue": "0.0",
+                "noDataValueUsed": "false",
+                "spectralWavelength": "10850.0",
+                "spectralBandwidth": "900.0",
+                "expectedPixels": [
+                    {
+                        "x": 92,
+                        "y": 170,
+                        "value": 0.0
+                    },
+                    {
+                        "x": 86,
+                        "y": 111,
+                        "value": 0.0
+                    },
+                    {
+                        "x": 34,
+                        "y": 78,
+                        "value": 0.0
+                    },
+                    {
+                        "x": 132,
+                        "y": 62,
+                        "value": 0.0
+                    },
+                    {
+                        "x": 140,
+                        "y": 7,
+                        "value": 0.0
+                    },
+                    {
+                        "x": 158,
+                        "y": 39,
+                        "value": 0.0
+                    }
+                ]
+            },
+            {
+                "name": "btemp_nadir_0370",
+                "description": "Atmosphere corrected band btemp_nadir_0370",
+                "bandWidth": 200,
+                "bandHeight": 200,
+                "geophysicalUnit": "K",
+                "noDataValue": "0.0",
+                "noDataValueUsed": "false",
+                "spectralWavelength": "3700.0",
+                "spectralBandwidth": "390.0",
+                "expectedPixels": [
+                    {
+                        "x": 92,
+                        "y": 170,
+                        "value": 0.0
+                    },
+                    {
+                        "x": 86,
+                        "y": 111,
+                        "value": 0.0
+                    },
+                    {
+                        "x": 34,
+                        "y": 78,
+                        "value": 0.0
+                    },
+                    {
+                        "x": 132,
+                        "y": 62,
+                        "value": 0.0
+                    },
+                    {
+                        "x": 140,
+                        "y": 7,
+                        "value": 0.0
+                    },
+                    {
+                        "x": 158,
+                        "y": 39,
+                        "value": 0.0
+                    }
+                ]
+            },
+            {
+                "name": "reflec_nadir_1600",
+                "description": "Atmosphere corrected band reflec_nadir_1600",
+                "bandWidth": 200,
+                "bandHeight": 200,
+                "geophysicalUnit": "%",
+                "noDataValue": "0.0",
+                "noDataValueUsed": "false",
+                "spectralWavelength": "1610.0",
+                "spectralBandwidth": "60.0",
+                "expectedPixels": [
+                    {
+                        "x": 92,
+                        "y": 170,
+                        "value": 7.690257
+                    },
+                    {
+                        "x": 86,
+                        "y": 111,
+                        "value": 2.8793292
+                    },
+                    {
+                        "x": 34,
+                        "y": 78,
+                        "value": 10.338115
+                    },
+                    {
+                        "x": 132,
+                        "y": 62,
+                        "value": 3.8741755
+                    },
+                    {
+                        "x": 140,
+                        "y": 7,
+                        "value": 3.8527877
+                    },
+                    {
+                        "x": 158,
+                        "y": 39,
+                        "value": 5.198847
+                    }
+                ]
+            },
+            {
+                "name": "reflec_nadir_0870",
+                "description": "Atmosphere corrected band reflec_nadir_0870",
+                "bandWidth": 200,
+                "bandHeight": 200,
+                "geophysicalUnit": "%",
+                "noDataValue": "0.0",
+                "noDataValueUsed": "false",
+                "spectralWavelength": "865.0",
+                "spectralBandwidth": "20.0",
+                "expectedPixels": [
+                    {
+                        "x": 92,
+                        "y": 170,
+                        "value": 7.203824
+                    },
+                    {
+                        "x": 86,
+                        "y": 111,
+                        "value": 3.934312
+                    },
+                    {
+                        "x": 34,
+                        "y": 78,
+                        "value": 11.205625
+                    },
+                    {
+                        "x": 132,
+                        "y": 62,
+                        "value": 4.52416
+                    },
+                    {
+                        "x": 140,
+                        "y": 7,
+                        "value": 4.6912584
+                    },
+                    {
+                        "x": 158,
+                        "y": 39,
+                        "value": 5.3927536
+                    }
+                ]
+            },
+            {
+                "name": "reflec_nadir_0670",
+                "description": "Atmosphere corrected band reflec_nadir_0670",
+                "bandWidth": 200,
+                "bandHeight": 200,
+                "geophysicalUnit": "%",
+                "noDataValue": "0.0",
+                "noDataValueUsed": "false",
+                "spectralWavelength": "659.0",
+                "spectralBandwidth": "20.0",
+                "expectedPixels": [
+                    {
+                        "x": 92,
+                        "y": 170,
+                        "value": 6.549439
+                    },
+                    {
+                        "x": 86,
+                        "y": 111,
+                        "value": 4.651824
+                    },
+                    {
+                        "x": 34,
+                        "y": 78,
+                        "value": 8.580233
+                    },
+                    {
+                        "x": 132,
+                        "y": 62,
+                        "value": 4.8845453
+                    },
+                    {
+                        "x": 140,
+                        "y": 7,
+                        "value": 4.927161
+                    },
+                    {
+                        "x": 158,
+                        "y": 39,
+                        "value": 5.252722
+                    }
+                ]
+            },
+            {
+                "name": "reflec_nadir_0550",
+                "description": "Atmosphere corrected band reflec_nadir_0550",
+                "bandWidth": 200,
+                "bandHeight": 200,
+                "geophysicalUnit": "%",
+                "noDataValue": "0.0",
+                "noDataValueUsed": "false",
+                "spectralWavelength": "555.0",
+                "spectralBandwidth": "20.0",
+                "expectedPixels": [
+                    {
+                        "x": 92,
+                        "y": 170,
+                        "value": 5.8223042
+                    },
+                    {
+                        "x": 86,
+                        "y": 111,
+                        "value": 4.8659897
+                    },
+                    {
+                        "x": 34,
+                        "y": 78,
+                        "value": 6.880773
+                    },
+                    {
+                        "x": 132,
+                        "y": 62,
+                        "value": 4.89821
+                    },
+                    {
+                        "x": 140,
+                        "y": 7,
+                        "value": 5.073514
+                    },
+                    {
+                        "x": 158,
+                        "y": 39,
+                        "value": 5.0598264
+                    }
+                ]
+            },
+            {
+                "name": "btemp_fward_1200",
+                "description": "Atmosphere corrected band btemp_fward_1200",
+                "bandWidth": 200,
+                "bandHeight": 200,
+                "geophysicalUnit": "K",
+                "noDataValue": "0.0",
+                "noDataValueUsed": "false",
+                "spectralWavelength": "12000.0",
+                "spectralBandwidth": "1000.0",
+                "expectedPixels": [
+                    {
+                        "x": 92,
+                        "y": 170,
+                        "value": 0.0
+                    },
+                    {
+                        "x": 86,
+                        "y": 111,
+                        "value": 0.0
+                    },
+                    {
+                        "x": 34,
+                        "y": 78,
+                        "value": 0.0
+                    },
+                    {
+                        "x": 132,
+                        "y": 62,
+                        "value": 0.0
+                    },
+                    {
+                        "x": 140,
+                        "y": 7,
+                        "value": 0.0
+                    },
+                    {
+                        "x": 158,
+                        "y": 39,
+                        "value": 0.0
+                    }
+                ]
+            },
+            {
+                "name": "btemp_fward_1100",
+                "description": "Atmosphere corrected band btemp_fward_1100",
+                "bandWidth": 200,
+                "bandHeight": 200,
+                "geophysicalUnit": "K",
+                "noDataValue": "0.0",
+                "noDataValueUsed": "false",
+                "spectralWavelength": "10850.0",
+                "spectralBandwidth": "900.0",
+                "expectedPixels": [
+                    {
+                        "x": 92,
+                        "y": 170,
+                        "value": 0.0
+                    },
+                    {
+                        "x": 86,
+                        "y": 111,
+                        "value": 0.0
+                    },
+                    {
+                        "x": 34,
+                        "y": 78,
+                        "value": 0.0
+                    },
+                    {
+                        "x": 132,
+                        "y": 62,
+                        "value": 0.0
+                    },
+                    {
+                        "x": 140,
+                        "y": 7,
+                        "value": 0.0
+                    },
+                    {
+                        "x": 158,
+                        "y": 39,
+                        "value": 0.0
+                    }
+                ]
+            },
+            {
+                "name": "btemp_fward_0370",
+                "description": "Atmosphere corrected band btemp_fward_0370",
+                "bandWidth": 200,
+                "bandHeight": 200,
+                "geophysicalUnit": "K",
+                "noDataValue": "0.0",
+                "noDataValueUsed": "false",
+                "spectralWavelength": "3700.0",
+                "spectralBandwidth": "390.0",
+                "expectedPixels": [
+                    {
+                        "x": 92,
+                        "y": 170,
+                        "value": 0.0
+                    },
+                    {
+                        "x": 86,
+                        "y": 111,
+                        "value": 0.0
+                    },
+                    {
+                        "x": 34,
+                        "y": 78,
+                        "value": 0.0
+                    },
+                    {
+                        "x": 132,
+                        "y": 62,
+                        "value": 0.0
+                    },
+                    {
+                        "x": 140,
+                        "y": 7,
+                        "value": 0.0
+                    },
+                    {
+                        "x": 158,
+                        "y": 39,
+                        "value": 0.0
+                    }
+                ]
+            },
+            {
+                "name": "reflec_fward_1600",
+                "description": "Atmosphere corrected band reflec_fward_1600",
+                "bandWidth": 200,
+                "bandHeight": 200,
+                "geophysicalUnit": "%",
+                "noDataValue": "0.0",
+                "noDataValueUsed": "false",
+                "spectralWavelength": "1610.0",
+                "spectralBandwidth": "60.0",
+                "expectedPixels": [
+                    {
+                        "x": 92,
+                        "y": 170,
+                        "value": 21.985632
+                    },
+                    {
+                        "x": 86,
+                        "y": 111,
+                        "value": 4.9325447
+                    },
+                    {
+                        "x": 34,
+                        "y": 78,
+                        "value": 14.064871
+                    },
+                    {
+                        "x": 132,
+                        "y": 62,
+                        "value": 2.3831146
+                    },
+                    {
+                        "x": 140,
+                        "y": 7,
+                        "value": 2.0202622
+                    },
+                    {
+                        "x": 158,
+                        "y": 39,
+                        "value": 2.2551334
+                    }
+                ]
+            },
+            {
+                "name": "reflec_fward_0870",
+                "description": "Atmosphere corrected band reflec_fward_0870",
+                "bandWidth": 200,
+                "bandHeight": 200,
+                "geophysicalUnit": "%",
+                "noDataValue": "0.0",
+                "noDataValueUsed": "false",
+                "spectralWavelength": "865.0",
+                "spectralBandwidth": "20.0",
+                "expectedPixels": [
+                    {
+                        "x": 92,
+                        "y": 170,
+                        "value": 14.310039
+                    },
+                    {
+                        "x": 86,
+                        "y": 111,
+                        "value": 7.430312
+                    },
+                    {
+                        "x": 34,
+                        "y": 78,
+                        "value": 13.820756
+                    },
+                    {
+                        "x": 132,
+                        "y": 62,
+                        "value": 4.9274106
+                    },
+                    {
+                        "x": 140,
+                        "y": 7,
+                        "value": 4.864776
+                    },
+                    {
+                        "x": 158,
+                        "y": 39,
+                        "value": 4.6172557
+                    }
+                ]
+            },
+            {
+                "name": "reflec_fward_0670",
+                "description": "Atmosphere corrected band reflec_fward_0670",
+                "bandWidth": 200,
+                "bandHeight": 200,
+                "geophysicalUnit": "%",
+                "noDataValue": "0.0",
+                "noDataValueUsed": "false",
+                "spectralWavelength": "659.0",
+                "spectralBandwidth": "20.0",
+                "expectedPixels": [
+                    {
+                        "x": 92,
+                        "y": 170,
+                        "value": 9.92791
+                    },
+                    {
+                        "x": 86,
+                        "y": 111,
+                        "value": 7.210207
+                    },
+                    {
+                        "x": 34,
+                        "y": 78,
+                        "value": 9.753944
+                    },
+                    {
+                        "x": 132,
+                        "y": 62,
+                        "value": 5.906114
+                    },
+                    {
+                        "x": 140,
+                        "y": 7,
+                        "value": 5.8633366
+                    },
+                    {
+                        "x": 158,
+                        "y": 39,
+                        "value": 5.614403
+                    }
+                ]
+            },
+            {
+                "name": "reflec_fward_0550",
+                "description": "Atmosphere corrected band reflec_fward_0550",
+                "bandWidth": 200,
+                "bandHeight": 200,
+                "geophysicalUnit": "%",
+                "noDataValue": "0.0",
+                "noDataValueUsed": "false",
+                "spectralWavelength": "555.0",
+                "spectralBandwidth": "20.0",
+                "expectedPixels": [
+                    {
+                        "x": 92,
+                        "y": 170,
+                        "value": 7.460581
+                    },
+                    {
+                        "x": 86,
+                        "y": 111,
+                        "value": 6.312366
+                    },
+                    {
+                        "x": 34,
+                        "y": 78,
+                        "value": 7.4523883
+                    },
+                    {
+                        "x": 132,
+                        "y": 62,
+                        "value": 5.6652746
+                    },
+                    {
+                        "x": 140,
+                        "y": 7,
+                        "value": 5.752494
+                    },
+                    {
+                        "x": 158,
+                        "y": 39,
+                        "value": 5.538538
+                    }
+                ]
+            },
+            {
+                "name": "confid_flags_nadir",
+                "description": "Confidence flags, nadir view",
+                "bandWidth": 200,
+                "bandHeight": 200,
+                "noDataValue": "65534.0",
+                "noDataValueUsed": "true",
+                "spectralWavelength": "0.0",
+                "spectralBandwidth": "0.0",
+                "expectedPixels": [
+                    {
+                        "x": 92,
+                        "y": 170,
+                        "value": 0.0
+                    },
+                    {
+                        "x": 86,
+                        "y": 111,
+                        "value": 1.0
+                    },
+                    {
+                        "x": 34,
+                        "y": 78,
+                        "value": 0.0
+                    },
+                    {
+                        "x": 132,
+                        "y": 62,
+                        "value": 0.0
+                    },
+                    {
+                        "x": 140,
+                        "y": 7,
+                        "value": 0.0
+                    },
+                    {
+                        "x": 158,
+                        "y": 39,
+                        "value": 1.0
+                    }
+                ]
+            },
+            {
+                "name": "confid_flags_fward",
+                "description": "Confidence flags, forward view",
+                "bandWidth": 200,
+                "bandHeight": 200,
+                "noDataValue": "65534.0",
+                "noDataValueUsed": "true",
+                "spectralWavelength": "0.0",
+                "spectralBandwidth": "0.0",
+                "expectedPixels": [
+                    {
+                        "x": 92,
+                        "y": 170,
+                        "value": 65.0
+                    },
+                    {
+                        "x": 86,
+                        "y": 111,
+                        "value": 0.0
+                    },
+                    {
+                        "x": 34,
+                        "y": 78,
+                        "value": 0.0
+                    },
+                    {
+                        "x": 132,
+                        "y": 62,
+                        "value": 0.0
+                    },
+                    {
+                        "x": 140,
+                        "y": 7,
+                        "value": 1.0
+                    },
+                    {
+                        "x": 158,
+                        "y": 39,
+                        "value": 0.0
+                    }
+                ]
+            },
+            {
+                "name": "cloud_flags_nadir",
+                "description": "Cloud flags, nadir view",
+                "bandWidth": 200,
+                "bandHeight": 200,
+                "noDataValue": "65534.0",
+                "noDataValueUsed": "true",
+                "spectralWavelength": "0.0",
+                "spectralBandwidth": "0.0",
+                "expectedPixels": [
+                    {
+                        "x": 92,
+                        "y": 170,
+                        "value": 1062.0
+                    },
+                    {
+                        "x": 86,
+                        "y": 111,
+                        "value": 1030.0
+                    },
+                    {
+                        "x": 34,
+                        "y": 78,
+                        "value": 1250.0
+                    },
+                    {
+                        "x": 132,
+                        "y": 62,
+                        "value": 1062.0
+                    },
+                    {
+                        "x": 140,
+                        "y": 7,
+                        "value": 1062.0
+                    },
+                    {
+                        "x": 158,
+                        "y": 39,
+                        "value": 1030.0
+                    }
+                ]
+            },
+            {
+                "name": "cloud_flags_fward",
+                "description": "Cloud flags, forward view",
+                "bandWidth": 200,
+                "bandHeight": 200,
+                "noDataValue": "65534.0",
+                "noDataValueUsed": "true",
+                "spectralWavelength": "0.0",
+                "spectralBandwidth": "0.0",
+                "expectedPixels": [
+                    {
+                        "x": 92,
+                        "y": 170,
+                        "value": 1058.0
+                    },
+                    {
+                        "x": 86,
+                        "y": 111,
+                        "value": 1058.0
+                    },
+                    {
+                        "x": 34,
+                        "y": 78,
+                        "value": 1250.0
+                    },
+                    {
+                        "x": 132,
+                        "y": 62,
+                        "value": 1026.0
+                    },
+                    {
+                        "x": 140,
+                        "y": 7,
+                        "value": 1026.0
+                    },
+                    {
+                        "x": 158,
+                        "y": 39,
+                        "value": 1026.0
+                    }
+                ]
+            }
+        ],
+        "masks": [
+            {
+                "name": "qln_blanking",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "255,0,0",
+                "description": "Blanking Pulse"
+            },
+            {
+                "name": "qln_cosmetic",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "255,255,0",
+                "description": "Cosmetic Fill Pixel"
+            },
+            {
+                "name": "qln_scan_absent",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "255,200,0",
+                "description": "Entire scan absent from telemetry"
+            },
+            {
+                "name": "qln_absent",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "0,255,0",
+                "description": "Pixel absent from telemetry"
+            },
+            {
+                "name": "qln_not_decompr",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "0,0,255",
+                "description": "Pixel not decompressed owing to error in packet validation"
+            },
+            {
+                "name": "qln_no_signal",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "255,0,255",
+                "description": "No signal in some channel (zero count)"
+            },
+            {
+                "name": "qln_saturation",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "0,255,0",
+                "description": "Saturation in some channel (maximum count)"
+            },
+            {
+                "name": "qln_out_of_range",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "255,0,0",
+                "description": "Derived radiance of some channel outside range of calibration"
+            },
+            {
+                "name": "qln_no_calib_param",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "0,255,255",
+                "description": "Calibration Parameters unavailable for pixel"
+            },
+            {
+                "name": "qln_unfilled",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "255,255,0",
+                "description": "Pixel unfilled (cosmetic fill algorithm unable to find nearest neighbour pixel)"
+            },
+            {
+                "name": "qlf_blanking",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "255,0,0",
+                "description": "Blanking Pulse"
+            },
+            {
+                "name": "qlf_cosmetic",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "255,255,0",
+                "description": "Cosmetic Fill Pixel"
+            },
+            {
+                "name": "qlf_scan_absent",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "255,200,0",
+                "description": "Entire scan absent from telemetry"
+            },
+            {
+                "name": "qlf_absent",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "0,255,0",
+                "description": "Pixel absent from telemetry"
+            },
+            {
+                "name": "qlf_not_decompr",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "0,0,255",
+                "description": "Pixel not decompressed owing to error in packet validation"
+            },
+            {
+                "name": "qlf_no_signal",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "255,0,255",
+                "description": "No signal in some channel (zero count)"
+            },
+            {
+                "name": "qlf_saturation",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "0,255,0",
+                "description": "Saturation in some channel (maximum count)"
+            },
+            {
+                "name": "qlf_out_of_range",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "255,0,0",
+                "description": "Derived radiance of some channel outside range of calibration"
+            },
+            {
+                "name": "qlf_no_calib_param",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "0,255,255",
+                "description": "Calibration Parameters unavailable for pixel"
+            },
+            {
+                "name": "qlf_unfilled",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "255,255,0",
+                "description": "Pixel unfilled (cosmetic fill algorithm unable to find nearest neighbour pixel)"
+            },
+            {
+                "name": "cln_land",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "0,255,0",
+                "description": "Pixel is over land"
+            },
+            {
+                "name": "cln_cloudy",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "0,255,255",
+                "description": "Pixel is cloudy (result of all cloud tests)"
+            },
+            {
+                "name": "cln_sun_glint",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "255,255,0",
+                "description": "Sunglint detected in pixel"
+            },
+            {
+                "name": "cln_cloudy_refl_hist",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "255,200,0",
+                "description": "1.6 micron reflectance histogram test shows pixel cloudy (day-time only)"
+            },
+            {
+                "name": "cln_cloudy_spat_coher_16",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "255,0,0",
+                "description": "1.6 micron spatial coherence test shows pixel cloudy (day-time only)"
+            },
+            {
+                "name": "cln_cloudy_spat_coher_11",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "0,0,255",
+                "description": "11 micron spatial coherence test shows pixel cloudy"
+            },
+            {
+                "name": "cln_cloudy_gross_12",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "255,0,255",
+                "description": "12 micron gross cloud test shows pixel cloudy"
+            },
+            {
+                "name": "cln_cloudy_cirrus_11_12",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "255,175,175",
+                "description": "11/12 micron thin cirrus test shows pixel cloudy"
+            },
+            {
+                "name": "cln_cloudy_med_hi_level_37_12",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "255,255,0",
+                "description": "3.7/12 micron medium/high level test shows pixel cloudy (night-time only)"
+            },
+            {
+                "name": "cln_cloudy_fog_low_stratus_11_37",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "255,200,0",
+                "description": "11/3.7 micron fog/low stratus test shows pixel cloudy (night-time only)"
+            },
+            {
+                "name": "cln_cloudy_vw_diff_11_12",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "255,0,0",
+                "description": "11/12 micron view-difference test shows pixel cloudy"
+            },
+            {
+                "name": "cln_cloudy_vw_diff_37_11",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "0,255,0",
+                "description": "3.7/11 micron view-difference test shows pixel cloudy (night-time only)"
+            },
+            {
+                "name": "cln_cloudy_therm_hist_11_12",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "0,0,255",
+                "description": "11/12 micron thermal histogram test shows pixel cloudy"
+            },
+            {
+                "name": "cln_cloudy_vis_channel",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "178,178,0",
+                "description": "Visible channel cloud test shows pixel cloudy"
+            },
+            {
+                "name": "cln_cloudy_ndsi",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "128,128,128",
+                "description": "NDSI snow flag"
+            },
+            {
+                "name": "clf_land",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "0,255,0",
+                "description": "Pixel is over land"
+            },
+            {
+                "name": "clf_cloudy",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "0,255,255",
+                "description": "Pixel is cloudy (result of all cloud tests)"
+            },
+            {
+                "name": "clf_sun_glint",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "255,255,0",
+                "description": "Sunglint detected in pixel"
+            },
+            {
+                "name": "clf_cloudy_refl_hist",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "255,200,0",
+                "description": "1.6 micron reflectance histogram test shows pixel cloudy (day-time only)"
+            },
+            {
+                "name": "clf_cloudy_spat_coher_16",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "255,0,0",
+                "description": "1.6 micron spatial coherence test shows pixel cloudy (day-time only)"
+            },
+            {
+                "name": "clf_cloudy_spat_coher_11",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "0,0,255",
+                "description": "11 micron spatial coherence test shows pixel cloudy"
+            },
+            {
+                "name": "clf_cloudy_gross_12",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "255,0,255",
+                "description": "12 micron gross cloud test shows pixel cloudy"
+            },
+            {
+                "name": "clf_cloudy_cirrus_11_12",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "255,175,175",
+                "description": "11/12 micron thin cirrus test shows pixel cloudy"
+            },
+            {
+                "name": "clf_cloudy_med_hi_level_37_12",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "255,255,0",
+                "description": "3.7/12 micron medium/high level test shows pixel cloudy (night-time only)"
+            },
+            {
+                "name": "clf_cloudy_fog_low_stratus_11_37",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "255,200,0",
+                "description": "11/3.7 micron fog/low stratus test shows pixel cloudy (night-time only)"
+            },
+            {
+                "name": "clf_cloudy_vw_diff_11_12",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "255,0,0",
+                "description": "11/12 micron view-difference test shows pixel cloudy"
+            },
+            {
+                "name": "clf_cloudy_vw_diff_37_11",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "0,255,0",
+                "description": "3.7/11 micron view-difference test shows pixel cloudy (night-time only)"
+            },
+            {
+                "name": "clf_cloudy_therm_hist_11_12",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "0,0,255",
+                "description": "11/12 micron thermal histogram test shows pixel cloudy"
+            },
+            {
+                "name": "clf_cloudy_vis_channel",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "178,178,0",
+                "description": "Visible channel cloud test shows pixel cloudy"
+            },
+            {
+                "name": "clf_cloudy_ndsi",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "128,128,128",
+                "description": "NDSI snow flag"
+            },
+            {
+                "name": "fire_nadir_1",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "255,0,0",
+                "description": "ATSR active fire (ALGO1)"
+            },
+            {
+                "name": "fire_nadir_2",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "178,0,0",
+                "description": "ATSR active fire (ALGO2)"
+            },
+            {
+                "name": "fire_fward_1",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "255,0,0",
+                "description": "ATSR active fire (ALGO1)"
+            },
+            {
+                "name": "fire_fward_2",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "178,0,0",
+                "description": "ATSR active fire (ALGO2)"
+            },
+            {
+                "name": "smac_mask",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "0,0,0",
+                "description": "Not No signal in some channel (zero count)"
+            },
+            {
+                "name": "smac_mask_forward",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "0,0,0",
+                "description": "Not No signal in some channel (zero count)"
+            }
+        ],
+        "metadata": [
+            {
+                "path": "Processing_Graph/node.1/parameters/formatName",
+                "value": "BEAM-DIMAP"
+            },
+            {
+                "path": "Processing_Graph/node.0/parameters/invalidPixel",
+                "value": "0.0"
+            },
+            {
+                "path": "Processing_Graph/node.0/parameters/maskExpressionForward",
+                "value": "not confid_flags_nadir.NO_SIGNAL"
+            },
+            {
+                "path": "Processing_Graph/node.1/parameters/clearCacheAfterRowWrite",
+                "value": "false"
+            },
+            {
+                "path": "Processing_Graph/node.1/parameters/clearCacheAfterRowWrite",
+                "value": "false"
+            },
+            {
+                "path": "Processing_Graph/node.0/parameters/surfPress",
+                "value": "1001.0"
+            },
+            {
+                "path": "Processing_Graph/node.1/sources/sourceProduct",
+                "value": "SMAC"
+            },
+            {
+                "path": "Processing_Graph/node.0/sources/sourceProduct",
+                "value": "product:Subset_ATS_TOA_1COLRA20030530_104438_000000762016_00451_06517_1067.N1"
+            },
+            {
+                "path": "Processing_Graph/node.1/parameters/formatName",
+                "value": "BEAM-DIMAP"
+            },
+            {
+                "path": "Processing_Graph/node.0/sources/sourceProduct",
+                "value": "product:Subset_ATS_TOA_1COLRA20030530_104438_000000762016_00451_06517_1067.N1"
+            }
+        ]
+    }
+}

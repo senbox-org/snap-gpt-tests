@@ -1,0 +1,670 @@
+{
+    "id": "MphChlTest_Rayleigh_MERIS",
+    "decodeQualification": "INTENDED",
+    "expectedContent": {
+        "sceneWidth": 200,
+        "sceneHeight": 200,
+        "startTime": "01-APR-2004 00:11:29.969635",
+        "endTime": "01-APR-2004 00:11:38.725038",
+        "geoCoding": {
+            "coordinates": [
+                {
+                    "x": 86.0,
+                    "y": 107.0,
+                    "lat": -14.291602936515119,
+                    "lon": 143.80961769261302
+                },
+                {
+                    "x": 148.0,
+                    "y": 129.0,
+                    "lat": -14.38133277266752,
+                    "lon": 143.941856409547
+                }
+            ],
+            "reverseAccuracy": 0.049895271021370036
+        },
+        "flagCodings": [
+            {
+                "name": "mph_chl_flags",
+                "samples": [
+                    {
+                        "name": "mph_cyano",
+                        "value": 1,
+                        "description": "Cyanobacteria dominated waters"
+                    },
+                    {
+                        "name": "mph_floating",
+                        "value": 2,
+                        "description": "Floating vegetation or cyanobacteria on water surface"
+                    },
+                    {
+                        "name": "mph_adjacency",
+                        "value": 4,
+                        "description": "Pixel suspect of adjacency effects"
+                    }
+                ]
+            },
+            {
+                "name": "l1_flags",
+                "samples": [
+                    {
+                        "name": "COSMETIC",
+                        "value": 1,
+                        "description": "Pixel is cosmetic"
+                    },
+                    {
+                        "name": "DUPLICATED",
+                        "value": 2,
+                        "description": "Pixel has been duplicated (filled in)"
+                    },
+                    {
+                        "name": "GLINT_RISK",
+                        "value": 4,
+                        "description": "Pixel has glint risk"
+                    },
+                    {
+                        "name": "SUSPECT",
+                        "value": 8,
+                        "description": "Pixel is suspect"
+                    },
+                    {
+                        "name": "LAND_OCEAN",
+                        "value": 16,
+                        "description": "Pixel is over land, not ocean"
+                    },
+                    {
+                        "name": "BRIGHT",
+                        "value": 32,
+                        "description": "Pixel is bright"
+                    },
+                    {
+                        "name": "COASTLINE",
+                        "value": 64,
+                        "description": "Pixel is part of a coastline"
+                    },
+                    {
+                        "name": "INVALID",
+                        "value": 128,
+                        "description": "Pixel is invalid"
+                    }
+                ]
+            }
+        ],
+        "tiePointGrids": [
+            {
+                "name": "latitude",
+                "description": "Latitude of the tie points (WGS-84), positive N",
+                "offsetX": "-15.5",
+                "offsetY": "-51.5",
+                "subSamplingX": "64.0",
+                "subSamplingY": "64.0",
+                "expectedPixels": [
+                    {
+                        "x": 10,
+                        "y": 35,
+                        "value": -14.065805
+                    },
+                    {
+                        "x": 137,
+                        "y": 170,
+                        "value": -14.483927
+                    }
+                ]
+            },
+            {
+                "name": "longitude",
+                "description": "Longitude of the tie points (WGS-84), Greenwich origin, positive E",
+                "offsetX": "-15.5",
+                "offsetY": "-51.5",
+                "subSamplingX": "64.0",
+                "subSamplingY": "64.0",
+                "expectedPixels": [
+                    {
+                        "x": 58,
+                        "y": 51,
+                        "value": 143.77899
+                    },
+                    {
+                        "x": 122,
+                        "y": 73,
+                        "value": 143.91582
+                    }
+                ]
+            },
+            {
+                "name": "dem_alt",
+                "description": "Digital elevation model altitude",
+                "offsetX": "-15.5",
+                "offsetY": "-51.5",
+                "subSamplingX": "64.0",
+                "subSamplingY": "64.0",
+                "expectedPixels": [
+                    {
+                        "x": 110,
+                        "y": 149,
+                        "value": 9.482422
+                    },
+                    {
+                        "x": 121,
+                        "y": 185,
+                        "value": 16.146484
+                    }
+                ]
+            },
+            {
+                "name": "dem_rough",
+                "description": "Digital elevation model roughness",
+                "offsetX": "-15.5",
+                "offsetY": "-51.5",
+                "subSamplingX": "64.0",
+                "subSamplingY": "64.0",
+                "expectedPixels": [
+                    {
+                        "x": 31,
+                        "y": 133,
+                        "value": 8.933594
+                    },
+                    {
+                        "x": 103,
+                        "y": 182,
+                        "value": 2.6220703
+                    }
+                ]
+            },
+            {
+                "name": "lat_corr",
+                "description": "Digital elevation model latitude corrections",
+                "offsetX": "-15.5",
+                "offsetY": "-51.5",
+                "subSamplingX": "64.0",
+                "subSamplingY": "64.0",
+                "expectedPixels": [
+                    {
+                        "x": 151,
+                        "y": 96,
+                        "value": -1.2207032E-7
+                    },
+                    {
+                        "x": 190,
+                        "y": 97,
+                        "value": -1.0766602E-6
+                    }
+                ]
+            },
+            {
+                "name": "lon_corr",
+                "description": "Digital elevation model longitude corrections",
+                "offsetX": "-15.5",
+                "offsetY": "-51.5",
+                "subSamplingX": "64.0",
+                "subSamplingY": "64.0",
+                "expectedPixels": [
+                    {
+                        "x": 68,
+                        "y": 179,
+                        "value": -1.8278809E-4
+                    },
+                    {
+                        "x": 1,
+                        "y": 94,
+                        "value": -1.0396973E-4
+                    }
+                ]
+            },
+            {
+                "name": "sun_zenith",
+                "description": "Sun zenith angle",
+                "offsetX": "-15.5",
+                "offsetY": "-51.5",
+                "subSamplingX": "64.0",
+                "subSamplingY": "64.0",
+                "expectedPixels": [
+                    {
+                        "x": 65,
+                        "y": 39,
+                        "value": 38.824017
+                    },
+                    {
+                        "x": 54,
+                        "y": 8,
+                        "value": 38.796535
+                    }
+                ]
+            },
+            {
+                "name": "sun_azimuth",
+                "description": "Sun azimuth angles",
+                "offsetX": "-15.5",
+                "offsetY": "-51.5",
+                "subSamplingX": "64.0",
+                "subSamplingY": "64.0",
+                "expectedPixels": [
+                    {
+                        "x": 194,
+                        "y": 120,
+                        "value": 63.118286
+                    },
+                    {
+                        "x": 114,
+                        "y": 143,
+                        "value": 63.254845
+                    }
+                ]
+            },
+            {
+                "name": "view_zenith",
+                "description": "Viewing zenith angles",
+                "offsetX": "-15.5",
+                "offsetY": "-51.5",
+                "subSamplingX": "64.0",
+                "subSamplingY": "64.0",
+                "expectedPixels": [
+                    {
+                        "x": 46,
+                        "y": 99,
+                        "value": 10.784045
+                    },
+                    {
+                        "x": 64,
+                        "y": 144,
+                        "value": 10.412334
+                    }
+                ]
+            },
+            {
+                "name": "view_azimuth",
+                "description": "Viewing azimuth angles",
+                "offsetX": "-15.5",
+                "offsetY": "-51.5",
+                "subSamplingX": "64.0",
+                "subSamplingY": "64.0",
+                "expectedPixels": [
+                    {
+                        "x": 71,
+                        "y": 99,
+                        "value": 102.89349
+                    },
+                    {
+                        "x": 80,
+                        "y": 88,
+                        "value": 102.88702
+                    }
+                ]
+            },
+            {
+                "name": "zonal_wind",
+                "description": "Zonal wind",
+                "offsetX": "-15.5",
+                "offsetY": "-51.5",
+                "subSamplingX": "64.0",
+                "subSamplingY": "64.0",
+                "expectedPixels": [
+                    {
+                        "x": 114,
+                        "y": 18,
+                        "value": -5.075
+                    },
+                    {
+                        "x": 129,
+                        "y": 3,
+                        "value": -5.1546874
+                    }
+                ]
+            },
+            {
+                "name": "merid_wind",
+                "description": "Meridional wind",
+                "offsetX": "-15.5",
+                "offsetY": "-51.5",
+                "subSamplingX": "64.0",
+                "subSamplingY": "64.0",
+                "expectedPixels": [
+                    {
+                        "x": 195,
+                        "y": 73,
+                        "value": 3.5767334
+                    },
+                    {
+                        "x": 190,
+                        "y": 189,
+                        "value": 2.932373
+                    }
+                ]
+            },
+            {
+                "name": "atm_press",
+                "description": "Mean sea level pressure",
+                "offsetX": "-15.5",
+                "offsetY": "-51.5",
+                "subSamplingX": "64.0",
+                "subSamplingY": "64.0",
+                "expectedPixels": [
+                    {
+                        "x": 22,
+                        "y": 90,
+                        "value": 1015.0089
+                    },
+                    {
+                        "x": 114,
+                        "y": 112,
+                        "value": 1014.95624
+                    }
+                ]
+            },
+            {
+                "name": "ozone",
+                "description": "Total ozone",
+                "offsetX": "-15.5",
+                "offsetY": "-51.5",
+                "subSamplingX": "64.0",
+                "subSamplingY": "64.0",
+                "expectedPixels": [
+                    {
+                        "x": 101,
+                        "y": 104,
+                        "value": 260.1192
+                    },
+                    {
+                        "x": 90,
+                        "y": 116,
+                        "value": 260.1209
+                    }
+                ]
+            },
+            {
+                "name": "rel_hum",
+                "description": "Relative humidity",
+                "offsetX": "-15.5",
+                "offsetY": "-51.5",
+                "subSamplingX": "64.0",
+                "subSamplingY": "64.0",
+                "expectedPixels": [
+                    {
+                        "x": 2,
+                        "y": 84,
+                        "value": 72.892975
+                    },
+                    {
+                        "x": 14,
+                        "y": 198,
+                        "value": 72.557526
+                    }
+                ]
+            }
+        ],
+        "bands": [
+            {
+                "name": "chl",
+                "description": "",
+                "bandWidth": 200,
+                "bandHeight": 200,
+                "geophysicalUnit": "mg/m^3",
+                "noDataValue": "NaN",
+                "noDataValueUsed": "true",
+                "spectralWavelength": "0.0",
+                "spectralBandwidth": "0.0",
+                "expectedPixels": [
+                    {
+                        "x": 59,
+                        "y": 149,
+                        "value": "NaN"
+                    },
+                    {
+                        "x": 160,
+                        "y": 147,
+                        "value": 2.5611973
+                    }
+                ]
+            },
+            {
+                "name": "immersed_cyanobacteria",
+                "description": "",
+                "bandWidth": 200,
+                "bandHeight": 200,
+                "noDataValue": "0.0",
+                "noDataValueUsed": "true",
+                "spectralWavelength": "0.0",
+                "spectralBandwidth": "0.0",
+                "expectedPixels": [
+                    {
+                        "x": 166,
+                        "y": 189,
+                        "value": "NaN"
+                    },
+                    {
+                        "x": 49,
+                        "y": 106,
+                        "value": "NaN"
+                    }
+                ]
+            },
+            {
+                "name": "floating_cyanobacteria",
+                "description": "",
+                "bandWidth": 200,
+                "bandHeight": 200,
+                "noDataValue": "0.0",
+                "noDataValueUsed": "false",
+                "spectralWavelength": "0.0",
+                "spectralBandwidth": "0.0",
+                "expectedPixels": [
+                    {
+                        "x": 122,
+                        "y": 52,
+                        "value": 0.0
+                    },
+                    {
+                        "x": 110,
+                        "y": 30,
+                        "value": 0.0
+                    }
+                ]
+            },
+            {
+                "name": "floating_vegetation",
+                "description": "",
+                "bandWidth": 200,
+                "bandHeight": 200,
+                "noDataValue": "0.0",
+                "noDataValueUsed": "false",
+                "spectralWavelength": "0.0",
+                "spectralBandwidth": "0.0",
+                "expectedPixels": [
+                    {
+                        "x": 95,
+                        "y": 111,
+                        "value": 0.0
+                    },
+                    {
+                        "x": 19,
+                        "y": 169,
+                        "value": 1.0
+                    }
+                ]
+            },
+            {
+                "name": "mph",
+                "description": "",
+                "bandWidth": 200,
+                "bandHeight": 200,
+                "geophysicalUnit": "dl",
+                "noDataValue": "NaN",
+                "noDataValueUsed": "true",
+                "spectralWavelength": "0.0",
+                "spectralBandwidth": "0.0",
+                "expectedPixels": [
+                    {
+                        "x": 19,
+                        "y": 15,
+                        "value": -2.1515504E-4
+                    },
+                    {
+                        "x": 91,
+                        "y": 135,
+                        "value": -2.2098673E-5
+                    }
+                ]
+            },
+            {
+                "name": "mph_chl_flags",
+                "description": "",
+                "bandWidth": 200,
+                "bandHeight": 200,
+                "noDataValue": "0.0",
+                "noDataValueUsed": "false",
+                "spectralWavelength": "0.0",
+                "spectralBandwidth": "0.0",
+                "expectedPixels": [
+                    {
+                        "x": 93,
+                        "y": 179,
+                        "value": 2.0
+                    },
+                    {
+                        "x": 173,
+                        "y": 120,
+                        "value": 0.0
+                    }
+                ]
+            },
+            {
+                "name": "l1_flags",
+                "description": "Level 1b classification and quality flags",
+                "bandWidth": 200,
+                "bandHeight": 200,
+                "noDataValue": "0.0",
+                "noDataValueUsed": "false",
+                "spectralWavelength": "0.0",
+                "spectralBandwidth": "0.0",
+                "expectedPixels": [
+                    {
+                        "x": 192,
+                        "y": 76,
+                        "value": 0.0
+                    },
+                    {
+                        "x": 17,
+                        "y": 106,
+                        "value": 16.0
+                    }
+                ]
+            }
+        ],
+        "masks": [
+            {
+                "name": "mph_cyano",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "0,255,255",
+                "description": "Cyanobacteria dominated waters"
+            },
+            {
+                "name": "mph_floating",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "0,255,0",
+                "description": "Floating vegetation or cyanobacteria on water surface"
+            },
+            {
+                "name": "mph_adjacency",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "255,0,0",
+                "description": "Pixel suspect of adjacency effects"
+            },
+            {
+                "name": "coastline",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "0,255,0",
+                "description": "Pixel is part of a coastline"
+            },
+            {
+                "name": "land",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "51,153,0",
+                "description": "Pixel is over land, not ocean"
+            },
+            {
+                "name": "water",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "153,153,255",
+                "description": "Not Pixel is over land, not ocean"
+            },
+            {
+                "name": "cosmetic",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "204,153,255",
+                "description": "Pixel is cosmetic"
+            },
+            {
+                "name": "duplicated",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "255,200,0",
+                "description": "Pixel has been duplicated (filled in)"
+            },
+            {
+                "name": "glint_risk",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "255,0,255",
+                "description": "Pixel has glint risk"
+            },
+            {
+                "name": "suspect",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "204,102,255",
+                "description": "Pixel is suspect"
+            },
+            {
+                "name": "bright",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "255,255,0",
+                "description": "Pixel is bright"
+            },
+            {
+                "name": "invalid",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "255,0,0",
+                "description": "Pixel is invalid"
+            }
+        ],
+        "metadata": [
+            {
+                "path": "Processing_Graph/node.2/parameters/cyanoMaxValue",
+                "value": "800.0"
+            },
+            {
+                "path": "Processing_Graph/node.1/sources/sourceProduct",
+                "value": "product:Subset_MER_FR__1PNUPA20040401_001107_000000982025_00331_10906_0250.N1"
+            },
+            {
+                "path": "Processing_Graph/node.1/parameters/addAirMass",
+                "value": "true"
+            },
+            {
+                "path": "Processing_Graph/node.0/sources/sourceProduct",
+                "value": "Rayleigh"
+            },
+            {
+                "path": "Processing_Graph/node.2/parameters/applyLowPassFilter",
+                "value": "false"
+            },
+            {
+                "path": "Processing_Graph/node.1/parameters/sourceBandNames",
+                "value": "radiance_1,radiance_2,radiance_3,radiance_4,radiance_5,radiance_6,radiance_7,radiance_8,radiance_9,radiance_10,radiance_11,radiance_12,radiance_13,radiance_14,radiance_15"
+            },
+            {
+                "path": "Processing_Graph/node.3/sources/sourceProduct",
+                "value": "MphChlMeris$16AB6E18C7D"
+            },
+            {
+                "path": "Processing_Graph/node.2/parameters/exportMph",
+                "value": "true"
+            },
+            {
+                "path": "Processing_Graph/node.1/sources/sourceProduct",
+                "value": "product:Subset_MER_FR__1PNUPA20040401_001107_000000982025_00331_10906_0250.N1"
+            },
+            {
+                "path": "Processing_Graph/node.3/sources/sourceProduct",
+                "value": "MphChlMeris$16AB6E18C7D"
+            }
+        ]
+    }
+}

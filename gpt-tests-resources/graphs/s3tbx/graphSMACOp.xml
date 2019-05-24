@@ -1,0 +1,52 @@
+<graph id="GraphSMACOp">
+    <version>1.0</version>
+    <node id="Read">
+        <operator>Read</operator>
+        <sources/>
+        <parameters>
+            <file>$input</file>
+        </parameters>
+    </node>
+
+    <node id="Subset">
+        <operator>Subset</operator>
+        <sources>
+            <sourceProduct refid="Read"/>
+        </sources>
+        <parameters>
+            <region>$subsetRegion</region>
+            <copyMetadata>false</copyMetadata>
+        </parameters>
+    </node>
+
+    <node id="SMAC">
+        <operator>SmacOP</operator>
+        <sources>
+            <sourceProduct refid="Subset"/>
+        </sources>
+        <parameters>
+            <tauAero550>$tauAero550</tauAero550>
+            <uH2o>$uH2o</uH2o>
+            <uO3>$uO3</uO3>
+            <surfPress>$surfPress</surfPress>
+            <useMerisADS>$useMerisADS</useMerisADS>
+            <aerosolType>$aerosolType</aerosolType>
+            <invalidPixel>$invalidPixel</invalidPixel>
+            <maskExpression>$maskExpression</maskExpression>
+            <maskExpressionForward>$maskExpressionForward</maskExpressionForward>
+            <bandNames>$bandNames</bandNames>
+        </parameters>
+    </node>
+
+    <node id="Write">
+        <operator>Write</operator>
+        <sources>
+            <sourceProduct refid="SMAC"/>
+        </sources>
+        <parameters>
+            <file>$output</file>
+            <formatName>BEAM-DIMAP</formatName>
+        </parameters>
+    </node>
+</graph>
+

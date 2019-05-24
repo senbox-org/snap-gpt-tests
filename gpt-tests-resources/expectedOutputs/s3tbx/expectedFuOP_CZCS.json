@@ -1,0 +1,278 @@
+{
+    "id": "FuTest_CZCS",
+    "decodeQualification": "INTENDED",
+    "expectedContent": {
+        "sceneWidth": 200,
+        "sceneHeight": 200,
+        "startTime": "10-JAN-1986 23:42:09.795402",
+        "endTime": "10-JAN-1986 23:41:45.168357",
+        "geoCoding": {
+            "coordinates": [
+                {
+                    "x": 86.0,
+                    "y": 107.0,
+                    "lat": -32.06262969970703,
+                    "lon": -176.98992919921875
+                },
+                {
+                    "x": 148.0,
+                    "y": 129.0,
+                    "lat": -32.15886306762695,
+                    "lon": -176.52671813964844
+                }
+            ],
+            "reverseAccuracy": 0.5
+        },
+        "indexCodings": [
+            {
+                "name": "Forel-Ule Scale",
+                "samples": [
+                    {
+                        "name": "undefined",
+                        "value": 0,
+                        "description": ""
+                    },
+                    {
+                        "name": "FU_ 1",
+                        "value": 1,
+                        "description": ""
+                    },
+                    {
+                        "name": "FU_ 2",
+                        "value": 2,
+                        "description": ""
+                    },
+                    {
+                        "name": "FU_ 3",
+                        "value": 3,
+                        "description": ""
+                    },
+                    {
+                        "name": "FU_ 4",
+                        "value": 4,
+                        "description": ""
+                    },
+                    {
+                        "name": "FU_ 5",
+                        "value": 5,
+                        "description": ""
+                    },
+                    {
+                        "name": "FU_ 6",
+                        "value": 6,
+                        "description": ""
+                    },
+                    {
+                        "name": "FU_ 7",
+                        "value": 7,
+                        "description": ""
+                    },
+                    {
+                        "name": "FU_ 8",
+                        "value": 8,
+                        "description": ""
+                    },
+                    {
+                        "name": "FU_ 9",
+                        "value": 9,
+                        "description": ""
+                    },
+                    {
+                        "name": "FU_10",
+                        "value": 10,
+                        "description": ""
+                    },
+                    {
+                        "name": "FU_11",
+                        "value": 11,
+                        "description": ""
+                    },
+                    {
+                        "name": "FU_12",
+                        "value": 12,
+                        "description": ""
+                    },
+                    {
+                        "name": "FU_13",
+                        "value": 13,
+                        "description": ""
+                    },
+                    {
+                        "name": "FU_14",
+                        "value": 14,
+                        "description": ""
+                    },
+                    {
+                        "name": "FU_15",
+                        "value": 15,
+                        "description": ""
+                    },
+                    {
+                        "name": "FU_16",
+                        "value": 16,
+                        "description": ""
+                    },
+                    {
+                        "name": "FU_17",
+                        "value": 17,
+                        "description": ""
+                    },
+                    {
+                        "name": "FU_18",
+                        "value": 18,
+                        "description": ""
+                    },
+                    {
+                        "name": "FU_19",
+                        "value": 19,
+                        "description": ""
+                    },
+                    {
+                        "name": "FU_20",
+                        "value": 20,
+                        "description": ""
+                    },
+                    {
+                        "name": "FU_21",
+                        "value": 21,
+                        "description": ""
+                    }
+                ]
+            }
+        ],
+        "bands": [
+            {
+                "name": "latitude",
+                "description": "Latitudes at control points",
+                "bandWidth": 200,
+                "bandHeight": 200,
+                "geophysicalUnit": "degrees",
+                "noDataValue": "-999.0",
+                "noDataValueUsed": "true",
+                "spectralWavelength": "0.0",
+                "spectralBandwidth": "0.0",
+                "expectedPixels": [
+                    {
+                        "x": 10,
+                        "y": 35,
+                        "value": -31.6263
+                    },
+                    {
+                        "x": 137,
+                        "y": 170,
+                        "value": -32.489113
+                    }
+                ]
+            },
+            {
+                "name": "longitude",
+                "description": "Longitudes at control points",
+                "bandWidth": 200,
+                "bandHeight": 200,
+                "geophysicalUnit": "degrees",
+                "noDataValue": "-999.0",
+                "noDataValueUsed": "true",
+                "spectralWavelength": "0.0",
+                "spectralBandwidth": "0.0",
+                "expectedPixels": [
+                    {
+                        "x": 58,
+                        "y": 51,
+                        "value": -177.28703
+                    },
+                    {
+                        "x": 122,
+                        "y": 73,
+                        "value": -176.80672
+                    }
+                ]
+            },
+            {
+                "name": "hue_angle",
+                "description": "",
+                "bandWidth": 200,
+                "bandHeight": 200,
+                "noDataValue": "NaN",
+                "noDataValueUsed": "true",
+                "spectralWavelength": "0.0",
+                "spectralBandwidth": "0.0",
+                "expectedPixels": [
+                    {
+                        "x": 110,
+                        "y": 149,
+                        "value": "NaN"
+                    },
+                    {
+                        "x": 121,
+                        "y": 185,
+                        "value": "NaN"
+                    }
+                ]
+            },
+            {
+                "name": "FU",
+                "description": "",
+                "bandWidth": 200,
+                "bandHeight": 200,
+                "noDataValue": "127.0",
+                "noDataValueUsed": "true",
+                "spectralWavelength": "0.0",
+                "spectralBandwidth": "0.0",
+                "expectedPixels": [
+                    {
+                        "x": 31,
+                        "y": 133,
+                        "value": "NaN"
+                    },
+                    {
+                        "x": 103,
+                        "y": 182,
+                        "value": "NaN"
+                    }
+                ]
+            }
+        ],
+        "metadata": [
+            {
+                "path": "Processing_Graph/node.1/parameters/inputIsIrradianceReflectance",
+                "value": "false"
+            },
+            {
+                "path": "history/SubsetInfo/SourceProduct.name",
+                "value": "C1986010234000.L2_MLAC_OC"
+            },
+            {
+                "path": "history/SubsetInfo/SubRegion.x",
+                "value": "400"
+            },
+            {
+                "path": "history/SubsetInfo/ProductNodeName.11",
+                "value": "latitude"
+            },
+            {
+                "path": "Processing_Graph/node.1/parameters/includeIntermediateResults",
+                "value": "false"
+            },
+            {
+                "path": "history/SubsetInfo/ProductNodeName.7",
+                "value": "chlor_a"
+            },
+            {
+                "path": "history/SubsetInfo/ProductNodeName.1",
+                "value": "aot_670"
+            },
+            {
+                "path": "history/SubsetInfo/SubSampling.x",
+                "value": "1"
+            },
+            {
+                "path": "Processing_Graph/node.0/parameters/subSamplingY",
+                "value": "1"
+            },
+            {
+                "path": "Processing_Graph/node.2/sources/sourceProduct",
+                "value": "FuOp"
+            }
+        ]
+    }
+}

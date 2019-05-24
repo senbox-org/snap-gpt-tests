@@ -1,0 +1,1162 @@
+{
+    "id": "FUB_WaterTest-2",
+    "decodeQualification": "INTENDED",
+    "expectedContent": {
+        "sceneWidth": 200,
+        "sceneHeight": 200,
+        "startTime": "07-APR-2003 10:13:12.314397",
+        "endTime": "07-APR-2003 10:13:47.336009",
+        "geoCoding": {
+            "coordinates": [
+                {
+                    "x": 28.5,
+                    "y": 63.5,
+                    "lat": 41.74733603000641,
+                    "lon": 7.77315750923655
+                },
+                {
+                    "x": 113.5,
+                    "y": 41.5,
+                    "lat": 41.73948469758034,
+                    "lon": 8.881278295830251
+                },
+                {
+                    "x": 118.5,
+                    "y": 71.5,
+                    "lat": 41.41961517930031,
+                    "lon": 8.813519012480656
+                },
+                {
+                    "x": 131.5,
+                    "y": 71.5,
+                    "lat": 41.38328666985035,
+                    "lon": 8.96783650059479
+                },
+                {
+                    "x": 143.5,
+                    "y": 121.5,
+                    "lat": 40.83997309207916,
+                    "lon": 8.898195987525929
+                },
+                {
+                    "x": 65.5,
+                    "y": 145.5,
+                    "lat": 40.8092216104269,
+                    "lon": 7.879768436095557
+                },
+                {
+                    "x": 86.5,
+                    "y": 134.5,
+                    "lat": 40.864707946777344,
+                    "lon": 8.172444990015599
+                },
+                {
+                    "x": 29.5,
+                    "y": 17.5,
+                    "lat": 42.215025544166565,
+                    "lon": 7.974213062881912
+                }
+            ],
+            "reverseAccuracy": 0.08729345626892382
+        },
+        "flagCodings": [
+            {
+                "name": "l1_flags",
+                "samples": [
+                    {
+                        "name": "COSMETIC",
+                        "value": 1,
+                        "description": "Pixel is cosmetic"
+                    },
+                    {
+                        "name": "DUPLICATED",
+                        "value": 2,
+                        "description": "Pixel has been duplicated (filled in)"
+                    },
+                    {
+                        "name": "GLINT_RISK",
+                        "value": 4,
+                        "description": "Pixel has glint risk"
+                    },
+                    {
+                        "name": "SUSPECT",
+                        "value": 8,
+                        "description": "Pixel is suspect"
+                    },
+                    {
+                        "name": "LAND_OCEAN",
+                        "value": 16,
+                        "description": "Pixel is over land, not ocean"
+                    },
+                    {
+                        "name": "BRIGHT",
+                        "value": 32,
+                        "description": "Pixel is bright"
+                    },
+                    {
+                        "name": "COASTLINE",
+                        "value": 64,
+                        "description": "Pixel is part of a coastline"
+                    },
+                    {
+                        "name": "INVALID",
+                        "value": 128,
+                        "description": "Pixel is invalid"
+                    }
+                ]
+            },
+            {
+                "name": "result_flags",
+                "samples": [
+                    {
+                        "name": "LEVEL1b_MASKED",
+                        "value": 1,
+                        "description": "Pixel was a priori masked out"
+                    },
+                    {
+                        "name": "CHL_IN",
+                        "value": 2,
+                        "description": "CHL retrieval failure (input)"
+                    },
+                    {
+                        "name": "CHL_OUT",
+                        "value": 4,
+                        "description": "CHL retrieval failure (output)"
+                    },
+                    {
+                        "name": "YEL_IN",
+                        "value": 8,
+                        "description": "YEL retrieval failure (input)"
+                    },
+                    {
+                        "name": "YEL_OUT",
+                        "value": 16,
+                        "description": "YEL retrieval failure (output)"
+                    },
+                    {
+                        "name": "TSM_IN",
+                        "value": 32,
+                        "description": "TSM retrieval failure (input)"
+                    },
+                    {
+                        "name": "TSM_OUT",
+                        "value": 64,
+                        "description": "TSM retrieval failure (output)"
+                    },
+                    {
+                        "name": "ATM_IN",
+                        "value": 128,
+                        "description": "Atmospheric correction failure (input)"
+                    },
+                    {
+                        "name": "ATM_OUT",
+                        "value": 256,
+                        "description": "Atmospheric correction failure (output)"
+                    }
+                ]
+            }
+        ],
+        "tiePointGrids": [
+            {
+                "name": "latitude",
+                "description": "Latitude of the tie points (WGS-84), positive N",
+                "offsetX": "-15.5",
+                "offsetY": "-15.5",
+                "subSamplingX": "16.0",
+                "subSamplingY": "16.0",
+                "expectedPixels": [
+                    {
+                        "x": 28,
+                        "y": 63,
+                        "value": 41.747337
+                    },
+                    {
+                        "x": 113,
+                        "y": 41,
+                        "value": 41.739483
+                    },
+                    {
+                        "x": 118,
+                        "y": 71,
+                        "value": 41.419617
+                    },
+                    {
+                        "x": 131,
+                        "y": 71,
+                        "value": 41.383286
+                    },
+                    {
+                        "x": 143,
+                        "y": 121,
+                        "value": 40.839973
+                    },
+                    {
+                        "x": 65,
+                        "y": 145,
+                        "value": 40.809223
+                    },
+                    {
+                        "x": 86,
+                        "y": 134,
+                        "value": 40.864708
+                    },
+                    {
+                        "x": 29,
+                        "y": 17,
+                        "value": 42.215027
+                    }
+                ]
+            },
+            {
+                "name": "longitude",
+                "description": "Longitude of the tie points (WGS-84), Greenwich origin, positive E",
+                "offsetX": "-15.5",
+                "offsetY": "-15.5",
+                "subSamplingX": "16.0",
+                "subSamplingY": "16.0",
+                "expectedPixels": [
+                    {
+                        "x": 28,
+                        "y": 63,
+                        "value": 7.7731576
+                    },
+                    {
+                        "x": 113,
+                        "y": 41,
+                        "value": 8.881278
+                    },
+                    {
+                        "x": 118,
+                        "y": 71,
+                        "value": 8.8135195
+                    },
+                    {
+                        "x": 131,
+                        "y": 71,
+                        "value": 8.967836
+                    },
+                    {
+                        "x": 143,
+                        "y": 121,
+                        "value": 8.898196
+                    },
+                    {
+                        "x": 65,
+                        "y": 145,
+                        "value": 7.8797684
+                    },
+                    {
+                        "x": 86,
+                        "y": 134,
+                        "value": 8.172445
+                    },
+                    {
+                        "x": 29,
+                        "y": 17,
+                        "value": 7.974213
+                    }
+                ]
+            },
+            {
+                "name": "dem_alt",
+                "description": "Digital elevation model altitude",
+                "offsetX": "-15.5",
+                "offsetY": "-15.5",
+                "subSamplingX": "16.0",
+                "subSamplingY": "16.0",
+                "expectedPixels": [
+                    {
+                        "x": 28,
+                        "y": 63,
+                        "value": -2669.0938
+                    },
+                    {
+                        "x": 113,
+                        "y": 41,
+                        "value": 282.60156
+                    },
+                    {
+                        "x": 118,
+                        "y": 71,
+                        "value": -121.09375
+                    },
+                    {
+                        "x": 131,
+                        "y": 71,
+                        "value": -48.992188
+                    },
+                    {
+                        "x": 143,
+                        "y": 121,
+                        "value": 285.65625
+                    },
+                    {
+                        "x": 65,
+                        "y": 145,
+                        "value": -2039.3945
+                    },
+                    {
+                        "x": 86,
+                        "y": 134,
+                        "value": -130.95312
+                    },
+                    {
+                        "x": 29,
+                        "y": 17,
+                        "value": -2609.3867
+                    }
+                ]
+            },
+            {
+                "name": "dem_rough",
+                "description": "Digital elevation model roughness",
+                "offsetX": "-15.5",
+                "offsetY": "-15.5",
+                "subSamplingX": "16.0",
+                "subSamplingY": "16.0",
+                "expectedPixels": [
+                    {
+                        "x": 28,
+                        "y": 63,
+                        "value": 0.0
+                    },
+                    {
+                        "x": 113,
+                        "y": 41,
+                        "value": 170.66016
+                    },
+                    {
+                        "x": 118,
+                        "y": 71,
+                        "value": 0.0
+                    },
+                    {
+                        "x": 131,
+                        "y": 71,
+                        "value": 3.796875
+                    },
+                    {
+                        "x": 143,
+                        "y": 121,
+                        "value": 150.75
+                    },
+                    {
+                        "x": 65,
+                        "y": 145,
+                        "value": 0.0
+                    },
+                    {
+                        "x": 86,
+                        "y": 134,
+                        "value": 24.046875
+                    },
+                    {
+                        "x": 29,
+                        "y": 17,
+                        "value": 0.0
+                    }
+                ]
+            },
+            {
+                "name": "lat_corr",
+                "description": "Digital elevation model latitude corrections",
+                "offsetX": "-15.5",
+                "offsetY": "-15.5",
+                "subSamplingX": "16.0",
+                "subSamplingY": "16.0",
+                "expectedPixels": [
+                    {
+                        "x": 28,
+                        "y": 63,
+                        "value": 0.0
+                    },
+                    {
+                        "x": 113,
+                        "y": 41,
+                        "value": 4.048711E-4
+                    },
+                    {
+                        "x": 118,
+                        "y": 71,
+                        "value": 0.0
+                    },
+                    {
+                        "x": 131,
+                        "y": 71,
+                        "value": 2.3835937E-5
+                    },
+                    {
+                        "x": 143,
+                        "y": 121,
+                        "value": 4.442578E-4
+                    },
+                    {
+                        "x": 65,
+                        "y": 145,
+                        "value": 0.0
+                    },
+                    {
+                        "x": 86,
+                        "y": 134,
+                        "value": 2.915625E-5
+                    },
+                    {
+                        "x": 29,
+                        "y": 17,
+                        "value": 0.0
+                    }
+                ]
+            },
+            {
+                "name": "lon_corr",
+                "description": "Digital elevation model longitude corrections",
+                "offsetX": "-15.5",
+                "offsetY": "-15.5",
+                "subSamplingX": "16.0",
+                "subSamplingY": "16.0",
+                "expectedPixels": [
+                    {
+                        "x": 28,
+                        "y": 63,
+                        "value": 0.0
+                    },
+                    {
+                        "x": 113,
+                        "y": 41,
+                        "value": 0.0017346328
+                    },
+                    {
+                        "x": 118,
+                        "y": 71,
+                        "value": 0.0
+                    },
+                    {
+                        "x": 131,
+                        "y": 71,
+                        "value": 1.00511716E-4
+                    },
+                    {
+                        "x": 143,
+                        "y": 121,
+                        "value": 0.0018720392
+                    },
+                    {
+                        "x": 65,
+                        "y": 145,
+                        "value": 0.0
+                    },
+                    {
+                        "x": 86,
+                        "y": 134,
+                        "value": 1.25625E-4
+                    },
+                    {
+                        "x": 29,
+                        "y": 17,
+                        "value": 0.0
+                    }
+                ]
+            },
+            {
+                "name": "sun_zenith",
+                "description": "Sun zenith angle",
+                "offsetX": "-15.5",
+                "offsetY": "-15.5",
+                "subSamplingX": "16.0",
+                "subSamplingY": "16.0",
+                "expectedPixels": [
+                    {
+                        "x": 28,
+                        "y": 63,
+                        "value": 39.023422
+                    },
+                    {
+                        "x": 113,
+                        "y": 41,
+                        "value": 38.59835
+                    },
+                    {
+                        "x": 118,
+                        "y": 71,
+                        "value": 38.33923
+                    },
+                    {
+                        "x": 131,
+                        "y": 71,
+                        "value": 38.249493
+                    },
+                    {
+                        "x": 143,
+                        "y": 121,
+                        "value": 37.79318
+                    },
+                    {
+                        "x": 65,
+                        "y": 145,
+                        "value": 38.160492
+                    },
+                    {
+                        "x": 86,
+                        "y": 134,
+                        "value": 38.094116
+                    },
+                    {
+                        "x": 29,
+                        "y": 17,
+                        "value": 39.357742
+                    }
+                ]
+            },
+            {
+                "name": "sun_azimuth",
+                "description": "Sun azimuth angles",
+                "offsetX": "-15.5",
+                "offsetY": "-15.5",
+                "subSamplingX": "16.0",
+                "subSamplingY": "16.0",
+                "expectedPixels": [
+                    {
+                        "x": 28,
+                        "y": 63,
+                        "value": 148.31117
+                    },
+                    {
+                        "x": 113,
+                        "y": 41,
+                        "value": 149.90237
+                    },
+                    {
+                        "x": 118,
+                        "y": 71,
+                        "value": 149.63214
+                    },
+                    {
+                        "x": 131,
+                        "y": 71,
+                        "value": 149.83759
+                    },
+                    {
+                        "x": 143,
+                        "y": 121,
+                        "value": 149.43715
+                    },
+                    {
+                        "x": 65,
+                        "y": 145,
+                        "value": 147.9336
+                    },
+                    {
+                        "x": 86,
+                        "y": 134,
+                        "value": 148.39008
+                    },
+                    {
+                        "x": 29,
+                        "y": 17,
+                        "value": 148.85233
+                    }
+                ]
+            },
+            {
+                "name": "view_zenith",
+                "description": "Viewing zenith angles",
+                "offsetX": "-15.5",
+                "offsetY": "-15.5",
+                "subSamplingX": "16.0",
+                "subSamplingY": "16.0",
+                "expectedPixels": [
+                    {
+                        "x": 28,
+                        "y": 63,
+                        "value": 21.791065
+                    },
+                    {
+                        "x": 113,
+                        "y": 41,
+                        "value": 27.917574
+                    },
+                    {
+                        "x": 118,
+                        "y": 71,
+                        "value": 28.262526
+                    },
+                    {
+                        "x": 131,
+                        "y": 71,
+                        "value": 29.151217
+                    },
+                    {
+                        "x": 143,
+                        "y": 121,
+                        "value": 29.964104
+                    },
+                    {
+                        "x": 65,
+                        "y": 145,
+                        "value": 24.52426
+                    },
+                    {
+                        "x": 86,
+                        "y": 134,
+                        "value": 26.029203
+                    },
+                    {
+                        "x": 29,
+                        "y": 17,
+                        "value": 21.863937
+                    }
+                ]
+            },
+            {
+                "name": "view_azimuth",
+                "description": "Viewing azimuth angles",
+                "offsetX": "-15.5",
+                "offsetY": "-15.5",
+                "subSamplingX": "16.0",
+                "subSamplingY": "16.0",
+                "expectedPixels": [
+                    {
+                        "x": 28,
+                        "y": 63,
+                        "value": 286.62903
+                    },
+                    {
+                        "x": 113,
+                        "y": 41,
+                        "value": 287.3573
+                    },
+                    {
+                        "x": 118,
+                        "y": 71,
+                        "value": 287.3235
+                    },
+                    {
+                        "x": 131,
+                        "y": 71,
+                        "value": 287.4256
+                    },
+                    {
+                        "x": 143,
+                        "y": 121,
+                        "value": 287.39615
+                    },
+                    {
+                        "x": 65,
+                        "y": 145,
+                        "value": 286.73907
+                    },
+                    {
+                        "x": 86,
+                        "y": 134,
+                        "value": 286.92587
+                    },
+                    {
+                        "x": 29,
+                        "y": 17,
+                        "value": 286.73932
+                    }
+                ]
+            },
+            {
+                "name": "zonal_wind",
+                "description": "Zonal wind",
+                "offsetX": "-15.5",
+                "offsetY": "-15.5",
+                "subSamplingX": "16.0",
+                "subSamplingY": "16.0",
+                "expectedPixels": [
+                    {
+                        "x": 28,
+                        "y": 63,
+                        "value": -4.3640623
+                    },
+                    {
+                        "x": 113,
+                        "y": 41,
+                        "value": -1.5039064
+                    },
+                    {
+                        "x": 118,
+                        "y": 71,
+                        "value": -4.1375003
+                    },
+                    {
+                        "x": 131,
+                        "y": 71,
+                        "value": -4.0546875
+                    },
+                    {
+                        "x": 143,
+                        "y": 121,
+                        "value": -6.36875
+                    },
+                    {
+                        "x": 65,
+                        "y": 145,
+                        "value": -8.950781
+                    },
+                    {
+                        "x": 86,
+                        "y": 134,
+                        "value": -8.75
+                    },
+                    {
+                        "x": 29,
+                        "y": 17,
+                        "value": -3.2773438
+                    }
+                ]
+            },
+            {
+                "name": "merid_wind",
+                "description": "Meridional wind",
+                "offsetX": "-15.5",
+                "offsetY": "-15.5",
+                "subSamplingX": "16.0",
+                "subSamplingY": "16.0",
+                "expectedPixels": [
+                    {
+                        "x": 28,
+                        "y": 63,
+                        "value": -0.71875
+                    },
+                    {
+                        "x": 113,
+                        "y": 41,
+                        "value": -0.28945312
+                    },
+                    {
+                        "x": 118,
+                        "y": 71,
+                        "value": -0.9476563
+                    },
+                    {
+                        "x": 131,
+                        "y": 71,
+                        "value": -1.1109375
+                    },
+                    {
+                        "x": 143,
+                        "y": 121,
+                        "value": -1.7472657
+                    },
+                    {
+                        "x": 65,
+                        "y": 145,
+                        "value": -1.8312501
+                    },
+                    {
+                        "x": 86,
+                        "y": 134,
+                        "value": -1.875
+                    },
+                    {
+                        "x": 29,
+                        "y": 17,
+                        "value": -0.24375
+                    }
+                ]
+            },
+            {
+                "name": "atm_press",
+                "description": "Mean sea level pressure",
+                "offsetX": "-15.5",
+                "offsetY": "-15.5",
+                "subSamplingX": "16.0",
+                "subSamplingY": "16.0",
+                "expectedPixels": [
+                    {
+                        "x": 28,
+                        "y": 63,
+                        "value": 1011.20624
+                    },
+                    {
+                        "x": 113,
+                        "y": 41,
+                        "value": 1011.109
+                    },
+                    {
+                        "x": 118,
+                        "y": 71,
+                        "value": 1011.1375
+                    },
+                    {
+                        "x": 131,
+                        "y": 71,
+                        "value": 1011.21875
+                    },
+                    {
+                        "x": 143,
+                        "y": 121,
+                        "value": 1010.9313
+                    },
+                    {
+                        "x": 65,
+                        "y": 145,
+                        "value": 1010.38086
+                    },
+                    {
+                        "x": 86,
+                        "y": 134,
+                        "value": 1010.5875
+                    },
+                    {
+                        "x": 29,
+                        "y": 17,
+                        "value": 1011.60626
+                    }
+                ]
+            },
+            {
+                "name": "ozone",
+                "description": "Total ozone",
+                "offsetX": "-15.5",
+                "offsetY": "-15.5",
+                "subSamplingX": "16.0",
+                "subSamplingY": "16.0",
+                "expectedPixels": [
+                    {
+                        "x": 28,
+                        "y": 63,
+                        "value": 376.1231
+                    },
+                    {
+                        "x": 113,
+                        "y": 41,
+                        "value": 379.7488
+                    },
+                    {
+                        "x": 118,
+                        "y": 71,
+                        "value": 379.07422
+                    },
+                    {
+                        "x": 131,
+                        "y": 71,
+                        "value": 379.79907
+                    },
+                    {
+                        "x": 143,
+                        "y": 121,
+                        "value": 378.13745
+                    },
+                    {
+                        "x": 65,
+                        "y": 145,
+                        "value": 371.71628
+                    },
+                    {
+                        "x": 86,
+                        "y": 134,
+                        "value": 373.26404
+                    },
+                    {
+                        "x": 29,
+                        "y": 17,
+                        "value": 379.73724
+                    }
+                ]
+            },
+            {
+                "name": "rel_hum",
+                "description": "Relative humidity",
+                "offsetX": "-15.5",
+                "offsetY": "-15.5",
+                "subSamplingX": "16.0",
+                "subSamplingY": "16.0",
+                "expectedPixels": [
+                    {
+                        "x": 28,
+                        "y": 63,
+                        "value": 53.862503
+                    },
+                    {
+                        "x": 113,
+                        "y": 41,
+                        "value": 44.054688
+                    },
+                    {
+                        "x": 118,
+                        "y": 71,
+                        "value": 47.528908
+                    },
+                    {
+                        "x": 131,
+                        "y": 71,
+                        "value": 46.396095
+                    },
+                    {
+                        "x": 143,
+                        "y": 121,
+                        "value": 53.45469
+                    },
+                    {
+                        "x": 65,
+                        "y": 145,
+                        "value": 59.83164
+                    },
+                    {
+                        "x": 86,
+                        "y": 134,
+                        "value": 57.920315
+                    },
+                    {
+                        "x": 29,
+                        "y": 17,
+                        "value": 49.503906
+                    }
+                ]
+            }
+        ],
+        "bands": [
+            {
+                "name": "l1_flags",
+                "description": "Level 1b classification and quality flags",
+                "bandWidth": 200,
+                "bandHeight": 200,
+                "noDataValue": "0.0",
+                "noDataValueUsed": "false",
+                "spectralWavelength": "0.0",
+                "spectralBandwidth": "0.0",
+                "expectedPixels": [
+                    {
+                        "x": 28,
+                        "y": 63,
+                        "value": 32.0
+                    },
+                    {
+                        "x": 113,
+                        "y": 41,
+                        "value": 56.0
+                    },
+                    {
+                        "x": 118,
+                        "y": 71,
+                        "value": 32.0
+                    },
+                    {
+                        "x": 131,
+                        "y": 71,
+                        "value": 40.0
+                    },
+                    {
+                        "x": 143,
+                        "y": 121,
+                        "value": 56.0
+                    },
+                    {
+                        "x": 65,
+                        "y": 145,
+                        "value": 42.0
+                    },
+                    {
+                        "x": 86,
+                        "y": 134,
+                        "value": 42.0
+                    },
+                    {
+                        "x": 29,
+                        "y": 17,
+                        "value": 32.0
+                    }
+                ]
+            },
+            {
+                "name": "result_flags",
+                "description": "FUB/WeW WATER plugin specific flags",
+                "bandWidth": 200,
+                "bandHeight": 200,
+                "noDataValue": "0.0",
+                "noDataValueUsed": "false",
+                "spectralWavelength": "0.0",
+                "spectralBandwidth": "0.0",
+                "expectedPixels": [
+                    {
+                        "x": 28,
+                        "y": 63,
+                        "value": 1.0
+                    },
+                    {
+                        "x": 113,
+                        "y": 41,
+                        "value": 1.0
+                    },
+                    {
+                        "x": 118,
+                        "y": 71,
+                        "value": 1.0
+                    },
+                    {
+                        "x": 131,
+                        "y": 71,
+                        "value": 1.0
+                    },
+                    {
+                        "x": 143,
+                        "y": 121,
+                        "value": 1.0
+                    },
+                    {
+                        "x": 65,
+                        "y": 145,
+                        "value": 1.0
+                    },
+                    {
+                        "x": 86,
+                        "y": 134,
+                        "value": 1.0
+                    },
+                    {
+                        "x": 29,
+                        "y": 17,
+                        "value": 1.0
+                    }
+                ]
+            }
+        ],
+        "masks": [
+            {
+                "name": "coastline",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "0,255,0",
+                "description": "Pixel is part of a coastline"
+            },
+            {
+                "name": "land",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "51,153,0",
+                "description": "Pixel is over land, not ocean"
+            },
+            {
+                "name": "water",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "153,153,255",
+                "description": "Not Pixel is over land, not ocean"
+            },
+            {
+                "name": "cosmetic",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "204,153,255",
+                "description": "Pixel is cosmetic"
+            },
+            {
+                "name": "duplicated",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "255,200,0",
+                "description": "Pixel has been duplicated (filled in)"
+            },
+            {
+                "name": "glint_risk",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "255,0,255",
+                "description": "Pixel has glint risk"
+            },
+            {
+                "name": "suspect",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "204,102,255",
+                "description": "Pixel is suspect"
+            },
+            {
+                "name": "bright",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "255,255,0",
+                "description": "Pixel is bright"
+            },
+            {
+                "name": "invalid",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "255,0,0",
+                "description": "Pixel is invalid"
+            },
+            {
+                "name": "level1b_masked",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "0,255,255",
+                "description": "Pixel was a priori masked out"
+            },
+            {
+                "name": "chl_in",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "0,255,0",
+                "description": "CHL retrieval failure (input)"
+            },
+            {
+                "name": "chl_out",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "0,255,0",
+                "description": "CHL retrieval failure (output)"
+            },
+            {
+                "name": "yel_in",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "255,255,0",
+                "description": "YEL retrieval failure (input)"
+            },
+            {
+                "name": "yel_out",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "255,255,0",
+                "description": "YEL retrieval failure (output)"
+            },
+            {
+                "name": "tsm_in",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "255,200,0",
+                "description": "TSM retrieval failure (input)"
+            },
+            {
+                "name": "tsm_out",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "255,200,0",
+                "description": "TSM retrieval failure (output)"
+            },
+            {
+                "name": "atm_in",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "0,0,255",
+                "description": "Atmospheric correction failure (input)"
+            },
+            {
+                "name": "atm_out",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "0,0,255",
+                "description": "Atmospheric correction failure (output)"
+            }
+        ],
+        "metadata": [
+            {
+                "path": "history/SubsetInfo/ProductNodeName.22",
+                "value": "radiance_7"
+            },
+            {
+                "path": "history/SubsetInfo/ProductNodeName.23",
+                "value": "radiance_8"
+            },
+            {
+                "path": "Processing_Graph/node.2/sources/sourceProduct",
+                "value": "FUB.Water"
+            },
+            {
+                "path": "Processing_Graph/node.2/parameters/deleteOutputOnFailure",
+                "value": "true"
+            },
+            {
+                "path": "Processing_Graph/node.1/sources/sourceProduct",
+                "value": "product:Subset_MER_RR__1PQBCM20030407_100459_000007352015_00194_05759_0002.N1"
+            },
+            {
+                "path": "history/SubsetInfo/ProductNodeName.6",
+                "value": "lon_corr"
+            },
+            {
+                "path": "history/SubsetInfo/SubSampling.x",
+                "value": "1"
+            },
+            {
+                "path": "Processing_Graph/node.1/parameters/computeYS",
+                "value": "false"
+            }
+        ]
+    }
+}

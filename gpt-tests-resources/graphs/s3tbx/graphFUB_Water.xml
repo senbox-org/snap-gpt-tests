@@ -1,0 +1,47 @@
+<graph id="FUB_Water">
+    <version>1.0</version>
+    <node id="Read">
+        <operator>Read</operator>
+        <sources/>
+        <parameters>
+            <file>$input</file>
+        </parameters>
+    </node>
+
+    <node id="Subset">
+        <operator>Subset</operator>
+        <sources>
+            <sourceProduct refid="Read"/>
+        </sources>
+        <parameters>
+            <region>$subsetRegion</region>
+            <copyMetadata>false</copyMetadata>
+        </parameters>
+    </node>
+
+    <node id="FUB.Water">
+        <operator>FUB.Water</operator>
+        <sources>
+            <sourceProduct refid="Subset"/>
+        </sources>
+        <parameters>
+            <computeCHL>$computeCHL</computeCHL>
+            <computeYS>$computeYS</computeYS>
+            <computeTSM>$computeTSM</computeTSM>
+            <computeAtmCorr>$computeAtmCorr</computeAtmCorr>
+            <checkWhetherSuspectIsValid>$checkWhetherSuspectIsValid</checkWhetherSuspectIsValid>
+            <expression>$expression</expression>
+        </parameters>
+    </node>
+
+    <node id="Write">
+        <operator>Write</operator>
+        <sources>
+            <sourceProduct refid="FUB.Water"/>
+        </sources>
+        <parameters>
+            <file>$output</file>
+            <formatName>BEAM-DIMAP</formatName>
+        </parameters>
+    </node>
+</graph>

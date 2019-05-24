@@ -1,0 +1,48 @@
+<graph id="graphAatsr_SSTOp">
+    <version>1.0</version>
+    <node id="Read">
+        <operator>Read</operator>
+        <sources/>
+        <parameters>
+          <file>$input</file>
+        </parameters>
+    </node>
+
+    <node id="Subset">
+        <operator>Subset</operator>
+        <sources>
+            <sourceProduct refid="Read"/>
+        </sources>
+        <parameters>
+            <region>$subsetRegion</region>
+            <copyMetadata>false</copyMetadata>
+        </parameters>
+    </node>
+
+    <node id="Aatsr.SST">
+        <operator>Aatsr.SST</operator>
+        <sources>
+            <sourceProduct refid="Subset"/>
+        </sources>
+        <parameters>
+            <dual>$dual</dual>
+            <dualCoefficientsFile>$dualCoefficientsFile</dualCoefficientsFile>
+            <dualMaskExpression>$dualMaskExpression</dualMaskExpression>
+            <nadir>$nadir</nadir>
+            <nadirCoefficientsFile>$nadirCoefficientsFile</nadirCoefficientsFile>
+            <nadirMaskExpression>$nadirMaskExpression</nadirMaskExpression>
+            <invalidSstValue>$invalidSstValue</invalidSstValue>
+        </parameters>
+    </node>
+
+    <node id="Write">
+        <operator>Write</operator>
+        <sources>
+            <sourceProduct refid="Aatsr.SST"/>
+        </sources>
+        <parameters>
+            <file>$output</file>
+            <formatName>BEAM-DIMAP</formatName>
+        </parameters>
+    </node>
+</graph>

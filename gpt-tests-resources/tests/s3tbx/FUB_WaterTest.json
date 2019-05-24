@@ -1,0 +1,48 @@
+[{
+    "id":"FUB_WaterTest-1",
+    "description":"execute FUB.Water operator with MERIS product",
+    "frequency":"daily",
+    "graphPath": "s3tbx/graphFuOp.xml",
+    "inputs": {
+        "input": "s3tbx/sensors_platforms/MERIS/for_mosaic1/MER_RR__1PQBCM20030407_100459_000007352015_00194_05759_0002.N1"
+    },
+    "parameters": {
+        "subsetRegion": "800,2800,200,200",
+        "computeCHL": "true",
+        "computeYS": "true",
+        "computeTSM": "true",
+        "computeAtmCorr": "true",
+        "checkWhetherSuspectIsValid": "true",
+        "expression": "not l1_flags.GLINT_RISK and not l1_flags.BRIGHT and not l1_flags.INVALID and not l1_flags.SUSPECT"
+    },
+    "outputs": [{
+        "parameter": "output",
+        "outputName": "FUB_WaterTest-1",
+        "expected": "s3tbx/expectedFUB_Water_MERIS-1.json"
+    }]
+},
+
+    {
+        "id":"FUB_WaterTest-2",
+        "description":"execute FUB.Water operator with MERIS product",
+        "frequency":"daily",
+        "graphPath": "s3tbx/graphFuOp.xml",
+        "inputs": {
+            "input": "s3tbx/sensors_platforms/MERIS/for_mosaic1/MER_RR__1PQBCM20030407_100459_000007352015_00194_05759_0002.N1"
+        },
+        "parameters": {
+            "subsetRegion": "800,2800,200,200",
+            "computeCHL": "false",
+            "computeYS": "false",
+            "computeTSM": "false",
+            "computeAtmCorr": "false",
+            "checkWhetherSuspectIsValid": "true",
+            "expression": "not l1_flags.GLINT_RISK and not l1_flags.BRIGHT and not l1_flags.INVALID and not l1_flags.SUSPECT"
+        },
+        "outputs": [{
+            "parameter": "output",
+            "outputName": "FUB_WaterTest-2",
+            "expected": "s3tbx/expectedFUB_Water_MERIS-2.json"
+        }]
+    }
+]

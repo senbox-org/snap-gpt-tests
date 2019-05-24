@@ -1,0 +1,510 @@
+{
+    "id": "ARC_SST-1",
+    "decodeQualification": "INTENDED",
+    "expectedContent": {
+        "sceneWidth": 200,
+        "sceneHeight": 200,
+        "startTime": "30-MAY-2003 11:00:18.442192",
+        "endTime": "30-MAY-2003 11:40:40.965383",
+        "geoCoding": {
+            "coordinates": [
+                {
+                    "x": 29.5,
+                    "y": 166.5,
+                    "lat": 50.01869575142861,
+                    "lon": -0.78575929542081
+                },
+                {
+                    "x": 137.5,
+                    "y": 65.5,
+                    "lat": 50.61535526633263,
+                    "lon": 1.07857706766881
+                },
+                {
+                    "x": 31.5,
+                    "y": 78.5,
+                    "lat": 50.779128608703616,
+                    "lon": -0.4109033482062208
+                }
+            ],
+            "reverseAccuracy": 0.06713584390752203
+        },
+        "tiePointGrids": [
+            {
+                "name": "latitude",
+                "description": "Latitudes",
+                "offsetX": "-19.0",
+                "offsetY": "-26.0",
+                "subSamplingX": "25.0",
+                "subSamplingY": "32.0",
+                "expectedPixels": [
+                    {
+                        "x": 29,
+                        "y": 166,
+                        "value": 50.018696
+                    },
+                    {
+                        "x": 137,
+                        "y": 65,
+                        "value": 50.615356
+                    },
+                    {
+                        "x": 31,
+                        "y": 78,
+                        "value": 50.77913
+                    }
+                ]
+            },
+            {
+                "name": "longitude",
+                "description": "Longitudes",
+                "offsetX": "-19.0",
+                "offsetY": "-26.0",
+                "subSamplingX": "25.0",
+                "subSamplingY": "32.0",
+                "expectedPixels": [
+                    {
+                        "x": 29,
+                        "y": 166,
+                        "value": -0.78575927
+                    },
+                    {
+                        "x": 137,
+                        "y": 65,
+                        "value": 1.078577
+                    },
+                    {
+                        "x": 31,
+                        "y": 78,
+                        "value": -0.41090333
+                    }
+                ]
+            },
+            {
+                "name": "lat_corr_nadir",
+                "description": "Latitude corrections, nadir view",
+                "offsetX": "-19.0",
+                "offsetY": "-26.0",
+                "subSamplingX": "25.0",
+                "subSamplingY": "32.0",
+                "expectedPixels": [
+                    {
+                        "x": 29,
+                        "y": 166,
+                        "value": 0.0
+                    },
+                    {
+                        "x": 137,
+                        "y": 65,
+                        "value": 0.0
+                    },
+                    {
+                        "x": 31,
+                        "y": 78,
+                        "value": 7.2409375E-6
+                    }
+                ]
+            },
+            {
+                "name": "lon_corr_nadir",
+                "description": "Longitude corrections, nadir view",
+                "offsetX": "-19.0",
+                "offsetY": "-26.0",
+                "subSamplingX": "25.0",
+                "subSamplingY": "32.0",
+                "expectedPixels": [
+                    {
+                        "x": 29,
+                        "y": 166,
+                        "value": 0.0
+                    },
+                    {
+                        "x": 137,
+                        "y": 65,
+                        "value": 0.0
+                    },
+                    {
+                        "x": 31,
+                        "y": 78,
+                        "value": -3.331125E-5
+                    }
+                ]
+            },
+            {
+                "name": "lat_corr_fward",
+                "description": "Latitude corrections, forward view",
+                "offsetX": "-19.0",
+                "offsetY": "-26.0",
+                "subSamplingX": "25.0",
+                "subSamplingY": "32.0",
+                "expectedPixels": [
+                    {
+                        "x": 29,
+                        "y": 166,
+                        "value": 0.0
+                    },
+                    {
+                        "x": 137,
+                        "y": 65,
+                        "value": 0.0
+                    },
+                    {
+                        "x": 31,
+                        "y": 78,
+                        "value": 8.872572E-4
+                    }
+                ]
+            },
+            {
+                "name": "lon_corr_fward",
+                "description": "Longitude corrections, forward view",
+                "offsetX": "-19.0",
+                "offsetY": "-26.0",
+                "subSamplingX": "25.0",
+                "subSamplingY": "32.0",
+                "expectedPixels": [
+                    {
+                        "x": 29,
+                        "y": 166,
+                        "value": 0.0
+                    },
+                    {
+                        "x": 137,
+                        "y": 65,
+                        "value": 0.0
+                    },
+                    {
+                        "x": 31,
+                        "y": 78,
+                        "value": 3.5797842E-4
+                    }
+                ]
+            },
+            {
+                "name": "altitude",
+                "description": "Topographic altitude",
+                "offsetX": "-19.0",
+                "offsetY": "-26.0",
+                "subSamplingX": "25.0",
+                "subSamplingY": "32.0",
+                "expectedPixels": [
+                    {
+                        "x": 29,
+                        "y": 166,
+                        "value": -53.283127
+                    },
+                    {
+                        "x": 137,
+                        "y": 65,
+                        "value": -35.166874
+                    },
+                    {
+                        "x": 31,
+                        "y": 78,
+                        "value": 56.639687
+                    }
+                ]
+            },
+            {
+                "name": "sun_elev_nadir",
+                "description": "Solar elevation, nadir view",
+                "offsetX": "-44.0",
+                "offsetY": "-26.0",
+                "subSamplingX": "50.0",
+                "subSamplingY": "32.0",
+                "expectedPixels": [
+                    {
+                        "x": 29,
+                        "y": 166,
+                        "value": 58.1082
+                    },
+                    {
+                        "x": 137,
+                        "y": 65,
+                        "value": 58.22168
+                    },
+                    {
+                        "x": 31,
+                        "y": 78,
+                        "value": 57.589672
+                    }
+                ]
+            },
+            {
+                "name": "view_elev_nadir",
+                "description": "Satellite elevation, nadir view",
+                "offsetX": "-44.0",
+                "offsetY": "-26.0",
+                "subSamplingX": "50.0",
+                "subSamplingY": "32.0",
+                "expectedPixels": [
+                    {
+                        "x": 29,
+                        "y": 166,
+                        "value": 88.06871
+                    },
+                    {
+                        "x": 137,
+                        "y": 65,
+                        "value": 79.14844
+                    },
+                    {
+                        "x": 31,
+                        "y": 78,
+                        "value": 87.90443
+                    }
+                ]
+            },
+            {
+                "name": "sun_azimuth_nadir",
+                "description": "Solar azimuth, nadir view",
+                "offsetX": "-44.0",
+                "offsetY": "-26.0",
+                "subSamplingX": "50.0",
+                "subSamplingY": "32.0",
+                "expectedPixels": [
+                    {
+                        "x": 29,
+                        "y": 166,
+                        "value": 145.61028
+                    },
+                    {
+                        "x": 137,
+                        "y": 65,
+                        "value": 149.0518
+                    },
+                    {
+                        "x": 31,
+                        "y": 78,
+                        "value": 146.7994
+                    }
+                ]
+            },
+            {
+                "name": "view_azimuth_nadir",
+                "description": "Satellite azimuth, nadir view",
+                "offsetX": "-44.0",
+                "offsetY": "-26.0",
+                "subSamplingX": "50.0",
+                "subSamplingY": "32.0",
+                "expectedPixels": [
+                    {
+                        "x": 29,
+                        "y": 166,
+                        "value": -23.152254
+                    },
+                    {
+                        "x": 137,
+                        "y": 65,
+                        "value": -60.832752
+                    },
+                    {
+                        "x": 31,
+                        "y": 78,
+                        "value": -27.398645
+                    }
+                ]
+            },
+            {
+                "name": "sun_elev_fward",
+                "description": "Solar elevation, forward view",
+                "offsetX": "-44.0",
+                "offsetY": "-26.0",
+                "subSamplingX": "50.0",
+                "subSamplingY": "32.0",
+                "expectedPixels": [
+                    {
+                        "x": 29,
+                        "y": 166,
+                        "value": 57.899334
+                    },
+                    {
+                        "x": 137,
+                        "y": 65,
+                        "value": 58.038834
+                    },
+                    {
+                        "x": 31,
+                        "y": 78,
+                        "value": 57.38274
+                    }
+                ]
+            },
+            {
+                "name": "view_elev_fward",
+                "description": "Satellite elevation, forward view",
+                "offsetX": "-44.0",
+                "offsetY": "-26.0",
+                "subSamplingX": "50.0",
+                "subSamplingY": "32.0",
+                "expectedPixels": [
+                    {
+                        "x": 29,
+                        "y": 166,
+                        "value": 34.78531
+                    },
+                    {
+                        "x": 137,
+                        "y": 65,
+                        "value": 35.37728
+                    },
+                    {
+                        "x": 31,
+                        "y": 78,
+                        "value": 34.78584
+                    }
+                ]
+            },
+            {
+                "name": "sun_azimuth_fward",
+                "description": "Solar azimuth, forward view",
+                "offsetX": "-44.0",
+                "offsetY": "-26.0",
+                "subSamplingX": "50.0",
+                "subSamplingY": "32.0",
+                "expectedPixels": [
+                    {
+                        "x": 29,
+                        "y": 166,
+                        "value": 144.70485
+                    },
+                    {
+                        "x": 137,
+                        "y": 65,
+                        "value": 148.1705
+                    },
+                    {
+                        "x": 31,
+                        "y": 78,
+                        "value": 145.89003
+                    }
+                ]
+            },
+            {
+                "name": "view_azimuth_fward",
+                "description": "Satellite azimuth, forward view",
+                "offsetX": "-44.0",
+                "offsetY": "-26.0",
+                "subSamplingX": "50.0",
+                "subSamplingY": "32.0",
+                "expectedPixels": [
+                    {
+                        "x": 29,
+                        "y": 166,
+                        "value": 14.1426115
+                    },
+                    {
+                        "x": 137,
+                        "y": 65,
+                        "value": 8.677713
+                    },
+                    {
+                        "x": 31,
+                        "y": 78,
+                        "value": 14.259555
+                    }
+                ]
+            }
+        ],
+        "bands": [
+            {
+                "name": "N2",
+                "description": "AATSR Nadir-view 2 channel SST",
+                "bandWidth": 200,
+                "bandHeight": 200,
+                "geophysicalUnit": "K",
+                "noDataValue": "-999.0",
+                "noDataValueUsed": "true",
+                "spectralWavelength": "0.0",
+                "spectralBandwidth": "0.0",
+                "expectedPixels": [
+                    {
+                        "x": 29,
+                        "y": 166,
+                        "value": 282.91812
+                    },
+                    {
+                        "x": 137,
+                        "y": 65,
+                        "value": 284.2079
+                    },
+                    {
+                        "x": 31,
+                        "y": 78,
+                        "value": 269.74368
+                    }
+                ]
+            },
+            {
+                "name": "D2",
+                "description": "AATSR Dual-view 2 channel SST",
+                "bandWidth": 200,
+                "bandHeight": 200,
+                "geophysicalUnit": "K",
+                "noDataValue": "-999.0",
+                "noDataValueUsed": "true",
+                "spectralWavelength": "0.0",
+                "spectralBandwidth": "0.0",
+                "expectedPixels": [
+                    {
+                        "x": 29,
+                        "y": 166,
+                        "value": 288.20844
+                    },
+                    {
+                        "x": 137,
+                        "y": 65,
+                        "value": 282.15094
+                    },
+                    {
+                        "x": 31,
+                        "y": 78,
+                        "value": "NaN"
+                    }
+                ]
+            }
+        ],
+        "metadata": [
+            {
+                "path": "Processing_Graph/node.1/parameters/formatName",
+                "value": "BEAM-DIMAP"
+            },
+            {
+                "path": "Processing_Graph/node.0/parameters/asdi",
+                "value": "false"
+            },
+            {
+                "path": "Processing_Graph/node.0/parameters/asdiCoefficientsFile",
+                "value": "ASDI_AATSR"
+            },
+            {
+                "path": "Processing_Graph/node.1/parameters/clearCacheAfterRowWrite",
+                "value": "false"
+            },
+            {
+                "path": "Processing_Graph/node.1/parameters/clearCacheAfterRowWrite",
+                "value": "false"
+            },
+            {
+                "path": "Processing_Graph/node.0/parameters/dual",
+                "value": "true"
+            },
+            {
+                "path": "Processing_Graph/node.1/sources/sourceProduct",
+                "value": "ArcSST"
+            },
+            {
+                "path": "Processing_Graph/node.0/sources/sourceProduct",
+                "value": "product:Subset_ATS_TOA_1COLRA20030530_104438_000000762016_00451_06517_1067.N1"
+            },
+            {
+                "path": "Processing_Graph/node.1/parameters/formatName",
+                "value": "BEAM-DIMAP"
+            },
+            {
+                "path": "Processing_Graph/node.0/sources/sourceProduct",
+                "value": "product:Subset_ATS_TOA_1COLRA20030530_104438_000000762016_00451_06517_1067.N1"
+            }
+        ]
+    }
+}

@@ -1,0 +1,63 @@
+<graph id="GraphReprojectionOp">
+    <version>1.0</version>
+    <node id="Read">
+        <operator>Read</operator>
+        <sources/>
+        <parameters>
+            <file>$input</file>
+        </parameters>
+    </node>
+
+    <node id="Subset">
+        <operator>Subset</operator>
+        <sources>
+            <sourceProduct refid="Read"/>
+        </sources>
+        <parameters>
+            <region>$subsetRegion</region>
+            <copyMetadata>false</copyMetadata>
+        </parameters>
+    </node>
+
+    <node id="Rayleigh">
+        <operator>RayleighCorrection</operator>
+        <sources>
+            <sourceProduct refid="Subset" />
+        </sources>
+        <parameters>
+            <sourceBandNames>$sourceBandNames</sourceBandNames>
+            <computeTaur>$computeTaur</computeTaur>
+            <computeRBrr>$computeRBrr</computeRBrr>
+            <computeRtoaNg>$computeRtoaNg</computeRtoaNg>
+            <computeRtoa>$computeRtoa</computeRtoa>
+            <addAirMass>$addAirMass</addAirMass>
+            <s2MsiTargetResolution>$s2MsiTargetResolution</s2MsiTargetResolution>
+            <s2MsiSeaLevelPressure>$s2MsiSeaLevelPressure</s2MsiSeaLevelPressure>
+            <s2MsiOzone>$s2MsiOzone</s2MsiOzone>
+        </parameters>
+    </node>
+
+    <node id="MphChl">
+        <operator>MphChl</operator>
+        <sources>
+            <sourceProduct refid="Rayleigh"/>
+        </sources>
+        <parameters>
+            <validPixelExpression>$validPixelExpression</validPixelExpression>
+            <cyanoMaxValue>$cyanoMaxValue</cyanoMaxValue>
+            <chlThreshForFloatFlag>$chlThreshForFloatFlag</chlThreshForFloatFlag>
+            <exportMph>$exportMph</exportMph>
+            <applyLowPassFilter>$applyLowPassFilter</applyLowPassFilter>
+        </parameters>
+    </node>
+    <node id="Write">
+        <operator>Write</operator>
+        <sources>
+            <sourceProduct refid="MphChl"/>
+        </sources>
+        <parameters>
+            <file>$output</file>
+            <formatName>BEAM-DIMAP</formatName>
+        </parameters>
+    </node>
+</graph>
