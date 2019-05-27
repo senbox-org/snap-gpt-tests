@@ -1,10 +1,10 @@
 [{
     "id":"S2MCITest_L1C",
-    "description":"execute ARVI processor with S2",
+    "description":"execute MCI processor with S2 L1C",
     "frequency":"daily",
     "graphPath": "s2tbx/graphS2MCIOp.xml",
     "inputs": {
-        "input": "senbox/testdata/sensors_platforms/SENTINEL-2/S2A_MSIL1C_20150808T110036_N0204_R094_T31UCT_20150808T110533.zip"
+        "input": "s3tbx/sensors_platforms/SENTINEL-2/S2A_MSIL1C_20150808T110036_N0204_R094_T31UCT_20150808T110533.zip"
     },
     "parameters": {
         "resampleRefBand": "B1",
@@ -27,11 +27,11 @@
 },
     [{
         "id":"S2MCITest_L2A",
-        "description":"execute ARVI processor with S2",
+        "description":"execute MCI processor with S2 L2A",
         "frequency":"daily",
         "graphPath": "s2tbx/graphS2MCIOp.xml",
         "inputs": {
-            "input": "senbox/testdata/sensors_platforms/SENTINEL-2/S2A_MSIL2A_20190509T211921_N0212_R100_T04QEK_20190512T092011.zip"
+            "input": "s3tbx/sensors_platforms/SENTINEL-2/S2A_MSIL2A_20190509T211921_N0212_R100_T04QEK_20190512T092011.zip"
         },
         "parameters": {
             "resampleRefBand": "B1",
