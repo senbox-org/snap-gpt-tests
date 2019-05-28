@@ -1,0 +1,149 @@
+{
+  "id" : "s1tbx.insar.interferogram.asar",
+  "decodeQualification" : "INTENDED",
+  "expectedContent" : {
+    "sceneWidth" : 5167,
+    "sceneHeight" : 26897,
+    "geoCoding" : {
+      "coordinates" : [ {
+        "x" : 2583.0,
+        "y" : 13448.0,
+        "lat" : 29.13846093248163,
+        "lon" : 58.52210057994839
+      } ]
+    },
+    "tiePointGrids" : [ {
+      "name" : "samples",
+      "description" : "range sample",
+      "offsetX" : 0.5,
+      "offsetY" : 0.5,
+      "subSamplingX" : 517.0,
+      "subSamplingY" : 2446.0,
+      "expectedPixels" : [ {
+        "x" : 2583.0,
+        "y" : 13448.0,
+        "value" : 2582.0078
+      } ]
+    }, {
+      "name" : "slant_range_time",
+      "description" : "2 way slant range time",
+      "offsetX" : 0.5,
+      "offsetY" : 0.5,
+      "subSamplingX" : 517.0,
+      "subSamplingY" : 2446.0,
+      "expectedPixels" : [ {
+        "x" : 2583.0,
+        "y" : 13448.0,
+        "value" : 5643483.0
+      } ]
+    }, {
+      "name" : "incident_angle",
+      "description" : "Incident angle",
+      "offsetX" : 0.5,
+      "offsetY" : 0.5,
+      "subSamplingX" : 517.0,
+      "subSamplingY" : 2446.0,
+      "expectedPixels" : [ {
+        "x" : 2583.0,
+        "y" : 13448.0,
+        "value" : 22.7528
+      } ]
+    }, {
+      "name" : "latitude",
+      "description" : "Latitude of the tie points (WGS-84), positive N",
+      "offsetX" : 0.5,
+      "offsetY" : 0.5,
+      "subSamplingX" : 517.0,
+      "subSamplingY" : 2446.0,
+      "expectedPixels" : [ {
+        "x" : 2583.0,
+        "y" : 13448.0,
+        "value" : 29.138462
+      } ]
+    }, {
+      "name" : "longitude",
+      "description" : "Longitude of the tie points (WGS-84), Greenwich origin, positive E",
+      "offsetX" : 0.5,
+      "offsetY" : 0.5,
+      "subSamplingX" : 517.0,
+      "subSamplingY" : 2446.0,
+      "expectedPixels" : [ {
+        "x" : 2583.0,
+        "y" : 13448.0,
+        "value" : 58.521996
+      } ]
+    } ],
+    "bands" : [ {
+      "name" : "i_ifg_VV_03Dec2003_11Feb2004",
+      "description" : "",
+      "bandWidth" : 5167,
+      "bandHeight" : 26897,
+      "noDataValue" : 0.0,
+      "noDataValueUsed" : false,
+      "spectralWavelength" : 0.0,
+      "spectralBandwidth" : 0.0,
+      "expectedPixels" : [ {
+        "x" : 2583.0,
+        "y" : 13448.0,
+        "value" : 4.66418986E14
+      } ]
+    }, {
+      "name" : "q_ifg_VV_03Dec2003_11Feb2004",
+      "description" : "",
+      "bandWidth" : 5167,
+      "bandHeight" : 26897,
+      "noDataValue" : 0.0,
+      "noDataValueUsed" : false,
+      "spectralWavelength" : 0.0,
+      "spectralBandwidth" : 0.0,
+      "expectedPixels" : [ {
+        "x" : 2583.0,
+        "y" : 13448.0,
+        "value" : -6.2355872E14
+      } ]
+    }, {
+      "name" : "Intensity_ifg_VV_03Dec2003_11Feb2004",
+      "description" : "Intensity from complex data",
+      "bandWidth" : 5167,
+      "bandHeight" : 26897,
+      "noDataValue" : 0.0,
+      "noDataValueUsed" : true,
+      "spectralWavelength" : 0.0,
+      "spectralBandwidth" : 0.0,
+      "expectedPixels" : [ {
+        "x" : 2583.0,
+        "y" : 13448.0,
+        "value" : 6.0637214E29
+      } ]
+    }, {
+      "name" : "Phase_ifg_VV_03Dec2003_11Feb2004",
+      "description" : "Phase from complex data",
+      "bandWidth" : 5167,
+      "bandHeight" : 26897,
+      "noDataValue" : 0.0,
+      "noDataValueUsed" : false,
+      "spectralWavelength" : 0.0,
+      "spectralBandwidth" : 0.0,
+      "expectedPixels" : [ {
+        "x" : 2583.0,
+        "y" : 13448.0,
+        "value" : -0.92857945
+      } ]
+    }, {
+      "name" : "coh_VV_03Dec2003_11Feb2004",
+      "description" : "",
+      "bandWidth" : 5167,
+      "bandHeight" : 26897,
+      "noDataValue" : 0.0,
+      "noDataValueUsed" : true,
+      "spectralWavelength" : 0.0,
+      "spectralBandwidth" : 0.0,
+      "expectedPixels" : [ {
+        "x" : 2583.0,
+        "y" : 13448.0,
+        "value" : 0.80048954
+      } ]
+    } ],
+    "masks" : [ ]
+  }
+}
