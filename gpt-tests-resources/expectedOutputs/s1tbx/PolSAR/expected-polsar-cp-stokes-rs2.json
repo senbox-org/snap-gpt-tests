@@ -1,0 +1,207 @@
+{
+  "id" : "s1tbx.polsar.cp.stokes.rs2",
+  "decodeQualification" : "INTENDED",
+  "expectedContent" : {
+    "sceneWidth" : 2120,
+    "sceneHeight" : 7863,
+    "geoCoding" : {
+      "coordinates" : [ {
+        "x" : 1060.0,
+        "y" : 3931.0,
+        "lat" : 49.22295223304983,
+        "lon" : -123.08368635690398
+      } ]
+    },
+    "tiePointGrids" : [ {
+      "name" : "latitude",
+      "description" : "",
+      "offsetX" : 0.5,
+      "offsetY" : 0.5,
+      "subSamplingX" : 211.9,
+      "subSamplingY" : 524.1333333333333,
+      "expectedPixels" : [ {
+        "x" : 1060.0,
+        "y" : 3931.0,
+        "value" : 49.222916
+      } ]
+    }, {
+      "name" : "longitude",
+      "description" : "",
+      "offsetX" : 0.5,
+      "offsetY" : 0.5,
+      "subSamplingX" : 211.9,
+      "subSamplingY" : 524.1333333333333,
+      "expectedPixels" : [ {
+        "x" : 1060.0,
+        "y" : 3931.0,
+        "value" : -123.0836
+      } ]
+    }, {
+      "name" : "incident_angle",
+      "description" : "",
+      "offsetX" : 0.0,
+      "offsetY" : 0.0,
+      "subSamplingX" : 212.0,
+      "subSamplingY" : 786.0,
+      "expectedPixels" : [ {
+        "x" : 1060.0,
+        "y" : 3931.0,
+        "value" : 20.837048
+      } ]
+    }, {
+      "name" : "slant_range_time",
+      "description" : "",
+      "offsetX" : 0.0,
+      "offsetY" : 0.0,
+      "subSamplingX" : 212.0,
+      "subSamplingY" : 786.0,
+      "expectedPixels" : [ {
+        "x" : 1060.0,
+        "y" : 3931.0,
+        "value" : 5656589.0
+      } ]
+    } ],
+    "bands" : [ {
+      "name" : "DegreeOfPolarization",
+      "description" : "",
+      "bandWidth" : 2120,
+      "bandHeight" : 7863,
+      "noDataValue" : 0.0,
+      "noDataValueUsed" : false,
+      "spectralWavelength" : 0.0,
+      "spectralBandwidth" : 0.0,
+      "expectedPixels" : [ {
+        "x" : 1060.0,
+        "y" : 3931.0,
+        "value" : 0.5667892
+      } ]
+    }, {
+      "name" : "DegreeOfDepolarization",
+      "description" : "",
+      "bandWidth" : 2120,
+      "bandHeight" : 7863,
+      "noDataValue" : 0.0,
+      "noDataValueUsed" : false,
+      "spectralWavelength" : 0.0,
+      "spectralBandwidth" : 0.0,
+      "expectedPixels" : [ {
+        "x" : 1060.0,
+        "y" : 3931.0,
+        "value" : 0.4332108
+      } ]
+    }, {
+      "name" : "DegreeOfCircularity",
+      "description" : "",
+      "bandWidth" : 2120,
+      "bandHeight" : 7863,
+      "noDataValue" : 0.0,
+      "noDataValueUsed" : false,
+      "spectralWavelength" : 0.0,
+      "spectralBandwidth" : 0.0,
+      "expectedPixels" : [ {
+        "x" : 1060.0,
+        "y" : 3931.0,
+        "value" : -0.9758991
+      } ]
+    }, {
+      "name" : "DegreeOfEllipticity",
+      "description" : "",
+      "bandWidth" : 2120,
+      "bandHeight" : 7863,
+      "noDataValue" : 0.0,
+      "noDataValueUsed" : false,
+      "spectralWavelength" : 0.0,
+      "spectralBandwidth" : 0.0,
+      "expectedPixels" : [ {
+        "x" : 1060.0,
+        "y" : 3931.0,
+        "value" : -0.8010846
+      } ]
+    }, {
+      "name" : "CPR",
+      "description" : "",
+      "bandWidth" : 2120,
+      "bandHeight" : 7863,
+      "noDataValue" : 0.0,
+      "noDataValueUsed" : false,
+      "spectralWavelength" : 0.0,
+      "spectralBandwidth" : 0.0,
+      "expectedPixels" : [ {
+        "x" : 1060.0,
+        "y" : 3931.0,
+        "value" : 0.28772298
+      } ]
+    }, {
+      "name" : "LPR",
+      "description" : "",
+      "bandWidth" : 2120,
+      "bandHeight" : 7863,
+      "noDataValue" : 0.0,
+      "noDataValueUsed" : false,
+      "spectralWavelength" : 0.0,
+      "spectralBandwidth" : 0.0,
+      "expectedPixels" : [ {
+        "x" : 1060.0,
+        "y" : 3931.0,
+        "value" : 0.81097203
+      } ]
+    }, {
+      "name" : "RelativePhase",
+      "description" : "",
+      "bandWidth" : 2120,
+      "bandHeight" : 7863,
+      "noDataValue" : 0.0,
+      "noDataValueUsed" : false,
+      "spectralWavelength" : 0.0,
+      "spectralBandwidth" : 0.0,
+      "expectedPixels" : [ {
+        "x" : 1060.0,
+        "y" : 3931.0,
+        "value" : -1.6901917
+      } ]
+    }, {
+      "name" : "Alphas",
+      "description" : "",
+      "bandWidth" : 2120,
+      "bandHeight" : 7863,
+      "noDataValue" : 0.0,
+      "noDataValueUsed" : false,
+      "spectralWavelength" : 0.0,
+      "spectralBandwidth" : 0.0,
+      "expectedPixels" : [ {
+        "x" : 1060.0,
+        "y" : 3931.0,
+        "value" : 0.10999625
+      } ]
+    }, {
+      "name" : "ConformityCoefficient",
+      "description" : "",
+      "bandWidth" : 2120,
+      "bandHeight" : 7863,
+      "noDataValue" : 0.0,
+      "noDataValueUsed" : false,
+      "spectralWavelength" : 0.0,
+      "spectralBandwidth" : 0.0,
+      "expectedPixels" : [ {
+        "x" : 1060.0,
+        "y" : 3931.0,
+        "value" : 0.5531291
+      } ]
+    }, {
+      "name" : "PhasePhi",
+      "description" : "",
+      "bandWidth" : 2120,
+      "bandHeight" : 7863,
+      "noDataValue" : 0.0,
+      "noDataValueUsed" : false,
+      "spectralWavelength" : 0.0,
+      "spectralBandwidth" : 0.0,
+      "expectedPixels" : [ {
+        "x" : 1060.0,
+        "y" : 3931.0,
+        "value" : -0.5662755
+      } ]
+    } ],
+    "masks" : [ ]
+  }
+}

@@ -1,0 +1,68 @@
+<graph id="Graph">
+  <version>1.0</version>
+  <node id="Read">
+    <operator>Read</operator>
+    <sources/>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <file>$input1</file>
+    </parameters>
+  </node>
+  <node id="CP-Simulation">
+    <operator>CP-Simulation</operator>
+    <sources>
+      <sourceProduct refid="Read"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <compactMode>Right Circular Hybrid Mode</compactMode>
+      <outputFormat>Covariance Matrix C2</outputFormat>
+      <noisePower>-25.0</noisePower>
+      <simulateNoiseFloor>false</simulateNoiseFloor>
+    </parameters>
+  </node>
+  <node id="CP-Stokes-Parameters">
+    <operator>CP-Stokes-Parameters</operator>
+    <sources>
+      <sourceProduct refid="CP-Simulation"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <windowSizeXStr>5</windowSizeXStr>
+      <windowSizeYStr>5</windowSizeYStr>
+      <outputStokesVector>false</outputStokesVector>
+      <outputDegreeOfPolarization>true</outputDegreeOfPolarization>
+      <outputDegreeOfDepolarization>true</outputDegreeOfDepolarization>
+      <outputDegreeOfCircularity>true</outputDegreeOfCircularity>
+      <outputDegreeOfEllipticity>true</outputDegreeOfEllipticity>
+      <outputCPR>true</outputCPR>
+      <outputLPR>true</outputLPR>
+      <outputRelativePhase>true</outputRelativePhase>
+      <outputAlphas>true</outputAlphas>
+      <outputConformity>true</outputConformity>
+      <outputPhasePhi>true</outputPhasePhi>
+    </parameters>
+  </node>
+  <node id="Write">
+    <operator>Write</operator>
+    <sources>
+      <sourceProduct refid="CP-Stokes-Parameters"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <file>$out1</file>
+      <formatName>BEAM-DIMAP</formatName>
+    </parameters>
+  </node>
+  <applicationData id="Presentation">
+    <Description/>
+    <node id="Read">
+            <displayPosition x="37.0" y="134.0"/>
+    </node>
+    <node id="CP-Simulation">
+      <displayPosition x="142.0" y="129.0"/>
+    </node>
+    <node id="CP-Stokes-Parameters">
+      <displayPosition x="262.0" y="132.0"/>
+    </node>
+    <node id="Write">
+            <displayPosition x="455.0" y="135.0"/>
+    </node>
+  </applicationData>
+</graph>

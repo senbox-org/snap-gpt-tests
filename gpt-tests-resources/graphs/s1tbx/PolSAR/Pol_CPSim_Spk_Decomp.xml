@@ -1,0 +1,81 @@
+<graph id="Graph">
+  <version>1.0</version>
+  <node id="Read">
+    <operator>Read</operator>
+    <sources/>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <file>$input1</file>
+    </parameters>
+  </node>
+  <node id="CP-Simulation">
+    <operator>CP-Simulation</operator>
+    <sources>
+      <sourceProduct refid="Read"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <compactMode>Right Circular Hybrid Mode</compactMode>
+      <outputFormat>Covariance Matrix C2</outputFormat>
+      <noisePower>-25.0</noisePower>
+      <simulateNoiseFloor>false</simulateNoiseFloor>
+    </parameters>
+  </node>
+  <node id="CP-Decomposition">
+    <operator>CP-Decomposition</operator>
+    <sources>
+      <sourceProduct refid="Polarimetric-Speckle-Filter"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <decomposition>$decomposition</decomposition>
+      <windowSizeXStr>5</windowSizeXStr>
+      <windowSizeYStr>5</windowSizeYStr>
+      <computeAlphaByT3>true</computeAlphaByT3>
+      <outputRVOG>true</outputRVOG>
+    </parameters>
+  </node>
+  <node id="Polarimetric-Speckle-Filter">
+    <operator>Polarimetric-Speckle-Filter</operator>
+    <sources>
+      <sourceProduct refid="CP-Simulation"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <filter>Refined Lee Filter</filter>
+      <filterSize>5</filterSize>
+      <numLooksStr>1</numLooksStr>
+      <windowSize>7x7</windowSize>
+      <targetWindowSizeStr>3x3</targetWindowSizeStr>
+      <anSize>50</anSize>
+      <sigmaStr>0.9</sigmaStr>
+      <searchWindowSizeStr>15</searchWindowSizeStr>
+      <patchSizeStr>5</patchSizeStr>
+      <scaleSizeStr>1</scaleSizeStr>
+    </parameters>
+  </node>
+  <node id="Write">
+    <operator>Write</operator>
+    <sources>
+      <sourceProduct refid="CP-Decomposition"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <file>$out1</file>
+      <formatName>BEAM-DIMAP</formatName>
+    </parameters>
+  </node>
+  <applicationData id="Presentation">
+    <Description/>
+    <node id="Read">
+            <displayPosition x="40.0" y="39.0"/>
+    </node>
+    <node id="CP-Simulation">
+      <displayPosition x="76.0" y="90.0"/>
+    </node>
+    <node id="CP-Decomposition">
+      <displayPosition x="369.0" y="94.0"/>
+    </node>
+    <node id="Polarimetric-Speckle-Filter">
+      <displayPosition x="191.0" y="89.0"/>
+    </node>
+    <node id="Write">
+            <displayPosition x="491.0" y="138.0"/>
+    </node>
+  </applicationData>
+</graph>

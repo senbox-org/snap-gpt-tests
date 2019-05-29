@@ -1,0 +1,193 @@
+{
+  "id" : "s1tbx.polsar.spk.leesigma.rs2",
+  "decodeQualification" : "INTENDED",
+  "expectedContent" : {
+    "sceneWidth" : 2120,
+    "sceneHeight" : 7863,
+    "geoCoding" : {
+      "coordinates" : [ {
+        "x" : 1060.0,
+        "y" : 3931.0,
+        "lat" : 49.22295223304983,
+        "lon" : -123.08368635690398
+      } ]
+    },
+    "tiePointGrids" : [ {
+      "name" : "latitude",
+      "description" : "",
+      "offsetX" : 0.5,
+      "offsetY" : 0.5,
+      "subSamplingX" : 211.9,
+      "subSamplingY" : 524.1333333333333,
+      "expectedPixels" : [ {
+        "x" : 1060.0,
+        "y" : 3931.0,
+        "value" : 49.222916
+      } ]
+    }, {
+      "name" : "longitude",
+      "description" : "",
+      "offsetX" : 0.5,
+      "offsetY" : 0.5,
+      "subSamplingX" : 211.9,
+      "subSamplingY" : 524.1333333333333,
+      "expectedPixels" : [ {
+        "x" : 1060.0,
+        "y" : 3931.0,
+        "value" : -123.0836
+      } ]
+    }, {
+      "name" : "incident_angle",
+      "description" : "",
+      "offsetX" : 0.0,
+      "offsetY" : 0.0,
+      "subSamplingX" : 212.0,
+      "subSamplingY" : 786.0,
+      "expectedPixels" : [ {
+        "x" : 1060.0,
+        "y" : 3931.0,
+        "value" : 20.837048
+      } ]
+    }, {
+      "name" : "slant_range_time",
+      "description" : "",
+      "offsetX" : 0.0,
+      "offsetY" : 0.0,
+      "subSamplingX" : 212.0,
+      "subSamplingY" : 786.0,
+      "expectedPixels" : [ {
+        "x" : 1060.0,
+        "y" : 3931.0,
+        "value" : 5656589.0
+      } ]
+    } ],
+    "bands" : [ {
+      "name" : "T11",
+      "description" : "",
+      "bandWidth" : 2120,
+      "bandHeight" : 7863,
+      "noDataValue" : 0.0,
+      "noDataValueUsed" : false,
+      "spectralWavelength" : 0.0,
+      "spectralBandwidth" : 0.0,
+      "expectedPixels" : [ {
+        "x" : 1060.0,
+        "y" : 3931.0,
+        "value" : 0.4460574
+      } ]
+    }, {
+      "name" : "T12_real",
+      "description" : "",
+      "bandWidth" : 2120,
+      "bandHeight" : 7863,
+      "noDataValue" : 0.0,
+      "noDataValueUsed" : false,
+      "spectralWavelength" : 0.0,
+      "spectralBandwidth" : 0.0,
+      "expectedPixels" : [ {
+        "x" : 1060.0,
+        "y" : 3931.0,
+        "value" : 0.07359031
+      } ]
+    }, {
+      "name" : "T12_imag",
+      "description" : "",
+      "bandWidth" : 2120,
+      "bandHeight" : 7863,
+      "noDataValue" : 0.0,
+      "noDataValueUsed" : false,
+      "spectralWavelength" : 0.0,
+      "spectralBandwidth" : 0.0,
+      "expectedPixels" : [ {
+        "x" : 1060.0,
+        "y" : 3931.0,
+        "value" : 0.037897818
+      } ]
+    }, {
+      "name" : "T13_real",
+      "description" : "",
+      "bandWidth" : 2120,
+      "bandHeight" : 7863,
+      "noDataValue" : 0.0,
+      "noDataValueUsed" : false,
+      "spectralWavelength" : 0.0,
+      "spectralBandwidth" : 0.0,
+      "expectedPixels" : [ {
+        "x" : 1060.0,
+        "y" : 3931.0,
+        "value" : -0.0199194
+      } ]
+    }, {
+      "name" : "T13_imag",
+      "description" : "",
+      "bandWidth" : 2120,
+      "bandHeight" : 7863,
+      "noDataValue" : 0.0,
+      "noDataValueUsed" : false,
+      "spectralWavelength" : 0.0,
+      "spectralBandwidth" : 0.0,
+      "expectedPixels" : [ {
+        "x" : 1060.0,
+        "y" : 3931.0,
+        "value" : -0.023927938
+      } ]
+    }, {
+      "name" : "T22",
+      "description" : "",
+      "bandWidth" : 2120,
+      "bandHeight" : 7863,
+      "noDataValue" : 0.0,
+      "noDataValueUsed" : false,
+      "spectralWavelength" : 0.0,
+      "spectralBandwidth" : 0.0,
+      "expectedPixels" : [ {
+        "x" : 1060.0,
+        "y" : 3931.0,
+        "value" : 0.14046252
+      } ]
+    }, {
+      "name" : "T23_real",
+      "description" : "",
+      "bandWidth" : 2120,
+      "bandHeight" : 7863,
+      "noDataValue" : 0.0,
+      "noDataValueUsed" : false,
+      "spectralWavelength" : 0.0,
+      "spectralBandwidth" : 0.0,
+      "expectedPixels" : [ {
+        "x" : 1060.0,
+        "y" : 3931.0,
+        "value" : -0.02499303
+      } ]
+    }, {
+      "name" : "T23_imag",
+      "description" : "",
+      "bandWidth" : 2120,
+      "bandHeight" : 7863,
+      "noDataValue" : 0.0,
+      "noDataValueUsed" : false,
+      "spectralWavelength" : 0.0,
+      "spectralBandwidth" : 0.0,
+      "expectedPixels" : [ {
+        "x" : 1060.0,
+        "y" : 3931.0,
+        "value" : 0.0019407546
+      } ]
+    }, {
+      "name" : "T33",
+      "description" : "",
+      "bandWidth" : 2120,
+      "bandHeight" : 7863,
+      "noDataValue" : 0.0,
+      "noDataValueUsed" : false,
+      "spectralWavelength" : 0.0,
+      "spectralBandwidth" : 0.0,
+      "expectedPixels" : [ {
+        "x" : 1060.0,
+        "y" : 3931.0,
+        "value" : 0.044208277
+      } ]
+    } ],
+    "masks" : [ ]
+  }
+}

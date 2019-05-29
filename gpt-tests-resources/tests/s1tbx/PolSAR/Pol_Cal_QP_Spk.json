@@ -1,0 +1,77 @@
+[
+{
+  "id":"s1tbx.polsar.spk.boxcar.rs2",
+  "description":"execute polimetric boxcar speckle filter processor with RS2",
+  "frequency":"daily",
+  "graphPath": "s1tbx/PolSAR/Pol_Cal_Spk.xml",
+  "inputs": {
+    "input1": "s1tbx/SAR/RS2/RS2_OK76385_PK678063_DK606752_FQ2_20080415_143807_HH_VV_HV_VH_SLC.zip"
+  },
+  "parameters": {
+    "srcBands": "",
+	"filter": "Box Car Filter"
+  },
+  "outputs": [{
+    "parameter": "out1",
+    "outputName": "out-polsar-spk-boxcar-rs2",
+    "expected": "s1tbx/PolSAR/expected-polsar-spk-boxcar-rs2.json"
+  }]
+},
+{
+  "id":"s1tbx.polsar.spk.refinedlee.rs2",
+  "description":"execute polimetric refined Lee speckle filter processor with RS2",
+  "frequency":"daily",
+  "graphPath": "s1tbx/PolSAR/Pol_Cal_Spk.xml",
+  "inputs": {
+    "input1": "s1tbx/SAR/RS2/RS2_OK76385_PK678063_DK606752_FQ2_20080415_143807_HH_VV_HV_VH_SLC.zip"
+  },
+  "parameters": {
+    "srcBands": "",
+	"filter": "Refined Lee Filter"
+  },
+  "outputs": [{
+    "parameter": "out1",
+    "outputName": "out-polsar-spk-refinedlee-rs2",
+    "expected": "s1tbx/PolSAR/expected-polsar-spk-refinedlee-rs2.json"
+  }]
+},
+{
+  "id":"s1tbx.polsar.spk.idan.rs2",
+  "description":"execute polimetric IDAN speckle filter processor with RS2",
+  "frequency":"daily",
+  "graphPath": "s1tbx/PolSAR/Pol_Cal_Spk.xml",
+  "inputs": {
+    "input1": "s1tbx/SAR/RS2/RS2_OK76385_PK678063_DK606752_FQ2_20080415_143807_HH_VV_HV_VH_SLC.zip"
+  },
+  "parameters": {
+    "srcBands": "",
+	"filter": "IDAN Filter"
+  },
+  "outputs": [{
+    "parameter": "out1",
+    "outputName": "out-polsar-spk-idan-rs2",
+    "expected": "s1tbx/PolSAR/expected-polsar-spk-idan-rs2.json"
+  }]
+},
+{
+  "id":"s1tbx.polsar.spk.leesigma.rs2",
+  "description":"execute polimetric improved Lee sigma speckle filter processor with RS2",
+  "frequency":"daily",
+  "graphPath": "s1tbx/PolSAR/Pol_Cal_Spk.xml",
+  "inputs": {
+    "input1": "s1tbx/SAR/RS2/RS2_OK76385_PK678063_DK606752_FQ2_20080415_143807_HH_VV_HV_VH_SLC.zip"
+  },
+  "parameters": {
+    "srcBands": "",
+	"filter": "Improved Lee Sigma Filter"
+  },
+  "outputs": [{
+    "parameter": "out1",
+    "outputName": "out-polsar-spk-leesigma-rs2",
+    "expected": "s1tbx/PolSAR/expected-polsar-spk-leesigma-rs2.json"
+  }]
+}
+]
+
+
+
