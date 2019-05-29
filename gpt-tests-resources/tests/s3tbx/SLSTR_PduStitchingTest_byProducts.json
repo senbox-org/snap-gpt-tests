@@ -1,10 +1,8 @@
-//This cannot be used because the output is not correctly handled. Actually the output is written to the tempDir as S3 product in SAFE format.
-// the product which is provided and written here as output is just a dummy
 [
   {
     "id": "SLSTR_PduStitching_byProducts",
     "description": "Stitches multiple SLSTR PDUs by source products",
-    "frequency": "fail",
+    "frequency": "failStitching",
     "graphPath": "s3tbx/graphSLSTR_PduStitching_byProducts.xml",
     "inputs": {
       "input1": "s3tbx/sensors_platforms/SENTINEL-3/SLSTR_L1_for_Stitching_test/20160419T001932_20160419T003132/S3A_SL_1_RBT____20160419T001932_20160419T002232_20160420T181533_0179_003_144_6059_LN2_O_NT_001.SEN3/xfdumanifest.xml",
