@@ -116,6 +116,10 @@ public class GraphTestsUtils {
                     writer.write(graphTest.getGraphPath());
                     writer.write(";");
                     writer.write(graphTest.getInputs().values().iterator().next());
+                    writer.write(";");
+                    writer.write(graphTest.getAuthor());
+                    writer.write(";");
+                    writer.write(graphTest.getDate());
                     writer.write("\n");
                 }
             }

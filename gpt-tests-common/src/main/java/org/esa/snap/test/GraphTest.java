@@ -12,9 +12,12 @@ public class GraphTest {
     private String description;
     private String frequency;
     private String graphPath;
+    private String author;
+    private String date;
     private Map<String, String> parameters;
     private Map<String, String> inputs;
     private Output[] outputs;
+    private ConfigVM configVM;
 
     public Map<String, String> getParameters() {
         return parameters;
@@ -33,7 +36,6 @@ public class GraphTest {
     public String getGraphPath() {
         return graphPath;
     }
-
     public void setGraphPath(String graphPath) {
         this.graphPath = graphPath;
     }
@@ -41,7 +43,6 @@ public class GraphTest {
     public Output[] getOutputs() {
         return outputs;
     }
-
     public void setOutputs(Output[] outputs) {
         this.outputs = outputs;
     }
@@ -49,7 +50,6 @@ public class GraphTest {
     public String getId() {
         return id;
     }
-
     public void setId(String id) {
         this.id = id;
     }
@@ -57,7 +57,6 @@ public class GraphTest {
     public String getDescription() {
         return description;
     }
-
     public void setDescription(String description) {
         this.description = description;
     }
@@ -65,10 +64,26 @@ public class GraphTest {
     public String getFrequency() {
         return frequency;
     }
-
     public void setFrequency(String frequency) {
         this.frequency = frequency;
     }
+
+    public String getAuthor() {
+        return author;
+    }
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    public String getDate() {
+        return date;
+    }
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public ConfigVM getConfigVM() { return configVM; }
+    public void setConfigVM(String xmx, String cacheSize, String parallelism) { this.configVM = new ConfigVM(xmx, cacheSize, parallelism); }
 
     public boolean inputExists(final Path inputFolder) {
         for (Map.Entry<String, String> entry : getInputs().entrySet()) {

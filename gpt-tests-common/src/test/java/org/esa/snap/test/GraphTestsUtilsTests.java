@@ -19,6 +19,19 @@ public class GraphTestsUtilsTests {
         GraphTest[] graphTests =  GraphTestsUtils.mapGraphTests (new File(getClass().getResource("exampleTest.json").getFile()));
         Assert.assertEquals(graphTests.length,2);
 
+        GraphTest[] graphOptionsTests =  GraphTestsUtils.mapGraphTests (new File(getClass().getResource("exampleWithVMconfig.json").getFile()));
+        Assert.assertTrue(graphOptionsTests[0].getAuthor().contentEquals("CS"));
+        Assert.assertTrue(graphOptionsTests[1].getAuthor() == null);
+
+        Assert.assertTrue(graphOptionsTests[0].getConfigVM() == null);
+
+        String expectedXmx = "5G";
+        String expectedCacheSize = "107374824M";
+        String expectedParallelism = "4";
+        Assert.assertTrue(graphOptionsTests[1].getConfigVM().getXmX().contentEquals(expectedXmx));
+        Assert.assertTrue(graphOptionsTests[1].getConfigVM().getCacheSize().contentEquals(expectedCacheSize));
+        Assert.assertTrue(graphOptionsTests[1].getConfigVM().getParallelism().contentEquals(expectedParallelism));
+
     }
 
     @Test
