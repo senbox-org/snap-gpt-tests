@@ -1,7 +1,7 @@
 [
   {
     "id": "SLSTR_PduStitching_byProducts",
-    "description": "Stitches multiple SLSTR PDUs by source products",
+    "description": "Stitches multiple SLSTR PDUs by source products. This cannot be used because the output is not correctly handled. Actually the output is written to the tempDir as S3 product in SAFE format. the product which is provided and written here as output is just a dummy",
     "frequency": "failStitching",
     "graphPath": "s3tbx/graphSLSTR_PduStitching_byProducts.xml",
     "inputs": {
