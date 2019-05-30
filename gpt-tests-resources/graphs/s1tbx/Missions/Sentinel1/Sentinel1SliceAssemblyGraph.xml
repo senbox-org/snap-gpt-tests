@@ -4,7 +4,7 @@
     <operator>ProductSet-Reader</operator>
     <sources/>
     <parameters class="com.bc.ceres.binding.dom.XppDomElement">
-      <fileList></fileList>
+      <fileList>$input1,$input2</fileList>
     </parameters>
   </node>
   <node id="SliceAssembly">
@@ -20,8 +20,8 @@
       <sourceProduct refid="SliceAssembly"/>
     </sources>
     <parameters class="com.bc.ceres.binding.dom.XppDomElement">
-      <file></file>
       <formatName>BEAM-DIMAP</formatName>
+      <file>$out1</file>
     </parameters>
   </node>
   <applicationData id="Presentation">
