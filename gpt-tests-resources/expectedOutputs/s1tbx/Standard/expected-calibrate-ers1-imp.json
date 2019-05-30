@@ -1,79 +1,79 @@
 {
-  "id" : "s1tbx.standard.specklefilter.ers",
+  "id" : "s1tbx.standard.calibrate.ers1.imp",
   "decodeQualification" : "INTENDED",
   "expectedContent" : {
-    "sceneWidth" : 300,
-    "sceneHeight" : 300,
+    "sceneWidth" : 500,
+    "sceneHeight" : 500,
     "geoCoding" : {
       "coordinates" : [ {
-        "x" : 150.0,
-        "y" : 150.0,
-        "lat" : 40.200229114531986,
-        "lon" : 117.15511519762947
+        "x" : 250.0,
+        "y" : 250.0,
+        "lat" : 40.21122840164673,
+        "lon" : 117.1583138892632
       } ]
     },
     "tiePointGrids" : [ {
       "name" : "slant_range_time",
       "description" : "2 way slant range time",
-      "offsetX" : -199.5,
-      "offsetY" : -299.5,
+      "offsetX" : -99.5,
+      "offsetY" : -99.5,
       "subSamplingX" : 792.0,
       "subSamplingY" : 769.0,
       "expectedPixels" : [ {
-        "x" : 150.0,
-        "y" : 150.0,
+        "x" : 250.0,
+        "y" : 250.0,
         "value" : 5555750.0
       } ]
     }, {
       "name" : "incident_angle",
       "description" : "Incident angle",
-      "offsetX" : -199.5,
-      "offsetY" : -299.5,
+      "offsetX" : -99.5,
+      "offsetY" : -99.5,
       "subSamplingX" : 792.0,
       "subSamplingY" : 769.0,
       "expectedPixels" : [ {
-        "x" : 150.0,
-        "y" : 150.0,
-        "value" : 19.758577
+        "x" : 250.0,
+        "y" : 250.0,
+        "value" : 19.75807
       } ]
     }, {
       "name" : "latitude",
       "description" : "Latitude of the tie points (WGS-84), positive N",
-      "offsetX" : -199.5,
-      "offsetY" : -299.5,
+      "offsetX" : -99.5,
+      "offsetY" : -99.5,
       "subSamplingX" : 792.0,
       "subSamplingY" : 769.0,
       "expectedPixels" : [ {
-        "x" : 150.0,
-        "y" : 150.0,
-        "value" : 40.200188
+        "x" : 250.0,
+        "y" : 250.0,
+        "value" : 40.211185
       } ]
     }, {
       "name" : "longitude",
       "description" : "Longitude of the tie points (WGS-84), Greenwich origin, positive E",
-      "offsetX" : -199.5,
-      "offsetY" : -299.5,
+      "offsetX" : -99.5,
+      "offsetY" : -99.5,
       "subSamplingX" : 792.0,
       "subSamplingY" : 769.0,
       "expectedPixels" : [ {
-        "x" : 150.0,
-        "y" : 150.0,
-        "value" : 117.15503
+        "x" : 250.0,
+        "y" : 250.0,
+        "value" : 117.158226
       } ]
     } ],
     "bands" : [ {
-      "name" : "Amplitude",
-      "description" : "Image Mode Precision Image",
-      "bandWidth" : 300,
-      "bandHeight" : 300,
+      "name" : "Sigma0_VV",
+      "description" : "",
+      "bandWidth" : 500,
+      "bandHeight" : 500,
       "noDataValue" : 0.0,
       "noDataValueUsed" : true,
       "spectralWavelength" : 0.0,
       "spectralBandwidth" : 0.0,
       "expectedPixels" : [ {
-        "x" : 150.0,
-        "y" : 150.0,
-        "value" : 918.0
+        "x" : 250.0,
+        "y" : 250.0,
+        "value" : 0.72688574
       } ]
     } ],
     "masks" : [ ]

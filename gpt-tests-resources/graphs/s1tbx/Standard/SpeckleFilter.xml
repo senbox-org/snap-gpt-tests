@@ -10,11 +10,11 @@
   <node id="Speckle-Filter">
     <operator>Speckle-Filter</operator>
     <sources>
-      <sourceProduct refid="Read"/>
+      <sourceProduct refid="Subset"/>
     </sources>
     <parameters class="com.bc.ceres.binding.dom.XppDomElement">
       <sourceBands/>
-      <filter>Lee Sigma</filter>
+      <filter>$filter</filter>
       <filterSizeX>3</filterSizeX>
       <filterSizeY>3</filterSizeY>
       <dampingFactor>2</dampingFactor>
@@ -27,14 +27,30 @@
       <anSize>50</anSize>
     </parameters>
   </node>
+  <node id="Subset">
+    <operator>Subset</operator>
+    <sources>
+      <sourceProduct refid="Read"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <sourceBands/>
+      <region>$region</region>
+      <geoRegion/>
+      <subSamplingX>1</subSamplingX>
+      <subSamplingY>1</subSamplingY>
+      <fullSwath>false</fullSwath>
+      <tiePointGridNames/>
+      <copyMetadata>true</copyMetadata>
+    </parameters>
+  </node>
   <node id="Write">
     <operator>Write</operator>
     <sources>
       <sourceProduct refid="Speckle-Filter"/>
     </sources>
     <parameters class="com.bc.ceres.binding.dom.XppDomElement">
-      <file>$out1</file>
       <formatName>BEAM-DIMAP</formatName>
+      <file>$out1</file>
     </parameters>
   </node>
   <applicationData id="Presentation">
@@ -43,7 +59,10 @@
             <displayPosition x="37.0" y="134.0"/>
     </node>
     <node id="Speckle-Filter">
-      <displayPosition x="197.0" y="135.0"/>
+      <displayPosition x="307.0" y="134.0"/>
+    </node>
+    <node id="Subset">
+      <displayPosition x="156.0" y="133.0"/>
     </node>
     <node id="Write">
             <displayPosition x="455.0" y="135.0"/>

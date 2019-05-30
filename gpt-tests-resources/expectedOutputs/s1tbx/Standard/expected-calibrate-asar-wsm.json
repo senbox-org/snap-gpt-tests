@@ -1,0 +1,93 @@
+{
+  "id" : "s1tbx.standard.calibrate.asar.wsm",
+  "decodeQualification" : "INTENDED",
+  "expectedContent" : {
+    "sceneWidth" : 500,
+    "sceneHeight" : 500,
+    "geoCoding" : {
+      "coordinates" : [ {
+        "x" : 250.0,
+        "y" : 250.0,
+        "lat" : 74.14698297177709,
+        "lon" : -147.69324600081146
+      } ]
+    },
+    "tiePointGrids" : [ {
+      "name" : "samples",
+      "description" : "range sample",
+      "offsetX" : -235.5,
+      "offsetY" : -259.5,
+      "subSamplingX" : 564.0,
+      "subSamplingY" : 540.0,
+      "expectedPixels" : [ {
+        "x" : 250.0,
+        "y" : 250.0,
+        "value" : 1051.0
+      } ]
+    }, {
+      "name" : "slant_range_time",
+      "description" : "2 way slant range time",
+      "offsetX" : -235.5,
+      "offsetY" : -259.5,
+      "subSamplingX" : 564.0,
+      "subSamplingY" : 540.0,
+      "expectedPixels" : [ {
+        "x" : 250.0,
+        "y" : 250.0,
+        "value" : 5534563.0
+      } ]
+    }, {
+      "name" : "incident_angle",
+      "description" : "Incident angle",
+      "offsetX" : -235.5,
+      "offsetY" : -259.5,
+      "subSamplingX" : 564.0,
+      "subSamplingY" : 540.0,
+      "expectedPixels" : [ {
+        "x" : 250.0,
+        "y" : 250.0,
+        "value" : 21.431854
+      } ]
+    }, {
+      "name" : "latitude",
+      "description" : "Latitude of the tie points (WGS-84), positive N",
+      "offsetX" : -235.5,
+      "offsetY" : -259.5,
+      "subSamplingX" : 564.0,
+      "subSamplingY" : 540.0,
+      "expectedPixels" : [ {
+        "x" : 250.0,
+        "y" : 250.0,
+        "value" : 74.14681
+      } ]
+    }, {
+      "name" : "longitude",
+      "description" : "Longitude of the tie points (WGS-84), Greenwich origin, positive E",
+      "offsetX" : -235.5,
+      "offsetY" : -259.5,
+      "subSamplingX" : 564.0,
+      "subSamplingY" : 540.0,
+      "expectedPixels" : [ {
+        "x" : 250.0,
+        "y" : 250.0,
+        "value" : -147.69487
+      } ]
+    } ],
+    "bands" : [ {
+      "name" : "Sigma0_HH",
+      "description" : "",
+      "bandWidth" : 500,
+      "bandHeight" : 500,
+      "noDataValue" : 0.0,
+      "noDataValueUsed" : true,
+      "spectralWavelength" : 0.0,
+      "spectralBandwidth" : 0.0,
+      "expectedPixels" : [ {
+        "x" : 250.0,
+        "y" : 250.0,
+        "value" : 0.06277632
+      } ]
+    } ],
+    "masks" : [ ]
+  }
+}

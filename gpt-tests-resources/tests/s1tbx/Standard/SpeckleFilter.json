@@ -8,6 +8,8 @@
     "input1": "s1tbx/SAR/ASAR/ASA_IMM.zip"
   },
   "parameters": {
+    "region": "200,300,300,300",
+	"filter": "Lee Sigma"
   },
   "outputs": [{
     "parameter": "out1",
@@ -24,6 +26,8 @@
     "input1": "s1tbx/SAR/ALOS/ALPSRS267172700-L1.5.zip"
   },
   "parameters": {
+    "region": "200,300,300,300",
+	"filter": "Lee Sigma"
   },
   "outputs": [{
     "parameter": "out1",
@@ -37,9 +41,11 @@
   "frequency":"daily",
   "graphPath": "s1tbx/Standard/SpeckleFilter.xml",
   "inputs": {
-    "input1": "s1tbx/SAR/ERS/SAR_IMM_1PXESA20110310_110538_00000007A166_00037_83057_1816.E2.zip"
+    "input1": "s1tbx/SAR/ERS/SAR_IMP_1PXDLR19920517_025823_00000017C084_00218_04371_9963.E1"
   },
   "parameters": {
+    "region": "200,300,300,300",
+	"filter": "Lee Sigma"
   },
   "outputs": [{
     "parameter": "out1",
@@ -56,6 +62,8 @@
     "input1": "s1tbx/SAR/RS2/RS2_OK76385_PK678063_DK606752_FQ2_20080415_143807_HH_VV_HV_VH_SLC.zip"
   },
   "parameters": {
+    "region": "200,300,300,300",
+	"filter": "Lee Sigma"
   },
   "outputs": [{
     "parameter": "out1",
@@ -64,22 +72,167 @@
   }]
 },
 {
-    "id":"s1tbx.standard.specklefilter.s1.grd",
-    "description":"execute specklefilter processor with S1 GRD",
+    "id":"s1tbx.standard.specklefilter.leesigma.s1.grd",
+    "description":"execute Lee Sigma specklefilter processor with S1 GRD",
     "frequency":"daily",
     "graphPath": "s1tbx/Standard/SpeckleFilter.xml",
     "inputs": {
       "input1": "s1tbx/SAR/S1/GRD/Hawaii_slices/S1A_IW_GRDH_1SDV_20180514T043029_20180514T043054_021896_025D31_BBDA.zip"
     },
     "parameters": {
+	    "region": "200,300,300,300",
+		"filter": "Lee Sigma"
     },
     "outputs": [{
       "parameter": "out1",
-      "outputName": "out-specklefilter-s1-grd",
-      "expected": "s1tbx/Standard/expected-specklefilter-s1-grd.json"
+      "outputName": "out-specklefilter-lee-sigma-s1-grd",
+      "expected": "s1tbx/Standard/expected-specklefilter-lee-sigma-s1-grd.json"
+    }]
+  },
+  {
+    "id":"s1tbx.standard.specklefilter.boxcar.s1.grd",
+    "description":"execute boxcar specklefilter processor with S1 GRD",
+    "frequency":"daily",
+    "graphPath": "s1tbx/Standard/SpeckleFilter.xml",
+    "inputs": {
+      "input1": "s1tbx/SAR/S1/GRD/Hawaii_slices/S1A_IW_GRDH_1SDV_20180514T043029_20180514T043054_021896_025D31_BBDA.zip"
+    },
+    "parameters": {
+	    "region": "200,300,300,300",
+		"filter": "Boxcar"
+    },
+    "outputs": [{
+      "parameter": "out1",
+      "outputName": "out-specklefilter-boxcar-s1-grd",
+      "expected": "s1tbx/Standard/expected-specklefilter-boxcar-s1-grd.json"
+    }]
+  },
+  {
+    "id":"s1tbx.standard.specklefilter.median.s1.grd",
+    "description":"execute median specklefilter processor with S1 GRD",
+    "frequency":"daily",
+    "graphPath": "s1tbx/Standard/SpeckleFilter.xml",
+    "inputs": {
+      "input1": "s1tbx/SAR/S1/GRD/Hawaii_slices/S1A_IW_GRDH_1SDV_20180514T043029_20180514T043054_021896_025D31_BBDA.zip"
+    },
+    "parameters": {
+	    "region": "200,300,300,300",
+		"filter": "Median"
+    },
+    "outputs": [{
+      "parameter": "out1",
+      "outputName": "out-specklefilter-median-s1-grd",
+      "expected": "s1tbx/Standard/expected-specklefilter-median-s1-grd.json"
+    }]
+  },
+  {
+    "id":"s1tbx.standard.specklefilter.frost.s1.grd",
+    "description":"execute Frost specklefilter processor with S1 GRD",
+    "frequency":"daily",
+    "graphPath": "s1tbx/Standard/SpeckleFilter.xml",
+    "inputs": {
+      "input1": "s1tbx/SAR/S1/GRD/Hawaii_slices/S1A_IW_GRDH_1SDV_20180514T043029_20180514T043054_021896_025D31_BBDA.zip"
+    },
+    "parameters": {
+	    "region": "200,300,300,300",
+		"filter": "Frost"
+    },
+    "outputs": [{
+      "parameter": "out1",
+      "outputName": "out-specklefilter-frost-s1-grd",
+      "expected": "s1tbx/Standard/expected-specklefilter-frost-s1-grd.json"
+    }]
+  },
+  {
+    "id":"s1tbx.standard.specklefilter.gammamap.s1.grd",
+    "description":"execute Gamma Map specklefilter processor with S1 GRD",
+    "frequency":"daily",
+    "graphPath": "s1tbx/Standard/SpeckleFilter.xml",
+    "inputs": {
+      "input1": "s1tbx/SAR/S1/GRD/Hawaii_slices/S1A_IW_GRDH_1SDV_20180514T043029_20180514T043054_021896_025D31_BBDA.zip"
+    },
+    "parameters": {
+	    "region": "200,300,300,300",
+		"filter": "Gamma Map"
+    },
+    "outputs": [{
+      "parameter": "out1",
+      "outputName": "out-specklefilter-gammamap-s1-grd",
+      "expected": "s1tbx/Standard/expected-specklefilter-gammamap-s1-grd.json"
+    }]
+  },
+  {
+    "id":"s1tbx.standard.specklefilter.lee.s1.grd",
+    "description":"execute Lee specklefilter processor with S1 GRD",
+    "frequency":"daily",
+    "graphPath": "s1tbx/Standard/SpeckleFilter.xml",
+    "inputs": {
+      "input1": "s1tbx/SAR/S1/GRD/Hawaii_slices/S1A_IW_GRDH_1SDV_20180514T043029_20180514T043054_021896_025D31_BBDA.zip"
+    },
+    "parameters": {
+	    "region": "200,300,300,300",
+		"filter": "Lee"
+    },
+    "outputs": [{
+      "parameter": "out1",
+      "outputName": "out-specklefilter-lee-s1-grd",
+      "expected": "s1tbx/Standard/expected-specklefilter-lee-s1-grd.json"
+    }]
+  },
+    {
+    "id":"s1tbx.standard.specklefilter.lee.s1.grd",
+    "description":"execute Lee specklefilter processor with S1 GRD",
+    "frequency":"daily",
+    "graphPath": "s1tbx/Standard/SpeckleFilter.xml",
+    "inputs": {
+      "input1": "s1tbx/SAR/S1/GRD/Hawaii_slices/S1A_IW_GRDH_1SDV_20180514T043029_20180514T043054_021896_025D31_BBDA.zip"
+    },
+    "parameters": {
+	    "region": "200,300,300,300",
+		"filter": "Lee"
+    },
+    "outputs": [{
+      "parameter": "out1",
+      "outputName": "out-specklefilter-lee-s1-grd",
+      "expected": "s1tbx/Standard/expected-specklefilter-lee-s1-grd.json"
+    }]
+  },
+  {
+    "id":"s1tbx.standard.specklefilter.refinedlee.s1.grd",
+    "description":"execute Refined Lee specklefilter processor with S1 GRD",
+    "frequency":"daily",
+    "graphPath": "s1tbx/Standard/SpeckleFilter.xml",
+    "inputs": {
+      "input1": "s1tbx/SAR/S1/GRD/Hawaii_slices/S1A_IW_GRDH_1SDV_20180514T043029_20180514T043054_021896_025D31_BBDA.zip"
+    },
+    "parameters": {
+	    "region": "200,300,300,300",
+		"filter": "Refined Lee"
+    },
+    "outputs": [{
+      "parameter": "out1",
+      "outputName": "out-specklefilter-refinedlee-s1-grd",
+      "expected": "s1tbx/Standard/expected-specklefilter-refinedlee-s1-grd.json"
+    }]
+  },
+  {
+    "id":"s1tbx.standard.specklefilter.idan.s1.grd",
+    "description":"execute IDAN specklefilter processor with S1 GRD",
+    "frequency":"daily",
+    "graphPath": "s1tbx/Standard/SpeckleFilter.xml",
+    "inputs": {
+      "input1": "s1tbx/SAR/S1/GRD/Hawaii_slices/S1A_IW_GRDH_1SDV_20180514T043029_20180514T043054_021896_025D31_BBDA.zip"
+    },
+    "parameters": {
+	    "region": "200,300,300,300",
+		"filter": "IDAN"
+    },
+    "outputs": [{
+      "parameter": "out1",
+      "outputName": "out-specklefilter-idan-s1-grd",
+      "expected": "s1tbx/Standard/expected-specklefilter-idan-s1-grd.json"
     }]
   }
-
 ]
 
 

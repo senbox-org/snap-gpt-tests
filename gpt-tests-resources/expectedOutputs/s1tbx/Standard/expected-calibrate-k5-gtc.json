@@ -1,0 +1,81 @@
+{
+  "id" : "s1tbx.standard.calibrate.k5.gtc",
+  "decodeQualification" : "INTENDED",
+  "expectedContent" : {
+    "sceneWidth" : 500,
+    "sceneHeight" : 500,
+    "geoCoding" : {
+      "coordinates" : [ {
+        "x" : 250.0,
+        "y" : 250.0,
+        "lat" : 35.0868936107099,
+        "lon" : -78.98596216681035
+      } ]
+    },
+    "tiePointGrids" : [ {
+      "name" : "incident_angle",
+      "description" : "",
+      "offsetX" : -100.0,
+      "offsetY" : -100.0,
+      "subSamplingX" : 792.7000122070312,
+      "subSamplingY" : 804.7999877929688,
+      "expectedPixels" : [ {
+        "x" : 250.0,
+        "y" : 250.0,
+        "value" : 51.650948
+      } ]
+    }, {
+      "name" : "slant_range_time",
+      "description" : "",
+      "offsetX" : -100.0,
+      "offsetY" : -100.0,
+      "subSamplingX" : 792.7000122070312,
+      "subSamplingY" : 804.7999877929688,
+      "expectedPixels" : [ {
+        "x" : 250.0,
+        "y" : 250.0,
+        "value" : 5652325.0
+      } ]
+    }, {
+      "name" : "latitude",
+      "description" : "",
+      "offsetX" : -99.5,
+      "offsetY" : -99.5,
+      "subSamplingX" : 880.0,
+      "subSamplingY" : 894.0,
+      "expectedPixels" : [ {
+        "x" : 250.0,
+        "y" : 250.0,
+        "value" : 35.086895
+      } ]
+    }, {
+      "name" : "longitude",
+      "description" : "",
+      "offsetX" : -99.5,
+      "offsetY" : -99.5,
+      "subSamplingX" : 880.0,
+      "subSamplingY" : 894.0,
+      "expectedPixels" : [ {
+        "x" : 250.0,
+        "y" : 250.0,
+        "value" : -78.98596
+      } ]
+    } ],
+    "bands" : [ {
+      "name" : "Sigma0_HH",
+      "description" : "",
+      "bandWidth" : 500,
+      "bandHeight" : 500,
+      "noDataValue" : 0.0,
+      "noDataValueUsed" : true,
+      "spectralWavelength" : 0.0,
+      "spectralBandwidth" : 0.0,
+      "expectedPixels" : [ {
+        "x" : 250.0,
+        "y" : 250.0,
+        "value" : 10.388189
+      } ]
+    } ],
+    "masks" : [ ]
+  }
+}

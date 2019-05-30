@@ -8,6 +8,8 @@
     "input1": "s1tbx/SAR/ASAR/ASA_IMM.zip"
   },
   "parameters": {
+    "outputImageInComplex": "false",
+	"region": "100,100,500,500"
   },
   "outputs": [{
     "parameter": "out1",
@@ -15,6 +17,42 @@
     "expected": "s1tbx/Standard/expected-calibrate-asar.json"
   }]
 },
+  {
+    "id":"s1tbx.standard.calibrate.asar.wsm",
+    "description":"execute calibrate processor with ASAR WSM",
+    "frequency":"daily",
+    "graphPath": "s1tbx/Standard/Subset_Cal.xml",
+    "inputs": {
+      "input1": "s1tbx/SAR/ASAR/ASA_WSM_1PNPDE20120311_212324_000002693112_00302_52471_1160.N1"
+    },
+    "parameters": {
+	    "outputImageInComplex": "false",
+		"region": "800,800,500,500"
+    },
+    "outputs": [{
+      "parameter": "out1",
+      "outputName": "out-calibrate-asar-wsm",
+      "expected": "s1tbx/Standard/expected-calibrate-asar-wsm.json"
+    }]
+  },
+  {
+    "id":"s1tbx.standard.calibrate.asar.slc",
+    "description":"execute calibrate processor with ASAR SLC",
+    "frequency":"daily",
+    "graphPath": "s1tbx/Standard/Subset_Cal.xml",
+    "inputs": {
+      "input1": "s1tbx/SAR/ASAR/Bam/ASA_IMS_1PNUPA20031203_061259_000000162022_00120_09192_0099.N1"
+    },
+    "parameters": {
+	    "outputImageInComplex": "false",
+		"region": "100,100,500,500"
+    },
+    "outputs": [{
+      "parameter": "out1",
+      "outputName": "out-calibrate-asar-slc",
+      "expected": "s1tbx/Standard/expected-calibrate-asar-slc.json"
+    }]
+  },
 {
   "id":"s1tbx.standard.calibrate.alos",
   "description":"execute calibrate processor with ALOS",
@@ -24,6 +62,8 @@
     "input1": "s1tbx/SAR/ALOS/ALPSRS267172700-L1.5.zip"
   },
   "parameters": {
+    "outputImageInComplex": "false",
+	"region": "100,100,500,500"
   },
   "outputs": [{
     "parameter": "out1",
@@ -31,6 +71,60 @@
     "expected": "s1tbx/Standard/expected-calibrate-alos.json"
   }]
 },
+  {
+    "id":"s1tbx.standard.calibrate.ers1.imp",
+    "description":"execute calibrate processor with ERS-1",
+    "frequency":"daily",
+    "graphPath": "s1tbx/Standard/Subset_Cal.xml",
+    "inputs": {
+      "input1": "s1tbx/SAR/ERS/SAR_IMP_1PXDLR19920517_025823_00000017C084_00218_04371_9963.E1"
+    },
+    "parameters": {
+	    "outputImageInComplex": "false",
+		"region": "100,100,500,500"
+    },
+    "outputs": [{
+      "parameter": "out1",
+      "outputName": "out-calibrate-ers1-imp",
+      "expected": "s1tbx/Standard/expected-calibrate-ers1-imp.json"
+    }]
+  },
+  {
+    "id":"s1tbx.standard.calibrate.ers1.slc",
+    "description":"execute calibrate processor with ERS-1 SLC",
+    "frequency":"daily",
+    "graphPath": "s1tbx/Standard/Subset_Cal.xml",
+    "inputs": {
+      "input1": "s1tbx/SAR/ERS/ERS_Tandem_Etna/ERS1_SLCI_VMP_CEOS_01081995_orbit 21159 frame 0747_IPAF/SCENE1/VDF_DAT.001"
+    },
+    "parameters": {
+	    "outputImageInComplex": "false",
+		"region": "100,100,500,500"
+    },
+    "outputs": [{
+      "parameter": "out1",
+      "outputName": "out-calibrate-ers1-slc",
+      "expected": "s1tbx/Standard/expected-calibrate-ers1-slc.json"
+    }]
+  },
+  {
+    "id":"s1tbx.standard.calibrate.ers2.slc",
+    "description":"execute calibrate processor with ERS-2 SLC",
+    "frequency":"daily",
+    "graphPath": "s1tbx/Standard/Subset_Cal.xml",
+    "inputs": {
+      "input1": "s1tbx/SAR/ERS/ERS_Tandem_Etna/ERS2_SLCI_VMP_CEOS_02081995_orbit 01486 frame 0747_IPAF/SCENE1/VDF_DAT.001"
+    },
+    "parameters": {
+	    "outputImageInComplex": "false",
+		"region": "100,100,500,500"
+    },
+    "outputs": [{
+      "parameter": "out1",
+      "outputName": "out-calibrate-ers2-slc",
+      "expected": "s1tbx/Standard/expected-calibrate-ers2-slc.json"
+    }]
+  },
 {
   "id":"s1tbx.standard.calibrate.ers",
   "description":"execute calibrate processor with ERS-2",
@@ -40,6 +134,8 @@
     "input1": "s1tbx/SAR/ERS/SAR_IMM_1PXESA20110310_110538_00000007A166_00037_83057_1816.E2.zip"
   },
   "parameters": {
+    "outputImageInComplex": "false",
+	"region": "100,100,500,500"
   },
   "outputs": [{
     "parameter": "out1",
@@ -56,11 +152,31 @@
     "input1": "s1tbx/SAR/RS2/RS2_OK76385_PK678063_DK606752_FQ2_20080415_143807_HH_VV_HV_VH_SLC.zip"
   },
   "parameters": {
+    "outputImageInComplex": "false",
+	"region": "100,100,500,500"
   },
   "outputs": [{
     "parameter": "out1",
     "outputName": "out-calibrate-rs2",
     "expected": "s1tbx/Standard/expected-calibrate-rs2.json"
+  }]
+},
+{
+  "id":"s1tbx.standard.calibrate.rs2.complex",
+  "description":"execute calibrate processor with RS2 with complex output",
+  "frequency":"daily",
+  "graphPath": "s1tbx/Standard/Subset_Cal.xml",
+  "inputs": {
+    "input1": "s1tbx/SAR/RS2/RS2_OK76385_PK678063_DK606752_FQ2_20080415_143807_HH_VV_HV_VH_SLC.zip"
+  },
+  "parameters": {
+	"outputImageInComplex": "true",
+	"region": "100,100,500,500"
+  },
+  "outputs": [{
+    "parameter": "out1",
+    "outputName": "out-calibrate-rs2-complex",
+    "expected": "s1tbx/Standard/expected-calibrate-rs2-complex.json"
   }]
 },
 {
@@ -72,11 +188,103 @@
       "input1": "s1tbx/SAR/S1/GRD/Hawaii_slices/S1A_IW_GRDH_1SDV_20180514T043029_20180514T043054_021896_025D31_BBDA.zip"
     },
     "parameters": {
+	    "outputImageInComplex": "false",
+		"region": "100,100,500,500"
     },
     "outputs": [{
       "parameter": "out1",
       "outputName": "out-calibrate-s1-grd",
       "expected": "s1tbx/Standard/expected-calibrate-s1-grd.json"
+    }]
+  },
+  {
+    "id":"s1tbx.standard.calibrate.s1.slc",
+    "description":"execute calibrate processor with S1 SLC",
+    "frequency":"daily",
+    "graphPath": "s1tbx/Standard/Subset_Cal.xml",
+    "inputs": {
+      "input1": "s1tbx/SAR/S1/SLC/Etna-DLR/S1A_IW_SLC__1SDV_20140809T165546_20140809T165613_001866_001C20_088B.zip"
+    },
+    "parameters": {
+	    "outputImageInComplex": "false",
+		"region": "100,100,500,500"
+    },
+    "outputs": [{
+      "parameter": "out1",
+      "outputName": "out-calibrate-s1-slc",
+      "expected": "s1tbx/Standard/expected-calibrate-s1-slc.json"
+    }]
+  },
+  {
+    "id":"s1tbx.standard.calibrate.terrasarx.slc",
+    "description":"execute calibrate processor with TerraSAR-X SLC",
+    "frequency":"daily",
+    "graphPath": "s1tbx/Standard/Subset_Cal.xml",
+    "inputs": {
+      "input1": "s1tbx/SAR/TerraSAR-X/Oslo_StaringSpotlight/TSX1_SAR__MGD_SE___ST_S_SRA_20130410T165445_20130410T165446/TSX1_SAR__MGD_SE___ST_S_SRA_20130410T165445_20130410T165446.xml"
+    },
+    "parameters": {
+	    "outputImageInComplex": "false",
+		"region": "100,100,500,500"
+    },
+    "outputs": [{
+      "parameter": "out1",
+      "outputName": "out-calibrate-terrasarx-slc",
+      "expected": "s1tbx/Standard/expected-calibrate-terrasarx-slc.json"
+    }]
+  },
+  {
+    "id":"s1tbx.standard.calibrate.risat1.mrs",
+    "description":"execute calibrate processor with RISAT1",
+    "frequency":"daily",
+    "graphPath": "s1tbx/Standard/Subset_Cal.xml",
+    "inputs": {
+      "input1": "s1tbx/SAR/RISAT1/MRS/1382msd1_s7_GroundRange/BAND_META.txt"
+    },
+    "parameters": {
+	    "outputImageInComplex": "false",
+		"region": "100,100,500,500"
+    },
+    "outputs": [{
+      "parameter": "out1",
+      "outputName": "out-calibrate-risat1-mrs",
+      "expected": "s1tbx/Standard/expected-calibrate-risat1-mrs.json"
+    }]
+  },
+  {
+    "id":"s1tbx.standard.calibrate.paz.mgd",
+    "description":"execute calibrate processor with PAZ MGD",
+    "frequency":"daily",
+    "graphPath": "s1tbx/Standard/Subset_Cal.xml",
+    "inputs": {
+      "input1": "s1tbx/SAR/PAZ/NewDelhi/PAZ1_SAR__MGD_RE___SC_S_SRA_20180616T004650_20180616T004712/PAZ1_SAR__MGD_RE___SC_S_SRA_20180616T004650_20180616T004712.xml"
+    },
+    "parameters": {
+	    "outputImageInComplex": "false",
+		"region": "100,100,500,500"
+    },
+    "outputs": [{
+      "parameter": "out1",
+      "outputName": "out-calibrate-paz-mgd",
+      "expected": "s1tbx/Standard/expected-calibrate-paz-mgd.json"
+    }]
+  },
+  {
+    "id":"s1tbx.standard.calibrate.k5.gtc",
+    "description":"execute calibrate processor with Kompsat-5 GTC",
+    "frequency":"daily",
+    "graphPath": "s1tbx/Standard/Subset_Cal.xml",
+    "inputs": {
+      "input1": "s1tbx/SAR/K5/HDF/K5_20170125111222_000000_18823_A_UH28_HH_SCS_B_L1A/K5_20170125111222_000000_18823_A_UH28_HH_SCS_B_L1A_Aux.xml"
+    },
+    "parameters": {
+	    "outputImageInComplex": "false",
+		"region": "100,100,500,500"
+    },
+    "outputs": [{
+      "parameter": "out1",
+      "outputName": "out-calibrate-k5-gtc",
+      "expected": "s1tbx/Standard/expected-calibrate-k5-gtc.json"
     }]
   }
 

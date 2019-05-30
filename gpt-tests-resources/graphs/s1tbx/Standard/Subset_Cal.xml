@@ -24,7 +24,7 @@
     </sources>
     <parameters class="com.bc.ceres.binding.dom.XppDomElement">
       <sourceBands/>
-      <region>100,100,500,500</region>
+      <region>$region</region>
       <subSamplingX>1</subSamplingX>
       <subSamplingY>1</subSamplingY>
       <copyMetadata>true</copyMetadata>
@@ -40,7 +40,7 @@
       <sourceBands/>
       <auxFile>Latest Auxiliary File</auxFile>
       <externalAuxFile/>
-      <outputImageInComplex>false</outputImageInComplex>
+      <outputImageInComplex>$outputImageInComplex</outputImageInComplex>
       <outputImageScaleInDb>false</outputImageScaleInDb>
       <createGammaBand>false</createGammaBand>
       <createBetaBand>false</createBetaBand>

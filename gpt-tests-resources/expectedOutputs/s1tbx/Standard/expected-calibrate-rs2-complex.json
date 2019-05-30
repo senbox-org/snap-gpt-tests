@@ -1,0 +1,235 @@
+{
+  "id" : "s1tbx.standard.calibrate.rs2.complex",
+  "decodeQualification" : "INTENDED",
+  "expectedContent" : {
+    "sceneWidth" : 500,
+    "sceneHeight" : 500,
+    "geoCoding" : {
+      "coordinates" : [ {
+        "x" : 250.0,
+        "y" : 250.0,
+        "lat" : 49.394314605627315,
+        "lon" : -123.15383500877897
+      } ]
+    },
+    "tiePointGrids" : [ {
+      "name" : "latitude",
+      "description" : "",
+      "offsetX" : -99.5,
+      "offsetY" : -99.5,
+      "subSamplingX" : 211.9,
+      "subSamplingY" : 524.1333333333333,
+      "expectedPixels" : [ {
+        "x" : 250.0,
+        "y" : 250.0,
+        "value" : 49.39428
+      } ]
+    }, {
+      "name" : "longitude",
+      "description" : "",
+      "offsetX" : -99.5,
+      "offsetY" : -99.5,
+      "subSamplingX" : 211.9,
+      "subSamplingY" : 524.1333333333333,
+      "expectedPixels" : [ {
+        "x" : 250.0,
+        "y" : 250.0,
+        "value" : -123.153755
+      } ]
+    }, {
+      "name" : "incident_angle",
+      "description" : "",
+      "offsetX" : -100.0,
+      "offsetY" : -100.0,
+      "subSamplingX" : 212.0,
+      "subSamplingY" : 786.0,
+      "expectedPixels" : [ {
+        "x" : 250.0,
+        "y" : 250.0,
+        "value" : 21.505716
+      } ]
+    }, {
+      "name" : "slant_range_time",
+      "description" : "",
+      "offsetX" : -100.0,
+      "offsetY" : -100.0,
+      "subSamplingX" : 212.0,
+      "subSamplingY" : 786.0,
+      "expectedPixels" : [ {
+        "x" : 250.0,
+        "y" : 250.0,
+        "value" : 5679008.0
+      } ]
+    } ],
+    "bands" : [ {
+      "name" : "i_HH",
+      "description" : "",
+      "bandWidth" : 500,
+      "bandHeight" : 500,
+      "noDataValue" : 0.0,
+      "noDataValueUsed" : true,
+      "spectralWavelength" : 0.0,
+      "spectralBandwidth" : 0.0,
+      "expectedPixels" : [ {
+        "x" : 250.0,
+        "y" : 250.0,
+        "value" : 0.16197926
+      } ]
+    }, {
+      "name" : "q_HH",
+      "description" : "",
+      "bandWidth" : 500,
+      "bandHeight" : 500,
+      "noDataValue" : 0.0,
+      "noDataValueUsed" : true,
+      "spectralWavelength" : 0.0,
+      "spectralBandwidth" : 0.0,
+      "expectedPixels" : [ {
+        "x" : 250.0,
+        "y" : 250.0,
+        "value" : 0.20830598
+      } ]
+    }, {
+      "name" : "Intensity_HH",
+      "description" : "Intensity from complex data",
+      "bandWidth" : 500,
+      "bandHeight" : 500,
+      "noDataValue" : 0.0,
+      "noDataValueUsed" : true,
+      "spectralWavelength" : 0.0,
+      "spectralBandwidth" : 0.0,
+      "expectedPixels" : [ {
+        "x" : 250.0,
+        "y" : 250.0,
+        "value" : 0.06962866
+      } ]
+    }, {
+      "name" : "i_HV",
+      "description" : "",
+      "bandWidth" : 500,
+      "bandHeight" : 500,
+      "noDataValue" : 0.0,
+      "noDataValueUsed" : true,
+      "spectralWavelength" : 0.0,
+      "spectralBandwidth" : 0.0,
+      "expectedPixels" : [ {
+        "x" : 250.0,
+        "y" : 250.0,
+        "value" : 0.056347754
+      } ]
+    }, {
+      "name" : "q_HV",
+      "description" : "",
+      "bandWidth" : 500,
+      "bandHeight" : 500,
+      "noDataValue" : 0.0,
+      "noDataValueUsed" : true,
+      "spectralWavelength" : 0.0,
+      "spectralBandwidth" : 0.0,
+      "expectedPixels" : [ {
+        "x" : 250.0,
+        "y" : 250.0,
+        "value" : 0.019220663
+      } ]
+    }, {
+      "name" : "Intensity_HV",
+      "description" : "Intensity from complex data",
+      "bandWidth" : 500,
+      "bandHeight" : 500,
+      "noDataValue" : 0.0,
+      "noDataValueUsed" : true,
+      "spectralWavelength" : 0.0,
+      "spectralBandwidth" : 0.0,
+      "expectedPixels" : [ {
+        "x" : 250.0,
+        "y" : 250.0,
+        "value" : 0.0035445034
+      } ]
+    }, {
+      "name" : "i_VH",
+      "description" : "",
+      "bandWidth" : 500,
+      "bandHeight" : 500,
+      "noDataValue" : 0.0,
+      "noDataValueUsed" : true,
+      "spectralWavelength" : 0.0,
+      "spectralBandwidth" : 0.0,
+      "expectedPixels" : [ {
+        "x" : 250.0,
+        "y" : 250.0,
+        "value" : -0.025298992
+      } ]
+    }, {
+      "name" : "q_VH",
+      "description" : "",
+      "bandWidth" : 500,
+      "bandHeight" : 500,
+      "noDataValue" : 0.0,
+      "noDataValueUsed" : true,
+      "spectralWavelength" : 0.0,
+      "spectralBandwidth" : 0.0,
+      "expectedPixels" : [ {
+        "x" : 250.0,
+        "y" : 250.0,
+        "value" : 0.03187016
+      } ]
+    }, {
+      "name" : "Intensity_VH",
+      "description" : "Intensity from complex data",
+      "bandWidth" : 500,
+      "bandHeight" : 500,
+      "noDataValue" : 0.0,
+      "noDataValueUsed" : true,
+      "spectralWavelength" : 0.0,
+      "spectralBandwidth" : 0.0,
+      "expectedPixels" : [ {
+        "x" : 250.0,
+        "y" : 250.0,
+        "value" : 0.0016557461
+      } ]
+    }, {
+      "name" : "i_VV",
+      "description" : "",
+      "bandWidth" : 500,
+      "bandHeight" : 500,
+      "noDataValue" : 0.0,
+      "noDataValueUsed" : true,
+      "spectralWavelength" : 0.0,
+      "spectralBandwidth" : 0.0,
+      "expectedPixels" : [ {
+        "x" : 250.0,
+        "y" : 250.0,
+        "value" : 0.060454734
+      } ]
+    }, {
+      "name" : "q_VV",
+      "description" : "",
+      "bandWidth" : 500,
+      "bandHeight" : 500,
+      "noDataValue" : 0.0,
+      "noDataValueUsed" : true,
+      "spectralWavelength" : 0.0,
+      "spectralBandwidth" : 0.0,
+      "expectedPixels" : [ {
+        "x" : 250.0,
+        "y" : 250.0,
+        "value" : 0.13273756
+      } ]
+    }, {
+      "name" : "Intensity_VV",
+      "description" : "Intensity from complex data",
+      "bandWidth" : 500,
+      "bandHeight" : 500,
+      "noDataValue" : 0.0,
+      "noDataValueUsed" : true,
+      "spectralWavelength" : 0.0,
+      "spectralBandwidth" : 0.0,
+      "expectedPixels" : [ {
+        "x" : 250.0,
+        "y" : 250.0,
+        "value" : 0.021274036
+      } ]
+    } ],
+    "masks" : [ ]
+  }
+}

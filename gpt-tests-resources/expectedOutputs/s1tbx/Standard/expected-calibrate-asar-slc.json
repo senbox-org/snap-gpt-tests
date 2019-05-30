@@ -1,0 +1,93 @@
+{
+  "id" : "s1tbx.standard.calibrate.asar.slc",
+  "decodeQualification" : "INTENDED",
+  "expectedContent" : {
+    "sceneWidth" : 500,
+    "sceneHeight" : 500,
+    "geoCoding" : {
+      "coordinates" : [ {
+        "x" : 250.0,
+        "y" : 250.0,
+        "lat" : 29.51663071197793,
+        "lon" : 59.126117854674675
+      } ]
+    },
+    "tiePointGrids" : [ {
+      "name" : "samples",
+      "description" : "range sample",
+      "offsetX" : -99.5,
+      "offsetY" : -99.5,
+      "subSamplingX" : 517.0,
+      "subSamplingY" : 2446.0,
+      "expectedPixels" : [ {
+        "x" : 250.0,
+        "y" : 250.0,
+        "value" : 351.0
+      } ]
+    }, {
+      "name" : "slant_range_time",
+      "description" : "2 way slant range time",
+      "offsetX" : -99.5,
+      "offsetY" : -99.5,
+      "subSamplingX" : 517.0,
+      "subSamplingY" : 2446.0,
+      "expectedPixels" : [ {
+        "x" : 250.0,
+        "y" : 250.0,
+        "value" : 5527331.0
+      } ]
+    }, {
+      "name" : "incident_angle",
+      "description" : "Incident angle",
+      "offsetX" : -99.5,
+      "offsetY" : -99.5,
+      "subSamplingX" : 517.0,
+      "subSamplingY" : 2446.0,
+      "expectedPixels" : [ {
+        "x" : 250.0,
+        "y" : 250.0,
+        "value" : 19.19494
+      } ]
+    }, {
+      "name" : "latitude",
+      "description" : "Latitude of the tie points (WGS-84), positive N",
+      "offsetX" : -99.5,
+      "offsetY" : -99.5,
+      "subSamplingX" : 517.0,
+      "subSamplingY" : 2446.0,
+      "expectedPixels" : [ {
+        "x" : 250.0,
+        "y" : 250.0,
+        "value" : 29.516636
+      } ]
+    }, {
+      "name" : "longitude",
+      "description" : "Longitude of the tie points (WGS-84), Greenwich origin, positive E",
+      "offsetX" : -99.5,
+      "offsetY" : -99.5,
+      "subSamplingX" : 517.0,
+      "subSamplingY" : 2446.0,
+      "expectedPixels" : [ {
+        "x" : 250.0,
+        "y" : 250.0,
+        "value" : 59.12599
+      } ]
+    } ],
+    "bands" : [ {
+      "name" : "Sigma0_VV",
+      "description" : "",
+      "bandWidth" : 500,
+      "bandHeight" : 500,
+      "noDataValue" : 0.0,
+      "noDataValueUsed" : true,
+      "spectralWavelength" : 0.0,
+      "spectralBandwidth" : 0.0,
+      "expectedPixels" : [ {
+        "x" : 250.0,
+        "y" : 250.0,
+        "value" : 0.073829494
+      } ]
+    } ],
+    "masks" : [ ]
+  }
+}

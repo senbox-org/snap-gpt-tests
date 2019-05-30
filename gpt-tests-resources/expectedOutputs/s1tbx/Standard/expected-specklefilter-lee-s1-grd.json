@@ -1,5 +1,5 @@
 {
-  "id" : "s1tbx.standard.specklefilter.rs2",
+  "id" : "s1tbx.standard.specklefilter.lee.s1.grd",
   "decodeQualification" : "INTENDED",
   "expectedContent" : {
     "sceneWidth" : 300,
@@ -8,8 +8,8 @@
       "coordinates" : [ {
         "x" : 150.0,
         "y" : 150.0,
-        "lat" : 49.3900489084751,
-        "lon" : -123.15535767908861
+        "lat" : 18.221289130509273,
+        "lon" : -156.54338410692398
       } ]
     },
     "tiePointGrids" : [ {
@@ -17,105 +17,89 @@
       "description" : "",
       "offsetX" : -199.5,
       "offsetY" : -299.5,
-      "subSamplingX" : 211.9,
-      "subSamplingY" : 524.1333333333333,
+      "subSamplingX" : 1260.25,
+      "subSamplingY" : 1864.111111111111,
       "expectedPixels" : [ {
         "x" : 150.0,
         "y" : 150.0,
-        "value" : 49.390015
+        "value" : 18.221342
       } ]
     }, {
       "name" : "longitude",
       "description" : "",
       "offsetX" : -199.5,
       "offsetY" : -299.5,
-      "subSamplingX" : 211.9,
-      "subSamplingY" : 524.1333333333333,
+      "subSamplingX" : 1260.25,
+      "subSamplingY" : 1864.111111111111,
       "expectedPixels" : [ {
         "x" : 150.0,
         "y" : 150.0,
-        "value" : -123.15528
+        "value" : -156.54335
       } ]
     }, {
       "name" : "incident_angle",
       "description" : "",
-      "offsetX" : -200.0,
-      "offsetY" : -300.0,
-      "subSamplingX" : 212.0,
-      "subSamplingY" : 786.0,
+      "offsetX" : -199.5,
+      "offsetY" : -299.5,
+      "subSamplingX" : 1260.25,
+      "subSamplingY" : 1864.111111111111,
       "expectedPixels" : [ {
         "x" : 150.0,
         "y" : 150.0,
-        "value" : 21.505716
+        "value" : 31.110332
+      } ]
+    }, {
+      "name" : "elevation_angle",
+      "description" : "",
+      "offsetX" : -199.5,
+      "offsetY" : -299.5,
+      "subSamplingX" : 1260.25,
+      "subSamplingY" : 1864.111111111111,
+      "expectedPixels" : [ {
+        "x" : 150.0,
+        "y" : 150.0,
+        "value" : 27.756742
       } ]
     }, {
       "name" : "slant_range_time",
       "description" : "",
-      "offsetX" : -200.0,
-      "offsetY" : -300.0,
-      "subSamplingX" : 212.0,
-      "subSamplingY" : 786.0,
+      "offsetX" : -199.5,
+      "offsetY" : -299.5,
+      "subSamplingX" : 1260.25,
+      "subSamplingY" : 1864.111111111111,
       "expectedPixels" : [ {
         "x" : 150.0,
         "y" : 150.0,
-        "value" : 5679008.0
+        "value" : 5342775.5
       } ]
     } ],
     "bands" : [ {
-      "name" : "Intensity_HH",
+      "name" : "Amplitude_VH",
       "description" : "",
       "bandWidth" : 300,
       "bandHeight" : 300,
       "noDataValue" : 0.0,
-      "noDataValueUsed" : false,
+      "noDataValueUsed" : true,
       "spectralWavelength" : 0.0,
       "spectralBandwidth" : 0.0,
       "expectedPixels" : [ {
         "x" : 150.0,
         "y" : 150.0,
-        "value" : 1326542.2
+        "value" : 30.0
       } ]
     }, {
-      "name" : "Intensity_HV",
+      "name" : "Amplitude_VV",
       "description" : "",
       "bandWidth" : 300,
       "bandHeight" : 300,
       "noDataValue" : 0.0,
-      "noDataValueUsed" : false,
+      "noDataValueUsed" : true,
       "spectralWavelength" : 0.0,
       "spectralBandwidth" : 0.0,
       "expectedPixels" : [ {
         "x" : 150.0,
         "y" : 150.0,
-        "value" : 122195.14
-      } ]
-    }, {
-      "name" : "Intensity_VH",
-      "description" : "",
-      "bandWidth" : 300,
-      "bandHeight" : 300,
-      "noDataValue" : 0.0,
-      "noDataValueUsed" : false,
-      "spectralWavelength" : 0.0,
-      "spectralBandwidth" : 0.0,
-      "expectedPixels" : [ {
-        "x" : 150.0,
-        "y" : 150.0,
-        "value" : 125976.53
-      } ]
-    }, {
-      "name" : "Intensity_VV",
-      "description" : "",
-      "bandWidth" : 300,
-      "bandHeight" : 300,
-      "noDataValue" : 0.0,
-      "noDataValueUsed" : false,
-      "spectralWavelength" : 0.0,
-      "spectralBandwidth" : 0.0,
-      "expectedPixels" : [ {
-        "x" : 150.0,
-        "y" : 150.0,
-        "value" : 1257925.4
+        "value" : 237.77777
       } ]
     } ],
     "masks" : [ ]
