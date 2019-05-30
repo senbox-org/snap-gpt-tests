@@ -4,13 +4,13 @@
     <operator>Read</operator>
     <sources/>
     <parameters class="com.bc.ceres.binding.dom.XppDomElement">
-      <file></file>
+      <file>$input1</file>
     </parameters>
   </node>
   <node id="Land-Sea-Mask">
     <operator>Land-Sea-Mask</operator>
     <sources>
-      <sourceProduct refid="Read"/>
+      <sourceProduct refid="Subset"/>
     </sources>
     <parameters class="com.bc.ceres.binding.dom.XppDomElement">
       <sourceBands/>
@@ -21,7 +21,7 @@
       <shorelineExtension>0</shorelineExtension>
     </parameters>
   </node>
-    <node id="Calibration">
+  <node id="Calibration">
     <operator>Calibration</operator>
     <sources>
       <sourceProduct refid="Land-Sea-Mask"/>
@@ -34,7 +34,7 @@
       <outputImageScaleInDb>false</outputImageScaleInDb>
       <createGammaBand>false</createGammaBand>
       <createBetaBand>false</createBetaBand>
-      <selectedPolarisations/>
+      <selectedPolarisations>VV</selectedPolarisations>
       <outputSigmaBand>true</outputSigmaBand>
       <outputGammaBand>false</outputGammaBand>
       <outputBetaBand>false</outputBetaBand>
@@ -50,29 +50,48 @@
       <windowSizeInKm>20.0</windowSizeInKm>
     </parameters>
   </node>
+  <node id="Subset">
+    <operator>Subset</operator>
+    <sources>
+      <sourceProduct refid="Read"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <sourceBands/>
+      <region>$region</region>
+      <geoRegion/>
+      <subSamplingX>1</subSamplingX>
+      <subSamplingY>1</subSamplingY>
+      <fullSwath>false</fullSwath>
+      <tiePointGridNames/>
+      <copyMetadata>true</copyMetadata>
+    </parameters>
+  </node>
   <node id="Write">
     <operator>Write</operator>
     <sources>
       <sourceProduct refid="Wind-Field-Estimation"/>
     </sources>
     <parameters class="com.bc.ceres.binding.dom.XppDomElement">
-      <file>wind_field_estimation.dim</file>
       <formatName>BEAM-DIMAP</formatName>
+      <file>$out1</file>
     </parameters>
   </node>
   <applicationData id="Presentation">
     <Description/>
     <node id="Read">
-      <displayPosition x="30.0" y="93.0"/>
+      <displayPosition x="26.0" y="40.0"/>
     </node>
     <node id="Land-Sea-Mask">
       <displayPosition x="116.0" y="94.0"/>
     </node>
-	<node id="Calibration">
+    <node id="Calibration">
       <displayPosition x="249.0" y="95.0"/>
     </node>
     <node id="Wind-Field-Estimation">
       <displayPosition x="214.0" y="149.0"/>
+    </node>
+    <node id="Subset">
+      <displayPosition x="28.0" y="96.0"/>
     </node>
     <node id="Write">
       <displayPosition x="386.0" y="149.0"/>

@@ -4,13 +4,13 @@
     <operator>Read</operator>
     <sources/>
     <parameters class="com.bc.ceres.binding.dom.XppDomElement">
-      <file></file>
+      <file>$input1</file>
     </parameters>
   </node>
   <node id="Land-Sea-Mask">
     <operator>Land-Sea-Mask</operator>
     <sources>
-      <sourceProduct refid="Read"/>
+      <sourceProduct refid="Subset"/>
     </sources>
     <parameters class="com.bc.ceres.binding.dom.XppDomElement">
       <sourceBands/>
@@ -21,7 +21,7 @@
       <shorelineExtension>10</shorelineExtension>
     </parameters>
   </node>
-    <node id="Calibration">
+  <node id="Calibration">
     <operator>Calibration</operator>
     <sources>
       <sourceProduct refid="Land-Sea-Mask"/>
@@ -63,25 +63,41 @@
       <maxTargetSizeInMeter>600.0</maxTargetSizeInMeter>
     </parameters>
   </node>
+  <node id="Subset">
+    <operator>Subset</operator>
+    <sources>
+      <sourceProduct refid="Read"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <sourceBands/>
+      <region>$region</region>
+      <geoRegion/>
+      <subSamplingX>1</subSamplingX>
+      <subSamplingY>1</subSamplingY>
+      <fullSwath>false</fullSwath>
+      <tiePointGridNames/>
+      <copyMetadata>true</copyMetadata>
+    </parameters>
+  </node>
   <node id="Write">
     <operator>Write</operator>
     <sources>
       <sourceProduct refid="Object-Discrimination"/>
     </sources>
     <parameters class="com.bc.ceres.binding.dom.XppDomElement">
-      <file>target.dim</file>
       <formatName>BEAM-DIMAP</formatName>
+      <file>$out1</file>
     </parameters>
   </node>
   <applicationData id="Presentation">
     <Description/>
     <node id="Read">
-      <displayPosition x="30.0" y="93.0"/>
+      <displayPosition x="32.0" y="33.0"/>
     </node>
     <node id="Land-Sea-Mask">
       <displayPosition x="107.0" y="93.0"/>
     </node>
-	<node id="Calibration">
+    <node id="Calibration">
       <displayPosition x="227.0" y="94.0"/>
     </node>
     <node id="AdaptiveThresholding">
@@ -89,6 +105,9 @@
     </node>
     <node id="Object-Discrimination">
       <displayPosition x="196.0" y="187.0"/>
+    </node>
+    <node id="Subset">
+      <displayPosition x="34.0" y="91.0"/>
     </node>
     <node id="Write">
       <displayPosition x="382.0" y="187.0"/>

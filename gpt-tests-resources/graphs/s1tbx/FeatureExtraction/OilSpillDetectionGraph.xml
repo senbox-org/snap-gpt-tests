@@ -4,13 +4,13 @@
     <operator>Read</operator>
     <sources/>
     <parameters class="com.bc.ceres.binding.dom.XppDomElement">
-      <file></file>
+      <file>$input1</file>
     </parameters>
   </node>
   <node id="Land-Sea-Mask">
     <operator>Land-Sea-Mask</operator>
     <sources>
-      <sourceProduct refid="Read"/>
+      <sourceProduct refid="Subset"/>
     </sources>
     <parameters class="com.bc.ceres.binding.dom.XppDomElement">
       <sourceBands/>
@@ -21,14 +21,14 @@
       <shorelineExtension>10</shorelineExtension>
     </parameters>
   </node>
-    <node id="Calibration">
+  <node id="Calibration">
     <operator>Calibration</operator>
     <sources>
       <sourceProduct refid="Land-Sea-Mask"/>
     </sources>
     <parameters class="com.bc.ceres.binding.dom.XppDomElement">
       <sourceBands/>
-      <auxFile>Latest Auxiliary File</auxFile>
+      <auxFile>Product Auxiliary File</auxFile>
       <externalAuxFile/>
       <outputImageInComplex>false</outputImageInComplex>
       <outputImageScaleInDb>false</outputImageScaleInDb>
@@ -60,20 +60,36 @@
       <minClusterSizeInKm2>0.1</minClusterSizeInKm2>
     </parameters>
   </node>
+  <node id="Subset">
+    <operator>Subset</operator>
+    <sources>
+      <sourceProduct refid="Read"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <sourceBands/>
+      <region>$region</region>
+      <geoRegion/>
+      <subSamplingX>1</subSamplingX>
+      <subSamplingY>1</subSamplingY>
+      <fullSwath>false</fullSwath>
+      <tiePointGridNames/>
+      <copyMetadata>true</copyMetadata>
+    </parameters>
+  </node>
   <node id="Write">
     <operator>Write</operator>
     <sources>
       <sourceProduct refid="Oil-Spill-Clustering"/>
     </sources>
     <parameters class="com.bc.ceres.binding.dom.XppDomElement">
-      <file>oil_spill_detection.dim</file>
       <formatName>BEAM-DIMAP</formatName>
+      <file>$out1</file>
     </parameters>
   </node>
   <applicationData id="Presentation">
     <Description/>
     <node id="Read">
-      <displayPosition x="30.0" y="93.0"/>
+      <displayPosition x="38.0" y="43.0"/>
     </node>
     <node id="Land-Sea-Mask">
       <displayPosition x="134.0" y="94.0"/>
@@ -86,6 +102,9 @@
     </node>
     <node id="Oil-Spill-Clustering">
       <displayPosition x="239.0" y="184.0"/>
+    </node>
+    <node id="Subset">
+      <displayPosition x="44.0" y="93.0"/>
     </node>
     <node id="Write">
       <displayPosition x="402.0" y="184.0"/>

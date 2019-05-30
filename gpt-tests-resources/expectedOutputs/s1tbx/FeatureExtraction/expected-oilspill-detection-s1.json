@@ -1,0 +1,145 @@
+{
+  "id" : "s1tbx.fex.oilspill.detection.s1",
+  "decodeQualification" : "INTENDED",
+  "expectedContent" : {
+    "sceneWidth" : 2000,
+    "sceneHeight" : 2000,
+    "geoCoding" : {
+      "coordinates" : [ {
+        "x" : 1000.0,
+        "y" : 1000.0,
+        "lat" : 19.759003325750644,
+        "lon" : -155.05068830167252
+      } ]
+    },
+    "tiePointGrids" : [ {
+      "name" : "latitude",
+      "description" : "",
+      "offsetX" : -356.0,
+      "offsetY" : -1814.8333333333335,
+      "subSamplingX" : 1260.25,
+      "subSamplingY" : 1864.111111111111,
+      "expectedPixels" : [ {
+        "x" : 1000.0,
+        "y" : 1000.0,
+        "value" : 19.759056
+      } ]
+    }, {
+      "name" : "longitude",
+      "description" : "",
+      "offsetX" : -356.0,
+      "offsetY" : -1814.8333333333335,
+      "subSamplingX" : 1260.25,
+      "subSamplingY" : 1864.111111111111,
+      "expectedPixels" : [ {
+        "x" : 1000.0,
+        "y" : 1000.0,
+        "value" : -155.05064
+      } ]
+    }, {
+      "name" : "incident_angle",
+      "description" : "",
+      "offsetX" : -356.0,
+      "offsetY" : -1814.8333333333335,
+      "subSamplingX" : 1260.25,
+      "subSamplingY" : 1864.111111111111,
+      "expectedPixels" : [ {
+        "x" : 1000.0,
+        "y" : 1000.0,
+        "value" : 42.759586
+      } ]
+    }, {
+      "name" : "elevation_angle",
+      "description" : "",
+      "offsetX" : -356.0,
+      "offsetY" : -1814.8333333333335,
+      "subSamplingX" : 1260.25,
+      "subSamplingY" : 1864.111111111111,
+      "expectedPixels" : [ {
+        "x" : 1000.0,
+        "y" : 1000.0,
+        "value" : 37.730114
+      } ]
+    }, {
+      "name" : "slant_range_time",
+      "description" : "",
+      "offsetX" : -356.0,
+      "offsetY" : -1814.8333333333335,
+      "subSamplingX" : 1260.25,
+      "subSamplingY" : 1864.111111111111,
+      "expectedPixels" : [ {
+        "x" : 1000.0,
+        "y" : 1000.0,
+        "value" : 6093546.5
+      } ]
+    } ],
+    "bands" : [ {
+      "name" : "Sigma0_VH",
+      "description" : "",
+      "bandWidth" : 2000,
+      "bandHeight" : 2000,
+      "noDataValue" : 0.0,
+      "noDataValueUsed" : true,
+      "spectralWavelength" : 0.0,
+      "spectralBandwidth" : 0.0,
+      "expectedPixels" : [ {
+        "x" : 1000.0,
+        "y" : 1000.0,
+        "value" : 0.0017413305
+      } ]
+    }, {
+      "name" : "Sigma0_VH_oil_spill_bit_msk",
+      "description" : "",
+      "bandWidth" : 2000,
+      "bandHeight" : 2000,
+      "noDataValue" : 0.0,
+      "noDataValueUsed" : true,
+      "spectralWavelength" : 0.0,
+      "spectralBandwidth" : 0.0,
+      "expectedPixels" : [ {
+        "x" : 1000.0,
+        "y" : 1000.0,
+        "value" : 0.0
+      } ]
+    }, {
+      "name" : "Sigma0_VV",
+      "description" : "",
+      "bandWidth" : 2000,
+      "bandHeight" : 2000,
+      "noDataValue" : 0.0,
+      "noDataValueUsed" : true,
+      "spectralWavelength" : 0.0,
+      "spectralBandwidth" : 0.0,
+      "expectedPixels" : [ {
+        "x" : 1000.0,
+        "y" : 1000.0,
+        "value" : 0.005332825
+      } ]
+    }, {
+      "name" : "Sigma0_VV_oil_spill_bit_msk",
+      "description" : "",
+      "bandWidth" : 2000,
+      "bandHeight" : 2000,
+      "noDataValue" : 0.0,
+      "noDataValueUsed" : true,
+      "spectralWavelength" : 0.0,
+      "spectralBandwidth" : 0.0,
+      "expectedPixels" : [ {
+        "x" : 1000.0,
+        "y" : 1000.0,
+        "value" : 0.0
+      } ]
+    } ],
+    "masks" : [ {
+      "name" : "Sigma0_VH_oil_spill_bit_msk_detection",
+      "type" : "Maths",
+      "color" : "java.awt.Color[r=255,g=0,b=0]",
+      "description" : "Oil Spill Detection"
+    }, {
+      "name" : "Sigma0_VV_oil_spill_bit_msk_detection",
+      "type" : "Maths",
+      "color" : "java.awt.Color[r=255,g=0,b=0]",
+      "description" : "Oil Spill Detection"
+    } ]
+  }
+}
