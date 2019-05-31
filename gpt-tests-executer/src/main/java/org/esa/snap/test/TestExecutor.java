@@ -39,8 +39,10 @@ public class TestExecutor {
         //if specific VM, configure gpt
         //TODO set XMX in gpt.vmoption
         if(graphTest.getConfigVM() != null) {
-            params.add(String.format("-c %s",graphTest.getConfigVM().getCacheSize()));
-            params.add(String.format("-q %s",graphTest.getConfigVM().getParallelism()));
+            params.add("-c");
+            params.add(graphTest.getConfigVM().getCacheSize());
+            params.add("-q");
+            params.add(graphTest.getConfigVM().getParallelism());
         }
 
 
