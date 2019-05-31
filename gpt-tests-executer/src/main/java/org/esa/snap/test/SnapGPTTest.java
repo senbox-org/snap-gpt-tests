@@ -155,22 +155,28 @@ public class SnapGPTTest {
                             writer.write("FAILED");
                             success = false;
                             //copy  output product to report
-                            for(Output output : graphTest.getOutputs()) {
-                                Collection<File> outputFiles = FileUtils.listFilesAndDirs(tempFolder.toFile(), new WildcardFileFilter(String.format("%s*",output.getOutputName())), new WildcardFileFilter(String.format("%s*",output.getOutputName())));
-                                for (File outputFile : outputFiles) {
-                                    if(outputFile.toString().equals(tempFolder.toString())) {
-                                        continue;
-                                    }
-                                    Files.copy(outputFile.toPath(),reportFolderPath.resolve(outputFile.getName()));
-                                    if(outputFile.isDirectory()) {
-                                        FileUtils.copyDirectory(outputFile,reportFolderPath.resolve(outputFile.getName()).toFile());
+                            if(!scope.toLowerCase().equals("release") && !scope.toLowerCase().equals("weekly") && !scope.toLowerCase().equals("daily") && !scope.toLowerCase().equals("regular")) {
+                                for (Output output : graphTest.getOutputs()) {
+                                    Collection<File> outputFiles = FileUtils.listFilesAndDirs(tempFolder.toFile(), new WildcardFileFilter(String.format("%s*", output.getOutputName())), new WildcardFileFilter(String.format("%s*", output.getOutputName())));
+                                    for (File outputFile : outputFiles) {
+                                        if (outputFile.toString().equals(tempFolder.toString())) {
+                                            continue;
+                                        }
+                                        Files.copy(outputFile.toPath(), reportFolderPath.resolve(outputFile.getName()));
+                                        if (outputFile.isDirectory()) {
+                                            FileUtils.copyDirectory(outputFile, reportFolderPath.resolve(outputFile.getName()).toFile());
+                                        }
                                     }
                                 }
                             }
 
-                            //copy output of gpt to report
-                            Path reportGPT = Paths.get(tempFolder.resolve(graphTest.getId()).toString() + "_gptOutput.txt");
-                            Files.copy(reportGPT,reportFolderPath.resolve(reportGPT.getFileName()));
+                            //copy output of gpt to report (perhaps it has been copied before, so try-catch)
+                            try {
+                                Path reportGPT = Paths.get(tempFolder.resolve(graphTest.getId()).toString() + "_gptOutput.txt");
+                                Files.copy(reportGPT, reportFolderPath.resolve(reportGPT.getFileName()));
+                            } catch (Exception e) {
+                                System.out.println(String.format("Cannot copy gptOutput: %s",e.getMessage()));
+                            }
 
                         }
                         writer.write("\n");
