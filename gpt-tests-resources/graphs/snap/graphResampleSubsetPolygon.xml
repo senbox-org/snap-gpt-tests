@@ -16,7 +16,7 @@
       <referenceBand/>
       <targetWidth/>
       <targetHeight/>
-      <targetResolution>$resolution</targetResolution>
+      <targetResolution>100</targetResolution>
       <upsampling>Nearest</upsampling>
       <downsampling>First</downsampling>
       <flagDownsampling>First</flagDownsampling>
@@ -30,7 +30,6 @@
       <sourceProduct refid="Resample"/>
     </sources>
     <parameters class="com.bc.ceres.binding.dom.XppDomElement">
-      <sourceBands>$subsetBands</sourceBands>
       <geoRegion>$subsetGeoRegion</geoRegion>
       <subSamplingX>1</subSamplingX>
       <subSamplingY>1</subSamplingY>
