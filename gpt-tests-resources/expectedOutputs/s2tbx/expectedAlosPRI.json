@@ -87,28 +87,20 @@
     ],
     "metadata": [
       {
-        "path": "ALOS[2]/Data_Access/Data_File/DATA_FILE_PATH/href",
-        "value": "AL01_PRI_M1N_1C_20101105T103901_20101105T103907_ESR_025474_6B22.GTIF"
+        "path": "ALOS/Metadata_Id/METADATA_PROFILE",
+        "value": "ALOS"
+      },
+      {
+        "path": "ALOS/Metadata_Id/METADATA_FORMAT",
+        "value": "DIMAP"
       },
       {
         "path": "Processing_Graph/node.2/parameters/copyMetadata",
         "value": "true"
       },
       {
-        "path": "ALOS[2]/Data_Strip/Ephemeris/Points/Point[13]/Location/Y",
-        "value": "4.838530336199454E+05"
-      },
-      {
         "path": "ALOS/Dataset_Use/DATASET_CONTENT",
         "value": "ALOS PRISM Level 1C Product"
-      },
-      {
-        "path": "ALOS[2]/Dataset_Components/Component[3]/COMPONENT_PATH/href",
-        "value": "AL01_PRI_M1N_1C_20101105T103901_20101105T103907_ESR_025474_6B22_QL.GTIF"
-      },
-      {
-        "path": "ALOS[2]/Coordinate_Reference_System/Horizontal_CS/Geographic_CS/Horizontal_Datum/Prime_Meridian/PRIME_MERIDIAN_OFFSET",
-        "value": "0.017453"
       },
       {
         "path": "ALOS/Data_Strip/Satellite_Attitudes/Angles_List/Angles[56]/Angular_Speed/PITCH",
@@ -119,8 +111,24 @@
         "value": "2.500000"
       },
       {
+        "path": "ALOS/Raster_CS/PIXEL_ORIGIN",
+        "value": "0"
+      },
+      {
         "path": "Metadata/procedure/EarthObservationEquipment/acquisitionParameters/Acquisition/illuminationElevationAngle",
         "value": "34"
+      },
+      {
+        "path": "Metadata/procedure/EarthObservationEquipment/sensor/Sensor/sensorType",
+        "value": "OPTICAL"
+      },
+      {
+        "path": "Metadata/phenomenonTime/TimePeriod/beginPosition",
+        "value": "2010-11-05T10:39:01.355Z"
+      },
+      {
+        "path": "Metadata/phenomenonTime/TimePeriod/endPosition",
+        "value": "2010-11-05T10:39:07.278Z"
       },
       {
         "path": "history/SubsetInfo/ProductNodeName.1",
