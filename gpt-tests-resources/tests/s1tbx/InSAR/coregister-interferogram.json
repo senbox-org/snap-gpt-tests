@@ -17,9 +17,9 @@
     "expected": "s1tbx/InSAR/expected-insar-interferogram-asar.json"
   }],
   "configVM": {
-    "xmx": "16G",
+    "xmx": "6G",
     "cacheSize": "0",
-    "parallelism": "4"
+    "parallelism": "2"
   }
 },
 {
@@ -40,9 +40,9 @@
     "expected": "s1tbx/InSAR/expected-insar-interferogram-s1-sm.json"
   }],
   "configVM": {
-    "xmx": "16G",
+    "xmx": "6G",
     "cacheSize": "0",
-    "parallelism": "4"
+    "parallelism": "2"
   }
 }
 ]
