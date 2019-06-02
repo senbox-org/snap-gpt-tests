@@ -22,6 +22,94 @@
   }
 },
 {
+  "id":"s1tbx.standard.slc2pri.ers1",
+  "description":"execute SLC to PRI with ERS1",
+  "frequency":"daily",
+  "graphPath": "s1tbx/Standard/SLCtoPRIGraph.xml",
+  "inputs": {
+    "input1": "s1tbx/SAR/ERS/ERS_Tandem_Etna/ERS1_SLCI_VMP_CEOS_01081995_orbit 21159 frame 0747_IPAF/SCENE1/VDF_DAT.001"
+  },
+  "parameters": {
+	"subsetRegion": "2000,3000,3000,3000"
+  },
+  "outputs": [{
+    "parameter": "out1",
+    "outputName": "out-slc2pri-ers1",
+    "expected": "s1tbx/Standard/expected-slc2pri-ers1.json"
+  }],
+  "configVM": {
+    "xmx": "16G",
+    "cacheSize": "0",
+    "parallelism": "4"
+  }
+},
+{
+  "id":"s1tbx.standard.slc2pri.ers2",
+  "description":"execute SLC to PRI with ERS2",
+  "frequency":"daily",
+  "graphPath": "s1tbx/Standard/SLCtoPRIGraph.xml",
+  "inputs": {
+    "input1": "s1tbx/SAR/ERS/ERS_Tandem_Etna/ERS2_SLCI_VMP_CEOS_02081995_orbit 01486 frame 0747_IPAF/SCENE1/VDF_DAT.001"
+  },
+  "parameters": {
+	"subsetRegion": "2000,3000,3000,3000"
+  },
+  "outputs": [{
+    "parameter": "out1",
+    "outputName": "out-slc2pri-ers2",
+    "expected": "s1tbx/Standard/expected-slc2pri-ers2.json"
+  }],
+  "configVM": {
+    "xmx": "16G",
+    "cacheSize": "0",
+    "parallelism": "4"
+  }
+},
+{
+  "id":"s1tbx.standard.slc2pri.k5",
+  "description":"execute SLC to PRI with Kompsat-5",
+  "frequency":"daily",
+  "graphPath": "s1tbx/Standard/SLCtoPRIGraph.xml",
+  "inputs": {
+    "input1": "s1tbx/SAR/K5/HDF/K5_20170125111222_000000_18823_A_UH28_HH_SCS_B_L1A/K5_20170125111222_000000_18823_A_UH28_HH_SCS_B_L1A_Aux.xml"
+  },
+  "parameters": {
+	"subsetRegion": "2000,3000,3000,3000"
+  },
+  "outputs": [{
+    "parameter": "out1",
+    "outputName": "out-slc2pri-k5",
+    "expected": "s1tbx/Standard/expected-slc2pri-k5.json"
+  }],
+  "configVM": {
+    "xmx": "16G",
+    "cacheSize": "0",
+    "parallelism": "4"
+  }
+},
+{
+  "id":"s1tbx.standard.slc2pri.paz",
+  "description":"execute SLC to PRI with PAZ",
+  "frequency":"daily",
+  "graphPath": "s1tbx/Standard/SLCtoPRIGraph.xml",
+  "inputs": {
+    "input1": "s1tbx/SAR/PAZ/Mojave Interferometric pair/PAZ1_SAR__SSC______SM_S_SRA_20180520T014220_20180520T014228/PAZ1_SAR__SSC______SM_S_SRA_20180520T014220_20180520T014228.xml"
+  },
+  "parameters": {
+	"subsetRegion": "2000,3000,3000,3000"
+  },
+  "outputs": [{
+    "parameter": "out1",
+    "outputName": "out-slc2pri-paz",
+    "expected": "s1tbx/Standard/expected-slc2pri-paz.json"
+  }],
+  "configVM": {
+    "xmx": "16G",
+    "cacheSize": "0",
+    "parallelism": "4"
+  }
+},
+{
   "id":"s1tbx.standard.slc2pri.rs2",
   "description":"execute SLC to PRI with RS2",
   "frequency":"daily",
@@ -58,6 +146,28 @@
     "parameter": "out1",
     "outputName": "out-slc2pri-s1",
     "expected": "s1tbx/Standard/expected-slc2pri-s1.json"
+  }],
+  "configVM": {
+    "xmx": "16G",
+    "cacheSize": "0",
+    "parallelism": "4"
+  }
+},
+{
+  "id":"s1tbx.standard.slc2pri.tsx",
+  "description":"execute SLC to PRI with TerraSAR-X",
+  "frequency":"daily",
+  "graphPath": "s1tbx/Standard/SLCtoPRIGraph.xml",
+  "inputs": {
+    "input1": "s1tbx/SAR/TerraSAR-X/Oslo_StaringSpotlight/TSX1_SAR__MGD_SE___ST_S_SRA_20130410T165445_20130410T165446/TSX1_SAR__MGD_SE___ST_S_SRA_20130410T165445_20130410T165446.xml"
+  },
+  "parameters": {
+	"subsetRegion": "2000,3000,3000,3000"
+  },
+  "outputs": [{
+    "parameter": "out1",
+    "outputName": "out-slc2pri-tsx",
+    "expected": "s1tbx/Standard/expected-slc2pri-tsx.json"
   }],
   "configVM": {
     "xmx": "16G",
