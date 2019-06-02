@@ -2,7 +2,7 @@
     "id":"FUB_WaterTest-1",
     "description":"execute FUB.Water operator with MERIS product",
     "frequency":"daily",
-    "graphPath": "s3tbx/graphFuOp.xml",
+    "graphPath": "s3tbx/graphFUB_Water.xml",
     "inputs": {
         "input": "s3tbx/sensors_platforms/MERIS/for_mosaic1/MER_RR__1PQBCM20030407_100459_000007352015_00194_05759_0002.N1"
     },
@@ -26,7 +26,7 @@
         "id":"FUB_WaterTest-2",
         "description":"execute FUB.Water operator with MERIS product",
         "frequency":"daily",
-        "graphPath": "s3tbx/graphFuOp.xml",
+        "graphPath": "s3tbx/graphFUB_Water.xml",
         "inputs": {
             "input": "s3tbx/sensors_platforms/MERIS/for_mosaic1/MER_RR__1PQBCM20030407_100459_000007352015_00194_05759_0002.N1"
         },
