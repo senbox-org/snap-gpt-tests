@@ -2,7 +2,7 @@
     {
         "id": "SpecUnmix_OLCI",
         "description": "Spectral Unmixing of OLCI product.",
-        "frequency": "daily",
+        "frequency": "daily/testOmar2",
         "graphPath": "snap/graphSpectralUnmixing_OLCI.xml",
         "inputs": {
             "input1": "s3tbx/sensors_platforms/SENTINEL-3/olci/L1/S3A_OL_1_EFR____20160303T080325_20160303T080525_20160312T095955_0119_001_249______SVL_O_NR_001.SEN3"
