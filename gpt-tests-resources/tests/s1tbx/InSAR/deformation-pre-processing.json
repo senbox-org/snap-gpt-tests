@@ -15,7 +15,12 @@
     "parameter": "out1",
     "outputName": "out-insar-deformation-asar",
     "expected": "s1tbx/InSAR/expected-insar-deformation-asar.json"
-  }]
+  }],
+  "configVM": {
+    "xmx": "16G",
+    "cacheSize": "0",
+    "parallelism": "4"
+  }
 },
 {
   "id":"s1tbx.insar.deformation.s1",
@@ -33,7 +38,12 @@
     "parameter": "out1",
     "outputName": "out-insar-deformation-s1-sm",
     "expected": "s1tbx/InSAR/expected-insar-deformation-s1-sm.json"
-  }]
+  }],
+  "configVM": {
+    "xmx": "16G",
+    "cacheSize": "0",
+    "parallelism": "4"
+  }
 }
 ]
 

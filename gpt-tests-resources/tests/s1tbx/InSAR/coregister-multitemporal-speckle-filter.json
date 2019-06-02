@@ -16,7 +16,12 @@
     "parameter": "out1",
     "outputName": "out-insar-multitemporal-specklefilter-asar",
     "expected": "s1tbx/InSAR/expected-insar-multitemporal-specklefilter-asar.json"
-  }]
+  }],
+  "configVM": {
+    "xmx": "16G",
+    "cacheSize": "0",
+    "parallelism": "4"
+  }
 },
 {
   "id":"s1tbx.insar.multitemporal.specklefilter.s1-sm",
@@ -35,7 +40,12 @@
     "parameter": "out1",
     "outputName": "out-insar-multitemporal-specklefilter-s1-sm",
     "expected": "s1tbx/InSAR/expected-insar-multitemporal-specklefilter-s1-sm.json"
-  }]
+  }],
+  "configVM": {
+    "xmx": "16G",
+    "cacheSize": "0",
+    "parallelism": "4"
+  }
 }
 ]
 

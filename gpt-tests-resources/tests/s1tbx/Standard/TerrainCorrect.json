@@ -17,7 +17,12 @@
     "parameter": "out1",
     "outputName": "out-tc-asar",
     "expected": "s1tbx/Standard/expected-terraincorrect-asar.json"
-  }]
+  }],
+  "configVM": {
+    "xmx": "16G",
+    "cacheSize": "0",
+    "parallelism": "4"
+  }
 },
 {
   "id":"s1tbx.standard.terraincorrect.ers",
@@ -37,7 +42,12 @@
     "parameter": "out1",
     "outputName": "out-tc-ers",
     "expected": "s1tbx/Standard/expected-terraincorrect-ers.json"
-  }]
+  }],
+  "configVM": {
+    "xmx": "16G",
+    "cacheSize": "0",
+    "parallelism": "4"
+  }
 },
 {
   "id":"s1tbx.standard.terraincorrect.rs2",
@@ -57,7 +67,12 @@
     "parameter": "out1",
     "outputName": "out-tc-rs2",
     "expected": "s1tbx/Standard/expected-terraincorrect-rs2.json"
-  }]
+  }],
+  "configVM": {
+    "xmx": "16G",
+    "cacheSize": "0",
+    "parallelism": "4"
+  }
 },
 {
   "id":"s1tbx.standard.terraincorrect.s1.grd",
@@ -77,7 +92,12 @@
     "parameter": "out1",
     "outputName": "out-tc-s1",
     "expected": "s1tbx/Standard/expected-terraincorrect-s1-grd.json"
-  }]
+  }],
+  "configVM": {
+    "xmx": "16G",
+    "cacheSize": "0",
+    "parallelism": "4"
+  }
 }
 
 ]

@@ -15,7 +15,12 @@
     "parameter": "out1",
     "outputName": "out-insar-interferogram-topo-asar",
     "expected": "s1tbx/InSAR/expected-insar-interferogram-topo-asar.json"
-  }]
+  }],
+  "configVM": {
+    "xmx": "16G",
+    "cacheSize": "0",
+    "parallelism": "4"
+  }
 },
 {
   "id":"s1tbx.insar.interferogram.topo.s1-sm",
@@ -33,7 +38,12 @@
     "parameter": "out1",
     "outputName": "out-insar-interferogram-topo-s1-sm",
     "expected": "s1tbx/InSAR/expected-insar-interferogram-topo-s1-sm.json"
-  }]
+  }],
+  "configVM": {
+    "xmx": "16G",
+    "cacheSize": "0",
+    "parallelism": "4"
+  }
 }
 ]
 

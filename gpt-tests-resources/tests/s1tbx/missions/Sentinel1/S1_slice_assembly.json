@@ -14,7 +14,12 @@
     "parameter": "out1",
     "outputName": "out-slice-assembly-s1-grd",
     "expected": "s1tbx/missions/Sentinel1/expected-slice-assembly-s1-grd.json"
-  }]
+  }],
+  "configVM": {
+    "xmx": "16G",
+    "cacheSize": "0",
+    "parallelism": "4"
+  }
 }
 
 ]

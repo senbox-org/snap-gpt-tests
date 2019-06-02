@@ -15,7 +15,12 @@
     "parameter": "out1",
     "outputName": "out-insar-stack-average-asar",
     "expected": "s1tbx/InSAR/expected-insar-stack-average-asar.json"
-  }]
+  }],
+  "configVM": {
+    "xmx": "16G",
+    "cacheSize": "0",
+    "parallelism": "4"
+  }
 },
 {
   "id":"s1tbx.insar.stack.average.s1-sm",
@@ -33,7 +38,12 @@
     "parameter": "out1",
     "outputName": "out-insar-stack-average-s1-sm",
     "expected": "s1tbx/InSAR/expected-insar-stack-average-s1-sm.json"
-  }]
+  }],
+  "configVM": {
+    "xmx": "16G",
+    "cacheSize": "0",
+    "parallelism": "4"
+  }
 }
 ]
 

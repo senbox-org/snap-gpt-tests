@@ -14,7 +14,12 @@
     "parameter": "out1",
     "outputName": "out-slc2pri-asar",
     "expected": "s1tbx/Standard/expected-slc2pri-asar.json"
-  }]
+  }],
+  "configVM": {
+    "xmx": "16G",
+    "cacheSize": "0",
+    "parallelism": "4"
+  }
 },
 {
   "id":"s1tbx.standard.slc2pri.rs2",
@@ -31,7 +36,12 @@
     "parameter": "out1",
     "outputName": "out-slc2pri-rs2",
     "expected": "s1tbx/Standard/expected-slc2pri-rs2.json"
-  }]
+  }],
+  "configVM": {
+    "xmx": "16G",
+    "cacheSize": "0",
+    "parallelism": "4"
+  }
 },
 {
   "id":"s1tbx.standard.slc2pri.s1",
@@ -48,7 +58,12 @@
     "parameter": "out1",
     "outputName": "out-slc2pri-s1",
     "expected": "s1tbx/Standard/expected-slc2pri-s1.json"
-  }]
+  }],
+  "configVM": {
+    "xmx": "16G",
+    "cacheSize": "0",
+    "parallelism": "4"
+  }
 }
 
 ]
