@@ -1,0 +1,109 @@
+{
+  "id" : "s1tbx.standard.applyorbit.ers2.ims",
+  "decodeQualification" : "INTENDED",
+  "expectedContent" : {
+    "sceneWidth" : 4900,
+    "sceneHeight" : 26292,
+    "geoCoding" : {
+      "coordinates" : [ {
+        "x" : 2450.0,
+        "y" : 13146.0,
+        "lat" : 37.65580443388448,
+        "lon" : 15.120086934472846
+      } ]
+    },
+    "tiePointGrids" : [ {
+      "name" : "incident_angle",
+      "description" : "",
+      "offsetX" : 0.0,
+      "offsetY" : 0.0,
+      "subSamplingX" : 544.0,
+      "subSamplingY" : 2921.0,
+      "expectedPixels" : [ {
+        "x" : 2450.0,
+        "y" : 13146.0,
+        "value" : 22.943619
+      } ]
+    }, {
+      "name" : "slant_range_time",
+      "description" : "",
+      "offsetX" : 0.0,
+      "offsetY" : 0.0,
+      "subSamplingX" : 544.0,
+      "subSamplingY" : 2921.0,
+      "expectedPixels" : [ {
+        "x" : 2450.0,
+        "y" : 13146.0,
+        "value" : 5661009.0
+      } ]
+    }, {
+      "name" : "latitude",
+      "description" : "",
+      "offsetX" : 0.0,
+      "offsetY" : 0.0,
+      "subSamplingX" : 544.0,
+      "subSamplingY" : 2921.0,
+      "expectedPixels" : [ {
+        "x" : 2450.0,
+        "y" : 13146.0,
+        "value" : 37.65584
+      } ]
+    }, {
+      "name" : "longitude",
+      "description" : "",
+      "offsetX" : 0.0,
+      "offsetY" : 0.0,
+      "subSamplingX" : 544.0,
+      "subSamplingY" : 2921.0,
+      "expectedPixels" : [ {
+        "x" : 2450.0,
+        "y" : 13146.0,
+        "value" : 15.120194
+      } ]
+    } ],
+    "bands" : [ {
+      "name" : "i",
+      "description" : "i",
+      "bandWidth" : 4900,
+      "bandHeight" : 26292,
+      "noDataValue" : 0.0,
+      "noDataValueUsed" : true,
+      "spectralWavelength" : 0.0,
+      "spectralBandwidth" : 0.0,
+      "expectedPixels" : [ {
+        "x" : 2450.0,
+        "y" : 13146.0,
+        "value" : 22.0
+      } ]
+    }, {
+      "name" : "q",
+      "description" : "q",
+      "bandWidth" : 4900,
+      "bandHeight" : 26292,
+      "noDataValue" : 0.0,
+      "noDataValueUsed" : true,
+      "spectralWavelength" : 0.0,
+      "spectralBandwidth" : 0.0,
+      "expectedPixels" : [ {
+        "x" : 2450.0,
+        "y" : 13146.0,
+        "value" : 86.0
+      } ]
+    }, {
+      "name" : "Intensity",
+      "description" : "Intensity from complex data",
+      "bandWidth" : 4900,
+      "bandHeight" : 26292,
+      "noDataValue" : 0.0,
+      "noDataValueUsed" : true,
+      "spectralWavelength" : 0.0,
+      "spectralBandwidth" : 0.0,
+      "expectedPixels" : [ {
+        "x" : 2450.0,
+        "y" : 13146.0,
+        "value" : 7880.0
+      } ]
+    } ],
+    "masks" : [ ]
+  }
+}

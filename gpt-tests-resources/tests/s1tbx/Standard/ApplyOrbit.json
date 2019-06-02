@@ -1,6 +1,6 @@
 [
 {
-  "id":"s1tbx.standard.applyorbit.asar",
+  "id":"s1tbx.standard.applyorbit.asar.imm",
   "description":"execute applyorbit processor with ASAR",
   "frequency":"daily",
   "graphPath": "s1tbx/Standard/ApplyOrbit.xml",
@@ -11,13 +11,29 @@
   },
   "outputs": [{
     "parameter": "out1",
-    "outputName": "out-applyorbit-asar",
-    "expected": "s1tbx/Standard/expected-applyorbit-asar.json"
+    "outputName": "out-applyorbit-asar-imm",
+    "expected": "s1tbx/Standard/expected-applyorbit-asar-imm.json"
   }]
 },
 {
-  "id":"s1tbx.standard.applyorbit.ers",
-  "description":"execute applyorbit processor with ERS-2",
+  "id":"s1tbx.standard.applyorbit.asar.ims",
+  "description":"execute applyorbit processor with ASAR IMS",
+  "frequency":"daily",
+  "graphPath": "s1tbx/Standard/ApplyOrbit.xml",
+  "inputs": {
+    "input1": "s1tbx/SAR/ASAR/Bam/ASA_IMS_1PNUPA20031203_061259_000000162022_00120_09192_0099.N1"
+  },
+  "parameters": {
+  },
+  "outputs": [{
+    "parameter": "out1",
+    "outputName": "out-applyorbit-asar-ims",
+    "expected": "s1tbx/Standard/expected-applyorbit-asar-ims.json"
+  }]
+},
+{
+  "id":"s1tbx.standard.applyorbit.ers2.imm",
+  "description":"execute applyorbit processor with ERS-2 IMM",
   "frequency":"daily",
   "graphPath": "s1tbx/Standard/ApplyOrbit.xml",
   "inputs": {
@@ -27,12 +43,44 @@
   },
   "outputs": [{
     "parameter": "out1",
-    "outputName": "out-applyorbit-ers",
-    "expected": "s1tbx/Standard/expected-applyorbit-ers.json"
+    "outputName": "out-applyorbit-ers2-imm",
+    "expected": "s1tbx/Standard/expected-applyorbit-ers2-imm.json"
   }]
 },
 {
-  "id":"s1tbx.standard.applyorbit.s1",
+  "id":"s1tbx.standard.applyorbit.ers1.ims",
+  "description":"execute applyorbit processor with ERS-1 IMS",
+  "frequency":"daily",
+  "graphPath": "s1tbx/Standard/ApplyOrbit.xml",
+  "inputs": {
+    "input1": "s1tbx/SAR/ERS/ERS_Tandem_Etna/ERS1_SLCI_VMP_CEOS_01081995_orbit 21159 frame 0747_IPAF/SCENE1/VDF_DAT.001"
+  },
+  "parameters": {
+  },
+  "outputs": [{
+    "parameter": "out1",
+    "outputName": "out-applyorbit-ers1-ims",
+    "expected": "s1tbx/Standard/expected-applyorbit-ers1-ims.json"
+  }]
+},
+{
+  "id":"s1tbx.standard.applyorbit.ers2.ims",
+  "description":"execute applyorbit processor with ERS-2 IMS",
+  "frequency":"daily",
+  "graphPath": "s1tbx/Standard/ApplyOrbit.xml",
+  "inputs": {
+    "input1": "s1tbx/SAR/ERS/ERS_Tandem_Etna/ERS2_SLCI_VMP_CEOS_02081995_orbit 01486 frame 0747_IPAF/SCENE1/VDF_DAT.001"
+  },
+  "parameters": {
+  },
+  "outputs": [{
+    "parameter": "out1",
+    "outputName": "out-applyorbit-ers2-ims",
+    "expected": "s1tbx/Standard/expected-applyorbit-ers2-ims.json"
+  }]
+},
+{
+  "id":"s1tbx.standard.applyorbit.s1-grd",
   "description":"execute applyorbit processor with S1 GRD",
   "frequency":"daily",
   "graphPath": "s1tbx/Standard/ApplyOrbit.xml",
@@ -43,11 +91,10 @@
   },
   "outputs": [{
     "parameter": "out1",
-    "outputName": "out-applyorbit-s1",
-    "expected": "s1tbx/Standard/expected-applyorbit-s1.json"
+    "outputName": "out-applyorbit-s1-grd",
+    "expected": "s1tbx/Standard/expected-applyorbit-s1-grd.json"
   }]
 }
-
 ]
 
 
