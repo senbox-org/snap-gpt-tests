@@ -1,147 +1,147 @@
 {
-  "id" : "s1tbx.insar.interferogram.s1",
+  "id" : "s1tbx.insar.interferogram.s1-sm",
   "decodeQualification" : "INTENDED",
   "expectedContent" : {
-    "sceneWidth" : 21733,
-    "sceneHeight" : 52999,
+    "sceneWidth" : 14302,
+    "sceneHeight" : 13150,
     "geoCoding" : {
       "coordinates" : [ {
-        "x" : 10866.0,
-        "y" : 26499.0,
-        "lat" : 37.563192794046856,
-        "lon" : -122.61096030169055
+        "x" : 7151.0,
+        "y" : 6575.0,
+        "lat" : 38.19541679372439,
+        "lon" : -122.39490998921374
       } ]
     },
     "tiePointGrids" : [ {
       "name" : "latitude",
       "description" : "",
-      "offsetX" : 0.5,
+      "offsetX" : -403.1999999999998,
       "offsetY" : 0.5,
       "subSamplingX" : 1086.65,
       "subSamplingY" : 815.3692307692307,
       "expectedPixels" : [ {
-        "x" : 10866.0,
-        "y" : 26499.0,
-        "value" : 37.56318
+        "x" : 7151.0,
+        "y" : 6575.0,
+        "value" : 38.195404
       } ]
     }, {
       "name" : "longitude",
       "description" : "",
-      "offsetX" : 0.5,
+      "offsetX" : -403.1999999999998,
       "offsetY" : 0.5,
       "subSamplingX" : 1086.65,
       "subSamplingY" : 815.3692307692307,
       "expectedPixels" : [ {
-        "x" : 10866.0,
-        "y" : 26499.0,
-        "value" : -122.610985
+        "x" : 7151.0,
+        "y" : 6575.0,
+        "value" : -122.394936
       } ]
     }, {
       "name" : "incident_angle",
       "description" : "",
-      "offsetX" : 0.5,
+      "offsetX" : -403.1999999999998,
       "offsetY" : 0.5,
       "subSamplingX" : 1086.65,
       "subSamplingY" : 815.3692307692307,
       "expectedPixels" : [ {
-        "x" : 10866.0,
-        "y" : 26499.0,
-        "value" : 23.176807
+        "x" : 7151.0,
+        "y" : 6575.0,
+        "value" : 22.813295
       } ]
     }, {
       "name" : "elevation_angle",
       "description" : "",
-      "offsetX" : 0.5,
+      "offsetX" : -403.1999999999998,
       "offsetY" : 0.5,
       "subSamplingX" : 1086.65,
       "subSamplingY" : 815.3692307692307,
       "expectedPixels" : [ {
-        "x" : 10866.0,
-        "y" : 26499.0,
-        "value" : 20.767551
+        "x" : 7151.0,
+        "y" : 6575.0,
+        "value" : 20.445133
       } ]
     }, {
       "name" : "slant_range_time",
       "description" : "",
-      "offsetX" : 0.5,
+      "offsetX" : -403.1999999999998,
       "offsetY" : 0.5,
       "subSamplingX" : 1086.65,
       "subSamplingY" : 815.3692307692307,
       "expectedPixels" : [ {
-        "x" : 10866.0,
-        "y" : 26499.0,
-        "value" : 5038358.0
+        "x" : 7151.0,
+        "y" : 6575.0,
+        "value" : 5026988.5
       } ]
     } ],
     "bands" : [ {
       "name" : "i_ifg_VV_07Aug2014_31Aug2014",
       "description" : "",
-      "bandWidth" : 21733,
-      "bandHeight" : 52999,
+      "bandWidth" : 14302,
+      "bandHeight" : 13150,
       "noDataValue" : 0.0,
       "noDataValueUsed" : false,
       "spectralWavelength" : 0.0,
       "spectralBandwidth" : 0.0,
       "expectedPixels" : [ {
-        "x" : 10866.0,
-        "y" : 26499.0,
-        "value" : 0.0
+        "x" : 7151.0,
+        "y" : 6575.0,
+        "value" : -332.69012
       } ]
     }, {
       "name" : "q_ifg_VV_07Aug2014_31Aug2014",
       "description" : "",
-      "bandWidth" : 21733,
-      "bandHeight" : 52999,
+      "bandWidth" : 14302,
+      "bandHeight" : 13150,
       "noDataValue" : 0.0,
       "noDataValueUsed" : false,
       "spectralWavelength" : 0.0,
       "spectralBandwidth" : 0.0,
       "expectedPixels" : [ {
-        "x" : 10866.0,
-        "y" : 26499.0,
-        "value" : 0.0
+        "x" : 7151.0,
+        "y" : 6575.0,
+        "value" : 846.2518
       } ]
     }, {
       "name" : "Intensity_ifg_VV_07Aug2014_31Aug2014",
       "description" : "Intensity from complex data",
-      "bandWidth" : 21733,
-      "bandHeight" : 52999,
+      "bandWidth" : 14302,
+      "bandHeight" : 13150,
       "noDataValue" : 0.0,
       "noDataValueUsed" : true,
       "spectralWavelength" : 0.0,
       "spectralBandwidth" : 0.0,
       "expectedPixels" : [ {
-        "x" : 10866.0,
-        "y" : 26499.0,
-        "value" : 0.0
+        "x" : 7151.0,
+        "y" : 6575.0,
+        "value" : 826824.75
       } ]
     }, {
       "name" : "Phase_ifg_VV_07Aug2014_31Aug2014",
       "description" : "Phase from complex data",
-      "bandWidth" : 21733,
-      "bandHeight" : 52999,
+      "bandWidth" : 14302,
+      "bandHeight" : 13150,
       "noDataValue" : 0.0,
       "noDataValueUsed" : false,
       "spectralWavelength" : 0.0,
       "spectralBandwidth" : 0.0,
       "expectedPixels" : [ {
-        "x" : 10866.0,
-        "y" : 26499.0,
-        "value" : 0.0
+        "x" : 7151.0,
+        "y" : 6575.0,
+        "value" : 1.9453695
       } ]
     }, {
       "name" : "coh_VV_07Aug2014_31Aug2014",
       "description" : "",
-      "bandWidth" : 21733,
-      "bandHeight" : 52999,
+      "bandWidth" : 14302,
+      "bandHeight" : 13150,
       "noDataValue" : 0.0,
       "noDataValueUsed" : true,
       "spectralWavelength" : 0.0,
       "spectralBandwidth" : 0.0,
       "expectedPixels" : [ {
-        "x" : 10866.0,
-        "y" : 26499.0,
-        "value" : 0.0
+        "x" : 7151.0,
+        "y" : 6575.0,
+        "value" : 0.27674186
       } ]
     } ],
     "masks" : [ ]

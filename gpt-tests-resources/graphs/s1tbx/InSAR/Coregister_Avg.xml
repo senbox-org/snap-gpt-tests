@@ -79,6 +79,7 @@
       <sourceBands/>
       <region></region>
       <geoRegion>$geoRegion</geoRegion>
+      <referenceBand/>
       <subSamplingX>1</subSamplingX>
       <subSamplingY>1</subSamplingY>
       <fullSwath>false</fullSwath>
@@ -102,10 +103,19 @@
       <copyMetadata>true</copyMetadata>
     </parameters>
   </node>
+  <node id="Stack-Averaging">
+    <operator>Stack-Averaging</operator>
+    <sources>
+      <sourceProduct refid="Warp"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <statistic>Mean Average</statistic>
+    </parameters>
+  </node>
   <node id="Write">
     <operator>Write</operator>
     <sources>
-      <sourceProduct refid="Warp"/>
+      <sourceProduct refid="Stack-Averaging"/>
     </sources>
     <parameters class="com.bc.ceres.binding.dom.XppDomElement">
       <file>$out1</file>
@@ -127,7 +137,7 @@
       <displayPosition x="184.0" y="93.0"/>
     </node>
     <node id="Warp">
-      <displayPosition x="368.0" y="94.0"/>
+      <displayPosition x="320.0" y="93.0"/>
     </node>
     <node id="Subset">
       <displayPosition x="39.0" y="53.0"/>
@@ -135,8 +145,11 @@
     <node id="Subset(2)">
       <displayPosition x="35.0" y="131.0"/>
     </node>
+    <node id="Stack-Averaging">
+      <displayPosition x="305.0" y="149.0"/>
+    </node>
     <node id="Write">
-      <displayPosition x="456.0" y="93.0"/>
+      <displayPosition x="320.0" y="201.0"/>
     </node>
   </applicationData>
 </graph>

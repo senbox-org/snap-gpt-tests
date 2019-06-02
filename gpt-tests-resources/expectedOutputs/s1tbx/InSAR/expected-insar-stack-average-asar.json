@@ -1,5 +1,5 @@
 {
-  "id" : "s1tbx.insar.interferogram.asar",
+  "id" : "s1tbx.insar.stack.average.asar",
   "decodeQualification" : "INTENDED",
   "expectedContent" : {
     "sceneWidth" : 1754,
@@ -74,35 +74,35 @@
       } ]
     } ],
     "bands" : [ {
-      "name" : "i_ifg_VV_03Dec2003_11Feb2004",
-      "description" : "",
+      "name" : "i_VV",
+      "description" : "i_VV average real",
       "bandWidth" : 1754,
       "bandHeight" : 8077,
       "noDataValue" : 0.0,
-      "noDataValueUsed" : false,
+      "noDataValueUsed" : true,
       "spectralWavelength" : 0.0,
       "spectralBandwidth" : 0.0,
       "expectedPixels" : [ {
         "x" : 877.0,
         "y" : 4038.0,
-        "value" : 0.0
+        "value" : -23.706362
       } ]
     }, {
-      "name" : "q_ifg_VV_03Dec2003_11Feb2004",
-      "description" : "",
+      "name" : "q_VV",
+      "description" : "q_VV average imaginary",
       "bandWidth" : 1754,
       "bandHeight" : 8077,
       "noDataValue" : 0.0,
-      "noDataValueUsed" : false,
+      "noDataValueUsed" : true,
       "spectralWavelength" : 0.0,
       "spectralBandwidth" : 0.0,
       "expectedPixels" : [ {
         "x" : 877.0,
         "y" : 4038.0,
-        "value" : 0.0
+        "value" : 30.623032
       } ]
     }, {
-      "name" : "Intensity_ifg_VV_03Dec2003_11Feb2004",
+      "name" : "Intensity_VV",
       "description" : "Intensity from complex data",
       "bandWidth" : 1754,
       "bandHeight" : 8077,
@@ -113,35 +113,7 @@
       "expectedPixels" : [ {
         "x" : 877.0,
         "y" : 4038.0,
-        "value" : 0.0
-      } ]
-    }, {
-      "name" : "Phase_ifg_VV_03Dec2003_11Feb2004",
-      "description" : "Phase from complex data",
-      "bandWidth" : 1754,
-      "bandHeight" : 8077,
-      "noDataValue" : 0.0,
-      "noDataValueUsed" : false,
-      "spectralWavelength" : 0.0,
-      "spectralBandwidth" : 0.0,
-      "expectedPixels" : [ {
-        "x" : 877.0,
-        "y" : 4038.0,
-        "value" : 0.0
-      } ]
-    }, {
-      "name" : "coh_VV_03Dec2003_11Feb2004",
-      "description" : "",
-      "bandWidth" : 1754,
-      "bandHeight" : 8077,
-      "noDataValue" : 0.0,
-      "noDataValueUsed" : true,
-      "spectralWavelength" : 0.0,
-      "spectralBandwidth" : 0.0,
-      "expectedPixels" : [ {
-        "x" : 877.0,
-        "y" : 4038.0,
-        "value" : 0.78993654
+        "value" : 1499.7616
       } ]
     } ],
     "masks" : [ ]

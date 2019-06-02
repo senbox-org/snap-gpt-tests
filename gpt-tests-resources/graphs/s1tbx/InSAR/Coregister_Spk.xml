@@ -102,10 +102,30 @@
       <copyMetadata>true</copyMetadata>
     </parameters>
   </node>
+  <node id="Multi-Temporal-Speckle-Filter">
+    <operator>Multi-Temporal-Speckle-Filter</operator>
+    <sources>
+      <sourceProduct refid="Warp"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <sourceBands/>
+      <filter>$filter</filter>
+      <filterSizeX>3</filterSizeX>
+      <filterSizeY>3</filterSizeY>
+      <dampingFactor>2</dampingFactor>
+      <estimateENL>true</estimateENL>
+      <enl>1.0</enl>
+      <numLooksStr>1</numLooksStr>
+      <windowSize>7x7</windowSize>
+      <targetWindowSizeStr>3x3</targetWindowSizeStr>
+      <sigmaStr>0.9</sigmaStr>
+      <anSize>50</anSize>
+    </parameters>
+  </node>
   <node id="Write">
     <operator>Write</operator>
     <sources>
-      <sourceProduct refid="Warp"/>
+      <sourceProduct refid="Multi-Temporal-Speckle-Filter"/>
     </sources>
     <parameters class="com.bc.ceres.binding.dom.XppDomElement">
       <file>$out1</file>
@@ -127,7 +147,7 @@
       <displayPosition x="184.0" y="93.0"/>
     </node>
     <node id="Warp">
-      <displayPosition x="368.0" y="94.0"/>
+      <displayPosition x="320.0" y="93.0"/>
     </node>
     <node id="Subset">
       <displayPosition x="39.0" y="53.0"/>
@@ -135,8 +155,11 @@
     <node id="Subset(2)">
       <displayPosition x="35.0" y="131.0"/>
     </node>
+    <node id="Multi-Temporal-Speckle-Filter">
+      <displayPosition x="266.0" y="154.0"/>
+    </node>
     <node id="Write">
-      <displayPosition x="456.0" y="93.0"/>
+      <displayPosition x="320.0" y="201.0"/>
     </node>
   </applicationData>
 </graph>

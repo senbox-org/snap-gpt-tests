@@ -1,5 +1,5 @@
 {
-  "id" : "s1tbx.insar.interferogram.asar",
+  "id" : "s1tbx.insar.coherence.asar",
   "decodeQualification" : "INTENDED",
   "expectedContent" : {
     "sceneWidth" : 1754,
@@ -74,62 +74,6 @@
       } ]
     } ],
     "bands" : [ {
-      "name" : "i_ifg_VV_03Dec2003_11Feb2004",
-      "description" : "",
-      "bandWidth" : 1754,
-      "bandHeight" : 8077,
-      "noDataValue" : 0.0,
-      "noDataValueUsed" : false,
-      "spectralWavelength" : 0.0,
-      "spectralBandwidth" : 0.0,
-      "expectedPixels" : [ {
-        "x" : 877.0,
-        "y" : 4038.0,
-        "value" : 0.0
-      } ]
-    }, {
-      "name" : "q_ifg_VV_03Dec2003_11Feb2004",
-      "description" : "",
-      "bandWidth" : 1754,
-      "bandHeight" : 8077,
-      "noDataValue" : 0.0,
-      "noDataValueUsed" : false,
-      "spectralWavelength" : 0.0,
-      "spectralBandwidth" : 0.0,
-      "expectedPixels" : [ {
-        "x" : 877.0,
-        "y" : 4038.0,
-        "value" : 0.0
-      } ]
-    }, {
-      "name" : "Intensity_ifg_VV_03Dec2003_11Feb2004",
-      "description" : "Intensity from complex data",
-      "bandWidth" : 1754,
-      "bandHeight" : 8077,
-      "noDataValue" : 0.0,
-      "noDataValueUsed" : true,
-      "spectralWavelength" : 0.0,
-      "spectralBandwidth" : 0.0,
-      "expectedPixels" : [ {
-        "x" : 877.0,
-        "y" : 4038.0,
-        "value" : 0.0
-      } ]
-    }, {
-      "name" : "Phase_ifg_VV_03Dec2003_11Feb2004",
-      "description" : "Phase from complex data",
-      "bandWidth" : 1754,
-      "bandHeight" : 8077,
-      "noDataValue" : 0.0,
-      "noDataValueUsed" : false,
-      "spectralWavelength" : 0.0,
-      "spectralBandwidth" : 0.0,
-      "expectedPixels" : [ {
-        "x" : 877.0,
-        "y" : 4038.0,
-        "value" : 0.0
-      } ]
-    }, {
       "name" : "coh_VV_03Dec2003_11Feb2004",
       "description" : "",
       "bandWidth" : 1754,
@@ -141,7 +85,7 @@
       "expectedPixels" : [ {
         "x" : 877.0,
         "y" : 4038.0,
-        "value" : 0.78993654
+        "value" : 0.790004
       } ]
     } ],
     "masks" : [ ]
