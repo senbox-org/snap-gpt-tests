@@ -1,10 +1,10 @@
 [{
     "id":"MphChlTest_MERIS",
     "description":"execute MphChl operator with MERIS L1b",
-    "frequency":"daily",
+    "frequency":"daily/testOmar6",
     "graphPath": "s3tbx/graphMphChlOp.xml",
     "inputs": {
-        "input1": "s3tbx/sensors_platforms/MERIS/MER_FR__1P/N1/MER_FR__1PNUPA20040401_001107_000000982025_00331_10906_0250.N1"
+        "input": "s3tbx/sensors_platforms/MERIS/MER_FR__1P/N1/MER_FR__1PNUPA20040401_001107_000000982025_00331_10906_0250.N1"
     },
     "parameters": {
         "subsetRegion": "400,500,200,200",
@@ -15,7 +15,7 @@
         "applyLowPassFilter": "false"
     },
     "outputs": [{
-        "parameter": "out1",
+        "parameter": "output",
         "outputName": "MphChlTest_MERIS",
         "expected": "s3tbx/expectedMphChlOP_MERIS.json"
     }]
