@@ -1,7 +1,7 @@
 [{
     "id":"FuTest_MERIS",
     "description":"execute Fu operator with MERIS L2",
-    "frequency":"daily",
+    "frequency":"daily/testOmar4",
     "graphPath": "s3tbx/graphFuOp.xml",
     "inputs": {
         "input1": "s3tbx/sensors_platforms/MERIS/MER_FR__2P/N1/MER_FR__2PNEPA20060716_101936_000000982049_00280_22879_0373.N1"
@@ -16,7 +16,7 @@
         "includeIntermediateResults" : "true"
     },
     "outputs": [{
-        "parameter": "out1",
+        "parameter": "output",
         "outputName": "FuTest_MERIS",
         "expected": "s3tbx/expectedFuOP_MERIS.json"
     }]
@@ -26,7 +26,7 @@
     {
         "id":"FuTest_OLCI",
         "description":"execute Fu operator with OLCI L2",
-        "frequency":"daily",
+        "frequency":"daily/testOmar4",
         "graphPath": "s3tbx/graphFuOp.xml",
         "inputs": {
             "input1": "s3tbx/sensors_platforms/SENTINEL-3/olci/L2/S3A_OL_2_WFR____20070425T152940_20070425T153025_20140610T112151_0045_000_000______MAR_D_NR____.SEN3"
@@ -41,7 +41,7 @@
             "includeIntermediateResults" : "false"
         },
         "outputs": [{
-            "parameter": "out1",
+            "parameter": "output",
             "outputName": "FuTest_OLCI",
             "expected": "s3tbx/expectedFuOP_OLCI.json"
         }]
@@ -50,10 +50,10 @@
     {
         "id":"FuTest_CZCS",
         "description":"execute Fu operator with CZCS L2",
-        "frequency":"daily",
+        "frequency":"daily/testOmar4",
         "graphPath": "s3tbx/graphFuOp.xml",
         "inputs": {
-            "input1": "s3tbx/sensors_platforms/SENTINEL-3/CZCS/L2/C1986010234000.L2_MLAC_OC"
+            "input1": "s3tbx/sensors_platforms/CZCS/C1986010234000.L2_MLAC_OC"
         },
         "parameters": {
             "subsetRegion": "400,900,200,200",
@@ -65,7 +65,7 @@
             "includeIntermediateResults" : "false"
         },
         "outputs": [{
-            "parameter": "out1",
+            "parameter": "output",
             "outputName": "FuTest_CZCS",
             "expected": "s3tbx/expectedFuOP_CZCS.json"
         }]
@@ -75,10 +75,10 @@
     {
         "id":"FuTest_SeaWIFS",
         "description":"execute Fu operator with SeaWIFS L2",
-        "frequency":"daily",
+        "frequency":"daily/testOmar4",
         "graphPath": "s3tbx/graphFuOp.xml",
         "inputs": {
-            "input1": "s3tbx/sensors_platforms/SENTINEL-3/SeaWIFS/L2/S2001014011328.L2_GAC_OC"
+            "input1": "s3tbx/sensors_platforms/SeaWIFS/S2001014011328.L2_GAC_OC"
         },
         "parameters": {
             "subsetRegion": "100,1800,100,300",
@@ -90,7 +90,7 @@
             "includeIntermediateResults" : "true"
         },
         "outputs": [{
-            "parameter": "out1",
+            "parameter": "output",
             "outputName": "FuTest_SeaWIFS",
             "expected": "s3tbx/expectedFuOP_SeaWIFS.json"
         }]
