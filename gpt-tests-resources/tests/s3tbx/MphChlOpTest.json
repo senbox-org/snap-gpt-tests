@@ -27,7 +27,7 @@
         "frequency":"daily",
         "graphPath": "s3tbx/graphMphChlOp.xml",
         "inputs": {
-            "input1": "s3tbx/sensors_platforms/SENTINEL-3/olci/L1/S3A_OL_1_EFR____20160303T080325_20160303T080525_20160312T095955_0119_001_249______SVL_O_NR_001.SEN3"
+            "input": "s3tbx/sensors_platforms/SENTINEL-3/olci/L1/S3A_OL_1_EFR____20160303T080325_20160303T080525_20160312T095955_0119_001_249______SVL_O_NR_001.SEN3"
         },
         "parameters": {
             "subsetRegion": "3000,500,200,200",
@@ -38,7 +38,7 @@
             "applyLowPassFilter": "true"
         },
         "outputs": [{
-            "parameter": "out1",
+            "parameter": "output",
             "outputName": "MphChlTest_OLCI",
             "expected": "s3tbx/expectedMphChlOP_OLCI.json"
         }]
