@@ -2,7 +2,7 @@
 {
   "id":"s1tbx.sentinel1.tops.deburst.merge.s1",
   "description":"execute S1 TOPS deburst and subswath merge",
-  "frequency":"daily",
+  "frequency":"daily/s1tbx",
   "graphPath": "s1tbx/Missions/Sentinel1/S1-deburst-merge.xml",
   "inputs": {
     "input1": "s1tbx/SAR/S1/SLC/Etna-DLR/S1A_IW_SLC__1SDV_20140809T165546_20140809T165613_001866_001C20_088B.zip"
