@@ -31,7 +31,7 @@
   {
     "id": "SMACTest-MERIS",
     "description": "execute SMAC operator with MERIS L1b product",
-    "frequency": "marcoptest/daily",
+    "frequency": "daily",
     "graphPath": "s3tbx/graphSMACOp.xml",
     "inputs": {
       "input": "s3tbx/sensors_platforms/MERIS/for_mosaic1/MER_RR__1PQBCM20030407_100459_000007352015_00194_05759_0002.N1"
