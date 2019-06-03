@@ -146,13 +146,13 @@ pipeline {
                     // def jobs = launchJobs(jsonString, testScope, outputDir)
                 }
 
-                echo "Launch seq Jobs from ${env.JOB_NAME} from ${env.GIT_BRANCH} with commit ${env.GIT_COMMIT} using docker image snap-build-server.tilaa.cloud/${params.dockerTagName}"
-                // echo "List of json files : ${jsonString}"
-                launchJobsSeq("${jsonStringSeq}", "${testScope}", "${outputDir}")
-
                 echo "Launch parallel Jobs from ${env.JOB_NAME} from ${env.GIT_BRANCH} with commit ${env.GIT_COMMIT} using docker image snap-build-server.tilaa.cloud/${params.dockerTagName}"
                 // echo "List of json files : ${jsonString}"
                 launchJobs("${jsonString}", "${testScope}", "${outputDir}")
+
+                echo "Launch seq Jobs from ${env.JOB_NAME} from ${env.GIT_BRANCH} with commit ${env.GIT_COMMIT} using docker image snap-build-server.tilaa.cloud/${params.dockerTagName}"
+                // echo "List of json files : ${jsonString}"
+                launchJobsSeq("${jsonStringSeq}", "${testScope}", "${outputDir}")
 
                 // parallel jobs
             }
