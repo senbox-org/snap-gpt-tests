@@ -2,24 +2,24 @@
     "id": "tempIRECIFull",
     "decodeQualification": "INTENDED",
     "expectedContent": {
-        "sceneWidth": 10980,
-        "sceneHeight": 10980,
+        "sceneWidth": 5490,
+        "sceneHeight": 5490,
         "geoCoding": {
             "coordinates": [
                 {
-                    "x": 4735.0,
-                    "y": 5902.0,
-                    "lat": -33.961022507653304,
-                    "lon": 22.59479170039122
+                    "x": 2367.0,
+                    "y": 2951.0,
+                    "lat": -33.96102390979432,
+                    "lon": 22.594683505612938
                 },
                 {
-                    "x": 8152.0,
-                    "y": 7125.0,
-                    "lat": -34.06591255410723,
-                    "lon": 22.966987475281325
+                    "x": 4076.0,
+                    "y": 3562.0,
+                    "lat": -34.06582241918215,
+                    "lon": 22.966985391730564
                 }
             ],
-            "reverseAccuracy": 4.71482053399086E-8
+            "reverseAccuracy": 2.3566826712340117E-8
         },
         "flagCodings": [
             {
@@ -47,43 +47,43 @@
             {
                 "name": "ireci",
                 "description": "",
-                "bandWidth": 10980,
-                "bandHeight": 10980,
+                "bandWidth": 5490,
+                "bandHeight": 5490,
                 "noDataValue": "0.0",
                 "noDataValueUsed": "false",
                 "spectralWavelength": "0.0",
                 "spectralBandwidth": "0.0",
                 "expectedPixels": [
                     {
-                        "x": 572,
-                        "y": 1956,
+                        "x": 286,
+                        "y": 978,
                         "value": 0.0
                     },
                     {
-                        "x": 7522,
-                        "y": 9339,
-                        "value": 0.0
+                        "x": 3761,
+                        "y": 4669,
+                        "value": -0.009190589
                     }
                 ]
             },
             {
                 "name": "flags",
                 "description": "ireci specific flags",
-                "bandWidth": 10980,
-                "bandHeight": 10980,
+                "bandWidth": 5490,
+                "bandHeight": 5490,
                 "noDataValue": "0.0",
                 "noDataValueUsed": "false",
                 "spectralWavelength": "0.0",
                 "spectralBandwidth": "0.0",
                 "expectedPixels": [
                     {
-                        "x": 3193,
-                        "y": 2820,
-                        "value": 0.0
+                        "x": 1596,
+                        "y": 1410,
+                        "value": 1.0
                     },
                     {
-                        "x": 6703,
-                        "y": 4010,
+                        "x": 3351,
+                        "y": 2005,
                         "value": 0.0
                     }
                 ]
@@ -123,8 +123,8 @@
                 "value": "BEAM-DIMAP"
             },
             {
-                "path": "Processing_Graph/node.0/parameters/redSourceBand5",
-                "value": "B5"
+                "path": "Processing_Graph/node.0/parameters/upsampling",
+                "value": "Nearest"
             },
             {
                 "path": "Processing_Graph/node.0/parameters/redB5Factor",
@@ -139,8 +139,8 @@
                 "value": "false"
             },
             {
-                "path": "Processing_Graph/node.0/parameters/redSourceBand6",
-                "value": "B6"
+                "path": "Processing_Graph/node.0/parameters/redSourceBand5",
+                "value": "B5"
             }
         ]
     }
