@@ -3,13 +3,13 @@
   "decodeQualification" : "INTENDED",
   "expectedContent" : {
     "sceneWidth" : 166,
-    "sceneHeight" : 500,
+    "sceneHeight" : 166,
     "geoCoding" : {
       "coordinates" : [ {
         "x" : 83.0,
-        "y" : 250.0,
-        "lat" : 18.21228218068598,
-        "lon" : -156.54151893133545
+        "y" : 83.0,
+        "lat" : 18.212282180170742,
+        "lon" : -156.54151893122844
       } ]
     },
     "tiePointGrids" : [ {
@@ -18,11 +18,11 @@
       "offsetX" : 0.0,
       "offsetY" : 0.0,
       "subSamplingX" : 16.600000381469727,
-      "subSamplingY" : 50.0,
+      "subSamplingY" : 16.600000381469727,
       "expectedPixels" : [ {
         "x" : 83.0,
-        "y" : 250.0,
-        "value" : 18.212353
+        "y" : 83.0,
+        "value" : 18.212444
       } ]
     }, {
       "name" : "longitude",
@@ -30,11 +30,11 @@
       "offsetX" : 0.0,
       "offsetY" : 0.0,
       "subSamplingX" : 16.600000381469727,
-      "subSamplingY" : 50.0,
+      "subSamplingY" : 16.600000381469727,
       "expectedPixels" : [ {
         "x" : 83.0,
-        "y" : 250.0,
-        "value" : -156.54138
+        "y" : 83.0,
+        "value" : -156.54141
       } ]
     }, {
       "name" : "incident_angle",
@@ -42,10 +42,10 @@
       "offsetX" : 0.0,
       "offsetY" : 0.0,
       "subSamplingX" : 16.600000381469727,
-      "subSamplingY" : 50.0,
+      "subSamplingY" : 16.600000381469727,
       "expectedPixels" : [ {
         "x" : 83.0,
-        "y" : 250.0,
+        "y" : 83.0,
         "value" : 31.1111
       } ]
     }, {
@@ -54,11 +54,11 @@
       "offsetX" : 0.0,
       "offsetY" : 0.0,
       "subSamplingX" : 16.600000381469727,
-      "subSamplingY" : 50.0,
+      "subSamplingY" : 16.600000381469727,
       "expectedPixels" : [ {
         "x" : 83.0,
-        "y" : 250.0,
-        "value" : 27.757416
+        "y" : 83.0,
+        "value" : 27.757414
       } ]
     }, {
       "name" : "slant_range_time",
@@ -66,10 +66,10 @@
       "offsetX" : 0.0,
       "offsetY" : 0.0,
       "subSamplingX" : 16.600000381469727,
-      "subSamplingY" : 50.0,
+      "subSamplingY" : 16.600000381469727,
       "expectedPixels" : [ {
         "x" : 83.0,
-        "y" : 250.0,
+        "y" : 83.0,
         "value" : 5342810.0
       } ]
     } ],
@@ -77,29 +77,29 @@
       "name" : "Amplitude_VH",
       "description" : "",
       "bandWidth" : 166,
-      "bandHeight" : 500,
+      "bandHeight" : 166,
       "noDataValue" : 0.0,
       "noDataValueUsed" : true,
       "spectralWavelength" : 0.0,
       "spectralBandwidth" : 0.0,
       "expectedPixels" : [ {
         "x" : 83.0,
-        "y" : 250.0,
+        "y" : 83.0,
         "value" : 37.0
       } ]
     }, {
       "name" : "Amplitude_VV",
       "description" : "",
       "bandWidth" : 166,
-      "bandHeight" : 500,
+      "bandHeight" : 166,
       "noDataValue" : 0.0,
       "noDataValueUsed" : true,
       "spectralWavelength" : 0.0,
       "spectralBandwidth" : 0.0,
       "expectedPixels" : [ {
         "x" : 83.0,
-        "y" : 250.0,
-        "value" : 305.0
+        "y" : 83.0,
+        "value" : 289.0
       } ]
     } ],
     "masks" : [ ]

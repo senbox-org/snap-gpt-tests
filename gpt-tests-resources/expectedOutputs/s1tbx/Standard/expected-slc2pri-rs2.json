@@ -3,13 +3,13 @@
   "decodeQualification" : "INTENDED",
   "expectedContent" : {
     "sceneWidth" : 118,
-    "sceneHeight" : 3000,
+    "sceneHeight" : 1000,
     "geoCoding" : {
       "coordinates" : [ {
         "x" : 59.0,
-        "y" : 1500.0,
-        "lat" : 49.17123031618893,
-        "lon" : -122.9104781140615
+        "y" : 500.0,
+        "lat" : 49.17118835451901,
+        "lon" : -122.91049042622042
       } ]
     },
     "tiePointGrids" : [ {
@@ -18,11 +18,11 @@
       "offsetX" : 0.0,
       "offsetY" : 0.0,
       "subSamplingX" : 11.800000190734863,
-      "subSamplingY" : 300.0,
+      "subSamplingY" : 100.0,
       "expectedPixels" : [ {
         "x" : 59.0,
-        "y" : 1500.0,
-        "value" : 49.171196
+        "y" : 500.0,
+        "value" : 49.171112
       } ]
     }, {
       "name" : "longitude",
@@ -30,11 +30,11 @@
       "offsetX" : 0.0,
       "offsetY" : 0.0,
       "subSamplingX" : 11.800000190734863,
-      "subSamplingY" : 300.0,
+      "subSamplingY" : 100.0,
       "expectedPixels" : [ {
         "x" : 59.0,
-        "y" : 1500.0,
-        "value" : -122.91039
+        "y" : 500.0,
+        "value" : -122.91042
       } ]
     }, {
       "name" : "incident_angle",
@@ -42,10 +42,10 @@
       "offsetX" : 0.0,
       "offsetY" : 0.0,
       "subSamplingX" : 11.800000190734863,
-      "subSamplingY" : 300.0,
+      "subSamplingY" : 100.0,
       "expectedPixels" : [ {
         "x" : 59.0,
-        "y" : 1500.0,
+        "y" : 500.0,
         "value" : 19.849915
       } ]
     }, {
@@ -54,10 +54,10 @@
       "offsetX" : 0.0,
       "offsetY" : 0.0,
       "subSamplingX" : 11.800000190734863,
-      "subSamplingY" : 300.0,
+      "subSamplingY" : 100.0,
       "expectedPixels" : [ {
         "x" : 59.0,
-        "y" : 1500.0,
+        "y" : 500.0,
         "value" : 5625035.5
       } ]
     } ],
@@ -65,57 +65,57 @@
       "name" : "Sigma0_HH",
       "description" : "",
       "bandWidth" : 118,
-      "bandHeight" : 3000,
+      "bandHeight" : 1000,
       "noDataValue" : 0.0,
       "noDataValueUsed" : true,
       "spectralWavelength" : 0.0,
       "spectralBandwidth" : 0.0,
       "expectedPixels" : [ {
         "x" : 59.0,
-        "y" : 1500.0,
-        "value" : 1.0661765
+        "y" : 500.0,
+        "value" : 0.59389544
       } ]
     }, {
       "name" : "Sigma0_HV",
       "description" : "",
       "bandWidth" : 118,
-      "bandHeight" : 3000,
+      "bandHeight" : 1000,
       "noDataValue" : 0.0,
       "noDataValueUsed" : true,
       "spectralWavelength" : 0.0,
       "spectralBandwidth" : 0.0,
       "expectedPixels" : [ {
         "x" : 59.0,
-        "y" : 1500.0,
-        "value" : 0.002776006
+        "y" : 500.0,
+        "value" : 0.00860975
       } ]
     }, {
       "name" : "Sigma0_VH",
       "description" : "",
       "bandWidth" : 118,
-      "bandHeight" : 3000,
+      "bandHeight" : 1000,
       "noDataValue" : 0.0,
       "noDataValueUsed" : true,
       "spectralWavelength" : 0.0,
       "spectralBandwidth" : 0.0,
       "expectedPixels" : [ {
         "x" : 59.0,
-        "y" : 1500.0,
-        "value" : 0.007850502
+        "y" : 500.0,
+        "value" : 0.015370554
       } ]
     }, {
       "name" : "Sigma0_VV",
       "description" : "",
       "bandWidth" : 118,
-      "bandHeight" : 3000,
+      "bandHeight" : 1000,
       "noDataValue" : 0.0,
       "noDataValueUsed" : true,
       "spectralWavelength" : 0.0,
       "spectralBandwidth" : 0.0,
       "expectedPixels" : [ {
         "x" : 59.0,
-        "y" : 1500.0,
-        "value" : 0.803447
+        "y" : 500.0,
+        "value" : 0.4887342
       } ]
     } ],
     "masks" : [ ]

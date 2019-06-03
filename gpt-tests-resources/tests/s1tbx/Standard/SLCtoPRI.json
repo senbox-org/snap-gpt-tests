@@ -152,30 +152,7 @@
     "cacheSize": "0",
     "parallelism": "4"
   }
-},
-{
-  "id":"s1tbx.standard.slc2pri.tsx",
-  "description":"execute SLC to PRI with TerraSAR-X",
-  "frequency":"daily",
-  "graphPath": "s1tbx/Standard/SLCtoPRIGraph.xml",
-  "inputs": {
-    "input1": "s1tbx/SAR/TerraSAR-X/Oslo_StaringSpotlight/TSX1_SAR__MGD_SE___ST_S_SRA_20130410T165445_20130410T165446/TSX1_SAR__MGD_SE___ST_S_SRA_20130410T165445_20130410T165446.xml"
-  },
-  "parameters": {
-	"subsetRegion": "2000,3000,3000,3000"
-  },
-  "outputs": [{
-    "parameter": "out1",
-    "outputName": "out-slc2pri-tsx",
-    "expected": "s1tbx/Standard/expected-slc2pri-tsx.json"
-  }],
-  "configVM": {
-    "xmx": "16G",
-    "cacheSize": "0",
-    "parallelism": "4"
-  }
 }
-
 ]
 
 
