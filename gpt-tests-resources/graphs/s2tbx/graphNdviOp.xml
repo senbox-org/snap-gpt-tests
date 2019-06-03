@@ -1,0 +1,44 @@
+<graph id="GraphIpviOpFull">
+  <version>1.0</version>
+  <node id="Read">
+    <operator>Read</operator>
+    <sources/>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <file>$input1</file>
+    </parameters>
+  </node>
+  <node id="NdviOp">
+    <operator>NdviOp</operator>
+    <sources>
+      <sourceProduct refid="Read"/>
+    </sources>
+    <parameters>
+      <redFactor>1.0</redFactor>
+      <nirFactor>1.0</nirFactor>
+      <redSourceBand>$redBand</redSourceBand>
+      <nirSourceBand>$nirBand</nirSourceBand>
+    </parameters>
+  </node>
+  <node id="Write">
+    <operator>Write</operator>
+    <sources>
+      <sourceProduct refid="NdviOp"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <file>$out1</file>
+      <formatName>BEAM-DIMAP</formatName>
+    </parameters>
+  </node>
+  <applicationData id="Presentation">
+    <Description/>
+    <node id="Read">
+      <displayPosition x="20.0" y="136.0"/>
+    </node>
+    <node id="NdviOp">
+      <displayPosition x="140.0" y="136.0"/>
+    </node>
+    <node id="Write">
+      <displayPosition x="260.0" y="136.0"/>
+    </node>
+  </applicationData>
+</graph>
