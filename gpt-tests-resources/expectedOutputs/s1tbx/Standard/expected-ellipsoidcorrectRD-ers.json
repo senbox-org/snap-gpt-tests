@@ -1,31 +1,31 @@
 {
-  "id" : "s1tbx.standard.terraincorrect.asar",
+  "id" : "s1tbx.standard.ellipsoidcorrectRD.ers",
   "decodeQualification" : "INTENDED",
   "expectedContent" : {
-    "sceneWidth" : 809,
-    "sceneHeight" : 576,
+    "sceneWidth" : 720,
+    "sceneHeight" : 595,
     "geoCoding" : {
       "coordinates" : [ {
-        "x" : 404.0,
-        "y" : 288.0,
-        "lat" : 44.85000724259389,
-        "lon" : 37.66234201495862
+        "x" : 360.0,
+        "y" : 297.0,
+        "lat" : 34.867105965540865,
+        "lon" : -5.484359434292176
       } ]
     },
     "tiePointGrids" : [ ],
     "bands" : [ {
       "name" : "Amplitude_VV",
-      "description" : "Image Mode Medium Resolution Image (stripline)",
-      "bandWidth" : 809,
-      "bandHeight" : 576,
+      "description" : "Image Mode Precision Image",
+      "bandWidth" : 720,
+      "bandHeight" : 595,
       "noDataValue" : 0.0,
       "noDataValueUsed" : true,
       "spectralWavelength" : 0.0,
       "spectralBandwidth" : 0.0,
       "expectedPixels" : [ {
-        "x" : 404.0,
-        "y" : 288.0,
-        "value" : 1555.2993
+        "x" : 360.0,
+        "y" : 297.0,
+        "value" : 450.34653
       } ]
     } ],
     "masks" : [ ]
