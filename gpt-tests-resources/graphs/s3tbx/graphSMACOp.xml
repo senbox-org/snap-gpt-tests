@@ -14,7 +14,7 @@
             <sourceProduct refid="Read"/>
         </sources>
         <parameters>
-            <region>800,3600,200,200</region>
+            <region>$subsetRegion</region>
             <copyMetadata>false</copyMetadata>
         </parameters>
     </node>
@@ -25,16 +25,16 @@
             <sourceProduct refid="Subset"/>
         </sources>
         <parameters>
-            <tauAero550>0.2</tauAero550>
-            <uH2o>3.0</uH2o>
-            <uO3>0.15</uO3>
-            <surfPress>1013.0</surfPress>
-            <useMerisADS>true</useMerisADS>
-            <aerosolType>DESERT</aerosolType>
-            <invalidPixel>0.0</invalidPixel>
-            <maskExpression>not (l1_flags.INVALID or l1_flags.BRIGHT)</maskExpression>
-            <maskExpressionForward>not used</maskExpressionForward>
-            <bandNames>radiance_1,radiance_2,radiance_3,radiance_4,radiance_5,radiance_6,radiance_7,radiance_8,radiance_9,radiance_10,radiance_11,radiance_12,radiance_13,radiance_14,radiance_15</bandNames>
+            <tauAero550>$tauAero550</tauAero550>
+            <uH2o>$uH2o</uH2o>
+            <uO3>$uO3</uO3>
+            <surfPress>$surfPress</surfPress>
+            <useMerisADS>$useMerisADS</useMerisADS>
+            <aerosolType>$aerosolType</aerosolType>
+            <invalidPixel>$invalidPixel</invalidPixel>
+            <maskExpression>$maskExpression</maskExpression>
+            <maskExpressionForward>$maskExpressionForward</maskExpressionForward>
+            <bandNames>$bandNames</bandNames>
         </parameters>
     </node>
 
@@ -48,21 +48,5 @@
             <formatName>BEAM-DIMAP</formatName>
         </parameters>
     </node>
-    <applicationData id="Presentation">
-        <Description/>
-        <node id="Read">
-            <displayPosition x="20.0" y="136.0"/>
-        </node>
-        <node id="Subset">
-            <displayPosition x="140.0" y="136.0"/>
-        </node>
-        <node id="SMAC">
-            <displayPosition x="260.0" y="136.0"/>
-        </node>
-        <node id="Write">
-            <displayPosition x="380.0" y="136.0"/>
-        </node>
-    </applicationData>
-
 </graph>
 
