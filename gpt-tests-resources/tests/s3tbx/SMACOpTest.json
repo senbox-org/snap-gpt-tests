@@ -29,7 +29,7 @@
     {
         "id":"SMACTest-MERIS",
         "description":"execute SMAC operator with MERIS L1b product",
-        "frequency":"daily",
+        "frequency":"marcoptest/daily",
         "graphPath": "s3tbx/graphSMACOp.xml",
         "inputs": {
             "input": "s3tbx/sensors_platforms/MERIS/for_mosaic1/MER_RR__1PQBCM20030407_100459_000007352015_00194_05759_0002.N1"
@@ -44,7 +44,7 @@
             "aerosolType": "DESERT",
             "invalidPixel": "0.0",
             "maskExpression": "not (l1_flags.INVALID or l1_flags.BRIGHT)",
-            "maskExpressionForward": "not confid_flags_nadir.NO_SIGNAL",
+            "maskExpressionForward": "not used",
             "bandNames": "radiance_1,radiance_2,radiance_3,radiance_4,radiance_5,radiance_6,radiance_7,radiance_8,radiance_9,radiance_10,radiance_11,radiance_12,radiance_13,radiance_14,radiance_15"
         },
         "outputs": [{
