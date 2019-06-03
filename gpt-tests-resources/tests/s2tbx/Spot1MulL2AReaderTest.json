@@ -1,7 +1,7 @@
 [{
   "id":"Spot1MulL2ATest",
   "description":"execute Spot 1 (level L2A) product reader and operators",
-  "frequency":"daily",
+  "frequency":"daily/CSROtest",
   "graphPath": "s2tbx/graphReaderSingleLevel.xml",
   "inputs": {
     "input1": "s2tbx/_gpt_readers/spot1/MUL/L2A/10652648605031012011X0_2A_NETWORK.ZIP"

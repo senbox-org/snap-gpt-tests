@@ -1,7 +1,7 @@
 [{
   "id":"AlosPRITest",
   "description":"execute Alos PRISM product reader and operators",
-  "frequency":"daily",
+  "frequency":"daily/CSROtest",
   "graphPath": "s2tbx/graphReaderMultiLevel.xml",
   "inputs": {
     "input1": "s2tbx/_gpt_readers/alos/AL1_NESR_PSM_OB1_1C_20101105T103901_20101105T103907_025474_0323_2800_0410.SIP/AL1_NESR_PSM_OB1_1C_20101105T103901_20101105T103907_025474_0323_2800_0410.MD.XML"
