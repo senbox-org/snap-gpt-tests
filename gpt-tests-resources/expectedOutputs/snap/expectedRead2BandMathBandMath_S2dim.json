@@ -1,0 +1,89 @@
+{
+  "id": "Read2BandMathBandMath_S2",
+  "decodeQualification": "INTENDED",
+  "expectedContent": {
+    "sceneWidth": 10980,
+    "sceneHeight": 10980,
+    "startTime": "11-JUN-2017 11:06:21.025999",
+    "endTime": "11-JUN-2017 11:06:21.025999",
+    "geoCoding": {
+      "coordinates": [
+        {
+          "x": 4735.0,
+          "y": 5902.0,
+          "lat": 37.381168407388664,
+          "lon": -5.853749205771066
+        },
+        {
+          "x": 8152.0,
+          "y": 7125.0,
+          "lat": 37.27971279940828,
+          "lon": -5.464570274097741
+        }
+      ],
+      "reverseAccuracy": 3.3804462873376906E-7
+    },
+    "bands": [
+      {
+        "name": "newBand",
+        "description": "",
+        "bandWidth": 10980,
+        "bandHeight": 10980,
+        "noDataValue": "0.0",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 572,
+            "y": 1956,
+            "value": -0.12307668
+          },
+          {
+            "x": 7522,
+            "y": 9339,
+            "value": -0.28174925
+          }
+        ]
+      }
+    ],
+    "metadata": [
+      {
+        "path": "Level-2A_User_Product/Geometric_Info/Coordinate_Reference_System/GEO_TABLES",
+        "value": "EPSG"
+      },
+      {
+        "path": "Granules/Level-2A_Tile_30STG/Geometric_Info/Tile_Angles/Viewing_Incidence_Angles_Grids[13]/Azimuth/Values_List/VALUES[22]",
+        "value": "NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN 302.264 301.363 300.559 299.839 299.194 NaN"
+      },
+      {
+        "path": "Processing_Graph/node.2/parameters/targetBands/targetBand/type",
+        "value": "float32"
+      },
+      {
+        "path": "Level-2A_User_Product/Geometric_Info/Product_Footprint/Product_Footprint/Global_Footprint/EXT_POS_LIST",
+        "value": "37.8980997878049 -6.411972478679474 37.92768043331917 -5.164329841329636 36.93866731150362 -5.136025045841796 36.910119161555244 -6.367413003137115 37.8980997878049 -6.411972478679474"
+      },
+      {
+        "path": "Granules/Level-2A_Tile_30STG/General_Info/Archiving_Info/metadataLevel",
+        "value": "Expertise"
+      },
+      {
+        "path": "Level-2A_DataStrip_ID/Satellite_Ancillary_Data_Info/Time_Correlation_Data_List/Time_Correlation_Data[1130]/NSM",
+        "value": "PROPAGATED"
+      },
+      {
+        "path": "history/SubsetInfo/ProductNodeName.16",
+        "value": "Granules"
+      },
+      {
+        "path": "history/SubsetInfo/ProductNodeName.4",
+        "value": "B4"
+      },
+      {
+        "path": "Granules/Level-2A_Tile_30STG/Geometric_Info/Tile_Angles/Viewing_Incidence_Angles_Grids[41]/Azimuth/Values_List/VALUES[10]",
+        "value": "NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN 294.7 294.203 293.767"
+      }
+    ]
+  }
+}

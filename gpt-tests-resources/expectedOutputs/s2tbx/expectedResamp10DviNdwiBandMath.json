@@ -1,0 +1,91 @@
+{
+  "id": "ResampDviNdwiBandMath_S2",
+  "decodeQualification": "INTENDED",
+  "expectedContent": {
+    "sceneWidth": 10980,
+    "sceneHeight": 10980,
+    "geoCoding": {
+      "coordinates": [
+        {
+          "x": 4735.0,
+          "y": 5902.0,
+          "lat": -14.101718138489177,
+          "lon": 129.43846791336154
+        },
+        {
+          "x": 8152.0,
+          "y": 7125.0,
+          "lat": -14.21150669556436,
+          "lon": 129.75537068467273
+        }
+      ],
+      "reverseAccuracy": 7.275957614183426E-10
+    },
+    "bands": [
+      {
+        "name": "newBand",
+        "description": "",
+        "bandWidth": 10980,
+        "bandHeight": 10980,
+        "noDataValue": "0.0",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 572,
+            "y": 1956,
+            "value": "NaN"
+          },
+          {
+            "x": 7522,
+            "y": 9339,
+            "value": "NaN"
+          }
+        ]
+      }
+    ],
+    "metadata": [
+      {
+        "path": "Processing_Graph/node.1/parameters/downsampling",
+        "value": "First"
+      },
+      {
+        "path": "Processing_Graph/node.4/sources/sourceProduct",
+        "value": "BandMaths"
+      },
+      {
+        "path": "Processing_Graph/node.4/parameters/deleteOutputOnFailure",
+        "value": "true"
+      },
+      {
+        "path": "Processing_Graph/node.2/sources/sourceProduct.1",
+        "value": "NdwiOp"
+      },
+      {
+        "path": "Processing_Graph/node.3/parameters/nirSourceBand",
+        "value": "B8"
+      },
+      {
+        "path": "Processing_Graph/node.0/parameters/upsampling",
+        "value": "Nearest"
+      },
+      {
+        "path": "Processing_Graph/node.1/parameters/targetResolution",
+        "value": "10"
+      },
+      {
+        "path": "Processing_Graph/node.2/parameters/targetBands/targetBand/noDataValue",
+        "value": "0.0"
+      },
+      {
+        "path": "Processing_Graph/node.3/parameters/mirSourceBand",
+        "value": "B12"
+      },
+      {
+        "path": "Processing_Graph/node.1/parameters/upsampling",
+        "value": "Nearest"
+      }
+    ]
+  }
+}
