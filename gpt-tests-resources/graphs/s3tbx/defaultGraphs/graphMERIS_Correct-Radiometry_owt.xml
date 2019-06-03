@@ -47,4 +47,20 @@
             <formatName>BEAM-DIMAP</formatName>
         </parameters>
     </node>
+
+    <applicationData id="Presentation">
+        <Description/>
+        <node id="Read">
+            <displayPosition x="20.0" y="136.0"/>
+        </node>
+        <node id="Meris.CorrectRadiometry">
+            <displayPosition x="140.0" y="136.0"/>
+        </node>
+        <node id="OWTClassification">
+            <displayPosition x="280.0" y="136.0"/>
+        </node>
+        <node id="Write">
+            <displayPosition x="420.0" y="136.0"/>
+        </node>
+    </applicationData>
 </graph>
