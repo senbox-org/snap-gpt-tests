@@ -1,7 +1,7 @@
 [{
   "id":"MergeMLClassification",
   "description":"Read and merge three inputs, reproject, import vector, KMeans Cluster Analysis and finally write the output",
-  "frequency":"testOB",
+  "frequency":"daily",
   "graphPath": "snap/graphMerge3ReprojImportKMCClassification.xml",
   "inputs": {
     "input1": "s2tbx/S2/preprocessed/20160312_preprocessed.dim",
