@@ -3,12 +3,16 @@
   <node id="Read">
     <operator>Read</operator>
     <sources/>
-    <parameters class="com.bc.ceres.binding.dom.XppDomElement"/>
+    <parameters>
+       <file>$input1</file>
+    </parameters>
   </node>
   <node id="Read(2)">
     <operator>Read</operator>
     <sources/>
-    <parameters class="com.bc.ceres.binding.dom.XppDomElement"/>
+    <parameters>
+       <file>$input2</file>
+    </parameters>
   </node>
   <node id="TOPSAR-Split">
     <operator>TOPSAR-Split</operator>
@@ -16,10 +20,10 @@
       <sourceProduct refid="Read"/>
     </sources>
     <parameters class="com.bc.ceres.binding.dom.XppDomElement">
-      <subswath/>
-      <selectedPolarisations/>
-      <firstBurstIndex>1</firstBurstIndex>
-      <lastBurstIndex>9999</lastBurstIndex>
+      <subswath>IW1</subswath>
+      <selectedPolarisations>VV</selectedPolarisations>
+      <firstBurstIndex>7</firstBurstIndex>
+      <lastBurstIndex>7</lastBurstIndex>
     </parameters>
   </node>
   <node id="TOPSAR-Split(2)">
@@ -28,10 +32,10 @@
       <sourceProduct refid="Read(2)"/>
     </sources>
     <parameters class="com.bc.ceres.binding.dom.XppDomElement">
-      <subswath/>
-      <selectedPolarisations/>
-      <firstBurstIndex>1</firstBurstIndex>
-      <lastBurstIndex>9999</lastBurstIndex>
+      <subswath>IW1</subswath>
+      <selectedPolarisations>VV</selectedPolarisations>
+      <firstBurstIndex>7</firstBurstIndex>
+      <lastBurstIndex>7</lastBurstIndex>
     </parameters>
   </node>
   <node id="Apply-Orbit-File">
@@ -77,9 +81,17 @@
       <sourceProduct refid="Back-Geocoding"/>
     </sources>
     <parameters class="com.bc.ceres.binding.dom.XppDomElement">
-      <registrationWindowSize>512</registrationWindowSize>
-      <interpFactor>4</interpFactor>
-      <maxIteration>10</maxIteration>
+      <fineWinWidthStr>512</fineWinWidthStr>
+      <fineWinHeightStr>512</fineWinHeightStr>
+      <fineWinAccAzimuth>16</fineWinAccAzimuth>
+      <fineWinAccRange>16</fineWinAccRange>
+      <fineWinOversampling>128</fineWinOversampling>
+      <xCorrThreshold>0.1</xCorrThreshold>
+      <cohThreshold>0.15</cohThreshold>
+      <numBlocksPerOverlap>10</numBlocksPerOverlap>
+      <useSuppliedShifts>false</useSuppliedShifts>
+      <overallAzimuthShift>0.0</overallAzimuthShift>
+      <overallRangeShift>0.0</overallRangeShift>
     </parameters>
   </node>
   <node id="Write">
@@ -87,9 +99,9 @@
     <sources>
       <sourceProduct refid="Enhanced-Spectral-Diversity"/>
     </sources>
-    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
-      <file></file>
+    <parameters>
       <formatName>BEAM-DIMAP</formatName>
+      <file>$out1</file>
     </parameters>
   </node>
   <applicationData id="Presentation">

@@ -4,7 +4,7 @@
     <operator>ProductSet-Reader</operator>
     <sources/>
     <parameters class="com.bc.ceres.binding.dom.XppDomElement">
-      <fileList/>
+      <fileList>$input1,$input2</fileList>
     </parameters>
   </node>
   <node id="DEM-Assisted-Coregistration">

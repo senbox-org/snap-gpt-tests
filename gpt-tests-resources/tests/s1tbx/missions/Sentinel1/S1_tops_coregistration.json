@@ -1,0 +1,28 @@
+[
+{
+  "id":"s1tbx.sentinel1.tops.coregistration.s1",
+  "description":"execute S1 TOPS Coregistration",
+  "frequency":"daily/s1tbx",
+  "graphPath": "s1tbx/Missions/Sentinel1/Sentinel1-TOPS-Coregistration.xml",
+  "inputs": {
+    "input1": "s1tbx/SAR/S1/SLC/Etna-DLR/S1A_IW_SLC__1SDV_20140809T165546_20140809T165613_001866_001C20_088B.zip",
+	"input2": "s1tbx/SAR/S1/SLC/Etna-DLR/S1A_IW_SLC__1SDV_20140821T165547_20140821T165614_002041_001FC1_8601.zip"
+  },
+  "parameters": {
+	
+  },
+  "outputs": [{
+    "parameter": "out1",
+    "outputName": "out-tops-coregistration-s1",
+    "expected": "s1tbx/missions/Sentinel1/expected-tops-coregistration-s1.json"
+  }],
+  "configVM": {
+    "xmx": "8G",
+    "cacheSize": "0",
+    "parallelism": "4"
+  }
+}
+]
+
+
+

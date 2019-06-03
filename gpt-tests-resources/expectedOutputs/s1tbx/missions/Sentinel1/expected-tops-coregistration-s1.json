@@ -1,0 +1,163 @@
+{
+  "id" : "s1tbx.sentinel1.tops.coregistration.s1",
+  "decodeQualification" : "INTENDED",
+  "expectedContent" : {
+    "sceneWidth" : 21253,
+    "sceneHeight" : 1629,
+    "geoCoding" : {
+      "coordinates" : [ {
+        "x" : 10626.0,
+        "y" : 814.0,
+        "lat" : 37.59701152788081,
+        "lon" : 14.53965971366683
+      } ]
+    },
+    "tiePointGrids" : [ {
+      "name" : "latitude",
+      "description" : "",
+      "offsetX" : 0.5,
+      "offsetY" : -1628.5,
+      "subSamplingX" : 1062.65,
+      "subSamplingY" : 1629.0,
+      "expectedPixels" : [ {
+        "x" : 10626.0,
+        "y" : 814.0,
+        "value" : 37.597065
+      } ]
+    }, {
+      "name" : "longitude",
+      "description" : "",
+      "offsetX" : 0.5,
+      "offsetY" : -1628.5,
+      "subSamplingX" : 1062.65,
+      "subSamplingY" : 1629.0,
+      "expectedPixels" : [ {
+        "x" : 10626.0,
+        "y" : 814.0,
+        "value" : 14.539671
+      } ]
+    }, {
+      "name" : "incident_angle",
+      "description" : "",
+      "offsetX" : 0.5,
+      "offsetY" : -1628.5,
+      "subSamplingX" : 1062.65,
+      "subSamplingY" : 1629.0,
+      "expectedPixels" : [ {
+        "x" : 10626.0,
+        "y" : 814.0,
+        "value" : 33.81559
+      } ]
+    }, {
+      "name" : "elevation_angle",
+      "description" : "",
+      "offsetX" : 0.5,
+      "offsetY" : -1628.5,
+      "subSamplingX" : 1062.65,
+      "subSamplingY" : 1629.0,
+      "expectedPixels" : [ {
+        "x" : 10626.0,
+        "y" : 814.0,
+        "value" : 30.09174
+      } ]
+    }, {
+      "name" : "slant_range_time",
+      "description" : "",
+      "offsetX" : 0.5,
+      "offsetY" : -1628.5,
+      "subSamplingX" : 1062.65,
+      "subSamplingY" : 1629.0,
+      "expectedPixels" : [ {
+        "x" : 10626.0,
+        "y" : 814.0,
+        "value" : 5504971.5
+      } ]
+    } ],
+    "bands" : [ {
+      "name" : "i_IW1_VV_mst_09Aug2014",
+      "description" : "",
+      "bandWidth" : 21253,
+      "bandHeight" : 1629,
+      "noDataValue" : 0.0,
+      "noDataValueUsed" : false,
+      "spectralWavelength" : 0.0,
+      "spectralBandwidth" : 0.0,
+      "expectedPixels" : [ {
+        "x" : 10626.0,
+        "y" : 814.0,
+        "value" : -97.0
+      } ]
+    }, {
+      "name" : "q_IW1_VV_mst_09Aug2014",
+      "description" : "",
+      "bandWidth" : 21253,
+      "bandHeight" : 1629,
+      "noDataValue" : 0.0,
+      "noDataValueUsed" : false,
+      "spectralWavelength" : 0.0,
+      "spectralBandwidth" : 0.0,
+      "expectedPixels" : [ {
+        "x" : 10626.0,
+        "y" : 814.0,
+        "value" : 85.0
+      } ]
+    }, {
+      "name" : "Intensity_IW1_VV_mst_09Aug2014",
+      "description" : "Intensity from complex data",
+      "bandWidth" : 21253,
+      "bandHeight" : 1629,
+      "noDataValue" : 0.0,
+      "noDataValueUsed" : true,
+      "spectralWavelength" : 0.0,
+      "spectralBandwidth" : 0.0,
+      "expectedPixels" : [ {
+        "x" : 10626.0,
+        "y" : 814.0,
+        "value" : 16634.0
+      } ]
+    }, {
+      "name" : "i_IW1_VV_slv1_21Aug2014",
+      "description" : "",
+      "bandWidth" : 21253,
+      "bandHeight" : 1629,
+      "noDataValue" : 0.0,
+      "noDataValueUsed" : true,
+      "spectralWavelength" : 0.0,
+      "spectralBandwidth" : 0.0,
+      "expectedPixels" : [ {
+        "x" : 10626.0,
+        "y" : 814.0,
+        "value" : -11.800436
+      } ]
+    }, {
+      "name" : "q_IW1_VV_slv1_21Aug2014",
+      "description" : "",
+      "bandWidth" : 21253,
+      "bandHeight" : 1629,
+      "noDataValue" : 0.0,
+      "noDataValueUsed" : true,
+      "spectralWavelength" : 0.0,
+      "spectralBandwidth" : 0.0,
+      "expectedPixels" : [ {
+        "x" : 10626.0,
+        "y" : 814.0,
+        "value" : 20.007551
+      } ]
+    }, {
+      "name" : "Intensity_IW1_VV_slv1_21Aug2014",
+      "description" : "Intensity from complex data",
+      "bandWidth" : 21253,
+      "bandHeight" : 1629,
+      "noDataValue" : 0.0,
+      "noDataValueUsed" : true,
+      "spectralWavelength" : 0.0,
+      "spectralBandwidth" : 0.0,
+      "expectedPixels" : [ {
+        "x" : 10626.0,
+        "y" : 814.0,
+        "value" : 539.55237
+      } ]
+    } ],
+    "masks" : [ ]
+  }
+}
