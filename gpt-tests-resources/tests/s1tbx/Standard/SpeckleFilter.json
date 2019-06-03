@@ -179,24 +179,6 @@
       "expected": "s1tbx/Standard/expected-specklefilter-lee-s1-grd.json"
     }]
   },
-    {
-    "id":"s1tbx.standard.specklefilter.lee.s1.grd",
-    "description":"execute Lee specklefilter processor with S1 GRD",
-    "frequency":"daily",
-    "graphPath": "s1tbx/Standard/SpeckleFilter.xml",
-    "inputs": {
-      "input1": "s1tbx/SAR/S1/GRD/Hawaii_slices/S1A_IW_GRDH_1SDV_20180514T043029_20180514T043054_021896_025D31_BBDA.zip"
-    },
-    "parameters": {
-	    "region": "200,300,300,300",
-		"filter": "Lee"
-    },
-    "outputs": [{
-      "parameter": "out1",
-      "outputName": "out-specklefilter-lee-s1-grd",
-      "expected": "s1tbx/Standard/expected-specklefilter-lee-s1-grd.json"
-    }]
-  },
   {
     "id":"s1tbx.standard.specklefilter.refinedlee.s1.grd",
     "description":"execute Refined Lee specklefilter processor with S1 GRD",
