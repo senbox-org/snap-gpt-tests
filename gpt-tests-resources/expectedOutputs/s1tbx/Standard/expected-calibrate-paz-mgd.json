@@ -1,5 +1,5 @@
 {
-  "id" : "s1tbx.standard.calibrate.k5.gtc",
+  "id" : "s1tbx.standard.calibrate.paz.mgd",
   "decodeQualification" : "INTENDED",
   "expectedContent" : {
     "sceneWidth" : 500,
@@ -8,57 +8,57 @@
       "coordinates" : [ {
         "x" : 250.0,
         "y" : 250.0,
-        "lat" : 35.0868936107099,
-        "lon" : -78.98596216681035
+        "lat" : 29.32383338913609,
+        "lon" : 77.96038487386187
       } ]
     },
     "tiePointGrids" : [ {
-      "name" : "incident_angle",
+      "name" : "latitude",
       "description" : "",
-      "offsetX" : -100.0,
-      "offsetY" : -100.0,
-      "subSamplingX" : 792.7000122070312,
-      "subSamplingY" : 804.7999877929688,
+      "offsetX" : -38.98803827751196,
+      "offsetY" : -38.91,
+      "subSamplingX" : 60.51196172248804,
+      "subSamplingY" : 60.59,
       "expectedPixels" : [ {
         "x" : 250.0,
         "y" : 250.0,
-        "value" : 51.650948
+        "value" : 29.323803
+      } ]
+    }, {
+      "name" : "longitude",
+      "description" : "",
+      "offsetX" : -38.98803827751196,
+      "offsetY" : -38.91,
+      "subSamplingX" : 60.51196172248804,
+      "subSamplingY" : 60.59,
+      "expectedPixels" : [ {
+        "x" : 250.0,
+        "y" : 250.0,
+        "value" : 77.960335
+      } ]
+    }, {
+      "name" : "incident_angle",
+      "description" : "",
+      "offsetX" : -38.98803827751196,
+      "offsetY" : -38.91,
+      "subSamplingX" : 60.51196172248804,
+      "subSamplingY" : 60.59,
+      "expectedPixels" : [ {
+        "x" : 250.0,
+        "y" : 250.0,
+        "value" : 43.589886
       } ]
     }, {
       "name" : "slant_range_time",
       "description" : "",
       "offsetX" : -100.0,
       "offsetY" : -100.0,
-      "subSamplingX" : 792.7000122070312,
-      "subSamplingY" : 804.7999877929688,
+      "subSamplingX" : 4215.666666666667,
+      "subSamplingY" : 6059.0,
       "expectedPixels" : [ {
         "x" : 250.0,
         "y" : 250.0,
-        "value" : 5652325.0
-      } ]
-    }, {
-      "name" : "latitude",
-      "description" : "",
-      "offsetX" : -99.5,
-      "offsetY" : -99.5,
-      "subSamplingX" : 880.0,
-      "subSamplingY" : 894.0,
-      "expectedPixels" : [ {
-        "x" : 250.0,
-        "y" : 250.0,
-        "value" : 35.086895
-      } ]
-    }, {
-      "name" : "longitude",
-      "description" : "",
-      "offsetX" : -99.5,
-      "offsetY" : -99.5,
-      "subSamplingX" : 880.0,
-      "subSamplingY" : 894.0,
-      "expectedPixels" : [ {
-        "x" : 250.0,
-        "y" : 250.0,
-        "value" : -78.98596
+        "value" : 4560937.5
       } ]
     } ],
     "bands" : [ {
@@ -73,7 +73,7 @@
       "expectedPixels" : [ {
         "x" : 250.0,
         "y" : 250.0,
-        "value" : 0.044497244
+        "value" : 0.12766188
       } ]
     } ],
     "masks" : [ ]
