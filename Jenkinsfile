@@ -62,11 +62,14 @@ def launchJobsSeq(jsonString, scope, outputDir) {
         def currentJsonFile = "" + item
         if (currentJsonFile.trim() != "") {
             echo "Schedule job for json file : " + item
-            build job: "gpt-test-launcher", parameters: [
-                    [$class: 'StringParameterValue', name: 'jsonPath', value: currentJsonFile],
-                    [$class: 'StringParameterValue', name: 'testScope', value: "${scope}"],
-                    [$class: 'StringParameterValue', name: 'outputReportDir', value: "${outputDir}"]
-            ],
+            jobs["GPT Test ${num} ${item}"] = {
+                build job: "snap-gpt-tests/${branchVersion}", parameters: [
+                        // build job: "test", parameters: [
+                        [$class: 'StringParameterValue', name: 'dockerTagName', value: "${dockerTagName}"],
+                        [$class: 'StringParameterValue', name: 'jsonPath', value: currentJsonFile],
+                        [$class: 'StringParameterValue', name: 'testScope', value: "${scope}"],
+                        [$class: 'StringParameterValue', name: 'outputReportDir', value: "${outputDir}"]
+                ],
                     quietPeriod: 0,
                     propagate: false,
                     wait: true
