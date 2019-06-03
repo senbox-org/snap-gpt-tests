@@ -1,0 +1,145 @@
+{
+  "id": "tempNdvi",
+  "decodeQualification": "INTENDED",
+  "expectedContent": {
+    "sceneWidth": 10980,
+    "sceneHeight": 10980,
+    "startTime": "06-DEC-2016 08:03:12.026000",
+    "endTime": "06-DEC-2016 08:03:12.026000",
+    "geoCoding": {
+      "coordinates": [
+        {
+          "x": 4735.0,
+          "y": 5902.0,
+          "lat": -33.961022507653304,
+          "lon": 22.59479170039122
+        },
+        {
+          "x": 8152.0,
+          "y": 7125.0,
+          "lat": -34.06591255410723,
+          "lon": 22.966987475281325
+        }
+      ],
+      "reverseAccuracy": 4.71482053399086E-8
+    },
+    "flagCodings": [
+      {
+        "name": "ndvi_flags",
+        "samples": [
+          {
+            "name": "NDVI_ARITHMETIC",
+            "value": 1,
+            "description": "NDVI value calculation failed due to an arithmetic exception"
+          },
+          {
+            "name": "NDVI_NEGATIVE",
+            "value": 2,
+            "description": "NDVI value is too low"
+          },
+          {
+            "name": "NDVI_SATURATION",
+            "value": 4,
+            "description": "NDVI value is too high"
+          }
+        ]
+      }
+    ],
+    "bands": [
+      {
+        "name": "ndvi",
+        "description": "",
+        "bandWidth": 10980,
+        "bandHeight": 10980,
+        "noDataValue": "0.0",
+        "noDataValueUsed": "false",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 572,
+            "y": 1956,
+            "value": 0.0
+          },
+          {
+            "x": 7522,
+            "y": 9339,
+            "value": -0.27157897
+          }
+        ]
+      },
+      {
+        "name": "ndvi_flags",
+        "description": "NDVI specific flags",
+        "bandWidth": 10980,
+        "bandHeight": 10980,
+        "noDataValue": "0.0",
+        "noDataValueUsed": "false",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 3193,
+            "y": 2820,
+            "value": 1.0
+          },
+          {
+            "x": 6703,
+            "y": 4010,
+            "value": 0.0
+          }
+        ]
+      }
+    ],
+    "masks": [
+      {
+        "name": "NDVI_ARITHMETIC",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "255,0,0",
+        "description": "An arithmetic exception occurred."
+      },
+      {
+        "name": "NDVI_NEGATIVE",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "255,0,0",
+        "description": "NDVI value is too low."
+      },
+      {
+        "name": "NDVI_SATURATION",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "178,0,0",
+        "description": "NDVI value is too high."
+      }
+    ],
+    "metadata": [
+      {
+        "path": "Processing_Graph/node.1/parameters/clearCacheAfterRowWrite",
+        "value": "false"
+      },
+      {
+        "path": "Processing_Graph/node.1/parameters/clearCacheAfterRowWrite",
+        "value": "false"
+      },
+      {
+        "path": "Processing_Graph/node.0/parameters/redFactor",
+        "value": "1.0"
+      },
+      {
+        "path": "Processing_Graph/node.1/sources/sourceProduct",
+        "value": "NdviOp"
+      },
+      {
+        "path": "Processing_Graph/node.1/parameters/formatName",
+        "value": "BEAM-DIMAP"
+      },
+      {
+        "path": "Processing_Graph/node.0/parameters/nirFactor",
+        "value": "1.0"
+      },
+      {
+        "path": "Processing_Graph/node.0/parameters/redSourceBand",
+        "value": "B4"
+      }
+    ]
+  }
+}
