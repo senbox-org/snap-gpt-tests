@@ -9,16 +9,21 @@
 	"input2": "s1tbx/SAR/ASAR/Bam/ASA_IMS_1PXPDE20040211_061300_000000142024_00120_10194_0013.N1"
   },
   "parameters": {
-	"subsetRegion": "2000,3000,3000,3000"
+	"geoRegion": "POLYGON ((58.332550048828125 29.096336364746094, 58.64521026611328 29.096336364746094, 58.64521026611328 28.851957321166992, 58.332550048828125 28.851957321166992, 58.332550048828125 29.096336364746094, 58.332550048828125 29.096336364746094))"
   },
   "outputs": [{
     "parameter": "out1",
     "outputName": "out-insar-coregister-asar",
     "expected": "s1tbx/InSAR/expected-insar-coregister-asar.json"
-  }]
+  }],
+  "configVM": {
+    "xmx": "16G",
+    "cacheSize": "0",
+    "parallelism": "4"
+  }
 },
 {
-  "id":"s1tbx.insar.coregister.s1",
+  "id":"s1tbx.insar.coregister.s1-sm",
   "description":"execute cross correlation coregistration with S1 SM",
   "frequency":"daily",
   "graphPath": "s1tbx/InSAR/Coregister.xml",
@@ -27,13 +32,18 @@
 	"input2": "s1tbx/SAR/S1/Stripmap/S1A_S1_SLC__1SSV_20140831T142335_20140831T142403_002185_002356_C2E5.SAFE.zip"
   },
   "parameters": {
-	"subsetRegion": "2000,3000,3000,3000"
+	"geoRegion": "POLYGON ((-122.65888214111328 38.370704650878906, -122.10518646240234 38.370704650878906, -122.10518646240234 38.017799377441406, -122.65888214111328 38.017799377441406, -122.65888214111328 38.370704650878906, -122.65888214111328 38.370704650878906))"
   },
   "outputs": [{
     "parameter": "out1",
-    "outputName": "out-insar-coregister-s1",
-    "expected": "s1tbx/InSAR/expected-insar-coregister-s1.json"
-  }]
+    "outputName": "out-insar-coregister-s1-sm",
+    "expected": "s1tbx/InSAR/expected-insar-coregister-s1-sm.json"
+  }],
+  "configVM": {
+    "xmx": "16G",
+    "cacheSize": "0",
+    "parallelism": "4"
+  }
 }
 ]
 

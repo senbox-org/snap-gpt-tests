@@ -1,0 +1,107 @@
+{
+  "id" : "s1tbx.insar.multitemporal.specklefilter.s1-sm",
+  "decodeQualification" : "INTENDED",
+  "expectedContent" : {
+    "sceneWidth" : 14302,
+    "sceneHeight" : 13150,
+    "geoCoding" : {
+      "coordinates" : [ {
+        "x" : 7151.0,
+        "y" : 6575.0,
+        "lat" : 38.19541679372439,
+        "lon" : -122.39490998921374
+      } ]
+    },
+    "tiePointGrids" : [ {
+      "name" : "latitude",
+      "description" : "",
+      "offsetX" : -403.1999999999998,
+      "offsetY" : 0.5,
+      "subSamplingX" : 1086.65,
+      "subSamplingY" : 815.3692307692307,
+      "expectedPixels" : [ {
+        "x" : 7151.0,
+        "y" : 6575.0,
+        "value" : 38.195404
+      } ]
+    }, {
+      "name" : "longitude",
+      "description" : "",
+      "offsetX" : -403.1999999999998,
+      "offsetY" : 0.5,
+      "subSamplingX" : 1086.65,
+      "subSamplingY" : 815.3692307692307,
+      "expectedPixels" : [ {
+        "x" : 7151.0,
+        "y" : 6575.0,
+        "value" : -122.394936
+      } ]
+    }, {
+      "name" : "incident_angle",
+      "description" : "",
+      "offsetX" : -403.1999999999998,
+      "offsetY" : 0.5,
+      "subSamplingX" : 1086.65,
+      "subSamplingY" : 815.3692307692307,
+      "expectedPixels" : [ {
+        "x" : 7151.0,
+        "y" : 6575.0,
+        "value" : 22.813295
+      } ]
+    }, {
+      "name" : "elevation_angle",
+      "description" : "",
+      "offsetX" : -403.1999999999998,
+      "offsetY" : 0.5,
+      "subSamplingX" : 1086.65,
+      "subSamplingY" : 815.3692307692307,
+      "expectedPixels" : [ {
+        "x" : 7151.0,
+        "y" : 6575.0,
+        "value" : 20.445133
+      } ]
+    }, {
+      "name" : "slant_range_time",
+      "description" : "",
+      "offsetX" : -403.1999999999998,
+      "offsetY" : 0.5,
+      "subSamplingX" : 1086.65,
+      "subSamplingY" : 815.3692307692307,
+      "expectedPixels" : [ {
+        "x" : 7151.0,
+        "y" : 6575.0,
+        "value" : 5026988.5
+      } ]
+    } ],
+    "bands" : [ {
+      "name" : "Intensity_VV_mst_07Aug2014",
+      "description" : "",
+      "bandWidth" : 14302,
+      "bandHeight" : 13150,
+      "noDataValue" : 0.0,
+      "noDataValueUsed" : false,
+      "spectralWavelength" : 0.0,
+      "spectralBandwidth" : 0.0,
+      "expectedPixels" : [ {
+        "x" : 7151.0,
+        "y" : 6575.0,
+        "value" : 901.9124
+      } ]
+    }, {
+      "name" : "Intensity_VV_slv1_31Aug2014",
+      "description" : "",
+      "bandWidth" : 14302,
+      "bandHeight" : 13150,
+      "noDataValue" : 0.0,
+      "noDataValueUsed" : false,
+      "spectralWavelength" : 0.0,
+      "spectralBandwidth" : 0.0,
+      "expectedPixels" : [ {
+        "x" : 7151.0,
+        "y" : 6575.0,
+        "value" : 1252.7375
+      } ]
+    } ],
+    "masks" : [ ]
+  }
+}

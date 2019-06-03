@@ -4236,23 +4236,23 @@
         "metadata": [
             {
                 "path": "Processing_Graph/node.1/parameters/reflectanceNamePattern",
-                "value": "Oa.._reflectance"
+                "value": "not used"
             },
             {
-                "path": "history/SubsetInfo/ProductNodeName.156",
-                "value": "solar_flux_band_20"
+                "path": "Processing_Graph/node.2/parameters/clearCacheAfterRowWrite",
+                "value": "false"
             },
             {
-                "path": "Processing_Graph/node.2/parameters/file",
-                "value": "FuOp_OLCI_L2"
+                "path": "history/SubsetInfo/ProductNodeName.95",
+                "value": "lambda0_band_1"
             },
             {
-                "path": "history/SubsetInfo/ProductNodeName.148",
-                "value": "solar_flux_band_12"
+                "path": "Processing_Graph/node.1/sources/sourceProduct",
+                "value": "product:Subset_S3A_OL_2_WFR____20070425T152940_20070425T153025_20140610T112151_0045_000_000______MAR_D_NR____.SEN3"
             },
             {
-                "path": "history/SubsetInfo/ProductNodeName.94",
-                "value": "frame_offset"
+                "path": "Processing_Graph/node.0/parameters/copyMetadata",
+                "value": "false"
             },
             {
                 "path": "history/SubsetInfo/ProductNodeName.62",
@@ -4263,12 +4263,12 @@
                 "value": "FuOp"
             },
             {
-                "path": "history/SubsetInfo/ProductNodeName.22",
-                "value": "atmospheric_temperature_profile_pressure_level_11"
+                "path": "Processing_Graph/node.0/parameters/fullSwath",
+                "value": "false"
             },
             {
-                "path": "history/SubsetInfo/ProductNodeName.38",
-                "value": "Oa01_reflectance"
+                "path": "history/SubsetInfo/ProductNodeName.41",
+                "value": "Oa02_reflectance_err"
             }
         ]
     }

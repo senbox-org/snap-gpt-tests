@@ -14,7 +14,12 @@
     "parameter": "out1",
     "outputName": "out-tops-deburst-merge-s1",
     "expected": "s1tbx/missions/Sentinel1/expected-tops-deburst-merge-s1.json"
-  }]
+  }],
+  "configVM": {
+    "xmx": "6G",
+    "cacheSize": "0",
+    "parallelism": "2"
+  }
 }
 
 ]

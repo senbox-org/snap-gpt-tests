@@ -8,16 +8,18 @@
     "input1": "s1tbx/SAR/ASAR/ASA_IMM.zip"
   },
   "parameters": {
-    "regionX": 100,
-    "regionY": 200,
-    "regionWidth": 500,
-    "regionHeight": 500
+    "region": "100,200,500,500"
   },
   "outputs": [{
     "parameter": "out1",
     "outputName": "out-tc-asar",
     "expected": "s1tbx/Standard/expected-terraincorrect-asar.json"
-  }]
+  }],
+  "configVM": {
+    "xmx": "6G",
+    "cacheSize": "0",
+    "parallelism": "2"
+  }
 },
 {
   "id":"s1tbx.standard.terraincorrect.ers",
@@ -28,16 +30,18 @@
     "input1": "s1tbx/SAR/ERS/SAR_IMM_1PXESA20110310_110538_00000007A166_00037_83057_1816.E2.zip"
   },
   "parameters": {
-    "regionX": 100,
-    "regionY": 100,
-    "regionWidth": 500,
-    "regionHeight": 500
+    "region": "100,100,500,500"
   },
   "outputs": [{
     "parameter": "out1",
     "outputName": "out-tc-ers",
     "expected": "s1tbx/Standard/expected-terraincorrect-ers.json"
-  }]
+  }],
+  "configVM": {
+    "xmx": "6G",
+    "cacheSize": "0",
+    "parallelism": "2"
+  }
 },
 {
   "id":"s1tbx.standard.terraincorrect.rs2",
@@ -48,16 +52,18 @@
     "input1": "s1tbx/SAR/RS2/RS2_OK76385_PK678063_DK606752_FQ2_20080415_143807_HH_VV_HV_VH_SLC.zip"
   },
   "parameters": {
-    "regionX": 100,
-    "regionY": 100,
-    "regionWidth": 500,
-    "regionHeight": 500
+    "region": "100,100,500,500"
   },
   "outputs": [{
     "parameter": "out1",
     "outputName": "out-tc-rs2",
     "expected": "s1tbx/Standard/expected-terraincorrect-rs2.json"
-  }]
+  }],
+  "configVM": {
+    "xmx": "6G",
+    "cacheSize": "0",
+    "parallelism": "2"
+  }
 },
 {
   "id":"s1tbx.standard.terraincorrect.s1.grd",
@@ -68,16 +74,18 @@
     "input1": "s1tbx/SAR/S1/GRD/Hawaii_slices/S1A_IW_GRDH_1SDV_20180514T043029_20180514T043054_021896_025D31_BBDA.zip"
   },
   "parameters": {
-    "regionX": 100,
-    "regionY": 100,
-    "regionWidth": 500,
-    "regionHeight": 500
+    "region": "100,100,500,500"
   },
   "outputs": [{
     "parameter": "out1",
     "outputName": "out-tc-s1",
     "expected": "s1tbx/Standard/expected-terraincorrect-s1-grd.json"
-  }]
+  }],
+  "configVM": {
+    "xmx": "6G",
+    "cacheSize": "0",
+    "parallelism": "2"
+  }
 }
 
 ]

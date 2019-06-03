@@ -36,6 +36,16 @@ public class TestExecutor {
         }
         params.add(graphFolder.resolve(graphTest.getGraphPath()).toString());
 
+        //if specific VM, configure gpt
+        //TODO set XMX in gpt.vmoption
+        if(graphTest.getConfigVM() != null) {
+            params.add("-c");
+            params.add(graphTest.getConfigVM().getCacheSize());
+            params.add("-q");
+            params.add(graphTest.getConfigVM().getParallelism());
+        }
+
+
         //inputs
         for(Map.Entry<String, String> entry : graphTest.getInputs().entrySet()) {
             String value = entry.getValue();

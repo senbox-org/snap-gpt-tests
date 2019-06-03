@@ -1,0 +1,81 @@
+{
+  "id" : "s1tbx.sentinel1.slc2grd.tops.s1",
+  "decodeQualification" : "INTENDED",
+  "expectedContent" : {
+    "sceneWidth" : 3000,
+    "sceneHeight" : 3000,
+    "geoCoding" : {
+      "coordinates" : [ {
+        "x" : 1500.0,
+        "y" : 1500.0,
+        "lat" : 37.103793318227225,
+        "lon" : 14.857127827953622
+      } ]
+    },
+    "tiePointGrids" : [ {
+      "name" : "latitude",
+      "description" : "",
+      "offsetX" : -609.9000244140625,
+      "offsetY" : -333.800048828125,
+      "subSamplingX" : 1390.0999755859375,
+      "subSamplingY" : 1333.0999755859375,
+      "expectedPixels" : [ {
+        "x" : 1500.0,
+        "y" : 1500.0,
+        "value" : 37.10387
+      } ]
+    }, {
+      "name" : "longitude",
+      "description" : "",
+      "offsetX" : -609.9000244140625,
+      "offsetY" : -333.800048828125,
+      "subSamplingX" : 1390.0999755859375,
+      "subSamplingY" : 1333.0999755859375,
+      "expectedPixels" : [ {
+        "x" : 1500.0,
+        "y" : 1500.0,
+        "value" : 14.857215
+      } ]
+    }, {
+      "name" : "slant_range_time",
+      "description" : "",
+      "offsetX" : -609.9000244140625,
+      "offsetY" : -333.800048828125,
+      "subSamplingX" : 1390.0999755859375,
+      "subSamplingY" : 1333.0999755859375,
+      "expectedPixels" : [ {
+        "x" : 1500.0,
+        "y" : 1500.0,
+        "value" : 5572278.0
+      } ]
+    }, {
+      "name" : "incident_angle",
+      "description" : "",
+      "offsetX" : -609.9000244140625,
+      "offsetY" : -333.800048828125,
+      "subSamplingX" : 1390.0999755859375,
+      "subSamplingY" : 1333.0999755859375,
+      "expectedPixels" : [ {
+        "x" : 1500.0,
+        "y" : 1500.0,
+        "value" : 34.97308
+      } ]
+    } ],
+    "bands" : [ {
+      "name" : "Sigma0_VH",
+      "description" : "",
+      "bandWidth" : 3000,
+      "bandHeight" : 3000,
+      "noDataValue" : 0.0,
+      "noDataValueUsed" : true,
+      "spectralWavelength" : 0.0,
+      "spectralBandwidth" : 0.0,
+      "expectedPixels" : [ {
+        "x" : 1500.0,
+        "y" : 1500.0,
+        "value" : 0.03526507
+      } ]
+    } ],
+    "masks" : [ ]
+  }
+}

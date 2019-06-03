@@ -17,5 +17,10 @@
     "parameter": "out1",
     "outputName": "advResamplin",
     "expected": "snap/expectedAdvancedResampling.json"
-  }]
+  }],
+  "configVM": {
+    "xmx": "5G",
+    "cacheSize": "0",
+    "parallelism": "4"
+  }
 }]

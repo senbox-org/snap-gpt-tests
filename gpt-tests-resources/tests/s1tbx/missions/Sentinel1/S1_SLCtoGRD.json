@@ -14,7 +14,12 @@
     "parameter": "out1",
     "outputName": "out-slc2grd-s1",
     "expected": "s1tbx/missions/Sentinel1/expected-slc2grd-s1.json"
-  }]
+  }],
+  "configVM": {
+    "xmx": "6G",
+    "cacheSize": "0",
+    "parallelism": "2"
+  }
 },
 {
   "id":"s1tbx.sentinel1.slc2grd.tops.s1",
@@ -22,7 +27,7 @@
   "frequency":"daily",
   "graphPath": "s1tbx/Missions/Sentinel1/Sentinel1SLCtoGRDGraph.xml",
   "inputs": {
-    "input1": "s1tbx/SAR/S1/Etna-DLR/S1A_IW_SLC__1SDV_20140809T165546_20140809T165613_001866_001C20_088B.zip"
+    "input1": "s1tbx/SAR/S1/SLC/Etna-DLR/S1A_IW_SLC__1SDV_20140809T165546_20140809T165613_001866_001C20_088B.zip"
   },
   "parameters": {
 	"subsetRegion": "2000,3000,3000,3000"
@@ -31,7 +36,12 @@
     "parameter": "out1",
     "outputName": "out-slc2grd-tops-s1",
     "expected": "s1tbx/missions/Sentinel1/expected-slc2grd-tops-s1.json"
-  }]
+  }],
+  "configVM": {
+    "xmx": "6G",
+    "cacheSize": "0",
+    "parallelism": "2"
+  }
 }
 ]
 
