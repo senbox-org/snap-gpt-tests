@@ -26,7 +26,7 @@
     {
         "id":"FuTest_OLCI",
         "description":"execute Fu operator with OLCI L2",
-        "frequency":"daily",
+        "frequency":"daily/marcoptest",
         "graphPath": "s3tbx/graphFuOp.xml",
         "inputs": {
             "input1": "s3tbx/sensors_platforms/SENTINEL-3/olci/L2/S3A_OL_2_WFR____20070425T152940_20070425T153025_20140610T112151_0045_000_000______MAR_D_NR____.SEN3"
@@ -75,7 +75,7 @@
     {
         "id":"FuTest_SeaWIFS",
         "description":"execute Fu operator with SeaWIFS L2",
-        "frequency":"daily",
+        "frequency":"daily/marcoptest",
         "graphPath": "s3tbx/graphFuOp.xml",
         "inputs": {
             "input1": "s3tbx/sensors_platforms/SeaWIFS/S2001014011328.L2_GAC_OC"
