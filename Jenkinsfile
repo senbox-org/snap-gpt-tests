@@ -50,6 +50,31 @@ def launchJobs(jsonString, scope, outputDir) {
     parallel jobs
 }
 
+def launchJobsSeq(jsonString, scope, outputDir) {
+
+    def jobs = [:]
+    println "List of Json file : " + jsonString
+    jsonString = jsonString.trim()
+    jsonList = jsonString.split("\n")
+    num = 0
+    for (int i=0; i < jsonList.size(); i++) {
+        item = jsonList[i]
+        def currentJsonFile = "" + item
+        if (currentJsonFile.trim() != "") {
+            echo "Schedule job for json file : " + item
+            build job: "gpt-test-launcher", parameters: [
+                    [$class: 'StringParameterValue', name: 'jsonPath', value: currentJsonFile],
+                    [$class: 'StringParameterValue', name: 'testScope', value: "${scope}"],
+                    [$class: 'StringParameterValue', name: 'outputReportDir', value: "${outputDir}"]
+            ],
+                    quietPeriod: 0,
+                    propagate: false,
+                    wait: true
+        }
+        num++
+    }
+}
+
 pipeline {
 
     environment {
@@ -86,6 +111,7 @@ pipeline {
                 sh "mvn -Duser.home=/var/maven clean package install"
                 sh "java -jar ./gpt-tests-executer/target/FilterTestJSON.jar ./gpt-tests-resources/tests \"${params.testScope}\" ${outputDir}"
                 sh "more ${outputDir}/JSONTestFiles.txt"
+                sh "more ${outputDir}/JSONTestFilesSeq.txt"
                 sh "cp -r ./gpt-tests-executer/target/ ${outputDir}/gptExecutorTarget"
                 // sh "/opt/launchGpt.sh ${propertiesFilePath} ${outputDir}/FilterJson.vsofig ${scope}"
             }
@@ -107,6 +133,7 @@ pipeline {
             steps {
                 script {
                     jsonString = sh(returnStdout: true, script: "cat ${outputDir}/JSONTestFiles.txt").trim()
+                    jsonStringSeq = sh(returnStdout: true, script: "cat ${outputDir}/JSONTestFilesSeq.txt").trim()
                     //println "jsonString " + jsonString
                     //jsonList = jsonString.split("\n")
                     //jsonList.each { item->
@@ -114,9 +141,15 @@ pipeline {
                     //}
                     // def jobs = launchJobs(jsonString, testScope, outputDir)
                 }
-                echo "Launch Jobs from ${env.JOB_NAME} from ${env.GIT_BRANCH} with commit ${env.GIT_COMMIT} using docker image snap-build-server.tilaa.cloud/${params.dockerTagName}"
+
+                echo "Launch seq Jobs from ${env.JOB_NAME} from ${env.GIT_BRANCH} with commit ${env.GIT_COMMIT} using docker image snap-build-server.tilaa.cloud/${params.dockerTagName}"
+                // echo "List of json files : ${jsonString}"
+                launchJobsSeq("${jsonStringSeq}", "${testScope}", "${outputDir}")
+
+                echo "Launch parallel Jobs from ${env.JOB_NAME} from ${env.GIT_BRANCH} with commit ${env.GIT_COMMIT} using docker image snap-build-server.tilaa.cloud/${params.dockerTagName}"
                 // echo "List of json files : ${jsonString}"
                 launchJobs("${jsonString}", "${testScope}", "${outputDir}")
+
                 // parallel jobs
             }
             post {

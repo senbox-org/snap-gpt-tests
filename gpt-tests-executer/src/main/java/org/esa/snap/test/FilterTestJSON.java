@@ -40,8 +40,13 @@ public class FilterTestJSON {
 
         //TODO check scope valid?
 
-        if (GraphTestsUtils.createTestJSONListFile(testFolder, scope, outputFolder.resolve("JSONTestFiles.txt"))) {
+        //if (GraphTestsUtils.createTestJSONListFile(testFolder, scope, outputFolder.resolve("JSONTestFiles.txt"))) {
+        //    System.out.println("Filtered JSON created in " + outputFolder.resolve("JSONTestFiles.txt").toString());
+        // }
+
+        if (GraphTestsUtils.createTestJSONListFiles(testFolder, scope, outputFolder.resolve("JSONTestFiles.txt"),outputFolder.resolve("JSONTestFilesSeq.txt"))) {
             System.out.println("Filtered JSON created in " + outputFolder.resolve("JSONTestFiles.txt").toString());
+            System.out.println("Seq filtered JSON created in " + outputFolder.resolve("JSONTestFilesSeq.txt").toString());
         }
 
         return;

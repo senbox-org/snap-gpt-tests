@@ -89,6 +89,89 @@ public class GraphTestsUtils {
         return success;
     }
 
+    public static boolean createTestJSONListFiles (Path testFolderPath, String scope, Path outputPathParallel, Path outputPathSeq) {
+
+        BufferedWriter writerPar = null;
+        BufferedWriter writerSeq = null;
+        boolean success = true;
+        try {
+            writerPar = new BufferedWriter(new FileWriter(outputPathParallel.toFile(), false));
+            writerSeq = new BufferedWriter(new FileWriter(outputPathSeq.toFile(), false));
+
+            for (File file : FileUtils.listFiles(testFolderPath.toFile(), new WildcardFileFilter("*.json"), TrueFileFilter.INSTANCE)) {
+                GraphTest[] graphTests = null;
+                try {
+                    graphTests = GraphTestsUtils.mapGraphTests(file);
+                } catch (IOException e) {
+                    //ignore and continue with following files
+                    continue;
+                }
+
+                if (graphTests == null || graphTests.length == 0) {
+                    continue;
+                }
+                for (GraphTest graphTest : graphTests) {
+                    if(scope.toLowerCase().equals("release")) {
+                        if (graphTest.getFrequency().toLowerCase().contains("release") ||
+                                graphTest.getFrequency().toLowerCase().contains("weekly") ||
+                                graphTest.getFrequency().toLowerCase().contains("daily")) {
+                            if(graphTest.getConfigVM() == null) {
+                                writerPar.write(file.getPath());
+                                writerPar.write("\n");
+                            } else {
+                                writerSeq.write(file.getPath());
+                                writerSeq.write("\n");
+                            }
+                            break; //Once the file is included in the list, it is not needed to continue
+                        }
+                    } else if (scope.toLowerCase().equals("weekly")) {
+                        if (graphTest.getFrequency().toLowerCase().contains("weekly") ||
+                                graphTest.getFrequency().toLowerCase().contains("daily")) {
+                            if(graphTest.getConfigVM() == null) {
+                                writerPar.write(file.getPath());
+                                writerPar.write("\n");
+                            } else {
+                                writerSeq.write(file.getPath());
+                                writerSeq.write("\n");
+                            }
+                            break; //Once the file is included in the list, it is not needed to continue
+                        }
+                    } else {
+                        if (graphTest.getFrequency().toLowerCase().contains(scope.toLowerCase())) {
+                            if(graphTest.getConfigVM() == null) {
+                                writerPar.write(file.getPath());
+                                writerPar.write("\n");
+                            } else {
+                                writerSeq.write(file.getPath());
+                                writerSeq.write("\n");
+                            }
+                            break; //Once the file is included in the list, it is not needed to continue
+                        }
+                    }
+
+                }
+            }
+        } catch (IOException e) {
+            success = false;
+        } finally {
+            if(writerPar != null) {
+                try {
+                    writerPar.close();
+                } catch (IOException e) {
+                    //ignore
+                }
+            }
+            if(writerSeq != null) {
+                try {
+                    writerSeq.close();
+                } catch (IOException e) {
+                    //ignore
+                }
+            }
+        }
+        return success;
+    }
+
     public static void createTestSummary (Path testFolderPath, Path outputPath) {
         BufferedWriter writer = null;
         try {

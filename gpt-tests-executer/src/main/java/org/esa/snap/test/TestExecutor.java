@@ -9,10 +9,14 @@ import org.esa.snap.core.datamodel.Product;
 import org.esa.snap.dataio.ContentAssert;
 import org.esa.snap.dataio.ExpectedDataset;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -37,7 +41,48 @@ public class TestExecutor {
         params.add(graphFolder.resolve(graphTest.getGraphPath()).toString());
 
         //if specific VM, configure gpt
-        //TODO set XMX in gpt.vmoption
+        //set XMX in gpt.vmoption
+        if(graphTest.getConfigVM() != null && graphTest.getConfigVM().getXmX() != null) {
+            Files.copy(snapBin.resolve("gpt.vmoptions"), snapBin.resolve("gpt.vmoptionsORIGINAL"));
+            File fileBackup = snapBin.resolve("gpt.vmoptionsORIGINAL").toFile();
+            File fileVM = snapBin.resolve("gpt.vmoptions").toFile();
+            String modifiedString = "";
+            BufferedReader reader = null;
+            FileWriter writer = null;
+            try
+            {
+                reader = new BufferedReader(new FileReader(fileBackup));
+                String line = reader.readLine();
+                while (line != null)
+                {
+                    if(line.startsWith("-Xmx")) {
+                        modifiedString = modifiedString + "-Xmx" + graphTest.getConfigVM().getXmX() + System.lineSeparator();
+                    } else {
+                        modifiedString = modifiedString + line + System.lineSeparator();
+                    }
+                    line = reader.readLine();
+                }
+
+                writer = new FileWriter(fileVM);
+                writer.write(modifiedString);
+            }
+            catch (IOException e)
+            {
+                e.printStackTrace();
+            }
+            finally
+            {
+                try
+                {
+                    reader.close();
+                    writer.close();
+                }
+                catch (IOException e)
+                {
+                    e.printStackTrace();
+                }
+            }
+        }
         if(graphTest.getConfigVM() != null) {
             params.add("-c");
             params.add(graphTest.getConfigVM().getCacheSize());
@@ -90,6 +135,9 @@ public class TestExecutor {
             process.waitFor();
         } catch (InterruptedException e) {
             e.printStackTrace();
+            if(graphTest.getConfigVM() != null && graphTest.getConfigVM().getXmX() != null) {
+                resetVMOptions(snapBin);
+            }
             return false;
         }
 
@@ -104,6 +152,9 @@ public class TestExecutor {
             String outputNameWithExtension = findOutput(output, tempFolder);
             if(outputNameWithExtension == null) {
                 System.out.println("Output not found!!!");
+                if(graphTest.getConfigVM() != null && graphTest.getConfigVM().getXmX() != null) {
+                    resetVMOptions(snapBin);
+                }
                 return false;
             }
 
@@ -125,9 +176,12 @@ public class TestExecutor {
                     testPassed = false;
                 }
             }
-
         }
 
+        //reset VMOptions file
+        if(graphTest.getConfigVM() != null && graphTest.getConfigVM().getXmX() != null) {
+            resetVMOptions(snapBin);
+        }
         return testPassed;
     }
     private static String findOutput (Output output, Path tempFolder) {
@@ -143,5 +197,14 @@ public class TestExecutor {
 
         //TODO check
         return null;
+    }
+
+    private static void resetVMOptions(Path snapBin) {
+        try {
+            Files.copy(snapBin.resolve("gpt.vmoptionsORIGINAL"), snapBin.resolve("gpt.vmoptions"), StandardCopyOption.REPLACE_EXISTING);
+            Files.deleteIfExists(snapBin.resolve("gpt.vmoptionsORIGINAL"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
