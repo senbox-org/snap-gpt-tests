@@ -1,0 +1,33 @@
+{
+  "id" : "s1tbx.standard.terrainflatten.ers",
+  "decodeQualification" : "INTENDED",
+  "expectedContent" : {
+    "sceneWidth" : 720,
+    "sceneHeight" : 595,
+    "geoCoding" : {
+      "coordinates" : [ {
+        "x" : 360.0,
+        "y" : 297.0,
+        "lat" : 34.867105965540865,
+        "lon" : -5.484359434292176
+      } ]
+    },
+    "tiePointGrids" : [ ],
+    "bands" : [ {
+      "name" : "Gamma0_VV",
+      "description" : "",
+      "bandWidth" : 720,
+      "bandHeight" : 595,
+      "noDataValue" : 0.0,
+      "noDataValueUsed" : true,
+      "spectralWavelength" : 0.0,
+      "spectralBandwidth" : 0.0,
+      "expectedPixels" : [ {
+        "x" : 360.0,
+        "y" : 297.0,
+        "value" : 0.6967071
+      } ]
+    } ],
+    "masks" : [ ]
+  }
+}

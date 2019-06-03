@@ -1,0 +1,75 @@
+{
+  "id" : "s1tbx.standard.terrainflatten.rs2",
+  "decodeQualification" : "INTENDED",
+  "expectedContent" : {
+    "sceneWidth" : 811,
+    "sceneHeight" : 294,
+    "geoCoding" : {
+      "coordinates" : [ {
+        "x" : 405.0,
+        "y" : 147.0,
+        "lat" : 49.39435702864396,
+        "lon" : -123.15377601856093
+      } ]
+    },
+    "tiePointGrids" : [ ],
+    "bands" : [ {
+      "name" : "Gamma0_HH",
+      "description" : "",
+      "bandWidth" : 811,
+      "bandHeight" : 294,
+      "noDataValue" : 0.0,
+      "noDataValueUsed" : true,
+      "spectralWavelength" : 0.0,
+      "spectralBandwidth" : 0.0,
+      "expectedPixels" : [ {
+        "x" : 405.0,
+        "y" : 147.0,
+        "value" : 0.012029859
+      } ]
+    }, {
+      "name" : "Gamma0_HV",
+      "description" : "",
+      "bandWidth" : 811,
+      "bandHeight" : 294,
+      "noDataValue" : 0.0,
+      "noDataValueUsed" : true,
+      "spectralWavelength" : 0.0,
+      "spectralBandwidth" : 0.0,
+      "expectedPixels" : [ {
+        "x" : 405.0,
+        "y" : 147.0,
+        "value" : 0.004766053
+      } ]
+    }, {
+      "name" : "Gamma0_VH",
+      "description" : "",
+      "bandWidth" : 811,
+      "bandHeight" : 294,
+      "noDataValue" : 0.0,
+      "noDataValueUsed" : true,
+      "spectralWavelength" : 0.0,
+      "spectralBandwidth" : 0.0,
+      "expectedPixels" : [ {
+        "x" : 405.0,
+        "y" : 147.0,
+        "value" : 0.00464827
+      } ]
+    }, {
+      "name" : "Gamma0_VV",
+      "description" : "",
+      "bandWidth" : 811,
+      "bandHeight" : 294,
+      "noDataValue" : 0.0,
+      "noDataValueUsed" : true,
+      "spectralWavelength" : 0.0,
+      "spectralBandwidth" : 0.0,
+      "expectedPixels" : [ {
+        "x" : 405.0,
+        "y" : 147.0,
+        "value" : 0.016579244
+      } ]
+    } ],
+    "masks" : [ ]
+  }
+}
