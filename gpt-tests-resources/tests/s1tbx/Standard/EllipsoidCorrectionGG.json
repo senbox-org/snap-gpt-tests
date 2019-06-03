@@ -1,9 +1,9 @@
 [
 {
-  "id":"s1tbx.standard.terraincorrect.asar",
-  "description":"execute terraincorrect processor with ASAR",
+  "id":"s1tbx.standard.ellipsoidcorrectGG.asar",
+  "description":"execute ellipsoidcorrectGG processor with ASAR",
   "frequency":"daily/s1tbx",
-  "graphPath": "s1tbx/Standard/Subset_TC.xml",
+  "graphPath": "s1tbx/Standard/Subset_EC_GG.xml",
   "inputs": {
     "input1": "s1tbx/SAR/ASAR/ASA_IMM.zip"
   },
@@ -12,8 +12,8 @@
   },
   "outputs": [{
     "parameter": "out1",
-    "outputName": "out-tc-asar",
-    "expected": "s1tbx/Standard/expected-terraincorrect-asar.json"
+    "outputName": "out-ellipsoidcorrectGG-asar",
+    "expected": "s1tbx/Standard/expected-ellipsoidcorrectGG-asar.json"
   }],
   "configVM": {
     "xmx": "6G",
@@ -22,10 +22,10 @@
   }
 },
 {
-  "id":"s1tbx.standard.terraincorrect.ers",
-  "description":"execute terraincorrect processor with ERS-2",
+  "id":"s1tbx.standard.ellipsoidcorrectGG.ers",
+  "description":"execute ellipsoidcorrectGG processor with ERS-2",
   "frequency":"daily/s1tbx",
-  "graphPath": "s1tbx/Standard/Subset_TC.xml",
+  "graphPath": "s1tbx/Standard/Subset_EC_GG.xml",
   "inputs": {
     "input1": "s1tbx/SAR/ERS/SAR_IMM_1PXESA20110310_110538_00000007A166_00037_83057_1816.E2.zip"
   },
@@ -34,8 +34,8 @@
   },
   "outputs": [{
     "parameter": "out1",
-    "outputName": "out-tc-ers",
-    "expected": "s1tbx/Standard/expected-terraincorrect-ers.json"
+    "outputName": "out-ellipsoidcorrectGG-ers",
+    "expected": "s1tbx/Standard/expected-ellipsoidcorrectGG-ers.json"
   }],
   "configVM": {
     "xmx": "6G",
@@ -44,10 +44,10 @@
   }
 },
 {
-  "id":"s1tbx.standard.terraincorrect.rs2",
-  "description":"execute terraincorrect processor with RS2",
+  "id":"s1tbx.standard.ellipsoidcorrectGG.rs2",
+  "description":"execute ellipsoidcorrectGG processor with RS2",
   "frequency":"daily/s1tbx",
-  "graphPath": "s1tbx/Standard/Subset_TC.xml",
+  "graphPath": "s1tbx/Standard/Subset_EC_GG.xml",
   "inputs": {
     "input1": "s1tbx/SAR/RS2/RS2_OK76385_PK678063_DK606752_FQ2_20080415_143807_HH_VV_HV_VH_SLC.zip"
   },
@@ -56,8 +56,8 @@
   },
   "outputs": [{
     "parameter": "out1",
-    "outputName": "out-tc-rs2",
-    "expected": "s1tbx/Standard/expected-terraincorrect-rs2.json"
+    "outputName": "out-ellipsoidcorrectGG-rs2",
+    "expected": "s1tbx/Standard/expected-ellipsoidcorrectGG-rs2.json"
   }],
   "configVM": {
     "xmx": "6G",
@@ -66,10 +66,10 @@
   }
 },
 {
-  "id":"s1tbx.standard.terraincorrect.s1.grd",
-  "description":"execute terraincorrect processor with S1 GRD",
+  "id":"s1tbx.standard.ellipsoidcorrectGG.s1.grd",
+  "description":"execute ellipsoidcorrectGG processor with S1 GRD",
   "frequency":"daily/s1tbx",
-  "graphPath": "s1tbx/Standard/Subset_TC.xml",
+  "graphPath": "s1tbx/Standard/Subset_EC_GG.xml",
   "inputs": {
     "input1": "s1tbx/SAR/S1/GRD/Hawaii_slices/S1A_IW_GRDH_1SDV_20180514T043029_20180514T043054_021896_025D31_BBDA.zip"
   },
@@ -78,8 +78,8 @@
   },
   "outputs": [{
     "parameter": "out1",
-    "outputName": "out-tc-s1",
-    "expected": "s1tbx/Standard/expected-terraincorrect-s1-grd.json"
+    "outputName": "out-ellipsoidcorrectGG-s1",
+    "expected": "s1tbx/Standard/expected-ellipsoidcorrectGG-s1-grd.json"
   }],
   "configVM": {
     "xmx": "6G",

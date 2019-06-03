@@ -24,17 +24,20 @@
     </sources>
     <parameters class="com.bc.ceres.binding.dom.XppDomElement">
       <sourceBands/>
-      <region>$regionX,$regionY,$regionWidth,$regionHeight</region>
+      <region>$region</region>
+      <referenceBand/>
+      <geoRegion/>
       <subSamplingX>1</subSamplingX>
       <subSamplingY>1</subSamplingY>
+      <fullSwath>false</fullSwath>
+      <tiePointGridNames/>
       <copyMetadata>true</copyMetadata>
-      <geoRegion/>
     </parameters>
   </node>
   <node id="Ellipsoid-Correction-RD">
     <operator>Ellipsoid-Correction-RD</operator>
     <sources>
-      <sourceProduct refid="Read"/>
+      <sourceProduct refid="3-Subset"/>
     </sources>
     <parameters class="com.bc.ceres.binding.dom.XppDomElement">
       <sourceBands/>
@@ -76,17 +79,17 @@
   </node>
   <applicationData id="Presentation">
     <Description/>
-    <node id="2-Write">
-      <displayPosition y="179.0" x="278.0"/>
+    <node id="1-Read">
+      <displayPosition x="37.0" y="134.0"/>
     </node>
-    <node id="6-Terrain-Correction">
-      <displayPosition y="181.0" x="129.0"/>
+    <node id="2-Write">
+      <displayPosition x="278.0" y="179.0"/>
     </node>
     <node id="3-Subset">
-      <displayPosition y="180.0" x="40.0"/>
+      <displayPosition x="40.0" y="180.0"/>
     </node>
-    <node id="1-Read">
-      <displayPosition y="134.0" x="37.0"/>
+    <node id="Ellipsoid-Correction-RD">
+      <displayPosition x="118.0" y="177.0"/>
     </node>
   </applicationData>
 </graph>

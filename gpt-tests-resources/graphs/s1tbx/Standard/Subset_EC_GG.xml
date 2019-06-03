@@ -10,7 +10,7 @@
   <node id="2-Write">
     <operator>Write</operator>
     <sources>
-      <sourceProduct refid="6-Terrain-Correction"/>
+      <sourceProduct refid="Ellipsoid-Correction-GG"/>
     </sources>
     <parameters class="com.bc.ceres.binding.dom.XppDomElement">
       <formatName>BEAM-DIMAP</formatName>
@@ -25,26 +25,23 @@
     <parameters class="com.bc.ceres.binding.dom.XppDomElement">
       <sourceBands/>
       <region>$region</region>
+      <referenceBand/>
+      <geoRegion/>
       <subSamplingX>1</subSamplingX>
       <subSamplingY>1</subSamplingY>
+      <fullSwath>false</fullSwath>
+      <tiePointGridNames/>
       <copyMetadata>true</copyMetadata>
-      <geoRegion/>
     </parameters>
   </node>
-  <node id="6-Terrain-Correction">
-    <operator>Terrain-Correction</operator>
+  <node id="Ellipsoid-Correction-GG">
+    <operator>Ellipsoid-Correction-GG</operator>
     <sources>
       <sourceProduct refid="3-Subset"/>
     </sources>
     <parameters class="com.bc.ceres.binding.dom.XppDomElement">
       <sourceBands/>
-      <demName>SRTM 3Sec</demName>
-      <externalDEMFile/>
-      <externalDEMNoDataValue>0.0</externalDEMNoDataValue>
-      <demResamplingMethod>BILINEAR_INTERPOLATION</demResamplingMethod>
       <imgResamplingMethod>BILINEAR_INTERPOLATION</imgResamplingMethod>
-      <pixelSpacingInMeter>0.0</pixelSpacingInMeter>
-      <pixelSpacingInDegree>0.0</pixelSpacingInDegree>
       <mapProjection>GEOGCS[&quot;WGS84(DD)&quot;, &#xd;
   DATUM[&quot;WGS84&quot;, &#xd;
     SPHEROID[&quot;WGS84&quot;, 6378137.0, 298.257223563]], &#xd;
@@ -52,34 +49,21 @@
   UNIT[&quot;degree&quot;, 0.017453292519943295], &#xd;
   AXIS[&quot;Geodetic longitude&quot;, EAST], &#xd;
   AXIS[&quot;Geodetic latitude&quot;, NORTH]]</mapProjection>
-      <nodataValueAtSea>false</nodataValueAtSea>
-      <saveDEM>false</saveDEM>
-      <saveLocalIncidenceAngle>false</saveLocalIncidenceAngle>
-      <saveProjectedLocalIncidenceAngle>false</saveProjectedLocalIncidenceAngle>
-      <saveSelectedSourceBand>true</saveSelectedSourceBand>
-      <applyRadiometricNormalization>false</applyRadiometricNormalization>
-      <saveSigmaNought>false</saveSigmaNought>
-      <saveGammaNought>false</saveGammaNought>
-      <saveBetaNought>false</saveBetaNought>
-      <incidenceAngleForSigma0>Use projected local incidence angle from DEM</incidenceAngleForSigma0>
-      <incidenceAngleForGamma0>Use projected local incidence angle from DEM</incidenceAngleForGamma0>
-      <auxFile>Latest Auxiliary File</auxFile>
-      <externalAuxFile/>
     </parameters>
   </node>
   <applicationData id="Presentation">
     <Description/>
-    <node id="2-Write">
-      <displayPosition y="179.0" x="278.0"/>
+    <node id="1-Read">
+      <displayPosition x="37.0" y="134.0"/>
     </node>
-    <node id="6-Terrain-Correction">
-      <displayPosition y="181.0" x="129.0"/>
+    <node id="2-Write">
+      <displayPosition x="278.0" y="179.0"/>
     </node>
     <node id="3-Subset">
-      <displayPosition y="180.0" x="40.0"/>
+      <displayPosition x="40.0" y="180.0"/>
     </node>
-    <node id="1-Read">
-      <displayPosition y="134.0" x="37.0"/>
+    <node id="Ellipsoid-Correction-GG">
+      <displayPosition x="118.0" y="180.0"/>
     </node>
   </applicationData>
 </graph>
