@@ -76,13 +76,12 @@
       <separateShapes>true</separateShapes>
     </parameters>
   </node>
-  <node id="KNN-Classifier">
-    <operator>KNN-Classifier</operator>
+  <node id="Maximum-Likelihood-Classifier">
+    <operator>Maximum-Likelihood-Classifier</operator>
     <sources>
       <sourceProduct refid="Import-Vector"/>
     </sources>
     <parameters class="com.bc.ceres.binding.dom.XppDomElement">
-      <numNeighbours>5</numNeighbours>
       <numTrainSamples>5000</numTrainSamples>
       <savedClassifierName>newClassifier</savedClassifierName>
       <doLoadClassifier>false</doLoadClassifier>
@@ -90,10 +89,10 @@
       <minClassValue>0.0</minClassValue>
       <classValStepSize>5.0</classValStepSize>
       <classLevels>101</classLevels>
-      <trainOnRaster>false</trainOnRaster>
+      <trainOnRaster>true</trainOnRaster>
       <trainingBands/>
       <trainingVectors/>
-      <featureBands>B2,B3,B4,B8A,NDVI,lai,B2_2,B3_2,B4_2,B8A_2,NDVI_2,lai_2,B2_3,B3_3,B4_3,B8A_3,NDVI_3,lai_3</featureBands>
+      <featureBands/>
       <labelSource>VectorNodeName</labelSource>
       <evaluateClassifier>false</evaluateClassifier>
       <evaluateFeaturePowerSet>false</evaluateFeaturePowerSet>
@@ -104,7 +103,7 @@
   <node id="Write">
     <operator>Write</operator>
     <sources>
-      <sourceProduct refid="KNN-Classifier"/>
+      <sourceProduct refid="Maximum-Likelihood-Classifier"/>
     </sources>
     <parameters class="com.bc.ceres.binding.dom.XppDomElement">
       <file>$out1</file>
@@ -131,11 +130,12 @@
     <node id="Import-Vector">
       <displayPosition x="412.0" y="138.0"/>
     </node>
-    <node id="KNN-Classifier">
+    <node id="Maximum-Likelihood-Classifier">
       <displayPosition x="552.0" y="138.0"/>
     </node>
     <node id="Write">
-      <displayPosition x="717.0" y="138.0"/>
+      <displayPosition x="800.0" y="138.0"/>
     </node>
   </applicationData>
+
 </graph>

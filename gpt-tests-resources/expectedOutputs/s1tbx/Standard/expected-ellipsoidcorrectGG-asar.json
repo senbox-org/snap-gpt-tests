@@ -1,5 +1,5 @@
 {
-  "id" : "s1tbx.standard.terraincorrect.asar",
+  "id" : "s1tbx.standard.ellipsoidcorrectGG.asar",
   "decodeQualification" : "INTENDED",
   "expectedContent" : {
     "sceneWidth" : 809,
@@ -14,7 +14,7 @@
     },
     "tiePointGrids" : [ ],
     "bands" : [ {
-      "name" : "Amplitude_VV",
+      "name" : "Amplitude",
       "description" : "Image Mode Medium Resolution Image (stripline)",
       "bandWidth" : 809,
       "bandHeight" : 576,
@@ -25,7 +25,7 @@
       "expectedPixels" : [ {
         "x" : 404.0,
         "y" : 288.0,
-        "value" : 1555.2993
+        "value" : 1250.8527
       } ]
     } ],
     "masks" : [ ]
