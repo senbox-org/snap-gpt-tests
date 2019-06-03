@@ -1,7 +1,7 @@
 [{
   "id":"Spot5Take5Test",
   "description":"execute Spot 5 (level N2A) product reader and operators",
-  "frequency":"daily/fail",
+  "frequency":"daily/fail/CSROtest",
   "graphPath": "s2tbx/graphReaderSingleLevel.xml",
   "inputs": {
     "input1": "s2tbx/_gpt_readers/spot5/Take5/SPOT5_HRG1_XS_20150725_N2A_LanguedocFranceD0000B0000.tgz"
