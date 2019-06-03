@@ -13,9 +13,9 @@
       <sourceProduct refid="Read"/>
     </sources>
     <parameters class="com.bc.ceres.binding.dom.XppDomElement">
-      <resampleType>None</resampleType>
-      <upsampling/>
-      <downsampling/>
+      <resampleType>$resampleType</resampleType>
+      <upsampling>$upsampling</upsampling>
+      <downsampling>$downsampling</downsampling>
       <redB4Factor>1.0</redB4Factor>
       <redB5Factor>1.0</redB5Factor>
       <redB6Factor>1.0</redB6Factor>
