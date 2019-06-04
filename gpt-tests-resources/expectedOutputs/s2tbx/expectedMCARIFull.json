@@ -1,25 +1,25 @@
 {
-    "id": "tempMCARI",
+    "id": "tempMCARIFull",
     "decodeQualification": "INTENDED",
     "expectedContent": {
-        "sceneWidth": 300,
-        "sceneHeight": 300,
+        "sceneWidth": 5490,
+        "sceneHeight": 5490,
         "geoCoding": {
             "coordinates": [
                 {
-                    "x": 129.0,
-                    "y": 161.0,
-                    "lat": -33.997550770675396,
-                    "lon": 22.695403893002247
+                    "x": 2367.0,
+                    "y": 2951.0,
+                    "lat": -33.96102390979432,
+                    "lon": 22.594683505612938
                 },
                 {
-                    "x": 222.0,
-                    "y": 194.0,
-                    "lat": -34.003221417975745,
-                    "lon": 22.715655222867895
+                    "x": 4076.0,
+                    "y": 3562.0,
+                    "lat": -34.06582241918215,
+                    "lon": 22.966985391730564
                 }
             ],
-            "reverseAccuracy": 1.1314114090055227E-8
+            "reverseAccuracy": 2.3566826712340117E-8
         },
         "flagCodings": [
             {
@@ -47,43 +47,43 @@
             {
                 "name": "mcari",
                 "description": "",
-                "bandWidth": 300,
-                "bandHeight": 300,
+                "bandWidth": 5490,
+                "bandHeight": 5490,
                 "noDataValue": "0.0",
                 "noDataValueUsed": "false",
                 "spectralWavelength": "0.0",
                 "spectralBandwidth": "0.0",
                 "expectedPixels": [
                     {
-                        "x": 15,
-                        "y": 53,
-                        "value": 0.060894437
+                        "x": 286,
+                        "y": 978,
+                        "value": 0.0
                     },
                     {
-                        "x": 205,
-                        "y": 255,
-                        "value": 0.041555617
+                        "x": 3761,
+                        "y": 4669,
+                        "value": 0.0022390245
                     }
                 ]
             },
             {
                 "name": "flags",
                 "description": "mcari specific flags",
-                "bandWidth": 300,
-                "bandHeight": 300,
+                "bandWidth": 5490,
+                "bandHeight": 5490,
                 "noDataValue": "0.0",
                 "noDataValueUsed": "false",
                 "spectralWavelength": "0.0",
                 "spectralBandwidth": "0.0",
                 "expectedPixels": [
                     {
-                        "x": 87,
-                        "y": 77,
-                        "value": 0.0
+                        "x": 1596,
+                        "y": 1410,
+                        "value": 1.0
                     },
                     {
-                        "x": 183,
-                        "y": 109,
+                        "x": 3351,
+                        "y": 2005,
                         "value": 0.0
                     }
                 ]
@@ -119,16 +119,12 @@
                 "value": "true"
             },
             {
-                "path": "Processing_Graph/node.0/sources/sourceProduct",
-                "value": "product:Subset_S2A_MSIL1C_20161206T080312_N0204_R035_T34HFH_20161206T081929_resampled"
-            },
-            {
                 "path": "Processing_Graph/node.1/parameters/formatName",
                 "value": "BEAM-DIMAP"
             },
             {
-                "path": "Processing_Graph/node.0/parameters/greenSourceBand",
-                "value": "B3"
+                "path": "Processing_Graph/node.0/parameters/upsampling",
+                "value": "Nearest"
             },
             {
                 "path": "Processing_Graph/node.0/parameters/red2SourceBand",
@@ -143,8 +139,8 @@
                 "value": "false"
             },
             {
-                "path": "Processing_Graph/node.0/parameters/greenFactor",
-                "value": "1.0"
+                "path": "Processing_Graph/node.0/parameters/greenSourceBand",
+                "value": "B3"
             }
         ]
     }
