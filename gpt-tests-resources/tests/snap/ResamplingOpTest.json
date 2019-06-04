@@ -49,7 +49,7 @@
   {
     "id": "ResampleS2_WriteNetCDF",
     "description": "Do resampling S2 product and safe as NetCDF [SNAP-1088]",
-    "frequency": "marcopTest/daily",
+    "frequency": "daily",
     "graphPath": "snap/graphResampleWithFormat.xml",
     "inputs": {
       "input1": "s2tbx/S2/PSD14/L1C/S2A_MSIL1C_20160914T074612_N0204_R135_T36JTT_20160914T081456.SAFE"
