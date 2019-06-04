@@ -2,7 +2,7 @@
 {
   "id":"s1tbx.sentinel1.tops.coregistration.s1",
   "description":"execute S1 TOPS Coregistration",
-  "frequency":"daily/s1tbx",
+  "frequency":"daily/s1tbx/sentinel1",
   "graphPath": "s1tbx/Missions/Sentinel1/Sentinel1-TOPS-Coregistration.xml",
   "inputs": {
     "input1": "s1tbx/SAR/S1/SLC/Etna-DLR/S1A_IW_SLC__1SDV_20140809T165546_20140809T165613_001866_001C20_088B.zip",
@@ -17,8 +17,8 @@
     "expected": "s1tbx/missions/Sentinel1/expected-tops-coregistration-s1.json"
   }],
   "configVM": {
-    "xmx": "8G",
-    "cacheSize": "0",
+    "xmx": "5G",
+    "cacheSize": "3500M",
     "parallelism": "4"
   }
 }
