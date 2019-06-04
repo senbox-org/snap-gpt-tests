@@ -2,7 +2,7 @@
 {
   "id":"s1tbx.standard.calibrate.asar",
   "description":"execute calibrate processor with ASAR",
-  "frequency":"daily/s1tbx/cali",
+  "frequency":"daily/s1tbx",
   "graphPath": "s1tbx/Standard/Subset_Cal.xml",
   "inputs": {
     "input1": "s1tbx/SAR/ASAR/ASA_IMM.zip"
@@ -20,7 +20,7 @@
   {
     "id":"s1tbx.standard.calibrate.asar.wsm",
     "description":"execute calibrate processor with ASAR WSM",
-    "frequency":"daily/s1tbx/cali",
+    "frequency":"daily/s1tbx",
     "graphPath": "s1tbx/Standard/Subset_Cal.xml",
     "inputs": {
       "input1": "s1tbx/SAR/ASAR/ASA_WSM_1PNPDE20120311_212324_000002693112_00302_52471_1160.N1"
@@ -38,7 +38,7 @@
   {
     "id":"s1tbx.standard.calibrate.asar.slc",
     "description":"execute calibrate processor with ASAR SLC",
-    "frequency":"daily/s1tbx/cali",
+    "frequency":"daily/s1tbx",
     "graphPath": "s1tbx/Standard/Subset_Cal.xml",
     "inputs": {
       "input1": "s1tbx/SAR/ASAR/Bam/ASA_IMS_1PNUPA20031203_061259_000000162022_00120_09192_0099.N1"
@@ -51,15 +51,12 @@
       "parameter": "out1",
       "outputName": "out-calibrate-asar-slc",
       "expected": "s1tbx/Standard/expected-calibrate-asar-slc.json"
-    }],
-    "configVM": {
-      "xmx": "12G"
-    }
+    }]
   },
 {
   "id":"s1tbx.standard.calibrate.alos",
   "description":"execute calibrate processor with ALOS",
-  "frequency":"daily/s1tbx/cali",
+  "frequency":"daily/s1tbx",
   "graphPath": "s1tbx/Standard/Subset_Cal.xml",
   "inputs": {
     "input1": "s1tbx/SAR/ALOS/ALPSRS267172700-L1.5.zip"
@@ -77,7 +74,7 @@
   {
     "id":"s1tbx.standard.calibrate.ers1.imp",
     "description":"execute calibrate processor with ERS-1",
-    "frequency":"daily/s1tbx/cali",
+    "frequency":"daily/s1tbx",
     "graphPath": "s1tbx/Standard/Subset_Cal.xml",
     "inputs": {
       "input1": "s1tbx/SAR/ERS/SAR_IMP_1PXDLR19920517_025823_00000017C084_00218_04371_9963.E1"
@@ -95,7 +92,7 @@
   {
     "id":"s1tbx.standard.calibrate.ers1.slc",
     "description":"execute calibrate processor with ERS-1 SLC",
-    "frequency":"daily/s1tbx/cali",
+    "frequency":"daily/s1tbx",
     "graphPath": "s1tbx/Standard/Subset_Cal.xml",
     "inputs": {
       "input1": "s1tbx/SAR/ERS/ERS_Tandem_Etna/ERS1_SLCI_VMP_CEOS_01081995_orbit 21159 frame 0747_IPAF/SCENE1/VDF_DAT.001"
@@ -113,7 +110,7 @@
   {
     "id":"s1tbx.standard.calibrate.ers2.slc",
     "description":"execute calibrate processor with ERS-2 SLC",
-    "frequency":"daily/s1tbx/cali",
+    "frequency":"daily/s1tbx",
     "graphPath": "s1tbx/Standard/Subset_Cal.xml",
     "inputs": {
       "input1": "s1tbx/SAR/ERS/ERS_Tandem_Etna/ERS2_SLCI_VMP_CEOS_02081995_orbit 01486 frame 0747_IPAF/SCENE1/VDF_DAT.001"
@@ -131,7 +128,7 @@
 {
   "id":"s1tbx.standard.calibrate.ers",
   "description":"execute calibrate processor with ERS-2",
-  "frequency":"daily/s1tbx/cali",
+  "frequency":"daily/s1tbx",
   "graphPath": "s1tbx/Standard/Subset_Cal.xml",
   "inputs": {
     "input1": "s1tbx/SAR/ERS/SAR_IMM_1PXESA20110310_110538_00000007A166_00037_83057_1816.E2.zip"
@@ -149,7 +146,7 @@
 {
   "id":"s1tbx.standard.calibrate.rs2",
   "description":"execute calibrate processor with RS2",
-  "frequency":"daily/s1tbx/cali",
+  "frequency":"daily/s1tbx",
   "graphPath": "s1tbx/Standard/Subset_Cal.xml",
   "inputs": {
     "input1": "s1tbx/SAR/RS2/RS2_OK76385_PK678063_DK606752_FQ2_20080415_143807_HH_VV_HV_VH_SLC.zip"
@@ -167,7 +164,7 @@
 {
   "id":"s1tbx.standard.calibrate.rs2.complex",
   "description":"execute calibrate processor with RS2 with complex output",
-  "frequency":"daily/s1tbx/cali",
+  "frequency":"daily/s1tbx",
   "graphPath": "s1tbx/Standard/Subset_Cal.xml",
   "inputs": {
     "input1": "s1tbx/SAR/RS2/RS2_OK76385_PK678063_DK606752_FQ2_20080415_143807_HH_VV_HV_VH_SLC.zip"
@@ -185,7 +182,7 @@
 {
     "id":"s1tbx.standard.calibrate.s1.grd",
     "description":"execute calibrate processor with S1 GRD",
-    "frequency":"daily/s1tbx/cali",
+    "frequency":"daily/s1tbx",
     "graphPath": "s1tbx/Standard/Subset_Cal.xml",
     "inputs": {
       "input1": "s1tbx/SAR/S1/GRD/Hawaii_slices/S1A_IW_GRDH_1SDV_20180514T043029_20180514T043054_021896_025D31_BBDA.zip"
@@ -218,8 +215,8 @@
       "expected": "s1tbx/Standard/expected-calibrate-s1-slc.json"
     }],
 	"configVM": {
-		"xmx": "6G",
-		"cacheSize": "0",
+		"xmx": "8G",
+		"cacheSize": "5G",
 		"parallelism": "4"
 	  }
   },
