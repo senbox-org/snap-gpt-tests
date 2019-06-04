@@ -1,7 +1,7 @@
 [{
   "id":"MergeWaterSoilOpTest",
   "description":"execute RI and NDTI operators for multisize S2 products",
-  "frequency":"daily",
+  "frequency":"daily/testWaterSoil",
   "graphPath": "s2tbx/graphMerge2WaterSoilOp.xml",
   "inputs": {
     "input1": "s2tbx/S2/L1C/S2A_MSIL1C_20161206T080312_N0204_R035_T34HFH_20161206T081929.SAFE",
