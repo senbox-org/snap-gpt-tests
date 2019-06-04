@@ -22,7 +22,7 @@
     {
         "id":"Resamp10DviNdwiBandMath_S2",
         "description":"Apply resampling at 10m, DVI, NDWI and finally a band math with the previous outputson a S2L1C product",
-        "frequency":"daily/testOmar/testGP",
+        "frequency":"daily",
         "graphPath": "s2tbx/graphResampDviNdwiBandMath.xml",
         "inputs": {
             "input1": "s2tbx/S2/L1C/S2B_MSIL1C_20170315T013719_N0100_R000_T52LEK_20170315T013714.SAFE"
