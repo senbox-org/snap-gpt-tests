@@ -16,15 +16,15 @@
     "expected": "s1tbx/Standard/expected-ellipsoidcorrectGG-asar.json"
   }],
   "configVM": {
-    "xmx": "6G",
-    "cacheSize": "4G",
+    "xmx": "5G",
+    "cacheSize": "3500M",
     "parallelism": "4"
   }
 },
 {
   "id":"s1tbx.standard.ellipsoidcorrectGG.ers",
   "description":"execute ellipsoidcorrectGG processor with ERS-2",
-  "frequency":"daily/s1tbx/ellip2",
+  "frequency":"daily/s1tbx/ellip1",
   "graphPath": "s1tbx/Standard/Subset_EC_GG.xml",
   "inputs": {
     "input1": "s1tbx/SAR/ERS/SAR_IMM_1PXESA20110310_110538_00000007A166_00037_83057_1816.E2.zip"
