@@ -1,6 +1,6 @@
 [{
     "id":"ResampDviNdwiBandMath_S2",
-    "description":"Apply resampling, DVI, NDWI and finally a band math with the previous outputson a S2L1C product",
+    "description":"Apply resampling at 20m, DVI, NDWI and finally a band math with the previous outputson a S2L1C product",
     "frequency":"daily",
     "graphPath": "s2tbx/graphResampDviNdwiBandMath.xml",
     "inputs": {
@@ -20,8 +20,8 @@
     }]
 },
     {
-        "id":"ResampDviNdwiBandMath_S2",
-        "description":"Apply resampling, DVI, NDWI and finally a band math with the previous outputson a S2L1C product",
+        "id":"Resamp10DviNdwiBandMath_S2",
+        "description":"Apply resampling at 10m, DVI, NDWI and finally a band math with the previous outputson a S2L1C product",
         "frequency":"daily/testOmar/testGP",
         "graphPath": "s2tbx/graphResampDviNdwiBandMath.xml",
         "inputs": {
@@ -36,7 +36,7 @@
         },
         "outputs": [{
             "parameter": "out1",
-            "outputName": "ResampDviNdwiBandMath_S2",
+            "outputName": "Resamp10DviNdwiBandMath_S2",
             "expected": "s2tbx/expectedResamp10DviNdwiBandMath.json"
         }]
     }
