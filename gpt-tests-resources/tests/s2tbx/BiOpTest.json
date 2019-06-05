@@ -1,5 +1,6 @@
 [{
   "id":"BITest",
+  "author": "CSRO",
   "description":"execute BI processor with S2",
   "frequency":"daily",
   "graphPath": "s2tbx/graphBiOp.xml",
@@ -19,6 +20,7 @@
   }]
 },{
   "id":"BITestFull",
+  "author": "CSRO",
   "description":"execute BI processor with S2 (full size)",
   "frequency":"weekly",
   "graphPath": "s2tbx/graphBiOp.xml",

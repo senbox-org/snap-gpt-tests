@@ -1,5 +1,6 @@
 [{
   "id":"Reproject_S2",
+  "author": "CS",
   "description":"Reproject a S2 L1C product preserving resolution.",
   "frequency":"daily",
   "graphPath": "snap/graphReproject.xml",
@@ -18,6 +19,7 @@
 },
   {
     "id":"ReprojectSubset_S2",
+  "author": "CS",
     "description":"Reproject a S2 L1C product preserving resolution and apply and spatial and band subset (B1,B2,B5,view_senith_mean)",
     "frequency":"daily",
     "graphPath": "snap/graphReprojectSubset.xml",
@@ -37,6 +39,7 @@
   },
   {
     "id":"ReprojectSubsetonlyB1_S2",
+  "author": "CS",
     "description":"Reproject a S2 L1C product preserving resolution and apply and spatial and band subset (only B1)",
     "frequency":"daily",
     "graphPath": "snap/graphReprojectSubset.xml",

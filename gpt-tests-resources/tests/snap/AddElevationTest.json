@@ -1,5 +1,6 @@
 [{
     "id":"snap.dem.srtm3sec",
+  "author": "Skywatch",
     "description":"execute DEM operator with SRTM 3sec",
     "frequency":"daily",
     "graphPath": "snap/graphAddDEM.xml",
@@ -17,6 +18,7 @@
 },
     {
         "id":"snap.dem.srtm1sec",
+  "author": "Skywatch",
         "description":"execute DEM operator with SRTM 1sec",
         "frequency":"daily",
         "graphPath": "snap/graphAddDEM.xml",
@@ -34,6 +36,7 @@
     },
     {
         "id":"snap.dem.getasse30",
+  "author": "Skywatch",
         "description":"execute DEM operator with GETASSE30",
         "frequency":"daily",
         "graphPath": "snap/graphAddDEM.xml",

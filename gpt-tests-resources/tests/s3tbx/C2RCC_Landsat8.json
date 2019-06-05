@@ -1,6 +1,7 @@
 [
   {
     "id": "C2RCC_L8_c2rcc-nets_unc",
+  "author": "BC",
     "description": "execute Landsat8 C2RCC with default nets and uncertainties",
     "frequency": "weekly",
     "graphPath": "s3tbx/graphC2RCC_Landsat8.xml",
@@ -21,6 +22,7 @@
   },
   {
     "id": "C2RCC_L8_c2x-nets",
+  "author": "BC",
     "description": "execute Landsat8 C2RCC with extreme nets",
     "frequency": "daily",
     "graphPath": "s3tbx/graphC2RCC_Landsat8.xml",

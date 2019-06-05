@@ -1,5 +1,6 @@
 [{
   "id":"biophysicalTests",
+  "author": "CS",
   "description":"execute biophysical processor with S2",
   "frequency":"daily/regular",
   "graphPath": "s2tbx/graphLAI.xml",
@@ -17,6 +18,7 @@
   }]
 },{
     "id":"biophysicalTestsFull",
+  "author": "CS",
     "description":"execute biophysical processor with S2 (full product)",
     "frequency":"weekly",
     "graphPath": "s2tbx/graphLAI.xml",

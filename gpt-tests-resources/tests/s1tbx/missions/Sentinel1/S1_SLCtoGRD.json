@@ -1,6 +1,7 @@
 [
 {
   "id":"s1tbx.sentinel1.slc2grd.s1",
+  "author": "Skywatch",
   "description":"execute SLC to GRD with S1 SM",
   "frequency":"daily/s1tbx/sentinel1",
   "graphPath": "s1tbx/Standard/SLCtoPRIGraph.xml",
@@ -23,6 +24,7 @@
 },
 {
   "id":"s1tbx.sentinel1.slc2grd.tops.s1",
+  "author": "Skywatch",
   "description":"execute TOPS SLC to GRD with S1",
   "frequency":"daily/s1tbx/sentinel1",
   "graphPath": "s1tbx/Missions/Sentinel1/Sentinel1SLCtoGRDGraph.xml",

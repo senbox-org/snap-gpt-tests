@@ -1,5 +1,6 @@
 [{
     "id":"Rad2ReflTest_OLCI",
+  "author": "BC",
     "description":"execute Rad2Refl operator",
     "frequency":"daily",
     "graphPath": "s3tbx/graphRad2ReflOp.xml",
@@ -22,6 +23,7 @@
 },
     {
         "id":"Rad2ReflTest_MERIS",
+  "author": "BC",
         "description":"execute Rad2Refl operator",
         "frequency":"daily/fail",
         "graphPath": "s3tbx/graphRad2ReflOp.xml",

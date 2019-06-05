@@ -1,6 +1,7 @@
 [
   {
     "id": "ResamplingTest_S2_1tile",
+  "author": "CS",
     "description": "Do resampling operator on S2 one tile product",
     "frequency": "daily",
     "graphPath": "snap/graphResample.xml",
@@ -24,6 +25,7 @@
   },
   {
     "id": "ResamplingTest_S2_2tile",
+  "author": "CS",
     "description": "Do resampling operator on S2 two tiles product",
     "frequency": "daily",
     "graphPath": "snap/graphResampleWithFormat.xml",
@@ -48,6 +50,7 @@
   },
   {
     "id": "ResampleS2_WriteNetCDF",
+  "author": "CS",
     "description": "Do resampling S2 product and safe as NetCDF [SNAP-1088]",
     "frequency": "daily",
     "graphPath": "snap/graphResampleWithFormat.xml",

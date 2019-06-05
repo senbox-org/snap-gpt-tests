@@ -1,6 +1,7 @@
 [
 {
   "id":"s1tbx.insar.interferogram.topo.asar",
+  "author": "Skywatch",
   "description":"execute cross correlation coregistration with ASAR IMS",
   "frequency":"daily/s1tbx/topo",
   "graphPath": "s1tbx/InSAR/Coregister_Ifg_Topo_Flt.xml",
@@ -24,6 +25,7 @@
 },
 {
   "id":"s1tbx.insar.interferogram.topo.s1-sm",
+  "author": "Skywatch",
   "description":"execute cross correlation coregistration and interferogram with S1 SM",
   "frequency":"daily/s1tbx/topo",
   "graphPath": "s1tbx/InSAR/Coregister_Ifg_Topo_flt.xml",

@@ -1,5 +1,6 @@
 [{
     "id":"ResampDviNdwiBandMath_S2",
+  "author": "CS",
     "description":"Apply resampling at 20m, DVI, NDWI and finally a band math with the previous outputson a S2L1C product",
     "frequency":"daily",
     "graphPath": "s2tbx/graphResampDviNdwiBandMath.xml",
@@ -21,6 +22,7 @@
 },
     {
         "id":"Resamp10DviNdwiBandMath_S2",
+  "author": "CS",
         "description":"Apply resampling at 10m, DVI, NDWI and finally a band math with the previous outputson a S2L1C product",
         "frequency":"daily",
         "graphPath": "s2tbx/graphResampDviNdwiBandMath.xml",

@@ -1,5 +1,6 @@
 [{
     "id":"ResampReprojSubset_Muscate",
+  "author": "CS",
     "description":"Apply resampling, reprojection and subset to a S2 product in Muscate format",
     "frequency":"daily",
     "graphPath": "snap/graphResampReprojSubset.xml",
@@ -23,6 +24,7 @@
 },
     {
         "id":"ResampSubsetReproj_SAFE",
+  "author": "CS",
         "description":"Apply resampling,subset and reprojection to a S2 product in SAFE format",
         "frequency":"daily",
         "graphPath": "snap/graphResampSubsetReproj.xml",

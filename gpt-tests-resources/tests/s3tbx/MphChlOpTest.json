@@ -1,5 +1,6 @@
 [{
     "id":"MphChlTest_MERIS",
+  "author": "BC",
     "description":"execute MphChl operator with MERIS L1b",
     "frequency":"daily",
     "graphPath": "s3tbx/graphMphChlOp.xml",
@@ -23,6 +24,7 @@
 
     {
         "id":"MphChlTest_OLCI",
+  "author": "BC",
         "description":"execute MphChl operator with OLCI L1b",
         "frequency":"daily",
         "graphPath": "s3tbx/graphMphChlOp.xml",

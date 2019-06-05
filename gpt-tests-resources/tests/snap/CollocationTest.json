@@ -1,5 +1,6 @@
 [{
   "id":"ReadReadCollocate",
+  "author": "CS",
   "description":"Collocate a S2 product with a smaller image. Two Read used as input",
   "frequency":"daily",
   "graphPath": "snap/graphReadReadCollocate.xml",
@@ -18,6 +19,7 @@
 },
   {
     "id":"ReadSetReaderCollocate",
+  "author": "CS",
     "description":"Collocate multiple products defined with a Read and a ProductSetReader.",
     "frequency":"daily",
     "graphPath": "snap/graphReadSetReaderCollocate.xml",
