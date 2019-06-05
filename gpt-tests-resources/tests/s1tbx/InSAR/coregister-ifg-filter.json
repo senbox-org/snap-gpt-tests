@@ -2,7 +2,7 @@
 {
   "id":"s1tbx.insar.interferogram.filtering.asar",
   "description":"execute interferogram and az/rg and phase filtering with ASAR IMS",
-  "frequency":"daily/s1tbx",
+  "frequency":"daily/s1tbx/filter",
   "graphPath": "s1tbx/InSAR/Coregister_Ifg_Flt.xml",
   "inputs": {
     "input1": "s1tbx/SAR/ASAR/Bam/ASA_IMS_1PNUPA20031203_061259_000000162022_00120_09192_0099.N1",
@@ -17,15 +17,15 @@
     "expected": "s1tbx/InSAR/expected-insar-interferogram-filtering-asar.json"
   }],
   "configVM": {
-    "xmx": "6G",
-    "cacheSize": "0",
-    "parallelism": "2"
+    "xmx": "5G",
+    "cacheSize": "3500M",
+    "parallelism": "4"
   }
 },
 {
   "id":"s1tbx.insar.interferogram.filtering.s1-sm",
   "description":"execute interferogram and az/rg and phase filtering with S1 SM",
-  "frequency":"daily/s1tbx",
+  "frequency":"daily/s1tbx/filter",
   "graphPath": "s1tbx/InSAR/Coregister_Ifg_Flt.xml",
   "inputs": {
     "input1": "s1tbx/SAR/S1/Stripmap/S1A_S1_SLC__1SSV_20140807T142342_20140807T142411_001835_001BC1_05AA.SAFE.zip",
@@ -40,9 +40,9 @@
     "expected": "s1tbx/InSAR/expected-insar-interferogram-filtering-s1-sm.json"
   }],
   "configVM": {
-    "xmx": "6G",
-    "cacheSize": "0",
-    "parallelism": "2"
+    "xmx": "5G",
+    "cacheSize": "3500M",
+    "parallelism": "4"
   }
 }
 ]
