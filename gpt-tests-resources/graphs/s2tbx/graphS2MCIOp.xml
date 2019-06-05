@@ -61,4 +61,23 @@
             <formatName>BEAM-DIMAP</formatName>
         </parameters>
     </node>
+  <applicationData id="Presentation">
+    <Description/>
+    <node id="Read">
+      <displayPosition x="43.0" y="180.0"/>
+    </node>
+    <node id="Resample">
+      <displayPosition x="140.0" y="180.0"/>
+    </node>
+    <node id="Subset">
+      <displayPosition x="237.0" y="180.0"/>
+    </node>
+    <node id="Mci.s2">
+      <displayPosition x="337.0" y="180.0"/>
+    </node>
+    <node id="Write">
+      <displayPosition x="436.0" y="180.0"/>
+    </node>
+  </applicationData>
+
 </graph>
