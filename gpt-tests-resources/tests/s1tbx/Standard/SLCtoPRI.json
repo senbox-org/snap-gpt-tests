@@ -159,6 +159,29 @@
     "cacheSize": "8G",
     "parallelism": "4"
   }
+},
+{
+  "id":"s1tbx.standard.slc2pri.iceye",
+  "author": "Skywatch",
+  "description":"execute SLC to PRI with Iceye SM",
+  "frequency":"daily/s1tbx/topri",
+  "graphPath": "s1tbx/Standard/SLCtoPRIGraph.xml",
+  "inputs": {
+    "input1": "s1tbx/SAR/Iceye/SLC/SM/ICEYE_SLC_SM_5573_20190524T223555.h5"
+  },
+  "parameters": {
+	"subsetRegion": "2000,3000,3000,3000"
+  },
+  "outputs": [{
+    "parameter": "out1",
+    "outputName": "out-slc2pri-iceye",
+    "expected": "s1tbx/Standard/expected-slc2pri-iceye.json"
+  }],
+  "configVM": {
+    "xmx": "12G",
+    "cacheSize": "8G",
+    "parallelism": "4"
+  }
 }
 ]
 
