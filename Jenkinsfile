@@ -51,7 +51,7 @@ def launchJobs(jsonString, scope, outputDir) {
 pipeline {
 
     options {
-        buildDiscarder(logRotator(daysToKeepStr: '30', artifactDaysToKeepStr: '30'))
+        buildDiscarder(logRotator(daysToKeepStr: '15', artifactDaysToKeepStr: '15'))
         timeout(time: 10, unit: 'HOURS')
     }
 
