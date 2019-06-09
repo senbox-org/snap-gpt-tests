@@ -2,7 +2,7 @@
   "id":"PleiadesTest",
   "author": "CSRO",
   "description":"execute Pleiades product reader and operators",
-  "frequency":"daily",
+  "frequency":"daily/failMac",
   "graphPath": "s2tbx/graphReaderSingleLevel.xml",
   "inputs": {
     "input1": "s2tbx/_gpt_readers/pleiades/FCGC600134972/VOL_PHR.XML"

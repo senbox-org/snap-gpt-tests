@@ -3,7 +3,7 @@
   "id":"s1tbx.insar.interferogram.filtering.asar",
   "author": "Skywatch",
   "description":"execute interferogram and az/rg and phase filtering with ASAR IMS",
-  "frequency":"daily/s1tbx/filter",
+  "frequency":"daily/s1tbx/filter/failMac/failWin",
   "graphPath": "s1tbx/InSAR/Coregister_Ifg_Flt.xml",
   "inputs": {
     "input1": "s1tbx/SAR/ASAR/Bam/ASA_IMS_1PNUPA20031203_061259_000000162022_00120_09192_0099.N1",
@@ -27,7 +27,7 @@
   "id":"s1tbx.insar.interferogram.filtering.s1-sm",
   "author": "Skywatch",
   "description":"execute interferogram and az/rg and phase filtering with S1 SM",
-  "frequency":"daily/s1tbx/filter",
+  "frequency":"daily/s1tbx/filter/failMac/failWin",
   "graphPath": "s1tbx/InSAR/Coregister_Ifg_Flt.xml",
   "inputs": {
     "input1": "s1tbx/SAR/S1/Stripmap/S1A_S1_SLC__1SSV_20140807T142342_20140807T142411_001835_001BC1_05AA.SAFE.zip",
