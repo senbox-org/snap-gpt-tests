@@ -1,5 +1,5 @@
 [{
-  "id":"Subset_S2_B2B3",
+  "id":"Subset_S2Ref_B2B3",
   "author": "CS",
   "description":"execute subset operator in a S2L1C product with bands B2 and B3 and region",
   "frequency":"daily",
@@ -15,12 +15,12 @@
   },
   "outputs": [{
     "parameter": "out1",
-    "outputName": "subsetS2Test_B2B3",
+    "outputName": "subsetS2RefTest_B2B3",
     "expected": "snap/expected_subsetS2TestB2B3_region.json"
   }]
 },
   {
-    "id":"Subset_S2_B1B2",
+    "id":"Subset_S2Ref_B1B2",
   "author": "CS",
     "description":"execute subset operator in a S2L1C product with bands B1 and B2",
     "frequency":"daily",
@@ -36,12 +36,12 @@
     },
     "outputs": [{
       "parameter": "out1",
-      "outputName": "subsetS2Test_B1B2",
+      "outputName": "subsetS2RefTest_B1B2",
       "expected": "snap/expected_subsetS2TestB1B2_region.json"
     }]
   },
   {
-    "id":"Subset_S2_B1",
+    "id":"Subset_S2Ref_B1",
   "author": "CS",
     "description":"execute subset operator in a S2L1C product with band B1",
     "frequency":"daily",
@@ -57,7 +57,7 @@
     },
     "outputs": [{
       "parameter": "out1",
-      "outputName": "subsetS2Test_B1",
+      "outputName": "subsetS2RefTest_B1",
       "expected": "snap/expected_subsetS2Test_region.json"
     }]
   }
