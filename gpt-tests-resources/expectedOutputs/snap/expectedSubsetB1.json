@@ -1,0 +1,94 @@
+{
+  "id": "subsetS2Test_B1",
+  "decodeQualification": "INTENDED",
+  "expectedContent": {
+    "sceneWidth": 10980,
+    "sceneHeight": 10980,
+    "startTime": "02-OCT-2018 03:45:51.024000",
+    "endTime": "02-OCT-2018 03:45:51.024000",
+    "geoCoding": {
+      "coordinates": [
+        {
+          "x": 4735.0,
+          "y": 5902.0,
+          "lat": 9.457904007596536,
+          "lon": 100.67651601296265
+        },
+        {
+          "x": 8152.0,
+          "y": 7125.0,
+          "lat": 8.781590028122329,
+          "lon": 102.53560681909373
+        }
+      ],
+      "reverseAccuracy": 3.473633114481345E-7
+    },
+    "bands": [
+      {
+        "name": "B1",
+        "description": "Reflectance in band B1",
+        "bandWidth": 1830,
+        "bandHeight": 1830,
+        "geophysicalUnit": "dl",
+        "noDataValue": "0.0",
+        "noDataValueUsed": "false",
+        "spectralWavelength": "443.0",
+        "spectralBandwidth": "58.0",
+        "expectedPixels": [
+          {
+            "x": 95,
+            "y": 326,
+            "value": 0.2678
+          },
+          {
+            "x": 1253,
+            "y": 1556,
+            "value": 0.175
+          }
+        ]
+      }
+    ],
+    "metadata": [
+      {
+        "path": "Level-1C_User_Product/Geometric_Info/Coordinate_Reference_System/GEO_TABLES",
+        "value": "EPSG"
+      },
+      {
+        "path": "Granules/Level-1C_Tile_47PMP/Geometric_Info/Tile_Angles/Viewing_Incidence_Angles_Grids[11]/Azimuth/Values_List/VALUES[22]",
+        "value": "NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN 301.074 300.141 299.308 298.56 297.886 NaN NaN NaN NaN"
+      },
+      {
+        "path": "Processing_Graph/node.1/parameters/subSamplingY",
+        "value": "1"
+      },
+      {
+        "path": "Level-1C_DataStrip_ID/Auxiliary_Data_Info/IERS_Bulletin/GPS_TIME_TAI",
+        "value": "-19"
+      },
+      {
+        "path": "Level-1C_User_Product/General_Info/Product_Info/Datatake/SENSING_ORBIT_DIRECTION",
+        "value": "DESCENDING"
+      },
+      {
+        "path": "Granules/Level-1C_Tile_47PMP/Quality_Indicators_Info/Image_Content_QI/CLOUDY_PIXEL_PERCENTAGE",
+        "value": "91.4732"
+      },
+      {
+        "path": "Level-1C_User_Product/Auxiliary_Data_Info/GIPP_List/GIPP_FILENAME[67]",
+        "value": "S2A_OPER_GIP_R2EOB2_MPC__20180727T130800_V20180731T000000_21000101T000000_B04"
+      },
+      {
+        "path": "Level-1C_DataStrip_ID/Satellite_Ancillary_Data_Info/Attitudes/Corrected_Attitudes/Values[4388]/QUATERNION_VALUES",
+        "value": "0.153043947930884 0.776371822226298 0.0157975243531817 0.611207642196215"
+      },
+      {
+        "path": "history/SubsetInfo/ProductNodeName.1",
+        "value": "B1"
+      },
+      {
+        "path": "history/SubsetInfo/SubSampling.x",
+        "value": "1"
+      }
+    ]
+  }
+}
