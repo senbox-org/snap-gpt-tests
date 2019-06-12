@@ -72,7 +72,7 @@
   "id":"s1tbx.standard.slc2pri.k5",
   "author": "Skywatch",
   "description":"execute SLC to PRI with Kompsat-5",
-  "frequency":"daily/s1tbx/topri/failMac/failWin",
+  "frequency":"daily/s1tbx",
   "graphPath": "s1tbx/Standard/SLCtoPRIGraph.xml",
   "inputs": {
     "input1": "s1tbx/SAR/K5/HDF/K5_20170125111222_000000_18823_A_UH28_HH_SCS_B_L1A/K5_20170125111222_000000_18823_A_UH28_HH_SCS_B_L1A_Aux.xml"
@@ -95,7 +95,7 @@
   "id":"s1tbx.standard.slc2pri.paz",
   "author": "Skywatch",
   "description":"execute SLC to PRI with PAZ",
-  "frequency":"daily/s1tbx/topri/failMac/failWin",
+  "frequency":"daily/s1tbx",
   "graphPath": "s1tbx/Standard/SLCtoPRIGraph.xml",
   "inputs": {
     "input1": "s1tbx/SAR/PAZ/Mojave Interferometric pair/PAZ1_SAR__SSC______SM_S_SRA_20180520T014220_20180520T014228/PAZ1_SAR__SSC______SM_S_SRA_20180520T014220_20180520T014228.xml"

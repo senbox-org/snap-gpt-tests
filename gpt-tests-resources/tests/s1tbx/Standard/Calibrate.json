@@ -236,7 +236,7 @@
     "id":"s1tbx.standard.calibrate.terrasarx.slc",
   "author": "Skywatch",
     "description":"execute calibrate processor with TerraSAR-X SLC",
-    "frequency":"daily/s1tbx/failMac/failWin",
+    "frequency":"daily/s1tbx",
     "graphPath": "s1tbx/Standard/Subset_Cal.xml",
     "inputs": {
       "input1": "s1tbx/SAR/TerraSAR-X/Oslo_StaringSpotlight/TSX1_SAR__MGD_SE___ST_S_SRA_20130410T165445_20130410T165446/TSX1_SAR__MGD_SE___ST_S_SRA_20130410T165445_20130410T165446.xml"
@@ -255,7 +255,7 @@
     "id":"s1tbx.standard.calibrate.risat1.mrs",
   "author": "Skywatch",
     "description":"execute calibrate processor with RISAT1",
-    "frequency":"daily/s1tbx/failMac/failWin",
+    "frequency":"daily/s1tbx",
     "graphPath": "s1tbx/Standard/Subset_Cal.xml",
     "inputs": {
       "input1": "s1tbx/SAR/RISAT1/MRS/1382msd1_s7_GroundRange/BAND_META.txt"
@@ -274,7 +274,7 @@
     "id":"s1tbx.standard.calibrate.paz.mgd",
   "author": "Skywatch",
     "description":"execute calibrate processor with PAZ MGD",
-    "frequency":"daily/s1tbx/failMac/failWin",
+    "frequency":"daily/s1tbx",
     "graphPath": "s1tbx/Standard/Subset_Cal.xml",
     "inputs": {
       "input1": "s1tbx/SAR/PAZ/NewDelhi/PAZ1_SAR__MGD_RE___SC_S_SRA_20180616T004650_20180616T004712/PAZ1_SAR__MGD_RE___SC_S_SRA_20180616T004650_20180616T004712.xml"
@@ -293,7 +293,7 @@
     "id":"s1tbx.standard.calibrate.k5.gtc",
   "author": "Skywatch",
     "description":"execute calibrate processor with Kompsat-5 GTC",
-    "frequency":"daily/s1tbx/failMac/failWin",
+    "frequency":"daily/s1tbx",
     "graphPath": "s1tbx/Standard/Subset_Cal.xml",
     "inputs": {
       "input1": "s1tbx/SAR/K5/HDF/K5_20170125111222_000000_18823_A_UH28_HH_SCS_B_L1A/K5_20170125111222_000000_18823_A_UH28_HH_SCS_B_L1A_Aux.xml"
