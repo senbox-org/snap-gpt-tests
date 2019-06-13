@@ -81,6 +81,11 @@ def launchJobsSeq(jsonString, scope, outputDir) {
 
 pipeline {
 
+    options {
+        buildDiscarder(logRotator(daysToKeepStr: '30', artifactDaysToKeepStr: '30'))
+        timeout(time: 20, unit: 'HOURS')
+    }
+
     environment {
         branchVersion = sh(returnStdout: true, script: "echo ${env.GIT_BRANCH} | cut -d '/' -f 2").trim()
         outputDir = "/home/snap/output/${branchVersion}/${env.BUILD_NUMBER}"

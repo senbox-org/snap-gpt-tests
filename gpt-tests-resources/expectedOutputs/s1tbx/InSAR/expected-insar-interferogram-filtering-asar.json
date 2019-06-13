@@ -1,5 +1,5 @@
 {
-  "id" : "s1tbx.insar.coregister.asar",
+  "id" : "s1tbx.insar.interferogram.filtering.asar",
   "decodeQualification" : "INTENDED",
   "expectedContent" : {
     "sceneWidth" : 1754,
@@ -74,35 +74,35 @@
       } ]
     } ],
     "bands" : [ {
-      "name" : "i_VV_mst_03Dec2003",
-      "description" : "Image Mode SLC Image (i)",
+      "name" : "i_ifg_VV_03Dec2003_11Feb2004",
+      "description" : "",
       "bandWidth" : 1754,
       "bandHeight" : 8077,
       "noDataValue" : 0.0,
-      "noDataValueUsed" : true,
-      "spectralWavelength" : 0.0,
-      "spectralBandwidth" : 0.0,
-      "expectedPixels" : [ {
-        "x" : 877,
-        "y" : 4037,
-        "value" : 1.0
-      } ]
-    }, {
-      "name" : "q_VV_mst_03Dec2003",
-      "description" : "Image Mode SLC Image (q)",
-      "bandWidth" : 1754,
-      "bandHeight" : 8077,
-      "noDataValue" : 0.0,
-      "noDataValueUsed" : true,
+      "noDataValueUsed" : false,
       "spectralWavelength" : 0.0,
       "spectralBandwidth" : 0.0,
       "expectedPixels" : [ {
         "x" : 877,
         "y" : 4038,
-        "value" : 47.0
+        "value" : 6.7693702E12
       } ]
     }, {
-      "name" : "Intensity_VV_mst_03Dec2003",
+      "name" : "q_ifg_VV_03Dec2003_11Feb2004",
+      "description" : "",
+      "bandWidth" : 1754,
+      "bandHeight" : 8077,
+      "noDataValue" : 0.0,
+      "noDataValueUsed" : false,
+      "spectralWavelength" : 0.0,
+      "spectralBandwidth" : 0.0,
+      "expectedPixels" : [ {
+        "x" : 877,
+        "y" : 4038,
+        "value" : 4.68973586E14
+      } ]
+    }, {
+      "name" : "Intensity_ifg_VV_03Dec2003_11Feb2004",
       "description" : "Intensity from complex data",
       "bandWidth" : 1754,
       "bandHeight" : 8077,
@@ -113,11 +113,25 @@
       "expectedPixels" : [ {
         "x" : 877,
         "y" : 4038,
-        "value" : 2209.0
+        "value" : 2.1998205E29
       } ]
     }, {
-      "name" : "i_VV_slv1_11Feb2004",
-      "description" : "Image Mode SLC Image (i)",
+      "name" : "Phase_ifg_VV_03Dec2003_11Feb2004",
+      "description" : "Phase from complex data",
+      "bandWidth" : 1754,
+      "bandHeight" : 8077,
+      "noDataValue" : 0.0,
+      "noDataValueUsed" : false,
+      "spectralWavelength" : 0.0,
+      "spectralBandwidth" : 0.0,
+      "expectedPixels" : [ {
+        "x" : 877,
+        "y" : 4038,
+        "value" : 1.5563629
+      } ]
+    }, {
+      "name" : "coh_VV_03Dec2003_11Feb2004",
+      "description" : "",
       "bandWidth" : 1754,
       "bandHeight" : 8077,
       "noDataValue" : 0.0,
@@ -127,35 +141,7 @@
       "expectedPixels" : [ {
         "x" : 877,
         "y" : 4038,
-        "value" : -47.412724
-      } ]
-    }, {
-      "name" : "q_VV_slv1_11Feb2004",
-      "description" : "Image Mode SLC Image (q)",
-      "bandWidth" : 1754,
-      "bandHeight" : 8077,
-      "noDataValue" : 0.0,
-      "noDataValueUsed" : true,
-      "spectralWavelength" : 0.0,
-      "spectralBandwidth" : 0.0,
-      "expectedPixels" : [ {
-        "x" : 877,
-        "y" : 4038,
-        "value" : 14.246062
-      } ]
-    }, {
-      "name" : "Intensity_VV_slv1_11Feb2004",
-      "description" : "Intensity from complex data",
-      "bandWidth" : 1754,
-      "bandHeight" : 8077,
-      "noDataValue" : 0.0,
-      "noDataValueUsed" : true,
-      "spectralWavelength" : 0.0,
-      "spectralBandwidth" : 0.0,
-      "expectedPixels" : [ {
-        "x" : 877,
-        "y" : 4038,
-        "value" : 2450.9167
+        "value" : 0.8276997
       } ]
     } ],
     "masks" : [ ]

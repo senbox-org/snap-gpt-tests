@@ -1,25 +1,25 @@
 {
-    "id": "tempMergeWaterSoilOpFull",
+    "id": "tempoMergeWaterFull",
     "decodeQualification": "INTENDED",
     "expectedContent": {
-        "sceneWidth": 10980,
-        "sceneHeight": 10980,
+        "sceneWidth": 1830,
+        "sceneHeight": 1830,
         "geoCoding": {
             "coordinates": [
                 {
-                    "x": 4735.0,
-                    "y": 5902.0,
-                    "lat": -33.961022507653304,
-                    "lon": 22.59479170039122
+                    "x": 789.0,
+                    "y": 983.0,
+                    "lat": 32.896912959332255,
+                    "lon": -112.63221152263118
                 },
                 {
-                    "x": 8152.0,
-                    "y": 7125.0,
-                    "lat": -34.06591255410723,
-                    "lon": 22.966987475281325
+                    "x": 1358.0,
+                    "y": 1187.0,
+                    "lat": 32.790759890243955,
+                    "lon": -112.26571353229913
                 }
             ],
-            "reverseAccuracy": 4.71482053399086E-8
+            "reverseAccuracy": 2.86672729998827E-9
         },
         "flagCodings": [
             {
@@ -47,87 +47,87 @@
             {
                 "name": "ri",
                 "description": "",
-                "bandWidth": 10980,
-                "bandHeight": 10980,
+                "bandWidth": 1830,
+                "bandHeight": 1830,
                 "noDataValue": "0.0",
                 "noDataValueUsed": "false",
                 "spectralWavelength": "0.0",
                 "spectralBandwidth": "0.0",
                 "expectedPixels": [
                     {
-                        "x": 572,
-                        "y": 1956,
-                        "value": 0.0
+                        "x": 95,
+                        "y": 326,
+                        "value": 17.174585
                     },
                     {
-                        "x": 7522,
-                        "y": 9339,
-                        "value": 0.0
+                        "x": 1253,
+                        "y": 1556,
+                        "value": 54.18471
                     }
                 ]
             },
             {
                 "name": "flags",
                 "description": "ri specific flags",
-                "bandWidth": 10980,
-                "bandHeight": 10980,
+                "bandWidth": 1830,
+                "bandHeight": 1830,
                 "noDataValue": "0.0",
                 "noDataValueUsed": "false",
                 "spectralWavelength": "0.0",
                 "spectralBandwidth": "0.0",
                 "expectedPixels": [
                     {
-                        "x": 3193,
-                        "y": 2820,
-                        "value": 0.0
+                        "x": 532,
+                        "y": 470,
+                        "value": 4.0
                     },
                     {
-                        "x": 6703,
-                        "y": 4010,
-                        "value": 0.0
+                        "x": 1117,
+                        "y": 668,
+                        "value": 4.0
                     }
                 ]
             },
             {
                 "name": "ndti",
                 "description": "",
-                "bandWidth": 10980,
-                "bandHeight": 10980,
+                "bandWidth": 1830,
+                "bandHeight": 1830,
                 "noDataValue": "0.0",
                 "noDataValueUsed": "false",
                 "spectralWavelength": "0.0",
                 "spectralBandwidth": "0.0",
                 "expectedPixels": [
                     {
-                        "x": 6039,
-                        "y": 8183,
-                        "value": 0.0
+                        "x": 1006,
+                        "y": 1363,
+                        "value": 0.13897595
                     },
                     {
-                        "x": 6679,
-                        "y": 10194,
-                        "value": 0.0
+                        "x": 1113,
+                        "y": 1699,
+                        "value": 0.15441887
                     }
                 ]
             },
             {
                 "name": "flags_2",
                 "description": "ndti specific flags",
-                "bandWidth": 10980,
-                "bandHeight": 10980,
+                "bandWidth": 1830,
+                "bandHeight": 1830,
                 "noDataValue": "0.0",
                 "noDataValueUsed": "false",
                 "spectralWavelength": "0.0",
                 "spectralBandwidth": "0.0",
                 "expectedPixels": [
                     {
-                        "x": 1737,
-                        "y": 7313,
+                        "x": 289,
+                        "y": 1218,
                         "value": 0.0
                     },
                     {
-                        "x": 5700,
-                        "y": 10030,
+                        "x": 950,
+                        "y": 1671,
                         "value": 0.0
                     }
                 ]

@@ -307,8 +307,45 @@
       "outputName": "out-calibrate-k5-gtc",
       "expected": "s1tbx/Standard/expected-calibrate-k5-gtc.json"
     }]
+  },
+  {
+    "id":"s1tbx.standard.calibrate.iceye.slc",
+  "author": "Skywatch",
+    "description":"execute calibrate processor with Iceye SLC",
+    "frequency":"daily/s1tbx",
+    "graphPath": "s1tbx/Standard/Subset_Cal.xml",
+    "inputs": {
+      "input1": "s1tbx/SAR/Iceye/SLC/SM/ICEYE_SLC_SM_5573_20190524T223555.h5"
+    },
+    "parameters": {
+	    "outputImageInComplex": "false",
+		"region": "100,100,500,500"
+    },
+    "outputs": [{
+      "parameter": "out1",
+      "outputName": "out-calibrate-iceye-slc",
+      "expected": "s1tbx/Standard/expected-calibrate-iceye-slc.json"
+    }]
+  },
+  {
+    "id":"s1tbx.standard.calibrate.cosmoskymed.dgm",
+  "author": "Skywatch",
+    "description":"execute calibrate processor with Cosmo Skymed DGM",
+    "frequency":"daily/s1tbx",
+    "graphPath": "s1tbx/Standard/Subset_Cal.xml",
+    "inputs": {
+      "input1": "s1tbx/SAR/Cosmo/level 1B/hdf5/EL20141029_928699_3776081.6.2/CSKS4_DGM_B_WR_03_VV_RA_SF_20141001061215_20141001061230.h5"
+    },
+    "parameters": {
+	    "outputImageInComplex": "false",
+		"region": "100,100,500,500"
+    },
+    "outputs": [{
+      "parameter": "out1",
+      "outputName": "out-calibrate-cosmoskymed-dgm",
+      "expected": "s1tbx/Standard/expected-calibrate-cosmoskymed-dgm.json"
+    }]
   }
-
 ]
 
 

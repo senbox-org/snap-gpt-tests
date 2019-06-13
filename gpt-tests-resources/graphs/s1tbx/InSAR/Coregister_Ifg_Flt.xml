@@ -102,34 +102,10 @@
       <copyMetadata>true</copyMetadata>
     </parameters>
   </node>
-  <node id="Interferogram">
-    <operator>Interferogram</operator>
-    <sources>
-      <sourceProduct refid="Warp"/>
-    </sources>
-    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
-      <subtractFlatEarthPhase>true</subtractFlatEarthPhase>
-      <srpPolynomialDegree>5</srpPolynomialDegree>
-      <srpNumberPoints>501</srpNumberPoints>
-      <orbitDegree>3</orbitDegree>
-      <includeCoherence>true</includeCoherence>
-      <cohWinAz>2</cohWinAz>
-      <cohWinRg>10</cohWinRg>
-      <squarePixel>true</squarePixel>
-      <subtractTopographicPhase>false</subtractTopographicPhase>
-      <demName>SRTM 3Sec</demName>
-      <externalDEMFile/>
-      <externalDEMNoDataValue>0.0</externalDEMNoDataValue>
-      <externalDEMApplyEGM>true</externalDEMApplyEGM>
-      <tileExtensionPercent>100</tileExtensionPercent>
-      <outputElevation>false</outputElevation>
-      <outputLatLon>false</outputLatLon>
-    </parameters>
-  </node>
   <node id="AzimuthFilter">
     <operator>AzimuthFilter</operator>
     <sources>
-      <sourceProduct refid="Interferogram"/>
+      <sourceProduct refid="Warp"/>
     </sources>
     <parameters class="com.bc.ceres.binding.dom.XppDomElement">
       <fftLength>256</fftLength>
@@ -154,7 +130,7 @@
   <node id="GoldsteinPhaseFiltering">
     <operator>GoldsteinPhaseFiltering</operator>
     <sources>
-      <sourceProduct refid="RangeFilter"/>
+      <sourceProduct refid="Interferogram"/>
     </sources>
     <parameters class="com.bc.ceres.binding.dom.XppDomElement">
       <alpha>1.0</alpha>
@@ -162,6 +138,30 @@
       <windowSizeString>3</windowSizeString>
       <useCoherenceMask>false</useCoherenceMask>
       <coherenceThreshold>0.2</coherenceThreshold>
+    </parameters>
+  </node>
+  <node id="Interferogram">
+    <operator>Interferogram</operator>
+    <sources>
+      <sourceProduct refid="RangeFilter"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <subtractFlatEarthPhase>true</subtractFlatEarthPhase>
+      <srpPolynomialDegree>5</srpPolynomialDegree>
+      <srpNumberPoints>501</srpNumberPoints>
+      <orbitDegree>3</orbitDegree>
+      <includeCoherence>true</includeCoherence>
+      <cohWinAz>2</cohWinAz>
+      <cohWinRg>10</cohWinRg>
+      <squarePixel>true</squarePixel>
+      <subtractTopographicPhase>false</subtractTopographicPhase>
+      <demName>SRTM 3Sec</demName>
+      <externalDEMFile/>
+      <externalDEMNoDataValue>0.0</externalDEMNoDataValue>
+      <externalDEMApplyEGM>true</externalDEMApplyEGM>
+      <tileExtensionPercent>100</tileExtensionPercent>
+      <outputElevation>false</outputElevation>
+      <outputLatLon>false</outputLatLon>
     </parameters>
   </node>
   <node id="Write">
@@ -197,17 +197,17 @@
     <node id="Subset(2)">
       <displayPosition x="35.0" y="131.0"/>
     </node>
-    <node id="Interferogram">
-      <displayPosition x="306.0" y="150.0"/>
-    </node>
     <node id="AzimuthFilter">
-      <displayPosition x="317.0" y="195.0"/>
+      <displayPosition x="318.0" y="144.0"/>
     </node>
     <node id="RangeFilter">
-      <displayPosition x="332.0" y="234.0"/>
+      <displayPosition x="329.0" y="185.0"/>
     </node>
     <node id="GoldsteinPhaseFiltering">
       <displayPosition x="299.0" y="268.0"/>
+    </node>
+    <node id="Interferogram">
+      <displayPosition x="323.0" y="227.0"/>
     </node>
     <node id="Write">
       <displayPosition x="341.0" y="303.0"/>
