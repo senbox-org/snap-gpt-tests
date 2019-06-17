@@ -46,29 +46,6 @@
   }
 },
 {
-  "id":"s1tbx.standard.terraincorrect.rs2",
-  "author": "Skywatch",
-  "description":"execute terraincorrect processor with RS2",
-  "frequency":"daily/s1tbx",
-  "graphPath": "s1tbx/Standard/Subset_TC.xml",
-  "inputs": {
-    "input1": "s1tbx/SAR/RS2/RS2_OK76385_PK678063_DK606752_FQ2_20080415_143807_HH_VV_HV_VH_SLC.zip"
-  },
-  "parameters": {
-    "region": "100,100,500,500"
-  },
-  "outputs": [{
-    "parameter": "out1",
-    "outputName": "out-tc-rs2",
-    "expected": "s1tbx/Standard/expected-terraincorrect-rs2.json"
-  }],
-  "configVM": {
-    "xmx": "5G",
-    "cacheSize": "3500M",
-    "parallelism": "4"
-  }
-},
-{
   "id":"s1tbx.standard.terraincorrect.s1.grd",
   "author": "Skywatch",
   "description":"execute terraincorrect processor with S1 GRD",
