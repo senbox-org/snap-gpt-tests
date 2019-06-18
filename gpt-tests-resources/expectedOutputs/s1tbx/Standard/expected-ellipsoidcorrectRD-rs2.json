@@ -2,72 +2,72 @@
   "id" : "s1tbx.standard.ellipsoidcorrectRD.rs2",
   "decodeQualification" : "INTENDED",
   "expectedContent" : {
-    "sceneWidth" : 811,
-    "sceneHeight" : 294,
+    "sceneWidth" : 778,
+    "sceneHeight" : 369,
     "geoCoding" : {
       "coordinates" : [ {
-        "x" : 405.0,
-        "y" : 147.0,
-        "lat" : 49.39435702864396,
-        "lon" : -123.15377601856093
+        "x" : 389.0,
+        "y" : 184.0,
+        "lat" : 46.04270321262731,
+        "lon" : -77.40206564274429
       } ]
     },
     "tiePointGrids" : [ ],
     "bands" : [ {
       "name" : "Intensity_HH",
       "description" : "",
-      "bandWidth" : 811,
-      "bandHeight" : 294,
+      "bandWidth" : 778,
+      "bandHeight" : 369,
       "noDataValue" : 0.0,
       "noDataValueUsed" : true,
       "spectralWavelength" : 0.0,
       "spectralBandwidth" : 0.0,
       "expectedPixels" : [ {
-        "x" : 405.0,
-        "y" : 147.0,
-        "value" : 1542652.0
+        "x" : 389,
+        "y" : 184,
+        "value" : 3.5195396E7
       } ]
     }, {
       "name" : "Intensity_HV",
       "description" : "",
-      "bandWidth" : 811,
-      "bandHeight" : 294,
+      "bandWidth" : 778,
+      "bandHeight" : 369,
       "noDataValue" : 0.0,
       "noDataValueUsed" : true,
       "spectralWavelength" : 0.0,
       "spectralBandwidth" : 0.0,
       "expectedPixels" : [ {
-        "x" : 405.0,
-        "y" : 147.0,
-        "value" : 262371.75
+        "x" : 389,
+        "y" : 184,
+        "value" : 2.288647E7
       } ]
     }, {
       "name" : "Intensity_VH",
       "description" : "",
-      "bandWidth" : 811,
-      "bandHeight" : 294,
+      "bandWidth" : 778,
+      "bandHeight" : 369,
       "noDataValue" : 0.0,
       "noDataValueUsed" : true,
       "spectralWavelength" : 0.0,
       "spectralBandwidth" : 0.0,
       "expectedPixels" : [ {
-        "x" : 405.0,
-        "y" : 147.0,
-        "value" : 274200.22
+        "x" : 389,
+        "y" : 184,
+        "value" : 3.6583948E7
       } ]
     }, {
       "name" : "Intensity_VV",
       "description" : "",
-      "bandWidth" : 811,
-      "bandHeight" : 294,
+      "bandWidth" : 778,
+      "bandHeight" : 369,
       "noDataValue" : 0.0,
       "noDataValueUsed" : true,
       "spectralWavelength" : 0.0,
       "spectralBandwidth" : 0.0,
       "expectedPixels" : [ {
-        "x" : 405.0,
-        "y" : 147.0,
-        "value" : 1037092.2
+        "x" : 389,
+        "y" : 184,
+        "value" : 1.07311544E8
       } ]
     } ],
     "masks" : [ ]
