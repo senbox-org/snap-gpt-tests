@@ -1,0 +1,238 @@
+{
+    "id": "LandWaterMask_OLCI_L1b",
+    "decodeQualification": "INTENDED",
+    "expectedContent": {
+        "sceneWidth": 200,
+        "sceneHeight": 200,
+        "geoCoding": {
+            "coordinates": [
+                {
+                    "x": 97.5,
+                    "y": 34.5,
+                    "lat": 30.882060441226574,
+                    "lon": 29.221552106879145
+                },
+                {
+                    "x": 162.5,
+                    "y": 24.5,
+                    "lat": 30.877806779855813,
+                    "lon": 29.407497053306322
+                },
+                {
+                    "x": 33.5,
+                    "y": 66.5,
+                    "lat": 30.828431661785935,
+                    "lon": 29.02578687045164
+                },
+                {
+                    "x": 86.5,
+                    "y": 142.5,
+                    "lat": 30.60650226658061,
+                    "lon": 29.128871603565887
+                },
+                {
+                    "x": 134.5,
+                    "y": 101.5,
+                    "lat": 30.690743214317706,
+                    "lon": 29.28528509741618
+                },
+                {
+                    "x": 159.5,
+                    "y": 23.5,
+                    "lat": 30.88180607475194,
+                    "lon": 29.399764364560458
+                },
+                {
+                    "x": 158.5,
+                    "y": 23.5,
+                    "lat": 30.882272718842216,
+                    "lon": 29.39699295031702
+                }
+            ],
+            "reverseAccuracy": 0.02155284306306271
+        },
+        "tiePointGrids": [
+            {
+                "name": "latitude",
+                "description": "Latitude",
+                "offsetX": "-8.0",
+                "offsetY": "0.0",
+                "subSamplingX": "64.0",
+                "subSamplingY": "1.0",
+                "expectedPixels": [
+                    {
+                        "x": 97,
+                        "y": 34,
+                        "value": 30.882061
+                    },
+                    {
+                        "x": 162,
+                        "y": 24,
+                        "value": 30.877808
+                    },
+                    {
+                        "x": 33,
+                        "y": 66,
+                        "value": 30.828432
+                    },
+                    {
+                        "x": 86,
+                        "y": 142,
+                        "value": 30.606503
+                    },
+                    {
+                        "x": 134,
+                        "y": 101,
+                        "value": 30.690742
+                    },
+                    {
+                        "x": 159,
+                        "y": 23,
+                        "value": 30.881805
+                    },
+                    {
+                        "x": 158,
+                        "y": 23,
+                        "value": 30.882273
+                    }
+                ]
+            },
+            {
+                "name": "longitude",
+                "description": "Longitude",
+                "offsetX": "-8.0",
+                "offsetY": "0.0",
+                "subSamplingX": "64.0",
+                "subSamplingY": "1.0",
+                "expectedPixels": [
+                    {
+                        "x": 97,
+                        "y": 34,
+                        "value": 29.221552
+                    },
+                    {
+                        "x": 162,
+                        "y": 24,
+                        "value": 29.407497
+                    },
+                    {
+                        "x": 33,
+                        "y": 66,
+                        "value": 29.025787
+                    },
+                    {
+                        "x": 86,
+                        "y": 142,
+                        "value": 29.128872
+                    },
+                    {
+                        "x": 134,
+                        "y": 101,
+                        "value": 29.285286
+                    },
+                    {
+                        "x": 159,
+                        "y": 23,
+                        "value": 29.399765
+                    },
+                    {
+                        "x": 158,
+                        "y": 23,
+                        "value": 29.396994
+                    }
+                ]
+            }
+        ],
+        "bands": [
+            {
+                "name": "land_water_fraction",
+                "description": "",
+                "bandWidth": 200,
+                "bandHeight": 200,
+                "noDataValue": "127.0",
+                "noDataValueUsed": "true",
+                "spectralWavelength": "0.0",
+                "spectralBandwidth": "0.0",
+                "expectedPixels": [
+                    {
+                        "x": 97,
+                        "y": 34,
+                        "value": 100.0
+                    },
+                    {
+                        "x": 162,
+                        "y": 24,
+                        "value": 100.0
+                    },
+                    {
+                        "x": 33,
+                        "y": 66,
+                        "value": 100.0
+                    },
+                    {
+                        "x": 86,
+                        "y": 142,
+                        "value": 0.0
+                    },
+                    {
+                        "x": 134,
+                        "y": 101,
+                        "value": 0.0
+                    },
+                    {
+                        "x": 159,
+                        "y": 23,
+                        "value": 100.0
+                    },
+                    {
+                        "x": 158,
+                        "y": 23,
+                        "value": 0.0
+                    }
+                ]
+            }
+        ],
+        "metadata": [
+            {
+                "path": "Processing_Graph/node.1/parameters/formatName",
+                "value": "BEAM-DIMAP"
+            },
+            {
+                "path": "Processing_Graph/node.0/parameters/resolution",
+                "value": "50"
+            },
+            {
+                "path": "Processing_Graph/node.0/parameters/subSamplingFactorY",
+                "value": "1"
+            },
+            {
+                "path": "Processing_Graph/node.1/parameters/clearCacheAfterRowWrite",
+                "value": "false"
+            },
+            {
+                "path": "Processing_Graph/node.1/parameters/clearCacheAfterRowWrite",
+                "value": "false"
+            },
+            {
+                "path": "Processing_Graph/node.0/parameters/subSamplingFactorY",
+                "value": "1"
+            },
+            {
+                "path": "Processing_Graph/node.1/sources/sourceProduct",
+                "value": "LandWaterMask"
+            },
+            {
+                "path": "Processing_Graph/node.0/sources/sourceProduct",
+                "value": "product:Subset_S3A_OL_1_EFR____20160303T080325_20160303T080525_20160312T095955_0119_001_249______SVL_O_NR_001.SEN3"
+            },
+            {
+                "path": "Processing_Graph/node.1/parameters/formatName",
+                "value": "BEAM-DIMAP"
+            },
+            {
+                "path": "Processing_Graph/node.0/sources/sourceProduct",
+                "value": "product:Subset_S3A_OL_1_EFR____20160303T080325_20160303T080525_20160312T095955_0119_001_249______SVL_O_NR_001.SEN3"
+            }
+        ]
+    }
+}

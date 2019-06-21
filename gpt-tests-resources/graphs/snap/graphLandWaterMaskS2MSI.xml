@@ -1,0 +1,61 @@
+<graph id="GraphReprojectionOp">
+    <version>1.0</version>
+    <node id="Read">
+        <operator>Read</operator>
+        <sources/>
+        <parameters>
+            <file>$input</file>
+        </parameters>
+    </node>
+
+    <node id="Resample">
+        <operator>Resample</operator>
+        <sources>
+            <sourceProduct refid="Read"/>
+        </sources>
+
+        <parameters>
+            <targetResolution>150</targetResolution>
+            <upsampling>Nearest</upsampling>
+            <downsampling>First</downsampling>
+            <flagDownsampling>First</flagDownsampling>
+            <resampleOnPyramidLevels>true</resampleOnPyramidLevels>
+        </parameters>
+    </node>
+
+
+
+    <node id="Subset">
+        <operator>Subset</operator>
+        <sources>
+            <sourceProduct refid="Resample"/>
+        </sources>
+        <parameters>
+            <region>$subsetRegion</region>
+            <copyMetadata>false</copyMetadata>
+        </parameters>
+    </node>
+
+    <node id="LandWaterMask">
+        <operator>LandWaterMask</operator>
+        <sources>
+            <sourceProduct refid="Subset"/>
+        </sources>
+        <parameters>
+            <resolution>$resolution</resolution>
+            <subSamplingFactorX>$subSamplingFactorX</subSamplingFactorX>
+            <subSamplingFactorY>$subSamplingFactorY</subSamplingFactorY>
+        </parameters>
+
+    </node>
+    <node id="Write">
+        <operator>Write</operator>
+        <sources>
+            <sourceProduct refid="LandWaterMask"/>
+        </sources>
+        <parameters>
+            <file>$output</file>
+            <formatName>BEAM-DIMAP</formatName>
+        </parameters>
+    </node>
+</graph>
