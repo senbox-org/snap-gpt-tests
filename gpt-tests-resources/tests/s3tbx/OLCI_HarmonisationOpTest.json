@@ -1,0 +1,48 @@
+[
+  {
+    "id": "OlciHarmonisation",
+    "author": "BC",
+    "description": "execute OLCI O2 Harmonisation",
+    "frequency": "mptest",
+    "graphPath": "s3tbx/graphHarm_OLCI.xml",
+    "inputs": {
+      "input": "s3tbx/sensors_platforms/SENTINEL-3/olci/L1/S3B_OL_1_EFR____20190420T120914_20190420T121214_20190421T151110_0179_024_237_3420_LN1_O_NT_002.SEN3"
+    },
+    "parameters": {
+      "dem": "",
+      "only13": "false",
+      "harmRadiances": "true"
+    },
+    "outputs": [
+      {
+        "parameter": "output",
+        "outputName": "OLCI_Harm",
+        "expected": "s3tbx/expectedOlciHarmonisation.json"
+      }
+    ]
+  },
+  {
+    "id": "OlciHarmonisationDem",
+    "author": "BC",
+    "description": "execute OLCI O2 Harmonisation with DEM",
+    "frequency": "mptest",
+    "graphPath": "s3tbx/graphHarm_OLCI.xml",
+    "inputs": {
+      "input": "s3tbx/sensors_platforms/SENTINEL-3/olci/L1/S3B_OL_1_EFR____20190420T120914_20190420T121214_20190421T151110_0179_024_237_3420_LN1_O_NT_002.SEN3",
+      "dem": "s3tbx/sensors_platforms/SENTINEL-3/olci/L1/S3B_OL_1_EFR____20190420T120914_ELEV.nc"
+    },
+    "parameters": {
+      "dem": "elevation",
+      "only13": "true",
+      "harmRadiances": "false"
+    },
+    "outputs": [
+      {
+        "parameter": "output",
+        "outputName": "OLCI_Harm_dem",
+        "expected": "s3tbx/OlciHarmonisationDem.json"
+      }
+    ]
+  }
+
+]
