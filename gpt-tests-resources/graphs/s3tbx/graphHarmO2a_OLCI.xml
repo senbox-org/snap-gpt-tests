@@ -7,7 +7,7 @@
             <file>$input</file>
         </parameters>
     </node>
-    <node id="Harmonisation">
+    <node id="O2aHarmonisation">
         <operator>OlciO2aHarmonisation</operator>
         <sources>
             <source>Read</source>
@@ -21,7 +21,7 @@
     <node id="Write">
         <operator>Write</operator>
         <sources>
-            <sourceProduct>PpeFiltering</sourceProduct>
+            <sourceProduct>O2aHarmonisation</sourceProduct>
         </sources>
         <parameters>
             <file>$output</file>
