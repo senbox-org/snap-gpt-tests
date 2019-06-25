@@ -1,18 +1,27 @@
 <graph id="someGraphId">
     <version>1.0</version>
-    <node id="Read">
+    <node id="Olci">
         <operator>Read</operator>
         <sources/>
         <parameters>
             <file>$input</file>
         </parameters>
     </node>
+    <node id="Elevation">
+        <operator>Read</operator>
+        <sources/>
+        <parameters>
+            <file>$elev</file>
+        </parameters>
+    </node>
     <node id="O2aHarmonisation">
         <operator>OlciO2aHarmonisation</operator>
         <sources>
-            <l1bProduct>Read</l1bProduct>
+            <l1bProduct>Olci</l1bProduct>
+            <demProduct>Elevation</demProduct>
         </sources>
         <parameters>
+            <demAltitudeBandName>$dem</demAltitudeBandName>
             <processOnlyBand13>$only13</processOnlyBand13>
             <writeHarmonisedRadiances>$harmRadiances</writeHarmonisedRadiances>
         </parameters>
