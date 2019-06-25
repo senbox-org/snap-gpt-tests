@@ -7,13 +7,6 @@
             <file>$input1</file>
         </parameters>
     </node>
-    <node id="Read(2)">
-        <operator>Read</operator>
-        <sources/>
-        <parameters class="com.bc.ceres.binding.dom.XppDomElement">
-            <file>$input2</file>
-        </parameters>
-    </node>
     <node id="Resample">
         <operator>Resample</operator>
         <sources>
@@ -30,42 +23,10 @@
             <resampleOnPyramidLevels>true</resampleOnPyramidLevels>
         </parameters>
     </node>
-    <node id="Resample(2)">
-        <operator>Resample</operator>
-        <sources>
-            <sourceProduct refid="Read(2)"/>
-        </sources>
-        <parameters class="com.bc.ceres.binding.dom.XppDomElement">
-            <referenceBand>$resampleRefBand2</referenceBand>
-            <targetWidth/>
-            <targetHeight/>
-            <targetResolution/>
-            <upsampling>Nearest</upsampling>
-            <downsampling>First</downsampling>
-            <flagDownsampling>First</flagDownsampling>
-            <resampleOnPyramidLevels>true</resampleOnPyramidLevels>
-        </parameters>
-    </node>
     <node id="Subset">
         <operator>Subset</operator>
         <sources>
             <sourceProduct refid="Resample"/>
-        </sources>
-        <parameters class="com.bc.ceres.binding.dom.XppDomElement">
-            <sourceBands/>
-            <region>$subsetRegion</region>
-            <geoRegion/>
-            <subSamplingX>1</subSamplingX>
-            <subSamplingY>1</subSamplingY>
-            <fullSwath>false</fullSwath>
-            <tiePointGridNames/>
-            <copyMetadata>true</copyMetadata>
-        </parameters>
-    </node>
-    <node id="Subset(2)">
-        <operator>Subset</operator>
-        <sources>
-            <sourceProduct refid="Resample(2)"/>
         </sources>
         <parameters class="com.bc.ceres.binding.dom.XppDomElement">
             <sourceBands/>
@@ -96,7 +57,7 @@
     <node id="NdtiOp">
         <operator>NdtiOp</operator>
         <sources>
-            <sourceProduct refid="Subset(2)"/>
+            <sourceProduct refid="Subset"/>
         </sources>
         <parameters class="com.bc.ceres.binding.dom.XppDomElement">
             <resampleType>None</resampleType>
@@ -131,20 +92,11 @@
         <node id="Read">
             <displayPosition x="37.0" y="134.0"/>
         </node>
-        <node id="Read(2)">
-            <displayPosition x="34.0" y="212.0"/>
-        </node>
         <node id="Resample">
             <displayPosition x="133.0" y="129.0"/>
         </node>
-        <node id="Resample(2)">
-            <displayPosition x="124.0" y="210.0"/>
-        </node>
         <node id="Subset">
             <displayPosition x="245.0" y="132.0"/>
-        </node>
-        <node id="Subset(2)">
-            <displayPosition x="232.0" y="207.0"/>
         </node>
         <node id="RiOp">
             <displayPosition x="351.0" y="127.0"/>
