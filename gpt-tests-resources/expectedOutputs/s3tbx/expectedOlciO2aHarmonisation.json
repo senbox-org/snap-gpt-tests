@@ -1,0 +1,992 @@
+{
+  "id": "OLCI_O2A_Harm",
+  "decodeQualification": "INTENDED",
+  "expectedContent": {
+    "sceneWidth": 4865,
+    "sceneHeight": 4091,
+    "startTime": "20-APR-2019 12:09:14.475590",
+    "endTime": "20-APR-2019 12:12:14.475590",
+    "geoCoding": {
+      "coordinates": [
+        {
+          "x": 2098.0,
+          "y": 2199.0,
+          "lat": -28.057025132054903,
+          "lon": -41.576856976572515
+        },
+        {
+          "x": 3612.0,
+          "y": 2654.0,
+          "lat": -30.139825970277457,
+          "lon": -37.8477338974373
+        }
+      ],
+      "reverseAccuracy": 0.09319142617277976
+    },
+    "tiePointGrids": [
+      {
+        "name": "TP_latitude",
+        "description": "Latitude",
+        "offsetX": "0.0",
+        "offsetY": "0.0",
+        "subSamplingX": "64.0",
+        "subSamplingY": "1.0",
+        "expectedPixels": [
+          {
+            "x": 253,
+            "y": 728,
+            "value": -23.065042
+          },
+          {
+            "x": 3332,
+            "y": 3479,
+            "value": -32.10626
+          }
+        ]
+      },
+      {
+        "name": "TP_longitude",
+        "description": "Longitude",
+        "offsetX": "0.0",
+        "offsetY": "0.0",
+        "subSamplingX": "64.0",
+        "subSamplingY": "1.0",
+        "expectedPixels": [
+          {
+            "x": 1415,
+            "y": 1050,
+            "value": -42.455696
+          },
+          {
+            "x": 2970,
+            "y": 1494,
+            "value": -38.742275
+          }
+        ]
+      },
+      {
+        "name": "OAA",
+        "description": "Observation (Viewing) Azimuth Angle",
+        "offsetX": "0.0",
+        "offsetY": "0.0",
+        "subSamplingX": "64.0",
+        "subSamplingY": "1.0",
+        "expectedPixels": [
+          {
+            "x": 2675,
+            "y": 3049,
+            "value": 105.0296
+          },
+          {
+            "x": 2959,
+            "y": 3798,
+            "value": 104.98579
+          }
+        ]
+      },
+      {
+        "name": "OZA",
+        "description": "Observation (Viewing) Zenith Angle",
+        "offsetX": "0.0",
+        "offsetY": "0.0",
+        "subSamplingX": "64.0",
+        "subSamplingY": "1.0",
+        "expectedPixels": [
+          {
+            "x": 769,
+            "y": 2724,
+            "value": 48.573254
+          },
+          {
+            "x": 2525,
+            "y": 3737,
+            "value": 22.30272
+          }
+        ]
+      },
+      {
+        "name": "SAA",
+        "description": "Sun Azimuth Angle",
+        "offsetX": "0.0",
+        "offsetY": "0.0",
+        "subSamplingX": "64.0",
+        "subSamplingY": "1.0",
+        "expectedPixels": [
+          {
+            "x": 3678,
+            "y": 1982,
+            "value": 44.51969
+          },
+          {
+            "x": 4625,
+            "y": 1987,
+            "value": 41.705536
+          }
+        ]
+      },
+      {
+        "name": "SZA",
+        "description": "Sun Zenith Angle",
+        "offsetX": "0.0",
+        "offsetY": "0.0",
+        "subSamplingX": "64.0",
+        "subSamplingY": "1.0",
+        "expectedPixels": [
+          {
+            "x": 1656,
+            "y": 3679,
+            "value": 58.132694
+          },
+          {
+            "x": 48,
+            "y": 1925,
+            "value": 56.72558
+          }
+        ]
+      },
+      {
+        "name": "atmospheric_temperature_profile_pressure_level_1",
+        "description": "Air temperature profile",
+        "offsetX": "0.0",
+        "offsetY": "0.0",
+        "subSamplingX": "64.0",
+        "subSamplingY": "1.0",
+        "expectedPixels": [
+          {
+            "x": 1592,
+            "y": 806,
+            "value": 297.05457
+          },
+          {
+            "x": 1329,
+            "y": 176,
+            "value": 297.60236
+          }
+        ]
+      },
+      {
+        "name": "atmospheric_temperature_profile_pressure_level_2",
+        "description": "Air temperature profile",
+        "offsetX": "0.0",
+        "offsetY": "0.0",
+        "subSamplingX": "64.0",
+        "subSamplingY": "1.0",
+        "expectedPixels": [
+          {
+            "x": 4726,
+            "y": 2473,
+            "value": 291.12112
+          },
+          {
+            "x": 2784,
+            "y": 2932,
+            "value": 291.61954
+          }
+        ]
+      },
+      {
+        "name": "atmospheric_temperature_profile_pressure_level_3",
+        "description": "Air temperature profile",
+        "offsetX": "0.0",
+        "offsetY": "0.0",
+        "subSamplingX": "64.0",
+        "subSamplingY": "1.0",
+        "expectedPixels": [
+          {
+            "x": 1128,
+            "y": 2035,
+            "value": 291.0887
+          },
+          {
+            "x": 1562,
+            "y": 2955,
+            "value": 290.26547
+          }
+        ]
+      },
+      {
+        "name": "atmospheric_temperature_profile_pressure_level_4",
+        "description": "Air temperature profile",
+        "offsetX": "0.0",
+        "offsetY": "0.0",
+        "subSamplingX": "64.0",
+        "subSamplingY": "1.0",
+        "expectedPixels": [
+          {
+            "x": 1742,
+            "y": 2038,
+            "value": 289.6907
+          },
+          {
+            "x": 1959,
+            "y": 1809,
+            "value": 289.56528
+          }
+        ]
+      },
+      {
+        "name": "atmospheric_temperature_profile_pressure_level_5",
+        "description": "Air temperature profile",
+        "offsetX": "0.0",
+        "offsetY": "0.0",
+        "subSamplingX": "64.0",
+        "subSamplingY": "1.0",
+        "expectedPixels": [
+          {
+            "x": 2795,
+            "y": 375,
+            "value": 288.63684
+          },
+          {
+            "x": 3139,
+            "y": 64,
+            "value": 289.12955
+          }
+        ]
+      },
+      {
+        "name": "atmospheric_temperature_profile_pressure_level_6",
+        "description": "Air temperature profile",
+        "offsetX": "0.0",
+        "offsetY": "0.0",
+        "subSamplingX": "64.0",
+        "subSamplingY": "1.0",
+        "expectedPixels": [
+          {
+            "x": 4744,
+            "y": 1502,
+            "value": 286.84512
+          },
+          {
+            "x": 4622,
+            "y": 3871,
+            "value": 281.72244
+          }
+        ]
+      },
+      {
+        "name": "atmospheric_temperature_profile_pressure_level_7",
+        "description": "Air temperature profile",
+        "offsetX": "0.0",
+        "offsetY": "0.0",
+        "subSamplingX": "64.0",
+        "subSamplingY": "1.0",
+        "expectedPixels": [
+          {
+            "x": 539,
+            "y": 1848,
+            "value": 283.40552
+          },
+          {
+            "x": 2777,
+            "y": 2301,
+            "value": 283.47467
+          }
+        ]
+      },
+      {
+        "name": "atmospheric_temperature_profile_pressure_level_8",
+        "description": "Air temperature profile",
+        "offsetX": "0.0",
+        "offsetY": "0.0",
+        "subSamplingX": "64.0",
+        "subSamplingY": "1.0",
+        "expectedPixels": [
+          {
+            "x": 2460,
+            "y": 2133,
+            "value": 274.62488
+          },
+          {
+            "x": 2192,
+            "y": 2376,
+            "value": 274.93484
+          }
+        ]
+      },
+      {
+        "name": "atmospheric_temperature_profile_pressure_level_9",
+        "description": "Air temperature profile",
+        "offsetX": "0.0",
+        "offsetY": "0.0",
+        "subSamplingX": "64.0",
+        "subSamplingY": "1.0",
+        "expectedPixels": [
+          {
+            "x": 70,
+            "y": 1737,
+            "value": 267.07077
+          },
+          {
+            "x": 341,
+            "y": 4061,
+            "value": 262.74106
+          }
+        ]
+      },
+      {
+        "name": "atmospheric_temperature_profile_pressure_level_10",
+        "description": "Air temperature profile",
+        "offsetX": "0.0",
+        "offsetY": "0.0",
+        "subSamplingX": "64.0",
+        "subSamplingY": "1.0",
+        "expectedPixels": [
+          {
+            "x": 1443,
+            "y": 3048,
+            "value": 250.33656
+          },
+          {
+            "x": 3909,
+            "y": 3012,
+            "value": 249.01242
+          }
+        ]
+      },
+      {
+        "name": "atmospheric_temperature_profile_pressure_level_11",
+        "description": "Air temperature profile",
+        "offsetX": "0.0",
+        "offsetY": "0.0",
+        "subSamplingX": "64.0",
+        "subSamplingY": "1.0",
+        "expectedPixels": [
+          {
+            "x": 4059,
+            "y": 3868,
+            "value": 231.20258
+          },
+          {
+            "x": 1209,
+            "y": 2175,
+            "value": 235.96024
+          }
+        ]
+      },
+      {
+        "name": "atmospheric_temperature_profile_pressure_level_12",
+        "description": "Air temperature profile",
+        "offsetX": "0.0",
+        "offsetY": "0.0",
+        "subSamplingX": "64.0",
+        "subSamplingY": "1.0",
+        "expectedPixels": [
+          {
+            "x": 2972,
+            "y": 1064,
+            "value": 224.89238
+          },
+          {
+            "x": 2689,
+            "y": 617,
+            "value": 225.33348
+          }
+        ]
+      },
+      {
+        "name": "atmospheric_temperature_profile_pressure_level_13",
+        "description": "Air temperature profile",
+        "offsetX": "0.0",
+        "offsetY": "0.0",
+        "subSamplingX": "64.0",
+        "subSamplingY": "1.0",
+        "expectedPixels": [
+          {
+            "x": 2313,
+            "y": 2287,
+            "value": 215.22115
+          },
+          {
+            "x": 464,
+            "y": 3476,
+            "value": 215.16902
+          }
+        ]
+      },
+      {
+        "name": "atmospheric_temperature_profile_pressure_level_14",
+        "description": "Air temperature profile",
+        "offsetX": "0.0",
+        "offsetY": "0.0",
+        "subSamplingX": "64.0",
+        "subSamplingY": "1.0",
+        "expectedPixels": [
+          {
+            "x": 467,
+            "y": 318,
+            "value": 209.51256
+          },
+          {
+            "x": 2213,
+            "y": 2766,
+            "value": 209.8533
+          }
+        ]
+      },
+      {
+        "name": "atmospheric_temperature_profile_pressure_level_15",
+        "description": "Air temperature profile",
+        "offsetX": "0.0",
+        "offsetY": "0.0",
+        "subSamplingX": "64.0",
+        "subSamplingY": "1.0",
+        "expectedPixels": [
+          {
+            "x": 2262,
+            "y": 3662,
+            "value": 207.79947
+          },
+          {
+            "x": 4220,
+            "y": 2454,
+            "value": 206.1863
+          }
+        ]
+      },
+      {
+        "name": "atmospheric_temperature_profile_pressure_level_16",
+        "description": "Air temperature profile",
+        "offsetX": "0.0",
+        "offsetY": "0.0",
+        "subSamplingX": "64.0",
+        "subSamplingY": "1.0",
+        "expectedPixels": [
+          {
+            "x": 4680,
+            "y": 1558,
+            "value": 199.87659
+          },
+          {
+            "x": 427,
+            "y": 2179,
+            "value": 201.76387
+          }
+        ]
+      },
+      {
+        "name": "atmospheric_temperature_profile_pressure_level_17",
+        "description": "Air temperature profile",
+        "offsetX": "0.0",
+        "offsetY": "0.0",
+        "subSamplingX": "64.0",
+        "subSamplingY": "1.0",
+        "expectedPixels": [
+          {
+            "x": 3577,
+            "y": 2433,
+            "value": 209.5533
+          },
+          {
+            "x": 4749,
+            "y": 760,
+            "value": 203.82434
+          }
+        ]
+      },
+      {
+        "name": "atmospheric_temperature_profile_pressure_level_18",
+        "description": "Air temperature profile",
+        "offsetX": "0.0",
+        "offsetY": "0.0",
+        "subSamplingX": "64.0",
+        "subSamplingY": "1.0",
+        "expectedPixels": [
+          {
+            "x": 2239,
+            "y": 1067,
+            "value": 216.48706
+          },
+          {
+            "x": 1114,
+            "y": 2649,
+            "value": 216.72609
+          }
+        ]
+      },
+      {
+        "name": "atmospheric_temperature_profile_pressure_level_19",
+        "description": "Air temperature profile",
+        "offsetX": "0.0",
+        "offsetY": "0.0",
+        "subSamplingX": "64.0",
+        "subSamplingY": "1.0",
+        "expectedPixels": [
+          {
+            "x": 3112,
+            "y": 1790,
+            "value": 223.31638
+          },
+          {
+            "x": 2585,
+            "y": 2320,
+            "value": 223.91411
+          }
+        ]
+      },
+      {
+        "name": "atmospheric_temperature_profile_pressure_level_20",
+        "description": "Air temperature profile",
+        "offsetX": "0.0",
+        "offsetY": "0.0",
+        "subSamplingX": "64.0",
+        "subSamplingY": "1.0",
+        "expectedPixels": [
+          {
+            "x": 1925,
+            "y": 874,
+            "value": 231.42535
+          },
+          {
+            "x": 1357,
+            "y": 3635,
+            "value": 228.32033
+          }
+        ]
+      },
+      {
+        "name": "atmospheric_temperature_profile_pressure_level_21",
+        "description": "Air temperature profile",
+        "offsetX": "0.0",
+        "offsetY": "0.0",
+        "subSamplingX": "64.0",
+        "subSamplingY": "1.0",
+        "expectedPixels": [
+          {
+            "x": 4600,
+            "y": 2372,
+            "value": 236.94409
+          },
+          {
+            "x": 3687,
+            "y": 1342,
+            "value": 235.94121
+          }
+        ]
+      },
+      {
+        "name": "atmospheric_temperature_profile_pressure_level_22",
+        "description": "Air temperature profile",
+        "offsetX": "0.0",
+        "offsetY": "0.0",
+        "subSamplingX": "64.0",
+        "subSamplingY": "1.0",
+        "expectedPixels": [
+          {
+            "x": 2727,
+            "y": 1189,
+            "value": 239.27585
+          },
+          {
+            "x": 4034,
+            "y": 3562,
+            "value": 239.5864
+          }
+        ]
+      },
+      {
+        "name": "atmospheric_temperature_profile_pressure_level_23",
+        "description": "Air temperature profile",
+        "offsetX": "0.0",
+        "offsetY": "0.0",
+        "subSamplingX": "64.0",
+        "subSamplingY": "1.0",
+        "expectedPixels": [
+          {
+            "x": 526,
+            "y": 3629,
+            "value": 248.66371
+          },
+          {
+            "x": 1673,
+            "y": 3330,
+            "value": 244.69589
+          }
+        ]
+      },
+      {
+        "name": "atmospheric_temperature_profile_pressure_level_24",
+        "description": "Air temperature profile",
+        "offsetX": "0.0",
+        "offsetY": "0.0",
+        "subSamplingX": "64.0",
+        "subSamplingY": "1.0",
+        "expectedPixels": [
+          {
+            "x": 886,
+            "y": 2832,
+            "value": 254.86229
+          },
+          {
+            "x": 2882,
+            "y": 2246,
+            "value": 254.43472
+          }
+        ]
+      },
+      {
+        "name": "atmospheric_temperature_profile_pressure_level_25",
+        "description": "Air temperature profile",
+        "offsetX": "0.0",
+        "offsetY": "0.0",
+        "subSamplingX": "64.0",
+        "subSamplingY": "1.0",
+        "expectedPixels": [
+          {
+            "x": 1000,
+            "y": 1252,
+            "value": 257.0989
+          },
+          {
+            "x": 1996,
+            "y": 3533,
+            "value": 254.64362
+          }
+        ]
+      },
+      {
+        "name": "horizontal_wind_vector_1",
+        "description": "Horizontal wind vector at 10m altitude",
+        "offsetX": "0.0",
+        "offsetY": "0.0",
+        "subSamplingX": "64.0",
+        "subSamplingY": "1.0",
+        "expectedPixels": [
+          {
+            "x": 3414,
+            "y": 3671,
+            "value": 4.1320696
+          },
+          {
+            "x": 1447,
+            "y": 4061,
+            "value": 5.147741
+          }
+        ]
+      },
+      {
+        "name": "horizontal_wind_vector_2",
+        "description": "Horizontal wind vector at 10m altitude",
+        "offsetX": "0.0",
+        "offsetY": "0.0",
+        "subSamplingX": "64.0",
+        "subSamplingY": "1.0",
+        "expectedPixels": [
+          {
+            "x": 2662,
+            "y": 477,
+            "value": -1.2709985
+          },
+          {
+            "x": 947,
+            "y": 2295,
+            "value": -4.0283937
+          }
+        ]
+      },
+      {
+        "name": "humidity",
+        "description": "Relative humidity",
+        "offsetX": "0.0",
+        "offsetY": "0.0",
+        "subSamplingX": "64.0",
+        "subSamplingY": "1.0",
+        "expectedPixels": [
+          {
+            "x": 2228,
+            "y": 527,
+            "value": 69.33814
+          },
+          {
+            "x": 4032,
+            "y": 2343,
+            "value": 67.95491
+          }
+        ]
+      },
+      {
+        "name": "sea_level_pressure",
+        "description": "Mean sea level pressure",
+        "offsetX": "0.0",
+        "offsetY": "0.0",
+        "subSamplingX": "64.0",
+        "subSamplingY": "1.0",
+        "expectedPixels": [
+          {
+            "x": 499,
+            "y": 2768,
+            "value": 1012.7758
+          },
+          {
+            "x": 3556,
+            "y": 1931,
+            "value": 1013.89716
+          }
+        ]
+      },
+      {
+        "name": "total_columnar_water_vapour",
+        "description": "Total column water vapour",
+        "offsetX": "0.0",
+        "offsetY": "0.0",
+        "subSamplingX": "64.0",
+        "subSamplingY": "1.0",
+        "expectedPixels": [
+          {
+            "x": 696,
+            "y": 272,
+            "value": 16.70701
+          },
+          {
+            "x": 4093,
+            "y": 1226,
+            "value": 22.928116
+          }
+        ]
+      },
+      {
+        "name": "total_ozone",
+        "description": "Total columnar ozone",
+        "offsetX": "0.0",
+        "offsetY": "0.0",
+        "subSamplingX": "64.0",
+        "subSamplingY": "1.0",
+        "expectedPixels": [
+          {
+            "x": 2881,
+            "y": 3975,
+            "value": 0.0061504366
+          },
+          {
+            "x": 3781,
+            "y": 112,
+            "value": 0.0056992215
+          }
+        ]
+      }
+    ],
+    "bands": [
+      {
+        "name": "trans_13",
+        "description": "",
+        "bandWidth": 4865,
+        "bandHeight": 4091,
+        "geophysicalUnit": "dl",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 1054,
+            "y": 1008,
+            "value": 0.42102537
+          },
+          {
+            "x": 1553,
+            "y": 792,
+            "value": 0.5015901
+          }
+        ]
+      },
+      {
+        "name": "press_13",
+        "description": "",
+        "bandWidth": 4865,
+        "bandHeight": 4091,
+        "geophysicalUnit": "hPa",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 1374,
+            "y": 3613,
+            "value": 561.3339
+          },
+          {
+            "x": 4853,
+            "y": 309,
+            "value": "NaN"
+          }
+        ]
+      },
+      {
+        "name": "surface_13",
+        "description": "",
+        "bandWidth": 4865,
+        "bandHeight": 4091,
+        "geophysicalUnit": "dl",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 3984,
+            "y": 2052,
+            "value": 0.31275138
+          },
+          {
+            "x": 305,
+            "y": 1576,
+            "value": 0.31255037
+          }
+        ]
+      },
+      {
+        "name": "trans_14",
+        "description": "",
+        "bandWidth": 4865,
+        "bandHeight": 4091,
+        "geophysicalUnit": "dl",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 1349,
+            "y": 2381,
+            "value": 0.6968733
+          },
+          {
+            "x": 4517,
+            "y": 568,
+            "value": 0.5431664
+          }
+        ]
+      },
+      {
+        "name": "press_14",
+        "description": "",
+        "bandWidth": 4865,
+        "bandHeight": 4091,
+        "geophysicalUnit": "hPa",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 508,
+            "y": 595,
+            "value": 938.5411
+          },
+          {
+            "x": 4299,
+            "y": 436,
+            "value": 821.9431
+          }
+        ]
+      },
+      {
+        "name": "surface_14",
+        "description": "",
+        "bandWidth": 4865,
+        "bandHeight": 4091,
+        "geophysicalUnit": "dl",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 1800,
+            "y": 3605,
+            "value": 0.5279698
+          },
+          {
+            "x": 2846,
+            "y": 2354,
+            "value": 0.5271516
+          }
+        ]
+      },
+      {
+        "name": "trans_15",
+        "description": "",
+        "bandWidth": 4865,
+        "bandHeight": 4091,
+        "geophysicalUnit": "dl",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 1642,
+            "y": 1333,
+            "value": 0.93166065
+          },
+          {
+            "x": 1818,
+            "y": 3502,
+            "value": 0.94043785
+          }
+        ]
+      },
+      {
+        "name": "press_15",
+        "description": "",
+        "bandWidth": 4865,
+        "bandHeight": 4091,
+        "geophysicalUnit": "hPa",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 1585,
+            "y": 2802,
+            "value": 586.08655
+          },
+          {
+            "x": 3130,
+            "y": 2762,
+            "value": 792.9782
+          }
+        ]
+      },
+      {
+        "name": "surface_15",
+        "description": "",
+        "bandWidth": 4865,
+        "bandHeight": 4091,
+        "geophysicalUnit": "dl",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 2579,
+            "y": 533,
+            "value": 0.8867117
+          },
+          {
+            "x": 2255,
+            "y": 3275,
+            "value": 0.887158
+          }
+        ]
+      }
+    ],
+    "metadata": [
+      {
+        "path": "Processing_Graph/node.1/parameters/clearCacheAfterRowWrite",
+        "value": "false"
+      },
+      {
+        "path": "Processing_Graph/node.1/parameters/writeEntireTileRows",
+        "value": "true"
+      },
+      {
+        "path": "Processing_Graph/node.0/parameters/processOnlyBand13",
+        "value": "false"
+      }
+    ]
+  }
+}
