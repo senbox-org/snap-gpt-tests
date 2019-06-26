@@ -192,19 +192,22 @@ pipeline {
             }
         }
     }
-    /*post {
+    post {
         failure {
-            step (
-                emailext(
-                    subject: "[SNAP] JENKINS-NOTIFICATION: ${currentBuild.result ?: 'SUCCESS'} : Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
-                    body: """Build status : ${currentBuild.result ?: 'SUCCESS'}: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]':
+            script {
+                    // send mail only on main job
+                    if ("${params.jsonPath}" == '') {
+                        emailext(
+                            subject: "[SNAP] JENKINS-NOTIFICATION: ${currentBuild.result ?: 'SUCCESS'} : Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
+                            body: """Build status : ${currentBuild.result ?: 'SUCCESS'}: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]':
 Check console output at ${env.BUILD_URL}
 ${env.JOB_NAME} [${env.BUILD_NUMBER}]""",
-                    attachLog: true,
-                    compressLog: true,
-                    recipientProviders: [[$class: 'CulpritsRecipientProvider'], [$class:'DevelopersRecipientProvider']]
-                )
-            )
+                            attachLog: true,
+                            compressLog: true,
+                            to: "${SNAP_INTERNAL_MAIL_LIST}"
+                        )
+                }
+            }
         }
-    }*/
+    }
 }
