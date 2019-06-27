@@ -32,7 +32,7 @@ def launchJobs(jsonString, scope, outputDir) {
         if (currentJsonFile.trim() != "") {
             echo "Schedule job for json file : " + item
             jobs["GPT Test ${num} ${item}"] = {
-                build job: "snap-gpt-tests/${branchVersion}", parameters: [
+                b = build(job: "snap-gpt-tests/${branchVersion}", parameters: [
                 // build job: "test", parameters: [
                         [$class: 'StringParameterValue', name: 'dockerTagName', value: "${dockerTagName}"],
                         [$class: 'StringParameterValue', name: 'jsonPath', value: currentJsonFile],
@@ -41,7 +41,11 @@ def launchJobs(jsonString, scope, outputDir) {
                     ],
                     quietPeriod: 0,
                     propagate: false,
-                    wait: true
+                    wait: true).result
+                if(b == 'FAILURE') {
+                    echo "The job " + item + "failed."
+                    currentBuild.result = 'FAILURE'
+                }
             }
         }
         num++
@@ -63,7 +67,7 @@ def launchJobsSeq(jsonString, scope, outputDir) {
         if (currentJsonFile.trim() != "") {
             echo "Schedule job for json file : " + item
 
-                build job: "snap-gpt-tests/${branchVersion}", parameters: [
+                b = build(job: "snap-gpt-tests/${branchVersion}", parameters: [
                         // build job: "test", parameters: [
                         [$class: 'StringParameterValue', name: 'dockerTagName', value: "${dockerTagName}"],
                         [$class: 'StringParameterValue', name: 'jsonPath', value: currentJsonFile],
@@ -72,7 +76,12 @@ def launchJobsSeq(jsonString, scope, outputDir) {
                 ],
                         quietPeriod: 0,
                         propagate: false,
-                        wait: true
+                        wait: true).result
+
+            if(b == 'FAILURE') {
+                echo "The job " + item + "failed."
+                currentBuild.result = 'FAILURE'
+            }
             
         }
         num++
