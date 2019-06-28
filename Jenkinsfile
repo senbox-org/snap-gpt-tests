@@ -32,8 +32,9 @@ def launchJobs(jsonString, scope, outputDir) {
         if (currentJsonFile.trim() != "") {
             echo "Schedule job for json file : " + item
             jobs["GPT Test ${num} ${item}"] = {
-                b = build(job: "snap-gpt-tests/${branchVersion}", parameters: [
+                b = build(job: "gpt-executor", parameters: [
                 // build job: "test", parameters: [
+                        [$class: 'StringParameterValue', name: 'gptBranchVersion', value: "${branchVersion}"],
                         [$class: 'StringParameterValue', name: 'dockerTagName', value: "${dockerTagName}"],
                         [$class: 'StringParameterValue', name: 'jsonPath', value: currentJsonFile],
                         [$class: 'StringParameterValue', name: 'testScope', value: "${scope}"],
@@ -67,8 +68,9 @@ def launchJobsSeq(jsonString, scope, outputDir) {
         if (currentJsonFile.trim() != "") {
             echo "Schedule job for json file : " + item
 
-                b = build(job: "snap-gpt-tests/${branchVersion}", parameters: [
+                b = build(job: "gpt-executor", parameters: [
                         // build job: "test", parameters: [
+                        [$class: 'StringParameterValue', name: 'gptBranchVersion', value: "${branchVersion}"],
                         [$class: 'StringParameterValue', name: 'dockerTagName', value: "${dockerTagName}"],
                         [$class: 'StringParameterValue', name: 'jsonPath', value: currentJsonFile],
                         [$class: 'StringParameterValue', name: 'testScope', value: "${scope}"],
@@ -103,17 +105,9 @@ pipeline {
     parameters {
         string(name: 'dockerTagName', defaultValue: "snap:master", description: 'Snap version to use to launch tests')
         string(name: 'testScope', defaultValue: 'REGULAR', description: 'Scope of the tests to launch (REGULAR, DAILY, WEEKLY, RELEASE)')
-        string(name: 'outputReportDir', defaultValue: '/home/snap/', description: 'Path to directory where gpt test will write report')
-        string(name: 'jsonPath', defaultValue: '', description: 'Path to json file describing tests')
     }
     stages {
         stage('Filter JSON') {
-            when {
-                expression {
-                    // run this stage only when json path is NOT specified
-                    return "${params.jsonPath}" == '';
-                }
-            }
             agent {
                 docker {
                     image "snap-build-server.tilaa.cloud/maven:3.6.0-jdk-8"
@@ -133,12 +127,6 @@ pipeline {
             }
         }
         stage('Launch Jobs') {
-            when {
-                expression {
-                    // run this stage only when json path is NOT specified
-                    return "${params.jsonPath}" == '';
-                }
-            }
             agent {
                 docker {
                     image "snap-build-server.tilaa.cloud/scripts:1.0"
@@ -178,32 +166,12 @@ pipeline {
                 }
             }
         }
-        stage('SNAP GPT Test') {
-            when {
-                expression {
-                    return "${params.jsonPath}" != '';
-                }
-            }
-            agent  {
-                docker {
-                    label 'snap'
-                    image "snap-build-server.tilaa.cloud/${dockerTagName}"
-                    args '-v /data/ssd/testData/:/data/ssd/testData/ -v /opt/snap-gpt-tests/gpt-tests-executer.properties:/opt/snap-gpt-tests/gpt-tests-executer.properties -v docker_gpt_test_results:/home/snap/output/'
-                }
-            }
-            steps {
-                echo "Launch GPT Tests from ${env.JOB_NAME} from ${env.GIT_BRANCH} with commit ${env.GIT_COMMIT}"
-                sh "mkdir -p ${outputReportDir}/report"
-                sh "mkdir -p /home/snap/tmpDir"
-                sh "export LD_LIBRARY_PATH=. && /home/snap/snap/jre/bin/java -Dncsa.hdf.hdflib.HDFLibrary.hdflib=/home/snap/snap/snap/modules/lib/amd64/libjhdf.so -Dncsa.hdf.hdf5lib.H5.hdf5lib=/home/snap/snap/snap/modules/lib/amd64/libjhdf5.so -jar ${outputReportDir}/gptExecutorTarget/SnapGPTTest-jar-with-dependencies.jar /opt/snap-gpt-tests/gpt-tests-executer.properties \"${params.testScope}\" ${params.jsonPath} ${outputReportDir}/report"
-            }
-        }
     }
     post {
         failure {
             script {
                     // send mail only on main job
-                    if ("${params.jsonPath}" == '' && ("${params.testScope}" == 'REGULAR' || "${params.testScope}" == 'DAILY' || "${params.testScope}" == 'WEEKLY' || "${params.testScope}" == 'RELEASE') ) {
+                    if ("${params.testScope}" == 'REGULAR' || "${params.testScope}" == 'DAILY' || "${params.testScope}" == 'WEEKLY' || "${params.testScope}" == 'RELEASE') {
                         emailext(
                             subject: "[SNAP] JENKINS-NOTIFICATION: ${currentBuild.result ?: 'SUCCESS'} : Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
                             body: """Build status : ${currentBuild.result ?: 'SUCCESS'}: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]':
