@@ -102,11 +102,9 @@ pipeline {
     agent { label 'snap-test' }
     parameters {
         string(name: 'dockerTagName', defaultValue: "snap:master", description: 'Snap version to use to launch tests')
-        string(name: 'testScope', defaultValue: 'REGULAR', description: 'Scope of the tests to launch (PUSH, DAILY, REGULAR, WEEKLY, RELEASE)')
+        string(name: 'testScope', defaultValue: 'REGULAR', description: 'Scope of the tests to launch (REGULAR, DAILY, WEEKLY, RELEASE)')
         string(name: 'outputReportDir', defaultValue: '/home/snap/', description: 'Path to directory where gpt test will write report')
         string(name: 'jsonPath', defaultValue: '', description: 'Path to json file describing tests')
-        // string(name: 'LabelParameterValue', defaultValue: 'snap-test', description: 'Label to use to launch gpt tests')
-        // string(name: 'project', defaultValue: 's2tbx', description: 'Scope of the tests to launch (PUSH, NIGHTLY, WEEKLY, RELEASE)')
     }
     stages {
         stage('Filter JSON') {
@@ -205,7 +203,7 @@ pipeline {
         failure {
             script {
                     // send mail only on main job
-                    if ("${params.jsonPath}" == '') {
+                    if ("${params.jsonPath}" == '' && ("${params.testScope}" == 'REGULAR' || "${params.testScope}" == 'DAILY' || "${params.testScope}" == 'WEEKLY' || "${params.testScope}" == 'RELEASE') ) {
                         emailext(
                             subject: "[SNAP] JENKINS-NOTIFICATION: ${currentBuild.result ?: 'SUCCESS'} : Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
                             body: """Build status : ${currentBuild.result ?: 'SUCCESS'}: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]':
