@@ -1,0 +1,156 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link type="text/css" rel="stylesheet" href="css/qftest.css">
+<link rel="shortcut icon" type="image/vnd.microsoft.icon" href="icons/favicon.ico">
+<title>Test Report for Test-suite 001_sentinel2.qft</title>
+</head>
+<body>
+<table class="header" cellspacing="0">
+<tr>
+<td class="title">GPT test: $jsonName</td><td class="homeicon"><a href="http://step.esa.int/main/toolboxes/snap/"><img width="64" height="64" alt="SNAP" title="SNAP" src="icons/SNAP.png"></a></td>
+</tr>
+</table>
+<table cellspacing="0" class="headerversion">
+<tr>
+<td>SNAP</td>
+</tr>
+</table>
+<div class="summarylegend">
+<table class="summarylegend" cellspacing="0">
+<tr>
+<td class="summary">
+<table class="suitesummarytitle" cellspacing="0">
+<tr class="title">
+<td class="margin"></td><td class="title">Summary</td>
+</tr>
+</table>
+<table class="suitesummary" cellspacing="0">
+<tr>
+<td class="label">test-suite</td><td>001_sentinel2.qft</td>
+</tr>
+<tr>
+<td class="label">Test-run ID</td><td>190702083115</td>
+</tr>
+<tr>
+<td class="label">Start time</td><td>2019-07-02 08:31:15</td>
+</tr>
+<tr>
+<td class="label">Executed by</td><td>snap</td>
+</tr>
+<tr>
+<td class="label">Host</td><td>f83753cbc11b</td>
+</tr>
+<tr>
+<td class="label">Operating system</td><td>Windows</td>
+</tr>
+<tr>
+<td class="label">Version</td><td>7.0.0</td>
+</tr>
+</table>
+</td><td class="chart">
+<table class="chart" cellspacing="0">
+<tr>
+<td class="icon"><a href="images/chart2.png"><img width="150" height="150" border="none" src="images/chart.png" title="Test-case overview - click for details"></a></td>
+</tr>
+<tr>
+<td class="desc">
+<p>
+<img width="9" height="9" src="icons/piefailed.png">&nbsp;failed  <img width="9" height="9" src="icons/piepassed.png">&nbsp;passed  <img width="9" height="9" src="icons/pieskipped.png">&nbsp;not executed</p>
+</td>
+</tr>
+</table>
+</td><td class="legend">
+<table class="legend" cellspacing="0">
+<tr>
+<td class="icon"><img width="16" height="16" src="icons/tests.png"></td><td class="desc">Total number of test</td>
+</tr>
+<tr>
+<td class="icon"><img width="16" height="16" src="icons/check_ok.png"></td><td class="desc">Number of successful tests</td>
+</tr>
+<tr>
+<td class="icon"><img width="16" height="16" src="icons/process-stop-16.png"></td><td class="desc">Number of tests with errors</td>
+</tr>
+<tr>
+<td class="icon"><img width="16" height="16" src="icons/percent.png"></td><td class="desc">Percent test passed</td>
+</tr>
+<tr>
+<td class="icon"><img width="16" height="16" src="icons/duration.png"></td><td class="desc">Execution Time</td>
+</tr>
+<tr>
+<td class="icon"><img width="16" height="16" src="icons/memory.png"></td><td class="desc">MEmory Peak</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+
+#set ($passed = 0)
+#set ($failed = 0)
+#set ($skipped = 0)
+#foreach ($graphTestResult in $graphTestResults)
+    #if($graphTestResult.status == "PASSED")
+        #set ($passed = $passed + 1)
+    #elseif($graphTestResult.status == "FAILED")
+        #set ($failed = $failed + 1)
+    #elseif($graphTestResult.status == "SKIPPED")
+        #set ($skipped = $skipped + 1)
+    #end
+#end
+#set ($total = $passed + $failed + $skipped)
+#set ($percent = $passed * 100 / $total)
+
+<div class="reportresult">
+<table class="reportresult" cellspacing="0">
+<tr>
+<th class="result">Overall result</th><th class="tests"><img width="16" height="16" src="icons/tests_th.png" alt="Total number of test-cases" title="Total number of test-cases"></th><th class="failed"><img width="16" height="16" src="icons/error_th.png" alt="Number of test-cases with errors" title="Number of test-cases with errors"></th><th class="passed"><img width="16" height="16" src="icons/ok_th.png" alt="Number of successful test-cases" title="Number of successful test-cases"></th><th class="percent"><img width="16" height="16" src="icons/percent_th.png" alt="Percent test-cases passed" title="Percent test-cases passed"></th><th class="duration"><img width="16" height="16" src="icons/duration_th.png" alt="Time spent in tests" title="Time spent in tests"></th><th class="realtime"><img width="16" height="16" src="icons/realtime_th.png" alt="Elapsed realtime" title="Elapsed realtime"></th>
+</tr>
+<tr class="even">
+<td class="result"><img width="16" height="16" src="icons/check_ok.png"></td><td class="tests">$total</td><td class="failed">$failed</td><td class="passed">$passed</td><td class="percent">$percent</td><td class="duration">7:53 min</td><td class="realtime">8:35 min</td>
+</tr>
+</table>
+</div>
+
+<div class="alltestcases">
+<a name="alltestcases"></a>
+
+
+<table cellspacing="0" class="testcasealllist">
+<tr class="headers">
+<th class="testset">Test</th><th class="desc">Description</th><th class="result">Result</th><th class="result">Environment</th><th class="duration"><img width="16" height="16" src="icons/duration_th.png" alt="Execution Time" title="Execution Time"></th><th class="realtime"><img width="16" height="16" src="icons/memory.png" alt="Memory Peak" title="Memory Peak"></th>
+</tr>
+
+#foreach ($graphTestResult in $graphTestResults)
+#set ($jsonPath = "json/$jsonName/$graphTestResult.graphTest.id")
+#set ($jsonPath = $jsonPath + ".json")
+#if($graphTestResult.status == "PASSED")
+    #set ($iconStatus = "check_ok.png")
+    #set ($altStatus = "PASSED")
+#elseif($graphTestResult.status == "FAILED")
+    #set ($iconStatus = "process-stop-16.png")
+    #set ($altStatus = "FAILED")
+#elseif($graphTestResult.status == "SKIPPED")
+    #set ($iconStatus = "skipped.png")
+    #set ($altStatus = "SKIPPED")
+#end
+<tr class="odd">
+<td class="testset">
+<div class="padding-left-0" style="padding-left:0px">
+<table class="withicon" cellspacing="0">
+<tr>
+<td class="item"><a href=$jsonPath>$graphTestResult.graphTest.id</a></td>
+</tr>
+</table>
+</div>
+</td><td class="desc"><a href="images/$graphTestResult.graphTest.graphPath.replace(".xml", ".png")"><img width="300" height="150" border="none" src="images/$graphTestResult.graphTest.graphPath.replace(".xml", ".png")" title="$graphTestResult.graphTest.graphPath.replace(".xml", ".png")"></a></td><td class="result"><img width="16" height="16" alt="$altStatus" src="icons/$iconStatus"></td><td class="result">$graphTestResult.configVMString</td><td class="duration">$graphTestResult.executionTimeString</td><td class="realtime">$graphTestResult.memoryPeak</td>
+</tr>
+#end
+
+
+</table>
+</div>
+
+</body>
+</html>
