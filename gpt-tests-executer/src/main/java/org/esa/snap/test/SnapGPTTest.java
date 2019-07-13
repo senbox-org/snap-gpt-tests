@@ -245,7 +245,8 @@ public class SnapGPTTest {
                 //todo create html report with velocity
                 ReportUtils.createHtmlReportForJson(graphTestResultList.toArray(new GraphTestResult[graphTestResultList.size()]),
                                                     org.esa.snap.core.util.io.FileUtils.getFilenameWithoutExtension(file),
-                                                    reportFolderPath.resolve("html").resolve(org.esa.snap.core.util.io.FileUtils.exchangeExtension(file.getName(),".html")));
+                                                    reportFolderPath.resolve("html").resolve(org.esa.snap.core.util.io.FileUtils.exchangeExtension(file.getName(),".html")),
+                                                    scope);
 
 
             }

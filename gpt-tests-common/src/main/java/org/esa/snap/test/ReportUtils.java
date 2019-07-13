@@ -15,6 +15,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -34,7 +35,7 @@ import org.esa.snap.graphbuilder.rcp.dialogs.support.GraphPanel;
  */
 public class ReportUtils {
 
-    public static void createHtmlReportForJson (GraphTestResult[] graphTestResults, String jsonName, Path outputPath) throws IOException {
+    public static void createHtmlReportForJson (GraphTestResult[] graphTestResults, String jsonName, Path outputPath, String scope) throws IOException {
         VelocityEngine velocityEngine = new VelocityEngine();
         velocityEngine.setProperty(RuntimeConstants.RESOURCE_LOADER, "classpath");
         velocityEngine.setProperty("classpath.resource.loader.class", ClasspathResourceLoader.class.getName());
@@ -45,6 +46,30 @@ public class ReportUtils {
         VelocityContext context = new VelocityContext();
         context.put("graphTestResults", graphTestResults);
         context.put("jsonName", jsonName);
+        context.put("operatingSystem", System.getProperty("os.name"));
+        context.put("scope", scope);
+        //compute start and end date
+        Date start = new Date(Long.MAX_VALUE);
+        Date end = new Date(Long.MIN_VALUE);
+        Long totalDuration = 0L;
+        for(GraphTestResult graphTestResult : graphTestResults) {
+            if(graphTestResult.getStartDate() != null) {
+                if (graphTestResult.getStartDate().before(start)) {
+                    start = graphTestResult.getStartDate();
+                }
+            }
+            if(graphTestResult.getEndDate() != null) {
+                if(graphTestResult.getEndDate().after(end)) {
+                    end = graphTestResult.getEndDate();
+                }
+            }
+            totalDuration = totalDuration + graphTestResult.getExecutionTime();
+        }
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+        context.put("startDateString", formatter.format(start));
+        context.put("endDateString", formatter.format(end));
+        context.put("totalTime", Math.round((end.getTime()-start.getTime())/1000));
+        context.put("sumTime", totalDuration);
 
 
         FileWriter fileWriter = new FileWriter(outputPath.toFile());
@@ -52,7 +77,6 @@ public class ReportUtils {
         template.merge( context, fileWriter );
         fileWriter.close();
 
-        //todo create images of pie charts
     }
 
 

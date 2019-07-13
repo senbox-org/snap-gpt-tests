@@ -65,6 +65,13 @@ public class GraphTestResult {
         return String.format("%d s",Math.round((endDate.getTime()-startDate.getTime())/1000));
     }
 
+    public int getExecutionTime() {
+        if(endDate == null || startDate == null) {
+            return 0;
+        }
+        return Math.round((endDate.getTime()-startDate.getTime())/1000);
+    }
+
     public String getMemoryPeak() {
         return memoryPeak;
     }

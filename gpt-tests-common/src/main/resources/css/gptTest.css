@@ -1,0 +1,3337 @@
+/* {{{ Default font-size calculated at 13px */
+
+html {
+    font-size: 93.75%;
+}
+
+/* }}} */
+/* {{{ Default font and color */
+
+body,
+p,
+ul,
+ol,
+dl,
+td,
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-family: Verdana,"Trebuchet MS",Arial,sans-serif;
+    background-color: white;
+    color: black;
+}
+
+/* body { margin-top: 0; margin-left: 0; margin-right: 0; margin-bottom: 0;} */
+body {
+    margin-left: 10px;
+    margin-right: 20px;
+}
+
+a:link,
+a:visited {
+    color: #961E32;
+}
+
+dl dt,
+dl dt code {
+    font-weight: bold;
+    padding: 0;
+}
+
+dl dd {
+    font-weight: normal;
+    margin-left: 2em;
+    padding: 0;
+}
+
+td {
+    padding: 0;
+}
+
+/* }}} */
+/* {{{ Common values */
+
+.possibleScroll {
+    overflow: auto;
+}
+
+td.margin {
+    padding-right: 5em;
+}
+
+td.links {
+    font-size: .8462em;        /* 11px */
+    white-space: nowrap;
+}
+
+td.links img {
+    border: 0;
+    position: relative;
+    bottom: -2px;
+    vertical-align: baseline;
+}
+
+td.glue,
+th.glue {
+    width: 100%;
+}
+
+td p:first-child {
+    margin-top: 0;
+}
+
+td p:last-child {
+    margin-bottom: 0;
+}
+
+textarea {
+    border: 0;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    wrap: off;
+}
+
+tr.odd td {
+    background: #EEEEEA;
+    border-top: 2px solid white;
+    border-right: 2px solid white;
+    padding: 2px;
+}
+
+tr.odd * {
+    background-color: #EEEEEA;
+}
+
+tr.even td {
+    background: #F5F5F3;
+    border-top: 2px solid white;
+    border-right: 2px solid white;
+    padding: 2px;
+}
+tr.even * {
+    background-color: #F5F5F3;
+}
+
+tr.even td img,
+tr.odd td img,
+td.marginicon img,
+th img {
+    position: relative;
+    bottom: -2px;
+    vertical-align: baseline;
+}
+
+td.testsuite a:link,
+td.testset a:link,
+td.testcase a:link,
+td.package a:link,
+td.procedure a:link,
+td.dependency a:link,
+td.testsuite a:visited,
+td.testset a:visited,
+td.testcase a:visited,
+td.package a:visited,
+td.procedure a:visited,
+td.dependency a:visited {
+    color: black;
+}
+
+table.withicon  {
+    width: 100%;
+}
+
+table.withicon td.icon {
+    width:1px;
+}
+
+table.withicon td {
+    vertical-align: top;
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+table.withicon td img {
+    padding-right: 4px;
+}
+
+/* }}} */
+/* {{{ Header */
+
+table.header {
+    width: 100%;
+    border-bottom: 2px solid #961E32;
+}
+
+table.header td {
+    padding-bottom: 4px;
+}
+
+table.header td.title {
+    font-size: 1.5385em;    /* 20px */
+    font-weight: bold;
+    width: 100%;
+}
+
+table.header td.homeicon {
+    text-align: right;
+    margin-right: 0;
+    vertical-align: bottom;
+}
+
+td.homeicon img {
+    vertical-align: bottom;
+    border: 0;
+}
+
+table.headerversion  {
+    width:100%;
+}
+
+table.headerversion td {
+    text-align: right;
+    margin-right: 0;
+    padding-right: 23px;
+    width: 100%;
+    vertical-align: top;
+    font-size: 13px;
+    color: #14286E;
+    border: 0;
+}
+
+/* }}} */
+/* {{{ Footer */
+
+table.footer {
+    width: 100%;
+    border-top: 2px solid #961E32;
+    margin-top: 2em;
+}
+
+table.footer td {
+    padding-top: 4px;
+    text-align: right;
+    font-size: .6923em;        /* 9px */
+}
+
+/* }}} */
+/* {{{ Legend */
+
+table.summarylegend {
+    width: 100%;
+}
+
+table.summarylegend td.summary {
+    width: 40%;
+    text-align: left;
+}
+
+table.summarylegend td.spacer {
+    /* width: 10% */
+}
+
+table.summarylegend td.chart {
+    width: 20%;
+    text-align: center;
+}
+
+table.summarylegend td.legend {
+    width: 40%;
+    text-align: right;
+}
+
+table.legend {
+    float: right;
+    font-size: .6923em;        /* 9px */
+}
+
+table.legend td.icon {
+    vertical-align: top;
+    padding-left: 10px;
+    padding-right: 2px;
+}
+
+table.legend td.desc {
+    vertical-align: top;
+    text-align: left;
+}
+
+/* }}} */
+/* {{{ Chart */
+
+table.chart {
+    width: 100%;
+    font-size: .6923em;        /* 9px */
+}
+
+table.chart td.icon {
+    width: 100%;
+    text-align: center;
+}
+
+table.chart td.desc {
+    width: 100%;
+    text-align: center;
+}
+
+/* }}} */
+
+/* {{{ Report */
+
+/* {{{ Report summary */
+
+/* {{{ Report summary links */
+
+table.reportsummarylinks {
+    width: 100%;
+    /* margin-top: 2em; */
+}
+
+/* }}} */
+/* {{{ Report summary title */
+
+table.reportsummarytitle {
+    /* border-bottom: 1px solid black; */
+    margin-bottom: .5em;
+}
+
+table.reportsummarytitle td.title {
+    font-size: 1.2308em;    /* 16px */
+    font-weight: bold;
+    border-bottom: 1px solid black;
+}
+
+/* }}} */
+/* {{{ Report summary result */
+
+table.reportsummary {
+    margin-left: 5em;
+}
+
+table.reportsummary td {
+    vertical-align: top;
+}
+
+table.reportsummary td.label {
+    padding-right: .5em;
+}
+
+table.reportresult {
+    width: 100%;
+    margin-top: 2em;
+}
+
+table.reportresult th {
+    background-color: #F8DFA3;
+    border-top: 1px solid #961E32;
+    border-right: 2px solid white;
+    padding: 2px;
+    vertical-align: middle;
+}
+
+/* table.reportresult th img { */
+    /* vertical-align: middle; */
+/* } */
+
+table.reportresult th.margin {
+    background-color: white;
+    width: 5em;
+    border-top: 0;
+    border-right: 0;
+    padding: 0;
+}
+
+table.reportresult th.result {
+    text-align: left;
+}
+
+table.reportresult th.tests,
+table.reportresult th.skipped,
+table.reportresult th.skippedsets,
+table.reportresult th.notimpl,
+table.reportresult th.executed,
+table.reportresult th.passed,
+table.reportresult th.percent,
+table.reportresult th.failed,
+table.reportresult th.expfailed,
+table.reportresult th.excepted,
+table.reportresult th.duration,
+table.reportresult th.realtime {
+    padding-left: 2px;
+    padding-right: 2px;
+}
+
+table.reportresult th.realtime {
+    border-right: 0;
+}
+
+table.reportresult tr.even td.result {
+    vertical-align: top;
+}
+
+table.reportresult tr.even td.realtime,
+table.reportresult tr.odd td.realtime {
+    border-right: 0;
+}
+
+table.reportresult tr.even td.marginicon,
+table.reportresult tr.odd td.marginicon {
+    background-color: white;
+    text-align: right;
+    border-right: 0;
+    padding-right: .5em;
+    vertical-align: top;
+}
+
+table.reportresult td.tests,
+table.reportresult td.skipped,
+table.reportresult td.skippedsets,
+table.reportresult td.notimpl,
+table.reportresult td.executed,
+table.reportresult td.passed,
+table.reportresult td.percent,
+table.reportresult td.failed,
+table.reportresult td.expfailed,
+table.reportresult td.excepted,
+table.reportresult td.duration,
+table.reportresult td.realtime {
+    text-align: right;
+    vertical-align: top;
+    width: 1px;
+    white-space: nowrap;
+}
+
+/* }}} */
+
+/* }}} */
+/* {{{ Report navigation */
+
+table.reportnav {
+    width: 100%;
+    margin-top: 1.5em;
+}
+
+table.reportnav td.margin {
+    background-color: white;
+    width: 5em;
+    border-top: 0;
+    border-right: 0;
+    padding: 0;
+}
+
+table.reportnav td.link {
+    font-size: .8462em;        /* 11px */
+}
+
+/* }}} */
+/* {{{ Testsuite overview */
+
+div.allsuites {
+    border: 0;
+    padding: 0;
+    margin: 0;
+}
+/* {{{ Suite overview links */
+
+table.allsuiteslinks {
+    width: 100%;
+    border-top: 1px solid #961E32;
+    padding-top: 5px;
+    margin-top: 2em;
+}
+
+/* }}} */
+/* {{{ Suite overview title */
+
+table.allsuitestitle {
+    /* border-bottom: 1px solid black; */
+    margin-bottom: .5em;
+}
+
+table.allsuitestitle td.title {
+    font-size: 1.2308em;    /* 16px */
+    font-weight: bold;
+    border-bottom: 1px solid black;
+}
+
+/* }}} */
+/* {{{ Suite overview list of suites */
+
+table.allsuiteslist {
+    width: 100%;
+    margin-top: 1em;
+}
+
+table.allsuiteslist th {
+    background-color: #F8DFA3;
+    /* background-color: #F0E2C6; */
+    border-top: 1px solid #961E32;
+    border-right: 2px solid white;
+    padding: 2px;
+    vertical-align: middle;
+}
+
+/* table.allsuiteslist th img { */
+    /* vertical-align: middle; */
+/* } */
+
+table.allsuiteslist th.margin {
+    background-color: white;
+    width: 5em;
+    border-top: 0;
+    border-right: 0;
+    padding: 0;
+}
+
+table.allsuiteslist th.tests,
+table.allsuiteslist th.skipped,
+table.allsuiteslist th.skippedsets,
+table.allsuiteslist th.notimpl,
+table.allsuiteslist th.executed,
+table.allsuiteslist th.passed,
+table.allsuiteslist th.percent,
+table.allsuiteslist th.failed,
+table.allsuiteslist th.expfailed,
+table.allsuiteslist th.excepted,
+table.allsuiteslist th.duration,
+table.allsuiteslist th.realtime {
+    padding-left: 2px;
+    padding-right: 2px;
+}
+
+table.allsuiteslist th.realtime {
+    border-right: 0;
+}
+
+table.allsuiteslist th.testsuite,
+table.allsuiteslist th.directory,
+table.allsuiteslist th.runid,
+table.allsuiteslist th.starttime,
+table.allsuiteslist th.result {
+    text-align: left;
+}
+
+table.allsuiteslist tr.even td.testsuite,
+table.allsuiteslist tr.odd td.testsuite,
+table.allsuiteslist tr.even td.directory,
+table.allsuiteslist tr.odd td.directory,
+table.allsuiteslist tr.even td.runid,
+table.allsuiteslist tr.odd td.runid,
+table.allsuiteslist tr.even td.starttime,
+table.allsuiteslist tr.odd td.starttime,
+table.allsuiteslist tr.even td.result,
+table.allsuiteslist tr.odd td.result
+{
+    vertical-align: top;
+}
+
+table.allsuiteslist tr.even td.realtime,
+table.allsuiteslist tr.odd td.realtime {
+    border-right: 0;
+}
+
+table.allsuiteslist tr.even td.marginicon,
+table.allsuiteslist tr.odd td.marginicon {
+    background-color: white;
+    text-align: right;
+    border-right: 0;
+    padding-right: .5em;
+    vertical-align: top;
+}
+
+table.allsuiteslist td.tests,
+table.allsuiteslist td.excepted,
+table.allsuiteslist td.failed,
+table.allsuiteslist td.expfailed,
+table.allsuiteslist td.passed,
+table.allsuiteslist td.skipped,
+table.allsuiteslist td.skippedsets,
+table.allsuiteslist td.notimpl,
+table.allsuiteslist td.executed,
+table.allsuiteslist td.percent,
+table.allsuiteslist td.duration,
+table.allsuiteslist td.realtime {
+    text-align: right;
+    vertical-align: top;
+    width: 1px;
+    white-space: nowrap;
+}
+
+table.allsuiteslist tr.even td.percent,
+table.allsuiteslist tr.odd td.percent {
+    text-align: right;
+}
+
+table.allsuiteslist table.testset td {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+/* }}} */
+
+/* }}} */
+/* {{{ Testsuites with errors overview */
+
+div.allerrorsuites {
+    border: 0;
+    padding: 0;
+    margin: 0;
+}
+/* {{{ Suite overview links */
+
+table.allerrorsuiteslinks {
+    width: 100%;
+    border-top: 1px solid #961E32;
+    padding-top: 5px;
+    margin-top: 2em;
+}
+
+/* }}} */
+/* {{{ Suite overview title */
+
+table.allerrorsuitestitle {
+    /* border-bottom: 1px solid black; */
+    margin-bottom: .5em;
+}
+
+table.allerrorsuitestitle td.title {
+    font-size: 1.2308em;    /* 16px */
+    font-weight: bold;
+    border-bottom: 1px solid black;
+}
+
+/* }}} */
+/* {{{ Suite overview list of suites */
+
+table.allerrorsuiteslist {
+    width: 100%;
+    margin-top: 1em;
+}
+
+table.allerrorsuiteslist th {
+    background-color: #F8DFA3;
+    /* background-color: #F0E2C6; */
+    border-top: 1px solid #961E32;
+    border-right: 2px solid white;
+    padding: 2px;
+    vertical-align: middle;
+}
+
+/* table.allerrorsuiteslist th img { */
+    /* vertical-align: middle; */
+/* } */
+
+table.allerrorsuiteslist th.margin {
+    background-color: white;
+    width: 5em;
+    border-top: 0;
+    border-right: 0;
+    padding: 0;
+}
+
+table.allerrorsuiteslist th.tests,
+table.allerrorsuiteslist th.skipped,
+table.allerrorsuiteslist th.skippedsets,
+table.allerrorsuiteslist th.notimpl,
+table.allerrorsuiteslist th.executed,
+table.allerrorsuiteslist th.passed,
+table.allerrorsuiteslist th.percent,
+table.allerrorsuiteslist th.failed,
+table.allerrorsuiteslist th.expfailed,
+table.allerrorsuiteslist th.excepted,
+table.allerrorsuiteslist th.duration,
+table.allerrorsuiteslist th.realtime {
+    padding-left: 2px;
+    padding-right: 2px;
+}
+
+table.allerrorsuiteslist th.realtime {
+    border-right: 0;
+}
+
+table.allerrorsuiteslist th.testsuite,
+table.allerrorsuiteslist th.directory,
+table.allerrorsuiteslist th.runid,
+table.allerrorsuiteslist th.starttime,
+table.allerrorsuiteslist th.result {
+    text-align: left;
+}
+
+table.allerrorsuiteslist tr.even td.testsuite,
+table.allerrorsuiteslist tr.odd td.testsuite,
+table.allerrorsuiteslist tr.even td.directory,
+table.allerrorsuiteslist tr.odd td.directory,
+table.allerrorsuiteslist tr.even td.runid,
+table.allerrorsuiteslist tr.odd td.runid,
+table.allerrorsuiteslist tr.even td.starttime,
+table.allerrorsuiteslist tr.odd td.starttime,
+table.allerrorsuiteslist tr.even td.result,
+table.allerrorsuiteslist tr.odd td.result
+{
+    vertical-align: top;
+}
+
+table.allerrorsuiteslist tr.even td.realtime,
+table.allerrorsuiteslist tr.odd td.realtime {
+    border-right: 0;
+}
+
+table.allerrorsuiteslist tr.even td.marginicon,
+table.allerrorsuiteslist tr.odd td.marginicon {
+    background-color: white;
+    text-align: right;
+    border-right: 0;
+    padding-right: .5em;
+    vertical-align: top;
+}
+
+table.allerrorsuiteslist td.tests,
+table.allerrorsuiteslist td.excepted,
+table.allerrorsuiteslist td.failed,
+table.allerrorsuiteslist td.expfailed,
+table.allerrorsuiteslist td.passed,
+table.allerrorsuiteslist td.skipped,
+table.allerrorsuiteslist td.skippedsets,
+table.allerrorsuiteslist td.notimpl,
+table.allerrorsuiteslist td.executed,
+table.allerrorsuiteslist td.percent,
+table.allerrorsuiteslist td.duration,
+table.allerrorsuiteslist td.realtime {
+    text-align: right;
+    vertical-align: top;
+    width: 1px;
+    white-space: nowrap;
+}
+
+table.allerrorsuiteslist tr.even td.percent,
+table.allerrorsuiteslist tr.odd td.percent {
+    text-align: right;
+}
+
+table.allerrorsuiteslist table.testset td {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+/* }}} */
+
+/* }}} */
+/* {{{ Suite summary */
+
+/* {{{ Suite summary links */
+
+table.suitesummarylinks {
+    width: 100%;
+    /* margin-top: 2em; */
+}
+
+/* }}} */
+/* {{{ Suite summary title */
+
+table.suitesummarytitle {
+    /* border-bottom: 1px solid black; */
+    margin-bottom: .5em;
+}
+
+table.suitesummarytitle td.title {
+    font-size: 1.2308em;    /* 16px */
+    font-weight: bold;
+    border-bottom: 1px solid black;
+}
+
+/* }}} */
+/* {{{ Suite summary result */
+
+table.suitesummary {
+    margin-left: 5em;
+}
+
+table.suitesummary td.label {
+    padding-right: .5em;
+}
+
+table.suiteresult {
+    width: 100%;
+    margin-top: 2em;
+}
+
+table.suiteresult th {
+    background-color: #F8DFA3;
+    border-top: 1px solid #961E32;
+    border-right: 2px solid white;
+    padding: 2px;
+    vertical-align: middle;
+}
+
+/* table.suiteresult th img { */
+    /* vertical-align: middle; */
+/* } */
+
+table.suiteresult th.margin {
+    background-color: white;
+    width: 5em;
+    border-top: 0;
+    border-right: 0;
+    padding: 0;
+}
+
+table.suiteresult th.result {
+    text-align: left;
+}
+
+table.suiteresult th.realtime {
+    border-right: 0;
+}
+
+table.suiteresult tr.even td.result,
+table.suiteresult tr.odd td.result {
+    vertical-align: top;
+}
+
+table.suiteresult tr.even td.realtime,
+table.suiteresult tr.odd td.realtime {
+    border-right: 0;
+}
+
+table.suiteresult tr.even td.marginicon,
+table.suiteresult tr.odd td.marginicon {
+    background-color: white;
+    text-align: right;
+    border-right: 0;
+    padding-right: .5em;
+    vertical-align: top;
+}
+
+table.suiteresult td.tests,
+table.suiteresult td.skipped,
+table.suiteresult td.skippedsets,
+table.suiteresult td.notimpl,
+table.suiteresult td.executed,
+table.suiteresult td.passed,
+table.suiteresult td.percent,
+table.suiteresult td.failed,
+table.suiteresult td.expfailed,
+table.suiteresult td.excepted,
+table.suiteresult td.duration,
+table.suiteresult td.realtime {
+    text-align: right;
+    vertical-align: top;
+    width: 1px;
+    white-space: nowrap;
+}
+
+/* }}} */
+/* {{{ Suite description */
+
+table.test-suitedesc {
+    margin-top: 1.1em;
+    width: 100%;
+}
+
+table.test-suitedesc td.desc {
+    width: 100%;
+}
+
+table.test-suitedesc td.desc p {
+    margin-top: .1em;
+    margin-bottom: .1em;
+}
+
+table.test-suitedesc td.desc p:first-child {
+    margin-top: 0;
+    /* margin-bottom: .1em; */
+}
+
+table.test-suitedesc td.desc p:last-child {
+    /* margin-top: .1em; */
+    margin-bottom: 0;
+}
+/* }}} */
+
+/* }}} */
+/* {{{ Testset overview */
+
+/* {{{ Testset overview links */
+
+table.testsetalllinks {
+    width: 100%;
+    border-top: 1px solid #961E32;
+    padding-top: 5px;
+    margin-top: 2em;
+}
+
+/* }}} */
+/* {{{ Testset overview title */
+
+table.testsetalltitle {
+    /* border-bottom: 1px solid black; */
+    margin-bottom: .5em;
+}
+
+table.testsetalltitle td.title {
+    font-size: 1.2308em;    /* 16px */
+    font-weight: bold;
+    border-bottom: 1px solid black;
+}
+
+/* }}} */
+/* {{{ Testset overview list of testsets */
+
+table.testsetalllist {
+    width: 100%;
+    margin-top: 1em;
+}
+
+table.testsetalllist th {
+    background-color: #F8DFA3;
+    border-top: 1px solid #961E32;
+    border-right: 2px solid white;
+    padding: 2px;
+    vertical-align: middle;
+}
+
+/* table.testsetalllist th img { */
+    /* vertical-align: middle; */
+/* } */
+
+table.testsetalllist th.margin {
+    background-color: white;
+    width: 5em;
+    border-top: 0;
+    border-right: 0;
+    padding: 0;
+}
+
+table.testsetalllist th.realtime {
+    border-right: 0;
+}
+
+table.testsetalllist th.testset,
+table.testsetalllist th.desc {
+    text-align: left;
+}
+
+table.testsetalllist tr.even td.testset,
+table.testsetalllist tr.odd td.testset,
+table.testsetalllist tr.even td.desc,
+table.testsetalllist tr.odd td.desc {
+    vertical-align: top;
+}
+
+table.testsetalllist tr.even td.realtime,
+table.testsetalllist tr.odd td.realtime {
+    border-right: 0;
+}
+
+table.testsetalllist tr.even td.marginicon,
+table.testsetalllist tr.odd td.marginicon {
+    background-color: white;
+    text-align: right;
+    border-right: 0;
+    padding-right: .5em;
+    vertical-align: top;
+}
+
+table.testsetalllist td.tests,
+table.testsetalllist td.excepted,
+table.testsetalllist td.failed,
+table.testsetalllist td.expfailed,
+table.testsetalllist td.passed,
+table.testsetalllist td.skipped,
+table.testsetalllist td.skippedsets,
+table.testsetalllist td.notimpl,
+table.testsetalllist td.executed,
+table.testsetalllist td.percent,
+table.testsetalllist td.duration,
+table.testsetalllist td.realtime {
+    text-align: right;
+    vertical-align: top;
+    width: 1px;
+    white-space: nowrap;
+}
+
+table.testsetalllist table.testset td {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+table.testsetalllist table.testset td.depth1 {
+    padding-left: .5em;
+}
+
+table.testsetalllist table.testset td.depth2 {
+    padding-left: 1em;
+}
+
+table.testsetalllist table.testset td.depth3 {
+    padding-left: 1.5em;
+}
+
+table.testsetalllist table.testset td.depth4 {
+    padding-left: 2em;
+}
+
+table.testsetalllist table.testset td.depth5 {
+    padding-left: 2.5em;
+}
+
+table.testsetalllist table.testset td.depth6 {
+    padding-left: 3em;
+}
+
+table.testsetalllist table.testset td.depth7 {
+    padding-left: 3.5em;
+}
+
+table.testsetalllist table.testset td.depth8 {
+    padding-left: 4em;
+}
+
+
+/* }}} */
+
+/* }}} */
+/* {{{ Testset and testcase overview */
+
+/* {{{ Testset overview links */
+
+table.testcasealllinks {
+    width: 100%;
+    border-top: 1px solid #961E32;
+    padding-top: 5px;
+    margin-top: 2em;
+}
+
+/* }}} */
+/* {{{ Testset overview title */
+
+table.testcasealltitle {
+    /* border-bottom: 1px solid black; */
+    margin-bottom: .5em;
+}
+
+table.testcasealltitle td.title {
+    font-size: 1.2308em;    /* 16px */
+    font-weight: bold;
+    border-bottom: 1px solid black;
+}
+
+/* }}} */
+/* {{{ Testset overview list of testsets */
+
+table.testcasealllist {
+    width: 100%;
+    margin-top: 1em;
+}
+
+table.testcasealllist th {
+    background-color: #F8DFA3;
+    border-top: 1px solid #961E32;
+    border-right: 2px solid white;
+    padding: 2px;
+    vertical-align: middle;
+}
+
+/* table.testcasealllist th img { */
+    /* vertical-align: middle; */
+/* } */
+
+table.testcasealllist th.margin {
+    background-color: white;
+    width: 5em;
+    border-top: 0;
+    border-right: 0;
+    padding: 0;
+}
+
+table.testcasealllist th.realtime {
+    border-right: 0;
+}
+
+table.testcasealllist th.testset,
+table.testcasealllist th.testcase,
+table.testcasealllist th.desc {
+    text-align: left;
+}
+
+table.testcasealllist tr.even td.testset,
+table.testcasealllist tr.odd td.testset,
+table.testcasealllist tr.even td.testcase,
+table.testcasealllist tr.odd td.testcase,
+table.testcasealllist tr.even td.desc,
+table.testcasealllist tr.odd td.desc,
+table.testcasealllist tr.even td.result,
+table.testcasealllist tr.odd td.result {
+    vertical-align: top;
+}
+
+table.testcasealllist tr.even td.realtime,
+table.testcasealllist tr.odd td.realtime {
+    border-right: 0;
+}
+
+table.testcasealllist tr.even td.marginicon,
+table.testcasealllist tr.odd td.marginicon {
+    background-color: white;
+    text-align: right;
+    border-right: 0;
+    padding-right: .5em;
+    vertical-align: top;
+}
+
+table.testcasealllist td.tests,
+table.testcasealllist td.excepted,
+table.testcasealllist td.failed,
+table.testcasealllist td.expfailed,
+table.testcasealllist td.passed,
+table.testcasealllist td.skipped,
+table.testcasealllist td.skippedsets,
+table.testcasealllist td.notimpl,
+table.testcasealllist td.executed,
+table.testcasealllist td.percent,
+table.testcasealllist td.duration,
+table.testcasealllist td.realtime {
+    text-align: right;
+    vertical-align: top;
+    width: 1px;
+    white-space: nowrap;
+}
+
+table.testcasealllist table.testset td {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+table.testcasealllist table.testset td.depth1 {
+    padding-left: .5em;
+}
+
+table.testcasealllist table.testset td.depth2 {
+    padding-left: 1em;
+}
+
+table.testcasealllist table.testset td.depth3 {
+    padding-left: 1.5em;
+}
+
+table.testcasealllist table.testset td.depth4 {
+    padding-left: 2em;
+}
+
+table.testcasealllist table.testset td.depth5 {
+    padding-left: 2.5em;
+}
+
+table.testcasealllist table.testset td.depth6 {
+    padding-left: 3em;
+}
+
+table.testcasealllist table.testset td.depth7 {
+    padding-left: 3.5em;
+}
+
+table.testcasealllist table.testset td.depth8 {
+    padding-left: 4em;
+}
+
+
+/* }}} */
+
+/* }}} */
+/* {{{ Error overview */
+
+div.allerrors {
+    border: 0;
+    padding: 0;
+    margin: 0;
+}
+
+/* {{{ Error overview links */
+
+table.allerrorslinks {
+    width: 100%;
+    border-top: 1px solid #961E32;
+    padding-top: 5px;
+    margin-top: 2em;
+}
+
+/* }}} */
+/* {{{ Error overview title */
+
+table.allerrorstitle {
+    /* border-bottom: 1px solid black; */
+    margin-bottom: .5em;
+}
+
+table.allerrorstitle td.title {
+    font-size: 1.2308em;    /* 16px */
+    font-weight: bold;
+    border-bottom: 1px solid black;
+}
+
+/* }}} */
+/* {{{ Error overiview list of testsets */
+
+table.allerrorslist {
+    table-layout: fixed;
+    width: 100%;
+    margin-top: 1em;
+}
+
+table.allerrorslist th {
+    background-color: #F8DFA3;
+    /* background-color: #F8B169; */
+    border-top: 1px solid #961E32;
+    border-right: 2px solid white;
+    border-left: 0px solid white;
+    padding: 2px;
+}
+
+table.allerrorslist th.margin {
+    background-color: white;
+    width: 5em;
+    border-top: 0;
+    border-bottom: 0;
+    border-right: 0;
+    padding: 0;
+}
+
+table.allerrorslist th.screenshot {
+    border-right: 0;
+}
+
+table.allerrorslist th.testsuite,
+table.allerrorslist th.testcase,
+table.allerrorslist th.message,
+table.allerrorslist th.screenshot {
+    text-align: left;
+}
+
+table.allerrorslist tr.even td.testsuite,
+table.allerrorslist tr.odd td.testsuite,
+table.allerrorslist tr.even td.testcase,
+table.allerrorslist tr.odd td.testcase,
+table.allerrorslist tr.even td.message,
+table.allerrorslist tr.odd td.message,
+table.allerrorslist tr.even td.screenshot,
+table.allerrorslist tr.odd td.screenshot {
+    vertical-align: top;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+table.allerrorslist tr.even td.screenshot,
+table.allerrorslist tr.odd td.screenshot {
+    vertical-align: top;
+    border-right: 0;
+    width: 1px;
+}
+
+table.allerrorslist td.screenshot {
+    white-space: nowrap;
+}
+
+table.allerrorslist tr.even td.marginicon,
+table.allerrorslist tr.odd td.marginicon {
+    background-color: white;
+    text-align: right;
+    border-right: 0;
+    padding-right: .5em;
+    vertical-align: top;
+}
+
+img.thumbnail {
+    border: 1px solid #961E32;
+}
+
+/* }}} */
+
+/* }}} */
+/* {{{ Warning overview */
+
+div.allwarnings {
+    border: 0;
+    padding: 0;
+    margin: 0;
+}
+
+/* {{{ Warning overview links */
+
+table.allwarningslinks {
+    width: 100%;
+    border-top: 1px solid #961E32;
+    padding-top: 5px;
+    margin-top: 2em;
+}
+
+/* }}} */
+/* {{{ Warning overview title */
+
+table.allwarningstitle {
+    /* border-bottom: 1px solid black; */
+    margin-bottom: .5em;
+}
+
+table.allwarningstitle td.title {
+    font-size: 1.2308em;    /* 16px */
+    font-weight: bold;
+    border-bottom: 1px solid black;
+}
+
+/* }}} */
+/* {{{ Warning overiview list of testsets */
+
+table.allwarningslist {
+    width: 100%;
+    margin-top: 1em;
+}
+
+table.allwarningslist th {
+    background-color: #F8DFA3;
+    /* background-color: #F8B169; */
+    border-top: 1px solid #961E32;
+    border-right: 2px solid white;
+    border-left: 0px solid white;
+    padding: 2px;
+}
+
+table.allwarningslist th.margin {
+    background-color: white;
+    width: 5em;
+    border-top: 0;
+    border-bottom: 0;
+    border-right: 0;
+    padding: 0;
+}
+
+table.allwarningslist th.screenshot {
+    border-right: 0;
+}
+
+table.allwarningslist th.testsuite,
+table.allwarningslist th.testcase,
+table.allwarningslist th.message,
+table.allwarningslist th.screenshot {
+    text-align: left;
+}
+
+table.allwarningslist tr.even td.testsuite,
+table.allwarningslist tr.odd td.testsuite,
+table.allwarningslist tr.even td.testcase,
+table.allwarningslist tr.odd td.testcase,
+table.allwarningslist tr.even td.message,
+table.allwarningslist tr.odd td.message {
+    vertical-align: top;
+}
+
+table.allwarningslist tr.even td.screenshot,
+table.allwarningslist tr.odd td.screenshot {
+    vertical-align: top;
+    border-right: 0;
+    width: 1px;
+}
+
+table.allwarningslist td.screenshot {
+    white-space: nowrap;
+}
+
+table.allwarningslist tr.even td.marginicon,
+table.allwarningslist tr.odd td.marginicon {
+    background-color: white;
+    text-align: right;
+    border-right: 0;
+    padding-right: .5em;
+    vertical-align: top;
+}
+
+img.thumbnail {
+    border: 1px solid #961E32;
+}
+
+/* }}} */
+
+/* }}} */
+/* {{{ Details */
+
+div.details {
+    border: 0;
+    padding: 0;
+    margin: 0;
+}
+
+/* {{{ Detail links */
+
+table.detailslinks {
+    width: 100%;
+    border-top: 1px solid #961E32;
+    padding-top: 5px;
+    margin-top: 2em;
+}
+
+/* }}} */
+/* {{{ Detail title */
+
+table.detailstitle {
+    /* border-bottom: 1px solid black; */
+    margin-bottom: .5em;
+}
+
+table.detailstitle td.title {
+    font-size: 1.2308em;    /* 16px */
+    font-weight: bold;
+    border-bottom: 1px solid black;
+}
+
+/* }}} */
+
+/* }}} */
+/* {{{ Testset */
+
+div.testset {
+    border: 0;
+    padding: 0;
+    margin: 0;
+}
+/* {{{ Testset links */
+
+table.testsetlinks {
+    width: 100%;
+    /* border-top: 2px solid #CCCCC9; */
+    border-top: 1px solid #999996;
+    /* border-top: 1px solid #961E32; */
+    padding-top: 5px;
+    margin-top: 2em;
+}
+
+/* }}} */
+/* {{{ Testset title */
+
+table.testsettitle {
+    /* border-bottom: 1px solid black; */
+    margin-bottom: .5em;
+}
+
+table.testsettitle td.margin {
+    padding-right: 5em;
+}
+
+table.testsettitle td.marginicon {
+    width: 5em;
+}
+
+table.testsettitle table.margin {
+    width: 100%;
+}
+
+table.margin td.marginicon {
+    width: 100%;
+    text-align: right;
+    padding-right: .5em;
+}
+
+/* table.testsettitle td.marginicon img { */
+    /* position: relative; */
+    /* bottom: -2px; */
+    /* vertical-align: baseline; */
+    /* vertical-align: middle; */
+/* } */
+
+table.testsettitle td.title {
+    font-size: 1.1538em;    /* 15px */
+    font-weight: bold;
+    border-bottom: 1px solid black;
+}
+
+/* }}} */
+/* {{{ Testset description */
+
+table.testsetdesc {
+    width: 100%;
+}
+
+table.testsetdesc td.desc {
+    width: 100%;
+}
+
+table.testsetdesc td.desc p,
+table.testsetdesc td.desc dl {
+    margin-top: .1em;
+    margin-bottom: .1em;
+}
+
+table.testsetdesc td.desc p:first-child {
+    margin-top: 0;
+    /* margin-bottom: .1em; */
+}
+
+table.testsetdesc td.desc p:last-child {
+    /* margin-top: .1em; */
+    margin-bottom: 0;
+}
+/* }}} */
+/* {{{ Testset result */
+
+table.testsetresult {
+    margin-top: .5em;
+}
+
+table.testsetresult td.result p {
+    margin-top: .1em;
+    margin-bottom: .1em;
+}
+
+/* }}} */
+/* {{{ Testset list of testcases */
+
+table.testsetlist {
+    width: 100%;
+    margin-top: 1em;
+}
+
+table.testsetlist th {
+    /* background-color: #A6B8F5; */
+    /* background-color: #F0E2C6; */
+    background-color: #F8DFA3;
+    border-top: 1px solid #961E32;
+    border-right: 2px solid white;
+    border-left: 0px solid white;
+    padding: 2px;
+}
+
+table.testsetlist th.margin {
+    background-color: white;
+    width: 5em;
+    border-top: 0;
+    border-right: 0;
+    padding: 0;
+}
+
+table.testsetlist th.realtime {
+    border-right: 0;
+}
+
+table.testsetlist th.testcase,
+table.testsetlist th.desc,
+table.testsetlist th.result,
+table.testsetlist td.testcase,
+table.testsetlist td.desc,
+table.testsetlist td.result {
+    text-align: left;
+}
+
+table.testsetlist tr.even td.testcase,
+table.testsetlist tr.odd td.testcase,
+table.testsetlist tr.even td.desc,
+table.testsetlist tr.odd td.desc,
+table.testsetlist tr.even td.result,
+table.testsetlist tr.odd td.result {
+    vertical-align: top;
+}
+
+table.testsetlist tr.even td.duration,
+table.testsetlist tr.odd td.duration,
+table.testsetlist tr.even td.realtime,
+table.testsetlist tr.odd td.realtime {
+    vertical-align: top;
+    text-align: right;
+    width: 1px;
+    white-space: nowrap;
+}
+
+table.testsetlist tr.even td.realtime,
+table.testsetlist tr.odd td.realtime {
+    border-right: 0;
+}
+
+table.testsetlist tr.even td.marginicon,
+table.testsetlist tr.odd td.marginicon {
+    background-color: white;
+    text-align: right;
+    border-right: 0;
+    padding-right: .5em;
+    vertical-align: top;
+}
+
+/* }}} */
+
+/* }}} */
+/* {{{ Testcase */
+
+div.testcase {
+    border: 0;
+    padding: 0;
+    margin: 0;
+}
+/* {{{ Testcase links */
+
+table.testcaselinks {
+    padding-top: 5px;
+    /* border-top: 1px solid #961E32; */
+    /* border-top: 1px solid #CCCCC9; */
+    border-top: 1px solid #DDDDDA;
+    margin-top: 2em;
+}
+
+/* }}} */
+/* {{{ Testcase title */
+
+table.testcasetitle {
+    /* border-bottom: 1px solid black; */
+    margin-bottom: .5em;
+}
+
+table.testcasetitle td.margin {
+    padding-right: 5em;
+}
+
+table.testcasetitle td.marginicon {
+    width: 5em;
+}
+
+table.testcasetitle table.margin {
+    width: 100%;
+}
+
+table.testcasetitle td.title {
+    /*font-size: 1.0769em;*/    /* 15px */
+    font-weight: bold;
+    border-bottom: 1px solid black;
+}
+
+/* }}} */
+/* {{{ Testcase description */
+
+table.testcasedesc td.margin {
+    padding-right: 5em;
+}
+
+table.testcasedesc td.desc p,
+table.testcasedesc td.desc dl {
+    margin-top: .1em;
+    margin-bottom: .1em;
+}
+
+table.testcasedesc td.desc p:first-child {
+    margin-top: 0;
+    /* margin-bottom: .1em; */
+}
+
+table.testcasedesc td.desc p:last-child {
+    /* margin-top: .1em; */
+    margin-bottom: 0;
+}
+
+/* }}} */
+/* {{{ Testcase result */
+
+table.testcaseresult {
+    margin-top: .5em;
+}
+
+table.testcaseresult td.result p {
+    margin-top: .1em;
+    margin-bottom: .1em;
+}
+
+/* }}} */
+/* {{{ Testcase error list */
+
+/* table.testcaseerrorstitle { */
+    /* width: 100%; */
+/* } */
+
+/* table.testcaseerrors td.errors { */
+    /* width: 100%; */
+/* } */
+
+table.testcaseerrorslist {
+    width: 100%;
+    /* border-top: 1px solid #961E32; */
+}
+
+table.testcaseerrorslist th {
+    background-color: #F5F5F3;
+    padding: 2px;
+    border-top: 1px solid #CCCCC9;
+    border-right: 2px solid white;
+}
+
+table.testcaseerrorslist th.margin {
+    background-color: white;
+    width: 5em;
+    border-top: 0;
+    border-bottom: 0;
+    border-right: 0;
+    padding: 0;
+}
+
+table.testcaseerrorslist th.message,
+table.testcaseerrorslist th.screenshot {
+    text-align: left;
+}
+
+table.testcaseerrorslist th.type,
+table.testcaseerrorslist th.screenshot {
+    border-right: 0;
+}
+
+table.testcaseerrorslist th.message {
+    /* width: 100%; */
+}
+
+table.testcaseerrorslist tr.even td.marginicon,
+table.testcaseerrorslist tr.odd td.marginicon {
+    background-color: white;
+    text-align: right;
+    border-right: 0;
+    padding-right: .5em;
+    vertical-align: top;
+}
+
+table.testcaseerrorslist td.type,
+table.testcaseerrorslist td.message {
+    vertical-align: top;
+}
+
+table.testcaseerrorslist tr.even td.type,
+table.testcaseerrorslist tr.odd td.type {
+    padding-left: .5em;
+    padding-right: .5em;
+    border-right: 0;
+    vertical-align: top;
+}
+
+table.testcaseerrorslist tr.even td.message,
+table.testcaseerrorslist tr.odd td.message {
+    vertical-align: top;
+}
+
+table.testcaseerrorslist tr.even td.screenshot,
+table.testcaseerrorslist tr.odd td.screenshot {
+    vertical-align: top;
+    border-right: 0;
+}
+
+table.testcaseerrorslist td.screenshot {
+    white-space: nowrap;
+}
+
+/* }}} */
+/* {{{ Testcase checks list */
+
+/* table.testcasecheckstitle { */
+    /* width: 100%; */
+/* } */
+
+/* table.testcasechecks td.checks { */
+    /* width: 100%; */
+/* } */
+
+table.testcasecheckslist {
+    width: 100%;
+    /* border-top: 1px solid #961E32; */
+}
+
+table.testcasecheckslist th {
+    background-color: #F5F5F3;
+    padding: 2px;
+    border-top: 1px solid #CCCCC9;
+    border-right: 2px solid white;
+}
+
+table.testcasecheckslist th.margin {
+    background-color: white;
+    width: 5em;
+    border-top: 0;
+    border-bottom: 0;
+    border-right: 0;
+    padding: 0;
+}
+
+table.testcasecheckslist th.message,
+table.testcasecheckslist th.comment {
+    text-align: left;
+}
+
+table.testcasecheckslist th.type,
+table.testcasecheckslist th.comment {
+    border-right: 0;
+}
+
+table.testcasecheckslist th.message {
+    /* width: 100%; */
+}
+
+table.testcasecheckslist tr.even td.marginicon,
+table.testcasecheckslist tr.odd td.marginicon {
+    background-color: white;
+    text-align: right;
+    border-right: 0;
+    padding-right: .5em;
+    vertical-align: top;
+}
+
+table.testcasecheckslist td.type,
+table.testcasecheckslist td.message {
+    vertical-align: top;
+}
+
+table.testcasecheckslist tr.even td.type,
+table.testcasecheckslist tr.odd td.type {
+    padding-left: .5em;
+    padding-right: .5em;
+    border-right: 0;
+    vertical-align: top;
+}
+
+table.testcasecheckslist tr.even td.message,
+table.testcasecheckslist tr.odd td.message {
+    vertical-align: top;
+}
+
+table.testcasecheckslist tr.even td.comment,
+table.testcasecheckslist tr.odd td.comment {
+    vertical-align: top;
+    border-right: 0;
+}
+
+/* }}} */
+/* {{{ Testcase steps list */
+
+/* table.teststepstitle { */
+    /* width: 100%; */
+/* } */
+
+/* table.teststeps td.steps { */
+    /* width: 100%; */
+/* } */
+
+table.teststepslist {
+    width: 100%;
+    /* border-top: 1px solid #961E32; */
+}
+
+table.teststepslist th {
+    background-color: #F5F5F3;
+    padding: 2px;
+    border-top: 1px solid #CCCCC9;
+    border-right: 2px solid white;
+}
+
+table.teststepslist th.margin {
+    background-color: white;
+    width: 5em;
+    border-top: 0;
+    border-bottom: 0;
+    border-right: 0;
+    padding: 0;
+}
+
+table.teststepslist th.name,
+table.teststepslist th.comment {
+    text-align: left;
+}
+
+table.teststepslist th.type,
+table.teststepslist th.comment {
+    border-right: 0;
+}
+
+table.teststepslist th.name {
+    /* width: 100%; */
+}
+
+table.teststepslist tr.even td.marginicon,
+table.teststepslist tr.odd td.marginicon {
+    background-color: white;
+    text-align: right;
+    border-right: 0;
+    padding-right: .5em;
+    vertical-align: top;
+}
+
+table.teststepslist td.type,
+table.teststepslist td.name {
+    vertical-align: top;
+}
+
+table.teststepslist tr.even td.type,
+table.teststepslist tr.odd td.type {
+    padding-left: .5em;
+    padding-right: .5em;
+    border-right: 0;
+    vertical-align: top;
+}
+
+table.teststepslist tr.even td.name,
+table.teststepslist tr.odd td.name {
+    vertical-align: top;
+}
+
+table.teststepslist tr.even td.comment,
+table.teststepslist tr.odd td.comment {
+    vertical-align: top;
+    border-right: 0;
+}
+
+/* }}} */
+/* {{{ Testcase details list */
+
+/* table.teststepstitle { */
+    /* width: 100%; */
+/* } */
+
+/* table.teststeps td.steps { */
+    /* width: 100%; */
+/* } */
+
+table.testcasedetailslist {
+    width: 100%;
+    /* border-top: 1px solid #961E32; */
+    margin-top: 1em;
+}
+
+table.testcasedetailslist th {
+    /* background-color: #F5F5F3; */
+    /* border-top: 1px solid #CCCCC9; */
+    background-color: #F8DFA3;
+    border-top: 1px solid #961E32;
+    border-right: 2px solid white;
+    padding: 2px;
+}
+
+table.testcasedetailslist th.margin {
+    background-color: white;
+    width: 5em;
+    border-top: 0;
+    border-bottom: 0;
+    border-right: 0;
+    padding: 0;
+}
+
+table.testsetlist th.realtime {
+    border-right: 0;
+}
+
+table.testcasedetailslist th.teststep,
+table.testcasedetailslist th.comment {
+    text-align: left;
+}
+
+table.testcasedetailslist th.type,
+table.testcasedetailslist th.comment {
+    border-right: 0;
+}
+
+table.testcasedetailslist th.name {
+    /* width: 100%; */
+}
+
+table.testcasedetailslist td.margin {
+    background-color: white;
+}
+table.testcasedetailslist td.marginicon {
+    background-color: white;
+    text-align: right;
+    border-right: 0;
+    padding-right: .5em;
+    vertical-align: top;
+}
+
+
+table.testcasedetailslist td.duration,
+table.testcasedetailslist td.realtime {
+    vertical-align: top;
+    text-align: right;
+    width: 1px;
+    white-space: nowrap;
+}
+table.testcasedetailslist td.teststep,
+table.testcasedetailslist td.message,
+table.testcasedetailslist td.longmessage,
+table.testcasedetailslist td.realtime {
+    vertical-align: top;
+    border-right: 0;
+}
+
+table.testcasedetailslist td.buffer {
+    /* width: 1px; */
+}
+
+table.testcasedetailslist td.screenshot {
+    vertical-align: top;
+    text-align: right;
+    border-right: 0;
+}
+
+table.testcasedetailslist div.step div.detail {
+    padding-left: 20px;
+    /* background-color: red; */
+}
+
+/* }}} */
+
+/* }}} */
+
+/* }}} */
+/* {{{ Pkgdoc */
+
+/* {{{ Pkgdoc summary */
+
+/* {{{ Pkgdoc summary links */
+
+table.pkgdocsummarylinks {
+    width: 100%;
+    /* margin-top: 2em; */
+}
+
+/* }}} */
+/* {{{ Pkgdoc summary title */
+
+table.pkgdocsummarytitle {
+    /* border-bottom: 1px solid black; */
+    margin-bottom: .5em;
+}
+
+table.pkgdocsummarytitle td.title {
+    font-size: 1.2308em;    /* 16px */
+    font-weight: bold;
+    border-bottom: 1px solid black;
+}
+
+/* }}} */
+/* {{{ Pkgdoc summary result */
+
+table.pkgdocsummary {
+    margin-left: 5em;
+}
+
+table.pkgdocsummary td {
+    vertical-align: top;
+}
+
+table.pkgdocsummary td.label {
+    padding-right: .5em;
+}
+
+
+/* }}} */
+
+/* }}} */
+/* {{{ Pkgdoc navigation */
+
+table.pkgdocnav {
+    width: 100%;
+    margin-top: 1.5em;
+}
+
+table.pkgdocnav td.margin {
+    background-color: white;
+    width: 5em;
+    border-top: 0;
+    border-right: 0;
+    padding: 0;
+}
+
+table.pkgdocnav td.link {
+    font-size: .8462em;        /* 11px */
+}
+
+/* }}} */
+/* {{{ Testsuite overview */
+
+/* {{{ Suite overview links */
+
+table.pkgdocsuiteslinks {
+    width: 100%;
+    border-top: 1px solid #961E32;
+    margin-top: 2em;
+}
+
+/* }}} */
+/* {{{ Suite overview title */
+
+table.pkgdocsuitestitle {
+    /* border-bottom: 1px solid black; */
+    margin-bottom: .5em;
+}
+
+table.pkgdocsuitestitle td.title {
+    font-size: 1.2308em;    /* 16px */
+    font-weight: bold;
+    border-bottom: 1px solid black;
+}
+
+/* }}} */
+/* {{{ Suite overview list of suites */
+
+table.pkgdocsuiteslist {
+    width: 100%;
+    margin-top: 1em;
+}
+
+table.pkgdocsuiteslist th {
+    background-color: #C1CFF7;
+    border-top: 1px solid #961E32;
+    border-right: 2px solid white;
+    padding: 2px;
+    vertical-align: middle;
+}
+
+table.pkgdocsuiteslist th.margin {
+    background-color: white;
+    width: 5em;
+    border-top: 0;
+    border-right: 0;
+    padding: 0;
+}
+
+table.pkgdocsuiteslist th.numdependencies {
+    border-right: 0;
+}
+
+table.pkgdocsuiteslist th.testsuite,
+table.pkgdocsuiteslist th.directory,
+table.pkgdocsuiteslist th.desc {
+    text-align: left;
+}
+
+table.pkgdocsuiteslist th.numpackages,
+table.pkgdocsuiteslist th.numprocedures,
+table.pkgdocsuiteslist th.numdependencies {
+    text-align: right;
+}
+
+table.pkgdocsuiteslist tr.even td.testsuite,
+table.pkgdocsuiteslist tr.odd td.testsuite,
+table.pkgdocsuiteslist tr.even td.directory,
+table.pkgdocsuiteslist tr.odd td.directory,
+table.pkgdocsuiteslist tr.even td.desc,
+table.pkgdocsuiteslist tr.odd td.desc,
+table.pkgdocsuiteslist tr.even td.numpackages,
+table.pkgdocsuiteslist tr.odd td.numpackages,
+table.pkgdocsuiteslist tr.even td.numprocedures,
+table.pkgdocsuiteslist tr.odd td.numprocedures,
+table.pkgdocsuiteslist tr.even td.numdependencies,
+table.pkgdocsuiteslist tr.odd td.numdependencies
+{
+    vertical-align: top;
+}
+
+table.pkgdocsuiteslist tr.even td.numdependencies,
+table.pkgdocsuiteslist tr.odd td.numdependencies {
+    border-right: 0;
+}
+
+table.pkgdocsuiteslist tr.even td.margin,
+table.pkgdocsuiteslist tr.odd td.margin {
+    background-color: white;
+}
+
+table.pkgdocsuiteslist td.numpackages,
+table.pkgdocsuiteslist td.numprocedures,
+table.pkgdocsuiteslist td.numdependencies {
+    text-align: right;
+}
+
+/* }}} */
+
+/* }}} */
+/* {{{ Package overview */
+
+/* {{{ Package overview links */
+
+table.packagealllinks {
+    width: 100%;
+    border-top: 1px solid #961E32;
+    margin-top: 2em;
+}
+
+/* }}} */
+/* {{{ Package overview title */
+
+table.packagealltitle {
+    /* border-bottom: 1px solid black; */
+    margin-bottom: .5em;
+}
+
+table.packagealltitle td.title {
+    font-size: 1.2308em;    /* 16px */
+    font-weight: bold;
+    border-bottom: 1px solid black;
+}
+
+/* }}} */
+/* {{{ Package overview list of packages */
+
+table.packagealllist {
+    width: 100%;
+    margin-top: 1em;
+}
+
+table.packagealllist th {
+    background-color: #C1CFF7;
+    border-top: 1px solid #961E32;
+    border-right: 2px solid white;
+    padding: 2px;
+    vertical-align: middle;
+}
+
+table.packagealllist th.margin {
+    background-color: white;
+    width: 5em;
+    border-top: 0;
+    border-right: 0;
+    padding: 0;
+}
+
+table.packagealllist th.desc {
+    border-right: 0;
+}
+
+table.packagealllist th.package,
+table.packagealllist th.desc {
+    text-align: left;
+}
+
+table.packagealllist tr.even td.package,
+table.packagealllist tr.odd td.package,
+table.packagealllist tr.even td.desc,
+table.packagealllist tr.odd td.desc {
+    vertical-align: top;
+}
+
+table.packagealllist tr.even td.desc,
+table.packagealllist tr.odd td.desc {
+    border-right: 0;
+}
+
+table.packagealllist tr.even td.margin,
+table.packagealllist tr.odd td.margin {
+    background-color: white;
+}
+
+table.packagealllist table.package td {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+table.packagealllist table.package td.depth1 {
+    padding-left: .5em;
+}
+
+table.packagealllist table.package td.depth2 {
+    padding-left: 1em;
+}
+
+table.packagealllist table.package td.depth3 {
+    padding-left: 1.5em;
+}
+
+table.packagealllist table.package td.depth4 {
+    padding-left: 2em;
+}
+
+table.packagealllist table.package td.depth5 {
+    padding-left: 2.5em;
+}
+
+table.packagealllist table.package td.depth6 {
+    padding-left: 3em;
+}
+
+table.packagealllist table.package td.depth7 {
+    padding-left: 3.5em;
+}
+
+table.packagealllist table.package td.depth8 {
+    padding-left: 4em;
+}
+
+
+/* }}} */
+
+/* }}} */
+/* {{{ Package and procedure overview */
+
+/* {{{ Package overview links */
+
+table.procedurealllinks {
+    width: 100%;
+    border-top: 1px solid #961E32;
+    padding-top: 5px;
+    margin-top: 2em;
+}
+
+/* }}} */
+/* {{{ Package overview title */
+
+table.procedurealltitle {
+    /* border-bottom: 1px solid black; */
+    margin-bottom: .5em;
+}
+
+table.procedurealltitle td.title {
+    font-size: 1.2308em;    /* 16px */
+    font-weight: bold;
+    border-bottom: 1px solid black;
+}
+
+/* }}} */
+/* {{{ Package overview list of packages */
+
+table.procedurealllist {
+    width: 100%;
+    margin-top: 1em;
+}
+
+table.procedurealllist th {
+    background-color: #C1CFF7;
+    border-top: 1px solid #961E32;
+    border-right: 2px solid white;
+    padding: 2px;
+    vertical-align: middle;
+}
+
+/* table.testcasealllist th img { */
+    /* vertical-align: middle; */
+/* } */
+
+table.procedurealllist th.margin {
+    background-color: white;
+    width: 5em;
+    border-top: 0;
+    border-right: 0;
+    padding: 0;
+}
+
+table.procedurealllist tr.even td.margin,
+table.procedurealllist tr.odd td.margin {
+    background-color: white;
+}
+
+table.procedurealllist th.realtime {
+    border-right: 0;
+}
+
+table.procedurealllist th.testset,
+table.procedurealllist th.desc {
+    text-align: left;
+}
+
+table.procedurealllist tr.even td.testset,
+table.procedurealllist tr.odd td.testset,
+table.procedurealllist tr.even td.desc,
+table.procedurealllist tr.odd td.desc {
+    vertical-align: top;
+}
+
+table.procedurealllist tr.even td.realtime,
+table.procedurealllist tr.odd td.realtime {
+    border-right: 0;
+}
+
+table.procedurealllist tr.even td.marginicon,
+table.procedurealllist tr.odd td.marginicon {
+    background-color: white;
+    text-align: right;
+    border-right: 0;
+    padding-right: .5em;
+    vertical-align: top;
+}
+
+table.procedurealllist td.tests,
+table.procedurealllist td.excepted,
+table.procedurealllist td.failed,
+table.procedurealllist td.expfailed,
+table.procedurealllist td.passed,
+table.procedurealllist td.skipped,
+table.procedurealllist td.skippedsets,
+table.procedurealllist td.notimpl,
+table.procedurealllist td.executed,
+table.procedurealllist td.percent,
+table.procedurealllist td.duration,
+table.procedurealllist td.realtime {
+    text-align: right;
+    vertical-align: top;
+    width: 1px;
+    white-space: nowrap;
+}
+
+table.procedurealllist table.testset td {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+table.procedurealllist table.testset td.depth1 {
+    padding-left: .5em;
+}
+
+table.procedurealllist table.testset td.depth2 {
+    padding-left: 1em;
+}
+
+table.procedurealllist table.testset td.depth3 {
+    padding-left: 1.5em;
+}
+
+table.procedurealllist table.testset td.depth4 {
+    padding-left: 2em;
+}
+
+table.procedurealllist table.testset td.depth5 {
+    padding-left: 2.5em;
+}
+
+table.procedurealllist table.testset td.depth6 {
+    padding-left: 3em;
+}
+
+table.procedurealllist table.testset td.depth7 {
+    padding-left: 3.5em;
+}
+
+table.procedurealllist table.testset td.depth8 {
+    padding-left: 4em;
+}
+
+
+/* }}} */
+
+/* }}} */
+/* {{{ Package */
+
+/* {{{ Package links */
+
+table.packagelinks {
+    width: 100%;
+    border-top: 1px solid #999996;
+    margin-top: 2em;
+}
+
+/* }}} */
+/* {{{ Package title */
+
+table.packagetitle {
+    /* border-bottom: 1px solid black; */
+    margin-bottom: .5em;
+}
+
+table.packagetitle td.margin {
+    padding-right: 5em;
+}
+
+table.packagetitle td.marginicon {
+    width: 5em;
+}
+
+table.packagetitle table.margin {
+    width: 100%;
+}
+
+table.margin td.marginicon {
+    width: 100%;
+    text-align: right;
+    padding-right: .5em;
+}
+
+/* table.packagetitle td.marginicon img { */
+    /* position: relative; */
+    /* bottom: -2px; */
+    /* vertical-align: baseline; */
+    /* vertical-align: middle; */
+/* } */
+
+table.packagetitle td.title {
+    font-size: 1.1538em;    /* 15px */
+    font-weight: bold;
+    border-bottom: 1px solid black;
+}
+
+/* }}} */
+/* {{{ Package description */
+
+table.packagedesc {
+    width: 100%;
+}
+
+table.packagedesc td.desc {
+    width: 100%;
+}
+
+table.packagedesc td.desc p,
+table.packagedesc td.desc dl {
+    margin-top: .4em;
+    margin-bottom: .4em;
+}
+
+table.packagedesc td.desc dl dt {
+    margin-top: .3em;
+    margin-bottom: 0;
+}
+
+table.packagedesc td.desc dl dd {
+    margin-top: -.1em;
+    margin-bottom: 0;
+}
+
+table.packagedesc td.desc p:first-child,
+table.packagedesc td.desc dl:first-child,
+table.packagedesc td.desc dl dt:first-child {
+    margin-top: 0;
+}
+
+table.packagedesc td.desc p:last-child,
+table.packagedesc td.desc dl:last-child {
+    margin-bottom: 0;
+}
+
+/* }}} */
+/* {{{ Package list of procedures */
+
+table.packagelist {
+    width: 100%;
+    margin-top: 1em;
+}
+
+table.packagelist th {
+    background-color: #C1CFF7;
+    border-top: 1px solid #961E32;
+    border-right: 2px solid white;
+    border-left: 0px solid white;
+    padding: 2px;
+}
+
+table.packagelist th.margin {
+    background-color: white;
+    width: 5em;
+    border-top: 0;
+    border-right: 0;
+    padding: 0;
+}
+
+table.packagelist th.desc {
+    border-right: 0;
+}
+
+table.packagelist th.procedure,
+table.packagelist th.desc {
+    text-align: left;
+}
+
+table.packagelist tr.even td.procedure,
+table.packagelist tr.odd td.procedure,
+table.packagelist tr.even td.desc,
+table.packagelist tr.odd td.desc {
+    vertical-align: top;
+}
+
+table.packagelist tr.even td.desc,
+table.packagelist tr.odd td.desc {
+    border-right: 0;
+}
+
+table.packagelist tr.even td.margin,
+table.packagelist tr.odd td.margin {
+    background-color: white;
+}
+
+/* }}} */
+
+/* }}} */
+/* {{{ Procedure */
+
+/* {{{ Procedure links */
+
+table.procedurelinks {
+    margin-top: 1.5em;
+    border-top: 1px solid #DDDDDA;
+}
+
+/* }}} */
+/* {{{ Procedure title */
+
+table.proceduretitle {
+    /* border-bottom: 1px solid black; */
+    margin-bottom: .5em;
+}
+
+table.proceduretitle td.margin {
+    padding-right: 5em;
+}
+
+table.proceduretitle td.title {
+    /*font-size: 1.0769em;*/    /* 15px */
+    font-weight: bold;
+    border-bottom: 1px solid black;
+}
+
+/* }}} */
+/* {{{ Procedure description */
+
+table.proceduredesc td.margin {
+    padding-right: 5em;
+}
+
+table.proceduredesc td.desc {
+    width: 100%;
+}
+
+table.proceduredesc td.desc p,
+table.proceduredesc td.desc dl {
+    margin-top: .4em;
+    margin-bottom: .4em;
+}
+
+table.proceduredesc td.desc dl dt {
+    margin-top: .3em;
+    margin-bottom: 0;
+}
+
+table.proceduredesc td.desc dl dd {
+    margin-top: -.1em;
+    margin-bottom: 0;
+}
+
+table.proceduredesc td.desc p:first-child,
+table.proceduredesc td.desc dl:first-child,
+table.proceduredesc td.desc dl dt:first-child {
+    margin-top: 0;
+}
+
+table.proceduredesc td.desc p:last-child,
+table.proceduredesc td.desc dl:last-child {
+    margin-bottom: 0;
+}
+
+/* }}} */
+
+/* }}} */
+
+/* }}} */
+/* {{{ Testdoc */
+
+/* {{{ Testdoc summary */
+
+/* {{{ Testdoc summary links */
+
+table.testdocsummarylinks {
+    width: 100%;
+    /* margin-top: 2em; */
+}
+
+/* }}} */
+/* {{{ Testdoc summary title */
+
+table.testdocsummarytitle {
+    /* border-bottom: 1px solid black; */
+    margin-bottom: .5em;
+}
+
+table.testdocsummarytitle td.title {
+    font-size: 1.2308em;    /* 16px */
+    font-weight: bold;
+    border-bottom: 1px solid black;
+}
+
+/* }}} */
+/* {{{ Testdoc summary result */
+
+table.testdocsummary {
+    margin-left: 5em;
+}
+
+table.testdocsummary td {
+    vertical-align: top;
+}
+
+table.testdocsummary td.label {
+    padding-right: .5em;
+}
+
+
+/* }}} */
+
+/* }}} */
+/* {{{ Testdoc navigation */
+
+table.testdocnav {
+    width: 100%;
+    margin-top: 1.5em;
+}
+
+table.testdocnav td.margin {
+    background-color: white;
+    width: 5em;
+    border-top: 0;
+    border-right: 0;
+    padding: 0;
+}
+
+table.testdocnav td.link {
+    font-size: .8462em;        /* 11px */
+}
+
+/* }}} */
+/* {{{ Testsuite overview */
+
+/* {{{ Suite overview links */
+
+table.testdocsuiteslinks {
+    width: 100%;
+    border-top: 1px solid #961E32;
+    margin-top: 2em;
+}
+
+/* }}} */
+/* {{{ Suite overview title */
+
+table.testdocsuitestitle {
+    /* border-bottom: 1px solid black; */
+    margin-bottom: .5em;
+}
+
+table.testdocsuitestitle td.title {
+    font-size: 1.2308em;    /* 16px */
+    font-weight: bold;
+    border-bottom: 1px solid black;
+}
+
+/* }}} */
+/* {{{ Suite overview list of suites */
+
+table.testdocsuiteslist {
+    width: 100%;
+    margin-top: 1em;
+}
+
+table.testdocsuiteslist th {
+    background-color: #ECC9A5;
+    border-top: 1px solid #961E32;
+    border-right: 2px solid white;
+    padding: 2px;
+    vertical-align: middle;
+}
+
+table.testdocsuiteslist th.margin {
+    background-color: white;
+    width: 5em;
+    border-top: 0;
+    border-right: 0;
+    padding: 0;
+}
+
+table.testdocsuiteslist th.numtestcases {
+    border-right: 0;
+}
+
+table.testdocsuiteslist th.testsuite,
+table.testdocsuiteslist th.directory,
+table.testdocsuiteslist th.desc {
+    text-align: left;
+}
+
+table.testdocsuiteslist th.numtestsets,
+table.testdocsuiteslist th.numtestcases {
+    text-align: right;
+}
+
+table.testdocsuiteslist tr.even td.testsuite,
+table.testdocsuiteslist tr.odd td.testsuite,
+table.testdocsuiteslist tr.even td.directory,
+table.testdocsuiteslist tr.odd td.directory,
+table.testdocsuiteslist tr.even td.desc,
+table.testdocsuiteslist tr.odd td.desc,
+table.testdocsuiteslist tr.even td.numtestsets,
+table.testdocsuiteslist tr.odd td.numtestsets,
+table.testdocsuiteslist tr.even td.numtestcases,
+table.testdocsuiteslist tr.odd td.numtestcases
+{
+    vertical-align: top;
+}
+
+table.testdocsuiteslist tr.even td.numtestcases,
+table.testdocsuiteslist tr.odd td.numtestcases {
+    border-right: 0;
+}
+
+table.testdocsuiteslist tr.even td.margin,
+table.testdocsuiteslist tr.odd td.margin {
+    background-color: white;
+}
+
+table.testdocsuiteslist td.numtestsets,
+table.testdocsuiteslist td.numtestcases {
+    text-align: right;
+}
+
+/* }}} */
+
+/* }}} */
+/* {{{ Testset overview */
+
+/* {{{ Testset overview links */
+
+table.tdtestsetalllinks {
+    width: 100%;
+    border-top: 1px solid #961E32;
+    margin-top: 2em;
+}
+
+/* }}} */
+/* {{{ Testset overview title */
+
+table.tdtestsetalltitle {
+    /* border-bottom: 1px solid black; */
+    margin-bottom: .5em;
+}
+
+table.tdtestsetalltitle td.title {
+    font-size: 1.2308em;    /* 16px */
+    font-weight: bold;
+    border-bottom: 1px solid black;
+}
+
+/* }}} */
+/* {{{ Testset overview list of testsets */
+
+table.tdtestsetalllist {
+    width: 100%;
+    margin-top: 1em;
+}
+
+table.tdtestsetalllist th {
+    background-color: #ECC9A5;
+    border-top: 1px solid #961E32;
+    border-right: 2px solid white;
+    padding: 2px;
+    vertical-align: middle;
+}
+
+table.tdtestsetalllist th.margin {
+    background-color: white;
+    width: 5em;
+    border-top: 0;
+    border-right: 0;
+    padding: 0;
+}
+
+table.tdtestsetalllist th.desc {
+    border-right: 0;
+}
+
+table.tdtestsetalllist th.testset,
+table.tdtestsetalllist th.desc {
+    text-align: left;
+}
+
+table.tdtestsetalllist tr.even td.testset,
+table.tdtestsetalllist tr.odd td.testset,
+table.tdtestsetalllist tr.even td.desc,
+table.tdtestsetalllist tr.odd td.desc {
+    vertical-align: top;
+}
+
+table.tdtestsetalllist tr.even td.desc,
+table.tdtestsetalllist tr.odd td.desc {
+    border-right: 0;
+}
+
+table.tdtestsetalllist tr.even td.margin,
+table.tdtestsetalllist tr.odd td.margin {
+    background-color: white;
+}
+
+table.tdtestsetalllist table.tdtestset td {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+table.tdtestsetalllist table.tdtestset td.depth1 {
+    padding-left: .5em;
+}
+
+table.tdtestsetalllist table.tdtestset td.depth2 {
+    padding-left: 1em;
+}
+
+table.tdtestsetalllist table.tdtestset td.depth3 {
+    padding-left: 1.5em;
+}
+
+table.tdtestsetalllist table.tdtestset td.depth4 {
+    padding-left: 2em;
+}
+
+table.tdtestsetalllist table.tdtestset td.depth5 {
+    padding-left: 2.5em;
+}
+
+table.tdtestsetalllist table.tdtestset td.depth6 {
+    padding-left: 3em;
+}
+
+table.tdtestsetalllist table.tdtestset td.depth7 {
+    padding-left: 3.5em;
+}
+
+table.tdtestsetalllist table.tdtestset td.depth8 {
+    padding-left: 4em;
+}
+
+
+/* }}} */
+
+/* }}} */
+/* {{{ Testset and testcase overview */
+
+/* {{{ Testset overview links */
+
+table.tdtestcasealllinks {
+    width: 100%;
+    border-top: 1px solid #961E32;
+    padding-top: 5px;
+    margin-top: 2em;
+}
+
+/* }}} */
+/* {{{ Testset overview title */
+
+table.tdtestcasealltitle {
+    /* border-bottom: 1px solid black; */
+    margin-bottom: .5em;
+}
+
+table.tdtestcasealltitle td.title {
+    font-size: 1.2308em;    /* 16px */
+    font-weight: bold;
+    border-bottom: 1px solid black;
+}
+
+/* }}} */
+/* {{{ Testset overview list of testsets */
+
+table.tdtestcasealllist {
+    width: 100%;
+    margin-top: 1em;
+}
+
+table.tdtestcasealllist th {
+    background-color: #ECC9A5;
+    border-top: 1px solid #961E32;
+    border-right: 2px solid white;
+    padding: 2px;
+    vertical-align: middle;
+}
+
+/* table.testcasealllist th img { */
+    /* vertical-align: middle; */
+/* } */
+
+table.tdtestcasealllist th.margin {
+    background-color: white;
+    width: 5em;
+    border-top: 0;
+    border-right: 0;
+    padding: 0;
+}
+
+table.tdtestcasealllist tr.even td.margin,
+table.tdtestcasealllist tr.odd td.margin {
+    background-color: white;
+}
+
+table.tdtestcasealllist th.realtime {
+    border-right: 0;
+}
+
+table.tdtestcasealllist th.testset,
+table.tdtestcasealllist th.desc {
+    text-align: left;
+}
+
+table.tdtestcasealllist tr.even td.testset,
+table.tdtestcasealllist tr.odd td.testset,
+table.tdtestcasealllist tr.even td.desc,
+table.tdtestcasealllist tr.odd td.desc {
+    vertical-align: top;
+}
+
+table.tdtestcasealllist tr.even td.realtime,
+table.tdtestcasealllist tr.odd td.realtime {
+    border-right: 0;
+}
+
+table.tdtestcasealllist tr.even td.marginicon,
+table.tdtestcasealllist tr.odd td.marginicon {
+    background-color: white;
+    text-align: right;
+    border-right: 0;
+    padding-right: .5em;
+    vertical-align: top;
+}
+
+table.tdtestcasealllist td.tests,
+table.tdtestcasealllist td.excepted,
+table.tdtestcasealllist td.failed,
+table.tdtestcasealllist td.expfailed,
+table.tdtestcasealllist td.passed,
+table.tdtestcasealllist td.skipped,
+table.tdtestcasealllist td.skippedsets,
+table.tdtestcasealllist td.notimpl,
+table.tdtestcasealllist td.executed,
+table.tdtestcasealllist td.percent,
+table.tdtestcasealllist td.duration,
+table.tdtestcasealllist td.realtime {
+    text-align: right;
+    vertical-align: top;
+    width: 1px;
+    white-space: nowrap;
+}
+
+table.tdtestcasealllist table.testset td {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+table.tdtestcasealllist table.testset td.depth1 {
+    padding-left: .5em;
+}
+
+table.tdtestcasealllist table.testset td.depth2 {
+    padding-left: 1em;
+}
+
+table.tdtestcasealllist table.testset td.depth3 {
+    padding-left: 1.5em;
+}
+
+table.tdtestcasealllist table.testset td.depth4 {
+    padding-left: 2em;
+}
+
+table.tdtestcasealllist table.testset td.depth5 {
+    padding-left: 2.5em;
+}
+
+table.tdtestcasealllist table.testset td.depth6 {
+    padding-left: 3em;
+}
+
+table.tdtestcasealllist table.testset td.depth7 {
+    padding-left: 3.5em;
+}
+
+table.tdtestcasealllist table.testset td.depth8 {
+    padding-left: 4em;
+}
+
+
+/* }}} */
+
+/* }}} */
+/* {{{ Testset */
+
+/* {{{ Testset links */
+
+table.tdtestsetlinks {
+    width: 100%;
+    border-top: 1px solid #999996;
+    margin-top: 2em;
+}
+
+/* }}} */
+/* {{{ Testset title */
+
+table.tdtestsettitle {
+    /* border-bottom: 1px solid black; */
+    margin-bottom: .5em;
+}
+
+table.tdtestsettitle td.margin {
+    padding-right: 5em;
+}
+
+table.tdtestsettitle td.marginicon {
+    width: 5em;
+}
+
+table.tdtestsettitle table.margin {
+    width: 100%;
+}
+
+table.margin td.marginicon {
+    width: 100%;
+    text-align: right;
+    padding-right: .5em;
+}
+
+/* table.tdtestsettitle td.marginicon img { */
+    /* position: relative; */
+    /* bottom: -2px; */
+    /* vertical-align: baseline; */
+    /* vertical-align: middle; */
+/* } */
+
+table.tdtestsettitle td.title {
+    font-size: 1.1538em;    /* 15px */
+    font-weight: bold;
+    border-bottom: 1px solid black;
+}
+
+/* }}} */
+/* {{{ Testset description */
+
+table.tdtestsetdesc {
+    width: 100%;
+}
+
+table.tdtestsetdesc td.desc {
+    width: 100%;
+}
+
+table.tdtestsetdesc td.desc p,
+table.tdtestsetdesc td.desc dl {
+    margin-top: .4em;
+    margin-bottom: .4em;
+}
+
+table.tdtestsetdesc td.desc dl dt {
+    margin-top: .3em;
+    margin-bottom: 0;
+}
+
+table.tdtestsetdesc td.desc dl dd {
+    margin-top: -.1em;
+    margin-bottom: 0;
+}
+
+table.tdtestsetdesc td.desc p:first-child,
+table.tdtestsetdesc td.desc dl:first-child,
+table.tdtestsetdesc td.desc dl dt:first-child {
+    margin-top: 0;
+}
+
+table.tdtestsetdesc td.desc p:last-child,
+table.tdtestsetdesc td.desc dl:last-child {
+    margin-bottom: 0;
+}
+
+/* }}} */
+/* {{{ Testset list of testcases */
+
+table.tdtestsetlist {
+    width: 100%;
+    margin-top: 1em;
+}
+
+table.tdtestsetlist th {
+    background-color: #ECC9A5;
+    border-top: 1px solid #961E32;
+    border-right: 2px solid white;
+    border-left: 0px solid white;
+    padding: 2px;
+}
+
+table.tdtestsetlist th.margin {
+    background-color: white;
+    width: 5em;
+    border-top: 0;
+    border-right: 0;
+    padding: 0;
+}
+
+table.tdtestsetlist th.desc {
+    border-right: 0;
+}
+
+table.tdtestsetlist th.testcase,
+table.tdtestsetlist th.desc {
+    text-align: left;
+}
+
+table.tdtestsetlist tr.even td.testcase,
+table.tdtestsetlist tr.odd td.testcase,
+table.tdtestsetlist tr.even td.desc,
+table.tdtestsetlist tr.odd td.desc {
+    vertical-align: top;
+}
+
+table.tdtestsetlist tr.even td.desc,
+table.tdtestsetlist tr.odd td.desc {
+    border-right: 0;
+}
+
+table.tdtestsetlist tr.even td.margin,
+table.tdtestsetlist tr.odd td.margin {
+    background-color: white;
+}
+
+/* }}} */
+
+/* }}} */
+/* {{{ Testcase */
+
+/* {{{ Testcase links */
+
+table.tdtestcaselinks {
+    margin-top: 1.5em;
+    border-top: 1px solid #DDDDDA;
+}
+
+/* }}} */
+/* {{{ Testcase title */
+
+table.tdtestcasetitle {
+    /* border-bottom: 1px solid black; */
+    margin-bottom: .5em;
+}
+
+table.tdtestcasetitle td.margin {
+    padding-right: 5em;
+}
+
+table.tdtestcasetitle td.title {
+    /*font-size: 1.0769em;*/    /* 15px */
+    font-weight: bold;
+    border-bottom: 1px solid black;
+}
+
+/* }}} */
+/* {{{ Testcase description */
+
+table.tdtestcasedesc td.margin {
+    padding-right: 5em;
+}
+
+table.tdtestcasedesc td.desc {
+    width: 100%;
+}
+
+table.tdtestcasedesc td.desc p,
+table.tdtestcasedesc td.desc dl {
+    margin-top: .4em;
+    margin-bottom: .4em;
+}
+
+table.tdtestcasedesc td.desc dl dt {
+    margin-top: .3em;
+    margin-bottom: 0;
+}
+
+table.tdtestcasedesc td.desc dl dd {
+    margin-top: -.1em;
+    margin-bottom: 0;
+}
+
+table.tdtestcasedesc td.desc p:first-child,
+table.tdtestcasedesc td.desc dl:first-child,
+table.tdtestcasedesc td.desc dl dt:first-child {
+    margin-top: 0;
+}
+
+table.tdtestcasedesc td.desc p:last-child,
+table.tdtestcasedesc td.desc dl:last-child {
+    margin-bottom: 0;
+}
+
+/* }}} */
+/* {{{ Testcase details list */
+
+table.tdtestcasedetailslist {
+    width: 100%;
+    /* border-top: 1px solid #961E32; */
+    margin-top: 1em;
+}
+
+table.tdtestcasedetailslist th {
+    /* background-color: #F5F5F3; */
+    /* border-top: 1px solid #CCCCC9; */
+    background-color: #ECC9A5;
+    border-top: 1px solid #961E32;
+    padding: 2px;
+}
+
+table.tdtestcasedetailslist th.margin {
+    background-color: white;
+    width: 5em;
+    border-top: 0;
+    border-bottom: 0;
+    border-right: 0;
+    padding: 0;
+}
+
+table.tdtestcasedetailslist th.teststep {
+    text-align: left;
+}
+
+table.tdtestcasedetailslist td.margin {
+    background-color: white;
+}
+table.tdtestcasedetailslist td.marginicon {
+    background-color: white;
+    text-align: right;
+    border-right: 0;
+    padding-right: .5em;
+    vertical-align: top;
+}
+
+
+table.tdtestcasedetailslist td.teststep {
+    vertical-align: top;
+    border-right: 0;
+}
+
+table.tdtestcasedetailslist div.step div.detail {
+    padding-left: 20px;
+    /* background-color: red; */
+}
+
+/* }}} */
+
+/* }}} */
+
+/* }}} */
+
+/* {{{ helper classes for paddings */
+
+.padding-left-20  { padding-left:20px; }
+.padding-left-40  { padding-left:40px; }
+.padding-left-60  { padding-left:60px; }
+.padding-left-80  { padding-left:80px; }
+.padding-left-100 { padding-left:100px;}
+.padding-left-120 { padding-left:120px;}
+.padding-left-140 { padding-left:140px;}
+.padding-left-160 { padding-left:160px;}
+.padding-left-180 { padding-left:180px;}
+.padding-left-200 { padding-left:200px;}
+.padding-left-220 { padding-left:220px;}
+.padding-left-240 { padding-left:240px;}
+.padding-left-260 { padding-left:260px;}
+.padding-left-280 { padding-left:280px;}
+
+.padding-left-16  { padding-left:16px; }
+.padding-left-32  { padding-left:32px; }
+.padding-left-48  { padding-left:48px; }
+.padding-left-64  { padding-left:64px; }
+.padding-left-96  { padding-left:96px; }
+.padding-left-112 { padding-left:112px;}
+.padding-left-128 { padding-left:128px;}
+.padding-left-144 { padding-left:144px;}
+.padding-left-176 { padding-left:176px;}
+.padding-left-192 { padding-left:192px;}
+.padding-left-208 { padding-left:208px;}
+.padding-left-224 { padding-left:224px;}
+
+/* }}} */
