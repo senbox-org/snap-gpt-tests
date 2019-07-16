@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -92,6 +93,23 @@ public class SnapGPTTest {
             reportFolderPath.resolve("html").resolve("json").toFile().mkdir();
             reportFolderPath.resolve("html").resolve("icons").toFile().mkdir();
             reportFolderPath.resolve("html").resolve("css").toFile().mkdir();
+            //copy icons and css
+            ReportUtils.copyResource("css/gptTest.css", reportFolderPath.resolve("html").resolve("css").resolve("gptTest.css"));
+            ReportUtils.copyResource("icons/blue.png", reportFolderPath.resolve("html").resolve("icons").resolve("blue.png"));
+            ReportUtils.copyResource("icons/duration.png", reportFolderPath.resolve("html").resolve("icons").resolve("duration.png"));
+            ReportUtils.copyResource("icons/green.png", reportFolderPath.resolve("html").resolve("icons").resolve("green.png"));
+            ReportUtils.copyResource("icons/orange.png", reportFolderPath.resolve("html").resolve("icons").resolve("orange.png"));
+            ReportUtils.copyResource("icons/percent.png", reportFolderPath.resolve("html").resolve("icons").resolve("percent.png"));
+            ReportUtils.copyResource("icons/red.png", reportFolderPath.resolve("html").resolve("icons").resolve("red.png"));
+            ReportUtils.copyResource("icons/SNAP_Icon_16.png", reportFolderPath.resolve("html").resolve("icons").resolve("SNAP_Icon_16.png"));
+            ReportUtils.copyResource("icons/SNAP_Icon_32.png", reportFolderPath.resolve("html").resolve("icons").resolve("SNAP_Icon_32.png"));
+            ReportUtils.copyResource("icons/SNAP_Icon_48.png", reportFolderPath.resolve("html").resolve("icons").resolve("SNAP_Icon_48.png"));
+            ReportUtils.copyResource("icons/SNAP_Icon_60.png", reportFolderPath.resolve("html").resolve("icons").resolve("SNAP_Icon_60.png"));
+            ReportUtils.copyResource("icons/SNAP_Icon_128.png", reportFolderPath.resolve("html").resolve("icons").resolve("SNAP_Icon_128.png"));
+            ReportUtils.copyResource("icons/yellow.png", reportFolderPath.resolve("html").resolve("icons").resolve("yellow.png"));
+
+
+
         }
 
         BufferedWriter writer = null;
@@ -242,7 +260,7 @@ public class SnapGPTTest {
             }
 
             if(reportHtml) {
-                //todo create html report with velocity
+                //create html report with velocity
                 ReportUtils.createHtmlReportForJson(graphTestResultList.toArray(new GraphTestResult[graphTestResultList.size()]),
                                                     org.esa.snap.core.util.io.FileUtils.getFilenameWithoutExtension(file),
                                                     reportFolderPath.resolve("html").resolve(org.esa.snap.core.util.io.FileUtils.exchangeExtension(file.getName(),".html")),

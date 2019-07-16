@@ -10,6 +10,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.StringWriter;
 import java.lang.reflect.InvocationTargetException;
 import java.nio.file.Files;
@@ -230,4 +231,13 @@ public class ReportUtils {
         y = y + 70;
         return new Dimension(x,y);
     }
+
+    public static void copyResource(String name, Path targetPath) {
+        try (InputStream is = ReportUtils.class.getClassLoader().getResourceAsStream(name)) {
+            Files.copy(is, targetPath);
+        } catch (IOException e) {
+            // An error occurred copying the resource
+        }
+    }
+
 }
