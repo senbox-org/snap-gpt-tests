@@ -4,8 +4,8 @@
   "expectedContent": {
     "sceneWidth": 200,
     "sceneHeight": 200,
-    "startTime": "02-OCT-2018 03:45:51.023999",
-    "endTime": "02-OCT-2018 03:45:51.023999",
+    "startTime": "02-OCT-2018 03:45:51.024000",
+    "endTime": "02-OCT-2018 03:45:51.024000",
     "geoCoding": {
       "coordinates": [
         {
@@ -85,33 +85,34 @@
         "value": "-19"
       },
       {
-        "path": "Level-1C_User_Product/General_Info/Product_Info/Datatake/SENSING_ORBIT_DIRECTION",
-        "value": "DESCENDING"
+        "path": "Level-1C_DataStrip_ID/General_Info/Datastrip_Time_Info/metadataLevel",
+        "value": "Brief"
       },
       {
-        "path": "Granules/Level-1C_Tile_47PMP/Quality_Indicators_Info/Image_Content_QI/CLOUDY_PIXEL_PERCENTAGE",
-        "value": "91.4732"
+        "path": "history/SubsetInfo/SubSampling.y",
+        "value": "1"
       },
       {
-        "path": "Level-1C_User_Product/Auxiliary_Data_Info/GIPP_List/GIPP_FILENAME[67]",
-        "value": "S2A_OPER_GIP_R2EOB2_MPC__20180727T130800_V20180731T000000_21000101T000000_B04"
-      },
-      {
-        "path": "Level-1C_DataStrip_ID/Satellite_Ancillary_Data_Info/Attitudes/Corrected_Attitudes/Values[4388]/QUATERNION_VALUES",
-        "value": "0.153043947930884 0.776371822226298 0.0157975243531817 0.611207642196215"
+        "path": "Granules/Level-1C_Tile_47PMP/Geometric_Info/Tile_Geocoding/Geoposition/resolution",
+        "value": "10"
       },
       {
         "path": "history/SubsetInfo/ProductNodeName.2",
         "value": "B3"
       },
       {
-        "path": "history/SubsetInfo/SubRegion.y",
-        "value": "300"
+        "path": "history/SubsetInfo/SubSampling.y",
+        "value": "1"
       },
       {
         "path": "Granules/Level-1C_Tile_47PMP/Geometric_Info/Tile_Angles/Viewing_Incidence_Angles_Grids[35]/Azimuth/Values_List/VALUES[10]",
         "value": "NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN 293.943 293.365 292.856 292.404 292.002 291.64 NaN"
+      },
+      {
+        "path": "Level-1C_User_Product/Quality_Indicators_Info/Technical_Quality_Assessment/DEGRADED_MSI_DATA_PERCENTAGE",
+        "value": "0"
       }
-    ]
+    ],
+    "shortDescription": "Dimension(200,200). [2 bands, 0 masks, 0 tiepoint grids].Bands:B2,B3"
   }
 }
