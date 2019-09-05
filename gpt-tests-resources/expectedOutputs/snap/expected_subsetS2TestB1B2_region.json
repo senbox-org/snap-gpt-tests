@@ -2,27 +2,10 @@
   "id": "subsetS2Test_B1B2",
   "decodeQualification": "INTENDED",
   "expectedContent": {
-    "sceneWidth": 200,
-    "sceneHeight": 200,
-    "startTime": "02-OCT-2018 03:45:51.023999",
-    "endTime": "02-OCT-2018 03:45:51.023999",
-    "geoCoding": {
-      "coordinates": [
-        {
-          "x": 86.0,
-          "y": 107.0,
-          "lat": 12.626275371767372,
-          "lon": 98.11440758724332
-        },
-        {
-          "x": 148.0,
-          "y": 129.0,
-          "lat": 12.62430503466917,
-          "lon": 98.1201226592261
-        }
-      ],
-      "reverseAccuracy": 1.2223608791828156E-9
-    },
+    "sceneWidth": 10980,
+    "sceneHeight": 10980,
+    "startTime": "02-OCT-2018 03:45:51.024000",
+    "endTime": "02-OCT-2018 03:45:51.024000",
     "bands": [
       {
         "name": "B1",
@@ -36,22 +19,22 @@
         "spectralBandwidth": "58.0",
         "expectedPixels": [
           {
-            "x": 10,
-            "y": 35,
-            "value": 0.3251
+            "x": 86,
+            "y": 107,
+            "value": 0.2231
           },
           {
-            "x": 137,
-            "y": 170,
-            "value": 0.2336
+            "x": 148,
+            "y": 129,
+            "value": 0.2433
           }
         ]
       },
       {
         "name": "B2",
         "description": "Reflectance in band B2",
-        "bandWidth": 200,
-        "bandHeight": 200,
+        "bandWidth": 1200,
+        "bandHeight": 1200,
         "geophysicalUnit": "dl",
         "noDataValue": "0.0",
         "noDataValueUsed": "false",
@@ -59,54 +42,54 @@
         "spectralBandwidth": "130.0",
         "expectedPixels": [
           {
-            "x": 58,
-            "y": 51,
-            "value": 0.2724
+            "x": 62,
+            "y": 213,
+            "value": 0.3107
           },
           {
-            "x": 122,
-            "y": 73,
-            "value": 0.295
+            "x": 822,
+            "y": 1020,
+            "value": 0.2098
           }
         ]
       }
     ],
     "metadata": [
       {
-        "path": "Granules/Level-1C_Tile_47PMP/Geometric_Info/Tile_Angles/Viewing_Incidence_Angles_Grids[11]/Azimuth/Values_List/VALUES[22]",
-        "value": "NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN 301.074 300.141 299.308 298.56 297.886 NaN NaN NaN NaN"
+        "path": "Level-1C_DataStrip_ID/Image_Data_Info/Radiometric_Info/Image_Display_Order/GREEN_CHANNEL",
+        "value": "2"
       },
       {
-        "path": "Processing_Graph/node.1/parameters/subSamplingY",
+        "path": "Processing_Graph/node.1/parameters/fullSwath",
+        "value": "false"
+      },
+      {
+        "path": "Processing_Graph/node.1/parameters/copyMetadata",
+        "value": "true"
+      },
+      {
+        "path": "Granules/Level-1C_Tile_47PMP/Geometric_Info/Tile_Geocoding/Geoposition[3]/resolution",
+        "value": "60"
+      },
+      {
+        "path": "Granules/Level-1C_Tile_47PMP/General_Info/Archiving_Info/metadataLevel",
+        "value": "Expertise"
+      },
+      {
+        "path": "history/SubsetInfo/SubSampling.y",
         "value": "1"
       },
       {
-        "path": "Level-1C_DataStrip_ID/Auxiliary_Data_Info/IERS_Bulletin/GPS_TIME_TAI",
-        "value": "-19"
-      },
-      {
-        "path": "Level-1C_User_Product/General_Info/Product_Info/Datatake/SENSING_ORBIT_DIRECTION",
-        "value": "DESCENDING"
-      },
-      {
-        "path": "Granules/Level-1C_Tile_47PMP/Quality_Indicators_Info/Image_Content_QI/CLOUDY_PIXEL_PERCENTAGE",
-        "value": "91.4732"
-      },
-      {
-        "path": "Level-1C_User_Product/Auxiliary_Data_Info/GIPP_List/GIPP_FILENAME[67]",
-        "value": "S2A_OPER_GIP_R2EOB2_MPC__20180727T130800_V20180731T000000_21000101T000000_B04"
-      },
-      {
-        "path": "Level-1C_DataStrip_ID/Satellite_Ancillary_Data_Info/Attitudes/Corrected_Attitudes/Values[4388]/QUATERNION_VALUES",
-        "value": "0.153043947930884 0.776371822226298 0.0157975243531817 0.611207642196215"
+        "path": "Granules/Level-1C_Tile_47PMP/Geometric_Info/Tile_Geocoding/Geoposition/resolution",
+        "value": "10"
       },
       {
         "path": "history/SubsetInfo/ProductNodeName.2",
         "value": "B2"
       },
       {
-        "path": "history/SubsetInfo/SubRegion.y",
-        "value": "300"
+        "path": "history/SubsetInfo/SubSampling.y",
+        "value": "1"
       },
       {
         "path": "Granules/Level-1C_Tile_47PMP/Geometric_Info/Tile_Angles/Viewing_Incidence_Angles_Grids[35]/Azimuth/Values_List/VALUES[10]",
