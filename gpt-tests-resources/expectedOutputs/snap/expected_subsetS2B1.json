@@ -1,0 +1,94 @@
+{
+  "id": "subset_s2_B1",
+  "decodeQualification": "INTENDED",
+  "expectedContent": {
+    "sceneWidth": 1830,
+    "sceneHeight": 1830,
+    "startTime": "02-OCT-2018 03:45:51.024000",
+    "endTime": "02-OCT-2018 03:45:51.024000",
+    "geoCoding": {
+      "coordinates": [
+        {
+          "x": 789.0,
+          "y": 983.0,
+          "lat": 12.130762735271986,
+          "lon": 98.51565851118607
+        },
+        {
+          "x": 1358.0,
+          "y": 1187.0,
+          "lat": 12.020443580377831,
+          "lon": 98.82949173383307
+        }
+      ],
+      "reverseAccuracy": 2.3646862246096134E-11
+    },
+    "bands": [
+      {
+        "name": "B1",
+        "description": "Reflectance in band B1",
+        "bandWidth": 1830,
+        "bandHeight": 1830,
+        "geophysicalUnit": "dl",
+        "noDataValue": "0.0",
+        "noDataValueUsed": "false",
+        "spectralWavelength": "443.0",
+        "spectralBandwidth": "58.0",
+        "expectedPixels": [
+          {
+            "x": 95,
+            "y": 326,
+            "value": 0.2732
+          },
+          {
+            "x": 1253,
+            "y": 1556,
+            "value": 0.1041
+          }
+        ]
+      }
+    ],
+    "metadata": [
+      {
+        "path": "Level-2A_DataStrip_ID/Image_Data_Info/Radiometric_Info/Image_Display_Order/GREEN_CHANNEL",
+        "value": "2"
+      },
+      {
+        "path": "Processing_Graph/node.1/parameters/sourceBands",
+        "value": "B1"
+      },
+      {
+        "path": "Processing_Graph/node.1/parameters/subSamplingX",
+        "value": "1"
+      },
+      {
+        "path": "Granules/Level-2A_Tile_47PMP/Geometric_Info/Tile_Geocoding/Geoposition[3]/resolution",
+        "value": "60"
+      },
+      {
+        "path": "Granules/Level-2A_Tile_47PMP/General_Info/Archiving_Info/metadataLevel",
+        "value": "Expertise"
+      },
+      {
+        "path": "history/SubsetInfo/SubSampling.y",
+        "value": "1"
+      },
+      {
+        "path": "Granules/Level-2A_Tile_47PMP/Geometric_Info/Tile_Geocoding/Geoposition/resolution",
+        "value": "10"
+      },
+      {
+        "path": "history/SubsetInfo/ProductNodeName.1",
+        "value": "B1"
+      },
+      {
+        "path": "history/SubsetInfo/SubSampling.x",
+        "value": "1"
+      },
+      {
+        "path": "Granules/Level-2A_Tile_47PMP/Geometric_Info/Tile_Angles/Viewing_Incidence_Angles_Grids[35]/Azimuth/Values_List/VALUES[10]",
+        "value": "NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN 293.943 293.365 292.856 292.404 292.002 291.64 NaN"
+      }
+    ]
+  }
+}

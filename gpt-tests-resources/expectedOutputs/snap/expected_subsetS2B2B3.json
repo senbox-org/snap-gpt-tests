@@ -1,0 +1,117 @@
+{
+  "id": "subset_s2_B2B3",
+  "decodeQualification": "INTENDED",
+  "expectedContent": {
+    "sceneWidth": 10980,
+    "sceneHeight": 10980,
+    "startTime": "02-OCT-2018 03:45:51.024000",
+    "endTime": "02-OCT-2018 03:45:51.024000",
+    "geoCoding": {
+      "coordinates": [
+        {
+          "x": 4735.0,
+          "y": 5902.0,
+          "lat": 12.13040117681352,
+          "lon": 98.51575106720787
+        },
+        {
+          "x": 8152.0,
+          "y": 7125.0,
+          "lat": 12.020172504320414,
+          "lon": 98.82985937785175
+        }
+      ],
+      "reverseAccuracy": 1.964508555829525E-10
+    },
+    "bands": [
+      {
+        "name": "B2",
+        "description": "Reflectance in band B2",
+        "bandWidth": 10980,
+        "bandHeight": 10980,
+        "geophysicalUnit": "dl",
+        "noDataValue": "0.0",
+        "noDataValueUsed": "false",
+        "spectralWavelength": "490.0",
+        "spectralBandwidth": "130.0",
+        "expectedPixels": [
+          {
+            "x": 572,
+            "y": 1956,
+            "value": 0.2608
+          },
+          {
+            "x": 7522,
+            "y": 9339,
+            "value": 0.107
+          }
+        ]
+      },
+      {
+        "name": "B3",
+        "description": "Reflectance in band B3",
+        "bandWidth": 10980,
+        "bandHeight": 10980,
+        "geophysicalUnit": "dl",
+        "noDataValue": "0.0",
+        "noDataValueUsed": "false",
+        "spectralWavelength": "560.0",
+        "spectralBandwidth": "100.0",
+        "expectedPixels": [
+          {
+            "x": 3193,
+            "y": 2820,
+            "value": 0.1534
+          },
+          {
+            "x": 6703,
+            "y": 4010,
+            "value": 0.3096
+          }
+        ]
+      }
+    ],
+    "metadata": [
+      {
+        "path": "Granules/Level-2A_Tile_47PMP/Geometric_Info/Tile_Angles/Viewing_Incidence_Angles_Grids[11]/Azimuth/Values_List/VALUES[22]",
+        "value": "NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN 301.074 300.141 299.308 298.56 297.886 NaN NaN NaN NaN"
+      },
+      {
+        "path": "Processing_Graph/node.1/parameters/subSamplingY",
+        "value": "1"
+      },
+      {
+        "path": "Level-2A_DataStrip_ID/Auxiliary_Data_Info/IERS_Bulletin/GPS_TIME_TAI",
+        "value": "-19"
+      },
+      {
+        "path": "Level-2A_DataStrip_ID/General_Info/Datastrip_Time_Info/metadataLevel",
+        "value": "Brief"
+      },
+      {
+        "path": "history/SubsetInfo/SubSampling.y",
+        "value": "1"
+      },
+      {
+        "path": "Granules/Level-2A_Tile_47PMP/Geometric_Info/Tile_Geocoding/Geoposition/resolution",
+        "value": "10"
+      },
+      {
+        "path": "history/SubsetInfo/ProductNodeName.2",
+        "value": "B3"
+      },
+      {
+        "path": "history/SubsetInfo/SubSampling.y",
+        "value": "1"
+      },
+      {
+        "path": "Granules/Level-2A_Tile_47PMP/Geometric_Info/Tile_Angles/Viewing_Incidence_Angles_Grids[35]/Azimuth/Values_List/VALUES[10]",
+        "value": "NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN 293.943 293.365 292.856 292.404 292.002 291.64 NaN"
+      },
+      {
+        "path": "Level-2A_User_Product/Quality_Indicators_Info/Technical_Quality_Assessment/DEGRADED_MSI_DATA_PERCENTAGE",
+        "value": "0"
+      }
+    ]
+  }
+}

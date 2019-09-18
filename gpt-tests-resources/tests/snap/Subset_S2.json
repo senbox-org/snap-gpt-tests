@@ -2,11 +2,11 @@
   {
     "id": "Subset_S2_B2B3",
     "author": "CS",
-    "description": "execute subset operator in a S2L1C product",
+    "description": "execute subset operator in a S2L2A product",
     "frequency": "test/subset",
     "graphPath": "snap/graphSubset.xml",
     "inputs": {
-      "input1": "s2tbx/S2/L1C/S2A_MSIL1C_20181002T034551_N0206_R104_T47PMP_20181002T073417.SAFE"
+      "input1": "s2tbx/S2/L2A/S2A_MSIL2A_20181002T034551_N9999_R104_T47PMP_20190916T085624.SAFE"
     },
     "parameters": {
       "subsetBands": "B2,B3",
@@ -17,18 +17,18 @@
       {
         "parameter": "out1",
         "outputName": "subsetS2Test_B2B3",
-        "expected": "snap/expectedElevation_S2.json"
+        "expected": "snap/expected_subsetS2B2B3.json"
       }
     ]
   },
   {
     "id": "Subset_S2_B1B2",
     "author": "CS",
-    "description": "execute subset operator in a S2L1C product",
+    "description": "execute subset operator in a S2L2A product",
     "frequency": "test/subset",
     "graphPath": "snap/graphSubset.xml",
     "inputs": {
-      "input1": "s2tbx/S2/L1C/S2A_MSIL1C_20181002T034551_N0206_R104_T47PMP_20181002T073417.SAFE"
+      "input1": "s2tbx/S2/L2A/S2A_MSIL2A_20181002T034551_N9999_R104_T47PMP_20190916T085624.SAFE"
     },
     "parameters": {
       "subsetBands": "B1,B2",
@@ -39,18 +39,18 @@
       {
         "parameter": "out1",
         "outputName": "subsetS2Test_B1B2",
-        "expected": "snap/expectedElevation_S2.json"
+        "expected": "snap/expected_subsetS2B1B2.json"
       }
     ]
   },
   {
     "id": "Subset_S2_B1B5",
     "author": "CS",
-    "description": "execute subset operator in a S2L1C product",
+    "description": "execute subset operator in a S2L2A product",
     "frequency": "test/subset",
     "graphPath": "snap/graphSubset.xml",
     "inputs": {
-      "input1": "s2tbx/S2/L1C/S2A_MSIL1C_20181002T034551_N0206_R104_T47PMP_20181002T073417.SAFE"
+      "input1": "s2tbx/S2/L2A/S2A_MSIL2A_20181002T034551_N9999_R104_T47PMP_20190916T085624.SAFE"
     },
     "parameters": {
       "subsetBands": "B1,B5",
@@ -61,7 +61,7 @@
       {
         "parameter": "out1",
         "outputName": "subsetS2Test_B1B5",
-        "expected": "snap/expectedElevation_S2.json"
+        "expected": "snap/expected_subsetS2B1B5.json"
       }
     ]
   },
@@ -72,7 +72,7 @@
     "frequency": "test/subset",
     "graphPath": "snap/graphSubset.xml",
     "inputs": {
-      "input1": "s2tbx/S2/L1C/S2A_MSIL1C_20181002T034551_N0206_R104_T47PMP_20181002T073417.SAFE"
+      "input1": "s2tbx/S2/L2A/S2A_MSIL2A_20181002T034551_N9999_R104_T47PMP_20190916T085624.SAFE"
     },
     "parameters": {
       "subsetBands": "B1",
@@ -83,7 +83,7 @@
       {
         "parameter": "out1",
         "outputName": "subsetS2Test_B1",
-        "expected": "snap/expectedElevation_S2.json"
+        "expected": "snap/expected_subsetS2B1.json"
       }
     ]
   },
