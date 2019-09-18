@@ -107,9 +107,6 @@ public class SnapGPTTest {
             ReportUtils.copyResource("icons/SNAP_Icon_60.png", reportFolderPath.resolve("html").resolve("icons").resolve("SNAP_Icon_60.png"));
             ReportUtils.copyResource("icons/SNAP_Icon_128.png", reportFolderPath.resolve("html").resolve("icons").resolve("SNAP_Icon_128.png"));
             ReportUtils.copyResource("icons/yellow.png", reportFolderPath.resolve("html").resolve("icons").resolve("yellow.png"));
-
-
-
         }
 
         BufferedWriter writer = null;
@@ -133,9 +130,12 @@ public class SnapGPTTest {
 
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
 
+
+        ArrayList<JsonTestResult> jsonTestResultList = new ArrayList<>();
         for(File file : fileList) { //do for every json
+            JsonTestResult jsonTestResult = new JsonTestResult(org.esa.snap.core.util.io.FileUtils.getFilenameWithoutExtension(file));
             GraphTest[] graphTests = GraphTestsUtils.mapGraphTests(file);
-            ArrayList<GraphTestResult> graphTestResultList = new ArrayList<>();
+            //ArrayList<GraphTestResult> graphTestResultList = new ArrayList<>();
             if(graphTests == null || graphTests.length == 0) {
                 continue;
             }
@@ -255,24 +255,26 @@ public class SnapGPTTest {
                 } else {
                     testResult.setStatus("SKIPPED");
                 }
-                graphTestResultList.add(testResult);
+                //graphTestResultList.add(testResult);
+                jsonTestResult.addGraphTestResults(testResult);
 
             }
 
+            jsonTestResultList.add(jsonTestResult);
             if(reportHtml) {
                 //create html report with velocity
-                ReportUtils.createHtmlReportForJson(graphTestResultList.toArray(new GraphTestResult[graphTestResultList.size()]),
-                                                    org.esa.snap.core.util.io.FileUtils.getFilenameWithoutExtension(file),
+                ReportUtils.createHtmlReportForJson(jsonTestResult.getGraphTestResultArray(),
+                                                    jsonTestResult.getJsonName(),
                                                     reportFolderPath.resolve("html").resolve(org.esa.snap.core.util.io.FileUtils.exchangeExtension(file.getName(),".html")),
                                                     scope);
-
-
             }
         }
 
         if(writer != null) {
             writer.close();
         }
+
+        //TODO create html summary/index
 
         if(!success) {
             System.exit(1);

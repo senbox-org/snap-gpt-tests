@@ -16,11 +16,14 @@ import java.lang.reflect.InvocationTargetException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import org.apache.commons.io.filefilter.TrueFileFilter;
+import org.apache.commons.io.filefilter.WildcardFileFilter;
 import org.apache.velocity.Template;
 import org.apache.velocity.VelocityContext;
 import org.apache.velocity.app.VelocityEngine;
@@ -30,6 +33,10 @@ import org.esa.snap.core.gpf.graph.GraphException;
 import org.esa.snap.core.util.io.FileUtils;
 import org.esa.snap.graphbuilder.rcp.dialogs.support.GraphExecuter;
 import org.esa.snap.graphbuilder.rcp.dialogs.support.GraphPanel;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 
 /**
  * Created by obarrile on 07/07/2019.
@@ -53,6 +60,7 @@ public class ReportUtils {
         Date start = new Date(Long.MAX_VALUE);
         Date end = new Date(Long.MIN_VALUE);
         Long totalDuration = 0L;
+        float memoryPeak = 0f;
         for(GraphTestResult graphTestResult : graphTestResults) {
             if(graphTestResult.getStartDate() != null) {
                 if (graphTestResult.getStartDate().before(start)) {
@@ -80,7 +88,106 @@ public class ReportUtils {
 
     }
 
+    public static void createHtmlReportIndex (JsonTestResult[] jsonTestResults, Path outputPath, String scope) throws IOException {
+        VelocityEngine velocityEngine = new VelocityEngine();
+        velocityEngine.setProperty(RuntimeConstants.RESOURCE_LOADER, "classpath");
+        velocityEngine.setProperty("classpath.resource.loader.class", ClasspathResourceLoader.class.getName());
+        velocityEngine.init();
 
+        Template template = velocityEngine.getTemplate("gptIndex_report_template.vm");
+
+        VelocityContext context = new VelocityContext();
+        context.put("jsonTestResults", jsonTestResults);
+        context.put("operatingSystem", System.getProperty("os.name"));
+        context.put("scope", scope);
+        //compute start and end date
+        Date start = new Date(Long.MAX_VALUE);
+        Date end = new Date(Long.MIN_VALUE);
+        Long totalDuration = 0L;
+       /* for(GraphTestResult graphTestResult : graphTestResults) {
+            if(graphTestResult.getStartDate() != null) {
+                if (graphTestResult.getStartDate().before(start)) {
+                    start = graphTestResult.getStartDate();
+                }
+            }
+            if(graphTestResult.getEndDate() != null) {
+                if(graphTestResult.getEndDate().after(end)) {
+                    end = graphTestResult.getEndDate();
+                }
+            }
+            totalDuration = totalDuration + graphTestResult.getExecutionTime();
+        }
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+        context.put("startDateString", formatter.format(start));
+        context.put("endDateString", formatter.format(end));
+        context.put("totalTime", Math.round((end.getTime()-start.getTime())/1000));
+        context.put("sumTime", totalDuration);*/
+
+        context.put("startDateString", "TODO-startDateString");
+        context.put("endDateString", "TODO-endDateString");
+        context.put("totalTime", "TODO-totalTime");
+        context.put("sumTime", "TODO-sumTime");
+        context.put("totalTests", "TODO-totalTests");
+
+
+        FileWriter fileWriter = new FileWriter(outputPath.toFile());
+        StringWriter writer = new StringWriter();
+        template.merge( context, fileWriter );
+        fileWriter.close();
+
+    }
+
+    /*public static void createHtmlIndexReport (Path testFolderPath, String scope, Path outputPath){
+        for (File file : org.apache.commons.io.FileUtils.listFiles(testFolderPath.toFile(), new WildcardFileFilter("*.json"), TrueFileFilter.INSTANCE)) {
+            GraphTest[] graphTests = null;
+            try {
+                graphTests = GraphTestsUtils.mapGraphTests(file);
+            } catch (IOException e) {
+                //ignore and continue with following files
+                continue;
+            }
+
+            if (graphTests == null || graphTests.length == 0) {
+                continue;
+            }
+            for (GraphTest graphTest : graphTests) {
+                if(scope.toLowerCase().equals("release")) {
+                    if (graphTest.getFrequency().toLowerCase().contains("release") ||
+                            graphTest.getFrequency().toLowerCase().contains("weekly") ||
+                            graphTest.getFrequency().toLowerCase().contains("daily")) {
+
+                        break; //Once the file is included in the list, it is not needed to continue
+                    }
+                } else if (scope.toLowerCase().equals("weekly")) {
+                    if (graphTest.getFrequency().toLowerCase().contains("weekly") ||
+                            graphTest.getFrequency().toLowerCase().contains("daily")) {
+                        if(graphTest.getConfigVM() == null) {
+                            writerPar.write(file.getPath());
+                            writerPar.write("\n");
+                        } else {
+                            writerSeq.write(file.getPath());
+                            writerSeq.write("\n");
+                        }
+                        break; //Once the file is included in the list, it is not needed to continue
+                    }
+                } else {
+                    if (graphTest.getFrequency().toLowerCase().contains(scope.toLowerCase())) {
+                        if(graphTest.getConfigVM() == null) {
+                            writerPar.write(file.getPath());
+                            writerPar.write("\n");
+                        } else {
+                            writerSeq.write(file.getPath());
+                            writerSeq.write("\n");
+                        }
+                        break; //Once the file is included in the list, it is not needed to continue
+                    }
+                }
+
+            }
+        }
+
+        return;
+    }*/
 
 
     public static void generateGraphImage(File graphFileOrigin, File outputFile) {
@@ -238,6 +345,48 @@ public class ReportUtils {
         } catch (IOException e) {
             // An error occurred copying the resource
         }
+    }
+
+    public static JsonTestResult readJsonTestResult(Path htmlReportPath) {
+        if(htmlReportPath == null || !Files.exists(htmlReportPath)) {
+            return null;
+        }
+
+
+        Document doc = null;
+        try {
+            doc = Jsoup.parse(htmlReportPath.toFile(), "utf-8");
+        } catch (IOException e) {
+            return null;
+        }
+
+        JsonTestResult jsonTestResult = new JsonTestResult(FileUtils.getFilenameWithoutExtension(htmlReportPath.toFile()));
+
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+
+        Elements tables = doc.select("table");
+        Element table = tables.get(7);
+        Elements rows = table.select("tr");
+
+        for (int i = 1 ; i < rows.size() ; i = i + 2) {
+            Element row = rows.get(i);
+            Element status = row.select("img").get(1);
+            String statusString = status.attr("alt");
+            String start = row.select("td").get(5).text();
+            GraphTest graphTest = new GraphTest();
+            graphTest.setId(row.select("a").get(0).text());
+            GraphTestResult graphTestResult = new GraphTestResult(graphTest);
+            graphTestResult.setStatus(statusString);
+            try {
+                Date startDate = formatter.parse(start);
+                graphTestResult.setStartDate(startDate);
+            } catch (ParseException e) {
+                graphTestResult.setStartDate(null);
+            }
+            jsonTestResult.addGraphTestResults(graphTestResult);
+        }
+        //TODO check if it is needed to read more items for report
+        return jsonTestResult;
     }
 
 }
