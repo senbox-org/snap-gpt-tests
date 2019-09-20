@@ -164,6 +164,27 @@ public class SnapGPTTest {
                 }
 
                 GraphTestResult testResult = new GraphTestResult(graphTest);
+
+                if(reportHtml){
+                    //create graph png in html folder
+                    Path graphPath = graphFolder.resolve(graphTest.getGraphPath());
+                    Path imagePath = reportFolderPath.resolve("html").resolve("images").resolve(graphTest.getGraphPath());
+                    String stringPNG = org.esa.snap.core.util.io.FileUtils.exchangeExtension(imagePath.toString(), ".png");
+                    File filePNG = new File(stringPNG);
+                    filePNG.getParentFile().mkdirs();
+                    if(!filePNG.exists()) {
+                        ReportUtils.generateGraphImage(graphPath.toFile(), filePNG);
+                    }
+
+                    //create specific json in html folder
+                    ObjectMapper objectMapper = new ObjectMapper();
+                    Path jsonReportPath = reportFolderPath.resolve("html").resolve("json").
+                            resolve(org.esa.snap.core.util.io.FileUtils.getFilenameWithoutExtension(jsonPath.toFile()));
+                    Path json  = jsonReportPath.resolve(graphTest.getId()+".json");
+                    json.getParent().toFile().mkdirs();
+                    objectMapper.writeValue(json.toFile(), graphTest);
+                }
+
                 if (hasToBeExecuted) {
                     Date startDate = null;
                     Date endDate = null;
@@ -174,26 +195,6 @@ public class SnapGPTTest {
                         startDate = new Date();
                         writer.write(formatter.format(startDate));
                         writer.write(" - ");
-                    }
-
-                    if(reportHtml){
-                        //create graph png in html folder
-                        Path graphPath = graphFolder.resolve(graphTest.getGraphPath());
-                        Path imagePath = reportFolderPath.resolve("html").resolve("images").resolve(graphTest.getGraphPath());
-                        String stringPNG = org.esa.snap.core.util.io.FileUtils.exchangeExtension(imagePath.toString(), ".png");
-                        File filePNG = new File(stringPNG);
-                        filePNG.getParentFile().mkdirs();
-                        if(!filePNG.exists()) {
-                            ReportUtils.generateGraphImage(graphPath.toFile(), filePNG);
-                        }
-
-                        //create specific json in html folder
-                        ObjectMapper objectMapper = new ObjectMapper();
-                        Path jsonReportPath = reportFolderPath.resolve("html").resolve("json").
-                                                 resolve(org.esa.snap.core.util.io.FileUtils.getFilenameWithoutExtension(jsonPath.toFile()));
-                        Path json  = jsonReportPath.resolve(graphTest.getId()+".json");
-                        json.getParent().toFile().mkdirs();
-                        objectMapper.writeValue(json.toFile(), graphTest);
                     }
 
                     boolean passed = false;

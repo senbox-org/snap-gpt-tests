@@ -43,7 +43,7 @@ function drawChart() {
   ]);
 
   // Optional; add a title and set the width and height of the chart
-  var options = {'legend':'bottom', 'pieSliceText':'value', 'colors': ['green', 'red', 'orange'],'width':250, 'height':250};
+  var options = {'legend':'bottom', 'pieSliceText':'value', 'colors': ['green', 'red', 'yellow'],'width':250, 'height':250};
 
   // Display the chart inside the <div> element with id="piechart"
   var chart = new google.visualization.PieChart(document.getElementById('piechart'));
@@ -58,21 +58,17 @@ function drawChart() {
 <td class="title">GPT test: $jsonName</td><td class="homeicon"><a href="http://step.esa.int/main/toolboxes/snap/"><img width="64" height="64" alt="SNAP" title="SNAP" src="icons/SNAP_Icon_60.png"></a></td>
 </tr>
 </table>
-<table cellspacing="0" class="headerversion">
+
+<div class="gptsummary">
+<table class="gptsummary" cellspacing="0">
 <tr>
-<td>SNAP</td>
-</tr>
-</table>
-<div class="summarylegend">
-<table class="summarylegend" cellspacing="0">
-<tr>
-<td class="summary">
-<table class="suitesummarytitle" cellspacing="0">
+<td class="gptsummary">
+<table class="gptsummarytitle" cellspacing="0">
 <tr class="title">
 <td class="margin"></td><td class="title">Summary</td>
 </tr>
 </table>
-<table class="suitesummary" cellspacing="0">
+<table class="gptsummary" cellspacing="0">
 
 <tr>
 <td class="label">Start time</td><td>$startDateString</td>
@@ -103,10 +99,16 @@ function drawChart() {
 
 
 
-<div class="reportresult">
-<table class="reportresult" cellspacing="0">
+<div class="resultsummary">
+<table class="resultsummary" cellspacing="0">
 <tr>
-<th class="result">Overall result</th><th class="tests"><img width="16" height="16" src="icons/blueZZ.png" alt="Number of gpt tests" title="Number of gpt tests"></th><th class="failed"><img width="16" height="16" src="icons/error_th.png" alt="Number of failed tests" title="Number of failed tests"></th><th class="passed"><img width="16" height="16" src="icons/ok_th.png" alt="Number of passed tests" title="Number of passed tests"></th><th class="percent"><img width="16" height="16" src="icons/percent_th.png" alt="Percent passed tests" title="Percent passed tests"></th><th class="duration"><img width="16" height="16" src="icons/duration_th.png" alt="Time spent in tests" title="Time spent in tests"></th><th class="realtime"><img width="16" height="16" src="icons/realtime_th.png" alt="Elapsed realtime" title="Elapsed realtime"></th>
+<th class="result">Overall result</th>
+<th class="tests"><img width="16" height="16" src="icons/blueZZ.png" alt="Number of gpt tests" title="Number of gpt tests"></th>
+<th class="failed"><img width="16" height="16" src="icons/error_th.png" alt="Number of failed tests" title="Number of failed tests"></th>
+<th class="passed"><img width="16" height="16" src="icons/ok_th.png" alt="Number of passed tests" title="Number of passed tests"></th>
+<th class="percent"><img width="16" height="16" src="icons/percent_th.png" alt="Percent passed tests" title="Percent passed tests"></th>
+<th class="duration"><img width="16" height="16" src="icons/duration_th.png" alt="Time spent in tests" title="Time spent in tests"></th>
+<th class="realtime"><img width="16" height="16" src="icons/realtime_th.png" alt="Elapsed realtime" title="Elapsed realtime"></th>
 </tr>
 <tr class="even">
 <td class="result">
@@ -116,22 +118,32 @@ function drawChart() {
 #elseif($graphTestResult.status == "FAILED")
 <img width="16" height="16" src="icons/red.png">
 #elseif($graphTestResult.status == "SKIPPED")
-<img width="16" height="16" src="icons/orange.png">
+<img width="16" height="16" src="icons/yellow.png">
 #end
 #end
 </td>
-<td class="tests">$total</td><td class="failed">$failed</td><td class="passed">$passed</td><td class="percent">$percent</td><td class="duration">$sumTime</td><td class="realtime">$totalTime</td>
+<td class="tests">$total</td>
+<td class="failed">$failed</td>
+<td class="passed">$passed</td>
+<td class="percent">$percent</td>
+<td class="duration">$sumTime</td>
+<td class="realtime">$totalTime</td>
 </tr>
 </table>
 </div>
 
-<div class="alltestcases">
-<a name="alltestcases"></a>
+<div class="gpttestlist">
+<a name="gpttestlist"></a>
 
 
-<table cellspacing="0" class="testcasealllist">
+<table cellspacing="0" class="gpttestlist">
 <tr class="headers">
-<th class="testset">Test</th><th class="desc">Description</th><th class="result">Result</th><th class="result">Environment</th><th class="duration"><img width="16" height="16" src="icons/duration.png" alt="Execution Time" title="Execution Time"></th><th class="realtime"><img width="16" height="16" src="icons/memory.png" alt="Memory Peak" title="Memory Peak"></th>
+<th class="testid">Test</th>
+<th class="desc">Description</th>
+<th class="result">Result</th>
+<th class="env">Environment</th>
+<th class="duration"><img width="16" height="16" src="icons/duration.png" alt="Execution Time" title="Execution Time"></th>
+<th class="memory"><img width="16" height="16" src="icons/memory.png" alt="Memory Peak" title="Memory Peak"></th>
 </tr>
 
 #foreach ($graphTestResult in $graphTestResults)
@@ -144,19 +156,16 @@ function drawChart() {
     #set ($iconStatus = "red.png")
     #set ($altStatus = "FAILED")
 #elseif($graphTestResult.status == "SKIPPED")
-    #set ($iconStatus = "orange.png")
+    #set ($iconStatus = "yellow.png")
     #set ($altStatus = "SKIPPED")
 #end
 <tr class="odd">
-<td class="testset">
-<div class="padding-left-0" style="padding-left:0px">
-<table class="withicon" cellspacing="0">
-<tr>
-<td class="item"><a href=$jsonPath>$graphTestResult.graphTest.id</a></td>
-</tr>
-</table>
-</div>
-</td><td class="desc"><a href="images/$graphTestResult.graphTest.graphPath.replace(".xml", ".png")"><img width="300" height="150" border="none" src="images/$graphTestResult.graphTest.graphPath.replace(".xml", ".png")" title="$graphTestResult.graphTest.graphPath.replace(".xml", ".png")"></a></td><td class="result"><img width="16" height="16" alt="$altStatus" src="icons/$iconStatus"></td><td class="result">$graphTestResult.configVMString</td><td class="duration">$graphTestResult.executionTimeString</td><td class="realtime">$graphTestResult.memoryPeak</td>
+<td class="testid"><a href=$jsonPath>$graphTestResult.graphTest.id</a></td>
+<td class="desc"><a href="images/$graphTestResult.graphTest.graphPath.replace(".xml", ".png")"><img width="300" height="150" border="none" src="images/$graphTestResult.graphTest.graphPath.replace(".xml", ".png")" title="$graphTestResult.graphTest.graphPath.replace(".xml", ".png")"></a></td>
+<td class="result"><img width="16" height="16" alt="$altStatus" src="icons/$iconStatus"></td>
+<td class="env">$graphTestResult.configVMString</td>
+<td class="duration">$graphTestResult.executionTimeString</td>
+<td class="memory">$graphTestResult.memoryPeak</td>
 </tr>
 #end
 
