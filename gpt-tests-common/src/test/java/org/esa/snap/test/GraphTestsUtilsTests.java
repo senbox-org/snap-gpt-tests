@@ -45,4 +45,9 @@ public class GraphTestsUtilsTests {
     public void testCreateTestJSONListFiles() throws Exception {
         Assert.assertTrue(GraphTestsUtils.createTestJSONListFiles(Paths.get("D:/GPTTests/snap-gpt-tests/gpt-tests-resources/tests"), "regular", Paths.get("d:/borrar/listOfTests.txt"), Paths.get("d:/borrar/listOfTestsSeq.txt")));
     }
+
+    @Test
+    public void testReadJsonTestResult() throws Exception {
+        ReportUtils.readJsonTestResult(Paths.get("D:\\borrar\\testReportv2\\html\\S2ResamplingShortTests.html"));
+    }
 }

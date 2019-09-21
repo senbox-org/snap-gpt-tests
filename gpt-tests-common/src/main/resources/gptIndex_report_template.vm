@@ -1,0 +1,185 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link type="text/css" rel="stylesheet" href="css/gptTest.css">
+<link rel="shortcut icon" type="image/vnd.microsoft.icon" href="icons/favicon.ico">
+<title>$jsonName report</title>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script> 
+</head>
+
+#set ($passed = 0)
+#set ($failed = 0)
+#set ($skipped = 0)
+#set ($executionTime = 0)
+#foreach ($jsonTestResult in $jsonTestResults)
+    #if($jsonTestResult.status == "PASSED")
+        #set ($passed = $passed + 1)
+    #elseif($jsonTestResult.status == "FAILED")
+        #set ($failed = $failed + 1)
+    #elseif($jsonTestResult.status == "UNKNOWN")
+        #set ($skipped = $skipped + 1)
+    #end
+    
+//    #set ($executionTime = $executionTime + $graphTestResult.executionTime)
+#end
+#set ($total = $passed + $failed + $skipped)
+#set ($percent = $passed * 100 / $total)
+
+<script type="text/javascript">
+// Load google charts
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawChart);
+
+// Draw the chart and set the chart values
+function drawChart() {
+
+  // example from Google
+  var data = google.visualization.arrayToDataTable([
+    ['JSON test files', 'status'],
+    ['Passed', $passed],     
+    ['Failed', $failed],            
+    ['Skipped', $skipped]
+  ]);
+
+  // add a title and set the width and height of the chart
+  var options = {'legend':'bottom', 'pieSliceText':'value', 'colors': ['green', 'red', 'orange'],'width':250, 'height':250};
+
+  // Display the chart inside the <div> element with id="piechart"
+  var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+  chart.draw(data, options);
+}
+</script> 
+
+
+<body>
+<table class="header" cellspacing="0">
+<tr>
+<td class="title">GPT test index</td><td class="homeicon"><a href="http://step.esa.int/main/toolboxes/snap/"><img width="64" height="64" alt="SNAP" title="SNAP" src="icons/SNAP_Icon_60.png"></a></td>
+</tr>
+</table>
+<table cellspacing="0" class="headerversion">
+<tr>
+<td>SNAP</td>
+</tr>
+</table>
+<div class="summarylegend">
+<table class="summarylegend" cellspacing="0">
+<tr>
+<td class="summary">
+<table class="suitesummarytitle" cellspacing="0">
+<tr class="title">
+<td class="margin"></td><td class="title">Summary</td>
+</tr>
+</table>
+<table class="suitesummary" cellspacing="0">
+
+<tr>
+<td class="label">Start time</td><td>$startDateString</td>
+</tr>
+<tr>
+<td class="label">Total duration</td><td>$totalDuration</td>
+</tr>
+<tr>
+<td class="label">Memory peak</td><td>$memoryPeak</td>
+</tr>
+<tr>
+<td class="label">Scope</td><td>$scope</td>
+</tr>
+<tr>
+<td class="label">Operating system</td><td>$operatingSystem</td>
+</tr>
+<tr>
+<td class="label">Version</td><td>7.0.0</td>
+</tr>
+</table>
+</td><td class="chart">
+<table class="chart" cellspacing="0">
+<tr>
+<td class="icon"><div id="piechart"></div></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+
+
+
+<div class="reportresult">
+<table class="reportresult" cellspacing="0">
+<tr>
+<th class="result">Overall result</th><th class="tests"><img width="16" height="16" src="icons/blueZZ.png" alt="Number of json file tests" title="Total number of gpt tests"></th><th class="failed"><img width="16" height="16" src="icons/error_th.png" alt="Number of failed json" title="Number of failed json"></th><th class="passed"><img width="16" height="16" src="icons/ok_th.png" alt="Number of passed json" title="Number of passed json"></th><th class="percent"><img width="16" height="16" src="icons/percent_th.png" alt="Percent passed jsons" title="Percent passed jsons"></th><th class="duration"><img width="16" height="16" src="icons/duration_th.png" alt="Time spent in tests" title="Time spent in tests"></th><th class="realtime"><img width="16" height="16" src="icons/realtime_th.png" alt="Elapsed realtime" title="Elapsed realtime"></th>
+</tr>
+<tr class="even">
+<td class="result">
+#foreach ($jsonTestResult in $jsonTestResults)
+#if($jsonTestResult.status == "PASSED")
+<img width="16" height="16" src="icons/green.png">
+#elseif($jsonTestResult.status == "FAILED")
+<img width="16" height="16" src="icons/red.png">
+#elseif($jsonTestResult.status == "UNKNOWN")
+<img width="16" height="16" src="icons/orange.png">
+#end
+#end
+</td>
+<td class="tests">$total</td><td class="failed">$failed</td><td class="passed">$passed</td><td class="percent">$percent</td><td class="duration">$sumTime</td><td class="realtime">$totalTime</td>
+</tr>
+</table>
+</div>
+
+<div class="alltestcases">
+<a name="alltestcases"></a>
+
+
+<table cellspacing="0" class="testcasealllist">
+<tr class="headers">
+<th class="testset">Json name</th><th class="result">Result</th><th class="duration"><img width="16" height="16" src="icons/duration.png" alt="Execution Time" title="Execution Time"></th><th class="realtime"><img width="16" height="16" src="icons/memory.png" alt="Memory Peak" title="Memory Peak"></th>
+</tr>
+
+#foreach ($jsonTestResult in $jsonTestResults)
+#set ($jsonReport = "$jsonTestResult.jsonName")
+#set ($jsonReport = $jsonReport + ".html")
+#if($graphTestResult.status == "PASSED")
+    #set ($iconStatus = "green.png")
+    #set ($altStatus = "PASSED")
+#elseif($graphTestResult.status == "FAILED")
+    #set ($iconStatus = "red.png")
+    #set ($altStatus = "FAILED")
+#elseif($graphTestResult.status == "SKIPPED")
+    #set ($iconStatus = "orange.png")
+    #set ($altStatus = "SKIPPED")
+#end
+<tr class="odd">
+<td class="testset">
+<div class="padding-left-0" style="padding-left:0px">
+<table class="withicon" cellspacing="0">
+<tr>
+<td class="item"><a href=$jsonReport>$jsonTestResult.jsonName</a></td>
+</tr>
+</table>
+</div>
+</td><td class="result">
+<img width="16" height="16" alt="$altStatus" src="icons/$iconStatus">
+
+#foreach ($graphTestResult in $jsonTestResult.graphTestResults)
+#if($graphTestResult.status == "PASSED")
+<img width="16" height="16" src="icons/green.png">
+#elseif($graphTestResult.status == "FAILED")
+<img width="16" height="16" src="icons/red.png">
+#elseif($graphTestResult.status == "UNKNOWN")
+<img width="16" height="16" src="icons/orange.png">
+#end
+#end
+
+
+</td>
+<td class="duration">$jsonTestResult.executionTimeString</td><td class="realtime">$jsonTestResult.memoryPeak</td>
+</tr>
+#end
+
+</table>
+</div>
+
+</body>
+</html>
