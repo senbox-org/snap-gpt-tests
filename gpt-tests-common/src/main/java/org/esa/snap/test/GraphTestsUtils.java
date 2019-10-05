@@ -115,7 +115,8 @@ public class GraphTestsUtils {
                         if (graphTest.getFrequency().toLowerCase().contains("release") ||
                                 graphTest.getFrequency().toLowerCase().contains("weekly") ||
                                 graphTest.getFrequency().toLowerCase().contains("daily")) {
-                            if(graphTest.getConfigVM() == null) {
+                            if(graphTest.getConfigVM() == null ||
+                                    (graphTest.getConfigVM() != null && graphTest.getConfigVM().getXmX().equals("5G"))) {
                                 writerPar.write(file.getPath());
                                 writerPar.write("\n");
                             } else {
