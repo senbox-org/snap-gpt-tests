@@ -128,7 +128,8 @@ public class GraphTestsUtils {
                     } else if (scope.toLowerCase().equals("weekly")) {
                         if (graphTest.getFrequency().toLowerCase().contains("weekly") ||
                                 graphTest.getFrequency().toLowerCase().contains("daily")) {
-                            if(graphTest.getConfigVM() == null) {
+                            if(graphTest.getConfigVM() == null||
+                                    (graphTest.getConfigVM() != null && graphTest.getConfigVM().getXmX().equals("5G"))) {
                                 writerPar.write(file.getPath());
                                 writerPar.write("\n");
                             } else {
@@ -139,7 +140,8 @@ public class GraphTestsUtils {
                         }
                     } else {
                         if (graphTest.getFrequency().toLowerCase().contains(scope.toLowerCase())) {
-                            if(graphTest.getConfigVM() == null) {
+                            if(graphTest.getConfigVM() == null||
+                                    (graphTest.getConfigVM() != null && graphTest.getConfigVM().getXmX().equals("5G"))) {
                                 writerPar.write(file.getPath());
                                 writerPar.write("\n");
                             } else {
