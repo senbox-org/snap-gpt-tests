@@ -29,7 +29,7 @@ public class JsonTestResult {
     }
 
     private void refreshStatus(){
-        if(graphTestResultList.size() > 1) {
+        if(graphTestResultList.size() > 0) {
             status = "PASSED";
         } else {
             status = "UNKNOWN";
@@ -38,6 +38,10 @@ public class JsonTestResult {
         for(GraphTestResult graphTestResult : graphTestResultList) {
             if(graphTestResult.getStatus().equals("FAILED")) {
                 status = "FAILED";
+                return;
+            }
+            if(graphTestResult.getStatus().equals("SKIPPED")) {
+                status = "SKIPPED";
                 return;
             }
             if(graphTestResult.getStatus().equals("UNKNOWN")) {
@@ -52,6 +56,7 @@ public class JsonTestResult {
 
     public void addGraphTestResults(GraphTestResult graphTestResult) {
         graphTestResultList.add(graphTestResult);
+        totalDuration = totalDuration + graphTestResult.getExecutionTime();
 
         /*//Update status
         if(status.equals("FAILED")) {
@@ -84,6 +89,10 @@ public class JsonTestResult {
 
     public Date getStartDate() {
         return startDate;
+    }
+
+    public void setStartDate(Date startDate) {
+        this.startDate = startDate;
     }
 
     public Date getEndDate() {
@@ -120,5 +129,9 @@ public class JsonTestResult {
 
     public String getMemoryPeak() {
         return memoryPeak;
+    }
+
+    public int getTotalDuration() {
+        return totalDuration;
     }
 }

@@ -48,6 +48,12 @@ public class GraphTestsUtilsTests {
 
     @Test
     public void testReadJsonTestResult() throws Exception {
-        ReportUtils.readJsonTestResult(Paths.get("D:\\borrar\\testReportv2\\html\\S2ResamplingShortTests.html"));
+        ReportUtils.readJsonTestResult(Paths.get("D:\\borrar\\archive2209\\archive\\report\\html\\BiophysicalTest.html"));
+
+    }
+
+    @Test
+    public void testCreateHtmlIndex() throws Exception {
+        ReportUtils.createHtmlReportIndex (Paths.get("D:\\Users\\obarrile\\Documents\\s2tbx\\ccn2\\7.0.0\\archiveMacv3\\archive\\report"), "release");
     }
 }

@@ -12,6 +12,7 @@ public class GraphTestResult {
     private Date startDate = null;
     private Date endDate = null;
     private String memoryPeak = " - ";
+    private int duration = 0;
     private SimpleDateFormat formatter;
 
     public GraphTestResult (GraphTest graphTest) {
@@ -67,9 +68,13 @@ public class GraphTestResult {
 
     public int getExecutionTime() {
         if(endDate == null || startDate == null) {
-            return 0;
+            return duration;
         }
         return Math.round((endDate.getTime()-startDate.getTime())/1000);
+    }
+
+    public void setDuration(int duration) {
+        this.duration = duration;
     }
 
     public String getMemoryPeak() {

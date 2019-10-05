@@ -104,30 +104,31 @@ public class ReportUtils {
         Date start = new Date(Long.MAX_VALUE);
         Date end = new Date(Long.MIN_VALUE);
         Long totalDuration = 0L;
-       /* for(GraphTestResult graphTestResult : graphTestResults) {
-            if(graphTestResult.getStartDate() != null) {
-                if (graphTestResult.getStartDate().before(start)) {
-                    start = graphTestResult.getStartDate();
+        for(JsonTestResult jsonTestResult : jsonTestResults) {
+            if(jsonTestResult.getStartDate() != null) {
+                if (jsonTestResult.getStartDate().before(start)) {
+                    start = jsonTestResult.getStartDate();
                 }
             }
-            if(graphTestResult.getEndDate() != null) {
-                if(graphTestResult.getEndDate().after(end)) {
-                    end = graphTestResult.getEndDate();
+            if(jsonTestResult.getEndDate() != null) {
+                if(jsonTestResult.getEndDate().after(end)) {
+                    end = jsonTestResult.getEndDate();
                 }
             }
-            totalDuration = totalDuration + graphTestResult.getExecutionTime();
+            totalDuration = totalDuration + jsonTestResult.getExecutionTime();
         }
+
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
         context.put("startDateString", formatter.format(start));
         context.put("endDateString", formatter.format(end));
         context.put("totalTime", Math.round((end.getTime()-start.getTime())/1000));
-        context.put("sumTime", totalDuration);*/
+        context.put("sumTime", totalDuration);
 
-        context.put("startDateString", "TODO-startDateString");
+        /*context.put("startDateString", "TODO-startDateString");
         context.put("endDateString", "TODO-endDateString");
         context.put("totalTime", "TODO-totalTime");
         context.put("sumTime", "TODO-sumTime");
-        context.put("totalTests", "TODO-totalTests");
+        context.put("totalTests", "TODO-totalTests");*/
 
 
         FileWriter fileWriter = new FileWriter(outputPath.toFile());
@@ -137,57 +138,19 @@ public class ReportUtils {
 
     }
 
-    /*public static void createHtmlIndexReport (Path testFolderPath, String scope, Path outputPath){
-        for (File file : org.apache.commons.io.FileUtils.listFiles(testFolderPath.toFile(), new WildcardFileFilter("*.json"), TrueFileFilter.INSTANCE)) {
-            GraphTest[] graphTests = null;
-            try {
-                graphTests = GraphTestsUtils.mapGraphTests(file);
-            } catch (IOException e) {
-                //ignore and continue with following files
-                continue;
-            }
 
-            if (graphTests == null || graphTests.length == 0) {
-                continue;
-            }
-            for (GraphTest graphTest : graphTests) {
-                if(scope.toLowerCase().equals("release")) {
-                    if (graphTest.getFrequency().toLowerCase().contains("release") ||
-                            graphTest.getFrequency().toLowerCase().contains("weekly") ||
-                            graphTest.getFrequency().toLowerCase().contains("daily")) {
+    public static void createHtmlReportIndex (Path reportPath, String scope) throws IOException {
+        Path htmlPath = reportPath.resolve("html");
 
-                        break; //Once the file is included in the list, it is not needed to continue
-                    }
-                } else if (scope.toLowerCase().equals("weekly")) {
-                    if (graphTest.getFrequency().toLowerCase().contains("weekly") ||
-                            graphTest.getFrequency().toLowerCase().contains("daily")) {
-                        if(graphTest.getConfigVM() == null) {
-                            writerPar.write(file.getPath());
-                            writerPar.write("\n");
-                        } else {
-                            writerSeq.write(file.getPath());
-                            writerSeq.write("\n");
-                        }
-                        break; //Once the file is included in the list, it is not needed to continue
-                    }
-                } else {
-                    if (graphTest.getFrequency().toLowerCase().contains(scope.toLowerCase())) {
-                        if(graphTest.getConfigVM() == null) {
-                            writerPar.write(file.getPath());
-                            writerPar.write("\n");
-                        } else {
-                            writerSeq.write(file.getPath());
-                            writerSeq.write("\n");
-                        }
-                        break; //Once the file is included in the list, it is not needed to continue
-                    }
-                }
+        String[] htmlFilepaths = FileUtils.listFilePathsWithExtension(htmlPath.toFile(),"html");
+        JsonTestResult[] jsonTestResults = new JsonTestResult[htmlFilepaths.length];
 
-            }
+        for(int i = 0 ; i < htmlFilepaths.length ; i++) {
+            jsonTestResults[i] = readJsonTestResult(htmlPath.resolve(htmlFilepaths[i]));
         }
 
-        return;
-    }*/
+        createHtmlReportIndex (jsonTestResults, htmlPath.resolve("index.html"), scope);
+    }
 
 
     public static void generateGraphImage(File graphFileOrigin, File outputFile) {
@@ -363,25 +326,44 @@ public class ReportUtils {
         JsonTestResult jsonTestResult = new JsonTestResult(FileUtils.getFilenameWithoutExtension(htmlReportPath.toFile()));
 
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-
+        //Read start date
         Elements tables = doc.select("table");
-        Element table = tables.get(7);
+        Element table = tables.get(3);
+        Element rowDate = table.select("td").get(1);
+        String start = rowDate.text();
+        try {
+            Date startDate = formatter.parse(start);
+            jsonTestResult.setStartDate(startDate);
+        } catch (ParseException e) {
+            jsonTestResult.setStartDate(null);
+        }
+
+        tables = doc.select("table");
+        table = tables.get(6);
         Elements rows = table.select("tr");
 
-        for (int i = 1 ; i < rows.size() ; i = i + 2) {
+        for (int i = 1 ; i < rows.size() ; i++) {
             Element row = rows.get(i);
             Element status = row.select("img").get(1);
             String statusString = status.attr("alt");
-            String start = row.select("td").get(5).text();
+            String duration = row.select("td").get(4).text();
+            if(duration == "NULL" || duration.length() < 2) {
+                duration = "0";
+            } else {
+                duration = duration.substring(0, duration.length() - 2);
+            }
+
             GraphTest graphTest = new GraphTest();
             graphTest.setId(row.select("a").get(0).text());
             GraphTestResult graphTestResult = new GraphTestResult(graphTest);
             graphTestResult.setStatus(statusString);
             try {
-                Date startDate = formatter.parse(start);
-                graphTestResult.setStartDate(startDate);
-            } catch (ParseException e) {
+                int iDuration = Integer.parseInt(duration);
+                graphTestResult.setDuration(iDuration);
                 graphTestResult.setStartDate(null);
+                graphTestResult.setEndDate(null);
+            } catch (NumberFormatException e) {
+                //do nothing
             }
             jsonTestResult.addGraphTestResults(graphTestResult);
         }
