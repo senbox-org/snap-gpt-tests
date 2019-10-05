@@ -1,0 +1,146 @@
+[
+  {
+    "id": "ResamplingTest_S2_1tile",
+    "author": "CS",
+    "description": "Do resampling operator on S2 one tile product",
+    "frequency": "daily/perfWrite",
+    "graphPath": "snap/graphResample.xml",
+    "inputs": {
+      "input1": "s2tbx/S2/PSD14/L1C/S2A_MSIL1C_20160914T074612_N0204_R135_T36JTT_20160914T081456.SAFE"
+    },
+    "parameters": {
+      "targetResolution": "60",
+      "upsampling": "Nearest",
+      "downsampling": "First",
+      "flagDownsampling": "First",
+      "outputFormat": "BEAM-DIMAP"
+    },
+    "outputs": [
+      {
+        "parameter": "out1",
+        "outputName": "ResamplingTest_S2_1tiledimap",
+        "expected": "snap/expectedResamplingTest_S2_1tile.json"
+      }
+    ]
+  },
+  {
+    "id": "ResamplingTest_S2_1tile",
+    "author": "CS",
+    "description": "Do resampling operator on S2 one tile product",
+    "frequency": "daily/perfWrite",
+    "graphPath": "snap/graphResample.xml",
+    "inputs": {
+      "input1": "s2tbx/S2/PSD14/L1C/S2A_MSIL1C_20160914T074612_N0204_R135_T36JTT_20160914T081456.SAFE"
+    },
+    "parameters": {
+      "targetResolution": "60",
+      "upsampling": "Nearest",
+      "downsampling": "First",
+      "flagDownsampling": "First",
+      "outputFormat": "NetCDF-CF"
+    },
+    "outputs": [
+      {
+        "parameter": "out1",
+        "outputName": "ResamplingTest_S2_1tilenetcdf",
+        "expected": "snap/expectedResamplingTest_S2_1tile.json"
+      }
+    ]
+  },
+  {
+    "id": "ResamplingTest_S2_1tile",
+    "author": "CS",
+    "description": "Do resampling operator on S2 one tile product",
+    "frequency": "daily/perfWrite",
+    "graphPath": "snap/graphResample.xml",
+    "inputs": {
+      "input1": "s2tbx/S2/PSD14/L1C/S2A_MSIL1C_20160914T074612_N0204_R135_T36JTT_20160914T081456.SAFE"
+    },
+    "parameters": {
+      "targetResolution": "60",
+      "upsampling": "Nearest",
+      "downsampling": "First",
+      "flagDownsampling": "First",
+      "outputFormat": "GeoTIFF"
+    },
+    "outputs": [
+      {
+        "parameter": "out1",
+        "outputName": "ResamplingTest_S2_1tilegeo",
+        "expected": "snap/expectedResamplingTest_S2_1tile.json"
+      }
+    ]
+  },
+  {
+    "id": "ResamplingTest_S2_1tile",
+    "author": "CS",
+    "description": "Do resampling operator on S2 one tile product",
+    "frequency": "daily/perfWrite",
+    "graphPath": "snap/graphResample.xml",
+    "inputs": {
+      "input1": "s2tbx/S2/PSD14/L1C/S2A_MSIL1C_20160914T074612_N0204_R135_T36JTT_20160914T081456.SAFE"
+    },
+    "parameters": {
+      "targetResolution": "60",
+      "upsampling": "Nearest",
+      "downsampling": "First",
+      "flagDownsampling": "First",
+      "outputFormat": "ENVI"
+    },
+    "outputs": [
+      {
+        "parameter": "out1",
+        "outputName": "ResamplingTest_S2_1tileenvi",
+        "expected": "snap/expectedResamplingTest_S2_1tile.json"
+      }
+    ]
+  },
+  {
+    "id": "ResamplingTest_S2_1tile",
+    "author": "CS",
+    "description": "Do resampling operator on S2 one tile product",
+    "frequency": "daily/perfWrite",
+    "graphPath": "snap/graphResample.xml",
+    "inputs": {
+      "input1": "s2tbx/S2/PSD14/L1C/S2A_MSIL1C_20160914T074612_N0204_R135_T36JTT_20160914T081456.SAFE"
+    },
+    "parameters": {
+      "targetResolution": "60",
+      "upsampling": "Nearest",
+      "downsampling": "First",
+      "flagDownsampling": "First",
+      "outputFormat": "HDF5"
+    },
+    "outputs": [
+      {
+        "parameter": "out1",
+        "outputName": "ResamplingTest_S2_1tilehdf(",
+        "expected": "snap/expectedResamplingTest_S2_1tile.json"
+      }
+    ]
+  },
+  {
+    "id": "ResamplingTest_S2_1tile",
+    "author": "CS",
+    "description": "Do resampling operator on S2 one tile product",
+    "frequency": "daily/perfWrite",
+    "graphPath": "snap/graphResample.xml",
+    "inputs": {
+      "input1": "s2tbx/S2/PSD14/L1C/S2A_MSIL1C_20160914T074612_N0204_R135_T36JTT_20160914T081456.SAFE"
+    },
+    "parameters": {
+      "targetResolution": "60",
+      "upsampling": "Nearest",
+      "downsampling": "First",
+      "flagDownsampling": "First",
+      "outputFormat": "GeoTIFF-BigTIFF"
+    },
+    "outputs": [
+      {
+        "parameter": "out1",
+        "outputName": "ResamplingTest_S2_1tilebig",
+        "expected": "snap/expectedResamplingTest_S2_1tile.json"
+      }
+    ]
+  }
+]
