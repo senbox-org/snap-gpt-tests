@@ -10,6 +10,7 @@ import org.esa.snap.dataio.ContentAssert;
 import org.esa.snap.dataio.ExpectedDataset;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -173,6 +174,10 @@ public class TestExecutor {
                 } catch (AssertionError e) {
                     System.out.println("Error in test!!!");
                     System.out.println(e.getMessage());
+                    FileWriter fileWriter=new FileWriter(tempFolder.resolve(graphTest.getId()).toString() + "_contentError.txt");
+                    BufferedWriter bufferedWriter=new BufferedWriter(fileWriter);
+                    bufferedWriter.write(e.getMessage());
+                    bufferedWriter.close();
                     testPassed = false;
                 }
             }
