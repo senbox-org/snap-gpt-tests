@@ -174,10 +174,11 @@ public class TestExecutor {
                 } catch (AssertionError e) {
                     System.out.println("Error in test!!!");
                     System.out.println(e.getMessage());
-                    FileWriter fileWriter=new FileWriter(tempFolder.resolve(graphTest.getId()).toString() + "_contentError.txt");
-                    BufferedWriter bufferedWriter=new BufferedWriter(fileWriter);
-                    bufferedWriter.write(e.getMessage());
-                    bufferedWriter.close();
+                    try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(tempFolder.resolve(graphTest.getId()).toString() + "_contentError.txt"))) {
+                        bufferedWriter.write(e.getMessage());
+                    } catch (IOException e2) {
+                        System.out.println(e2.getMessage());
+                    }
                     testPassed = false;
                 }
             }
