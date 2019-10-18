@@ -124,15 +124,8 @@ public class ReportUtils {
         context.put("totalTime", Math.round((end.getTime()-start.getTime())/1000));
         context.put("sumTime", totalDuration);
 
-        /*context.put("startDateString", "TODO-startDateString");
-        context.put("endDateString", "TODO-endDateString");
-        context.put("totalTime", "TODO-totalTime");
-        context.put("sumTime", "TODO-sumTime");
-        context.put("totalTests", "TODO-totalTests");*/
-
 
         FileWriter fileWriter = new FileWriter(outputPath.toFile());
-        StringWriter writer = new StringWriter();
         template.merge( context, fileWriter );
         fileWriter.close();
 

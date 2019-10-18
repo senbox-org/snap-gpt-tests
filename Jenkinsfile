@@ -161,6 +161,8 @@ pipeline {
                     sh "rm -rf $WORKSPACE/report"
                     sh "cp -r ${outputDir}/report $WORKSPACE"
                     sh "cat report/*.txt > report/report.txt"
+                    echo "Generate html index"
+                    sh "java -jar ./gpt-tests-executer/target/IndexGenerator.jar $WORKSPACE/report \"${params.testScope}\""
                     archiveArtifacts artifacts: "report/**/*.*", fingerprint: true
                     sh "rm -rf report"
                 }
