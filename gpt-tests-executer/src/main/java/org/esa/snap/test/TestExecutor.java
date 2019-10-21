@@ -130,10 +130,10 @@ public class TestExecutor {
         }
         //execute graph
         ArrayList<String> profiler = new ArrayList<String>();
-        profiler.add("${PROFILER}");
+        profiler.add("python3");
+        profiler.add("${outputReportDir}/profiler.py");
         profiler.add(exportArgs(params));
-        profiler.add(String.format("-o perf_%s.csv", graphTest.getId()));
-        profiler.add("-f ${PROF_FREQUENCY}");
+        profiler.add(String.format("-o %s_perf.txt", tempFolder.resolve(graphTest.getId()).toString()));
 
         ProcessBuilder builder = new ProcessBuilder(profiler);
         builder.environment();
