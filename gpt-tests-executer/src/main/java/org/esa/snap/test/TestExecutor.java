@@ -174,7 +174,9 @@ public class TestExecutor {
                 } catch (AssertionError e) {
                     System.out.println("Error in test!!!");
                     System.out.println(e.getMessage());
-                    try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(tempFolder.resolve(graphTest.getId()).toString() + "_contentError.txt"))) {
+                    try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(tempFolder.resolve(graphTest.getId()).toString() + "_gptOutput.txt",true))) {
+                        bufferedWriter.write("\n\n---------------------------------------------------------------------\n\n");
+                        bufferedWriter.write("Error when comparing expected output:\n");
                         bufferedWriter.write(e.getMessage());
                     } catch (IOException e2) {
                         System.out.println(e2.getMessage());

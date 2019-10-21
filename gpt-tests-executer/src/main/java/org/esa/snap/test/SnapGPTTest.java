@@ -240,13 +240,13 @@ public class SnapGPTTest {
                                 System.out.println(String.format("Cannot copy gptOutput: %s",e.getMessage()));
                             }
 
-                            //copy output of content to report (perhaps it has been copied before, so try-catch)
-                            try {
+                            //copy output of content to report (perhaps it has been copied before, so try-catch) Do not exist anymore
+                            /*try {
                                 Path reportContent = Paths.get(tempFolder.resolve(graphTest.getId()).toString() + "_contentError.txt");
                                 Files.copy(reportContent, reportFolderPath.resolve(reportContent.getFileName()));
                             } catch (Exception e) {
                                 System.out.println(String.format("Cannot copy contentOutput: %s",e.getMessage()));
-                            }
+                            }*/
 
                         }
                         writer.write("\n");
