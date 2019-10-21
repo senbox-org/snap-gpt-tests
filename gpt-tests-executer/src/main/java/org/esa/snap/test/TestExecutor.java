@@ -133,7 +133,8 @@ public class TestExecutor {
         profiler.add("python3");
         profiler.add(basePath.toString()+"/profiler.py");
         profiler.add(exportArgs(params));
-        profiler.add(String.format("-o %s_perf.txt", tempFolder.resolve(graphTest.getId()).toString()));
+        profiler.add("-o");
+        profiler.add(String.format("%s_perf.txt", tempFolder.resolve(graphTest.getId()).toString()));
 
         ProcessBuilder builder = new ProcessBuilder(profiler);
         builder.environment();
