@@ -140,8 +140,14 @@
                 </execution>
             </executions>
         </plugin>
-
     </plugins>
+    <resources> 
+        <resource>
+            <directory>src/main/resources</directory>
+            <includes>
+                <include> **/profiler.py</include>
+            </includes>
+        </resource>
+    </resources> 
     </build>
-
 </project>

@@ -123,7 +123,7 @@ pipeline {
                 sh "more ${outputDir}/JSONTestFiles.txt"
                 sh "more ${outputDir}/JSONTestFilesSeq.txt"
                 sh "cp -r ./gpt-tests-executer/target/ ${outputDir}/gptExecutorTarget"
-                sh "cp ./gpt-tests-resources/profiler.py ${outputDir}" // << Copy profiler script into docker volume
+                sh "cp ./gpt-tests-executer/target/classes/profiler.py ${outputDir}" // << Copy profiler script into docker volume
                 // sh "/opt/launchGpt.sh ${propertiesFilePath} ${outputDir}/FilterJson.vsofig ${scope}"
             }
         }
