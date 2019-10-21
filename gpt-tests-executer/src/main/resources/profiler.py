@@ -5,6 +5,33 @@ import time
 import argparse
 import subprocess
 
+
+def split_args(command):
+    """
+    split command in list of arguments.
+    """
+    args = []
+    status = True
+    token = ""
+    for c in command:
+        if c == " ":
+            if status:
+                args.append(token)
+                token = ""
+            else:
+                token += " "
+        elif c == '"':
+            status = not status
+            if status:
+                args.append(token)
+                token = ""
+        else:
+            token += c
+    args.append(token)
+    return args
+
+
+
 # setup arg parser
 parser = argparse.ArgumentParser()
 
@@ -26,7 +53,7 @@ T = args.f/1000.0 # convert period from ms to s
 END_STATUS = set([psutil.STATUS_STOPPED, psutil.STATUS_DEAD, psutil.STATUS_ZOMBIE]) # set of possible end status
 
 # execute the command and retrive the PID
-proc = subprocess.Popen(args.command.split(' '))
+proc = subprocess.Popen(split_args(args.command))
 PID = proc.pid
 
 # wait some time according to arguments
