@@ -22,7 +22,7 @@ T = args.f/1000.0 # convert period from ms to s
 END_STATUS = set([psutil.STATUS_STOPPED, psutil.STATUS_DEAD, psutil.STATUS_ZOMBIE]) # set of possible end status
 
 # execute the command and retrive the PID
-proc = subprocess.Popen(args.command)
+proc = subprocess.Popen(args.command.split(' '))
 PID = proc.pid
 
 # wait some time according to arguments
