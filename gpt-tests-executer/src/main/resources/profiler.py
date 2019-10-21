@@ -16,7 +16,11 @@ parser.add_argument('-c', default=True, help="profile children flag [default=Tru
 
 # parse arguments
 args = parser.parse_args()
-
+print("\nProfiling")
+print("=========")
+print(f"command: `{args.command}`")
+print(f"output file: `{args.o}`") 
+      
 MB = 2**20 # const for converting bytes to mega bytes
 T = args.f/1000.0 # convert period from ms to s
 END_STATUS = set([psutil.STATUS_STOPPED, psutil.STATUS_DEAD, psutil.STATUS_ZOMBIE]) # set of possible end status
