@@ -121,6 +121,24 @@
                     </configuration>
                 </execution>
                 <execution>
+                    <id>IndexGenerator</id>
+                    <goals><goal>jar</goal></goals>
+                    <phase>package</phase>
+                    <configuration>
+                        <archive>
+                            <manifest>
+                                <addClasspath>true</addClasspath>
+                                <classpathPrefix>libs/</classpathPrefix>
+                                <useUniqueVersions>false</useUniqueVersions>
+                                <mainClass>
+                                    org.esa.snap.test.IndexGenerator
+                                </mainClass>
+                            </manifest>
+                        </archive>
+                        <finalName>IndexGenerator</finalName>
+                    </configuration>
+                </execution>
+                <execution>
                     <id>SnapGPTTest</id>
                     <goals><goal>jar</goal></goals>
                     <phase>package</phase>
