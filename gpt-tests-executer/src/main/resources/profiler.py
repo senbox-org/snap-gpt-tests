@@ -19,7 +19,7 @@ args = parser.parse_args()
 print("\nProfiling")
 print("=========")
 print(f"command: `{args.command}`")
-print(f"output file: `{args.o}`") 
+print(f"output file: `{args.o}`\n") 
       
 MB = 2**20 # const for converting bytes to mega bytes
 T = args.f/1000.0 # convert period from ms to s
@@ -55,7 +55,7 @@ ts = [] # sampling time
 trds = [] # number of threads
 
 t = 0 # profiling timer
-
+print('$$$ Starting profiling...')
 while psutil.pid_exists(PID) and process.status() not in END_STATUS: # while process is running
     io_counters = process.io_counters() 
     disk_in.append( io_counters[2]/MB) # read_bytes
