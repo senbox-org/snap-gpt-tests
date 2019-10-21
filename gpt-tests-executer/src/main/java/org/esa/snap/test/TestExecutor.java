@@ -31,7 +31,7 @@ public class TestExecutor {
     private static String exportArgs(ArrayList<String> args) {
         String result = "";
         for (String arg : args) {
-            if (arg[0] == '-' || args[0] == '/') {
+            if (arg.startsWith("-") || arg.startsWith("/")) {
                 result += arg +" ";
             } else {
                 result += "\"" + arg + "\" ";
