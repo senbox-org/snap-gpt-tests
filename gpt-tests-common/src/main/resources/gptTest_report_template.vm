@@ -162,7 +162,14 @@ function drawChart() {
 <tr class="odd">
 <td class="testid"><a href=$jsonPath>$graphTestResult.graphTest.id</a></td>
 <td class="desc"><a href="images/$graphTestResult.graphTest.graphPath.replace(".xml", ".png")"><img width="300" height="150" border="none" src="images/$graphTestResult.graphTest.graphPath.replace(".xml", ".png")" title="$graphTestResult.graphTest.graphPath.replace(".xml", ".png")"></a></td>
-<td class="result"><img width="16" height="16" alt="$altStatus" src="icons/$iconStatus"></td>
+
+#if($graphTestResult.status == "FAILED")
+    #set ($reportPath = "../$graphTestResult.graphTest.id")
+    #set ($reportPath = $reportPathPath + "_gptOutput.txt")
+    <td class="result"><a href="../$reportPath"><img width="16" height="16" alt="$altStatus" src="icons/$iconStatus"></a></td>
+#else
+    <td class="result"><img width="16" height="16" alt="$altStatus" src="icons/$iconStatus"></td>
+#end
 <td class="env">$graphTestResult.configVMString</td>
 <td class="duration">$graphTestResult.executionTimeString</td>
 <td class="memory">$graphTestResult.memoryPeak</td>
