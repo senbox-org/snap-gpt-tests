@@ -1,14 +1,5 @@
 package org.esa.snap.test;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import org.apache.commons.io.FileUtils;
-import org.apache.commons.io.filefilter.TrueFileFilter;
-import org.apache.commons.io.filefilter.WildcardFileFilter;
-import org.esa.snap.core.dataio.ProductIO;
-import org.esa.snap.core.datamodel.Product;
-import org.esa.snap.dataio.ContentAssert;
-import org.esa.snap.dataio.ExpectedDataset;
-
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -20,15 +11,31 @@ import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 import java.util.Map;
 import java.util.regex.Matcher;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.filefilter.WildcardFileFilter;
+import org.esa.snap.core.dataio.ProductIO;
+import org.esa.snap.core.datamodel.Product;
+import org.esa.snap.dataio.ContentAssert;
+import org.esa.snap.dataio.ExpectedDataset;
 
 
 /**
  * Created by obarrile on 20/02/2019.
  */
 public class TestExecutor {
+    private static String exportArgs(ArrayList<String> args) {
+        String result = "";
+        for (String arg : args) {
+            result += arg +" ";
+        }
+        return result;
+    }
+
     public static boolean executeTest(GraphTest graphTest, Path graphFolder, Path inputFolder, Path expectedOutputFolder, Path tempFolder, Path snapBin) throws IOException {
 
         boolean testPassed = true;
@@ -121,19 +128,25 @@ public class TestExecutor {
             value = value.replaceAll("\\$tempFolder", Matcher.quoteReplacement(tempFolder.toString()));
             params.add(String.format("-P%s=%s",output.getParameter(), tempFolder.resolve(value).toString()));
         }
-
         //execute graph
-        ProcessBuilder builder = new ProcessBuilder(params);
-        Map<String, String> environ = builder.environment();
+        ArrayList<String> profiler = new ArrayList<String>();
+        profiler.add("${PROFILER}");
+        profiler.add(exportArgs(params));
+        profiler.add(String.format("-o perf_%s.csv", graphTest.getId()));
+        profiler.add("-f ${PROF_FREQUENCY}");
+
+        ProcessBuilder builder = new ProcessBuilder(profiler);
+        builder.environment();
 
         File redirectOutputFile = new File(tempFolder.resolve(graphTest.getId()).toString() + "_gptOutput.txt");
         builder.redirectErrorStream(true);
         builder.redirectOutput(redirectOutputFile);
 
-        List<String> command = builder.command();
+        builder.command();
         Process process = builder.start();
         try {
-            process.waitFor();
+
+            process.waitFor(); 
         } catch (InterruptedException e) {
             e.printStackTrace();
             if(graphTest.getConfigVM() != null && graphTest.getConfigVM().getXmX() != null) {
