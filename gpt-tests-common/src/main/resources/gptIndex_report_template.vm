@@ -185,7 +185,9 @@ function drawChart() {
 #if($graphTestResult.status == "PASSED")
 <img width="16" height="16" src="icons/green.png">
 #elseif($graphTestResult.status == "FAILED")
-<img width="16" height="16" src="icons/red.png">
+    #set ($reportPath = "../$graphTestResult.graphTest.id")
+    #set ($reportPath = $reportPath + "_gptOutput.txt")
+    <a href=$reportPath><img width="16" height="16" src="icons/red.png"></a>
 #elseif($graphTestResult.status == "SKIPPED")
 <img width="16" height="16" src="icons/yellow.png">
 #end
