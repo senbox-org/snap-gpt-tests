@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -14,6 +15,7 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.Properties;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.filefilter.TrueFileFilter;
 import org.apache.commons.io.filefilter.WildcardFileFilter;
@@ -83,8 +85,32 @@ public class SnapGPTTest {
             return;
         }
 
+        boolean reportHtml = true; //todo add this option as parameter
+        if(reportHtml) {
+            //create html folder structure
+            reportFolderPath.resolve("html").toFile().mkdir();
+            reportFolderPath.resolve("html").resolve("images").toFile().mkdir();
+            reportFolderPath.resolve("html").resolve("json").toFile().mkdir();
+            reportFolderPath.resolve("html").resolve("icons").toFile().mkdir();
+            reportFolderPath.resolve("html").resolve("css").toFile().mkdir();
+            //copy icons and css
+            ReportUtils.copyResource("css/gptTest.css", reportFolderPath.resolve("html").resolve("css").resolve("gptTest.css"));
+            ReportUtils.copyResource("icons/blue.png", reportFolderPath.resolve("html").resolve("icons").resolve("blue.png"));
+            ReportUtils.copyResource("icons/duration.png", reportFolderPath.resolve("html").resolve("icons").resolve("duration.png"));
+            ReportUtils.copyResource("icons/green.png", reportFolderPath.resolve("html").resolve("icons").resolve("green.png"));
+            ReportUtils.copyResource("icons/orange.png", reportFolderPath.resolve("html").resolve("icons").resolve("orange.png"));
+            ReportUtils.copyResource("icons/percent.png", reportFolderPath.resolve("html").resolve("icons").resolve("percent.png"));
+            ReportUtils.copyResource("icons/red.png", reportFolderPath.resolve("html").resolve("icons").resolve("red.png"));
+            ReportUtils.copyResource("icons/SNAP_Icon_16.png", reportFolderPath.resolve("html").resolve("icons").resolve("SNAP_Icon_16.png"));
+            ReportUtils.copyResource("icons/SNAP_Icon_32.png", reportFolderPath.resolve("html").resolve("icons").resolve("SNAP_Icon_32.png"));
+            ReportUtils.copyResource("icons/SNAP_Icon_48.png", reportFolderPath.resolve("html").resolve("icons").resolve("SNAP_Icon_48.png"));
+            ReportUtils.copyResource("icons/SNAP_Icon_60.png", reportFolderPath.resolve("html").resolve("icons").resolve("SNAP_Icon_60.png"));
+            ReportUtils.copyResource("icons/SNAP_Icon_128.png", reportFolderPath.resolve("html").resolve("icons").resolve("SNAP_Icon_128.png"));
+            ReportUtils.copyResource("icons/yellow.png", reportFolderPath.resolve("html").resolve("icons").resolve("yellow.png"));
+        }
+
         BufferedWriter writer = null;
-        boolean report = true;
+        boolean report = true; //todo add this option as parameter
         try {
             writer = new BufferedWriter(new FileWriter(reportFolderPath.resolve(String.format("Report_%s.txt", JSONFileName)).toFile(), false));
         } catch (IOException e) {
@@ -104,12 +130,16 @@ public class SnapGPTTest {
 
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
 
-        for(File file : fileList) {
+
+        ArrayList<JsonTestResult> jsonTestResultList = new ArrayList<>();
+        for(File file : fileList) { //do for every json
+            JsonTestResult jsonTestResult = new JsonTestResult(org.esa.snap.core.util.io.FileUtils.getFilenameWithoutExtension(file));
             GraphTest[] graphTests = GraphTestsUtils.mapGraphTests(file);
+            //ArrayList<GraphTestResult> graphTestResultList = new ArrayList<>();
             if(graphTests == null || graphTests.length == 0) {
                 continue;
             }
-            for(GraphTest graphTest : graphTests) {
+            for(GraphTest graphTest : graphTests) { //do for every test inside a json
                 if(!graphTest.inputExists(inputFolder) && !FAIL_ON_MISSING_DATA) {
                     System.out.println(graphTest.getId() +" is missing input data in input folder '" + inputFolder + "'. Skipping test.");
                     continue;
@@ -133,27 +163,59 @@ public class SnapGPTTest {
                     }
                 }
 
+                GraphTestResult testResult = new GraphTestResult(graphTest);
 
+                if(reportHtml){
+                    //create graph png in html folder
+                    Path graphPath = graphFolder.resolve(graphTest.getGraphPath());
+                    Path imagePath = reportFolderPath.resolve("html").resolve("images").resolve(graphTest.getGraphPath());
+                    String stringPNG = org.esa.snap.core.util.io.FileUtils.exchangeExtension(imagePath.toString(), ".png");
+                    File filePNG = new File(stringPNG);
+                    filePNG.getParentFile().mkdirs();
+                    if(!filePNG.exists()) {
+                        ReportUtils.generateGraphImage(graphPath.toFile(), filePNG);
+                    }
+
+                    //create specific json in html folder
+                    ObjectMapper objectMapper = new ObjectMapper();
+                    Path jsonReportPath = reportFolderPath.resolve("html").resolve("json").
+                            resolve(org.esa.snap.core.util.io.FileUtils.getFilenameWithoutExtension(jsonPath.toFile()));
+                    Path json  = jsonReportPath.resolve(graphTest.getId()+".json");
+                    json.getParent().toFile().mkdirs();
+                    objectMapper.writeValue(json.toFile(), graphTest);
+                }
 
                 if (hasToBeExecuted) {
+                    Date startDate = null;
+                    Date endDate = null;
                     if(report) {
                         writer.write(graphTest.getId());
                         writer.write(" - ");
 
-                        Date date = new Date();
-                        writer.write(formatter.format(date));
+                        startDate = new Date();
+                        writer.write(formatter.format(startDate));
                         writer.write(" - ");
                     }
-                    boolean passed = TestExecutor.executeTest(graphTest,graphFolder,inputFolder,expectedOutputFolder,tempFolder,snapBinFolder);
+
+                    boolean passed = false;
+                    try {
+                        passed = TestExecutor.executeTest(graphTest,graphFolder,inputFolder,expectedOutputFolder,tempFolder,snapBinFolder);
+                    } catch (Exception e) {
+                        System.out.println(String.format("CException when executing test: %s",e.getMessage()));
+                    }
+
+                    endDate = new Date();
                     if(report) {
-                        Date date = new Date();
-                        writer.write(formatter.format(date));
+
+                        //txt basic report
+                        writer.write(formatter.format(endDate));
                         writer.write(" - ");
                         if(passed) {
                             writer.write("PASSED");
                         } else {
                             writer.write("FAILED");
                             success = false;
+
                             //copy  output product to report
                             if(!scope.toLowerCase().equals("release") && !scope.toLowerCase().equals("weekly") && !scope.toLowerCase().equals("daily") && !scope.toLowerCase().equals("regular")) {
                                 for (Output output : graphTest.getOutputs()) {
@@ -178,10 +240,42 @@ public class SnapGPTTest {
                                 System.out.println(String.format("Cannot copy gptOutput: %s",e.getMessage()));
                             }
 
+                            //copy output of content to report (perhaps it has been copied before, so try-catch) Do not exist anymore
+                            /*try {
+                                Path reportContent = Paths.get(tempFolder.resolve(graphTest.getId()).toString() + "_contentError.txt");
+                                Files.copy(reportContent, reportFolderPath.resolve(reportContent.getFileName()));
+                            } catch (Exception e) {
+                                System.out.println(String.format("Cannot copy contentOutput: %s",e.getMessage()));
+                            }*/
+
                         }
                         writer.write("\n");
                     }
+
+                    if(reportHtml) {
+                        testResult.setStartDate(startDate);
+                        testResult.setEndDate(endDate);
+                        if(passed) {
+                            testResult.setStatus("PASSED");
+                        } else {
+                            testResult.setStatus("FAILED");
+                        }
+                    }
+                } else {
+                    testResult.setStatus("SKIPPED");
                 }
+                //graphTestResultList.add(testResult);
+                jsonTestResult.addGraphTestResults(testResult);
+
+            }
+
+            jsonTestResultList.add(jsonTestResult);
+            if(reportHtml) {
+                //create html report with velocity
+                ReportUtils.createHtmlReportForJson(jsonTestResult.getGraphTestResultArray(),
+                                                    jsonTestResult.getJsonName(),
+                                                    reportFolderPath.resolve("html").resolve(org.esa.snap.core.util.io.FileUtils.exchangeExtension(file.getName(),".html")),
+                                                    scope);
             }
         }
 

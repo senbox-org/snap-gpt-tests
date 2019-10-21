@@ -54,9 +54,15 @@
             </dependency>
             <dependency>
                 <groupId>org.esa.snap</groupId>
+                <artifactId>snap-graph-builder</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.esa.snap</groupId>
                 <artifactId>snap-reader-tests</artifactId>
                 <version>7.0.1-SNAPSHOT</version>
             </dependency>
+
         </dependencies>
     </dependencyManagement>
     
