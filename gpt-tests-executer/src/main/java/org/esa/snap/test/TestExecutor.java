@@ -36,7 +36,7 @@ public class TestExecutor {
         return result;
     }
 
-    public static boolean executeTest(GraphTest graphTest, Path graphFolder, Path inputFolder, Path expectedOutputFolder, Path tempFolder, Path snapBin) throws IOException {
+    public static boolean executeTest(GraphTest graphTest, Path graphFolder, Path inputFolder, Path expectedOutputFolder, Path tempFolder, Path snapBin, Path basePath) throws IOException {
 
         boolean testPassed = true;
         //prepare parameters
@@ -131,7 +131,7 @@ public class TestExecutor {
         //execute graph
         ArrayList<String> profiler = new ArrayList<String>();
         profiler.add("python3");
-        profiler.add("/home/snap/output/profiling/3/profiler.py");
+        profiler.add(basePath.toString()+"/profiler.py");
         profiler.add(exportArgs(params));
         profiler.add(String.format("-o %s_perf.txt", tempFolder.resolve(graphTest.getId()).toString()));
 
