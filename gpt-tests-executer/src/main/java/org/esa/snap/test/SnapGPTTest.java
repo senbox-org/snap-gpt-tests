@@ -143,7 +143,7 @@ public class SnapGPTTest {
                         writer.write(formatter.format(date));
                         writer.write(" - ");
                     }
-                    boolean passed = TestExecutor.executeTest(graphTest,graphFolder,inputFolder,expectedOutputFolder,tempFolder,snapBinFolder);
+                    boolean passed = TestExecutor.executeTest(graphTest,graphFolder,inputFolder,expectedOutputFolder,tempFolder,snapBinFolder, reportFolderPath.getParent());
                     if(report) {
                         Date date = new Date();
                         writer.write(formatter.format(date));
