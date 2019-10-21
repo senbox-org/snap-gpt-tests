@@ -169,9 +169,9 @@ pipeline {
         }
     }
     post {
-//         failure {
-//             script {
-//                     // send mail only on main job
+         failure {
+             script {
+                     // send mail only on main job
 //                     if ("${params.testScope}" == 'REGULAR' || "${params.testScope}" == 'DAILY' || "${params.testScope}" == 'WEEKLY' || "${params.testScope}" == 'RELEASE') {
 //                         emailext(
 //                             subject: "[SNAP] JENKINS-NOTIFICATION: ${currentBuild.result ?: 'SUCCESS'} : Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
@@ -182,8 +182,8 @@ pipeline {
 //                             compressLog: true,
 //                             to: "${SNAP_INTERNAL_MAIL_LIST}"
 //                         )
-//                 }
-//             }
-//         }
+                 }
+             }
+         }
     }
 }
