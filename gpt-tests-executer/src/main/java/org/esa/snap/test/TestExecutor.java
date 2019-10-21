@@ -131,7 +131,7 @@ public class TestExecutor {
         //execute graph
         ArrayList<String> profiler = new ArrayList<String>();
         profiler.add("python3");
-        profiler.add("${outputReportDir}/profiler.py");
+        profiler.add("/home/snap/output/profiling/3/profiler.py");
         profiler.add(exportArgs(params));
         profiler.add(String.format("-o %s_perf.txt", tempFolder.resolve(graphTest.getId()).toString()));
 
