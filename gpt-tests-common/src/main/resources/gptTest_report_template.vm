@@ -165,7 +165,7 @@ function drawChart() {
 
 #if($graphTestResult.status == "FAILED")
     #set ($reportPath = "../$graphTestResult.graphTest.id")
-    #set ($reportPath = $reportPathPath + "_gptOutput.txt")
+    #set ($reportPath = $reportPath + "_gptOutput.txt")
     <td class="result"><a href="../$reportPath"><img width="16" height="16" alt="$altStatus" src="icons/$iconStatus"></a></td>
 #else
     <td class="result"><img width="16" height="16" alt="$altStatus" src="icons/$iconStatus"></td>
