@@ -173,7 +173,7 @@ public class SnapGPTTest {
                             try {
                                 Path reportGPT = Paths.get(tempFolder.resolve(graphTest.getId()).toString() + "_gptOutput.txt");
                                 Files.copy(reportGPT, reportFolderPath.resolve(reportGPT.getFileName()));
-                                Path perfGPT = Paths.get(tempFolder.resolve(graphTest.getId()).toString() + "_perf.txt");
+                                Path perfGPT = Paths.get(tempFolder.resolve(graphTest.getId()).toString() + "_perf.csv");
                                 Files.copy(perfGPT, reportFolderPath.resolve(perfGPT.getFileName()));
                             } catch (Exception e) {
                                 System.out.println(String.format("Cannot copy gptOutput: %s",e.getMessage()));

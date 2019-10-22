@@ -134,7 +134,7 @@ public class TestExecutor {
         profiler.add(basePath.toString()+"/profiler.py");
         profiler.add(exportArgs(params));
         profiler.add("-o");
-        profiler.add(String.format("%s_perf.txt", tempFolder.resolve(graphTest.getId()).toString()));
+        profiler.add(String.format("%s_perf.csv", tempFolder.resolve(graphTest.getId()).toString()));
 
         ProcessBuilder builder = new ProcessBuilder(profiler);
         builder.environment();
