@@ -5,6 +5,29 @@ import time
 import argparse
 import subprocess
 
+
+def split_args(command):
+    args = []
+    status = True
+    token = ""
+    for c in command:
+        if c == " ":
+            if status:
+                args.append(token)
+                token = ""
+            else:
+                token += " "
+        elif c == '"':
+            status = not status
+            if status:
+                args.append(token)
+                token = ""
+        else:
+            token += c
+    args.append(token)
+    return args
+
+
 # setup arg parser
 parser = argparse.ArgumentParser()
 

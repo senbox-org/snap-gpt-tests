@@ -31,7 +31,11 @@ public class TestExecutor {
     private static String exportArgs(ArrayList<String> args) {
         String result = "";
         for (String arg : args) {
-            result += arg +" ";
+            if (arg[0] == "-" || arg[0] == '/') {
+                result += arg +" ";
+            } else {
+                result += "\"" + arg + "\" ";
+            }
         }
         return result;
     }
