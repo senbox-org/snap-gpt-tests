@@ -31,7 +31,11 @@ public class TestExecutor {
     private static String exportArgs(ArrayList<String> args) {
         String result = "";
         for (String arg : args) {
+<<<<<<< HEAD
             if (arg[0] == "-" || arg[0] == '/') {
+=======
+            if (arg.startsWith("-") || arg.startsWith("/")) {
+>>>>>>> cedf848c3374f0cf1384574461452dc8598a1f94
                 result += arg +" ";
             } else {
                 result += "\"" + arg + "\" ";
@@ -137,7 +141,8 @@ public class TestExecutor {
         profiler.add("python3");
         profiler.add(basePath.toString()+"/profiler.py");
         profiler.add(exportArgs(params));
-        profiler.add(String.format("-o %s_perf.txt", tempFolder.resolve(graphTest.getId()).toString()));
+        profiler.add("-o");
+        profiler.add(String.format("%s_perf.txt", tempFolder.resolve(graphTest.getId()).toString()));
 
         ProcessBuilder builder = new ProcessBuilder(profiler);
         builder.environment();

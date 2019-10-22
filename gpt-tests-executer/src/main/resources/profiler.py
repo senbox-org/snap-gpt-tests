@@ -7,31 +7,36 @@ import subprocess
 
 
 def split_args(command):
+    """
+    splits command in list of arguments.
+    """
     args = []
     status = True
     token = ""
     for c in command:
         if c == " ":
             if status:
-                args.append(token)
+                if len(token) > 0:
+                    args.append(token)
                 token = ""
             else:
                 token += " "
         elif c == '"':
             status = not status
             if status:
-                args.append(token)
+                if len(token) > 0:
+                    args.append(token)
                 token = ""
         else:
             token += c
-    args.append(token)
+    if len(token)>0:
+        args.append(token)
     return args
-
 
 # setup arg parser
 parser = argparse.ArgumentParser()
 
-parser.add_argument('command')
+parser.add_argument('command', help="command to profile")
 parser.add_argument('-f', default=100, help="sampling period in ms")
 parser.add_argument('-o', default=None, help="save results to file")
 parser.add_argument('-w', choices=[True, False], default=True, help="wait time before starting profiling [default=True]")
@@ -39,13 +44,19 @@ parser.add_argument('-c', default=True, help="profile children flag [default=Tru
 
 # parse arguments
 args = parser.parse_args()
-
+# split command in sub parts
+command = split_args(args.command)
+print("\nProfiling")
+print("=========")
+print(f"command: `{' '.join(command)}`")
+print(f"output file: `{args.o}`\n") 
+      
 MB = 2**20 # const for converting bytes to mega bytes
 T = args.f/1000.0 # convert period from ms to s
 END_STATUS = set([psutil.STATUS_STOPPED, psutil.STATUS_DEAD, psutil.STATUS_ZOMBIE]) # set of possible end status
 
 # execute the command and retrive the PID
-proc = subprocess.Popen(args.command)
+proc = subprocess.Popen(split_args(args.command))
 PID = proc.pid
 
 # wait some time according to arguments
@@ -74,7 +85,7 @@ ts = [] # sampling time
 trds = [] # number of threads
 
 t = 0 # profiling timer
-
+print('$$$ Starting profiling...')
 while psutil.pid_exists(PID) and process.status() not in END_STATUS: # while process is running
     io_counters = process.io_counters() 
     disk_in.append( io_counters[2]/MB) # read_bytes
@@ -88,7 +99,7 @@ while psutil.pid_exists(PID) and process.status() not in END_STATUS: # while pro
     t += T # increment timer
 
 # Write out results (io or file)
-s = f'#cores:{psutil.cpu_count()}\n' # save cpu number  
+s = f'#cores:{psutil.cpu_count()}\n' # store number of CPU  
 s += '#time(ms), memory(Mb), CPU(s), CPU(%), Threads, Read IO, Write IO\n' # columns label
 for t, m, c, c_p, td, disk_in, disk_out in zip(ts, mem, cpu, cpu_p, trds, disk_in, disk_out): # iterate entries
     s += f'{t*1000},{m},{c},{c_p},{td},{disk_in},{disk_out}\n' # create comma separated row
