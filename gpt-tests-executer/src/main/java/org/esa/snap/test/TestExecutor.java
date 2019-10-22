@@ -145,11 +145,8 @@ public class TestExecutor {
             dockerProfilerArgs.add("sh");
             dockerProfilerArgs.add(basePath.toString()+"/profiler.sh");
             dockerProfilerArgs.add(String.format("%s_dockerstats.csv", tempFolder.resolve(graphTest.getId()).toString()));
-            File redirectOutputFile = new File(tempFolder.resolve(graphTest.getId()).toString() + "_dockerstatsOutput.txt");
             ProcessBuilder dockerBuilder = new ProcessBuilder(dockerProfilerArgs);
             dockerBuilder.environment();
-            dockerBuilder.redirectErrorStream(true);
-            dockerBuilder.redirectOutput(redirectOutputFile);
 
             dockerBuilder.command();
             dockerProfiler = dockerBuilder.start();
