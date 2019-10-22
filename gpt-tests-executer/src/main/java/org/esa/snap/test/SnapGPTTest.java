@@ -35,7 +35,7 @@ public class SnapGPTTest {
         }
         boolean profiler = true;
         if (args.length == 5) {
-            profiler = args[4].equals("--Profiling=On"); 
+            profiler = args[4].equals("--Profiling=on"); 
         }
 
         Path testFolder = null;
