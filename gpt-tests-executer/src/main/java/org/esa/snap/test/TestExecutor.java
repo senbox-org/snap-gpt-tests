@@ -142,6 +142,7 @@ public class TestExecutor {
             
             // Initialize and run docker profiler
             ArrayList<String> dockerProfilerArgs = new ArrayList<String>();
+            dockerProfilerArgs.add("sh");
             dockerProfilerArgs.add(basePath.toString()+"/profiler.sh");
             dockerProfilerArgs.add(String.format("%s_dockerstats.csv", tempFolder.resolve(graphTest.getId()).toString()));
             ProcessBuilder dockerBuilder = new ProcessBuilder(dockerProfilerArgs);
