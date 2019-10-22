@@ -4,6 +4,7 @@
 csvoutput=$1
 # time variable
 t=0.0
+echo "#time (s), memory (Mb), CPU (s)" > $csvoutput
 while :
 do
 	# cpu usage in ns
