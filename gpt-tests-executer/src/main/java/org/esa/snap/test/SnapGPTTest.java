@@ -29,9 +29,13 @@ public class SnapGPTTest {
         boolean specificJSON = true;
         boolean success = true;
         //TODO check better the arguments
-        if(args.length != 4) {
+        if(args.length < 4) {
             System.out.println("Required arguments: [properties] [scope] [jsonPath] [reportFolder]");
             return;
+        }
+        boolean profiler = true;
+        if (args.length == 5) {
+            profiler = args[4].equals("--Profiling=On"); 
         }
 
         Path testFolder = null;
@@ -143,11 +147,19 @@ public class SnapGPTTest {
                         writer.write(formatter.format(date));
                         writer.write(" - ");
                     }
-                    boolean passed = TestExecutor.executeTest(graphTest,graphFolder,inputFolder,expectedOutputFolder,tempFolder,snapBinFolder, reportFolderPath.getParent());
+                    boolean passed = TestExecutor.executeTest(graphTest,graphFolder,inputFolder,expectedOutputFolder,tempFolder,snapBinFolder, reportFolderPath.getParent(), profiler);
                     if(report) {
                         Date date = new Date();
                         writer.write(formatter.format(date));
                         writer.write(" - ");
+                        if (profiler) {
+                            try {
+                                Path perfGPT = Paths.get(tempFolder.resolve(graphTest.getId()).toString() + "_perf.csv");
+                                Files.copy(perfGPT, reportFolderPath.resolve(perfGPT.getFileName()));
+                            }catch (Exception e) {
+                                System.out.println(String.format("Cannot copy performance: %s",e.getMessage()));
+                            }
+                        }
                         if(passed) {
                             writer.write("PASSED");
                         } else {
@@ -173,8 +185,7 @@ public class SnapGPTTest {
                             try {
                                 Path reportGPT = Paths.get(tempFolder.resolve(graphTest.getId()).toString() + "_gptOutput.txt");
                                 Files.copy(reportGPT, reportFolderPath.resolve(reportGPT.getFileName()));
-                                Path perfGPT = Paths.get(tempFolder.resolve(graphTest.getId()).toString() + "_perf.csv");
-                                Files.copy(perfGPT, reportFolderPath.resolve(perfGPT.getFileName()));
+                             
                             } catch (Exception e) {
                                 System.out.println(String.format("Cannot copy gptOutput: %s",e.getMessage()));
                             }
