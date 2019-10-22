@@ -158,6 +158,8 @@ public class SnapGPTTest {
                                 Files.copy(perfGPT, reportFolderPath.resolve(perfGPT.getFileName()));
                                 Path dockerGPT = Paths.get(tempFolder.resolve(graphTest.getId()).toString() + "_dockerstats.csv");
                                 Files.copy(dockerGPT, reportFolderPath.resolve(dockerGPT.getFileName()));
+                                Path dockerOut = Paths.get(tempFolder.resolve(graphTest.getId()).toString() + "_dockerstatsOutput.txt");
+                                Files.copy(dockerOut, reportFolderPath.resolve(dockerOut.getFileName()));
                             }catch (Exception e) {
                                 System.out.println(String.format("Cannot copy performance: %s",e.getMessage()));
                             }
