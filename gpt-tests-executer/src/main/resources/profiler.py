@@ -48,7 +48,7 @@ args = parser.parse_args()
 command = split_args(args.command)
 print("\nProfiling")
 print("=========")
-print(f"command: `{' '.join(command)}`")
+print(f"command: `{' '.join(command)}`")    
 print(f"output file: `{args.o}`\n") 
       
 MB = 2**20 # const for converting bytes to mega bytes
