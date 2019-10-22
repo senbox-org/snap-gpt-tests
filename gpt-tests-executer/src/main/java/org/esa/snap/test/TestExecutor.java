@@ -36,7 +36,7 @@ public class TestExecutor {
         return result;
     }
 
-    public static boolean executeTest(GraphTest graphTest, Path graphFolder, Path inputFolder, Path expectedOutputFolder, Path tempFolder, Path snapBin, Path basePath) throws IOException {
+    public static boolean executeTest(GraphTest graphTest, Path graphFolder, Path inputFolder, Path expectedOutputFolder, Path tempFolder, Path snapBin, Path basePath, boolean profilerEnabled) throws IOException {
 
         boolean testPassed = true;
         //prepare parameters
@@ -128,15 +128,21 @@ public class TestExecutor {
             value = value.replaceAll("\\$tempFolder", Matcher.quoteReplacement(tempFolder.toString()));
             params.add(String.format("-P%s=%s",output.getParameter(), tempFolder.resolve(value).toString()));
         }
-        //execute graph
-        ArrayList<String> profiler = new ArrayList<String>();
-        profiler.add("python3");
-        profiler.add(basePath.toString()+"/profiler.py");
-        profiler.add(exportArgs(params));
-        profiler.add("-o");
-        profiler.add(String.format("%s_perf.csv", tempFolder.resolve(graphTest.getId()).toString()));
 
-        ProcessBuilder builder = new ProcessBuilder(profiler);
+        ProcessBuilder builder;
+        if (profilerEnabled){
+            //execute graph
+            ArrayList<String> profiler = new ArrayList<String>();
+            profiler.add("python3");
+            profiler.add(basePath.toString()+"/profiler.py");
+            profiler.add(exportArgs(params));
+            profiler.add("-o");
+            profiler.add(String.format("%s_perf.csv", tempFolder.resolve(graphTest.getId()).toString()));
+            builder = new ProcessBuilder(profiler);
+        } else {
+            builder = new ProcessBuilder(params);
+        }
+        
         builder.environment();
 
         File redirectOutputFile = new File(tempFolder.resolve(graphTest.getId()).toString() + "_gptOutput.txt");
