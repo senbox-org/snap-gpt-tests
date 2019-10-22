@@ -19,6 +19,9 @@ import org.apache.commons.io.filefilter.TrueFileFilter;
 import org.apache.commons.io.filefilter.WildcardFileFilter;
 
 public class SnapGPTTest {
+    private static void printHelp() {
+        System.out.println("Usage: SnapGPTTest properties scope jsonPath reportFolder [optional --Profiling=on|off]");
+    }
 
     public static void main(String[] args) throws IOException {
 
@@ -30,12 +33,23 @@ public class SnapGPTTest {
         boolean success = true;
         //TODO check better the arguments
         if(args.length < 4) {
-            System.out.println("Required arguments: [properties] [scope] [jsonPath] [reportFolder]");
+            printHelp();
             return;
         }
+        // flag to enable/disable the profiling
         boolean profiler = true;
-        if (args.length == 5) {
-            profiler = args[4].equals("--Profiling=on"); 
+        // check if an extra parameter is passed set the profile variable 
+        if (args.length == 5) { 
+            // check that the flag is correct
+            if (args[4].startsWith("--Profiling=")) {
+                // extract the variable value and set the profiling flag
+                String option = args[4].split("=")[1];
+                profiler = option.equals("on");
+            } else {
+                // otherwise print help and exit
+                printHelp();
+                return;
+            }      
         }
 
         Path testFolder = null;
@@ -154,6 +168,7 @@ public class SnapGPTTest {
                         writer.write(" - ");
                         if (profiler) {
                             try {
+                                // Moving profiling output to the report folder
                                 Path perfGPT = Paths.get(tempFolder.resolve(graphTest.getId()).toString() + "_perf.csv");
                                 Files.copy(perfGPT, reportFolderPath.resolve(perfGPT.getFileName()));
                                 Path dockerGPT = Paths.get(tempFolder.resolve(graphTest.getId()).toString() + "_dockerstats.csv");
