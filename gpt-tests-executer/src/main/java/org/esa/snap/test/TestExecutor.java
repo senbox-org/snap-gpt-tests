@@ -130,6 +130,7 @@ public class TestExecutor {
         }
 
         ProcessBuilder builder;
+        Process dockerProfiler = null;
         if (profilerEnabled){
             //execute graph
             ArrayList<String> profiler = new ArrayList<String>();
@@ -138,6 +139,16 @@ public class TestExecutor {
             profiler.add(exportArgs(params));
             profiler.add("-o");
             profiler.add(String.format("%s_perf.csv", tempFolder.resolve(graphTest.getId()).toString()));
+            
+            // Initialize and run docker profiler
+            ArrayList<String> dockerProfilerArgs = new ArrayList<String>();
+            dockerProfilerArgs.add(basePath.toString()+"/profiler.sh");
+            dockerProfilerArgs.add(String.format("%s_dockerstats.csv", tempFolder.resolve(graphTest.getId()).toString()));
+            ProcessBuilder dockerBuilder = new ProcessBuilder(dockerProfilerArgs);
+            dockerBuilder.environment();
+            dockerBuilder.command();
+            dockerProfiler = dockerBuilder.start();
+
             builder = new ProcessBuilder(profiler);
         } else {
             builder = new ProcessBuilder(params);
@@ -152,7 +163,6 @@ public class TestExecutor {
         builder.command();
         Process process = builder.start();
         try {
-
             process.waitFor(); 
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -160,6 +170,10 @@ public class TestExecutor {
                 resetVMOptions(snapBin);
             }
             return false;
+        }
+        
+        if (profilerEnabled && dockerProfiler != null && dockerProfiler.isAlive()) {
+            dockerProfiler.destroy();
         }
 
         //check outputs
