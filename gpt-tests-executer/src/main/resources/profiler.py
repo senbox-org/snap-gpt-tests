@@ -88,7 +88,7 @@ trds = [] # number of threads
 cpu_docker = []
 mem_docker = []
 cpu_file = "/sys/fs/cgroup/cpuacct/cpuacct.usage"
-mem_file = "/sys/fs/cgroup/memory/memory.usage_in_bytes"
+mem_file = "/sys/fs/cgroup/memory/memory.kmem.usage_in_bytes"
 
 start_time = datetime.datetime.now()
 start_millis = int(round(time.time() * 1000))
@@ -105,11 +105,11 @@ while psutil.pid_exists(PID) and process.status() not in END_STATUS: # while pro
     cpu_p.append(process.cpu_percent()) # cpu usage
     cpu.append(process.cpu_times().user) # cpu time
     trds.append(process.num_threads()) # num threads
-    ts.append(start_millis - int(round(time.time() * 1000))) # sampling time
+    ts.append(int(round(time.time() * 1000)) - start_millis) # sampling time
     time.sleep(T) # wait for next sampling
 
 # Write out results (io or file)
-s = f'#start time: {start_time}'
+s = f'#start time: {start_time}\n'
 s += f'#cores:{psutil.cpu_count()}\n' # store number of CPU  
 s += '#time(ms), memory(Mb), CPU(s), CPU(%), Threads, Read IO, Write IO\n' # columns label
 for t, m, c, c_p, td, disk_in, disk_out, cpu_dock, mem_dock in zip(ts, mem, cpu, cpu_p, trds, disk_in, disk_out, cpu_docker, mem_docker): # iterate entries

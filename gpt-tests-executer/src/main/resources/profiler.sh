@@ -14,7 +14,7 @@ do
 	# cpu usage in ns
 	cpu=`cat /sys/fs/cgroup/cpuacct/cpuacct.usage`
 	# memory usage in bytes
-	mem=`cat /sys/fs/cgroup/memory/memory.usage_in_bytes`
+	mem=`cat /sys/fs/cgroup/memory/memory.kmem.usage_in_bytes`
 	# convert unit to human readable
 	# memory in mb
 	mem=`echo "scale=2; $mem / 1048576" | bc -l`
