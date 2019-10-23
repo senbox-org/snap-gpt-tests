@@ -1,6 +1,7 @@
 #! /usr/bin/python3
 import sys
 import psutil
+import datetime
 import time
 import argparse
 import subprocess
@@ -39,8 +40,8 @@ parser = argparse.ArgumentParser()
 parser.add_argument('command', help="command to profile")
 parser.add_argument('-f', default=100, help="sampling period in ms")
 parser.add_argument('-o', default=None, help="save results to file")
-parser.add_argument('-w', choices=[True, False], default=True, help="wait time before starting profiling [default=True]")
-parser.add_argument('-c', default=True, help="profile children flag [default=True]", choices=[True, False])
+parser.add_argument('-w', choices=[True, False], default=False, help="wait time before starting profiling [default=True]")
+parser.add_argument('-c', default=False, help="profile children flag [default=True]", choices=[True, False])
 
 # parse arguments
 args = parser.parse_args()
@@ -84,9 +85,19 @@ disk_out = [] # disk out usage
 ts = [] # sampling time
 trds = [] # number of threads
 
-t = 0 # profiling timer
-print('$$$ Starting profiling...')
+cpu_docker = []
+mem_docker = []
+cpu_file = ""
+mem_file = ""
+
+start_time = datetime.datetime.now()
+start_millis = int(round(time.time() * 1000))
+print(f'$$$ Starting profiling: {start_time}')
 while psutil.pid_exists(PID) and process.status() not in END_STATUS: # while process is running
+    with open(cpu_file, 'r') as f:
+        cpu_docker.append(int(f.read().split('/n')[0])/(10**9))
+    with open(mem_file, 'r') as f:
+        mem_docker.append(int(f.read().split('/n')[0])/MB)
     io_counters = process.io_counters() 
     disk_in.append( io_counters[2]/MB) # read_bytes
     disk_out.append(io_counters[3]/MB) # write_bytes
@@ -94,15 +105,15 @@ while psutil.pid_exists(PID) and process.status() not in END_STATUS: # while pro
     cpu_p.append(process.cpu_percent()) # cpu usage
     cpu.append(process.cpu_times().user) # cpu time
     trds.append(process.num_threads()) # num threads
-    ts.append(t) # sampling time
+    ts.append(start_millis - int(round(time.time() * 1000))) # sampling time
     time.sleep(T) # wait for next sampling
-    t += T # increment timer
 
 # Write out results (io or file)
-s = f'#cores:{psutil.cpu_count()}\n' # store number of CPU  
+s = f'#start time: {start_time}'
+s += f'#cores:{psutil.cpu_count()}\n' # store number of CPU  
 s += '#time(ms), memory(Mb), CPU(s), CPU(%), Threads, Read IO, Write IO\n' # columns label
-for t, m, c, c_p, td, disk_in, disk_out in zip(ts, mem, cpu, cpu_p, trds, disk_in, disk_out): # iterate entries
-    s += f'{t*1000},{m},{c},{c_p},{td},{disk_in},{disk_out}\n' # create comma separated row
+for t, m, c, c_p, td, disk_in, disk_out, cpu_dock, mem_dock in zip(ts, mem, cpu, cpu_p, trds, disk_in, disk_out, cpu_docker, mem_docker): # iterate entries
+    s += f'{t*1000},{m},{c},{c_p},{td},{disk_in},{disk_out},{cpu_dock},{mem_dock}\n' # create comma separated row
 if args.o is None: # print 
     print(s, end='')
 else: # save to file

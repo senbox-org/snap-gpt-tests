@@ -3,10 +3,14 @@
 # output file
 csvoutput=$1
 # time variable
-t=0.0
-echo "#time (s), memory (Mb), CPU (s)" > $csvoutput
+start_t=`date +%s%N`
+echo "#start time(ms): $start_t" > $csvoutput
+echo "#time (s), memory (Mb), CPU (s)" >> $csvoutput
 while :
-do
+do	
+	# compute relative time
+	t=`date +%s%N`
+	t=`echo "($t - $start_t) / 1000000 " | bc`
 	# cpu usage in ns
 	cpu=`cat /sys/fs/cgroup/cpuacct/cpuacct.usage`
 	# memory usage in bytes
@@ -20,6 +24,4 @@ do
 	echo "$t,$mem,$cpu" >> $csvoutput
 	# sleep 0.1s
 	sleep 0.1
-	# increment time variable
-	t=`echo "scale=2; $t + 0.1" | bc -l`
 done
