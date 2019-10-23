@@ -87,8 +87,8 @@ trds = [] # number of threads
 
 cpu_docker = []
 mem_docker = []
-cpu_file = ""
-mem_file = ""
+cpu_file = "/sys/fs/cgroup/cpuacct/cpuacct.usage"
+mem_file = "/sys/fs/cgroup/memory/memory.usage_in_bytes"
 
 start_time = datetime.datetime.now()
 start_millis = int(round(time.time() * 1000))
