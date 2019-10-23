@@ -85,19 +85,10 @@ disk_out = [] # disk out usage
 ts = [] # sampling time
 trds = [] # number of threads
 
-cpu_docker = []
-mem_docker = []
-cpu_file = "/sys/fs/cgroup/cpuacct/cpuacct.usage"
-mem_file = "/sys/fs/cgroup/memory/memory.kmem.usage_in_bytes"
-
 start_time = datetime.datetime.now()
 start_millis = int(round(time.time() * 1000))
 print(f'$$$ Starting profiling: {start_time}')
 while psutil.pid_exists(PID) and process.status() not in END_STATUS: # while process is running
-    with open(cpu_file, 'r') as f:
-        cpu_docker.append(int(f.read().split('/n')[0])/(10**9))
-    with open(mem_file, 'r') as f:
-        mem_docker.append(int(f.read().split('/n')[0])/MB)
     io_counters = process.io_counters() 
     disk_in.append( io_counters[2]/MB) # read_bytes
     disk_out.append(io_counters[3]/MB) # write_bytes
@@ -112,8 +103,8 @@ while psutil.pid_exists(PID) and process.status() not in END_STATUS: # while pro
 s = f'#start time: {start_time}\n'
 s += f'#cores:{psutil.cpu_count()}\n' # store number of CPU  
 s += '#time(ms), memory(Mb), CPU(s), CPU(%), Threads, Read IO, Write IO\n' # columns label
-for t, m, c, c_p, td, disk_in, disk_out, cpu_dock, mem_dock in zip(ts, mem, cpu, cpu_p, trds, disk_in, disk_out, cpu_docker, mem_docker): # iterate entries
-    s += f'{t*1000},{m},{c},{c_p},{td},{disk_in},{disk_out},{cpu_dock},{mem_dock}\n' # create comma separated row
+for t, m, c, c_p, td, disk_in, disk_out in zip(ts, mem, cpu, cpu_p, trds, disk_in, disk_out): # iterate entries
+    s += f'{t*1000},{m},{c},{c_p},{td},{disk_in},{disk_out}\n' # create comma separated row
 if args.o is None: # print 
     print(s, end='')
 else: # save to file
