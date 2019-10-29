@@ -2556,13 +2556,13 @@
           {
             "x": 480,
             "y": 2,
-            "value": 2.3159502
+            "value": 1.3920062
           }
         ]
       },
       {
         "name": "conc_chl",
-        "description": "Chlorophylll concentration",
+        "description": "Chlorophyll concentration",
         "bandWidth": 4865,
         "bandHeight": 2728,
         "geophysicalUnit": "mg m^-3",
@@ -2585,7 +2585,7 @@
       },
       {
         "name": "unc_apig",
-        "description": "uncertainty of pigment absorption coefficient",
+        "description": "Uncertainty of pigment absorption coefficient",
         "bandWidth": 4865,
         "bandHeight": 2728,
         "geophysicalUnit": "m^-1",
@@ -2608,7 +2608,7 @@
       },
       {
         "name": "unc_adet",
-        "description": "uncertainty of detritus absorption coefficient",
+        "description": "Uncertainty of detritus absorption coefficient",
         "bandWidth": 4865,
         "bandHeight": 2728,
         "geophysicalUnit": "m^-1",
@@ -2631,7 +2631,7 @@
       },
       {
         "name": "unc_agelb",
-        "description": "uncertainty of dissolved gelbstoff absorption coefficient",
+        "description": "Uncertainty of dissolved gelbstoff absorption coefficient",
         "bandWidth": 4865,
         "bandHeight": 2728,
         "geophysicalUnit": "m^-1",
@@ -2654,7 +2654,7 @@
       },
       {
         "name": "unc_bpart",
-        "description": "uncertainty of particle scattering coefficient",
+        "description": "Uncertainty of particle scattering coefficient",
         "bandWidth": 4865,
         "bandHeight": 2728,
         "geophysicalUnit": "m^-1",
@@ -2677,7 +2677,7 @@
       },
       {
         "name": "unc_bwit",
-        "description": "uncertainty of white particle scattering coefficient",
+        "description": "Uncertainty of white particle scattering coefficient",
         "bandWidth": 4865,
         "bandHeight": 2728,
         "geophysicalUnit": "m^-1",
@@ -2700,7 +2700,7 @@
       },
       {
         "name": "unc_adg",
-        "description": "uncertainty of total gelbstoff absorption coefficient",
+        "description": "Uncertainty of total gelbstoff absorption coefficient",
         "bandWidth": 4865,
         "bandHeight": 2728,
         "geophysicalUnit": "m^-1",
@@ -2723,7 +2723,7 @@
       },
       {
         "name": "unc_atot",
-        "description": "uncertainty of total water constituent absorption coefficient",
+        "description": "Uncertainty of total water constituent absorption coefficient",
         "bandWidth": 4865,
         "bandHeight": 2728,
         "geophysicalUnit": "m^-1",
@@ -2746,7 +2746,7 @@
       },
       {
         "name": "unc_btot",
-        "description": "uncertainty of total water constituent scattering coefficient",
+        "description": "Uncertainty of total water constituent scattering coefficient",
         "bandWidth": 4865,
         "bandHeight": 2728,
         "geophysicalUnit": "m^-1",
@@ -2769,7 +2769,7 @@
       },
       {
         "name": "unc_tsm",
-        "description": "uncertainty of total suspended matter (TSM) dry weight concentration",
+        "description": "Uncertainty of total suspended matter (TSM) dry weight concentration",
         "bandWidth": 4865,
         "bandHeight": 2728,
         "geophysicalUnit": "g m^-3",
@@ -2792,7 +2792,7 @@
       },
       {
         "name": "unc_chl",
-        "description": "uncertainty of chlorophylll concentration",
+        "description": "Uncertainty of chlorophyll concentration",
         "bandWidth": 4865,
         "bandHeight": 2728,
         "geophysicalUnit": "mg m^-3",
@@ -2815,7 +2815,7 @@
       },
       {
         "name": "unc_kd489",
-        "description": "uncertainty of irradiance attenuation coefficient",
+        "description": "Uncertainty of irradiance attenuation coefficient",
         "bandWidth": 4865,
         "bandHeight": 2728,
         "geophysicalUnit": "m^-1",
@@ -2838,7 +2838,7 @@
       },
       {
         "name": "unc_kdmin",
-        "description": "uncertainty of mean irradiance attenuation coefficient",
+        "description": "Uncertainty of mean irradiance attenuation coefficient",
         "bandWidth": 4865,
         "bandHeight": 2728,
         "geophysicalUnit": "m^-1",
@@ -2861,7 +2861,7 @@
       },
       {
         "name": "unc_kd_z90max",
-        "description": "uncertainty of depth of the water column from which 90% of the water leaving irradiance comes from",
+        "description": "Uncertainty of depth of the water column from which 90% of the water leaving irradiance comes from",
         "bandWidth": 4865,
         "bandHeight": 2728,
         "geophysicalUnit": "m",
@@ -3261,10 +3261,6 @@
       {
         "path": "atmospheric_temperature_profile/reference_pressure_level",
         "value": "1000.0,950.0,925.0,900.0,850.0,800.0,700.0,600.0,500.0,400.0,300.0,250.0,200.0,150.0,100.0,70.0,50.0,30.0,20.0,10.0,7.0,5.0,3.0,2.0,1.0"
-      },
-      {
-        "path": "Processing_Graph/node.2/sources/sourceProduct",
-        "value": "olci_c2rcc"
       }
     ]
   }
