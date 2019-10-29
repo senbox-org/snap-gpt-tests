@@ -11,7 +11,7 @@
     <node id="Rayleigh">
         <operator>RayleighCorrection</operator>
         <sources>
-            <sourceProduct refid="Subset" />
+            <sourceProduct refid="Read" />
         </sources>
         <parameters>
             <sourceBandNames>$sourceBandNames</sourceBandNames>
@@ -39,14 +39,11 @@
         <node id="Read">
             <displayPosition x="20.0" y="136.0"/>
         </node>
-        <node id="Subset">
+        <node id="Rayleigh">
             <displayPosition x="140.0" y="136.0"/>
         </node>
-        <node id="Rayleigh">
-            <displayPosition x="260.0" y="136.0"/>
-        </node>
         <node id="Write">
-            <displayPosition x="500.0" y="136.0"/>
+            <displayPosition x="260.0" y="136.0"/>
         </node>
     </applicationData>
 </graph>
