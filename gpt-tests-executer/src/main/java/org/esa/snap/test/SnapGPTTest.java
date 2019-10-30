@@ -169,14 +169,8 @@ public class SnapGPTTest {
                         if (profiler) {
                             try {
                                 // Moving profiling output to the report folder
-                                Path perfGPT = Paths.get(tempFolder.resolve(graphTest.getId()).toString() + "_perf.csv");
-                                Files.copy(perfGPT, reportFolderPath.resolve(perfGPT.getFileName()));
-                                Path cpuplotPath = Paths.get(tempFolder.resolve(graphTest.getId()).toString() + "_perf_cpu_usage.png");
-                                Files.copy(cpuplotPath, reportFolderPath.resolve(cpuplotPath.getFileName()));
-                                Path memplotPath = Paths.get(tempFolder.resolve(graphTest.getId()).toString() + "_perf_memory_usage.png");
-                                Files.copy(memplotPath, reportFolderPath.resolve(memplotPath.getFileName()));
-                                Path ioplotPath = Paths.get(tempFolder.resolve(graphTest.getId()).toString() + "_perf_IO_usage.png");
-                                Files.copy(ioplotPath, reportFolderPath.resolve(ioplotPath.getFileName()));
+                                FileUtils.copyDirectory(tempFolder.resolve("csv"), reportFolderPath.resolve("csv"));
+                                FileUtils.copyDirectory(tempFolder.resolve("plot"), reportFolderPath.resolve("plot"));
                             }catch (Exception e) {
                                 System.out.println(String.format("Cannot copy performance: %s",e.getMessage()));
                             }
