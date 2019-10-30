@@ -175,6 +175,8 @@ public class SnapGPTTest {
                                 Files.copy(cpuplotPath, reportFolderPath.resolve(cpuplotPath.getFileName()));
                                 Path memplotPath = Paths.get(tempFolder.resolve(graphTest.getId()).toString() + "_perf_memory_usage.png");
                                 Files.copy(memplotPath, reportFolderPath.resolve(memplotPath.getFileName()));
+                                Path ioplotPath = Paths.get(tempFolder.resolve(graphTest.getId()).toString() + "_perf_IO_usage.png");
+                                Files.copy(ioplotPath, reportFolderPath.resolve(ioplotPath.getFileName()));
                             }catch (Exception e) {
                                 System.out.println(String.format("Cannot copy performance: %s",e.getMessage()));
                             }

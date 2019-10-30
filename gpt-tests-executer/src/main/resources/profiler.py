@@ -108,8 +108,8 @@ output = args.o
 s = f'#start time: {start_time}\n'
 s += f'#cores:{psutil.cpu_count()}\n' # store number of CPU  
 s += '#time(ms), memory(Mb), CPU(s), CPU(%), Threads, Read IO, Write IO\n' # columns label
-for t, m, c, c_p, td, disk_in, disk_out in zip(ts, mem, cpu, cpu_p, trds, disk_in, disk_out): # iterate entries
-    s += f'{t*1000},{m},{c},{c_p},{td},{disk_in},{disk_out}\n' # create comma separated row
+for t, m, c, c_p, td, io_in, io_out in zip(ts, mem, cpu, cpu_p, trds, disk_in, disk_out): # iterate entries
+    s += f'{t*1000},{m},{c},{c_p},{td},{io_in},{io_out}\n' # create comma separated row
 if output is None: # print 
     print(s, end='')
 else: # save to file
@@ -132,13 +132,24 @@ if args.p:
         plt.savefig(output+"_cpu_usage.png")
     
     fig = plt.figure(figsize=(10, 7))
-    plt.plot(ts, cpu_p)
+    plt.plot(ts, mem)
     plt.xlabel("Elapsed time (ms)")
     plt.ylabel("Memory (Mb)")
     plt.grid(alpha=0.5)
     plt.title("Memory Usage")
     if output is not None:
         plt.savefig(output+"_memory_usage.png")
+    
+    fig = plt.figure(figsize=(10, 7))
+    plt.plot(ts, disk_in, label='In')
+    plt.plot(ts, disk_out, label='Out')
+    plt.legend()
+    plt.xlabel("Elapsed time (ms)")
+    plt.ylabel("IO (Mb)")
+    plt.grid(alpha=0.5)
+    plt.title("IO Activity")
+    if output is not None:
+        plt.savefig(output+"_IO_usage.png")
     
     if output is None:
         plt.show()
