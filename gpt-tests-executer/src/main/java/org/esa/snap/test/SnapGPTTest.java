@@ -171,8 +171,10 @@ public class SnapGPTTest {
                                 // Moving profiling output to the report folder
                                 Path perfGPT = Paths.get(tempFolder.resolve(graphTest.getId()).toString() + "_perf.csv");
                                 Files.copy(perfGPT, reportFolderPath.resolve(perfGPT.getFileName()));
-                                Path dockerGPT = Paths.get(tempFolder.resolve(graphTest.getId()).toString() + "_dockerstats.csv");
-                                Files.copy(dockerGPT, reportFolderPath.resolve(dockerGPT.getFileName()));
+                                Path cpuplotPath = Paths.get(tempFolder.resolve(graphTest.getId()).toString() + "_perf_cpu_usage.png");
+                                Files.copy(cpuplotPath, reportFolderPath.resolve(cpuplotPath.getFileName()));
+                                Path memplotPath = Paths.get(tempFolder.resolve(graphTest.getId()).toString() + "_perf_memory_usage.png");
+                                Files.copy(memplotPath, reportFolderPath.resolve(memplotPath.getFileName()));
                             }catch (Exception e) {
                                 System.out.println(String.format("Cannot copy performance: %s",e.getMessage()));
                             }

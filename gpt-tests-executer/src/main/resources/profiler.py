@@ -42,6 +42,7 @@ parser.add_argument('-f', default=100, help="sampling period in ms")
 parser.add_argument('-o', default=None, help="save results to file")
 parser.add_argument('-w', choices=[True, False], default=False, help="wait time before starting profiling [default=True]")
 parser.add_argument('-c', default=False, help="profile children flag [default=True]", choices=[True, False])
+parser.add_argument('-p', default=True, help="plot perforamnces (save if save file setted)", choices=[True, False])
 
 # parse arguments
 args = parser.parse_args()
@@ -86,7 +87,7 @@ ts = [] # sampling time
 trds = [] # number of threads
 
 start_time = datetime.datetime.now()
-start_millis = int(round(time.time() * 1000))
+start_t = time.time()
 print(f'$$$ Starting profiling: {start_time}')
 while psutil.pid_exists(PID) and process.status() not in END_STATUS: # while process is running
     io_counters = process.io_counters() 
@@ -96,8 +97,12 @@ while psutil.pid_exists(PID) and process.status() not in END_STATUS: # while pro
     cpu_p.append(process.cpu_percent()) # cpu usage
     cpu.append(process.cpu_times().user) # cpu time
     trds.append(process.num_threads()) # num threads
-    ts.append(int(round(time.time() * 1000)) - start_millis) # sampling time
+    ts.append(int(round(1000*(time.time() - start_t)))) # sampling time
+    # TODO: Evaluate an adaptive sleep using statistics to regulate the timer
     time.sleep(T) # wait for next sampling
+
+# Output
+output = args.o
 
 # Write out results (io or file)
 s = f'#start time: {start_time}\n'
@@ -105,8 +110,35 @@ s += f'#cores:{psutil.cpu_count()}\n' # store number of CPU
 s += '#time(ms), memory(Mb), CPU(s), CPU(%), Threads, Read IO, Write IO\n' # columns label
 for t, m, c, c_p, td, disk_in, disk_out in zip(ts, mem, cpu, cpu_p, trds, disk_in, disk_out): # iterate entries
     s += f'{t*1000},{m},{c},{c_p},{td},{disk_in},{disk_out}\n' # create comma separated row
-if args.o is None: # print 
+if output is None: # print 
     print(s, end='')
 else: # save to file
-    with open(args.o, 'w') as f:
+    with open(output + ".csv", 'w') as f:
         f.write(s)
+
+# plot results if needed 
+# NOTE: only import matplotlib library here to avoid including it and limiting the functionality
+# when not needed
+if args.p:
+
+    import matplotlib.pyplot as plt
+    fig = plt.figure(figsize=(10, 7))
+    plt.plot(ts, cpu_p)
+    plt.xlabel("Elapsed time (ms)")
+    plt.ylabel("CPU Usage (%)")
+    plt.grid(alpha=0.5)
+    plt.title("CPU Usage")
+    if output is not None:
+        plt.savefig(output+"_cpu_usage.png")
+    
+    fig = plt.figure(figsize=(10, 7))
+    plt.plot(ts, cpu_p)
+    plt.xlabel("Elapsed time (ms)")
+    plt.ylabel("Memory (Mb)")
+    plt.grid(alpha=0.5)
+    plt.title("Memory Usage")
+    if output is not None:
+        plt.savefig(output+"_memory_usage.png")
+    
+    if output is None:
+        plt.show()

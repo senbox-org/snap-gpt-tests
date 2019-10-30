@@ -130,7 +130,6 @@ public class TestExecutor {
         }
 
         ProcessBuilder builder;
-        Process dockerProfiler = null;
         if (profilerEnabled){
             //execute graph
             ArrayList<String> profiler = new ArrayList<String>();
@@ -138,19 +137,8 @@ public class TestExecutor {
             profiler.add(basePath.toString()+"/profiler.py");
             profiler.add(exportArgs(params));
             profiler.add("-o");
-            profiler.add(String.format("%s_perf.csv", tempFolder.resolve(graphTest.getId()).toString()));
+            profiler.add(String.format("%s_perf", tempFolder.resolve(graphTest.getId()).toString()));
             
-            // Initialize and run docker profiler
-            ArrayList<String> dockerProfilerArgs = new ArrayList<String>();
-            dockerProfilerArgs.add("sh");
-            dockerProfilerArgs.add(basePath.toString()+"/profiler.sh");
-            dockerProfilerArgs.add(String.format("%s_dockerstats.csv", tempFolder.resolve(graphTest.getId()).toString()));
-            ProcessBuilder dockerBuilder = new ProcessBuilder(dockerProfilerArgs);
-            dockerBuilder.environment();
-
-            dockerBuilder.command();
-            dockerProfiler = dockerBuilder.start();
-
             builder = new ProcessBuilder(profiler);
         } else {
             builder = new ProcessBuilder(params);
@@ -173,11 +161,7 @@ public class TestExecutor {
             }
             return false;
         }
-        
-        if (profilerEnabled && dockerProfiler != null && dockerProfiler.isAlive()) {
-            dockerProfiler.destroy();
-        }
-
+    
         //check outputs
         for(Output output : graphTest.getOutputs()) {
             final ObjectMapper mapper = new ObjectMapper();
