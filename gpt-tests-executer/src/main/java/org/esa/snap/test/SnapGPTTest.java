@@ -169,8 +169,9 @@ public class SnapGPTTest {
                         if (profiler) {
                             try {
                                 // Moving profiling output to the report folder
-                                FileUtils.copyDirectory(tempFolder.resolve("csv"), reportFolderPath.resolve("csv"));
-                                FileUtils.copyDirectory(tempFolder.resolve("plot"), reportFolderPath.resolve("plot"));
+                                // TODO: use a path method that does not require conversion to File
+                                FileUtils.copyDirectory(tempFolder.resolve("csv").toFile(), reportFolderPath.resolve("csv").toFile());
+                                FileUtils.copyDirectory(tempFolder.resolve("plot").toFile(), reportFolderPath.resolve("plot").toFile());
                             }catch (Exception e) {
                                 System.out.println(String.format("Cannot copy performance: %s",e.getMessage()));
                             }
