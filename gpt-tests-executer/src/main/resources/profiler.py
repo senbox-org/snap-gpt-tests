@@ -15,6 +15,25 @@ __PLT_DIR__ = "plot"
 __SUM_DIR__ = "stats"
 # Conversion const
 __MB__ = 2**20 # const for converting bytes to mega bytes
+# HTML report template
+__HTML_TEMPLATE__ = """<html><head>
+<title>$(test_id) performance report</title>
+<style>
+body { font-family: Arial, Helvetica, sans-serif; padding: 1em;}    
+table.summary { border: 2px solid #FFFFFF; text-align: left; border-collapse: collapse;}
+table.summary td, table.summary th { border: 0px solid #FFFFFF; padding: 3px 4px;}    
+h1 { font-size: 2em; }
+h2 { font-size: 1.3em; }
+</style></head>
+<body>
+<div class="title"><h1>$(test_id) performance summary</h1><hr></div>
+<h2>Summary</h2>
+<table class="summary"><tbody>
+$(summary_table)
+</tbody></table>
+<div class="plots"><h2>Plots</h2>
+<img src="plot/$(test_id)_cpu_usage.png"><img src="plot/$(test_id)_memory_usage.png"><img src="plot/$(test_id)_IO_usage.png">
+</div></body></html>"""
 
 
 # Simple class definition for statistics and paths
@@ -102,6 +121,10 @@ class ProcessStats:
         return s
 
 
+def __generate_report_table_row__(key, value, unit):
+    """generates a row for the summary table of the html report."""
+    return f"<tr><td><b>{key}:</b></td><td>{value:0.2f} {unit}</td></tr>"
+
 class ReportOut:
     """Report and output generation class"""  
     def __init__(self, output_arg):
@@ -181,6 +204,20 @@ class ReportOut:
         if not self.__file_mode__:
             plt.show()
 
+    def html_report(self, summary, include_plot):
+        if not self.__file_mode__:
+            return
+        html = __HTML_TEMPLATE__.replace("$(test_id)", self.path_fname)
+        summ_table = __generate_report_table_row__("Process duration", summary['duration']['value'], summary['duration']['unit']) 
+        summ_table += __generate_report_table_row__("CPU total time", summary['cpu_time']['value'], summary['cpu_time']['unit']) 
+        summ_table += __generate_report_table_row__("CPU average usage", summary['cpu_usage']['average'], summary['cpu_usage']['unit']) 
+        summ_table += __generate_report_table_row__("CPU max usage", summary['cpu_usage']['max'], summary['cpu_usage']['unit'])
+        summ_table += __generate_report_table_row__("Memory average usage", summary['memory']['average'], summary['memory']['unit'])
+        summ_table += __generate_report_table_row__("Memory max usage", summary['memory']['max'], summary['memory']['unit'])
+        html = html.replace('$(summary_table)', summ_table)
+        with open(os.path.join(self.path_base, 'report_perf_'+self.path_fname+'.html'), 'w') as f:
+            f.write(html)
+
 
 def __split_command_args__(command):
     """
@@ -218,11 +255,12 @@ def __arguments__():
     parser = argparse.ArgumentParser()
 
     parser.add_argument('command', help="command to profile")
-    parser.add_argument('-f', default=100, help="sampling period in ms")
+    parser.add_argument('--frequence', default=100, help="sampling period in ms")
     parser.add_argument('-o', default=None, help="save results to file")
     parser.add_argument('-w', choices=[True, False], default=False, help="wait time before starting profiling [default=True]")
     parser.add_argument('-c', default=False, help="profile children flag [default=True]", choices=[True, False])
-    parser.add_argument('-p', default=True, help="plot perforamnces (save if save file setted)", choices=[True, False])
+    parser.add_argument('--plot', default=True, help="plot perforamnces (save if save file setted)", choices=[True, False])
+    parser.add_argument('--report', default=True, help="produce html report", choices=[True, False])
 
     # parse arguments
     return parser.parse_args()
@@ -237,7 +275,7 @@ def main():
     # split command in sub parts
     command = __split_command_args__(args.command)
         
-    T = args.f/1000.0 # convert period from ms to s
+    T = args.frequence/1000.0 # convert period from ms to s
     END_STATUS = set([psutil.STATUS_STOPPED, psutil.STATUS_DEAD, psutil.STATUS_ZOMBIE]) # set of possible end status
 
     # execute the command and retrive the PID
@@ -281,8 +319,11 @@ def main():
     # plot results if needed 
     # NOTE: only import matplotlib library here to avoid including it and limiting the functionality
     # when not needed
-    if args.p:
+    if args.plot:
         report_io.plot(p_stats)
+    # generate html report if required using summary (and plots)
+    if args.report:
+        report_io.html_report(summary, args.plot)
 
 
 if __name__ == "__main__":
