@@ -248,10 +248,10 @@ def main():
     PID = process.pid
     p_stats = ProcessStats(time=[],cpu_time=[], cpu_perc=[], memory=[], threads=[], io_write=[], io_read=[], start_time=0)
 
-    p_stat.start_time = datetime.datetime.now()
+    p_stats.start_time = datetime.datetime.now()
     start_t = time.time()
     while psutil.pid_exists(PID) and process.status() not in END_STATUS: # while process is running
-        p_stat = __updates_stats__(process, p_stats)
+        p_stats = __updates_stats__(process, p_stats)
         # TODO: Evaluate an adaptive sleep using statistics to regulate the timer
         time.sleep(T) # wait for next sampling
 
