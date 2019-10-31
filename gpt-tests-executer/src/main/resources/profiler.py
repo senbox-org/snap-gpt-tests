@@ -7,7 +7,6 @@ import argparse
 import subprocess
 import json
 import os
-from collections import namedtuple
 
 
 # Directory name constants
