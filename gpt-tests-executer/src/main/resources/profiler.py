@@ -60,9 +60,9 @@ class ProcessStats:
         ----------
          - process: psutils.process to profile
         """
-        io_counters = psutil.disk_io_counters() # use system wide counters (not the process one) 
-        self.io_read.append(io_counters[2]/__MB__) # read_bytes
-        self.io_write.append(io_counters[3]/__MB__) # write_bytes
+        io_counters = process.io_counters() # use system wide counters (not the process one) 
+        self.io_read.append(io_counters[0]) # read_bytes
+        self.io_write.append(io_counters[1]) # write_bytes
         self.memory.append(process.memory_info().rss/__MB__) # memory
         self.cpu_perc.append(process.cpu_percent()) # cpu usage
         self.cpu_time.append(process.cpu_times().user) # cpu time
@@ -96,7 +96,7 @@ class ProcessStats:
             'io': {
                 'write' : max(self.io_write),
                 'read'  : max(self.io_read),
-                'unit'  : 'Mb',
+                'unit'  : '',
             }, 
             'threads': {
                 'unit'    : '',
@@ -114,7 +114,7 @@ class ProcessStats:
         # Write out results (io or file)
         s = f'#start time: {self.start_time}\n'
         s += f'#cores:{psutil.cpu_count()}\n' # store number of CPU  
-        s += '#time(ms), memory(Mb), CPU(s), CPU(%), Threads, Read IO (Mb), Write IO (Mb)\n' # columns label
+        s += '#time(ms), memory(Mb), CPU(s), CPU(%), Threads, Read IO (#), Write IO (#)\n' # columns label
         for i in range(len(self.time)): # iterate entries
             # create comma separated row
             s += f'{self.time[i]},{self.memory[i]},{self.cpu_time[i]},{self.cpu_perc[i]},{self.threads},{self.io_read},{self.io_write}\n' 
@@ -190,11 +190,11 @@ class ReportOut:
 
         # plot io activity
         fig = plt.figure(figsize=(10, 7))
-        plt.plot(stats.time, stats.io_read, label='Read')
-        plt.plot(stats.time, stats.io_write, label='Write')
+        plt.plot(stats.time, stats.io_read, label='Read Count')
+        plt.plot(stats.time, stats.io_write, label='Write Count')
         plt.legend()
         plt.xlabel("Elapsed time (ms)")
-        plt.ylabel("Activity (Mb)")
+        plt.ylabel("Counter")
         plt.grid(alpha=0.5)
         plt.title("Disk IO Activity")
         if self.__file_mode__:
