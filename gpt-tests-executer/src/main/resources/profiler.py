@@ -63,8 +63,8 @@ class ProcessStats:
         io_counters = process.io_counters() # use system wide counters (not the process one) 
         self.io_read.append(io_counters[0]) # read_bytes
         self.io_write.append(io_counters[1]) # write_bytes
-        self.memory.append(process.memory_info().rss/__MB__) # memory
-        self.cpu_perc.append(process.cpu_percent()) # cpu usage
+        self.memory.append(int(round(process.memory_info().rss/__MB__))) # memory
+        self.cpu_perc.append(int(process.cpu_percent())) # cpu usage
         self.cpu_time.append(process.cpu_times().user) # cpu time
         self.threads.append(process.num_threads()) # num threads
         self.time.append(int(round(1000*(time.time() - self.start_time)))) # sampling time
@@ -255,7 +255,7 @@ def __arguments__():
     parser = argparse.ArgumentParser()
 
     parser.add_argument('command', help="command to profile")
-    parser.add_argument('--frequence', default=100, help="sampling period in ms")
+    parser.add_argument('--frequence', default=1000, help="sampling period in ms")
     parser.add_argument('-o', default=None, help="save results to file")
     parser.add_argument('-w', choices=[True, False], default=False, help="wait time before starting profiling [default=True]")
     parser.add_argument('-c', default=False, help="profile children flag [default=True]", choices=[True, False])
