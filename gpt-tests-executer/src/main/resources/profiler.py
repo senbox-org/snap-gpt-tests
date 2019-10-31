@@ -183,7 +183,7 @@ def __plot__(stats, path=None):
     plt.grid(alpha=0.5)
     plt.title("CPU Usage")
     if path is not None:
-        plt.savefig(os.path.join(path.plt, path.file_name+"_cpu_usage.svg"), format="svg")
+        plt.savefig(os.path.join(path.plt, path.file_name+"_cpu_usage.svg"), format="svg", facecolor='w')
     
     # plot memory usage
     fig = plt.figure(figsize=(10, 7))
@@ -193,7 +193,7 @@ def __plot__(stats, path=None):
     plt.grid(alpha=0.5)
     plt.title("Memory Usage")
     if path is not None:
-        plt.savefig(os.path.join(path.plt, path.file_name+"_memory_usage.svg"), format="svg")
+        plt.savefig(os.path.join(path.plt, path.file_name+"_memory_usage.svg"), format="svg", facecolor='w')
     
     # plot io activity
     fig = plt.figure(figsize=(10, 7))
@@ -205,7 +205,7 @@ def __plot__(stats, path=None):
     plt.grid(alpha=0.5)
     plt.title("Disk IO Activity")
     if path is not None:
-        plt.savefig(os.path.join(path.plt, path.file_name+"_IO_usage.svg"), format="svg")
+        plt.savefig(os.path.join(path.plt, path.file_name+"_IO_usage.svg"), format="svg", facecolor='w')
 
     # show results if no output is defined
     if path is None:
