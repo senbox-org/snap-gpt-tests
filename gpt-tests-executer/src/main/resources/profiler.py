@@ -5,12 +5,22 @@ import datetime
 import time
 import argparse
 import subprocess
+import json
 import os
+from collections import namedtuple
 
 
 # Directory name constants
 __CSV_DIR__ = "csv"
 __PLT_DIR__ = "plot"
+__SUM_DIR__ = "stats"
+# Conversion const
+__MB__ = 2**20 # const for converting bytes to mega bytes
+
+
+# Simple class definition for statistics and paths
+ProcessStats = namedtuple('ProcessStats', ['time', 'cpu_time', 'cpu_perc', 'memory', 'threads', 'io_write', 'io_read', 'start_time'])
+ReportPath = namedtuple("ReportPath", ['csv', 'plt', 'base', 'summary', 'file_name'])
 
 
 def __split_command_args__(command):
@@ -59,6 +69,149 @@ def __arguments__():
     return parser.parse_args()
 
 
+def __generate_csv__(stats):
+    """
+    generates the csv string for the stats
+    """
+    # Write out results (io or file)
+    s = f'#start time: {stats.start_time}\n'
+    s += f'#cores:{psutil.cpu_count()}\n' # store number of CPU  
+    s += '#time(ms), memory(Mb), CPU(s), CPU(%), Threads, Read IO, Write IO\n' # columns label
+    for i in range(len(stats.time)): # iterate entries
+        s += f'{stats.time[i]},{stats.memory[i]},{stats.cpu_time[i]},{stats.cpu_perc[i]},{stats.threads},{stats.io_read},{stats.io_write}\n' # create comma separated row
+    return s
+
+
+def __stats_summary__(stats, path):
+    """
+    compute statistics summary and print/save it as json structure
+    """
+    N = len(stats.time)
+    summary = {
+        'duration': {
+            'value' : stats.time[-1],
+            'unit'  : 'ms',
+        },
+        'memory': {
+            'unit'    : 'Mb',
+            'max'     : max(stats.memory),
+            'average' : sum(stats.memory) / N,
+        },
+        'cpu_time': {
+            'value': max(stats.cpu_time),
+            'unit' : 's',
+        },
+        'cpu_usage': {
+            'unit'    : '%',
+            'max'     : max(stats.cpu_perc),
+            'average' : sum(stats.cpu_perc) / N,
+        },
+        'io': {
+            'write' : max(stats.io_write),
+            'read'  : max(stats.io_read),
+            'unit'  : 'Mb',
+        }, 
+        'threads': {
+            'unit'    : '',
+            'max'     : max(stats.threads),
+            'average' : sum(stats.threads) / N,
+            'min'     : min(stats.threads),
+        },
+    }
+    res = json.dumps(summary, indent=4)
+    if path is None:
+        print(res)
+    else:
+        fp = os.path.join(path.summary, path.file_name + '_sum.json')
+        with open(fp, 'w') as f:
+            f.write(res)
+    return summary
+
+
+def __updates_stats__(process, stat):
+    """
+    Update process statistics with current process status.
+    """
+    # TODO: found why the read 
+    io_counters = psutil.disk_io_counters() # use system wide counters (not the process one) 
+    stat.io_read.append(io_counters[2]/__MB__) # read_bytes
+    stat.io_write.append(io_counters[3]/__MB__) # write_bytes
+    stat.memory.append(process.memory_info().rss/__MB__) # memory
+    stat.cpu_perc.append(process.cpu_percent()) # cpu usage
+    stat.cpu_time.append(process.cpu_times().user) # cpu time
+    stat.threads.append(process.num_threads()) # num threads
+    stat.time.append(int(round(1000*(time.time() - stat.start_time)))) # sampling time
+    return stat
+
+
+def __init_path__(output_path):
+    """
+    Initializes ReportPath structure and create the needed
+    folders.
+    """
+    if output_path is None:
+        return None
+    path = ReportPath()
+    # init base path
+    path.base = os.path.split(output_path)[0]
+    path.file_name = os.path.split(output_path)[1]
+    path.csv = os.path.join(path.base, __CSV_DIR__) 
+    path.plt = os.path.join(path.base, __PLT_DIR__)
+    path.summary = os.path.join(path.base, __SUM_DIR__)
+    # try to create CSV folder and Plot folder
+    if not os.path.exists(path.csv):
+        os.mkdir(path.csv)
+    if not os.path.exists(path.plt):
+        os.mkdir(path.plt)  
+    if not os.path.exists(path.summary):
+        os.mkdir(path.summary)      
+    return path
+
+
+def __plot__(stats, path=None):
+    """
+    Plot process statistics using matplotlib.
+    """
+    # import required library
+    import matplotlib.pyplot as plt
+    
+    # plot cpu usage 
+    fig = plt.figure(figsize=(10, 7))
+    plt.plot(stats.time, stats.cpu_perc)
+    plt.xlabel("Elapsed time (ms)")
+    plt.ylabel("CPU Usage (%)")
+    plt.grid(alpha=0.5)
+    plt.title("CPU Usage")
+    if path is not None:
+        plt.savefig(os.path.join(path.plt, path.file_name+"_cpu_usage.svg"), format="svg")
+    
+    # plot memory usage
+    fig = plt.figure(figsize=(10, 7))
+    plt.plot(stats.time, stats.memory)
+    plt.xlabel("Elapsed time (ms)")
+    plt.ylabel("Memory (Mb)")
+    plt.grid(alpha=0.5)
+    plt.title("Memory Usage")
+    if path is not None:
+        plt.savefig(os.path.join(path.plt, path.file_name+"_memory_usage.svg"), format="svg")
+    
+    # plot io activity
+    fig = plt.figure(figsize=(10, 7))
+    plt.plot(stats.time, stats.io_read, label='Read')
+    plt.plot(stats.time, stats.io_write, label='Write')
+    plt.legend()
+    plt.xlabel("Elapsed time (ms)")
+    plt.ylabel("Activity (Mb)")
+    plt.grid(alpha=0.5)
+    plt.title("Disk IO Activity")
+    if path is not None:
+        plt.savefig(os.path.join(path.plt, path.file_name+"_IO_usage.svg"), format="svg")
+
+    # show results if no output is defined
+    if path is None:
+        plt.show()
+
+
 def main():
     """
     main entry point of the profiler
@@ -67,12 +220,7 @@ def main():
     args = __arguments__()
     # split command in sub parts
     command = __split_command_args__(args.command)
-    print("\nProfiling")
-    print("=========")
-    print(f"command: `{' '.join(command)}`")    
-    print(f"output file: `{args.o}`\n") 
         
-    MB = 2**20 # const for converting bytes to mega bytes
     T = args.f/1000.0 # convert period from ms to s
     END_STATUS = set([psutil.STATUS_STOPPED, psutil.STATUS_DEAD, psutil.STATUS_ZOMBIE]) # set of possible end status
 
@@ -97,99 +245,36 @@ def main():
 
     # initilize results variables
     PID = process.pid
-    cpu = [] # cpu time
-    cpu_p = [] # cpu usage
-    mem = [] # memory usage
-    disk_read = [] # disk in usage
-    disk_write = [] # disk out usage
-    ts = [] # sampling time
-    trds = [] # number of threads
+    p_stats = ProcessStats(time=[],cpu_time=[], cpu_perc=[], memory=[], threads=[], io_write=[], io_read=[])
 
-    start_time = datetime.datetime.now()
+    p_stat.start_time = datetime.datetime.now()
     start_t = time.time()
-    print(f'$$$ Starting profiling: {start_time}')
     while psutil.pid_exists(PID) and process.status() not in END_STATUS: # while process is running
-        # TODO: found why the read 
-        io_counters = psutil.disk_io_counters() # use system wide counters (not the process one) 
-        disk_read.append(io_counters[2]/MB) # read_bytes
-        disk_write.append(io_counters[3]/MB) # write_bytes
-        mem.append(process.memory_info().rss/MB) # memory
-        cpu_p.append(process.cpu_percent()) # cpu usage
-        cpu.append(process.cpu_times().user) # cpu time
-        trds.append(process.num_threads()) # num threads
-        ts.append(int(round(1000*(time.time() - start_t)))) # sampling time
+        p_stat = __updates_stats__(process, p_stats)
         # TODO: Evaluate an adaptive sleep using statistics to regulate the timer
         time.sleep(T) # wait for next sampling
 
     # Output
     output = args.o
-    base_path = None
-    csv_path = None
-    plt_path = None
-    file_name = None
-    # if output is defined create needed structure
-    if output is not None:
-        # init base path
-        base_path = os.path.split(output)[0]
-        file_name = os.path.split(output)[1]
-        csv_path = os.path.join(base_path, __CSV_DIR__) 
-        plt_path = os.path.join(base_path, __PLT_DIR__)
-        # try to create CSV folder and Plot folder
-        if not os.path.exists(csv_path):
-            os.mkdir(csv_path)
-        if not os.path.exists(plt_path):
-            os.mkdir(plt_path)  
+    # initialize path structure and make output directories
+    report_path = __init_path__(output)
 
     # Write out results (io or file)
-    s = f'#start time: {start_time}\n'
-    s += f'#cores:{psutil.cpu_count()}\n' # store number of CPU  
-    s += '#time(ms), memory(Mb), CPU(s), CPU(%), Threads, Read IO, Write IO\n' # columns label
-    for t, m, c, c_p, td, io_in, io_out in zip(ts, mem, cpu, cpu_p, trds, disk_read, disk_write): # iterate entries
-        s += f'{t*1000},{m},{c},{c_p},{td},{io_in},{io_out}\n' # create comma separated row
+    csv_string = __generate_csv__(p_stats) # generate csv string
     if output is None: # print 
-        print(s, end='')
+        print(csv_string, end='')
     else: # save to file
-        with open(os.path.join(csv_path, file_name + ".csv"), 'w') as f:
-            f.write(s)
+        with open(os.path.join(report_path.csv, report_path.file_name + ".csv"), 'w') as f:
+            f.write(csv_string)
+
+    # compute and save/display statistic summary (max, average...)
+    __stats_summary__(p_stats, report_path)
 
     # plot results if needed 
     # NOTE: only import matplotlib library here to avoid including it and limiting the functionality
     # when not needed
     if args.p:
-
-        import matplotlib.pyplot as plt
-        fig = plt.figure(figsize=(10, 7))
-        plt.plot(ts, cpu_p)
-        plt.xlabel("Elapsed time (ms)")
-        plt.ylabel("CPU Usage (%)")
-        plt.grid(alpha=0.5)
-        plt.title("CPU Usage")
-        if output is not None:
-            plt.savefig(os.path.join(plt_path, file_name+"_cpu_usage.svg"))
-        
-        fig = plt.figure(figsize=(10, 7))
-        plt.plot(ts, mem)
-        plt.xlabel("Elapsed time (ms)")
-        plt.ylabel("Memory (Mb)")
-        plt.grid(alpha=0.5)
-        plt.title("Memory Usage")
-        if output is not None:
-            plt.savefig(os.path.join(plt_path, file_name+"_memory_usage.svg"))
-        
-        fig = plt.figure(figsize=(10, 7))
-        plt.plot(ts, disk_read, label='Read')
-        plt.plot(ts, disk_write, label='Write')
-        plt.legend()
-        plt.xlabel("Elapsed time (ms)")
-        plt.ylabel("Activity (Mb)")
-        plt.grid(alpha=0.5)
-        plt.title("Disk IO Activity")
-        if output is not None:
-            plt.savefig(os.path.join(plt_path, file_name+"_IO_usage.svg"))
-        
-        if output is None:
-            plt.show()
-
+        __plot__(p_stats, report_path)
         # if output is not None:
             # create_html_report()
 
