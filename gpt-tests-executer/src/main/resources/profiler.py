@@ -19,11 +19,10 @@ __MB__ = 2**20 # const for converting bytes to mega bytes
 
 
 # Simple class definition for statistics and paths
-__fields__ = ['time', 'cpu_time', 'cpu_perc', 'memory', 'threads', 'io_write', 'io_read', 'start_time']
-ProcessStats = namedtuple('ProcessStats', __fields__ , defaults=(None,) * len(__fields__))
-__fields__ =  ['csv', 'plt', 'base', 'summary', 'file_name']
-ReportPath = namedtuple("ReportPath", __fields__, defaults=(None,) * len(__fields__))
-
+ProcessStats = namedtuple('ProcessStats', ['time', 'cpu_time', 'cpu_perc', 'memory', 'threads', 'io_write', 'io_read', 'start_time'])
+ProcessStats.__new__.__defaults__ = (None,) * len(ProcessStats._fields)
+ReportPath = namedtuple("ReportPath", ['csv', 'plt', 'base', 'summary', 'file_name'])
+ReportPath.__new__.__defaults__ = (None,) * len(ReportPath._fields)
 
 def __split_command_args__(command):
     """
