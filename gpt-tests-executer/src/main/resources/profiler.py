@@ -153,7 +153,7 @@ class ReportOut:
         plt.grid(alpha=0.5)
         plt.title("CPU Usage")
         if self.__file_mode__:
-            plt.savefig(os.path.join(self.path_plt, self.path_fname+"_cpu_usage.svg"), format="svg", facecolor='w')
+            plt.savefig(os.path.join(self.path_plt, self.path_fname+"_cpu_usage.png"))
 
         # plot memory usage
         fig = plt.figure(figsize=(10, 7))
@@ -163,7 +163,7 @@ class ReportOut:
         plt.grid(alpha=0.5)
         plt.title("Memory Usage")
         if self.__file_mode__:
-            plt.savefig(os.path.join(self.path_plt, self.path_fname+"_memory_usage.svg"), format="svg", facecolor='w')
+            plt.savefig(os.path.join(self.path_plt, self.path_fname+"_memory_usage.png"))
 
         # plot io activity
         fig = plt.figure(figsize=(10, 7))
@@ -175,7 +175,7 @@ class ReportOut:
         plt.grid(alpha=0.5)
         plt.title("Disk IO Activity")
         if self.__file_mode__:
-            plt.savefig(os.path.join(self.path_plt, self.path_fname+"_IO_usage.svg"), format="svg", facecolor='w')
+            plt.savefig(os.path.join(self.path_plt, self.path_fname+"_IO_usage.png"))
 
         # show results if no output is defined
         if not self.__file_mode__:
