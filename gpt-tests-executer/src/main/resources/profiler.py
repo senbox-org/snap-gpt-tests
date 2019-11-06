@@ -117,7 +117,7 @@ class ProcessStats:
         s += '#time(ms), memory(Mb), CPU(s), CPU(%), Threads, Read IO (#), Write IO (#)\n' # columns label
         for i in range(len(self.time)): # iterate entries
             # create comma separated row
-            s += f'{self.time[i]},{self.memory[i]},{self.cpu_time[i]},{self.cpu_perc[i]},{self.threads},{self.io_read},{self.io_write}\n' 
+            s += f'{self.time[i]},{self.memory[i]},{self.cpu_time[i]},{self.cpu_perc[i]},{self.threads[i]},{self.io_read[i]},{self.io_write[i]}\n' 
         return s
 
 
@@ -255,7 +255,7 @@ def __arguments__():
     parser = argparse.ArgumentParser()
 
     parser.add_argument('command', help="command to profile")
-    parser.add_argument('--frequence', default=1000, help="sampling period in ms")
+    parser.add_argument('--frequence', default=500, help="sampling period in ms")
     parser.add_argument('-o', default=None, help="save results to file")
     parser.add_argument('-w', choices=[True, False], default=False, help="wait time before starting profiling [default=True]")
     parser.add_argument('-c', default=False, help="profile children flag [default=True]", choices=[True, False])
