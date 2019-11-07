@@ -278,7 +278,7 @@ def __arguments__():
     parser = argparse.ArgumentParser()
 
     parser.add_argument('command', help="command to profile")
-    parser.add_argument('--frequence', default=500, help="sampling period in ms")
+    parser.add_argument('--frequence', default=200, help="sampling period in ms")
     parser.add_argument('-o', default=None, help="save results to file")
     parser.add_argument('-w', choices=[True, False], default=False, help="wait time before starting profiling [default=True]")
     parser.add_argument('-c', default=False, help="profile children flag [default=True]", choices=[True, False])
