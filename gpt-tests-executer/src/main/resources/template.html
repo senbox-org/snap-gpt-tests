@@ -1,18 +1,17 @@
-<html><head>
-<title>$(test_id) performance report</title>
-<style>
-body { font-family: Arial, Helvetica, sans-serif; padding: 1em;}    
-table.summary { border: 2px solid #FFFFFF; text-align: left; border-collapse: collapse;}
-table.summary td, table.summary th { border: 0px solid #FFFFFF; padding: 3px 4px;}    
-h1 { font-size: 2em; }
-h2 { font-size: 1.3em; }
-</style></head><body>
-<div class="title"><h1>$(test_id) performance summary</h1>
-<hr></div>
-<h2>Summary</h2>
-<table class="summary"><tbody>
-$(summary_table)
-</tbody></table>
-<div class="plots"><h2>Plots</h2>
-<img src="plot/$(test_id)_cpu_usage.png"><img src="plot/$(test_id)_memory_usage.png"><img src="plot/$(test_id)_IO_usage.png">
-</div></body></html>
+<html>
+<head>
+	<title>$(test_id) performance report</title>
+</head>
+<body>
+	<h1 class="title">$(test_id) performance summary</h1>
+	<hr>
+	<h2>Summary</h2>
+	<table class="summary"><tbody>
+		${foreach $summary:<tr><td><b>$label</b></td><td>$value $unit</td></tr>}
+	</tbody></table>
+	<div class="plots">
+		<h2>Plots</h2>
+		${foreach $plots:<img src="$">}
+	</div>
+</body>
+</html>

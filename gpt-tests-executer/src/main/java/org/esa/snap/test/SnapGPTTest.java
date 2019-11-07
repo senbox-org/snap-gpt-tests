@@ -174,7 +174,7 @@ public class SnapGPTTest {
                                 FileUtils.copyDirectory(tempFolder.resolve("plot").toFile(), reportFolderPath.resolve("plot").toFile());
                                 FileUtils.copyDirectory(tempFolder.resolve("stats").toFile(), reportFolderPath.resolve("stats").toFile());
                                 // Copy html report
-                                Path reportContent = Paths.get(tempFolder.resolve("report_perf_" + graphTest.getId()).toString() + ".html");
+                                Path reportContent = Paths.get(tempFolder.resolve("Perforamnce_" + graphTest.getId()).toString() + ".html");
                                 Files.copy(reportContent, reportFolderPath.resolve(reportContent.getFileName()));
                             }catch (Exception e) {
                                 System.out.println(String.format("Cannot copy performance: %s",e.getMessage()));

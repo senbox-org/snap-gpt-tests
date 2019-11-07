@@ -124,7 +124,9 @@ pipeline {
                 sh "more ${outputDir}/JSONTestFilesSeq.txt"
                 sh "cp -r ./gpt-tests-executer/target/ ${outputDir}/gptExecutorTarget"
                 sh "cp ./gpt-tests-executer/target/classes/profiler.py ${outputDir}" // << Copy profiler script into docker volume
-                sh "cp ./gpt-tests-executer/target/classes/profiler.sh ${outputDir}" // << Copy backup profiler script into docker volume
+                sh "cp ./gpt-tests-executer/target/classes/template.py ${outputDir}" // << Copy profiler libraries
+                sh "cp ./gpt-tests-executer/target/classes/template.html ${outputDir}" // << Copy HTML report template
+
                 // sh "/opt/launchGpt.sh ${propertiesFilePath} ${outputDir}/FilterJson.vsofig ${scope}"
             }
         }
