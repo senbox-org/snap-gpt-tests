@@ -123,6 +123,10 @@ pipeline {
                 sh "more ${outputDir}/JSONTestFiles.txt"
                 sh "more ${outputDir}/JSONTestFilesSeq.txt"
                 sh "cp -r ./gpt-tests-executer/target/ ${outputDir}/gptExecutorTarget"
+                sh "cp ./gpt-tests-executer/target/classes/profiler.py ${outputDir}" // << Copy profiler script into docker volume
+                sh "cp ./gpt-tests-executer/target/classes/template.py ${outputDir}" // << Copy profiler libraries
+                sh "cp ./gpt-tests-executer/target/classes/template.html ${outputDir}" // << Copy HTML report template
+
                 // sh "/opt/launchGpt.sh ${propertiesFilePath} ${outputDir}/FilterJson.vsofig ${scope}"
             }
         }
@@ -170,21 +174,13 @@ pipeline {
         }
     }
     post {
-        failure {
-            script {
-                    // send mail only on main job
-                    if ("${params.testScope}" == 'REGULAR' || "${params.testScope}" == 'DAILY' || "${params.testScope}" == 'WEEKLY' || "${params.testScope}" == 'RELEASE') {
-                        emailext(
-                            subject: "[SNAP] JENKINS-NOTIFICATION: ${currentBuild.result ?: 'SUCCESS'} : Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
-                            body: """Build status : ${currentBuild.result ?: 'SUCCESS'}: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]':
-Check console output at ${env.BUILD_URL}
-${env.JOB_NAME} [${env.BUILD_NUMBER}]""",
-                            attachLog: true,
-                            compressLog: true,
-                            to: "${SNAP_INTERNAL_MAIL_LIST}"
-                        )
-                }
-            }
-        }
+         failure {
+             script {
+                     // send mail only on main job
+                     if ("${params.testScope}" == 'REGULAR' || "${params.testScope}" == 'DAILY' || "${params.testScope}" == 'WEEKLY' || "${params.testScope}" == 'RELEASE') {
+                       sh "echo `ERROR!`"
+                 }
+             }
+         }
     }
 }

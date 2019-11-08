@@ -19,9 +19,11 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.filefilter.TrueFileFilter;
 import org.apache.commons.io.filefilter.WildcardFileFilter;
-import org.apache.commons.lang.time.DateUtils;
 
 public class SnapGPTTest {
+    private static void printHelp() {
+        System.out.println("Usage: SnapGPTTest properties scope jsonPath reportFolder [optional --Profiling=on|off]");
+    }
 
     public static void main(String[] args) throws IOException {
 
@@ -32,9 +34,24 @@ public class SnapGPTTest {
         boolean specificJSON = true;
         boolean success = true;
         //TODO check better the arguments
-        if(args.length != 4) {
-            System.out.println("Required arguments: [properties] [scope] [jsonPath] [reportFolder]");
+        if(args.length < 4) {
+            printHelp();
             return;
+        }
+        // flag to enable/disable the profiling
+        boolean profiler = true;
+        // check if an extra parameter is passed set the profile variable 
+        if (args.length == 5) { 
+            // check that the flag is correct
+            if (args[4].startsWith("--Profiling=")) {
+                // extract the variable value and set the profiling flag
+                String option = args[4].split("=")[1];
+                profiler = option.equals("on");
+            } else {
+                // otherwise print help and exit
+                printHelp();
+                return;
+            }      
         }
 
         Path testFolder = null;
@@ -199,17 +216,32 @@ public class SnapGPTTest {
 
                     boolean passed = false;
                     try {
-                        passed = TestExecutor.executeTest(graphTest,graphFolder,inputFolder,expectedOutputFolder,tempFolder,snapBinFolder);
+                        passed = TestExecutor.executeTest(graphTest,graphFolder,inputFolder,expectedOutputFolder,tempFolder,snapBinFolder,reportFolderPath.getParent(), profiler);
                     } catch (Exception e) {
                         System.out.println(String.format("CException when executing test: %s",e.getMessage()));
                     }
 
                     endDate = new Date();
+                    
                     if(report) {
 
                         //txt basic report
                         writer.write(formatter.format(endDate));
                         writer.write(" - ");
+                        if (profiler) {
+                            try {
+                                // Moving profiling output to the report folder
+                                // TODO: use a path method that does not require conversion to File
+                                FileUtils.copyDirectory(tempFolder.resolve("csv").toFile(), reportFolderPath.resolve("csv").toFile());
+                                FileUtils.copyDirectory(tempFolder.resolve("plot").toFile(), reportFolderPath.resolve("plot").toFile());
+                                FileUtils.copyDirectory(tempFolder.resolve("stats").toFile(), reportFolderPath.resolve("stats").toFile());
+                                // Copy html report
+                                Path reportContent = Paths.get(tempFolder.resolve("Perforamnce_" + graphTest.getId()).toString() + ".html");
+                                Files.copy(reportContent, reportFolderPath.resolve(reportContent.getFileName()));
+                            }catch (Exception e) {
+                                System.out.println(String.format("Cannot copy performance: %s",e.getMessage()));
+                            }
+                        }
                         if(passed) {
                             writer.write("PASSED");
                         } else {
@@ -236,6 +268,7 @@ public class SnapGPTTest {
                             try {
                                 Path reportGPT = Paths.get(tempFolder.resolve(graphTest.getId()).toString() + "_gptOutput.txt");
                                 Files.copy(reportGPT, reportFolderPath.resolve(reportGPT.getFileName()));
+                             
                             } catch (Exception e) {
                                 System.out.println(String.format("Cannot copy gptOutput: %s",e.getMessage()));
                             }
