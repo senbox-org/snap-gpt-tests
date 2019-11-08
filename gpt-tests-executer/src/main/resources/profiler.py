@@ -260,7 +260,7 @@ def __split_command_args__(command):
         elif char == '"':
             status = not status
             if status:
-                if token > 0:
+                if token:
                     args.append(token)
                 token = ""
         else:
