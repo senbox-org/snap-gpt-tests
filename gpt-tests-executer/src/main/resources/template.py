@@ -366,7 +366,7 @@ class Template:
 
 
 if __name__ == '__main__':
-    TEMPLATE_SOURCE = """
+    TEMPLATE_SOURCE = r"""
     <h1>{{.title}}</h1>
     This is an example of a teplate named: {{.name}}<br>
 
