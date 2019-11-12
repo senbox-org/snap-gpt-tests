@@ -163,10 +163,8 @@
         <resource>
             <directory>src/main/resources</directory>
             <includes>
-                <include> **/profiler.py</include>
-                <include> **/template.py</include>
-                <include> **/template.html</include>
-                <include> **/profiler.sh</include>
+                <include> **/*.py</include>
+                <include> **/*.html</include>
             </includes>
         </resource>
     </resources> 

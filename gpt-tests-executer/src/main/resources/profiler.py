@@ -134,20 +134,21 @@ class ReportOut:
         if self.__file_mode__:
             # init the path
             self.path_base = os.path.split(output_arg)[0]
-            self.path_csv = os.path.join(self.path_base, __CSV_DIR__)
-            self.path_smm = os.path.join(self.path_base, __SUM_DIR__)
-            self.path_plt = os.path.join(self.path_base, __PLT_DIR__)
             self.report_dir = os.path.join(self.path_base, __RPT_DIR__)
+            self.path_csv = os.path.join(self.path_base, __RPT_DIR__, __CSV_DIR__)
+            self.path_smm = os.path.join(self.path_base, __RPT_DIR__, __SUM_DIR__)
+            self.path_plt = os.path.join(self.path_base, __RPT_DIR__, __PLT_DIR__)
+            self.report_dir = os.path.join(self.path_base, __RPT_DIR__, __RPT_DIR__)
             self.path_fname = os.path.split(output_arg)[1]
             # try to create CSV folder and Plot folder
+            if not os.path.exists(self.report_dir):
+                os.mkdir(self.report_dir)
             if not os.path.exists(self.path_csv):
                 os.mkdir(self.path_csv)
             if not os.path.exists(self.path_plt):
                 os.mkdir(self.path_plt)
             if not os.path.exists(self.path_smm):
                 os.mkdir(self.path_smm)
-            if not os.path.exists(self.report_dir):
-                os.mkdir(self.report_dir)
 
     def csv(self, csv_string):
         """save or display the csv output"""
@@ -254,9 +255,7 @@ class ReportOut:
                     os.path.join(self.path_plt, self.path_fname+"_memory_usage.png")
                 ]
             report_html = report_tmp.generate(test_id=self.path_fname, summary=summ, plots=plots)
-            report_path = os.path.join(self.path_base,
-                                       __RPT_DIR__,
-                                       'Performance_'+self.path_fname+'.html')
+            report_path = os.path.join(self.report_dir, 'Performance_'+self.path_fname+'.html')
             with open(report_path, 'w') as wfile:
                 wfile.write(report_html)
 
