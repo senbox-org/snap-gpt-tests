@@ -358,8 +358,9 @@ def main():
     while psutil.pid_exists(pid) and process.status() not in __END_STATUS__:
         # while process is running
         p_stats.update(process) # update stats
-        delta_t = p_stats.last_interval() # get last time interval
-        adaptive_t = 2 * sampling_time - delta_t / 1000.0 # adapt interval to last delta
+        delta_t = p_stats.last_interval() / 1000.0 # get last time interval
+        print(delta_t)
+        adaptive_t = max(sampling_time/2, 2 * sampling_time - delta_t) # adapt interval to last delta
         time.sleep(adaptive_t) # wait for next sampling
 
     # Output
