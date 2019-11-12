@@ -15,12 +15,16 @@ __MAX_STR_LEN__ = 60 # maximum string length for the pretty print
 class _TokenType(Enum):
     """Template token types"""
     TEXT = -2
+    ERROR = -3
+    END = -1
     VARIABLE = 0
     FOREACH = 1
     IF = 2
     ELSE = 3
-    END = 4
-    ERROR = -1
+    SWITCH = 5
+    CASE = 6
+    DEFAULT = 7
+
 
 
 def __parse_args__(text):
@@ -124,6 +128,9 @@ class _If(_Token):
         elif isinstance(body, tuple):
             if_body = body[0]
             else_body = body[1]
+        else:
+            if_body = []
+            else_body = None
         self.__body__ = if_body
         self.__else__ = else_body
 
@@ -140,9 +147,12 @@ class _If(_Token):
         for ele in self.__body__:
             ele.pprint(' '+starts)
         if self.__else__:
-            print(f' {starts}ELSE:')
-            for ele in self.__else__:
-                ele.pprint('  '+starts)
+            if isinstance(self.__else__, list):
+                print(starts+'ELSE:')
+                for ele in self.__else__:
+                    ele.pprint(' '+starts)
+            else:
+                self.__else__.pprint(starts)
 
 
 class _Foreach(_Token):
@@ -176,8 +186,66 @@ class _Foreach(_Token):
 
     def pprint(self, starts=""):
         _Token.pprint(self, starts)
-        for ele in self.__body__:
-            ele.pprint(' '+starts)
+        if self.__body__:
+            for ele in self.__body__:
+                ele.pprint(' '+starts)
+
+
+class _Switch(_Token):
+    @staticmethod
+    def __parse__(text):
+        return __parse_args__(text[7:])[0]
+
+    def __init__(self, text, cases):
+        _Token.__init__(self, text, _TokenType.SWITCH, arguments=_Switch.__parse__(text))
+        self.__cases__ = cases
+
+    def pprint(self, starts=""):
+        _Token.pprint(self, starts)
+        for case in self.__cases__:
+            case.pprint(' '+starts)
+
+    def eval(self, context):
+        for case in self.__cases__:
+            if case.match(self.__arguments__.eval(context)):
+                return case.eval(context)
+        return ""
+
+
+class _Case(_Token):
+    @staticmethod
+    def __parse__(text):
+        if text == 'default':
+            return None
+        text = text[5:]
+
+        for i, char in enumerate(text):
+            if char != ' ':
+                text = text[i:]
+                break
+
+        if text[0] == '.':
+            return __parse_args__(text)[0]
+        if text[0] in set(['"', "'"]):
+            return text[1:-1]
+        if text.isdigit():
+            return int(text)
+        if text.replace('.', '1').isdigit():
+            return float(text)
+        return text
+
+    def __init__(self, text, body):
+        _Token.__init__(self, text, _TokenType.CASE, arguments=_Case.__parse__(text))
+        self.body = body
+
+    def match(self, value):
+        """match case"""
+        if self.__arguments__ is None:
+            return True
+        return value == self.__arguments__
+
+    def eval(self, context):
+        return context.eval(self.body)
 
 
 def __token_type__(text, lt_n, rt_n, flag=False):
@@ -193,10 +261,16 @@ def __token_type__(text, lt_n, rt_n, flag=False):
         ttype = _TokenType.END
     elif inner == 'else':
         ttype = _TokenType.ELSE
+    elif inner == 'default':
+        ttype = _TokenType.DEFAULT
     elif inner.startswith(r'foreach '):
         ttype = _TokenType.FOREACH
     elif inner.startswith(r'if '):
         ttype = _TokenType.IF
+    elif inner.startswith(r'switch '):
+        ttype = _TokenType.SWITCH
+    elif inner.startswith(r'case '):
+        ttype = _TokenType.CASE
     return inner, ttype
 
 
@@ -236,7 +310,47 @@ def __token__(token, body=None):
         return _If(text, body)
     if ttype == _TokenType.FOREACH:
         return _Foreach(text, body)
+    if ttype == _TokenType.SWITCH:
+        return _Switch(text, body)
+    if ttype in set([_TokenType.CASE, _TokenType.DEFAULT]):
+        return _Case(text, body)
     return _Error(text)
+
+
+def __parse_case__(tokens):
+    block = []
+    i = 0
+    while i < len(tokens):
+        token = tokens[i]
+        if token[1] in set([_TokenType.END, _TokenType.DEFAULT, _TokenType.CASE]):
+            return block, i - 1
+        if token[1] in set([_TokenType.IF, _TokenType.FOREACH]):
+            sblock, counter = __parse__(tokens[i+1:])
+            i += counter + 1
+            block.  append(__token__(token, sblock))
+        else:
+            block.append(__token__(token))
+        i += 1
+    return block, i
+
+def __parse_cases__(tokens):
+    cases = []
+    i = 0
+    while i < len(tokens):
+        token = tokens[i]
+        if token[1] == _TokenType.CASE:
+            case, counter = __parse_case__(tokens[i+1:])
+            cases.append(__token__(token, case))
+            i += counter + 1
+        elif token[1] == _TokenType.DEFAULT:
+            case, counter = __parse_case__(tokens[i+1:])
+            cases.append(__token__(token, case))
+            i += counter + 1
+        elif token[1] == _TokenType.END:
+            return cases, i
+        i += 1
+    return cases, i
+
 
 
 def __parse__(tokens):
@@ -250,9 +364,13 @@ def __parse__(tokens):
             sblock, counter = __parse__(tokens[i+1:])
             i += counter + 1
             block.append(__token__(token, sblock))
-        elif token[1] == _TokenType.ELSE:
+        elif token[1] == _TokenType.SWITCH:
+            cases, counter = __parse_cases__(tokens[i+1:])
+            i += counter + 1
+            block.append(__token__(token, cases))
+        elif token[1] in set([_TokenType.ELSE]):
             sblock, counter = __parse__(tokens[i+1:])
-            block = (block, sblock)
+            block = (block,  sblock)
             return block, i + counter + 1
         else:
             block.append(__token__(token))
@@ -363,52 +481,3 @@ class Template:
         """
         context = _Context(dict(kwargs))
         return __clean_text__(context.eval(self.__ast__))
-
-
-if __name__ == '__main__':
-    TEMPLATE_SOURCE = r"""
-    <h1>{{.title}}</h1>
-    This is an example of a teplate named: {{.name}}<br>
-
-    All template functionality are inside \{{...}} blocks.<br>
-    A part of simple text sostitution the template support
-    some basic operations:<br>
-    {{foreach . in .list}}  
-        - {{.}}<br/>
-    {{end}} 
-
-    `foreach` will itereate a list and use the template row (after the colomn) to display its values.
-    You can use `.` for getting the i^th element of the  list but if the element is a list you can use
-    `.j` to take the j^th element of the i^th element of the list. Or even more if the element is a dict you
-    can use `.key` to use the value of the coressponding key.<br>
-
-    {{foreach . in .listoflist}}
-        <b>{{.0}}</b>: {{.1}}<br>
-    {{end}}
-
-    If the key is not inside the row element ti will try to use a global key:<br>
-
-    {{foreach . in .listofdict}}
-        <b>{{.label}}</b>({{.title}}): {{.value}}</br>
-    {{end}}
-
-    Another functionality is the `if` `else` `end`:<br>
-    {{if .some_boolean_value}}
-        Your block<br>
-    {{else}}
-        Optional else block code <br>
-    {{end}}
-    The else is totally optional and of course all of this can be nested.<br>
-    {{if .condition}}
-    The condition is true<br>
-    {{end}}
-    """
-    TEMPLATE = Template(TEMPLATE_SOURCE)
-    print(TEMPLATE.generate(title='TEST',
-                            name='Name',
-                            list=list(range(10)),
-                            listoflist=[[0, 1], [1, 1], [2, 3]],
-                            listofdict=[{'label': 'id', 'value': 0},
-                                        {'label': 'name', 'value': 'martino'}],
-                            condition=True
-                            ))
