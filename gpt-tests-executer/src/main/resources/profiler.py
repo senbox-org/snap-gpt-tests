@@ -39,7 +39,7 @@ class ProcessStats:
             'io_read'  : [],
             'time'     : [],
         }
-        self.__start_time__ = time.time()
+        self.__start___ = time.time()
 
     def update(self, process):
         """
@@ -57,7 +57,7 @@ class ProcessStats:
         self.stats['cpu_time'].append(process.cpu_times().user) # cpu time
         self.stats['threads'].append(process.num_threads()) # num threads
         # sampling time
-        self.stats['time'].append(int(round(1000*(time.time() - self.__start_time__))))
+        self.stats['time'].append(int(round(1000*(time.time() - self.__start___))))
 
     def summary(self):
         """
@@ -102,7 +102,7 @@ class ProcessStats:
         generates the csv string for the stats
         """
         # Write out results (io or file)
-        csv_string = f'#start time: {self.__start_time__}\n'
+        csv_string = f'#start time: {self.__start___}\n'
         csv_string += f'#cores:{psutil.cpu_count()}\n' # store number of CPU
         # columns label
         csv_string += '#time(ms), memory(Mb), CPU(s), CPU(%), Threads, Read IO (#), Write IO (#)\n'
@@ -175,7 +175,7 @@ class ReportOut:
 
         # plot cpu usage
         plt.figure(figsize=(10, 7))
-        plt.plot(stats.time, stats.cpu_perc)
+        plt.plot(stats.stats['time'], stats.stats['cpu_perc'])
         plt.xlabel("Elapsed time (ms)")
         plt.ylabel("CPU Usage (%)")
         plt.grid(alpha=0.5)
@@ -185,7 +185,7 @@ class ReportOut:
 
         # plot memory usage
         plt.figure(figsize=(10, 7))
-        plt.plot(stats.time, stats.memory)
+        plt.plot(stats.stats['time'], stats.stats['memory'])
         plt.xlabel("Elapsed time (ms)")
         plt.ylabel("Memory (Mb)")
         plt.grid(alpha=0.5)
@@ -195,8 +195,8 @@ class ReportOut:
 
         # plot io activity
         plt.figure(figsize=(10, 7))
-        plt.plot(stats.time, stats.io_read, label='Read Count')
-        plt.plot(stats.time, stats.io_write, label='Write Count')
+        plt.plot(stats.stats['time'], stats.stats['io_read'], label='Read Count')
+        plt.plot(stats.stats['time'], stats.stats['io_write'], label='Write Count')
         plt.legend()
         plt.xlabel("Elapsed time (ms)")
         plt.ylabel("Counter")
@@ -254,7 +254,9 @@ class ReportOut:
                     os.path.join(self.path_plt, self.path_fname+"_memory_usage.png")
                 ]
             report_html = report_tmp.generate(test_id=self.path_fname, summary=summ, plots=plots)
-            report_path = os.path.join(self.path_base, 'Performance_'+self.path_fname+'.html')
+            report_path = os.path.join(self.path_base,
+                                       __RPT_DIR__,
+                                       'Performance_'+self.path_fname+'.html')
             with open(report_path, 'w') as wfile:
                 wfile.write(report_html)
 
@@ -358,10 +360,7 @@ def main():
     while psutil.pid_exists(pid) and process.status() not in __END_STATUS__:
         # while process is running
         p_stats.update(process) # update stats
-        delta_t = p_stats.last_interval() / 1000.0 # get last time interval
-        print(delta_t)
-        adaptive_t = max(sampling_time/2, 2 * sampling_time - delta_t) # adapt interval to last delta
-        time.sleep(adaptive_t) # wait for next sampling
+        time.sleep(sampling_time) # wait for next sampling
 
     # Output
     output = args.o
