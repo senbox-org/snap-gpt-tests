@@ -359,7 +359,7 @@ def main():
         # while process is running
         p_stats.update(process) # update stats
         delta_t = p_stats.last_interval() # get last time interval
-        adaptive_t = 2 * sampling_time - delta_t # adapt interval to last delta
+        adaptive_t = 2 * sampling_time - delta_t / 1000.0 # adapt interval to last delta
         time.sleep(adaptive_t) # wait for next sampling
 
     # Output
