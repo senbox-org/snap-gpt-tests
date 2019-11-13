@@ -124,7 +124,7 @@ pipeline {
                 sh "more ${outputDir}/JSONTestFilesSeq.txt"
                 sh "cp -r ./gpt-tests-executer/target/ ${outputDir}/gptExecutorTarget"
                 sh "cp ./gpt-tests-executer/target/classes/*.py ${outputDir}" // << Copy profiler and libraries
-                sh "cp ./gpt-tests-executer/target/classes/*.html ${outputDir}" // << Copy HTML report template
+                // sh "cp ./gpt-tests-executer/target/classes/*.html ${outputDir}" // << Copy HTML report template
 
                 // sh "/opt/launchGpt.sh ${propertiesFilePath} ${outputDir}/FilterJson.vsofig ${scope}"
             }
