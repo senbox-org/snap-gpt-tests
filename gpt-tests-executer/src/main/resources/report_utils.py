@@ -114,6 +114,7 @@ class Test:
             'duration': f'{self.duration()} s',
             'graph_id': self.graph_id,
             'vm_string': self.vm_string,
+            'json_path': self.json_path,
         }
 
 class TestSet:
