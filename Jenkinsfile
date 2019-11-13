@@ -168,6 +168,8 @@ pipeline {
                     sh "cp -r ${outputDir}/statics/* $WORKSPACE/report/" 
 
                     sh "cat report/Report_*.txt > report/report.txt"
+                    sh "mkdir $WORKSPACE/report/output"
+                    sh "mv $WORKSPACE/report/*.txt $WORKSPACE/report/output/"
                     echo "Generate html index"
                     // sh "java -jar ${outputDir}/gptExecutorTarget/IndexGenerator.jar $WORKSPACE/report \"${params.testScope}\""
                     sh "python3 ${outputDir}/report_utils.py ${outputDir}/templates ${outputDir}/report \"${params.testScope}\" ${branchVersion}"

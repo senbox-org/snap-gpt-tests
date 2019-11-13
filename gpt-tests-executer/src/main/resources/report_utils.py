@@ -47,7 +47,7 @@ class Test:
         self.stats = self.__load_perfs__()
 
     def __load_json__(self):
-        json_path = resolve_path('html', self.json_path)
+        json_path = resolve_path(self.json_path)
         with open(json_path, 'r') as info:
             struct = json.load(info)
             param = struct['configVM']

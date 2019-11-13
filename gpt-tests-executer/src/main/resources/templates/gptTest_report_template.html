@@ -109,7 +109,7 @@
   <td class="desc"><a href="../images/{{.test.graph_id}}.png"><img width="300" height="150" border="none" src="../images/{{.test.graph_id}}.png" alt="{{.test.name}}" title="{{.test.graph_id}}"></a></td>
   {{switch .test.status}}
     {{case "FAILED"}}
-      <td class="result"><a href="../{{.test.name}}_gptOutput.txt"><img width="16" height="16" alt="{{.test.status}}" src="icons/red.png"></a></td>
+      <td class="result"><a href="../output/{{.test.name}}_gptOutput.txt"><img width="16" height="16" alt="{{.test.status}}" src="icons/red.png"></a></td>
     {{case "PASSED"}}
       <td class="result"><img width="16" height="16" alt="{{.test.status}}" src="icons/green.png"></td>
     {{case "SKIPPED"}}
