@@ -85,8 +85,8 @@ public class GraphTestResult {
         return memoryPeak;
     }
 
-    public int getMemoryAverage() {
-        return memoryAverage;
+    public int getMemoryMean() {
+        return memoryMean;
     }
 
     public void setStatus(String status) {
@@ -115,7 +115,4 @@ public class GraphTestResult {
         return testEnvironment;
     }
 
-    public void loadPerformanceSummary(Path jsonpath) {
-
-    }
 }
