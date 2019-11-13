@@ -326,6 +326,9 @@ def generate_html_report(base_path, scope, version):
         set_name = report_file[7:-4]
         with open(os.path.join(base_path, report_file), 'r') as rep:
             test_sets.append(__parse_set__(set_name, rep.readlines()))
+    if not test_sets:
+        print("no tests set...")
+        sys.exit(0)
     start_date = min([test_set.start_date() for test_set in test_sets])
     end_date = max([test_set.end_date() for test_set in test_sets])
     total_seconds = sum([test_set.duration() for test_set in test_sets])
