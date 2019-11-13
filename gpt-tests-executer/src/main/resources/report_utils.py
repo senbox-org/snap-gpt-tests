@@ -60,4 +60,12 @@ def performances(template_path, tst_name, summary, path_plt=None):
     return None
 
 
-def report
+
+def generate_html_report(base_path):
+    """
+    Generates html reports for the given test execution.
+
+    Paramters:
+    ----------
+     - base_path: path containing all results of the execution
+    """

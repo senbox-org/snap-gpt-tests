@@ -23,7 +23,7 @@ public class GraphTestResult {
 
     }
 
-    public GraphTestResult (GraphTest graphTest, String status, Date startDate, Date endDate) {
+    public GraphTestResult (GraphTest graphTest, String status, Date startDate, Date endDate, String _unused) {
         this.graphTest = graphTest;
         this.status = status;
         this.startDate = startDate;
@@ -81,8 +81,8 @@ public class GraphTestResult {
         this.duration = duration;
     }
 
-    public int getMemoryPeak() {
-        return memoryPeak;
+    public String getMemoryPeak() {
+        return " - ";
     }
 
     public int getMemoryMean() {
