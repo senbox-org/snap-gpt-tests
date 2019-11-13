@@ -5,9 +5,9 @@ import os
 import template
 
 
-def perf_html(template_path, tst_name, summary, path_plt=None):
+def performances(template_path, tst_name, summary, path_plt=None):
     """
-    Creates the html report
+    Creates the html performances report per tests
 
 	Parameters:
 	-----------
@@ -58,3 +58,6 @@ def perf_html(template_path, tst_name, summary, path_plt=None):
             ]
         return report_tmp.generate(test_id=tst_name, summary=summ, plots=plots)
     return None
+
+
+def report

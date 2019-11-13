@@ -102,29 +102,28 @@ public class SnapGPTTest {
             return;
         }
 
-        boolean reportHtml = true; //todo add this option as parameter
-        if(reportHtml) {
-            //create html folder structure
-            reportFolderPath.resolve("html").toFile().mkdir();
-            reportFolderPath.resolve("html").resolve("images").toFile().mkdir();
-            reportFolderPath.resolve("html").resolve("json").toFile().mkdir();
-            reportFolderPath.resolve("html").resolve("icons").toFile().mkdir();
-            reportFolderPath.resolve("html").resolve("css").toFile().mkdir();
-            //copy icons and css
-            ReportUtils.copyResource("css/gptTest.css", reportFolderPath.resolve("html").resolve("css").resolve("gptTest.css"));
-            ReportUtils.copyResource("icons/blue.png", reportFolderPath.resolve("html").resolve("icons").resolve("blue.png"));
-            ReportUtils.copyResource("icons/duration.png", reportFolderPath.resolve("html").resolve("icons").resolve("duration.png"));
-            ReportUtils.copyResource("icons/green.png", reportFolderPath.resolve("html").resolve("icons").resolve("green.png"));
-            ReportUtils.copyResource("icons/orange.png", reportFolderPath.resolve("html").resolve("icons").resolve("orange.png"));
-            ReportUtils.copyResource("icons/percent.png", reportFolderPath.resolve("html").resolve("icons").resolve("percent.png"));
-            ReportUtils.copyResource("icons/red.png", reportFolderPath.resolve("html").resolve("icons").resolve("red.png"));
-            ReportUtils.copyResource("icons/SNAP_Icon_16.png", reportFolderPath.resolve("html").resolve("icons").resolve("SNAP_Icon_16.png"));
-            ReportUtils.copyResource("icons/SNAP_Icon_32.png", reportFolderPath.resolve("html").resolve("icons").resolve("SNAP_Icon_32.png"));
-            ReportUtils.copyResource("icons/SNAP_Icon_48.png", reportFolderPath.resolve("html").resolve("icons").resolve("SNAP_Icon_48.png"));
-            ReportUtils.copyResource("icons/SNAP_Icon_60.png", reportFolderPath.resolve("html").resolve("icons").resolve("SNAP_Icon_60.png"));
-            ReportUtils.copyResource("icons/SNAP_Icon_128.png", reportFolderPath.resolve("html").resolve("icons").resolve("SNAP_Icon_128.png"));
-            ReportUtils.copyResource("icons/yellow.png", reportFolderPath.resolve("html").resolve("icons").resolve("yellow.png"));
-        }
+        /*
+        //create html folder structure
+        reportFolderPath.resolve("html").toFile().mkdir();
+        reportFolderPath.resolve("html").resolve("images").toFile().mkdir();
+        reportFolderPath.resolve("html").resolve("json").toFile().mkdir();
+        reportFolderPath.resolve("html").resolve("icons").toFile().mkdir();
+        reportFolderPath.resolve("html").resolve("css").toFile().mkdir();
+        //copy icons and css
+        ReportUtils.copyResource("css/gptTest.css", reportFolderPath.resolve("html").resolve("css").resolve("gptTest.css"));
+        ReportUtils.copyResource("icons/blue.png", reportFolderPath.resolve("html").resolve("icons").resolve("blue.png"));
+        ReportUtils.copyResource("icons/duration.png", reportFolderPath.resolve("html").resolve("icons").resolve("duration.png"));
+        ReportUtils.copyResource("icons/green.png", reportFolderPath.resolve("html").resolve("icons").resolve("green.png"));
+        ReportUtils.copyResource("icons/orange.png", reportFolderPath.resolve("html").resolve("icons").resolve("orange.png"));
+        ReportUtils.copyResource("icons/percent.png", reportFolderPath.resolve("html").resolve("icons").resolve("percent.png"));
+        ReportUtils.copyResource("icons/red.png", reportFolderPath.resolve("html").resolve("icons").resolve("red.png"));
+        ReportUtils.copyResource("icons/SNAP_Icon_16.png", reportFolderPath.resolve("html").resolve("icons").resolve("SNAP_Icon_16.png"));
+        ReportUtils.copyResource("icons/SNAP_Icon_32.png", reportFolderPath.resolve("html").resolve("icons").resolve("SNAP_Icon_32.png"));
+        ReportUtils.copyResource("icons/SNAP_Icon_48.png", reportFolderPath.resolve("html").resolve("icons").resolve("SNAP_Icon_48.png"));
+        ReportUtils.copyResource("icons/SNAP_Icon_60.png", reportFolderPath.resolve("html").resolve("icons").resolve("SNAP_Icon_60.png"));
+        ReportUtils.copyResource("icons/SNAP_Icon_128.png", reportFolderPath.resolve("html").resolve("icons").resolve("SNAP_Icon_128.png"));
+        ReportUtils.copyResource("icons/yellow.png", reportFolderPath.resolve("html").resolve("icons").resolve("yellow.png"));
+        */
 
         BufferedWriter writer = null;
         boolean report = true; //todo add this option as parameter
@@ -182,25 +181,24 @@ public class SnapGPTTest {
 
                 GraphTestResult testResult = new GraphTestResult(graphTest);
 
-                if(reportHtml){
-                    //create graph png in html folder
-                    Path graphPath = graphFolder.resolve(graphTest.getGraphPath());
-                    Path imagePath = reportFolderPath.resolve("html").resolve("images").resolve(graphTest.getGraphPath());
-                    String stringPNG = org.esa.snap.core.util.io.FileUtils.exchangeExtension(imagePath.toString(), ".png");
-                    File filePNG = new File(stringPNG);
-                    filePNG.getParentFile().mkdirs();
-                    if(!filePNG.exists()) {
-                        ReportUtils.generateGraphImage(graphPath.toFile(), filePNG);
-                    }
-
-                    //create specific json in html folder
-                    ObjectMapper objectMapper = new ObjectMapper();
-                    Path jsonReportPath = reportFolderPath.resolve("html").resolve("json").
-                            resolve(org.esa.snap.core.util.io.FileUtils.getFilenameWithoutExtension(jsonPath.toFile()));
-                    Path json  = jsonReportPath.resolve(graphTest.getId()+".json");
-                    json.getParent().toFile().mkdirs();
-                    objectMapper.writeValue(json.toFile(), graphTest);
+                //create graph png in html folder
+                Path graphPath = graphFolder.resolve(graphTest.getGraphPath());
+                Path imagePath = reportFolderPath.resolve("html").resolve("images").resolve(graphTest.getGraphPath());
+                String stringPNG = org.esa.snap.core.util.io.FileUtils.exchangeExtension(imagePath.toString(), ".png");
+                File filePNG = new File(stringPNG);
+                filePNG.getParentFile().mkdirs();
+                if(!filePNG.exists()) {
+                    ReportUtils.generateGraphImage(graphPath.toFile(), filePNG);
                 }
+
+                //create specific json in html folder
+                ObjectMapper objectMapper = new ObjectMapper();
+                Path jsonReportPath = reportFolderPath.resolve("html").resolve("json").
+                        resolve(org.esa.snap.core.util.io.FileUtils.getFilenameWithoutExtension(jsonPath.toFile()));
+                Path json  = jsonReportPath.resolve(graphTest.getId()+".json");
+                json.getParent().toFile().mkdirs();
+                objectMapper.writeValue(json.toFile(), graphTest);
+                
 
                 if (hasToBeExecuted) {
                     Date startDate = null;
@@ -280,14 +278,12 @@ public class SnapGPTTest {
                         writer.write("\n");
                     }
 
-                    if(reportHtml) {
-                        testResult.setStartDate(startDate);
-                        testResult.setEndDate(endDate);
-                        if(passed) {
-                            testResult.setStatus("PASSED");
-                        } else {
-                            testResult.setStatus("FAILED");
-                        }
+                    testResult.setStartDate(startDate);
+                    testResult.setEndDate(endDate);
+                    if(passed) {
+                        testResult.setStatus("PASSED");
+                    } else {
+                        testResult.setStatus("FAILED");
                     }
                 } else {
                     testResult.setStatus("SKIPPED");
@@ -298,13 +294,12 @@ public class SnapGPTTest {
             }
 
             jsonTestResultList.add(jsonTestResult);
-            if(reportHtml) {
-                //create html report with velocity
-                ReportUtils.createHtmlReportForJson(jsonTestResult.getGraphTestResultArray(),
-                                                    jsonTestResult.getJsonName(),
-                                                    reportFolderPath.resolve("html").resolve(org.esa.snap.core.util.io.FileUtils.exchangeExtension(file.getName(),".html")),
-                                                    scope);
-            }
+            //create html report with velocity
+            // ReportUtils.createHtmlReportForJson(jsonTestResult.getGraphTestResultArray(),
+            //                                     jsonTestResult.getJsonName(),
+            //                                     reportFolderPath.resolve("html").resolve(org.esa.snap.core.util.io.FileUtils.exchangeExtension(file.getName(),".html")),
+            //                                     scope);
+        
         }
 
         if(writer != null) {

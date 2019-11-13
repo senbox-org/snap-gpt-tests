@@ -2,6 +2,8 @@ package org.esa.snap.test;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.nio.file.Path;
+
 
 /**
  * Created by obarrile on 08/07/2019.
@@ -11,7 +13,8 @@ public class GraphTestResult {
     private String status = "UNKNOWN";
     private Date startDate = null;
     private Date endDate = null;
-    private String memoryPeak = " - ";
+    private int memoryPeak = 0;
+    private int memoryMean = 0;
     private int duration = 0;
     private SimpleDateFormat formatter;
 
@@ -20,12 +23,13 @@ public class GraphTestResult {
 
     }
 
-    public GraphTestResult (GraphTest graphTest, String status, Date startDate, Date endDate, String memoryPeak) {
+    public GraphTestResult (GraphTest graphTest, String status, Date startDate, Date endDate) {
         this.graphTest = graphTest;
         this.status = status;
         this.startDate = startDate;
         this.endDate = endDate;
-        this.memoryPeak = memoryPeak;
+        this.memoryPeak = 0;
+        this.memoryMean = 0;
         formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
     }
 
@@ -77,10 +81,13 @@ public class GraphTestResult {
         this.duration = duration;
     }
 
-    public String getMemoryPeak() {
+    public int getMemoryPeak() {
         return memoryPeak;
     }
 
+    public int getMemoryAverage() {
+        return memoryAverage;
+    }
 
     public void setStatus(String status) {
         this.status = status;
@@ -94,7 +101,7 @@ public class GraphTestResult {
         this.endDate = endDate;
     }
 
-    public void setMemoryPeak(String memoryPeak) {
+    public void setMemoryPeak(int memoryPeak) {
         this.memoryPeak = memoryPeak;
     }
 
@@ -106,5 +113,9 @@ public class GraphTestResult {
                     "  Parallelism: " + graphTest.getConfigVM().getParallelism();
         }
         return testEnvironment;
+    }
+
+    public void loadPerformanceSummary(Path jsonpath) {
+
     }
 }

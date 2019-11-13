@@ -10,14 +10,11 @@ import subprocess
 import json
 import psutil
 
-import report_utils
-import template
-
 # Directory name constants
 __CSV_DIR__ = "csv"
 __PLT_DIR__ = "plot"
 __SUM_DIR__ = "stats"
-__RPT_DIR__ = "perfs"
+__RPT_DIR__ = "performances"
 # Conversion const
 __MB__ = 2**20 # const for converting bytes to mega bytes
 # PROCESS END STATUS
@@ -128,7 +125,7 @@ def __generate_report_table_row__(key, value, unit):
     """generates a row for the summary table of the html report."""
     return f"<tr><td><b>{key}:</b></td><td>{value:0.2f} {unit}</td></tr>"
 
-class ReportOut:
+class FileManager:
     """Report and output generation class"""
     def __init__(self, output_arg):
         self.__file_mode__ = output_arg is not None
@@ -209,17 +206,6 @@ class ReportOut:
         # show results if no output is defined
         if not self.__file_mode__:
             plt.show()
-
-    def html_report(self, template_path, summary, include_plot):
-        """Create the html report"""
-        if not self.__file_mode__:
-            return
-        plt_path = __PLT_DIR__ if include_plot else None
-        report_html = report_utils.perf_html(template_path, self.path_fname, summary, plt_path)
-        if report_html:
-            report_path = os.path.join(self.report_dir, 'Performance_'+self.path_fname+'.html')
-            with open(report_path, 'w') as wfile:
-                wfile.write(report_html)
 
 
 def __split_command_args__(command):
@@ -326,23 +312,19 @@ def main():
     # Output
     output = args.o
     # initialize path structure and make output directories
-    report_io = ReportOut(output)
+    perf_fm = FileManager(output)
     # generate csv string and display/store it
-    report_io.csv(p_stats.csv())
+    perf_fm.csv(p_stats.csv())
     # compute and save/display statistic summary (max, average...)
     summary = p_stats.summary()
     # display/store summary
-    report_io.summary(summary)
+    perf_fm.summary(summary)
 
     # plot results if needed
     # NOTE: only import matplotlib library here to avoid including it and limiting the functionality
     # when not needed
     if args.plot:
-        report_io.plot(p_stats)
-    # generate html report if required using summary (and plots)
-    if args.report:
-        report_io.html_report(args.report, summary, args.plot)
-
+        perf_fm.plot(p_stats)
 
 if __name__ == "__main__":
     main()
