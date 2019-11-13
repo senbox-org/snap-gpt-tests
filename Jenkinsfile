@@ -172,7 +172,7 @@ pipeline {
                     sh "mv $WORKSPACE/report/*.txt $WORKSPACE/report/output/"
                     echo "Generate html index"
                     // sh "java -jar ${outputDir}/gptExecutorTarget/IndexGenerator.jar $WORKSPACE/report \"${params.testScope}\""
-                    sh "python3 ${outputDir}/report_utils.py ${outputDir}/templates ${outputDir}/report \"${params.testScope}\" ${branchVersion}"
+                    sh "python3 ${outputDir}/report_utils.py ${outputDir}/templates $WORKSPACE/report \"${params.testScope}\" ${branchVersion}"
                     archiveArtifacts artifacts: "report/**/*.*", fingerprint: true
                     sh "rm -rf report"
                 }
