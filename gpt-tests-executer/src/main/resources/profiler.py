@@ -263,9 +263,6 @@ def __arguments__():
                         default=True,
                         help="plot perforamnces (save if save file setted)",
                         choices=[True, False])
-    parser.add_argument('--report',
-                        default=None,
-                        help="HTML report template")
 
     # parse arguments
     return parser.parse_args()

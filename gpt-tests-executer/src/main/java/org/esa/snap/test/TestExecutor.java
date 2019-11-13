@@ -138,7 +138,7 @@ public class TestExecutor {
             profiler.add(exportArgs(params));
             profiler.add("-o");
             profiler.add(String.format("%s", tempFolder.resolve(graphTest.getId()).toString()));
-            profiler.add(String.format("--report=%s/perf_report_template.html", basePath.toString()));
+            //profiler.add(String.format("--report=%s/perf_report_template.html", basePath.toString()));
             builder = new ProcessBuilder(profiler);
         } else {
             builder = new ProcessBuilder(params);

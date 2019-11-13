@@ -230,7 +230,7 @@ public class SnapGPTTest {
                             try {
                                 // Moving profiling output to the report folder
                                 // TODO: use a path method that does not require conversion to File
-                                FileUtils.copyDirectory(tempFolder.resolve("perfs").toFile(), reportFolderPath.resolve("perfs").toFile());
+                                FileUtils.copyDirectory(tempFolder.resolve("performances").toFile(), reportFolderPath.resolve("perfs").toFile());
                             }catch (Exception e) {
                                 System.out.println(String.format("Cannot copy performance: %s",e.getMessage()));
                             }
