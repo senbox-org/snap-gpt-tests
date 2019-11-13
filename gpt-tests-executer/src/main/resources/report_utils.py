@@ -14,6 +14,7 @@ __datetime_fmt__ = '%d/%m/%Y %H:%M:%S'
 __perf_dir__ = 'perfs'
 __stats_dir__ = 'stats'
 __tests_dir__ = 'tests'
+__out_dir__ = 'output'
 __template_dir__ = '.'
 
 
@@ -320,11 +321,12 @@ def generate_html_report(base_path, scope, version):
     """
     global __base_path__
     __base_path__ = base_path
-    report_files = [f for f in os.listdir(base_path) if f.startswith("Report_") and f.endswith(".txt") and os.path.isfile(os.path.join(base_path, f))]
+    report_path = os.path.join(base_path, __out_dir__)
+    report_files = [f for f in os.listdir(report_path) if f.startswith("Report_") and f.endswith(".txt") and os.path.isfile(os.path.join(report_path, f))]
     test_sets = []
     for report_file in report_files:
         set_name = report_file[7:-4]
-        with open(os.path.join(base_path, report_file), 'r') as rep:
+        with open(os.path.join(report_path, report_file), 'r') as rep:
             test_sets.append(__parse_set__(set_name, rep.readlines()))
     if not test_sets:
         print("no tests set...")

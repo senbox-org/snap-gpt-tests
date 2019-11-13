@@ -228,9 +228,11 @@ public class SnapGPTTest {
                                         if (outputFile.toString().equals(tempFolder.toString())) {
                                                 continue;
                                         }
-                                        Files.copy(outputFile.toPath(), reportFolderPath.resolve(outputFile.getName()));
+
                                         if (outputFile.isDirectory()) {
                                             FileUtils.copyDirectory(outputFile, reportFolderPath.resolve(outputFile.getName()).toFile());
+                                        } else {
+                                            Files.copy(outputFile.toPath(), reportFolderPath.resolve(outputFile.getName()));
                                         }
                                     }
                                 }
