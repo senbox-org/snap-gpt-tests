@@ -136,25 +136,33 @@ class TestSet:
         """
         maximum useage of memory
         """
-        return max([test.memory_max() for test in self.tests])
+        if self.tests:
+            return max([test.memory_max() for test in self.tests])
+        return 0
 
     def memory_avg(self):
         """
         average usage of memory
         """
-        return round(sum([test.memory_avg() for test in self.tests]) / len(self.tests))
+        if self.tests:
+            return round(sum([test.memory_avg() for test in self.tests]) / len(self.tests))
+        return 0
 
     def start_date(self):
         """
         start datetime
         """
-        return min([test.start for test in self.tests])
+        if self.tests:
+            return min([test.start for test in self.tests])
+        return datetime.date(datetime.MAXYEAR, 1, 1)
 
     def end_date(self):
         """
         end datetime
         """
-        return max([test.end for test in self.tests])
+        if self.tests:
+            return max([test.end for test in self.tests])
+        return datetime.date(datetime.MINYEAR, 1, 1)
 
     def failed_tests(self):
         """
