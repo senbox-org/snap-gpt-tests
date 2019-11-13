@@ -162,7 +162,7 @@ public class SnapGPTTest {
 
                 //create graph png in html folder
                 Path graphPath = graphFolder.resolve(graphTest.getGraphPath());
-                Path imagePath = reportFolderPath.resolve.resolve("images").resolve(graphTest.getGraphPath());
+                Path imagePath = reportFolderPath.resolve("images").resolve(graphTest.getGraphPath());
                 String stringPNG = org.esa.snap.core.util.io.FileUtils.exchangeExtension(imagePath.toString(), ".png");
                 File filePNG = new File(stringPNG);
                 filePNG.getParentFile().mkdirs();
