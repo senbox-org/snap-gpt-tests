@@ -164,6 +164,9 @@
             <directory>src/main/resources</directory>
             <includes>
                 <include> **/*.py</include>
+                <include> **/templates/*.html</include>
+                <include> **/statics/css/*.css</include>
+                <include> **/statics/icons/*.png</include>
             </includes>
         </resource>
     </resources> 
