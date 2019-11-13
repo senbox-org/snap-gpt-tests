@@ -14,6 +14,7 @@ __datetime_fmt__ = '%d/%m/%Y %H:%M:%S'
 __perf_dir__ = 'perfs'
 __stats_dir__ = 'stats'
 __tests_dir__ = 'tests'
+__template_dir__ = '.'
 
 
 def resolve_path(*path):
@@ -215,7 +216,7 @@ class TestSet:
         """
         mkdir(__tests_dir__)
         template = None
-        with open('templates/gptTest_report_template.html', 'r') as file:
+        with open(os.path.join(__template_dir__, 'gptTest_report_template.html'), 'r') as file:
             template = t.Template(file.read())
         if template is None:
             print("Unable to load template")
@@ -324,7 +325,7 @@ def generate_html_report(base_path, scope, version):
     duration_in_min = (end_date - start_date).total_seconds() / 60.0
     platform = sys.platform
     template = None
-    with open('templates/gptIndex_report_template.html', 'r') as file:
+    with open(os.path.join(__template_dir__, 'gptIndex_report_template.html'), 'r') as file:
         template = t.Template(file.read())
     if template is None:
         print("Unable to load template")
@@ -356,7 +357,8 @@ def generate_html_report(base_path, scope, version):
 
 if __name__ == '__main__':
     ARGS = sys.argv
-    if len(ARGS) != 4:
-        print("wrong number of arguments!\nreport_utils BASE_PATH SCOPE VERSION")
+    if len(ARGS) != 5:
+        print("wrong number of arguments!\nreport_utils TEMPLATE_DIR BASE_PATH SCOPE VERSION")
         sys.exit(-1)
-    generate_html_report(ARGS[0], ARGS[1], ARGS[2])
+    __template_dir__ = ARGS[0]
+    generate_html_report(ARGS[1], ARGS[2], ARGS[3])
