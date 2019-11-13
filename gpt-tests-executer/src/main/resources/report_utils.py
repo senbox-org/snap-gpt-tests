@@ -1,54 +1,60 @@
 """
 Report utils script
 """
-import template as t
-import sys
+import os
+import template
 
 
-def create_html_report_per_json(template, json):
+def perf_html(template_path, tst_name, summary, path_plt=None):
     """
-	Create html report for each json test files
+    Creates the html report
 
 	Parameters:
 	-----------
-	- json: json file
-	"""
-	tmplt = t.Template(template)
-	tmplt.generate(graphTestResult= graphTestResults,
-				   jsonName=json,
-				   operatingSystem=sys.platform,
-				   scope=scope
-				   )
-    # compute start and end date
-            if(graphTestResult.getStartDate() != null) {
-                if (graphTestResult.getStartDate().before(start)) {
-                    start = graphTestResult.getStartDate();
-                }
-            }
-            if(graphTestResult.getEndDate() != null) {
-                if(graphTestResult.getEndDate().after(end)) {
-                    end = graphTestResult.getEndDate();
-                }
-            }
-            totalDuration = totalDuration + graphTestResult.getExecutionTime();
-        }
-        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-        context.put("startDateString", formatter.format(start));
-        context.put("endDateString", formatter.format(end));
-        context.put("totalTime", Math.round((end.getTime()-start.getTime())/1000));
-        context.put("sumTime", totalDuration);
-
-
-        FileWriter fileWriter = new FileWriter(outputPath.toFile());
-        StringWriter writer = new StringWriter();
-        template.merge( context, fileWriter );
-        fileWriter.close();
-
-
-def main():
+	 - template_path: absolute path of the html template
+	 - tst_name: test name
+	 - summary: performance summary dict
+	 - path_plt: optional plot path
     """
-    main entry point of the report utils
-    """
-
-if __name__ == '__main__':
-    main()
+    with open(template_path, 'r') as file:
+        report_tmp = template.Template(file.read())
+        summ = [
+            {
+                'label': "Process duration",
+                'value': summary['duration']['value'],
+                'unit': summary['duration']['unit']
+            },
+            {
+                'label': "CPU total timer",
+                'value': summary['cpu_time']['value'],
+                'unit': summary['cpu_time']['unit']
+            },
+            {
+                'label': "CPU average usage",
+                'value': summary['cpu_usage']['average'],
+                'unit': summary['cpu_usage']['unit']
+            },
+            {
+                'label': "CPU max usage",
+                'value': summary['cpu_usage']['max'],
+                'unit': summary['cpu_usage']['unit']
+            },
+            {
+                'label': "Memory average usage",
+                'value': summary['memory']['average'],
+                'unit': summary['memory']['unit']
+            },
+            {
+                'label': "Memory max usage",
+                'value': summary['memory']['max'],
+                'unit': summary['memory']['unit']
+            }
+        ]
+        plots = []
+        if path_plt:
+            plots = [
+                os.path.join(path_plt, tst_name+"_cpu_usage.png"),
+                os.path.join(path_plt, tst_name+"_memory_usage.png")
+            ]
+        return report_tmp.generate(test_id=tst_name, summary=summ, plots=plots)
+    return None

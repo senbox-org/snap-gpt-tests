@@ -10,6 +10,7 @@ import subprocess
 import json
 import psutil
 
+import report_utils
 import template
 
 # Directory name constants
@@ -213,47 +214,9 @@ class ReportOut:
         """Create the html report"""
         if not self.__file_mode__:
             return
-        with open(template_path, 'r') as file:
-            report_tmp = template.Template(file.read())
-            summ = [
-                {
-                    'label': "Process duration",
-                    'value': summary['duration']['value'],
-                    'unit': summary['duration']['unit']
-                },
-                {
-                    'label': "CPU total timer",
-                    'value': summary['cpu_time']['value'],
-                    'unit': summary['cpu_time']['unit']
-                },
-                {
-                    'label': "CPU average usage",
-                    'value': summary['cpu_usage']['average'],
-                    'unit': summary['cpu_usage']['unit']
-                },
-                {
-                    'label': "CPU max usage",
-                    'value': summary['cpu_usage']['max'],
-                    'unit': summary['cpu_usage']['unit']
-                },
-                {
-                    'label': "Memory average usage",
-                    'value': summary['memory']['average'],
-                    'unit': summary['memory']['unit']
-                },
-                {
-                    'label': "Memory max usage",
-                    'value': summary['memory']['max'],
-                    'unit': summary['memory']['unit']
-                }
-            ]
-            plots = []
-            if include_plot:
-                plots = [
-                    os.path.join(self.path_plt, self.path_fname+"_cpu_usage.png"),
-                    os.path.join(self.path_plt, self.path_fname+"_memory_usage.png")
-                ]
-            report_html = report_tmp.generate(test_id=self.path_fname, summary=summ, plots=plots)
+        plt_path = __PLT_DIR__ if include_plot else None
+        report_html = report_utils.perf_html(template_path, self.path_fname, summary, plt_path)
+        if report_html:
             report_path = os.path.join(self.report_dir, 'Performance_'+self.path_fname+'.html')
             with open(report_path, 'w') as wfile:
                 wfile.write(report_html)
