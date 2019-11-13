@@ -71,11 +71,11 @@
 {{foreach .test in .tests}}
   {{switch .test.status}}
     {{case "PASSED"}}
-      <img width="16" height="16" src="icons/green.png">
+      <img width="16" height="16" src="../icons/green.png">
     {{case "FAILED"}}
-      <img width="16" height="16" src="icons/red.png">
+      <img width="16" height="16" src="../icons/red.png">
     {{case "SKIPPED"}}
-      <img width="16" height="16" src="icons/yellow.png">
+      <img width="16" height="16" src="../icons/yellow.png">
   {{end}}
 {{end}}
 </td>
@@ -111,9 +111,9 @@
     {{case "FAILED"}}
       <td class="result"><a href="../output/{{.test.name}}_gptOutput.txt"><img width="16" height="16" alt="{{.test.status}}" src="icons/red.png"></a></td>
     {{case "PASSED"}}
-      <td class="result"><img width="16" height="16" alt="{{.test.status}}" src="icons/green.png"></td>
+      <td class="result"><img width="16" height="16" alt="{{.test.status}}" src="../icons/green.png"></td>
     {{case "SKIPPED"}}
-      <td class="result"><img width="16" height="16" alt="{{.test.status}}" src="icons/yellow.png"></td>
+      <td class="result"><img width="16" height="16" alt="{{.test.status}}" src="../icons/yellow.png"></td>
   {{end}}
   <td class="env">{{.test.vm_string}}</td>
   <td class="duration">{{.test.duration}}</td>
