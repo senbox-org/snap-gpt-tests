@@ -371,5 +371,6 @@ if __name__ == '__main__':
     if len(ARGS) != 5:
         print("wrong number of arguments!\nreport_utils TEMPLATE_DIR BASE_PATH SCOPE VERSION")
         sys.exit(-1)
-    __template_dir__ = ARGS[0]
-    generate_html_report(ARGS[1], ARGS[2], ARGS[3])
+    print(f'>> report_utils {ARGS}')
+    __template_dir__ = ARGS[1]
+    generate_html_report(ARGS[2], ARGS[3], ARGS[4])

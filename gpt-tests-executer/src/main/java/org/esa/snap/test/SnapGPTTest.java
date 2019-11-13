@@ -102,28 +102,7 @@ public class SnapGPTTest {
             return;
         }
 
-        /*
-        //create html folder structure
-        reportFolderPath.resolve("html").toFile().mkdir();
-        reportFolderPath.resolve("html").resolve("images").toFile().mkdir();
-        reportFolderPath.resolve("html").resolve("json").toFile().mkdir();
-        reportFolderPath.resolve("html").resolve("icons").toFile().mkdir();
-        reportFolderPath.resolve("html").resolve("css").toFile().mkdir();
-        //copy icons and css
-        ReportUtils.copyResource("css/gptTest.css", reportFolderPath.resolve("html").resolve("css").resolve("gptTest.css"));
-        ReportUtils.copyResource("icons/blue.png", reportFolderPath.resolve("html").resolve("icons").resolve("blue.png"));
-        ReportUtils.copyResource("icons/duration.png", reportFolderPath.resolve("html").resolve("icons").resolve("duration.png"));
-        ReportUtils.copyResource("icons/green.png", reportFolderPath.resolve("html").resolve("icons").resolve("green.png"));
-        ReportUtils.copyResource("icons/orange.png", reportFolderPath.resolve("html").resolve("icons").resolve("orange.png"));
-        ReportUtils.copyResource("icons/percent.png", reportFolderPath.resolve("html").resolve("icons").resolve("percent.png"));
-        ReportUtils.copyResource("icons/red.png", reportFolderPath.resolve("html").resolve("icons").resolve("red.png"));
-        ReportUtils.copyResource("icons/SNAP_Icon_16.png", reportFolderPath.resolve("html").resolve("icons").resolve("SNAP_Icon_16.png"));
-        ReportUtils.copyResource("icons/SNAP_Icon_32.png", reportFolderPath.resolve("html").resolve("icons").resolve("SNAP_Icon_32.png"));
-        ReportUtils.copyResource("icons/SNAP_Icon_48.png", reportFolderPath.resolve("html").resolve("icons").resolve("SNAP_Icon_48.png"));
-        ReportUtils.copyResource("icons/SNAP_Icon_60.png", reportFolderPath.resolve("html").resolve("icons").resolve("SNAP_Icon_60.png"));
-        ReportUtils.copyResource("icons/SNAP_Icon_128.png", reportFolderPath.resolve("html").resolve("icons").resolve("SNAP_Icon_128.png"));
-        ReportUtils.copyResource("icons/yellow.png", reportFolderPath.resolve("html").resolve("icons").resolve("yellow.png"));
-        */
+
 
         BufferedWriter writer = null;
         boolean report = true; //todo add this option as parameter
@@ -183,7 +162,7 @@ public class SnapGPTTest {
 
                 //create graph png in html folder
                 Path graphPath = graphFolder.resolve(graphTest.getGraphPath());
-                Path imagePath = reportFolderPath.resolve("html").resolve("images").resolve(graphTest.getGraphPath());
+                Path imagePath = reportFolderPath.resolve.resolve("images").resolve(graphTest.getGraphPath());
                 String stringPNG = org.esa.snap.core.util.io.FileUtils.exchangeExtension(imagePath.toString(), ".png");
                 File filePNG = new File(stringPNG);
                 filePNG.getParentFile().mkdirs();
@@ -193,7 +172,7 @@ public class SnapGPTTest {
 
                 //create specific json in html folder
                 ObjectMapper objectMapper = new ObjectMapper();
-                Path jsonReportPath = reportFolderPath.resolve("html").resolve("json").
+                Path jsonReportPath = reportFolderPath.resolve("json").
                         resolve(org.esa.snap.core.util.io.FileUtils.getFilenameWithoutExtension(jsonPath.toFile()));
                 Path json  = jsonReportPath.resolve(graphTest.getId()+".json");
                 json.getParent().toFile().mkdirs();
@@ -266,13 +245,7 @@ public class SnapGPTTest {
                                 System.out.println(String.format("Cannot copy gptOutput: %s",e.getMessage()));
                             }
 
-                            //copy output of content to report (perhaps it has been copied before, so try-catch) Do not exist anymore
-                            /*try {
-                                Path reportContent = Paths.get(tempFolder.resolve(graphTest.getId()).toString() + "_contentError.txt");
-                                Files.copy(reportContent, reportFolderPath.resolve(reportContent.getFileName()));
-                            } catch (Exception e) {
-                                System.out.println(String.format("Cannot copy contentOutput: %s",e.getMessage()));
-                            }*/
+          
 
                         }
                         writer.write("\n");
@@ -294,11 +267,6 @@ public class SnapGPTTest {
             }
 
             jsonTestResultList.add(jsonTestResult);
-            //create html report with velocity
-            // ReportUtils.createHtmlReportForJson(jsonTestResult.getGraphTestResultArray(),
-            //                                     jsonTestResult.getJsonName(),
-            //                                     reportFolderPath.resolve("html").resolve(org.esa.snap.core.util.io.FileUtils.exchangeExtension(file.getName(),".html")),
-            //                                     scope);
         
         }
 
