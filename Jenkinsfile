@@ -124,6 +124,8 @@ pipeline {
                 sh "more ${outputDir}/JSONTestFilesSeq.txt"
                 sh "cp -r ./gpt-tests-executer/target/ ${outputDir}/gptExecutorTarget"
                 sh "cp ./gpt-tests-executer/target/classes/*.py ${outputDir}" // << Copy profiler and libraries
+                sh "cp -R ./gpt-tests-executer/target/classes/templates ${outputDir}/templates" 
+                sh "cp -R ./gpt-tests-executer/target/classes/statics/* $WORKSPACE/report/" 
                 // sh "cp ./gpt-tests-executer/target/classes/*.html ${outputDir}" // << Copy HTML report template
 
                 // sh "/opt/launchGpt.sh ${propertiesFilePath} ${outputDir}/FilterJson.vsofig ${scope}"
@@ -166,6 +168,7 @@ pipeline {
                     sh "cat report/Report_*.txt > report/report.txt"
                     echo "Generate html index"
                     // sh "java -jar ${outputDir}/gptExecutorTarget/IndexGenerator.jar $WORKSPACE/report \"${params.testScope}\""
+                    sh "python3 ${outputDir}report_utils.py $WORKSPACE/report \"${params.testScope}\" ${branchVersion}"
                     archiveArtifacts artifacts: "report/**/*.*", fingerprint: true
                     sh "rm -rf report"
                 }
