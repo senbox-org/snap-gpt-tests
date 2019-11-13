@@ -125,7 +125,7 @@ pipeline {
                 sh "cp -r ./gpt-tests-executer/target/ ${outputDir}/gptExecutorTarget"
                 sh "cp ./gpt-tests-executer/target/classes/*.py ${outputDir}" // << Copy profiler and libraries
                 sh "cp -R ./gpt-tests-executer/target/classes/templates ${outputDir}/templates" 
-                sh "cp -R ./gpt-tests-executer/target/classes/statics/* $WORKSPACE/report/" 
+                sh "cp -R ./gpt-tests-executer/target/classes/statics ${outputDir}/statics" 
                 // sh "cp ./gpt-tests-executer/target/classes/*.html ${outputDir}" // << Copy HTML report template
 
                 // sh "/opt/launchGpt.sh ${propertiesFilePath} ${outputDir}/FilterJson.vsofig ${scope}"
@@ -165,6 +165,8 @@ pipeline {
                 always {
                     sh "rm -rf $WORKSPACE/report"
                     sh "cp -r ${outputDir}/report $WORKSPACE"
+                    sh "cp -r ${outputDir}/statics/* $WORKSPACE/report/" 
+
                     sh "cat report/Report_*.txt > report/report.txt"
                     echo "Generate html index"
                     // sh "java -jar ${outputDir}/gptExecutorTarget/IndexGenerator.jar $WORKSPACE/report \"${params.testScope}\""
