@@ -130,6 +130,7 @@ pipeline {
                 }
             }
             steps {
+                echo "Filtering json files..."
                 sh "java -jar ./gpt-tests-executer/target/FilterTestJSON.jar ./gpt-tests-resources/tests \"${params.testScope}\" ${outputDir}"
                 sh "more ${outputDir}/JSONTestFiles.txt"
                 sh "more ${outputDir}/JSONTestFilesSeq.txt"
