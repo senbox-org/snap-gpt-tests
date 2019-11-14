@@ -9,7 +9,7 @@ import json
 import template as t
 
 import matplotlib as mpl
-mpl.use('Agg')
+mpl.use('Agg') # use no graphical backend
 import matplotlib.pyplot as plt
 
 
@@ -80,9 +80,15 @@ class Test:
         self.start = datetime.datetime.strptime(row[1], __datetime_fmt__)
         self.end = datetime.datetime.strptime(row[2], __datetime_fmt__)
         self.test_set = test_set
-        self.json_path = os.path.join('json', test_set, f'{self.name}.json')
-        self.graph_id, self.vm_string = self.__load_json__()
-        self.stats = self.__load_perfs__()
+        if self.status != 'SKIPPED':
+            self.json_path = os.path.join('json', test_set, f'{self.name}.json')
+            self.graph_id, self.vm_string = self.__load_json__()
+            self.stats = self.__load_perfs__()
+        else:
+            self.json_path = '.'
+            self.graph_id = ''
+            self.vm_string = None
+            self.stats = None
 
     def __load_json__(self):
         json_path = resolve_path(self.json_path)
