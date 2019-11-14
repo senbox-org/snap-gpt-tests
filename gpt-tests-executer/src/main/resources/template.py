@@ -370,7 +370,7 @@ def __parse__(tokens):
             block.append(__token__(token, cases))
         elif token[1] in set([_TokenType.ELSE]):
             sblock, counter = __parse__(tokens[i+1:])
-            block = (block,  sblock)
+            block = (block, sblock)
             return block, i + counter + 1
         else:
             block.append(__token__(token))
@@ -394,6 +394,7 @@ class _Context:
             return getattr(value, key)
         # check if is a method of an object
         if hasattr(type(value), key):
+            print('method:', key, getattr(type(value), key)(value))
             return getattr(type(value), key)(value)
         return None
 

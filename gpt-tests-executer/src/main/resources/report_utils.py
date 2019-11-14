@@ -282,8 +282,8 @@ class TestSet:
                                  operating_system=sys.platform,
                                  version=version,
                                  total=len(self.tests),
-                                 failed=len(self.failed_tests()),
-                                 passed=len(self.passed_tests()),
+                                 failed_tests=len(self.failed_tests()),
+                                 passed_tests=len(self.passed_tests()),
                                  percent=percent,
                                  real_duration=f'{self.real_duration()} s',
                                  tests=self.tests
