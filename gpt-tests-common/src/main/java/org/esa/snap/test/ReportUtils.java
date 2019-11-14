@@ -69,7 +69,6 @@ public class ReportUtils {
 
             GraphPanel panel = new GraphPanel(exec);
             panel.setBackground(Color.WHITE);
-            panel.setOpaque(false);
             Dimension dim = getGraphDimension(graphFile);
             panel.setSize(dim);
             BufferedImage im = new BufferedImage(panel.getWidth(), panel.getHeight(), BufferedImage.TYPE_INT_ARGB);
