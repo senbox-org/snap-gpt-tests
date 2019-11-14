@@ -157,7 +157,7 @@ class Test:
 
     def performance_report(self):
         """generate perofmance report"""
-        if self.is_skipped():
+        if self.is_skipped() or not self.stats:
             pass
         with open(os.path.join(__template_dir__, 'perf_report_template.html'), 'r') as file:
             template = t.Template(file.read())
