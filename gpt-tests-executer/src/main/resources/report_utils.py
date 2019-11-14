@@ -69,6 +69,10 @@ class Test:
             return self.stats['duration']['value']
         return (self.end - self.start).total_seconds()
 
+    def duration_str(self):
+        """duration string"""
+        return f'{self.duration()} s'
+
     def memory_max(self):
         """
         maximum use of memory
@@ -76,6 +80,10 @@ class Test:
         if not self.stats:
             return 0
         return self.stats['memory']['max']
+
+    def memory_max_str(self):
+        """memory max string"""
+        return f'{self.memory_max()} Mb'
 
     def memory_avg(self):
         """
@@ -103,19 +111,54 @@ class Test:
         """
         return self.status == 'SKIPPED'
 
-    def summary(self):
-        """
-        simple dictionary containing the basic results information
-        """
-        return {
-            'name': self.name,
-            'status': self.status,
-            'memory_max': f'{self.memory_max()} Mb',
-            'duration': f'{self.duration()} s',
-            'graph_id': self.graph_id,
-            'vm_string': self.vm_string,
-            'json_path': self.json_path,
-        }
+    def performance_report(self):
+        """generate perofmance report"""
+        with open(os.path.join(__template_dir__, 'gptTest_report_template.html'), 'r') as file:
+            template = t.Template(file.read())
+        if template is None:
+            print("Unable to load template")
+            return
+        summary = self.stats
+        summ = [
+            {
+                'label': "Process duration",
+                'value': summary['duration']['value'],
+                'unit': summary['duration']['unit']
+            },
+            {
+                'label': "CPU total timer",
+                'value': summary['cpu_time']['value'],
+                'unit': summary['cpu_time']['unit']
+            },
+            {
+                'label': "CPU average usage",
+                'value': summary['cpu_usage']['average'],
+                'unit': summary['cpu_usage']['unit']
+            },
+            {
+                'label': "CPU max usage",
+                'value': summary['cpu_usage']['max'],
+                'unit': summary['cpu_usage']['unit']
+            },
+            {
+                'label': "Memory average usage",
+                'value': summary['memory']['average'],
+                'unit': summary['memory']['unit']
+            },
+            {
+                'label': "Memory max usage",
+                'value': summary['memory']['max'],
+                'unit': summary['memory']['unit']
+            }
+        ]
+
+        plots = [
+            self.name+"_cpu_usage.png",
+            self.name+"_memory_usage.png"
+        ]
+        html = template.generate(test_id=self.name, summary=summ, plots=plots)
+        save_report(html, resolve_path(__tests_dir__, f'Performance_{self.name}.html'))
+
 
 class TestSet:
     """
@@ -200,17 +243,17 @@ class TestSet:
             return 'PASSED'
         return 'SKIPPED'
 
-    def summary(self):
+    def duration_str(self):
         """
-        test set summary in form of dict
+        duration string
         """
-        return {
-            'status': self.status(),
-            'name' : self.name,
-            'duration' : f'{self.duration()} s',
-            'memory_max' : f'{self.memory_max()} Mb',
-            'tests' : list([test.summary() for test in self.tests])
-        }
+        return f'{self.duration()} s'
+
+    def memory_max_str(self):
+        """
+        memory max string
+        """
+        return f'{self.memory_max()} Mb'
 
     def real_duration(self):
         """real elapsed time"""
@@ -243,65 +286,12 @@ class TestSet:
                                  passed=len(self.passed_tests()),
                                  percent=percent,
                                  real_duration=f'{self.real_duration()} s',
-                                 tests=list([test.summary() for test in self.tests])
+                                 tests=self.tests
                                 )
         save_report(html, resolve_path(__tests_dir__, f'Report_{self.name}.html'))
-
-
-def performances(template_path, tst_name, summary, path_plt=None):
-    """
-    Creates the html performances report per tests
-
-    Parameters:
-    -----------
-     - template_path: absolute path of the html template
-     - tst_name: test name
-     - summary: performance summary dict
-     - path_plt: optional plot path
-    """
-    with open(template_path, 'r') as file:
-        report_tmp = t.Template(file.read())
-        summ = [
-            {
-                'label': "Process duration",
-                'value': summary['duration']['value'],
-                'unit': summary['duration']['unit']
-            },
-            {
-                'label': "CPU total timer",
-                'value': summary['cpu_time']['value'],
-                'unit': summary['cpu_time']['unit']
-            },
-            {
-                'label': "CPU average usage",
-                'value': summary['cpu_usage']['average'],
-                'unit': summary['cpu_usage']['unit']
-            },
-            {
-                'label': "CPU max usage",
-                'value': summary['cpu_usage']['max'],
-                'unit': summary['cpu_usage']['unit']
-            },
-            {
-                'label': "Memory average usage",
-                'value': summary['memory']['average'],
-                'unit': summary['memory']['unit']
-            },
-            {
-                'label': "Memory max usage",
-                'value': summary['memory']['max'],
-                'unit': summary['memory']['unit']
-            }
-        ]
-        plots = []
-        if path_plt:
-            plots = [
-                os.path.join(path_plt, tst_name+"_cpu_usage.png"),
-                os.path.join(path_plt, tst_name+"_memory_usage.png")
-            ]
-        return report_tmp.generate(test_id=tst_name, summary=summ, plots=plots)
-    return None
-
+        # generate perofmance report for each test
+        for test in self.tests:
+            test.performance_report()
 
 
 def __parse_set__(name, lines):
@@ -323,7 +313,8 @@ def generate_html_report(base_path, scope, version):
     global __base_path__
     __base_path__ = base_path
     report_path = os.path.join(base_path, __out_dir__)
-    report_files = [f for f in os.listdir(report_path) if f.startswith("Report_") and f.endswith(".txt") and os.path.isfile(os.path.join(report_path, f))]
+    filter_file = lambda x: x.startswith('Report_') and x.endswith('.txt')
+    report_files = [f for f in os.listdir(report_path) if filter_file(f)]
     test_sets = []
     for report_file in report_files:
         set_name = report_file[7:-4]
@@ -348,7 +339,6 @@ def generate_html_report(base_path, scope, version):
     failedtest = sum([len(x.failed_tests()) for x in test_sets])
     passedjson = len(list(filter(lambda x: x.is_passed(), test_sets)))
     passedtest = sum([len(x.passed_tests()) for x in test_sets])
-    json_test_results = list([x.summary() for x in test_sets])
     html = template.generate(start_date=start_date.strftime(__datetime_fmt__),
                              duration_in_min=round(duration_in_min, 2),
                              scope=scope,
@@ -363,7 +353,7 @@ def generate_html_report(base_path, scope, version):
                              percentjson=round(passedjson/len(test_sets) * 100, 2),
                              percenttest=round(passedtest/n_tests * 100, 2),
                              duration=f'{total_seconds} s',
-                             test_sets=json_test_results
+                             test_sets=test_sets
                             )
     save_report(html, resolve_path('index.html'))
     for test_set in test_sets:
