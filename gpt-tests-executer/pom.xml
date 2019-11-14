@@ -35,51 +35,10 @@
             <groupId>org.esa.snap</groupId>
             <artifactId>snap-reader-tests</artifactId>
         </dependency>
-        <!--<dependency>
-            <groupId>org.esa.snap</groupId>
-            <artifactId>snap-geotiff</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.esa.snap</groupId>
-            <artifactId>snap-bigtiff</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.esa.snap</groupId>
-            <artifactId>snap-core</artifactId>
-        </dependency> -->
     </dependencies>
 
     <build>
     <plugins>
-
-       <!-- <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-assembly-plugin</artifactId>
-            <version>2.4.1</version>
-            <configuration>
-
-                <descriptorRefs>
-                    <descriptorRef>jar-with-dependencies</descriptorRef>
-                </descriptorRefs>
-
-                <archive>
-                    <manifest>
-                        <mainClass>org.esa.snap.test.SnapGPTTest</mainClass>
-                    </manifest>
-                </archive>
-                <finalName>SnapGPTTest</finalName>
-
-            </configuration>
-            <executions>
-                <execution>
-                    <id>make-assembly</id>
-                    <phase>package</phase>
-                    <goals>
-                        <goal>single</goal>
-                    </goals>
-                </execution>
-            </executions>
-        </plugin> -->
         <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-dependency-plugin</artifactId>
