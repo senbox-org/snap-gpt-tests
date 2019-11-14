@@ -164,12 +164,12 @@ pipeline {
             post {
                 always {
                     sh "rm -rf $WORKSPACE/report"
-                    sh "cp -r ${outputDir}/report $WORKSPACE"
+                    sh "mkdir $WORKSPACE/report && mkdir $WORKSPACE/report/output && mkdir $WORKSPACE/report/resources"
+                    sh "cp -r ${outputDir}/report/* $WORKSPACE/report/output/"
                     sh "cp -r ${outputDir}/statics/* $WORKSPACE/report/" 
 
-                    sh "cat report/Report_*.txt > report/report.txt"
-                    sh "mkdir $WORKSPACE/report/output"
-                    sh "mv $WORKSPACE/report/*.txt $WORKSPACE/report/output/"
+                    sh "cat $WORKSPACE/report/output/Report_*.txt > $WORKSPACE/report/output/report.txt"
+                    sh "mv $WORKSPACE/report/output/json $WORKSPACE/report/resources/ && mv $WORKSPACE/report/output/perfs $WORKSPACE/report/"
                     echo "Generate html index"
                     // sh "java -jar ${outputDir}/gptExecutorTarget/IndexGenerator.jar $WORKSPACE/report \"${params.testScope}\""
                     sh "python3 ${outputDir}/report_utils.py ${outputDir}/templates $WORKSPACE/report \"${params.testScope}\" ${branchVersion}"
