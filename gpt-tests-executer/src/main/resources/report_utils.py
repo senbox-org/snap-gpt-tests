@@ -6,6 +6,8 @@ import sys
 import datetime
 import json
 
+import matplotlib.pyplot as plt
+
 import template as t
 
 
@@ -16,6 +18,14 @@ __stats_dir__ = 'stats'
 __tests_dir__ = 'tests'
 __out_dir__ = 'output'
 __template_dir__ = '.'
+__image_dir__ = 'images'
+
+
+def __generate_pie__(name, passed, failed, skipped=0):
+    _, axis = plt.subplots()
+    axis.pie([failed, passed, skipped], colors=['red', 'green', 'yellow'])
+    axis.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
+    plt.savefig(os.path.join(__base_path__, __image_dir__, name))
 
 
 def resolve_path(*path):
@@ -288,6 +298,7 @@ class TestSet:
                                  real_duration=f'{self.real_duration()} s',
                                  tests=self.tests
                                 )
+        __generate_pie__(f'{self.name}_pie.png', len(self.passed_tests()), len(self.failed_tests()))
         save_report(html, resolve_path(__tests_dir__, f'Report_{self.name}.html'))
         # generate perofmance report for each test
         for test in self.tests:
@@ -300,6 +311,8 @@ def __parse_set__(name, lines):
         row = line.replace('\n', '').split(' - ')
         test_set.tests.append(Test(name, row))
     return test_set
+
+
 
 
 def generate_html_report(base_path, scope, version):
@@ -339,6 +352,7 @@ def generate_html_report(base_path, scope, version):
     failedtest = sum([len(x.failed_tests()) for x in test_sets])
     passedjson = len(list(filter(lambda x: x.is_passed(), test_sets)))
     passedtest = sum([len(x.passed_tests()) for x in test_sets])
+    __generate_pie__('results_pie.png', passedjson, failedjson)
     html = template.generate(start_date=start_date.strftime(__datetime_fmt__),
                              duration_in_min=round(duration_in_min, 2),
                              scope=scope,
