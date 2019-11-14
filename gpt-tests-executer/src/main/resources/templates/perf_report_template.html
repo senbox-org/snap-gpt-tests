@@ -12,15 +12,33 @@
     </tr>
     </table>
     <div class="gptsummary">
-	<h2>Summary</h2>
-    	<table class="summary"><tbody>
-    		{{foreach .row in .summary}}
-    			<tr><td><b>{{.row.label}}</b></td><td>{{.row.value}} {{.row.unit}}</td></tr>
-    		{{end}}
-    	</tbody></table>
+        <table class="gptsummary" cellspacing="0">
+            <tr>
+            <td class="gptsummary">
+                <table class="gptsummarytitle" cellspacing="0">
+                <tr class="title">
+                <td class="margin"></td><td class="title">Summary</td>
+                </tr>
+            </table>
+        <table class="gptsummary" cellspacing="0">
+            {{foreach .row in .summary}}
+                <tr><td><b>{{.row.label}}</b></td><td>{{.row.value}} {{.row.unit}}</td></tr>
+            {{end}}
+        </table>
+        </td><td class="chart">
+        <table class="chart" cellspacing="0">
+            <tr>
+            <td class="icon"><div id="piechart"></div></td>
+            </tr>
+        </table>
+        </td>
+        </tr>
+        </table>
     </div>
 	<div class="plots">
-		<h2>Plots</h2>
+        <table class="resultsummary" cellspacing="0">
+            <tr><th class="result">Plots</th></tr>
+        </table>
 		{{foreach .plot in .plots}}
 			<img src="../perfs/plot/{{.plot}}">
 		{{end}}
