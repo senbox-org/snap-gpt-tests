@@ -246,7 +246,9 @@ public class SnapGPTTest {
                     // }
                 } else {
                     // testResult.setStatus("SKIPPED");
-                    writer.write(" - 1/1/1 0:0:0 - 1/1/1 0:0:0 - SKIPPED\n");
+                    writer.write("\n");
+                    writer.write(graphTest.getId());
+                    writer.write(" - 01/01/0001 00:00:00 - 01/01/0001 00:00:00 - SKIPPED\n");
                 }
 
             }
