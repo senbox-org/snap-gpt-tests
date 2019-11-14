@@ -166,38 +166,46 @@ class Test:
             return
         summ = []
         summary = self.stats
-        summ = [
-            {
-                'label': "Process duration",
-                'value': summary['duration']['value'],
-                'unit': summary['duration']['unit']
-            },
-            {
-                'label': "CPU total timer",
-                'value': summary['cpu_time']['value'],
-                'unit': summary['cpu_time']['unit']
-            },
-            {
-                'label': "CPU average usage",
-                'value': summary['cpu_usage']['average'],
-                'unit': summary['cpu_usage']['unit']
-            },
-            {
-                'label': "CPU max usage",
-                'value': summary['cpu_usage']['max'],
-                'unit': summary['cpu_usage']['unit']
-            },
-            {
-                'label': "Memory average usage",
-                'value': summary['memory']['average'],
-                'unit': summary['memory']['unit']
-            },
-            {
-                'label': "Memory max usage",
-                'value': summary['memory']['max'],
-                'unit': summary['memory']['unit']
-            }
-        ]
+        if 'duration' in summary:
+            summ.append(
+                {
+                    'label': "Process duration",
+                    'value': summary['duration']['value'],
+                    'unit': summary['duration']['unit']
+                })
+        if 'cpu_time' in summary:
+            summ.append(
+                {
+                    'label': "CPU total timer",
+                    'value': summary['cpu_time']['value'],
+                    'unit': summary['cpu_time']['unit']
+                })
+        if 'cpu_usage' in summary:
+            summ += [
+                {
+                    'label': "CPU average usage",
+                    'value': summary['cpu_usage']['average'],
+                    'unit': summary['cpu_usage']['unit']
+                },
+                {
+                    'label': "CPU max usage",
+                    'value': summary['cpu_usage']['max'],
+                    'unit': summary['cpu_usage']['unit']
+                }
+            ]
+        if 'memory' in summary:
+            summ += [
+                {
+                    'label': "Memory average usage",
+                    'value': summary['memory']['average'],
+                    'unit': summary['memory']['unit']
+                },
+                {
+                    'label': "Memory max usage",
+                    'value': summary['memory']['max'],
+                    'unit': summary['memory']['unit']
+                }
+            ]
 
         plots = [
             self.name+"_cpu_usage.png",
