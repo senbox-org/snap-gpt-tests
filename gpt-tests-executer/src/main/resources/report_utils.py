@@ -21,9 +21,16 @@ __template_dir__ = '.'
 __image_dir__ = 'images'
 
 
+
+def __auto_pct__(pct, total):
+    val = int(round(pct/100 * total))
+    if val < 1:
+        return ''
+    return f'{val}'
+
 def __generate_pie__(name, passed, failed, skipped=0):
     my_dpi = 120
-    fig = plt.figure(figsize=(450/my_dpi, 300/my_dpi), dpi=my_dpi)
+    fig = plt.figure(figsize=(500/my_dpi, 300/my_dpi), dpi=my_dpi)
     axis = fig.subplots()
     if skipped:
         values = [failed, passed, skipped]
@@ -31,10 +38,17 @@ def __generate_pie__(name, passed, failed, skipped=0):
     else:
         values = [failed, passed]
         labels = ['failed', 'passed']
-    axis.pie(values,
-             colors=['red', 'green', 'yellow'],
-             labels=[f'{l} ({v})' for l, v in zip(labels, values)])
+    total = sum(values)
+    wedges, _, _ = axis.pie(values,
+                            colors=['red', 'green', 'yellow'],
+                            autopct=lambda pct: __auto_pct__(pct, total),
+                            textprops=dict(color="w", weight="semibold", size=12))
+    axis.legend(wedges, labels,
+                title="Legend",
+                loc="center left",
+                bbox_to_anchor=(1, 0, 0.5, 1))
     axis.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
+    plt.tight_layout()
     plt.savefig(os.path.join(__base_path__, __image_dir__, name))
 
 
