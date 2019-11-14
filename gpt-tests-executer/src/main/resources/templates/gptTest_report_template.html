@@ -4,8 +4,7 @@
 <META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link type="text/css" rel="stylesheet" href="../css/gptTest.css">
 <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="../icons/favicon.ico">
-<title>$jsonName report</title>
-<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script> 
+<title>{{.name}} report</title>
 </head>
 
 <body>
@@ -116,8 +115,8 @@
       <td class="result"><img width="16" height="16" alt="{{.test.status}}" src="../icons/yellow.png"></td>
   {{end}}
   <td class="env">{{.test.vm_string}}</td>
-  <td class="duration">{{.test.duration}}</td>
-  <td class="memory">{{.test.memory_max}}</td>
+  <td class="duration"><a href="Performance_{{.test.name}}.html">{{.test.duration_str}}</a></td>
+  <td class="memory"><a href="Performance_{{.test.name}}.html">{{.test.memory_max_str}}</a></td>
   </tr>
 {{end}}
 

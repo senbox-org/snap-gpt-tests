@@ -5,7 +5,6 @@
 <link type="text/css" rel="stylesheet" href="css/gptTest.css">
 <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="icons/favicon.ico">
 <title>GPT test index</title>
-<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script> 
 </head>
 <body>
 <table class="header" cellspacing="0">
@@ -121,8 +120,8 @@
     {{end}}
   {{end}}
   </td>
-  <td class="duration">{{.test_set.duration}}</td>
-  <td class="memory">{{.test_set.memory_max}}</td>
+  <td class="duration">{{.test_set.duration_str}}</td>
+  <td class="memory">{{.test_set.memory_max_str}}</td>
   </tr>
 {{end}}
 
