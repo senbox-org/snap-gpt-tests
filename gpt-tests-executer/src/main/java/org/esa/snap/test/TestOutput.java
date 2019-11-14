@@ -1,6 +1,7 @@
 package org.esa.snap.test;
 
 import java.io.File;
+import java.io.IOException;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -28,7 +29,6 @@ public class TestOutput {
         final ContentAssert contentAssert = new ContentAssert(expectedDataset.getExpectedContent(), outputName, product);
         try {
             contentAssert.assertProductContent();
-
         } catch (AssertionError e) {
             System.out.println("\n\n---------------------------------------------------------------------\n\n");
             System.out.println("Error when comparing expected output:\n");
