@@ -34,7 +34,7 @@ def __auto_pct__(pct, total):
 
 def __generate_pie__(name, passed, failed, skipped=0):
     my_dpi = 120
-    fig = plt.figure(figsize=(500/my_dpi, 300/my_dpi), dpi=my_dpi)
+    fig = plt.figure(figsize=(600/my_dpi, 300/my_dpi), dpi=my_dpi)
     axis = fig.subplots()
     if skipped:
         values = [failed, passed, skipped]
