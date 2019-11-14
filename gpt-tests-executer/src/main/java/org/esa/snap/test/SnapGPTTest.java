@@ -5,7 +5,6 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -126,9 +125,7 @@ public class SnapGPTTest {
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
 
 
-        ArrayList<JsonTestResult> jsonTestResultList = new ArrayList<>();
         for(File file : fileList) { //do for every json
-            JsonTestResult jsonTestResult = new JsonTestResult(org.esa.snap.core.util.io.FileUtils.getFilenameWithoutExtension(file));
             GraphTest[] graphTests = GraphTestsUtils.mapGraphTests(file);
             //ArrayList<GraphTestResult> graphTestResultList = new ArrayList<>();
             if(graphTests == null || graphTests.length == 0) {
@@ -263,12 +260,8 @@ public class SnapGPTTest {
                 } else {
                     testResult.setStatus("SKIPPED");
                 }
-                //graphTestResultList.add(testResult);
-                jsonTestResult.addGraphTestResults(testResult);
 
             }
-
-            jsonTestResultList.add(jsonTestResult);
         
         }
 
