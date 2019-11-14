@@ -169,7 +169,7 @@ pipeline {
                     sh "cp -r ${outputDir}/statics/* $WORKSPACE/report/" 
 
                     sh "cat $WORKSPACE/report/output/Report_*.txt > $WORKSPACE/report/output/report.txt"
-                    sh "mv $WORKSPACE/report/output/json $WORKSPACE/report/ && mv $WORKSPACE/report/output/perfs $WORKSPACE/report/"
+                    sh "mv $WORKSPACE/report/output/json $WORKSPACE/report/ && mv $WORKSPACE/report/output/perfs $WORKSPACE/report/ && mv $WORKSPACE/report/output/images $WORKSPACE/report/"
                     echo "Generate html index"
                     // sh "java -jar ${outputDir}/gptExecutorTarget/IndexGenerator.jar $WORKSPACE/report \"${params.testScope}\""
                     sh "python3 ${outputDir}/report_utils.py ${outputDir}/templates $WORKSPACE/report \"${params.testScope}\" ${branchVersion}"
