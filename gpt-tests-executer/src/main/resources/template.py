@@ -379,6 +379,24 @@ def __parse__(tokens):
 
 
 class _Context:
+    @staticmethod
+    def __get_value__(value, key):
+        # check if is a list and an index
+        if isinstance(value, list) and key.isdigit:
+            index = int(key)
+            if 0 <= index < len(value): #safety check
+                return value[index]
+        # check if is a dictionary and a key of the dictionary
+        if isinstance(value, dict) and key in value:
+            return value[key]
+        # check if is an attribute of an object
+        if hasattr(value, key):
+            return getattr(value, key)
+        # check if is a method of an object
+        if hasattr(type(value), key):
+            return getattr(type(value), key)(value)
+        return None
+
     def __init__(self, variables, parent=None):
         self.__vars__ = variables
         self.__parent__ = parent
@@ -392,12 +410,8 @@ class _Context:
         var = var[1:]
         while var:
             key = var[0]
-            if key.isdigit():
-                key = int(key)
-                value = value[key]
-            elif key in value:
-                value = value[key]
-            else:
+            value = _Context.__get_value__(value, key)
+            if not value:
                 return None
             var = var[1:]
         return value
