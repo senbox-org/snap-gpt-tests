@@ -19,6 +19,7 @@ public class TestOutput {
         String expectedOutput = args[1];
         String outputName = args[2];
         Product product = ProductIO.readProduct(outputNameWithExtension);
+        final ObjectMapper mapper = new ObjectMapper();
         final ExpectedDataset expectedDataset = mapper.readValue(new File(expectedOutput), ExpectedDataset.class);
         if(product == null){
             System.out.println("Cannot read output file: " + outputNameWithExtension);
