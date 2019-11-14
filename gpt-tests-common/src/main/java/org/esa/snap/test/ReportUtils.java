@@ -8,10 +8,8 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.StringWriter;
 import java.lang.reflect.InvocationTargetException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -22,13 +20,6 @@ import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import org.apache.commons.io.filefilter.TrueFileFilter;
-import org.apache.commons.io.filefilter.WildcardFileFilter;
-import org.apache.velocity.Template;
-import org.apache.velocity.VelocityContext;
-import org.apache.velocity.app.VelocityEngine;
-import org.apache.velocity.runtime.RuntimeConstants;
-import org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader;
 import org.esa.snap.core.gpf.graph.GraphException;
 import org.esa.snap.core.util.io.FileUtils;
 import org.esa.snap.graphbuilder.rcp.dialogs.support.GraphExecuter;
@@ -42,109 +33,6 @@ import org.jsoup.select.Elements;
  * Created by obarrile on 07/07/2019.
  */
 public class ReportUtils {
-
-    public static void createHtmlReportForJson (GraphTestResult[] graphTestResults, String jsonName, Path outputPath, String scope) throws IOException {
-        VelocityEngine velocityEngine = new VelocityEngine();
-        velocityEngine.setProperty(RuntimeConstants.RESOURCE_LOADER, "classpath");
-        velocityEngine.setProperty("classpath.resource.loader.class", ClasspathResourceLoader.class.getName());
-        velocityEngine.init();
-
-        Template template = velocityEngine.getTemplate("gptTest_report_template.vm");
-
-        VelocityContext context = new VelocityContext();
-        context.put("graphTestResults", graphTestResults);
-        context.put("jsonName", jsonName);
-        context.put("operatingSystem", System.getProperty("os.name"));
-        context.put("scope", scope);
-        //compute start and end date
-        Date start = new Date(Long.MAX_VALUE);
-        Date end = new Date(Long.MIN_VALUE);
-        Long totalDuration = 0L;
-        float memoryPeak = 0f;
-        for(GraphTestResult graphTestResult : graphTestResults) {
-            if(graphTestResult.getStartDate() != null) {
-                if (graphTestResult.getStartDate().before(start)) {
-                    start = graphTestResult.getStartDate();
-                }
-            }
-            if(graphTestResult.getEndDate() != null) {
-                if(graphTestResult.getEndDate().after(end)) {
-                    end = graphTestResult.getEndDate();
-                }
-            }
-            totalDuration = totalDuration + graphTestResult.getExecutionTime();
-        }
-        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-        context.put("startDateString", formatter.format(start));
-        context.put("endDateString", formatter.format(end));
-        context.put("totalTime", Math.round((end.getTime()-start.getTime())/1000));
-        context.put("sumTime", totalDuration);
-
-
-        FileWriter fileWriter = new FileWriter(outputPath.toFile());
-        StringWriter writer = new StringWriter();
-        template.merge( context, fileWriter );
-        fileWriter.close();
-
-    }
-
-    public static void createHtmlReportIndex (JsonTestResult[] jsonTestResults, Path outputPath, String scope) throws IOException {
-        VelocityEngine velocityEngine = new VelocityEngine();
-        velocityEngine.setProperty(RuntimeConstants.RESOURCE_LOADER, "classpath");
-        velocityEngine.setProperty("classpath.resource.loader.class", ClasspathResourceLoader.class.getName());
-        velocityEngine.init();
-
-        Template template = velocityEngine.getTemplate("gptIndex_report_template.vm");
-
-        VelocityContext context = new VelocityContext();
-        context.put("jsonTestResults", jsonTestResults);
-        context.put("operatingSystem", System.getProperty("os.name"));
-        context.put("scope", scope);
-        //compute start and end date
-        Date start = new Date(Long.MAX_VALUE);
-        Date end = new Date(Long.MIN_VALUE);
-        Long totalDuration = 0L;
-        for(JsonTestResult jsonTestResult : jsonTestResults) {
-            if(jsonTestResult.getStartDate() != null) {
-                if (jsonTestResult.getStartDate().before(start)) {
-                    start = jsonTestResult.getStartDate();
-                }
-            }
-            if(jsonTestResult.getEndDate() != null) {
-                if(jsonTestResult.getEndDate().after(end)) {
-                    end = jsonTestResult.getEndDate();
-                }
-            }
-            totalDuration = totalDuration + jsonTestResult.getExecutionTime();
-        }
-
-        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-        context.put("startDateString", formatter.format(start));
-        context.put("endDateString", formatter.format(end));
-        context.put("totalTime", Math.round((end.getTime()-start.getTime())/1000));
-        context.put("sumTime", totalDuration);
-
-
-        FileWriter fileWriter = new FileWriter(outputPath.toFile());
-        template.merge( context, fileWriter );
-        fileWriter.close();
-
-    }
-
-
-    public static void createHtmlReportIndex (Path reportPath, String scope) throws IOException {
-        Path htmlPath = reportPath.resolve("html");
-
-        String[] htmlFilepaths = FileUtils.listFilePathsWithExtension(htmlPath.toFile(),"html");
-        JsonTestResult[] jsonTestResults = new JsonTestResult[htmlFilepaths.length];
-
-        for(int i = 0 ; i < htmlFilepaths.length ; i++) {
-            jsonTestResults[i] = readJsonTestResult(htmlPath.resolve(htmlFilepaths[i]));
-        }
-
-        createHtmlReportIndex (jsonTestResults, htmlPath.resolve("index.html"), scope);
-    }
-
 
     public static void generateGraphImage(File graphFileOrigin, File outputFile) {
 
@@ -181,6 +69,7 @@ public class ReportUtils {
 
             GraphPanel panel = new GraphPanel(exec);
             panel.setBackground(Color.WHITE);
+            panel.setOpaque(false);
             Dimension dim = getGraphDimension(graphFile);
             panel.setSize(dim);
             BufferedImage im = new BufferedImage(panel.getWidth(), panel.getHeight(), BufferedImage.TYPE_INT_ARGB);
@@ -229,25 +118,6 @@ public class ReportUtils {
         return modifiedFile;
     }
     private static File checkPresentationPart(File graphFile) {
-
-//        boolean hasPresentation = false;
-//        Scanner in = null;
-//        try {
-//            in = new Scanner(new FileReader(graphFile));
-//            while(in.hasNextLine() && !hasPresentation) {
-//                hasPresentation = in.nextLine().indexOf("<applicationData id=\"Presentation\">") >= 0;
-//            }
-//        } catch (FileNotFoundException e) {
-//            e.printStackTrace();
-//        } finally {
-//            try {
-//                in.close() ;
-//            } catch(Exception e) { /* ignore */ }
-//        }
-//
-//        if (!hasPresentation) System.out.println("###### Has NOT presentation " + hasPresentation);
-//        File modifiedFile = null;
-////        return modifiedFile;
         return graphFile;
     }
 

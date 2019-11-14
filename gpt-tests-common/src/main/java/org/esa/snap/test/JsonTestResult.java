@@ -57,25 +57,6 @@ public class JsonTestResult {
     public void addGraphTestResults(GraphTestResult graphTestResult) {
         graphTestResultList.add(graphTestResult);
         totalDuration = totalDuration + graphTestResult.getExecutionTime();
-
-        /*//Update status
-        if(status.equals("FAILED")) {
-            return;
-        }
-        if(graphTestResult.getStatus().equals("FAILED")) {
-            status = "FAILED";
-            return;
-        }
-        if(graphTestResultList.size() == 1) {
-            status = graphTestResult.getStatus();
-            return;
-        }
-        if(graphTestResult.getStatus().equals("UNKNOWN")) {
-            if(status.equals("PASSED")) {
-                status = "UNKNOWN";
-                return;
-            }
-        }*/
         refreshStatus();
     }
 

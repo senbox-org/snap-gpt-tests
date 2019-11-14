@@ -4,7 +4,6 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import java.io.File;
-import java.nio.file.Paths;
 
 /**
  * Created by obarrile on 15/03/2019.

@@ -2,7 +2,6 @@ package org.esa.snap.test;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.nio.file.Path;
 
 
 /**
@@ -13,7 +12,6 @@ public class GraphTestResult {
     private String status = "UNKNOWN";
     private Date startDate = null;
     private Date endDate = null;
-    private int memoryPeak = 0;
     private int memoryMean = 0;
     private int duration = 0;
     private SimpleDateFormat formatter;
@@ -28,7 +26,6 @@ public class GraphTestResult {
         this.status = status;
         this.startDate = startDate;
         this.endDate = endDate;
-        this.memoryPeak = 0;
         this.memoryMean = 0;
         formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
     }
@@ -99,10 +96,6 @@ public class GraphTestResult {
 
     public void setEndDate(Date endDate) {
         this.endDate = endDate;
-    }
-
-    public void setMemoryPeak(int memoryPeak) {
-        this.memoryPeak = memoryPeak;
     }
 
     public String getconfigVMString() {
