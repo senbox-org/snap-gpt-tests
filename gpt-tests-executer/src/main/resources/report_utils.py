@@ -46,10 +46,12 @@ def __generate_pie__(name, passed, failed, skipped=0):
     wedges, _, _ = axis.pie(values,
                             colors=['red', 'green', 'yellow'],
                             autopct=lambda pct: __auto_pct__(pct, total),
-                            textprops=dict(color="w", weight="semibold"), 
-                            label=labels)
-    axis.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
-    plt.tight_layout()
+                            textprops=dict(color="w", weight="semibold"))
+    axis.legend(wedges, labels,
+                title="Legend",
+                loc="center left",
+                bbox_to_anchor=(1, 0, 0.5, 1))
+    axis.axis('square')  # Equal aspect ratio ensures that pie is drawn as a circle.
     plt.savefig(os.path.join(__base_path__, __image_dir__, name))
 
 
