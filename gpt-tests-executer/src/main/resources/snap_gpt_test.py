@@ -10,6 +10,7 @@ import shutil
 
 import filter_json
 import profiler
+import graph_drawer
 
 
 __DATE_FMT__ = '%d/%m/%Y %H:%M:%S'
@@ -214,12 +215,26 @@ def __run_test__(test, args, properties):
     return True
 
 
+
+def __draw_graph__(test, properties):
+    grpah_path = os.path.join(properties['graphFolder'], test['graphPath'])
+    image_path = os.path.join(properties['reportFolderPath'], test['graphPath'])
+    image_path = os.path.splitext(image_path)[0] + '.png'
+    image_dir = os.path.dirname(image_path)
+    if not os.path.exists(image_dir):
+        os.mkdir(image_dir)
+    graph_drawer.draw(grpah_path, image_path)
+    
+
+
 def __run_tests__(args, properties):
     output = ''
     passed = True
     with open(args.json_path, 'r') as file:
         tests = json.load(file)
         for test in tests:
+            __draw_graph__(test)
+
             if not 'frequency' in test:
                 continue
             start = datetime.datetime.now().strftime(__DATE_FMT__)
