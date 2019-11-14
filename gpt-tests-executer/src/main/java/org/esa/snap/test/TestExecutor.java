@@ -212,6 +212,7 @@ public class TestExecutor {
         }
         return testPassed;
     }
+
     private static String findOutput (Output output, Path tempFolder) {
         Collection<File> filelist = FileUtils.listFiles(tempFolder.toFile(), new WildcardFileFilter(String.format("%s.*",output.getOutputName())), null);
         if(filelist.size() == 1) {
@@ -235,4 +236,8 @@ public class TestExecutor {
             e.printStackTrace();
         }
     }
-}
+
+    public static void main(String[] args) {
+        
+    }
+}   

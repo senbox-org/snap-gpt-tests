@@ -157,11 +157,14 @@ class Test:
 
     def performance_report(self):
         """generate perofmance report"""
+        if self.is_skipped():
+            pass
         with open(os.path.join(__template_dir__, 'perf_report_template.html'), 'r') as file:
             template = t.Template(file.read())
         if template is None:
             print("Unable to load template")
             return
+        summ = []
         summary = self.stats
         summ = [
             {
