@@ -75,7 +75,7 @@
     {{case "FAILED"}}
       <img width="16" height="16" src="../icons/red.png">
     {{case "SKIPPED"}}
-      <img width="16" height="16" src="../icons/yellow.png">
+      <img width="16" height="16" src="../icons/orange.png">
   {{end}}
 {{end}}
 </td>
@@ -108,7 +108,7 @@
   <td class="testid"><a href="../{{.test.json_path}}">{{.test.name}}</a></td>
   <td class="desc"><a href="../images/{{.test.graph_id}}.png"><img width="300" height="150" border="none" src="../images/{{.test.graph_id}}.png" alt="{{.test.name}}" title="{{.test.graph_id}}"></a></td>
   {{if .test.is_skipped}}
-    <td class="result"><img width="16" height="16" alt="{{.test.status}}" src="../icons/yellow.png"></td>
+    <td class="result"><img width="16" height="16" alt="{{.test.status}}" src="../icons/orange.png"></td>
     <td class="env">{{.test.vm_string}}</td>
     <td class="duration"> - </td>
     <td class="memory"> - </td>

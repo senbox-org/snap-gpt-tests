@@ -44,7 +44,7 @@ def __generate_pie__(name, passed, failed, skipped=0):
         labels = ['failed', 'passed']
     total = sum(values)
     wedges, _, _ = axis.pie(values,
-                            colors=['red', 'green', 'yellow'],
+                            colors=['red', 'green', 'orange'],
                             autopct=lambda pct: __auto_pct__(pct, total),
                             textprops=dict(color="w", weight="semibold"))
     axis.legend(wedges, labels,
@@ -81,14 +81,11 @@ class Test:
         self.end = datetime.datetime.strptime(row[2], __datetime_fmt__)
         self.test_set = test_set
         print('>>>', self.name, self.status)
-        if self.status != 'SKIPPED':
             self.json_path = os.path.join('json', test_set, f'{self.name}.json')
             self.graph_id, self.vm_string = self.__load_json__()
+        if self.status != 'SKIPPED':
             self.stats = self.__load_perfs__()
         else:
-            self.json_path = '.'
-            self.graph_id = ''
-            self.vm_string = None
             self.stats = None
 
     def __load_json__(self):
