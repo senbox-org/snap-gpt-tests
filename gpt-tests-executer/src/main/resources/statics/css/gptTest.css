@@ -162,7 +162,7 @@ table.resultsummary th.realtime {
 }
 
 table.resultsummary tr.even td.result {
-    vertical-align: top;
+    vertical-align: middle;
 }
 
 table.resultsummary tr.even td.realtime,
@@ -176,7 +176,7 @@ table.resultsummary tr.odd td.marginicon {
     text-align: right;
     border-right: 0;
     padding-right: .5em;
-    vertical-align: top;
+    vertical-align: middle;
 }
 
 table.resultsummary td.tests,
@@ -187,7 +187,7 @@ table.resultsummary td.failed,
 table.resultsummary td.duration,
 table.resultsummary td.realtime {
     text-align: right;
-    vertical-align: top;
+    vertical-align: middle;
     width: 1px;
     white-space: nowrap;
 }
@@ -219,16 +219,23 @@ table.gpttestlist th.margin {
     padding: 0;
 }
 
-table.gpttestlist th.testid,
-table.gpttestlist th.desc {
+table.gpttestlist th.testid
+{
     text-align: left;
+}
+table.gpttestlist th.desc {
+    text-align: center;
+}
+table.gpttestlist tr.even td.desc,
+table.gpttestlist tr.odd td.desc {
+    text-align: center;
 }
 
 table.gpttestlist tr.even td.testid,
 table.gpttestlist tr.odd td.testid,
 table.gpttestlist tr.even td.desc,
 table.gpttestlist tr.odd td.desc{
-    vertical-align: top;
+    vertical-align: middle;
 }
 
 table.gpttestlist tr.even td.result,
@@ -239,7 +246,7 @@ table.gpttestlist tr.odd td.result {
 
 table.gpttestlist tr.even td.env,
 table.gpttestlist tr.odd td.env {
-    vertical-align: top;
+    vertical-align: middle;
     text-align: left;
 }
 
@@ -254,7 +261,7 @@ table.gpttestlist tr.odd td.marginicon {
     text-align: right;
     border-right: 0;
     padding-right: .5em;
-    vertical-align: top;
+    vertical-align: middle;
 }
 
 table.gpttestlist td.tests,
@@ -271,7 +278,7 @@ table.gpttestlist td.duration,
 table.gpttestlist td.memory,
 table.gpttestlist td.realtime {
     text-align: right;
-    vertical-align: top;
+    vertical-align: middle;
     width: 1px;
     white-space: nowrap;
 }
@@ -281,4 +288,3 @@ table.gpttestlist table.testid td {
     margin: 0;
     padding: 0;
 }
-
