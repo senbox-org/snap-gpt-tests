@@ -46,7 +46,7 @@ def __generate_pie__(name, passed, failed, skipped=0):
     wedges, _, _ = axis.pie(values,
                             colors=['red', 'green', 'yellow'],
                             autopct=lambda pct: __auto_pct__(pct, total),
-                            textprops=dict(color="w", weight="semibold", size=12))
+                            textprops=dict(color="w", weight="semibold"))
     axis.legend(wedges, labels,
                 title="Legend",
                 loc="center left",
