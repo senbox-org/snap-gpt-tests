@@ -173,7 +173,7 @@ table.resultsummary tr.odd td.realtime {
 table.resultsummary tr.even td.marginicon,
 table.resultsummary tr.odd td.marginicon {
     background-color: white;
-    text-align: right;
+    text-align: center;
     border-right: 0;
     padding-right: .5em;
     vertical-align: middle;
@@ -186,7 +186,7 @@ table.resultsummary td.percent,
 table.resultsummary td.failed,
 table.resultsummary td.duration,
 table.resultsummary td.realtime {
-    text-align: right;
+    text-align: center;
     vertical-align: middle;
     width: 1px;
     white-space: nowrap;
@@ -288,6 +288,18 @@ table.gpttestlist table.testid td {
     margin: 0;
     padding: 0;
 }
+
+table.gpttestlist .env {
+    padding-left: 10px;   
+    text-align: left;
+}
+
+table.gpttestlist td.duration,
+table.gpttestlist td.memory{
+    text-align: center;
+}
+
+
 
 .piechart {
     height: 200px;
