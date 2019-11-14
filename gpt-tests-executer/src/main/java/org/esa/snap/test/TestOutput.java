@@ -2,9 +2,9 @@ package org.esa.snap.test;
 
 
 public static void main(String[] args) {
-    if (args.length != 3) {
-        System.out.println("OUTPUT_PATH EXPECTED_OUTPUT_PATH OUTPUT_NAME")
-        System.exit(1)
+   /* if (args.length != 3) {
+        System.out.println("OUTPUT_PATH EXPECTED_OUTPUT_PATH OUTPUT_NAME");
+        System.exit(1);
     }
     String outputNameWithExtension = args[0];
     String expectedOutput = args[1];
@@ -25,5 +25,5 @@ public static void main(String[] args) {
         System.out.println(e.getMessage());
         System.exit(1);
     }
-    System.exit(0);
+    System.exit(0);*/
 }
