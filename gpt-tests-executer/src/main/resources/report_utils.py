@@ -241,6 +241,18 @@ class TestSet:
         """
         return list(filter(lambda test: test.is_passed(), self.tests))
 
+    def skipped_tests(self):
+        """
+        list of skipped tests
+        """
+        return list(filter(lambda test: test.is_skipped(), self.tests))
+
+    def is_skipped(self):
+        """
+        is skipped flag
+        """
+        return not self.is_failed() and not self.is_passed()
+
     def is_failed(self):
         """
         is failed flag
@@ -251,7 +263,7 @@ class TestSet:
         """
         is passed flag
         """
-        return all([not test.is_failed() for test in self.tests])
+        return all([test.is_passed() for test in self.tests])
 
     def status(self):
         """
@@ -308,7 +320,11 @@ class TestSet:
                                  real_duration=f'{self.real_duration()} s',
                                  tests=self.tests
                                 )
-        __generate_pie__(f'{self.name}_pie.png', len(self.passed_tests()), len(self.failed_tests()))
+        __generate_pie__(f'{self.name}_pie.png',
+                         len(self.passed_tests()),
+                         len(self.failed_tests()),
+                         len(self.skipped_tests())
+                        )
         save_report(html, resolve_path(__tests_dir__, f'Report_{self.name}.html'))
         # generate perofmance report for each test
         for test in self.tests:
@@ -362,7 +378,8 @@ def generate_html_report(base_path, scope, version):
     failedtest = sum([len(x.failed_tests()) for x in test_sets])
     passedjson = len(list(filter(lambda x: x.is_passed(), test_sets)))
     passedtest = sum([len(x.passed_tests()) for x in test_sets])
-    __generate_pie__('results_pie.png', passedjson, failedjson)
+    skippedjson = len(list(filter(lambda x: x.is_skipped(), test_sets)))
+    __generate_pie__('results_pie.png', passedjson, failedjson, skippedjson)
     html = template.generate(start_date=start_date.strftime(__datetime_fmt__),
                              duration_in_min=round(duration_in_min, 2),
                              scope=scope,
