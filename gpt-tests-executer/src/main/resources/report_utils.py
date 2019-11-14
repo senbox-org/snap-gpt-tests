@@ -358,6 +358,7 @@ class TestSet:
 def __parse_set__(name, lines):
     test_set = TestSet(name)
     for line in lines:
+        print(line)
         row = line.replace('\n', '').split(' - ')
         test_set.tests.append(Test(name, row))
     return test_set

@@ -30,7 +30,6 @@ public class SnapGPTTest {
         final boolean FAIL_ON_MISSING_DATA = Boolean.parseBoolean(System.getProperty(PROPERTYNAME_FAIL_ON_MISSING_DATA, "true"));
 
 
-        boolean specificJSON = true;
         boolean success = true;
         //TODO check better the arguments
         if(args.length < 4) {
@@ -104,23 +103,18 @@ public class SnapGPTTest {
 
 
         BufferedWriter writer = null;
-        boolean report = true; //todo add this option as parameter
         try {
             writer = new BufferedWriter(new FileWriter(reportFolderPath.resolve(String.format("Report_%s.txt", JSONFileName)).toFile(), false));
         } catch (IOException e) {
             System.out.println("Cannot create report file: " + reportFolderPath.resolve(String.format("Report_%s.txt", JSONFileName)).toString());
-            report = false;
         }
 
 
         Collection<File> fileList = null;
-        if(specificJSON) {
-            fileList = new ArrayList<>();
-            fileList.add(jsonPath.toFile());
-        } else {
-            fileList = FileUtils.listFiles(testFolder.toFile(), new WildcardFileFilter("*.json"), TrueFileFilter.INSTANCE);
-        }
 
+        fileList = new ArrayList<>();
+        fileList.add(jsonPath.toFile());
+        
 
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
 
@@ -178,14 +172,14 @@ public class SnapGPTTest {
                 if (hasToBeExecuted) {
                     Date startDate = null;
                     Date endDate = null;
-                    if(report) {
-                        writer.write(graphTest.getId());
-                        writer.write(" - ");
+                    
+                    writer.write(graphTest.getId());
+                    writer.write(" - ");
 
-                        startDate = new Date();
-                        writer.write(formatter.format(startDate));
-                        writer.write(" - ");
-                    }
+                    startDate = new Date();
+                    writer.write(formatter.format(startDate));
+                    writer.write(" - ");
+                
 
                     boolean passed = false;
                     try {
@@ -196,55 +190,49 @@ public class SnapGPTTest {
 
                     endDate = new Date();
                     
-                    if(report) {
-
-                        //txt basic report
-                        writer.write(formatter.format(endDate));
-                        writer.write(" - ");
-                        if (profiler) {
-                            try {
-                                // Moving profiling output to the report folder
-                                // TODO: use a path method that does not require conversion to File
-                                FileUtils.copyDirectory(tempFolder.resolve("performances").toFile(), reportFolderPath.resolve("perfs").toFile());
-                            }catch (Exception e) {
-                                System.out.println(String.format("Cannot copy performance: %s",e.getMessage()));
-                            }
+                    //txt basic report
+                    writer.write(formatter.format(endDate));
+                    writer.write(" - ");
+                    if (profiler) {
+                        try {
+                            // Moving profiling output to the report folder
+                            // TODO: use a path method that does not require conversion to File
+                            FileUtils.copyDirectory(tempFolder.resolve("performances").toFile(), reportFolderPath.resolve("perfs").toFile());
+                        }catch (Exception e) {
+                            System.out.println(String.format("Cannot copy performance: %s",e.getMessage()));
                         }
-                        if(passed) {
-                            writer.write("PASSED");
-                        } else {
-                            writer.write("FAILED");
-                            success = false;
+                    }
+                    if(passed) {
+                        writer.write("PASSED");
+                    } else {
+                        writer.write("FAILED");
+                        success = false;
 
-                            //copy  output product to report
-                            if(!scope.toLowerCase().equals("release") && !scope.toLowerCase().equals("weekly") && !scope.toLowerCase().equals("daily") && !scope.toLowerCase().equals("regular")) {
-                                for (Output output : graphTest.getOutputs()) {
-                                    Collection<File> outputFiles = FileUtils.listFilesAndDirs(tempFolder.toFile(), new WildcardFileFilter(String.format("%s*", output.getOutputName())), new WildcardFileFilter(String.format("%s*", output.getOutputName())));
-                                    for (File outputFile : outputFiles) {
-                                        if (outputFile.toString().equals(tempFolder.toString())) {
-                                                continue;
-                                        }
+                        //copy  output product to report
+                        if(!scope.toLowerCase().equals("release") && !scope.toLowerCase().equals("weekly") && !scope.toLowerCase().equals("daily") && !scope.toLowerCase().equals("regular")) {
+                            for (Output output : graphTest.getOutputs()) {
+                                Collection<File> outputFiles = FileUtils.listFilesAndDirs(tempFolder.toFile(), new WildcardFileFilter(String.format("%s*", output.getOutputName())), new WildcardFileFilter(String.format("%s*", output.getOutputName())));
+                                for (File outputFile : outputFiles) {
+                                    if (outputFile.toString().equals(tempFolder.toString())) {
+                                            continue;
+                                    }
 
-                                        if (outputFile.isDirectory()) {
-                                            FileUtils.copyDirectory(outputFile, reportFolderPath.resolve(outputFile.getName()).toFile());
-                                        } else {
-                                            Files.copy(outputFile.toPath(), reportFolderPath.resolve(outputFile.getName()));
-                                        }
+                                    if (outputFile.isDirectory()) {
+                                        FileUtils.copyDirectory(outputFile, reportFolderPath.resolve(outputFile.getName()).toFile());
+                                    } else {
+                                        Files.copy(outputFile.toPath(), reportFolderPath.resolve(outputFile.getName()));
                                     }
                                 }
                             }
+                        }
 
-                            //copy output of gpt to report (perhaps it has been copied before, so try-catch)
-                            try {
-                                Path reportGPT = Paths.get(tempFolder.resolve(graphTest.getId()).toString() + "_gptOutput.txt");
-                                Files.copy(reportGPT, reportFolderPath.resolve(reportGPT.getFileName()));
-                             
-                            } catch (Exception e) {
-                                System.out.println(String.format("Cannot copy gptOutput: %s",e.getMessage()));
-                            }
-
-          
-
+                        //copy output of gpt to report (perhaps it has been copied before, so try-catch)
+                        try {
+                            Path reportGPT = Paths.get(tempFolder.resolve(graphTest.getId()).toString() + "_gptOutput.txt");
+                            Files.copy(reportGPT, reportFolderPath.resolve(reportGPT.getFileName()));
+                         
+                        } catch (Exception e) {
+                            System.out.println(String.format("Cannot copy gptOutput: %s",e.getMessage()));
                         }
                         writer.write("\n");
                     }
@@ -258,7 +246,7 @@ public class SnapGPTTest {
                     // }
                 } else {
                     // testResult.setStatus("SKIPPED");
-                    writer.write("SKIPPED\n");
+                    writer.write(" - 1/1/1 0:0:0 - 1/1/1 0:0:0 - SKIPPED\n");
                 }
 
             }

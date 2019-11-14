@@ -14,8 +14,9 @@ __WEEKLY_TAG__ = 'weekly'
 __DAILY_TAG__ = 'daily'
 
 
-def __compatible__(scope, tags):
+def compatible(scope, frequency):
     """check if the tags are compatible with the current test scope"""
+    tags = list([x.lower() for x in frequency.split('/')])
     if scope in tags:
         return True
     if scope == __RELEASE_TAG__:
@@ -45,8 +46,7 @@ def __create_test_json_list__(test_folder, scope, test_files_path, test_sequence
             tests = json.load(test_file)
             for test in tests:
                 if 'frequency' in test:
-                    tags = list([x.lower() for x in test['frequency'].split('/')])
-                    if __compatible__(scope, tags):
+                    if compatible(scope, test['frequency']):
                         if 'configVM' not in test or test['configVM'] is None:
                             parallel += f'{test_path}\n'
                         else:
