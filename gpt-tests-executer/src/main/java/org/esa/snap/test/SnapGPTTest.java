@@ -202,9 +202,9 @@ public class SnapGPTTest {
                         }
                     }
                     if(passed) {
-                        writer.write("PASSED");
+                        writer.write("PASSED\n");
                     } else {
-                        writer.write("FAILED");
+                        writer.write("FAILED\n");
                         success = false;
 
                         //copy  output product to report
@@ -233,7 +233,6 @@ public class SnapGPTTest {
                         } catch (Exception e) {
                             System.out.println(String.format("Cannot copy gptOutput: %s",e.getMessage()));
                         }
-                        writer.write("\n");
                     }
 
                     // testResult.setStartDate(startDate);
@@ -245,7 +244,6 @@ public class SnapGPTTest {
                     // }
                 } else {
                     // testResult.setStatus("SKIPPED");
-                    writer.write("\n");
                     writer.write(graphTest.getId());
                     writer.write(" - 01/01/0001 00:00:00 - 01/01/0001 00:00:00 - SKIPPED\n");
                 }
