@@ -22,8 +22,18 @@ __image_dir__ = 'images'
 
 
 def __generate_pie__(name, passed, failed, skipped=0):
-    _, axis = plt.subplots()
-    axis.pie([failed, passed, skipped], colors=['red', 'green', 'yellow'])
+    my_dpi = 120
+    fig = plt.figure(figsize=(450/my_dpi, 300/my_dpi), dpi=my_dpi)
+    axis = fig.subplots()
+    if skipped:
+        values = [failed, passed, skipped]
+        labels = ['failed', 'passed', 'skipped']
+    else:
+        values = [failed, passed]
+        labels = ['failed', 'passed']
+    axis.pie(values,
+             colors=['red', 'green', 'yellow'],
+             labels=[f'{l} ({v})' for l, v in zip(labels, values)])
     axis.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
     plt.savefig(os.path.join(__base_path__, __image_dir__, name))
 
