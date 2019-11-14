@@ -386,16 +386,16 @@ class _Context:
             index = int(key)
             if 0 <= index < len(value): #safety check
                 return value[index]
-        # check if is a dictionary and a key of the dictionary
-        if isinstance(value, dict) and key in value:
-            return value[key]
-        # check if is an attribute of an object
-        if hasattr(value, key):
-            return getattr(value, key)
-        # check if is a method of an object
         if hasattr(type(value), key):
             print('method:', key, getattr(type(value), key)(value))
             return getattr(type(value), key)(value)
+        # check if is an attribute of an object
+        if hasattr(value, key):
+            return getattr(value, key)
+        # check if is a dictionary and a key of the dictionary
+        if isinstance(value, dict) and key in value:
+            return value[key]
+           # check if is a method of an object
         return None
 
     def __init__(self, variables, parent=None):
