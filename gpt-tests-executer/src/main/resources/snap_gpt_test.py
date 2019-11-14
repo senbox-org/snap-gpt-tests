@@ -6,8 +6,10 @@ import sys
 import os
 import json
 import subprocess
+import shutil
 
 import filter_json
+import profiler
 
 
 __DATE_FMT__ = '%d/%m/%Y %H:%M:%S'
@@ -30,6 +32,9 @@ def __arguments__():
     # setup arg parser
     parser = argparse.ArgumentParser()
 
+    parser.add_argument('java_path', help='java path')
+    parser.add_argument('java_args', help='java args')
+
     parser.add_argument('test_output',
                         help="GPT Output Test Executor")
 
@@ -45,11 +50,11 @@ def __arguments__():
     parser.add_argument('report_dir',
                         help="report directory path")
 
+
     parser.add_argument('--Profiling',
                         default='on',
                         choices=['on', 'off'],
                         help="enable the profiler")
-
     # parse arguments
     return parser.parse_args()
 
@@ -78,22 +83,136 @@ def __check_args__(args):
         sys.exit(1)
 
 
-def __vm_parameters__(test):
+def __vm_parameters__(test, snap_dir):
     configVM = None if not 'configVM' in test else test['configVM']
     if not configVM:
         return []
     params = []
+    # set memory setting to configuration file
+    if 'xmx' in configVM:
+        vm_option = os.path.join(snap_dir, 'gpt.vmoptions')
+        vm_original = os.path.join(snap_dir, 'gpt.vmoptionsORIGINAL')
+        shutil.copy2(vm_option, vm_original)
+
+            File fileBackup = snapBin.resolve("gpt.vmoptionsORIGINAL").toFile();
+            File fileVM = snapBin.resolve("gpt.vmoptions").toFile();
+        modified_str = "";
+        with open(vm_original) as file:
+            for line in file.readlines():
+                if line.startswith('-Xmx'):
+                    modified_str += f'-Xmx{configVM['xmx']}\n'
+                else:
+                    modified_str += line
+        with open(vm_option, 'w') as file:
+            file.write(modified_str)
+    # add extra args
+    params.append('-c')
+    params.append(configVM['cacheSize'])
+    params.append('-q')
+    params.append(configVM['parallelism'])
+
     return params
+
+def __vm_parameters_reset__(test, snap_dir):
+    configVM = None if not 'configVM' in test else test['configVM']
+    if not configVM:
+        return 
+    if 'xmx' in configVM:
+        vm_option = os.path.join(snap_dir, 'gpt.vmoptions')
+        vm_original = os.path.join(snap_dir, 'gpt.vmoptionsORIGINAL')
+        shutil.copy2(vm_original, vm_option)
+        os.remove(vm_original)
+    return
+
+def __perpare_param__(value, properties):
+    value = value.replace('$graphFolder', properties['graphFolder'])
+    value = value.replace('$inputFolder', properties['inputFolder'])
+    value = value.replace('$expectedOutputFolder', properties['expectedOutputFolder'])
+    value = value.replace('$tempFolder', properties['tempFolder'])
+    return value
+
+def __io_paramters__(test, properties):
+    params = []
+    # prepare inputs
+    for in_key in test['inputs']:
+        in_value = __perpare_param__(test['inputs'][in_key], properties)
+        in_value = os.path.join(properties['inputFolder'], in_value)
+        params.append(f'-P{in_key}={in_value}')
+
+    # prepare paramters
+    for param_key in test['paramters']:
+        param = __perpare_param__(test['paramters'][param_key], properties)
+        params.append(f'-P{param_key}={param}')
+
+    # prepare outputs
+    for output in test['outputs']:
+        out_key = output['parameter']
+        out_value = __perpare_param__(output['outputName'], properties)
+        out_value = os.path.join(properties['tempFolder'], out_value)
+        params.append(f'-P{out_key}={out_value}')
+
+    return params
+
+def __find_output__(output, folder):
+    files = list([f for f in os.listdir(folder) if f.startswith(f'{output['outputName']}.')])
+    if len(files) == 1:
+        return os.path.join(folder, files[0])
+    out_dir = os.path.join(folder, output['outputName'])
+    if os.path.exists(out_dir):
+        return out_dir
+    return None
 
 def __run_test__(test, args, properties):
     profiling = args.profiling == 'on'
     gpt_parameters = []
-    gpt_bin = os.path.join(properties['snapBin'], 'gpt') if properties['snapBin'] else 'gpt'
+    snap_dir = properties['snapBin']
+    snap_dir = snap_dir if snap_dir else ''
+    gpt_bin = os.path.join(snap_dir, 'gpt')
     gpt_parameters.append(gpt_bin)
     gpt_parameters.append(os.path.join(args.graph_folder, test['graphPath']))
-    gpt_parameters += __vm_parameters__(test)
+    gpt_parameters += __vm_parameters__(test, snap_dir)
+    gpt_parameters += __io_parameters__(test, properties)
     
-    return False
+    if profiling:
+        output_dir = os.path.join(properties['tempFolder'], test['id'])
+        res, stdout = profiler.profile(gpt_parameters,
+                                       200,
+                                       output_dir,
+                                       wait=False,
+                                       child=False,
+                                       plot=True)
+    else:
+        res, stdout = profiler.run(gpt_parameters)
+    
+    __vm_parameters_reset__(test, snap_dir)
+    stdout_file = os.path.join(paramters['tempFolder'], f'{test["id"]}_gptOutput.txt')
+    
+    with open(stdout_file, 'w') as file:
+        file.write(stdout)
+
+    if res is not None and res > 0:
+        print(f">> Test {test['id']} failded")
+        return False
+
+    for output in test['outputs']:
+        if 'expected' in output and output['expected'] is not None:
+            # check output
+            output_path = __find_output__(output, paramters['tempFolder'])
+            if output_path is None:
+                print(f'>> Test {test["id"]} failed: output {output["outputName"]} not found!')
+                return False
+            expected_output_path = os.path.join(properties['expectedOutputFolder'], output['expected'])
+            cmd = [args.java_path]
+            cmd +=  args.java_args.split(' ')
+            cmd +=  [args.test_output, output_path, expected_output_path, output['outputName']]
+            result = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+            if result.returncode != 0:
+                print(f">> Test {test[id]} failed:\n{result.stdout.decode('utf-8')}")
+                with open(stdout_file, 'a+') as file:
+                    file.write(result.stdout.decode('utf-8'))
+                return False
+    return True
+
 
 def __run_tests__(args, properties):
     output = ''

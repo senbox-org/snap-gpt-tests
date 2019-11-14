@@ -62,7 +62,7 @@
             <artifactId>maven-jar-plugin</artifactId>
             <executions>
                 <execution>
-                    <id>SnapGPTTest</id>
+                    <id>TestOutput</id>
                     <goals><goal>jar</goal></goals>
                     <phase>package</phase>
                     <configuration>
@@ -72,11 +72,11 @@
                                 <classpathPrefix>libs/</classpathPrefix>
                                 <useUniqueVersions>false</useUniqueVersions>
                                 <mainClass>
-                                    org.esa.snap.test.SnapGPTTest
+                                    org.esa.snap.test.TestOutput
                                 </mainClass>
                             </manifest>
                         </archive>
-                        <finalName>SnapGPTTest-jar-with-dependencies</finalName>
+                        <finalName>TestOutput</finalName>
                     </configuration>
                 </execution>
             </executions>

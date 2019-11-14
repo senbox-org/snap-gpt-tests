@@ -267,34 +267,37 @@ def __arguments__():
     # parse arguments
     return parser.parse_args()
 
-
-def main():
+def run(command):
     """
-    main entry point of the profiler
+    run command
     """
-    # parse_arguments
-    args = __arguments__()
-    # split command in sub parts
-    command = __split_command_args__(args.command)
+    proc = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+    while psutil.pid_exists(pid) and process.status() not in __END_STATUS__:
+        time.sleep(200)
+    return proc.returncode, proc.stdout.read().decode('utf-8')
 
-    sampling_time = args.frequence/1000.0 # convert period from ms to s
 
+
+
+def profile(command, sampling_time, output, wait=False, child=False, plot=False):
+    """
+    profile command
+    """
     # execute the command and retrive the PID
-    proc = subprocess.Popen(command)
+    proc = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
     pid = proc.pid
 
     # wait some time according to arguments
-    if args.w:
+    if wait:
         time.sleep(2)
 
     # check if porcessing (still) exists
     if not psutil.pid_exists(pid):
-        print("Process not found...")
-        sys.exit(-1)
+        return 1, "Process not found..." 
 
     # get process
     process = psutil.Process(pid)
-    if args.c: # if profiling on children process try to get children process
+    if child: # if profiling on children process try to get children process
         chld = process.children()
         process = process if chld else chld[0]
 
@@ -306,8 +309,7 @@ def main():
         p_stats.update(process) # update stats
         time.sleep(sampling_time) # wait for next sampling
 
-    # Output
-    output = args.o
+
     # initialize path structure and make output directories
     perf_fm = FileManager(output)
     # generate csv string and display/store it
@@ -320,8 +322,25 @@ def main():
     # plot results if needed
     # NOTE: only import matplotlib library here to avoid including it and limiting the functionality
     # when not needed
-    if args.plot:
+    if plot:
         perf_fm.plot(p_stats)
+    return process.returncode, process.stdout.read().decode("utf-8")
+
+
+def main():
+    """
+    main entry point of the profiler
+    """
+    # parse_arguments
+    args = __arguments__()
+    # split command in sub parts
+    command = __split_command_args__(args.command)
+
+    sampling_time = args.frequence/1000.0 # convert period from ms to s
+
+    return_code, stdout = profile(command, sampling_time, args.o, wait=args.w, child=args.c, plot=args.plot)
+    print(stdout)
+    sys.exit(return_code if return_code is not None else 0)
 
 if __name__ == "__main__":
     main()

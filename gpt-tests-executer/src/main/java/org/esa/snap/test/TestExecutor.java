@@ -15,7 +15,7 @@ import java.util.Map;
 import java.util.regex.Matcher;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-
+REGULAR
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.filefilter.WildcardFileFilter;
 import org.esa.snap.core.dataio.ProductIO;

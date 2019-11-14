@@ -66,25 +66,9 @@ def launchJobsSeq(jsonString, scope, outputDir) {
         item = jsonList[i]
         def currentJsonFile = "" + item
         if (currentJsonFile.trim() != "") {
-            echo "Schedule job for json file : " + item
-
-                b = build(job: "gpt-executor", parameters: [
-                        // build job: "test", parameters: [
-                        [$class: 'StringParameterValue', name: 'gptBranchVersion', value: "${branchVersion}"],
-                        [$class: 'StringParameterValue', name: 'dockerTagName', value: "${dockerTagName}"],
-                        [$class: 'StringParameterValue', name: 'jsonPath', value: currentJsonFile],
-                        [$class: 'StringParameterValue', name: 'testScope', value: "${scope}"],
-                        [$class: 'StringParameterValue', name: 'outputReportDir', value: "${outputDir}"]
-                ],
-                        quietPeriod: 0,
-                        propagate: false,
-                        wait: true).result
-
-            if(b == 'FAILURE') {
-                echo "The job " + item + "failed."
-                currentBuild.result = 'FAILURE'
-            }
-            
+            sh "mkdir -p ${outputDir}/report"
+            sh "mkdir -p /home/snap/tmpDir"
+            sh "export LD_LIBRARY_PATH=. && pyhon3 ./gpt-tests-executer/target/classes/snap_gpt_test.py ${outputDir}/gptExecutorTarget/TestOutput.jar  '/home/snap/snap/jre/bin/java' '-Dncsa.hdf.hdflib.HDFLibrary.hdflib=/home/snap/snap/snap/modules/lib/amd64/libjhdf.so -Dncsa.hdf.hdf5lib.H5.hdf5lib=/home/snap/snap/snap/modules/lib/amd64/libjhdf5.so'  /opt/snap-gpt-tests/gpt-tests-executer.properties \"${scope}\" ${currentJsonFile} ${outputDir}/report"            
         }
         num++
     }
@@ -141,13 +125,13 @@ pipeline {
             }
         }
         stage('Launch Jobs') {
-            agent {
+            agent  {
                 docker {
-                    image "snap-build-server.tilaa.cloud/scripts:1.0"
-                    label 'snap-test'
-                    args  "-v docker_gpt_test_results:/home/snap/output/"
+                    label 'snap'
+                    image "snap-build-server.tilaa.cloud/${dockerTagName}"
+                    args '-v /data/ssd/testData/:/data/ssd/testData/ -v /opt/snap-gpt-tests/gpt-tests-executer.properties:/opt/snap-gpt-tests/gpt-tests-executer.properties -v docker_gpt_test_results:/home/snap/output/'
                 }
-            } 
+            }
             steps {
                 script {
                     jsonString = sh(returnStdout: true, script: "cat ${outputDir}/JSONTestFiles.txt").trim()
@@ -156,12 +140,11 @@ pipeline {
 
                 echo "Launch parallel Jobs from ${env.JOB_NAME} from ${env.GIT_BRANCH} with commit ${env.GIT_COMMIT} using docker image snap-build-server.tilaa.cloud/${params.dockerTagName}"
                 // echo "List of json files : ${jsonString}"
-                launchJobs("${jsonString}", "${testScope}", "${outputDir}")
+                launchJobsSeq("${jsonString}", "${testScope}", "${outputDir}")
 
                 echo "Launch seq Jobs from ${env.JOB_NAME} from ${env.GIT_BRANCH} with commit ${env.GIT_COMMIT} using docker image snap-build-server.tilaa.cloud/${params.dockerTagName}"
                 // echo "List of json files : ${jsonString}"
                 launchJobsSeq("${jsonStringSeq}", "${testScope}", "${outputDir}")
-
                 // parallel jobs
             }
             post {
