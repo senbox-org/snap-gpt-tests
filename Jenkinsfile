@@ -124,7 +124,7 @@ pipeline {
         stage('Filter JSON') {
             agent {
                 docker {
-                    image "snap-build-server.tilaa.cloud/maven:3.6.0-jdk-8"
+                    image "snap-build-server.tilaa.cloud/scripts:1.0"
                     label 'snap-test'
                     args  "-v docker_gpt_test_results:/home/snap/output/"
                 }
