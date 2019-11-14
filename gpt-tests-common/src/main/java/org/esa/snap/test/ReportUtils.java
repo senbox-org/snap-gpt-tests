@@ -24,11 +24,6 @@ import org.esa.snap.core.gpf.graph.GraphException;
 import org.esa.snap.core.util.io.FileUtils;
 import org.esa.snap.graphbuilder.rcp.dialogs.support.GraphExecuter;
 import org.esa.snap.graphbuilder.rcp.dialogs.support.GraphPanel;
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
-
 /**
  * Created by obarrile on 07/07/2019.
  */
@@ -171,66 +166,4 @@ public class ReportUtils {
             // An error occurred copying the resource
         }
     }
-
-    public static JsonTestResult readJsonTestResult(Path htmlReportPath) {
-        if(htmlReportPath == null || !Files.exists(htmlReportPath)) {
-            return null;
-        }
-
-
-        Document doc = null;
-        try {
-            doc = Jsoup.parse(htmlReportPath.toFile(), "utf-8");
-        } catch (IOException e) {
-            return null;
-        }
-
-        JsonTestResult jsonTestResult = new JsonTestResult(FileUtils.getFilenameWithoutExtension(htmlReportPath.toFile()));
-
-        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-        //Read start date
-        Elements tables = doc.select("table");
-        Element table = tables.get(3);
-        Element rowDate = table.select("td").get(1);
-        String start = rowDate.text();
-        try {
-            Date startDate = formatter.parse(start);
-            jsonTestResult.setStartDate(startDate);
-        } catch (ParseException e) {
-            jsonTestResult.setStartDate(null);
-        }
-
-        tables = doc.select("table");
-        table = tables.get(6);
-        Elements rows = table.select("tr");
-
-        for (int i = 1 ; i < rows.size() ; i++) {
-            Element row = rows.get(i);
-            Element status = row.select("img").get(1);
-            String statusString = status.attr("alt");
-            String duration = row.select("td").get(4).text();
-            if(duration == "NULL" || duration.length() < 2) {
-                duration = "0";
-            } else {
-                duration = duration.substring(0, duration.length() - 2);
-            }
-
-            GraphTest graphTest = new GraphTest();
-            graphTest.setId(row.select("a").get(0).text());
-            GraphTestResult graphTestResult = new GraphTestResult(graphTest);
-            graphTestResult.setStatus(statusString);
-            try {
-                int iDuration = Integer.parseInt(duration);
-                graphTestResult.setDuration(iDuration);
-                graphTestResult.setStartDate(null);
-                graphTestResult.setEndDate(null);
-            } catch (NumberFormatException e) {
-                //do nothing
-            }
-            jsonTestResult.addGraphTestResults(graphTestResult);
-        }
-        //TODO check if it is needed to read more items for report
-        return jsonTestResult;
-    }
-
 }

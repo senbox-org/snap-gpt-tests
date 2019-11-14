@@ -127,7 +127,6 @@ public class SnapGPTTest {
 
         for(File file : fileList) { //do for every json
             GraphTest[] graphTests = GraphTestsUtils.mapGraphTests(file);
-            //ArrayList<GraphTestResult> graphTestResultList = new ArrayList<>();
             if(graphTests == null || graphTests.length == 0) {
                 continue;
             }
@@ -155,7 +154,7 @@ public class SnapGPTTest {
                     }
                 }
 
-                GraphTestResult testResult = new GraphTestResult(graphTest);
+                // GraphTestResult testResult = new GraphTestResult(graphTest);
 
                 //create graph png in html folder
                 Path graphPath = graphFolder.resolve(graphTest.getGraphPath());
@@ -250,15 +249,16 @@ public class SnapGPTTest {
                         writer.write("\n");
                     }
 
-                    testResult.setStartDate(startDate);
-                    testResult.setEndDate(endDate);
-                    if(passed) {
-                        testResult.setStatus("PASSED");
-                    } else {
-                        testResult.setStatus("FAILED");
-                    }
+                    // testResult.setStartDate(startDate);
+                    // testResult.setEndDate(endDate);
+                    // if(passed) {
+                    //     testResult.setStatus("PASSED");
+                    // } else {
+                    //     testResult.setStatus("FAILED");
+                    // }
                 } else {
-                    testResult.setStatus("SKIPPED");
+                    // testResult.setStatus("SKIPPED");
+                    writer.write("SKIPPED");
                 }
 
             }
