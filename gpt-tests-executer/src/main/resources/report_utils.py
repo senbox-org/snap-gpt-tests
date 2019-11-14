@@ -80,7 +80,7 @@ class Test:
         self.start = datetime.datetime.strptime(row[1], __datetime_fmt__)
         self.end = datetime.datetime.strptime(row[2], __datetime_fmt__)
         self.test_set = test_set
-        print('>>>',self.name,self.status)
+        print('>>>', self.name, self.status)
         if self.status != 'SKIPPED':
             self.json_path = os.path.join('json', test_set, f'{self.name}.json')
             self.graph_id, self.vm_string = self.__load_json__()

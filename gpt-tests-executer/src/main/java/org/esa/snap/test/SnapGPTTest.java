@@ -258,7 +258,7 @@ public class SnapGPTTest {
                     // }
                 } else {
                     // testResult.setStatus("SKIPPED");
-                    writer.write("SKIPPED");
+                    writer.write("SKIPPED\n");
                 }
 
             }
