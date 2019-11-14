@@ -6,9 +6,13 @@ import sys
 import datetime
 import json
 
+import template as t
+
+import matplotlib as mpl
+mpl.use('Agg')
 import matplotlib.pyplot as plt
 
-import template as t
+
 
 
 __base_path__ = "Report"
@@ -30,7 +34,7 @@ def __auto_pct__(pct, total):
 
 def __generate_pie__(name, passed, failed, skipped=0):
     my_dpi = 120
-    fig = plt.figure(figsize=(500/my_dpi, 300/my_dpi), dpi=my_dpi)
+    fig = plt.figure(figsize=(500/my_dpi, 300/my_dpi), dpi=my_dpi, constrained_layout=True)
     axis = fig.subplots()
     if skipped:
         values = [failed, passed, skipped]
@@ -48,7 +52,6 @@ def __generate_pie__(name, passed, failed, skipped=0):
                 loc="center left",
                 bbox_to_anchor=(1, 0, 0.5, 1))
     axis.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
-    plt.tight_layout()
     plt.savefig(os.path.join(__base_path__, __image_dir__, name))
 
 
