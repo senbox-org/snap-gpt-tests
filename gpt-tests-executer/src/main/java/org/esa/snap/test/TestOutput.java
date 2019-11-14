@@ -31,7 +31,7 @@ public class TestOutput {
 
         } catch (AssertionError e) {
             System.out.println("\n\n---------------------------------------------------------------------\n\n");
-            System.out.write("Error when comparing expected output:\n");
+            System.out.println("Error when comparing expected output:\n");
             System.out.println(e.getMessage());
             System.exit(1);
         }
