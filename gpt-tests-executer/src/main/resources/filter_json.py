@@ -24,11 +24,19 @@ def __compatible__(scope, tags):
         return __DAILY_TAG__ in tags
     return False
 
+def __list_files__(path, filter_fn=lambda _: True):
+    res = []
+    for file in os.listdir(path):
+        file = os.path.join(path, file)
+        if os.path.isdir(file):
+            res += __list_files__(file, filter_fn)
+        elif filter_fn(file):
+            res.append(file)
+    return res
 
 def __create_test_json_list__(test_folder, scope, test_files_path, test_sequence_path):
     """cretas files containing list of tests to execute for a given scope"""
-    test_files = [os.path.join(test_folder, f) for f in os.listdir(test_folder)
-                  if f.endswith('.json')]
+    test_files = __list_files__(test_folder, lambda f: f.endswith('.json'))
     sequence = ''
     parallel = ''
     scope = scope.lower()
@@ -36,13 +44,14 @@ def __create_test_json_list__(test_folder, scope, test_files_path, test_sequence
         with open(test_path, 'r') as test_file:
             tests = json.load(test_file)
             for test in tests:
-                tags = list([x.lower() for x in test['frequency'].split('/')])
-                if __compatible__(scope, tags):
-                    if test['configVM'] is None:
-                        parallel += f'{test_path}\n'
-                    else:
-                        sequence += f'{test_path}\n'
-                    break
+                if 'frequency' in test:
+                    tags = list([x.lower() for x in test['frequency'].split('/')])
+                    if __compatible__(scope, tags):
+                        if 'configVM' not in test or test['configVM'] is None:
+                            parallel += f'{test_path}\n'
+                        else:
+                            sequence += f'{test_path}\n'
+                        break
     with open(test_files_path, 'w') as file:
         file.write(parallel)
     with open(test_sequence_path, 'w') as file:
