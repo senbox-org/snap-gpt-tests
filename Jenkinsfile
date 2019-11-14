@@ -107,7 +107,7 @@ pipeline {
         string(name: 'testScope', defaultValue: 'REGULAR', description: 'Scope of the tests to launch (REGULAR, DAILY, WEEKLY, RELEASE)')
     }
     stages {
-        stage('Filter JSON') {
+        stage('Build project') {
             agent {
                 docker {
                     image "snap-build-server.tilaa.cloud/maven:3.6.0-jdk-8"
@@ -116,9 +116,20 @@ pipeline {
                 }
             }
             steps {
-                echo "Launch Filter JSON from ${env.JOB_NAME} from ${env.GIT_BRANCH} with commit ${env.GIT_COMMIT} using docker image snap-build-server.tilaa.cloud/${params.dockerTagName}"
+                echo "Build project from ${env.JOB_NAME} from ${env.GIT_BRANCH} with commit ${env.GIT_COMMIT} using docker image snap-build-server.tilaa.cloud/${params.dockerTagName}"
                 sh "mkdir -p ${outputDir}"
                 sh "mvn -Duser.home=/var/maven clean package install"
+            }
+        }
+        stage('Filter JSON') {
+            agent {
+                docker {
+                    image "snap-build-server.tilaa.cloud/maven:3.6.0-jdk-8"
+                    label 'snap-test'
+                    args  "-v docker_gpt_test_results:/home/snap/output/"
+                }
+            }
+            steps {
                 sh "java -jar ./gpt-tests-executer/target/FilterTestJSON.jar ./gpt-tests-resources/tests \"${params.testScope}\" ${outputDir}"
                 sh "more ${outputDir}/JSONTestFiles.txt"
                 sh "more ${outputDir}/JSONTestFilesSeq.txt"
@@ -126,9 +137,6 @@ pipeline {
                 sh "cp ./gpt-tests-executer/target/classes/*.py ${outputDir}/" // << Copy profiler and libraries
                 sh "cp -R ./gpt-tests-executer/target/classes/templates ${outputDir}/templates" 
                 sh "cp -R ./gpt-tests-executer/target/classes/statics ${outputDir}/statics" 
-                // sh "cp ./gpt-tests-executer/target/classes/*.html ${outputDir}" // << Copy HTML report template
-
-                // sh "/opt/launchGpt.sh ${propertiesFilePath} ${outputDir}/FilterJson.vsofig ${scope}"
             }
         }
         stage('Launch Jobs') {
@@ -136,19 +144,13 @@ pipeline {
                 docker {
                     image "snap-build-server.tilaa.cloud/scripts:1.0"
                     label 'snap-test'
-                    args "-v docker_gpt_test_results:/home/snap/output/"
+                    args  "-v docker_gpt_test_results:/home/snap/output/"
                 }
             } 
             steps {
                 script {
                     jsonString = sh(returnStdout: true, script: "cat ${outputDir}/JSONTestFiles.txt").trim()
                     jsonStringSeq = sh(returnStdout: true, script: "cat ${outputDir}/JSONTestFilesSeq.txt").trim()
-                    //println "jsonString " + jsonString
-                    //jsonList = jsonString.split("\n")
-                    //jsonList.each { item->
-                    //    println "loop " + item
-                    //}
-                    // def jobs = launchJobs(jsonString, testScope, outputDir)
                 }
 
                 echo "Launch parallel Jobs from ${env.JOB_NAME} from ${env.GIT_BRANCH} with commit ${env.GIT_COMMIT} using docker image snap-build-server.tilaa.cloud/${params.dockerTagName}"
