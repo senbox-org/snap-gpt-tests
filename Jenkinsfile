@@ -160,12 +160,9 @@ pipeline {
                         sh "mv $WORKSPACE/report/output/json $WORKSPACE/report/ && mv $WORKSPACE/report/output/performances $WORKSPACE/report/ && mv $WORKSPACE/report/output/images $WORKSPACE/report/"
                         echo "Generate html index"
                         sh "python3 ${outputDir}/report_utils.py ${outputDir}/templates $WORKSPACE/report \"${params.testScope}\" ${dockerTagName}"
-                    } 
-                    catch (error) {
-                        echo 'something went wrong ${error}'
-                    } 
+                    }
                     archiveArtifacts artifacts: "report/**/*.*", fingerprint: true
-                    sh "rm -rf report"
+                    sh "rm -rf report" 
                 }
             }
         }
