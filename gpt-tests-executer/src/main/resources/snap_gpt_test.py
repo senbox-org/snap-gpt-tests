@@ -52,7 +52,7 @@ def __arguments__():
                         help="report directory path")
 
 
-    parser.add_argument('--Profiling',
+    parser.add_argument('--profiling',
                         default='on',
                         choices=['on', 'off'],
                         help="enable the profiler")
