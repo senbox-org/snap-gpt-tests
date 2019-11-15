@@ -286,7 +286,7 @@ def profile(command, sampling_time, output, **kwargs):
     pid = proc.pid
 
     # wait some time according to arguments
-    if 'wait' in kwargs and kwargs['wiat']:
+    if 'wait' in kwargs and kwargs['wait']:
         time.sleep(2)
 
     # check if porcessing (still) exists
