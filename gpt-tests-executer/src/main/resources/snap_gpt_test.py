@@ -94,9 +94,6 @@ def __vm_parameters__(test, snap_dir):
         vm_option = os.path.join(snap_dir, 'gpt.vmoptions')
         vm_original = os.path.join(snap_dir, 'gpt.vmoptionsORIGINAL')
         shutil.copy2(vm_option, vm_original)
-
-            File fileBackup = snapBin.resolve("gpt.vmoptionsORIGINAL").toFile();
-            File fileVM = snapBin.resolve("gpt.vmoptions").toFile();
         modified_str = "";
         with open(vm_original) as file:
             for line in file.readlines():
