@@ -228,11 +228,11 @@ def __run_tests__(args, properties):
     output = ''
     passed = True
     with open(args.json_path, 'r') as file:
-        tests = json.load(file)
+        tests = json.load(file) 
         for test in tests:
-            print(test)
             if not 'frequency' in test:
                 continue
+            print(test)
             __draw_graph__(test, properties, args)
             start = datetime.datetime.now().strftime(__DATE_FMT__)
             output += f'{test["id"]} - {start}'
