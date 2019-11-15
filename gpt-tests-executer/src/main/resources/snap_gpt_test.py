@@ -98,7 +98,7 @@ def __vm_parameters__(test, snap_dir):
         with open(vm_original) as file:
             for line in file.readlines():
                 if line.startswith('-Xmx'):
-                    modified_str += f'-Xmx{configVM['xmx']}\n'
+                    modified_str += f'-Xmx{configVM["xmx"]}\n'
                 else:
                     modified_str += line
         with open(vm_option, 'w') as file:
