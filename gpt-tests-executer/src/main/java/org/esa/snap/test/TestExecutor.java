@@ -179,7 +179,7 @@ public class TestExecutor {
                 }
                 return false;
             }
-	    try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(tempFolder.resolve(graphTest.getId()).toString() + "_gptOutput.txt"))) {
+	        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(tempFolder.resolve(graphTest.getId()).toString() + "_gptOutput.txt"))) {
                 bufferedWriter.write(outputNameWithExtension);
             } catch (IOException e2) {
                 System.out.println(e2.getMessage());
@@ -217,8 +217,13 @@ public class TestExecutor {
         }
         return testPassed;
     }
-    private static String findOutput (Output output, Path tempFolder) {
+    private static String findOutput (Output output, Path tempFolder, String id) {
         Collection<File> filelist = FileUtils.listFiles(tempFolder.toFile(), new WildcardFileFilter(String.format("%s.*",output.getOutputName())), null);
+        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(tempFolder.resolve(id).toString() + "_gptOutput.txt"))) {
+            bufferedWriter.write(filelist.toString());
+        } catch (IOException e2) {
+            System.out.println(e2.getMessage());
+        }
         if(filelist.size() == 1) {
             File[] files = filelist.toArray(new File[filelist.size()]);
             return files[0].getAbsolutePath();
