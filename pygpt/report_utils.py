@@ -12,7 +12,6 @@ import matplotlib as mpl
 mpl.use('Agg') # use no graphical backend
 import matplotlib.pyplot as plt
 
-import 
 
 
 __base_path__ = "Report"
