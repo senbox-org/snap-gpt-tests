@@ -150,15 +150,20 @@ pipeline {
             }
             post {
                 always {
-                    sh "rm -rf $WORKSPACE/report"
-                    sh "mkdir $WORKSPACE/report && mkdir $WORKSPACE/report/output"
-                    sh "cp -r ${outputDir}/report/* $WORKSPACE/report/output/"
-                    sh "cp -r ${outputDir}/statics/* $WORKSPACE/report/" 
+                    try {
+                        sh "rm -rf $WORKSPACE/report"
+                        sh "mkdir $WORKSPACE/report && mkdir $WORKSPACE/report/output"
+                        sh "cp -r ${outputDir}/report/* $WORKSPACE/report/output/"
+                        sh "cp -r ${outputDir}/statics/* $WORKSPACE/report/" 
 
-                    sh "cat $WORKSPACE/report/output/Report_*.txt > $WORKSPACE/report/output/report.txt"
-                    sh "mv $WORKSPACE/report/output/json $WORKSPACE/report/ && mv $WORKSPACE/report/output/performances $WORKSPACE/report/ && mv $WORKSPACE/report/output/images $WORKSPACE/report/"
-                    echo "Generate html index"
-                    sh "python3 ${outputDir}/report_utils.py ${outputDir}/templates $WORKSPACE/report \"${params.testScope}\" ${dockerTagName}"
+                        sh "cat $WORKSPACE/report/output/Report_*.txt > $WORKSPACE/report/output/report.txt"
+                        sh "mv $WORKSPACE/report/output/json $WORKSPACE/report/ && mv $WORKSPACE/report/output/performances $WORKSPACE/report/ && mv $WORKSPACE/report/output/images $WORKSPACE/report/"
+                        echo "Generate html index"
+                        sh "python3 ${outputDir}/report_utils.py ${outputDir}/templates $WORKSPACE/report \"${params.testScope}\" ${dockerTagName}"
+                    } 
+                    catch (error) {
+                        echo 'something went wrong ${error}'
+                    } 
                     archiveArtifacts artifacts: "report/**/*.*", fingerprint: true
                     sh "rm -rf report"
                 }
