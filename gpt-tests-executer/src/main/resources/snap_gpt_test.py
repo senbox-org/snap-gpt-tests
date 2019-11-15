@@ -152,7 +152,7 @@ def __io_paramters__(test, properties):
     return params
 
 def __find_output__(output, folder):
-    files = list([f for f in os.listdir(folder) if f.startswith(f'{output['outputName']}.')])
+    files = list([f for f in os.listdir(folder) if f.startswith(f'{output["outputName"]}.')])
     if len(files) == 1:
         return os.path.join(folder, files[0])
     out_dir = os.path.join(folder, output['outputName'])
@@ -205,7 +205,7 @@ def __run_test__(test, args, properties):
             cmd +=  [args.test_output, output_path, expected_output_path, output['outputName']]
             result = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
             if result.returncode != 0:
-                print(f">> Test {test[id]} failed:\n{result.stdout.decode('utf-8')}")
+                print(f">> Test {test['id']} failed:\n{result.stdout.decode('utf-8')}")
                 with open(stdout_file, 'a+') as file:
                     file.write(result.stdout.decode('utf-8'))
                 return False
