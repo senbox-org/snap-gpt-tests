@@ -64,7 +64,7 @@ def draw(source, dest, dpi=82):
                 l_ys = [source['y'], node['y']]
                 plt.plot(l_xs, l_ys, color='black')
             oper = node['op']
-            plt.text(node['x'], nodes['y'], f'{oper}', size=14,
+            plt.text(node['x'], node['y'], f'{oper}', size=14,
                      ha="center", va="center",
                      bbox=dict(boxstyle="square",
                                ec=(0.2, 0.5, 1.),
