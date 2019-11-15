@@ -316,11 +316,11 @@ def profile(command, sampling_time, output, **kwargs):
         time.sleep(sampling_time) # wait for next sampling
 
     log('END PROFILING')
-   
+
     if process.status() == psutil.STATUS_ZOMBIE:
         process.terminate()
 
-    returncode = process.status()
+    returncode = proc.returncode if proc.returncode else 0
     stdout = proc.stdout.read().decode("utf-8")
 
     log('STATUS:', returncode, stdout)
