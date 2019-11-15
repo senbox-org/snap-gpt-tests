@@ -151,6 +151,7 @@ def __io_parameters__(test, properties):
             out_value = os.path.join(properties['tempFolder'], out_value)
         else:
             out_value = os.path.join(properties['tempFolder'], out_value, '')
+        print('>>', out_value)
         params.append(f'-P{out_key}={out_value}')
 
     return params
