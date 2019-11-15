@@ -173,7 +173,7 @@ pipeline {
              }
          }
          always {
-                archiveArtifacts artifacts: "report/**/*.*", fingerprint: true
+                archiveArtifacts artifacts: "$WORKSPACE/report/**/*.*", fingerprint: true
                 sh "rm -rf report" 
          }
     }
