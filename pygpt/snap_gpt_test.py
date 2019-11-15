@@ -205,7 +205,7 @@ def __run_test__(test, args, properties):
     if profiling:
         output_dir = os.path.join(args.report_dir, test['id'])
         res, stdout = profiler.profile(gpt_parameters,
-                                       200,
+                                       0.2,
                                        output_dir,
                                        wait=False,
                                        child=False,
