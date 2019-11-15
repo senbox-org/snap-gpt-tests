@@ -195,7 +195,7 @@ def __run_test__(test, args, properties):
     gpt_parameters.append(os.path.join(properties['graphFolder'], test['graphPath']))
     gpt_parameters += __vm_parameters__(test, snap_dir)
     gpt_parameters += __io_parameters__(test, properties)
-
+    print(gpt_parameters)
     if profiling:
         output_dir = os.path.join(properties['tempFolder'], test['id'])
         res, stdout = profiler.profile(gpt_parameters,
