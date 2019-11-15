@@ -11,6 +11,8 @@ import subprocess
 import json
 import psutil
 
+import utils
+
 # Directory name constants
 __CSV_DIR__ = "csv"
 __PLT_DIR__ = "plot"
@@ -140,14 +142,10 @@ class FileManager:
             self.path_plt = os.path.join(self.path_base, __RPT_DIR__, __PLT_DIR__)
             self.path_fname = os.path.split(output_arg)[-1]
             # try to create CSV folder and Plot folder
-            if not os.path.exists(self.report_dir):
-                os.mkdir(self.report_dir)
-            if not os.path.exists(self.path_csv):
-                os.mkdir(self.path_csv)
-            if not os.path.exists(self.path_plt):
-                os.mkdir(self.path_plt)
-            if not os.path.exists(self.path_smm):
-                os.mkdir(self.path_smm)
+            utils.mkdir(self.report_dir)
+            utils.mkdir(self.path_csv)
+            utils.mkdir(self.path_plt)
+            utils.mkdir(self.path_smm)
 
     def csv(self, csv_string):
         """save or display the csv output"""

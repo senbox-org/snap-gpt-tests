@@ -11,6 +11,7 @@ import shutil
 import filter_json
 import profiler
 import graph_drawer
+import utils
 
 
 __DATE_FMT__ = '%d/%m/%Y %H:%M:%S'
@@ -221,26 +222,17 @@ def __run_test__(test, args, properties):
     return __check_outputs__(test, args, properties)
 
 
-def __mkdirs__(path):
-    paths = os.path.split(os.path.dirname(path))
-    crr = ''
-    for pth in paths:
-        crr = os.path.join(crr, pth)
-        if not os.path.exists(crr):
-            os.mkdir(crr)
-
-
 def __draw_graph__(test, properties, args):
     graph_path = os.path.join(properties['graphFolder'], test['graphPath'])
     image_path = os.path.join(args.report_dir, 'images', test['graphPath'])
     image_path = os.path.splitext(image_path)[0] + '.png'
-    __mkdirs__(image_path)
+    utils.mkdirs(image_path)
     graph_drawer.draw(graph_path, image_path)
 
 
 def __save_json__(test, args):
     path = os.path.join(args.report_dir, 'json', f"{test['id']}.json")
-    __mkdirs__(path)
+    utils.mkdirs(path)
     with open(path, 'w') as file:
         file.write(json.dumps(test))
 
@@ -282,10 +274,6 @@ def __main__():
     __check_args__(args)
     properties = __load_properties__(args.properties)
     __check_properties__(properties)
-
-    perfs = os.path.join(args.report_dir, 'perfs')
-    if not os.path.exists(perfs):
-        os.mkdir(perfs)
 
     if not __run_tests__(args, properties):
         sys.exit(1)
