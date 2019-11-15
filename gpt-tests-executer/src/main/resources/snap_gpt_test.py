@@ -213,9 +213,9 @@ def __run_test__(test, args, properties):
 
 
 
-def __draw_graph__(test, properties):
+def __draw_graph__(test, properties, args):
     graph_path = os.path.join(properties['graphFolder'], test['graphPath'])
-    image_path = os.path.join(properties['reportFolderPath'], test['graphPath'])
+    image_path = os.path.join(args.report_dir, test['graphPath'])
     image_path = os.path.splitext(image_path)[0] + '.png'
     image_dir = os.path.dirname(image_path)
     if not os.path.exists(image_dir):
@@ -230,7 +230,7 @@ def __run_tests__(args, properties):
     with open(args.json_path, 'r') as file:
         tests = json.load(file)
         for test in tests:
-            __draw_graph__(test, properties)
+            __draw_graph__(test, properties, args)
 
             if not 'frequency' in test:
                 continue
