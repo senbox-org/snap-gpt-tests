@@ -134,6 +134,7 @@ class FileManager:
             # init the path
             self.path_base = os.path.dirname(output_arg)
             self.report_dir = os.path.join(self.path_base, __RPT_DIR__)
+            log('LOG DIR:', self.report_dir)
             self.path_csv = os.path.join(self.path_base, __RPT_DIR__, __CSV_DIR__)
             self.path_smm = os.path.join(self.path_base, __RPT_DIR__, __SUM_DIR__)
             self.path_plt = os.path.join(self.path_base, __RPT_DIR__, __PLT_DIR__)
