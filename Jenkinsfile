@@ -120,6 +120,7 @@ pipeline {
                 sh "more ${outputDir}/JSONTestFiles.txt"
                 sh "more ${outputDir}/JSONTestFilesSeq.txt"
                 sh "cp -r ./gpt-tests-executer/target/ ${outputDir}/gptExecutorTarget"
+                sh "ls  ${outputDir}/gptExecutorTarget"
                 sh "cp ./pygpt/*.py ${outputDir}/" // << Copy profiler and libraries
                 sh "cp -R ./pygpt/templates ${outputDir}/templates" 
                 sh "cp -R ./pygpt/statics ${outputDir}/statics" 
