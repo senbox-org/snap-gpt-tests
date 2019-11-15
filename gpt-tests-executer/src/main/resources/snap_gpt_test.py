@@ -222,6 +222,13 @@ def __draw_graph__(test, properties, args):
         os.mkdir(image_dir)
     graph_drawer.draw(graph_path, image_path)
     
+def __save_json__(test, properties, args):
+    path = os.path.join(args.report_dir, 'json', f"{test['id']}.json")
+    pdir = os.path.dirname(path)
+    if not os.path.exists(pdir):
+        os.mkdir(pdir)
+    with open(path, 'w') as file:
+        file.write(json.dumps(test))
 
 
 def __run_tests__(args, properties):
@@ -232,7 +239,7 @@ def __run_tests__(args, properties):
         for test in tests:
             if not 'frequency' in test:
                 continue
-            print(test)
+            __save_json__(test, properties, args)
             __draw_graph__(test, properties, args)
             start = datetime.datetime.now().strftime(__DATE_FMT__)
             output += f'{test["id"]} - {start}'
