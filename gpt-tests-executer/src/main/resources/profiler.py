@@ -5,6 +5,7 @@ Simple process profiler.
 import sys
 import os
 import time
+import datetime
 import argparse
 import subprocess
 import json
@@ -275,6 +276,10 @@ def run(command):
     return proc.returncode, proc.stdout.decode('utf-8')
 
 
+def log(*args):
+    """log function"""
+    now = datetime.datetime.now()
+    print('>', now.strftime("%d/%m/%Y %H:%M:%S"), ':', *args)
 
 
 def profile(command, sampling_time, output, **kwargs):
@@ -303,17 +308,22 @@ def profile(command, sampling_time, output, **kwargs):
     # initilize results variables
     pid = process.pid
     p_stats = ProcessStats()
-    print('!!! START PROFILING')
+    log('START PROFILING')
 
     while psutil.pid_exists(pid) and process.status() not in __END_STATUS__:
         # while process is running
         p_stats.update(process) # update stats
         time.sleep(sampling_time) # wait for next sampling
 
-    print('!!! END PROFILING')
-    returncode = proc.returncode
+    log('END PROFILING')
+   
+    if process.status() == psutil.STATUS_ZOMBIE:
+        process.terminate()
+
+    returncode = process.status()
     stdout = proc.stdout.read().decode("utf-8")
-    print('!!! STATUS: ', returncode, stdout)
+
+    log('STATUS:', returncode, stdout)
 
 
     # initialize path structure and make output directories
@@ -347,6 +357,7 @@ def main():
 
     return_code, stdout = profile(command, sampling_time, args.o,
                                   wait=args.w, child=args.c, plot=args.plot)
+    log('PRINTING STDOUT')
     print(stdout)
     sys.exit(return_code if return_code is not None else 0)
 
