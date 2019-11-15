@@ -221,7 +221,6 @@ def __run_test__(test, args, properties):
         file.write(stdout)
 
     if res is not None and res > 0:
-        print(f">> Test {test['id']} failded")
         return False
     return __check_outputs__(test, args, properties)
 
@@ -240,6 +239,17 @@ def __save_json__(test, args):
     with open(path, 'w') as file:
         file.write(json.dumps(test))
 
+def __copy_output__(test, args, properties):
+    files = [os.listdir(properties['tempFolder'])]
+    for output in test['outputs']:
+        name = output['outputName']
+        for fname in [f for f in files if f.startswith(name)]:
+            fpath = os.path.join(properties['tempFolder'], fname)
+            dpath = os.path.join(args.report_dir, fname)
+            if os.path.isdir(fpath):
+                shutil.copytree(fpath, dpath)
+            else:
+                shutil.copy2(fpath, dpath)
 
 def __run_tests__(args, properties):
     output = ''
@@ -253,7 +263,6 @@ def __run_tests__(args, properties):
             __draw_graph__(test, properties, args)
             start = datetime.datetime.now().strftime(__DATE_FMT__)
             output += f'{test["id"]} - {start}'
-            print(args.scope, test['frequency'])
             if not filter_json.compatible(args.scope, test['frequency']):
                 output += f' - {start} - SKIPPED\n'
                 print('skipped')
@@ -264,6 +273,9 @@ def __run_tests__(args, properties):
                 result_str = 'PASSED' if result else 'FAILED'
                 output += f' - {end} - {result_str}\n'
                 print(test['id'], start, end, result_str)
+                if not result and not args.scope.lower() in ['REGULAR', 'DAILY', 'WEEKLY', 'RELEASE']:
+                    # copy output files
+                    __copy_output__(test, args, properties)
     json_name = os.path.split(args.json_path)[-1]
     report_path = os.path.join(args.report_dir, f'Report_{json_name[:-5]}.txt')
     with open(report_path, 'w') as file:

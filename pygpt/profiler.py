@@ -136,7 +136,6 @@ class FileManager:
             # init the path
             self.path_base = os.path.dirname(output_arg)
             self.report_dir = os.path.join(self.path_base, __RPT_DIR__)
-            log('LOG DIR:', self.report_dir)
             self.path_csv = os.path.join(self.report_dir, __CSV_DIR__)
             self.path_smm = os.path.join(self.report_dir, __SUM_DIR__)
             self.path_plt = os.path.join(self.report_dir, __PLT_DIR__)
@@ -307,22 +306,17 @@ def profile(command, sampling_time, output, **kwargs):
     # initilize results variables
     pid = process.pid
     p_stats = ProcessStats()
-    log('START PROFILING')
 
     while psutil.pid_exists(pid) and process.status() not in __END_STATUS__:
         # while process is running
         p_stats.update(process) # update stats
         time.sleep(sampling_time) # wait for next sampling
 
-    log('END PROFILING')
-
     if process.status() == psutil.STATUS_ZOMBIE:
         process.terminate()
 
     returncode = proc.returncode if proc.returncode else 0
     stdout = proc.stdout.read().decode("utf-8")
-
-    log('STATUS:', returncode, stdout)
 
 
     # initialize path structure and make output directories
@@ -356,7 +350,7 @@ def main():
 
     return_code, stdout = profile(command, sampling_time, args.o,
                                   wait=args.w, child=args.c, plot=args.plot)
-    log('PRINTING STDOUT')
+
     print(stdout)
     sys.exit(return_code if return_code is not None else 0)
 
