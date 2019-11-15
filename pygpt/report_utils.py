@@ -12,12 +12,12 @@ import matplotlib as mpl
 mpl.use('Agg') # use no graphical backend
 import matplotlib.pyplot as plt
 
-
+import 
 
 
 __base_path__ = "Report"
 __datetime_fmt__ = '%d/%m/%Y %H:%M:%S'
-__perf_dir__ = 'perfs'
+__perf_dir__ = 'performances'
 __stats_dir__ = 'stats'
 __tests_dir__ = 'tests'
 __out_dir__ = 'output'
