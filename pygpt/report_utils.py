@@ -91,7 +91,9 @@ class Test:
         json_path = resolve_path(self.json_path)
         with open(json_path, 'r') as info:
             struct = json.load(info)
-            param = struct['configVM']
+            param = 'Default configuration'
+            if 'configVM' in struct and struct['configVM']:
+                param = struct['configVM']
             return struct['graphPath'][:-4], param if param else 'Default configuration'
         return None, None
 
