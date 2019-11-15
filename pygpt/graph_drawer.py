@@ -48,7 +48,7 @@ def draw(source, dest, dpi=82):
             return
 
         width = max(points['x']) - min(points['x']) + 100
-        height = max(points['y']) - min(points['y']) + 200
+        height = max(points['y']) - min(points['y']) + 400
         ratio = height/width
         height = int(round(600 * ratio))
         plt.figure(figsize=(600/dpi, height/dpi), dpi=dpi)
