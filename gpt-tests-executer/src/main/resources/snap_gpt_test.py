@@ -229,6 +229,7 @@ def __run_tests__(args, properties):
     passed = True
     with open(args.json_path, 'r') as file:
         tests = json.load(file)
+        print(tests)
         for test in tests:
             __draw_graph__(test, properties, args)
 
