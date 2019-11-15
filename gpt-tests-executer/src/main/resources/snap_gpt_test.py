@@ -246,6 +246,7 @@ def __run_tests__(args, properties):
             __draw_graph__(test, properties, args)
             start = datetime.datetime.now().strftime(__DATE_FMT__)
             output += f'{test["id"]} - {start}'
+            print(args.scope, test['frequency'])
             if not filter_json.compatible(args.scope, test['frequency']):
                 output += f' - {start} - SKIPPED\n'
                 print('skipped')
