@@ -324,7 +324,7 @@ def profile(command, sampling_time, output, wait=False, child=False, plot=False)
     # when not needed
     if plot:
         perf_fm.plot(p_stats)
-    return process.returncode, process.stdout.read().decode("utf-8")
+    return proc.returncode, proc.stdout.read().decode("utf-8")
 
 
 def main():
