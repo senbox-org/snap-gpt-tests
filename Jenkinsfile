@@ -150,6 +150,8 @@ pipeline {
             }
             post {
                 always{
+                    sh "ls $WORKSPACE/report/"
+
                     sh "rm -rf $WORKSPACE/report"
                     sh "mkdir $WORKSPACE/report && mkdir $WORKSPACE/report/output"
                     sh "cp -r ${outputDir}/report/* $WORKSPACE/report/output/"
@@ -157,6 +159,9 @@ pipeline {
 
                     sh "cat $WORKSPACE/report/output/Report_*.txt > $WORKSPACE/report/output/report.txt"
                     sh "mv $WORKSPACE/report/output/json $WORKSPACE/report/ && mv $WORKSPACE/report/output/performances $WORKSPACE/report/ && mv $WORKSPACE/report/output/images $WORKSPACE/report/"
+                
+                    sh "ls $WORKSPACE/report/"
+                
                     //echo "Generate html index"
                     //sh "python3 ${outputDir}/report_utils.py ${outputDir}/templates $WORKSPACE/report \"${params.testScope}\" ${dockerTagName}"
                 }
@@ -173,7 +178,7 @@ pipeline {
              }
          }
          always {
-                archiveArtifacts artifacts: "$WORKSPACE/report/**/*.*", fingerprint: true
+                // archiveArtifacts artifacts: "$WORKSPACE/report/**/*.*", fingerprint: true
                 sh "rm -rf report" 
          }
     }
