@@ -129,7 +129,7 @@ def __perpare_param__(value, properties):
     value = value.replace('$tempFolder', properties['tempFolder'])
     return value
 
-def __io_paramters__(test, properties):
+def __io_parameters__(test, properties):
     params = []
     # prepare inputs
     for in_key in test['inputs']:
