@@ -162,7 +162,9 @@ pipeline {
                     sh "ls $WORKSPACE/report/json/"
                     echo "Generate report"
                     sh "python3 ${outputDir}/report_utils.py ${outputDir}/templates $WORKSPACE/report \"${params.testScope}\" ${dockerTagName}"
-
+                    
+                    archiveArtifacts artifacts: "report/**/*.*", fingerprint: true
+                    sh "rm -rf report" 
                 }
             }
         }
@@ -175,10 +177,6 @@ pipeline {
                        sh "echo `ERROR!`"
                  }
              }
-         }
-         always {
-                // archiveArtifacts artifacts: "$WORKSPACE/report/**/*.*", fingerprint: true
-                sh "rm -rf report" 
          }
     }
 }
