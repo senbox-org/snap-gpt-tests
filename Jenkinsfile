@@ -116,7 +116,7 @@ pipeline {
             }
             steps {
                 echo "Filtering json files..."
-                sh "python3 ./gpt-tests-executer/target/classes/filter_json.py ./gpt-tests-resources/tests \"${params.testScope}\" ${outputDir}"
+                sh "python3 ./pygpt/filter_json.py ./gpt-tests-resources/tests \"${params.testScope}\" ${outputDir}"
                 sh "more ${outputDir}/JSONTestFiles.txt"
                 sh "more ${outputDir}/JSONTestFilesSeq.txt"
                 sh "cp -r ./gpt-tests-executer/target/ ${outputDir}/gptExecutorTarget"
