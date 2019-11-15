@@ -154,7 +154,7 @@ def __io_parameters__(test, properties):
 
 def __find_output__(output, folder):
     files = list([f for f in os.listdir(folder) if f.startswith(f'{output["outputName"]}.')])
-    print(files, os.listdir(folder))
+    print(output, files)
     if len(files) == 1:
         return os.path.join(folder, files[0])
     out_dir = os.path.join(folder, output['outputName'])
