@@ -164,7 +164,7 @@ def __find_output__(output, folder):
     out_dir = os.path.join(folder, output['outputName'])
     if os.path.exists(out_dir):
         return out_dir
-    return None
+    return folder
 
 def __check_outputs__(test, args, properties):
     for output in test['outputs']:
