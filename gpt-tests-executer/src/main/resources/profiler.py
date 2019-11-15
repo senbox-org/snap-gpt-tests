@@ -271,10 +271,8 @@ def run(command):
     """
     run command
     """
-    proc = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
-    while psutil.pid_exists(pid) and process.status() not in __END_STATUS__:
-        time.sleep(200)
-    return proc.returncode, proc.stdout.read().decode('utf-8')
+    proc = subprocess.run(command, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+    return proc.returncode, proc.stdout.decode('utf-8')
 
 
 
