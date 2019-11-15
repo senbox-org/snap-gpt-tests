@@ -303,10 +303,17 @@ def profile(command, sampling_time, output, **kwargs):
     # initilize results variables
     pid = process.pid
     p_stats = ProcessStats()
+    print('!!! START PROFILING')
+
     while psutil.pid_exists(pid) and process.status() not in __END_STATUS__:
         # while process is running
         p_stats.update(process) # update stats
         time.sleep(sampling_time) # wait for next sampling
+
+    print('!!! END PROFILING')
+    returncode = proc.returncode
+    stdout = proc.stdout.read().decode("utf-8")
+    print('!!! STATUS: ', returncode, stdout)
 
 
     # initialize path structure and make output directories
@@ -318,12 +325,13 @@ def profile(command, sampling_time, output, **kwargs):
     # display/store summary
     perf_fm.summary(summary)
 
+
     # plot results if needed
     # NOTE: only import matplotlib library here to avoid including it and limiting the functionality
     # when not needed
     if 'plot' in kwargs and kwargs['plot']:
         perf_fm.plot(p_stats)
-    return proc.returncode, proc.stdout.read().decode("utf-8")
+    return returncode, stdout
 
 
 def main():
