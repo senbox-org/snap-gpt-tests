@@ -168,6 +168,7 @@ public class TestExecutor {
             boolean expectedIsDefined = true;
             if(output.getExpected() == null || output.getExpected().length() == 0) {
                 expectedIsDefined = false;
+		continue;
             }
 
             String outputNameWithExtension = findOutput(output, tempFolder);
@@ -178,6 +179,12 @@ public class TestExecutor {
                 }
                 return false;
             }
+	    try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(tempFolder.resolve(graphTest.getId()).toString() + "_contentError.txt"))) {
+                bufferedWriter.write(outputNameWithExtension);
+            } catch (IOException e2) {
+                System.out.println(e2.getMessage());
+            }
+
 
             if(expectedIsDefined) { //if expected output is not defined, then skip this step
                 Product product = ProductIO.readProduct(outputNameWithExtension);

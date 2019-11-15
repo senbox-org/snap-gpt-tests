@@ -201,14 +201,7 @@ public class SnapGPTTest {
                                 }
                             }
 
-                            //copy output of gpt to report (perhaps it has been copied before, so try-catch)
-                            try {
-                                Path reportGPT = Paths.get(tempFolder.resolve(graphTest.getId()).toString() + "_gptOutput.txt");
-                                Files.copy(reportGPT, reportFolderPath.resolve(reportGPT.getFileName()));
-                             
-                            } catch (Exception e) {
-                                System.out.println(String.format("Cannot copy gptOutput: %s",e.getMessage()));
-                            }
+                          
 
                             //copy output of content to report (perhaps it has been copied before, so try-catch)
                             try {
@@ -220,6 +213,14 @@ public class SnapGPTTest {
 
                         }
                         writer.write("\n");
+                      //copy output of gpt to report (perhaps it has been copied before, so try-catch)
+                        try {
+                            Path reportGPT = Paths.get(tempFolder.resolve(graphTest.getId()).toString() + "_gptOutput.txt");
+                            Files.copy(reportGPT, reportFolderPath.resolve(reportGPT.getFileName()));
+                         
+                        } catch (Exception e) {
+                            System.out.println(String.format("Cannot copy gptOutput: %s",e.getMessage()));
+                        }
                     }
                 }
             }
