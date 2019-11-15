@@ -171,7 +171,7 @@ public class TestExecutor {
 		continue;
             }
 
-            String outputNameWithExtension = findOutput(output, tempFolder);
+            String outputNameWithExtension = findOutput(output, tempFolder, graphTest.getId().toString());
             if(outputNameWithExtension == null) {
                 System.out.println("Output not found!!!");
                 if(graphTest.getConfigVM() != null && graphTest.getConfigVM().getXmX() != null) {
