@@ -235,7 +235,7 @@ def __run_tests__(args, properties):
             if not 'frequency' in test:
                 continue
             start = datetime.datetime.now().strftime(__DATE_FMT__)
-            output += f'{test["name"]} - {start}'
+            output += f'{test["id"]} - {start}'
             if not filter_json.compatible(args.scope, test['frequency']):
                 output += f' - {start} - SKIPPED\n'
             else:
