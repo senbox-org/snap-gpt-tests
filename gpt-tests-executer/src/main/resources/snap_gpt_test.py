@@ -153,6 +153,7 @@ def __io_parameters__(test, properties):
 
 def __find_output__(output, folder):
     files = list([f for f in os.listdir(folder) if f.startswith(f'{output["outputName"]}.')])
+    print(files, os.listdir(folder))
     if len(files) == 1:
         return os.path.join(folder, files[0])
     out_dir = os.path.join(folder, output['outputName'])
@@ -197,7 +198,7 @@ def __run_test__(test, args, properties):
     gpt_parameters += __io_parameters__(test, properties)
     print(gpt_parameters)
     if profiling:
-        output_dir = os.path.join(properties['tempFolder'], test['id'])
+        output_dir = os.path.join(properties['tempFolder'], 'report', test['id'])
         res, stdout = profiler.profile(gpt_parameters,
                                        200,
                                        output_dir,
@@ -228,12 +229,14 @@ def __mkdirs__(path):
         if not os.path.exists(crr):
             os.mkdir(crr)
 
+
 def __draw_graph__(test, properties, args):
     graph_path = os.path.join(properties['graphFolder'], test['graphPath'])
     image_path = os.path.join(args.report_dir, 'images', test['graphPath'])
     image_path = os.path.splitext(image_path)[0] + '.png'
     __mkdirs__(image_path)
     graph_drawer.draw(graph_path, image_path)
+
 
 def __save_json__(test, args):
     path = os.path.join(args.report_dir, 'json', f"{test['id']}.json")
@@ -266,7 +269,7 @@ def __run_tests__(args, properties):
                 output += f' - {end} - {result_str}\n'
                 print(test['id'], start, end, result_str)
     json_name = os.path.split(args.json_path)[-1]
-    report_path = os.path.join(args.report_dir, f'Report_{json_name[:-4]}.txt')
+    report_path = os.path.join(args.report_dir, f'Report_{json_name[:-5]}.txt')
     with open(report_path, 'w') as file:
         file.write(output)
     return passed
