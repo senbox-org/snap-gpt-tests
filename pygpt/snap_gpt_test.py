@@ -147,7 +147,10 @@ def __io_parameters__(test, properties):
     for output in test['outputs']:
         out_key = output['parameter']
         out_value = __perpare_param__(output['outputName'], properties)
-        out_value = os.path.join(properties['tempFolder'], out_value)
+        if '.' in out_value:
+            out_value = os.path.join(properties['tempFolder'], out_value)
+        else:
+            out_value = os.path.join(properties['tempFolder'], out_value, '')
         params.append(f'-P{out_key}={out_value}')
 
     return params
@@ -199,7 +202,7 @@ def __run_test__(test, args, properties):
     gpt_parameters += __io_parameters__(test, properties)
     print(gpt_parameters)
     if profiling:
-        output_dir = os.path.join(properties['tempFolder'], 'report', test['id'])
+        output_dir = os.path.join(args.report_dir, test['id'])
         res, stdout = profiler.profile(gpt_parameters,
                                        200,
                                        output_dir,

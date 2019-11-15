@@ -137,9 +137,9 @@ class FileManager:
             self.path_base = os.path.dirname(output_arg)
             self.report_dir = os.path.join(self.path_base, __RPT_DIR__)
             log('LOG DIR:', self.report_dir)
-            self.path_csv = os.path.join(self.path_base, __RPT_DIR__, __CSV_DIR__)
-            self.path_smm = os.path.join(self.path_base, __RPT_DIR__, __SUM_DIR__)
-            self.path_plt = os.path.join(self.path_base, __RPT_DIR__, __PLT_DIR__)
+            self.path_csv = os.path.join(self.report_dir, __CSV_DIR__)
+            self.path_smm = os.path.join(self.report_dir, __SUM_DIR__)
+            self.path_plt = os.path.join(self.report_dir, __PLT_DIR__)
             self.path_fname = os.path.split(output_arg)[-1]
             # try to create CSV folder and Plot folder
             utils.mkdirs(self.report_dir)
