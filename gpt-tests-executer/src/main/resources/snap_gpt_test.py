@@ -167,7 +167,7 @@ def __run_test__(test, args, properties):
     snap_dir = snap_dir if snap_dir else ''
     gpt_bin = os.path.join(snap_dir, 'gpt')
     gpt_parameters.append(gpt_bin)
-    gpt_parameters.append(os.path.join(args.graph_folder, test['graphPath']))
+    gpt_parameters.append(os.path.join(properties['graphFolder'], test['graphPath']))
     gpt_parameters += __vm_parameters__(test, snap_dir)
     gpt_parameters += __io_parameters__(test, properties)
     
