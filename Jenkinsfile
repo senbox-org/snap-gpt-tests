@@ -148,21 +148,28 @@ pipeline {
                 launchJobsSeq("${jsonStringSeq}", "${testScope}", "${outputDir}")
                 // parallel jobs
             }
+        }
+        stage('Create Report') {
+            agent {
+                docker {
+                    image "snap-build-server.tilaa.cloud/scripts:1.0"
+                    label 'snap-test'
+                    args  "-v docker_gpt_test_results:/home/snap/output/"
+                }
+            }
+            steps {
+                sh "rm -rf $WORKSPACE/report"
+                sh "mkdir $WORKSPACE/report && mkdir $WORKSPACE/report/output"
+                sh "cp -r ${outputDir}/report/* $WORKSPACE/report/output/"
+                sh "cp -r ${outputDir}/statics/* $WORKSPACE/report/" 
+
+                sh "cat $WORKSPACE/report/output/Report_*.txt > $WORKSPACE/report/output/report.txt"
+                sh "mv $WORKSPACE/report/output/json $WORKSPACE/report/ && mv $WORKSPACE/report/output/performances $WORKSPACE/report/ && mv $WORKSPACE/report/output/images $WORKSPACE/report/"
+                echo "Generate html index"
+                sh "python3 ${outputDir}/report_utils.py ${outputDir}/templates $WORKSPACE/report \"${params.testScope}\" ${dockerTagName}"
+            }
             post {
                 always {
-                    try {
-                        sh "rm -rf $WORKSPACE/report"
-                        sh "mkdir $WORKSPACE/report && mkdir $WORKSPACE/report/output"
-                        sh "cp -r ${outputDir}/report/* $WORKSPACE/report/output/"
-                        sh "cp -r ${outputDir}/statics/* $WORKSPACE/report/" 
-
-                        sh "cat $WORKSPACE/report/output/Report_*.txt > $WORKSPACE/report/output/report.txt"
-                        sh "mv $WORKSPACE/report/output/json $WORKSPACE/report/ && mv $WORKSPACE/report/output/performances $WORKSPACE/report/ && mv $WORKSPACE/report/output/images $WORKSPACE/report/"
-                        echo "Generate html index"
-                        sh "python3 ${outputDir}/report_utils.py ${outputDir}/templates $WORKSPACE/report \"${params.testScope}\" ${dockerTagName}"
-                    } catch (error) { 
-                        echo "error: ${error}"
-                    }
                     archiveArtifacts artifacts: "report/**/*.*", fingerprint: true
                     sh "rm -rf report" 
                 }
