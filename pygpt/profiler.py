@@ -142,10 +142,10 @@ class FileManager:
             self.path_plt = os.path.join(self.path_base, __RPT_DIR__, __PLT_DIR__)
             self.path_fname = os.path.split(output_arg)[-1]
             # try to create CSV folder and Plot folder
-            utils.mkdir(self.report_dir)
-            utils.mkdir(self.path_csv)
-            utils.mkdir(self.path_plt)
-            utils.mkdir(self.path_smm)
+            utils.mkdirs(self.report_dir)
+            utils.mkdirs(self.path_csv)
+            utils.mkdirs(self.path_plt)
+            utils.mkdirs(self.path_smm)
 
     def csv(self, csv_string):
         """save or display the csv output"""
