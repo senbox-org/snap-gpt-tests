@@ -277,7 +277,7 @@ def run(command):
 
 
 
-def profile(command, sampling_time, output, wait=False, child=False, plot=False):
+def profile(command, sampling_time, output, **kwargs):
     """
     profile command
     """
@@ -286,16 +286,17 @@ def profile(command, sampling_time, output, wait=False, child=False, plot=False)
     pid = proc.pid
 
     # wait some time according to arguments
-    if wait:
+    if 'wait' in kwargs and kwargs['wiat']:
         time.sleep(2)
 
     # check if porcessing (still) exists
     if not psutil.pid_exists(pid):
-        return 1, "Process not found..." 
+        return 1, "Process not found..."
 
     # get process
     process = psutil.Process(pid)
-    if child: # if profiling on children process try to get children process
+    # if profiling on children process try to get children process
+    if 'child' in kwargs and kwargs['child']:
         chld = process.children()
         process = process if chld else chld[0]
 
@@ -320,7 +321,7 @@ def profile(command, sampling_time, output, wait=False, child=False, plot=False)
     # plot results if needed
     # NOTE: only import matplotlib library here to avoid including it and limiting the functionality
     # when not needed
-    if plot:
+    if 'plot' in kwargs and kwargs['plot']:
         perf_fm.plot(p_stats)
     return proc.returncode, proc.stdout.read().decode("utf-8")
 
@@ -336,7 +337,8 @@ def main():
 
     sampling_time = args.frequence/1000.0 # convert period from ms to s
 
-    return_code, stdout = profile(command, sampling_time, args.o, wait=args.w, child=args.c, plot=args.plot)
+    return_code, stdout = profile(command, sampling_time, args.o,
+                                  wait=args.w, child=args.c, plot=args.plot)
     print(stdout)
     sys.exit(return_code if return_code is not None else 0)
 

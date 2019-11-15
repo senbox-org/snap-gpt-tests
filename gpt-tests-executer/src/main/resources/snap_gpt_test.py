@@ -85,37 +85,37 @@ def __check_args__(args):
 
 
 def __vm_parameters__(test, snap_dir):
-    configVM = None if not 'configVM' in test else test['configVM']
-    if not configVM:
+    config_vm = None if not 'configVM' in test else test['configVM']
+    if not config_vm:
         return []
     params = []
     # set memory setting to configuration file
-    if 'xmx' in configVM:
+    if 'xmx' in config_vm:
         vm_option = os.path.join(snap_dir, 'gpt.vmoptions')
         vm_original = os.path.join(snap_dir, 'gpt.vmoptionsORIGINAL')
         shutil.copy2(vm_option, vm_original)
-        modified_str = "";
+        modified_str = ""
         with open(vm_original) as file:
             for line in file.readlines():
                 if line.startswith('-Xmx'):
-                    modified_str += f'-Xmx{configVM["xmx"]}\n'
+                    modified_str += f'-Xmx{config_vm["xmx"]}\n'
                 else:
                     modified_str += line
         with open(vm_option, 'w') as file:
             file.write(modified_str)
     # add extra args
     params.append('-c')
-    params.append(configVM['cacheSize'])
+    params.append(config_vm['cacheSize'])
     params.append('-q')
-    params.append(configVM['parallelism'])
+    params.append(config_vm['parallelism'])
 
     return params
 
 def __vm_parameters_reset__(test, snap_dir):
-    configVM = None if not 'configVM' in test else test['configVM']
-    if not configVM:
-        return 
-    if 'xmx' in configVM:
+    config_vm = None if not 'configVM' in test else test['configVM']
+    if not config_vm:
+        return
+    if 'xmx' in config_vm:
         vm_option = os.path.join(snap_dir, 'gpt.vmoptions')
         vm_original = os.path.join(snap_dir, 'gpt.vmoptionsORIGINAL')
         shutil.copy2(vm_original, vm_option)
@@ -160,6 +160,31 @@ def __find_output__(output, folder):
         return out_dir
     return None
 
+def __check_outputs__(test, args, properties):
+    for output in test['outputs']:
+        if 'expected' in output and output['expected'] is not None:
+            # check output
+            output_path = __find_output__(output, properties['tempFolder'])
+            if output_path is None:
+                print(f'>> Test {test["id"]} failed: output {output["outputName"]} not found!')
+                return False
+            expected_output_path = os.path.join(properties['expectedOutputFolder'],
+                                                output['expected'])
+            cmd = [args.java_path]
+            cmd += args.java_args.split(' ')
+            cmd += [args.test_output, output_path, expected_output_path, output['outputName']]
+            result = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+
+            stdout_file = os.path.join(properties['tempFolder'], f'{test["id"]}_gptOutput.txt')
+
+            if result.returncode != 0:
+                print(f">> Test {test['id']} failed:\n{result.stdout.decode('utf-8')}")
+                with open(stdout_file, 'a+') as file:
+                    file.write(result.stdout.decode('utf-8'))
+                return False
+    return True
+
+
 def __run_test__(test, args, properties):
     profiling = args.profiling == 'on'
     gpt_parameters = []
@@ -170,7 +195,7 @@ def __run_test__(test, args, properties):
     gpt_parameters.append(os.path.join(properties['graphFolder'], test['graphPath']))
     gpt_parameters += __vm_parameters__(test, snap_dir)
     gpt_parameters += __io_parameters__(test, properties)
-    
+
     if profiling:
         output_dir = os.path.join(properties['tempFolder'], test['id'])
         res, stdout = profiler.profile(gpt_parameters,
@@ -181,42 +206,25 @@ def __run_test__(test, args, properties):
                                        plot=True)
     else:
         res, stdout = profiler.run(gpt_parameters)
-    
+
     __vm_parameters_reset__(test, snap_dir)
+
     stdout_file = os.path.join(properties['tempFolder'], f'{test["id"]}_gptOutput.txt')
-    
+
     with open(stdout_file, 'w') as file:
         file.write(stdout)
 
     if res is not None and res > 0:
         print(f">> Test {test['id']} failded")
         return False
-
-    for output in test['outputs']:
-        if 'expected' in output and output['expected'] is not None:
-            # check output
-            output_path = __find_output__(output, properties['tempFolder'])
-            if output_path is None:
-                print(f'>> Test {test["id"]} failed: output {output["outputName"]} not found!')
-                return False
-            expected_output_path = os.path.join(properties['expectedOutputFolder'], output['expected'])
-            cmd = [args.java_path]
-            cmd +=  args.java_args.split(' ')
-            cmd +=  [args.test_output, output_path, expected_output_path, output['outputName']]
-            result = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
-            if result.returncode != 0:
-                print(f">> Test {test['id']} failed:\n{result.stdout.decode('utf-8')}")
-                with open(stdout_file, 'a+') as file:
-                    file.write(result.stdout.decode('utf-8'))
-                return False
-    return True
+    return __check_outputs__(test, args, properties)
 
 
 def __mkdirs__(path):
     paths = os.path.split(os.path.dirname(path))
     crr = ''
-    for path in paths:
-        crr = os.path.join(crr, path)
+    for pth in paths:
+        crr = os.path.join(crr, pth)
         if not os.path.exists(crr):
             os.mkdir(crr)
 
@@ -226,8 +234,8 @@ def __draw_graph__(test, properties, args):
     image_path = os.path.splitext(image_path)[0] + '.png'
     __mkdirs__(image_path)
     graph_drawer.draw(graph_path, image_path)
-    
-def __save_json__(test, properties, args):
+
+def __save_json__(test, args):
     path = os.path.join(args.report_dir, 'json', f"{test['id']}.json")
     __mkdirs__(path)
     with open(path, 'w') as file:
@@ -238,11 +246,11 @@ def __run_tests__(args, properties):
     output = ''
     passed = True
     with open(args.json_path, 'r') as file:
-        tests = json.load(file) 
+        tests = json.load(file)
         for test in tests:
             if not 'frequency' in test:
                 continue
-            __save_json__(test, properties, args)
+            __save_json__(test, args)
             __draw_graph__(test, properties, args)
             start = datetime.datetime.now().strftime(__DATE_FMT__)
             output += f'{test["id"]} - {start}'
