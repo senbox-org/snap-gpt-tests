@@ -226,13 +226,13 @@ def __draw_graph__(test, properties, args):
     graph_path = os.path.join(properties['graphFolder'], test['graphPath'])
     image_path = os.path.join(args.report_dir, 'images', test['graphPath'])
     image_path = os.path.splitext(image_path)[0] + '.png'
-    utils.mkdirs(image_path)
+    utils.mkdirs(os.path.dirname(image_path))
     graph_drawer.draw(graph_path, image_path)
 
 
 def __save_json__(test, args):
     path = os.path.join(args.report_dir, 'json', f"{test['id']}.json")
-    utils.mkdirs(path)
+    utils.mkdirs(os.path.dirname(path))
     with open(path, 'w') as file:
         file.write(json.dumps(test))
 
