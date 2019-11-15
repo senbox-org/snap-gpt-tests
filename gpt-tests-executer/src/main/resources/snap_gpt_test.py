@@ -266,7 +266,7 @@ def __run_tests__(args, properties):
                 output += f' - {end} - {result_str}\n'
                 print(test['id'], start, end, result_str)
     json_name = os.path.split(args.json_path)[-1]
-    report_path = os.path.join(args.report_dir, f'Report_{json_name}.txt')
+    report_path = os.path.join(args.report_dir, f'Report_{json_name[:-4]}.txt')
     with open(report_path, 'w') as file:
         file.write(output)
     return passed
