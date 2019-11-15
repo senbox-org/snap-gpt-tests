@@ -11,7 +11,7 @@ import shutil
 import filter_json
 import profiler
 import graph_drawer
-import utils
+import gpt_utils as utils
 
 
 __DATE_FMT__ = '%d/%m/%Y %H:%M:%S'
@@ -147,11 +147,7 @@ def __io_parameters__(test, properties):
     for output in test['outputs']:
         out_key = output['parameter']
         out_value = __perpare_param__(output['outputName'], properties)
-        if '.' in out_value:
-            out_value = os.path.join(properties['tempFolder'], out_value)
-        else:
-            out_value = os.path.join(properties['tempFolder'], out_value, '')
-        print('>>', out_value)
+        out_value = os.path.join(properties['tempFolder'], out_value)
         params.append(f'-P{out_key}={out_value}')
 
     return params
@@ -161,9 +157,11 @@ def __find_output__(output, folder):
     print(output, files)
     if len(files) == 1:
         return os.path.join(folder, files[0])
-    out_dir = os.path.join(folder, output['outputName'])
-    if os.path.exists(out_dir):
-        return out_dir
+    out_path = os.path.join(folder, output['outputName'])
+    if os.path.exists(out_path):
+        return out_path
+    if os.path.exists(out_path+'.dim'):
+        return out_path+'.dim'
     return None
 
 def __check_outputs__(test, args, properties):

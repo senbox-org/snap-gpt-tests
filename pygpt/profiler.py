@@ -11,7 +11,7 @@ import subprocess
 import json
 import psutil
 
-import utils
+import gpt_utils as utils
 
 # Directory name constants
 __CSV_DIR__ = "csv"
