@@ -240,7 +240,7 @@ def __save_json__(test, args):
         file.write(json.dumps(test))
 
 def __copy_output__(test, args, properties):
-    files = [os.listdir(properties['tempFolder'])]
+    files = os.listdir(properties['tempFolder'])
     for output in test['outputs']:
         name = output['outputName']
         for fname in [f for f in files if f.startswith(name)]:
