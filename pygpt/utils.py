@@ -1,4 +1,4 @@
-"""utils"""
+"""utils library"""
 import os
 
 
