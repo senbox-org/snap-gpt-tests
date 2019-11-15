@@ -212,21 +212,24 @@ def __run_test__(test, args, properties):
     return True
 
 
+def __mkdirs__(path):
+    paths = os.path.split(os.path.dirname(path))
+    crr = ''
+    for path in paths:
+        crr = os.path.join(crr, path)
+        if not os.path.exists(crr):
+            os.mkdir(crr)
 
 def __draw_graph__(test, properties, args):
     graph_path = os.path.join(properties['graphFolder'], test['graphPath'])
-    image_path = os.path.join(args.report_dir, test['graphPath'])
+    image_path = os.path.join(args.report_dir, 'images', test['graphPath'])
     image_path = os.path.splitext(image_path)[0] + '.png'
-    image_dir = os.path.dirname(image_path)
-    if not os.path.exists(image_dir):
-        os.mkdir(image_dir)
+    __mkdirs__(image_path)
     graph_drawer.draw(graph_path, image_path)
     
 def __save_json__(test, properties, args):
     path = os.path.join(args.report_dir, 'json', f"{test['id']}.json")
-    pdir = os.path.dirname(path)
-    if not os.path.exists(pdir):
-        os.mkdir(pdir)
+    __mkdirs__(path)
     with open(path, 'w') as file:
         file.write(json.dumps(test))
 
@@ -245,6 +248,7 @@ def __run_tests__(args, properties):
             output += f'{test["id"]} - {start}'
             if not filter_json.compatible(args.scope, test['frequency']):
                 output += f' - {start} - SKIPPED\n'
+                print('skipped')
             else:
                 result = __run_test__(test, args, properties)
                 passed = passed and result
