@@ -30,6 +30,7 @@ def launchJobs(jsonString, scope, outputDir) {
         item = jsonList[i]
         def currentJsonFile = "" + item
         if (currentJsonFile.trim() != "") {
+
             echo "Schedule job for json file : " + item
             jobs["GPT Test ${num} ${item}"] = {
                 b = build(job: "gpt-executor", parameters: [
@@ -68,7 +69,7 @@ def launchJobsSeq(jsonString, scope, outputDir) {
         if (currentJsonFile.trim() != "") {
             sh "mkdir -p ${outputDir}/report"
             sh "mkdir -p /home/snap/tmpDir"
-            sh "export LD_LIBRARY_PATH=. && pyhon3 ./gpt-tests-executer/target/classes/snap_gpt_test.py ${outputDir}/gptExecutorTarget/TestOutput.jar  '/home/snap/snap/jre/bin/java' '-Dncsa.hdf.hdflib.HDFLibrary.hdflib=/home/snap/snap/snap/modules/lib/amd64/libjhdf.so -Dncsa.hdf.hdf5lib.H5.hdf5lib=/home/snap/snap/snap/modules/lib/amd64/libjhdf5.so'  /opt/snap-gpt-tests/gpt-tests-executer.properties \"${scope}\" ${currentJsonFile} ${outputDir}/report"            
+            sh "export LD_LIBRARY_PATH=. && python3 ./gpt-tests-executer/target/classes/snap_gpt_test.py '/home/snap/snap/jre/bin/java' '-Dncsa.hdf.hdflib.HDFLibrary.hdflib=/home/snap/snap/snap/modules/lib/amd64/libjhdf.so -Dncsa.hdf.hdf5lib.H5.hdf5lib=/home/snap/snap/snap/modules/lib/amd64/libjhdf5.so' ${outputDir}/gptExecutorTarget/TestOutput.jar  /opt/snap-gpt-tests/gpt-tests-executer.properties \"${scope}\" ${currentJsonFile} ${outputDir}/report"            
         }
         num++
     }
@@ -137,7 +138,6 @@ pipeline {
                     jsonString = sh(returnStdout: true, script: "cat ${outputDir}/JSONTestFiles.txt").trim()
                     jsonStringSeq = sh(returnStdout: true, script: "cat ${outputDir}/JSONTestFilesSeq.txt").trim()
                 }
-
                 echo "Launch parallel Jobs from ${env.JOB_NAME} from ${env.GIT_BRANCH} with commit ${env.GIT_COMMIT} using docker image snap-build-server.tilaa.cloud/${params.dockerTagName}"
                 // echo "List of json files : ${jsonString}"
                 launchJobsSeq("${jsonString}", "${testScope}", "${outputDir}")
