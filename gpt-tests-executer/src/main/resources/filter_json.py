@@ -16,6 +16,7 @@ __DAILY_TAG__ = 'daily'
 
 def compatible(scope, frequency):
     """check if the tags are compatible with the current test scope"""
+    scope = scope.lower()
     tags = list([x.lower() for x in frequency.split('/')])
     if scope in tags:
         return True
