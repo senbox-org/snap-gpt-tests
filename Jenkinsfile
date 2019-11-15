@@ -168,9 +168,6 @@ pipeline {
                 echo "Generate html index"
                 sh "python3 ${outputDir}/report_utils.py ${outputDir}/templates $WORKSPACE/report \"${params.testScope}\" ${dockerTagName}"
             }
-            post {
-              
-            }
         }
     }
     post {
