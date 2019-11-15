@@ -138,8 +138,8 @@ def __io_parameters__(test, properties):
         params.append(f'-P{in_key}={in_value}')
 
     # prepare paramters
-    for param_key in test['paramters']:
-        param = __perpare_param__(test['paramters'][param_key], properties)
+    for param_key in test['parameters']:
+        param = __perpare_param__(test['parameters'][param_key], properties)
         params.append(f'-P{param_key}={param}')
 
     # prepare outputs
