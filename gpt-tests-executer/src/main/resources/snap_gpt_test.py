@@ -244,6 +244,7 @@ def __run_tests__(args, properties):
                 end = datetime.datetime.now().strftime(__DATE_FMT__)
                 result_str = 'PASSED' if result else 'FAILED'
                 output += f' - {end} - {result_str}\n'
+                print(test['id'], start, end, result_str)
     json_name = os.path.split(args.json_path)[-1]
     report_path = os.path.join(args.report_dir, f'Report_{json_name}.txt')
     with open(report_path, 'w') as file:
