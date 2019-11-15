@@ -179,7 +179,7 @@ public class TestExecutor {
                 }
                 return false;
             }
-	    try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(tempFolder.resolve(graphTest.getId()).toString() + "_contentError.txt"))) {
+	    try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(tempFolder.resolve(graphTest.getId()).toString() + "_gptOutput.txt"))) {
                 bufferedWriter.write(outputNameWithExtension);
             } catch (IOException e2) {
                 System.out.println(e2.getMessage());
