@@ -183,7 +183,7 @@ def __run_test__(test, args, properties):
         res, stdout = profiler.run(gpt_parameters)
     
     __vm_parameters_reset__(test, snap_dir)
-    stdout_file = os.path.join(paramters['tempFolder'], f'{test["id"]}_gptOutput.txt')
+    stdout_file = os.path.join(properties['tempFolder'], f'{test["id"]}_gptOutput.txt')
     
     with open(stdout_file, 'w') as file:
         file.write(stdout)
@@ -195,7 +195,7 @@ def __run_test__(test, args, properties):
     for output in test['outputs']:
         if 'expected' in output and output['expected'] is not None:
             # check output
-            output_path = __find_output__(output, paramters['tempFolder'])
+            output_path = __find_output__(output, properties['tempFolder'])
             if output_path is None:
                 print(f'>> Test {test["id"]} failed: output {output["outputName"]} not found!')
                 return False
