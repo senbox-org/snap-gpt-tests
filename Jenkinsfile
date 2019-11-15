@@ -169,10 +169,7 @@ pipeline {
                 sh "python3 ${outputDir}/report_utils.py ${outputDir}/templates $WORKSPACE/report \"${params.testScope}\" ${dockerTagName}"
             }
             post {
-                always {
-                    archiveArtifacts artifacts: "report/**/*.*", fingerprint: true
-                    sh "rm -rf report" 
-                }
+              
             }
         }
     }
@@ -184,6 +181,10 @@ pipeline {
                        sh "echo `ERROR!`"
                  }
              }
+         }
+         always {
+                archiveArtifacts artifacts: "report/**/*.*", fingerprint: true
+                sh "rm -rf report" 
          }
     }
 }
