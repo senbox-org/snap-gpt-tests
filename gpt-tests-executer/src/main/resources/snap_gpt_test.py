@@ -266,6 +266,11 @@ def __main__():
     __check_args__(args)
     properties = __load_properties__(args.properties)
     __check_properties__(properties)
+
+    perfs = os.path.join(args.report_dir, 'perfs')
+    if not os.path.exists(perfs):
+        os.mkdir(perfs)
+
     if not __run_tests__(args, properties):
         sys.exit(1)
     sys.exit(0)
