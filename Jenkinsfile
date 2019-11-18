@@ -80,7 +80,7 @@ def launchJobsSeq(jsonString, scope, outputDir) {
         num++
     }
     if (!status) {
-        throw new Exception("At least a test failed!")
+        throw
     }
 }
 
