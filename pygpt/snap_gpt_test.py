@@ -180,11 +180,11 @@ def __check_outputs__(test, args, properties):
             cmd += [args.test_output, output_path, expected_output_path, output['outputName']]
             result = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
 
-            stdout_file = os.path.join(properties['tempFolder'], f'{test["id"]}_gptOutput.txt')
+            stdout_file = os.path.join(args.report_dir, f'{test["id"]}_gptOutput.txt')
 
             if result.returncode != 0:
                 print(f">> Test {test['id']} failed:\n{result.stdout.decode('utf-8')}")
-                with open(stdout_file, 'a+') as file:
+                with open(stdout_file, 'a') as file:
                     file.write(result.stdout.decode('utf-8'))
                 return False
     return True
@@ -214,7 +214,7 @@ def __run_test__(test, args, properties):
 
     __vm_parameters_reset__(test, snap_dir)
 
-    stdout_file = os.path.join(properties['tempFolder'], f'{test["id"]}_gptOutput.txt')
+    stdout_file = os.path.join(args.report_dir, f'{test["id"]}_gptOutput.txt')
 
     with open(stdout_file, 'w') as file:
         file.write(stdout)
