@@ -124,10 +124,11 @@ def __vm_parameters_reset__(test, snap_dir):
     return
 
 def __perpare_param__(value, properties):
-    value = value.replace('$graphFolder', properties['graphFolder'])
-    value = value.replace('$inputFolder', properties['inputFolder'])
-    value = value.replace('$expectedOutputFolder', properties['expectedOutputFolder'])
-    value = value.replace('$tempFolder', properties['tempFolder'])
+    if isinstance(value, str):
+        value = value.replace('$graphFolder', properties['graphFolder'])
+        value = value.replace('$inputFolder', properties['inputFolder'])
+        value = value.replace('$expectedOutputFolder', properties['expectedOutputFolder'])
+        value = value.replace('$tempFolder', properties['tempFolder'])
     return value
 
 def __io_parameters__(test, properties):
