@@ -69,7 +69,11 @@ def launchJobsSeq(jsonString, scope, outputDir) {
         if (currentJsonFile.trim() != "") {
             sh "mkdir -p ${outputDir}/report"
             sh "mkdir -p /home/snap/tmpDir"
-            sh "export LD_LIBRARY_PATH=. && python3 ${outputDir}/snap_gpt_test.py '/home/snap/snap/jre/bin/java' '-Dncsa.hdf.hdflib.HDFLibrary.hdflib=/home/snap/snap/snap/modules/lib/amd64/libjhdf.so -Dncsa.hdf.hdf5lib.H5.hdf5lib=/home/snap/snap/snap/modules/lib/amd64/libjhdf5.so -cp ${outputDir}/gptExecutorTarget/TestOutput.jar' 'org.esa.snap.test.TestOutput' /opt/snap-gpt-tests/gpt-tests-executer.properties \"${scope}\" ${currentJsonFile} ${outputDir}/report"            
+            try {
+                sh "export LD_LIBRARY_PATH=. && python3 ${outputDir}/snap_gpt_test.py '/home/snap/snap/jre/bin/java' '-Dncsa.hdf.hdflib.HDFLibrary.hdflib=/home/snap/snap/snap/modules/lib/amd64/libjhdf.so -Dncsa.hdf.hdf5lib.H5.hdf5lib=/home/snap/snap/snap/modules/lib/amd64/libjhdf5.so -cp ${outputDir}/gptExecutorTarget/TestOutput.jar' 'org.esa.snap.test.TestOutput' /opt/snap-gpt-tests/gpt-tests-executer.properties \"${scope}\" ${currentJsonFile} ${outputDir}/report"            
+            } catch {
+                println "A test filed"
+            }
         }
         num++
     }
