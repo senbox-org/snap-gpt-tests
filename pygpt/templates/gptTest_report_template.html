@@ -116,7 +116,7 @@
   {{else}}
     {{switch .test.status}}
       {{case "FAILED"}}
-        <td class="result"><a href="../output/{{.test.name}}_gptOutput.txt"><img width="16" height="16" alt="{{.test.status}}" src="icons/red.png"></a></td>
+        <td class="result"><a href="../output/{{.test.name}}_gptOutput.txt"><img width="16" height="16" alt="{{.test.status}}" src="../icons/red.png"></a></td>
       {{case "PASSED"}}
         <td class="result"><img width="16" height="16" alt="{{.test.status}}" src="../icons/green.png"></td>
     {{end}}
