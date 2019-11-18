@@ -63,7 +63,7 @@ def draw(source, dest, dpi=82):
                 l_xs = [source['x'], node['x']]
                 l_ys = [source['y'], node['y']]
                 plt.plot(l_xs, l_ys, color='black')
-            oper = node['op']
+            oper = node['op'] if 'op' in node else name
             plt.text(node['x'], node['y'], f'{oper}', size=14,
                      ha="center", va="center",
                      bbox=dict(boxstyle="square",

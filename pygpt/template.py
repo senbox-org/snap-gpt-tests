@@ -28,6 +28,9 @@ class _TokenType(Enum):
 
 
 def __parse_args__(text):
+    """
+    parse arguments of a token
+    """
     args = text.split(' ')
     res = []
     for arg in args:
@@ -37,6 +40,9 @@ def __parse_args__(text):
 
 
 def __get_var__(args):
+    """
+    get variable inside list of nodes
+    """
     for arg in args:
         if isinstance(arg, _Variable):
             return arg
@@ -44,6 +50,9 @@ def __get_var__(args):
 
 
 def __clean_text__(text):
+    """
+    clean text for printing.
+    """
     text = re.sub(r'[ |\t]+', ' ', text)
     text = re.sub(r'[ |\t]+\n', '\n', text)
     text = re.sub(r'\n+', '\n', text)
@@ -51,6 +60,9 @@ def __clean_text__(text):
 
 
 class _Token:
+    """
+    Generic AST node
+    """
     def __init__(self, text, ttype, arguments=None):
         self.__text__ = text
         self.__ttype__ = ttype
@@ -85,6 +97,9 @@ class _Token:
 
 
 class _Text(_Token):
+    """
+    Text AST node
+    """
     def __init__(self, text):
         _Token.__init__(self, text, _TokenType.TEXT)
 
@@ -93,6 +108,9 @@ class _Text(_Token):
 
 
 class _Variable(_Token):
+    """
+    Variable AST node
+    """
     def __init__(self, text):
         _Token.__init__(self, text, _TokenType.VARIABLE, text.split('.'))
 
@@ -108,6 +126,9 @@ class _Variable(_Token):
 
 
 class _Error(_Token):
+    """
+    Error node
+    """
     def __init__(self, text):
         _Token.__init__(self, text, _TokenType.ERROR)
 
@@ -116,6 +137,9 @@ class _Error(_Token):
 
 
 class _If(_Token):
+    """
+    If AST node
+    """
     @staticmethod
     def __parse__(text):
         return __parse_args__(text[2:])[0]
@@ -156,6 +180,9 @@ class _If(_Token):
 
 
 class _Foreach(_Token):
+    """
+    Foreach AST node
+    """
     @staticmethod
     def __parse__(text):
         inner = text[7:]
@@ -192,6 +219,9 @@ class _Foreach(_Token):
 
 
 class _Switch(_Token):
+    """
+    Switch AST Node
+    """
     @staticmethod
     def __parse__(text):
         return __parse_args__(text[7:])[0]
@@ -213,6 +243,9 @@ class _Switch(_Token):
 
 
 class _Case(_Token):
+    """
+    Case AST Node
+    """
     @staticmethod
     def __parse__(text):
         if text == 'default':
@@ -247,8 +280,10 @@ class _Case(_Token):
     def eval(self, context):
         return context.eval(self.body)
 
-
 def __token_type__(text, lt_n, rt_n, flag=False):
+    """
+    get type of a specific token
+    """
     if not flag:
         return text, _TokenType.TEXT
     if text[0] == '\\':
@@ -275,6 +310,9 @@ def __token_type__(text, lt_n, rt_n, flag=False):
 
 
 def __tokenizer__(text, left_t=__LT__, right_t=__RT__):
+    """
+    transform text into list of tokens
+    """
     tokens = []
     token = ''
     status = 0
@@ -299,25 +337,38 @@ def __tokenizer__(text, left_t=__LT__, right_t=__RT__):
         tokens.append(__token_type__(token, lt_n, rt_n))
     return tokens
 
+# dictionary to simply convert token to ast node
+__SIMPLE_TOKENS__ = {
+    _TokenType.TEXT : _Text,
+    _TokenType.VARIABLE : _Variable,
+}
+
+# tokens that need the body in the initialization
+__BODY_TOKENS__ = {
+    _TokenType.IF : _If,
+    _TokenType.FOREACH: _Foreach,
+    _TokenType.SWITCH: _Switch,
+    _TokenType.CASE: _Case,
+    _TokenType.DEFAULT: _Case
+}
 
 def __token__(token, body=None):
+    """
+    convert token into an AST Node
+    """
     text, ttype = token
-    if ttype == _TokenType.TEXT:
-        return _Text(text)
-    if ttype == _TokenType.VARIABLE:
-        return _Variable(text)
-    if ttype == _TokenType.IF:
-        return _If(text, body)
-    if ttype == _TokenType.FOREACH:
-        return _Foreach(text, body)
-    if ttype == _TokenType.SWITCH:
-        return _Switch(text, body)
-    if ttype in set([_TokenType.CASE, _TokenType.DEFAULT]):
-        return _Case(text, body)
-    return _Error(text)
+    node = _Error(text)
+    if ttype in __SIMPLE_TOKENS__:
+        node = __SIMPLE_TOKENS__[ttype](text)
+    elif ttype in __BODY_TOKENS__:
+        node = __BODY_TOKENS__[ttype](text, body)
+    return node
 
 
 def __parse_case__(tokens):
+    """
+    specific parser for `case` block
+    """
     block = []
     i = 0
     while i < len(tokens):
@@ -333,7 +384,10 @@ def __parse_case__(tokens):
         i += 1
     return block, i
 
-def __parse_cases__(tokens):
+def __parse_switch__(tokens):
+    """
+    specific parser for `switch` block
+    """
     cases = []
     i = 0
     while i < len(tokens):
@@ -354,6 +408,9 @@ def __parse_cases__(tokens):
 
 
 def __parse__(tokens):
+    """
+    convert tokens list into the template AST
+    """
     block = []
     i = 0
     while i < len(tokens):
@@ -365,7 +422,7 @@ def __parse__(tokens):
             i += counter + 1
             block.append(__token__(token, sblock))
         elif token[1] == _TokenType.SWITCH:
-            cases, counter = __parse_cases__(tokens[i+1:])
+            cases, counter = __parse_switch__(tokens[i+1:])
             i += counter + 1
             block.append(__token__(token, cases))
         elif token[1] in set([_TokenType.ELSE]):
@@ -381,6 +438,7 @@ def __parse__(tokens):
 class _Context:
     @staticmethod
     def __get_value__(value, key):
+        """retrive a value from an object with the given key"""
         # check if is a list and an index
         if isinstance(value, list) and key.isdigit:
             index = int(key)
@@ -398,6 +456,7 @@ class _Context:
         return None
 
     def __init__(self, variables, parent=None):
+        """initialize context with variables and parent context (if any)."""
         self.__vars__ = variables
         self.__parent__ = parent
 
@@ -457,6 +516,9 @@ class _Context:
 
 
 def __print_ast__(ast, space=""):
+    """
+    pretty print AST
+    """
     for node in ast:
         if isinstance(node, list):
             __print_ast__(node, space=space+" ")
