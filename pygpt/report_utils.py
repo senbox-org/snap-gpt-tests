@@ -14,10 +14,9 @@ import matplotlib.pyplot as plt
 
 
 
-
 __base_path__ = "Report"
 __datetime_fmt__ = '%d/%m/%Y %H:%M:%S'
-__perf_dir__ = 'perfs'
+__perf_dir__ = 'performances'
 __stats_dir__ = 'stats'
 __tests_dir__ = 'tests'
 __out_dir__ = 'output'
@@ -80,7 +79,7 @@ class Test:
         self.start = datetime.datetime.strptime(row[1], __datetime_fmt__)
         self.end = datetime.datetime.strptime(row[2], __datetime_fmt__)
         self.test_set = test_set
-        self.json_path = os.path.join('json', test_set, f'{self.name}.json')
+        self.json_path = os.path.join('json', f'{self.name}.json')
         self.graph_id, self.vm_string = self.__load_json__()
         if self.status != 'SKIPPED':
             self.stats = self.__load_perfs__()
@@ -91,7 +90,9 @@ class Test:
         json_path = resolve_path(self.json_path)
         with open(json_path, 'r') as info:
             struct = json.load(info)
-            param = struct['configVM']
+            param = 'Default configuration'
+            if 'configVM' in struct and struct['configVM']:
+                param = struct['configVM']
             return struct['graphPath'][:-4], param if param else 'Default configuration'
         return None, None
 
