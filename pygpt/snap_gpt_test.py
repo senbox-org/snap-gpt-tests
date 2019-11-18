@@ -354,6 +354,7 @@ def __run_tests__(args, properties):
         # open the json file and parse it
         tests = json.load(file)
         for test in tests:
+            print('>>> Test:', test['id'])
             # for each tests
             if not 'frequency' in test:
                 continue # if no frequency is not a test
