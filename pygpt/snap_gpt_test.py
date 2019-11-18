@@ -88,7 +88,7 @@ def __check_args__(args):
 def __vm_parameters__(test, snap_dir):
     config_vm = None if not 'configVM' in test else test['configVM']
     if not config_vm:
-        return []
+        return ['-q', '4']
     params = []
     # set memory setting to configuration file
     if 'xmx' in config_vm:
@@ -154,15 +154,15 @@ def __io_parameters__(test, properties):
     return params
 
 def __find_output__(output, folder):
-    files = list([f for f in os.listdir(folder) if f.startswith(f'{output["outputName"]}.')])
+    files = list([f for f in os.listdir(folder)
+                  if os.path.isfile(os.path.join(folder, f))
+                  and f.startswith(f'{output["outputName"]}.')])
     print(output, files)
     if len(files) == 1:
         return os.path.join(folder, files[0])
     out_path = os.path.join(folder, output['outputName'])
     if os.path.exists(out_path):
         return out_path
-    if os.path.exists(out_path+'.dim'):
-        return out_path+'.dim'
     return None
 
 def __check_outputs__(test, args, properties):
@@ -272,7 +272,7 @@ def __run_tests__(args, properties):
                 result_str = 'PASSED' if result else 'FAILED'
                 output += f' - {end} - {result_str}\n'
                 print(test['id'], start, end, result_str)
-                if not result and not args.scope.lower() in ['REGULAR', 'DAILY', 'WEEKLY', 'RELEASE']:
+                if not result and not args.scope.upper() in ['REGULAR', 'DAILY', 'WEEKLY', 'RELEASE']:
                     # copy output files
                     __copy_output__(test, args, properties)
     json_name = os.path.split(args.json_path)[-1]
