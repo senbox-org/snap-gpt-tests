@@ -2,6 +2,26 @@
 import os
 
 
+def __msg__(level, *args):
+    now = datetime.datetime.now()
+    print(now.strftime("%d/%m/%Y %H:%M:%S"), f'{level}:', *args)
+
+
+def log(*args):
+    """log info"""
+    __msg__('INFO', *args)
+
+
+def error(*args):
+    """log error"""
+    __msg__('ERROR', *args)
+
+
+def warning(*args):
+    """log warning"""
+    __msg__('WARNING', *args) 
+
+
 def mkdirs(path):
     """make a directory tree"""
     paths = os.path.split(path)
@@ -10,6 +30,7 @@ def mkdirs(path):
         crr = os.path.join(crr, pth)
         if not os.path.exists(crr):
             os.mkdir(crr)
+
 
 class Printable:
     """

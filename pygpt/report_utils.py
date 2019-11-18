@@ -7,6 +7,7 @@ import datetime
 import json
 
 import template as t
+import gpt_utils as utils
 
 import matplotlib as mpl
 mpl.use('Agg') # use no graphical backend
@@ -155,12 +156,12 @@ class Test:
     def performance_report(self):
         """generate perofmance report"""
         if self.is_skipped() or not self.stats:
-            print("No stats found")
+            utils.error("No stats found")
             return
         with open(os.path.join(__template_dir__, 'perf_report_template.html'), 'r') as file:
             template = t.Template(file.read())
         if template is None:
-            print("Unable to load template")
+            utils.error("Unable to load template")
             return
         summ = []
         summary = self.stats
@@ -337,7 +338,7 @@ class TestSet:
         with open(os.path.join(__template_dir__, 'gptTest_report_template.html'), 'r') as file:
             template = t.Template(file.read())
         if template is None:
-            print("Unable to load template")
+            utils.error("Unable to load template")
             return
         percent = round(100 * len(self.passed_tests())/len(self.tests), 2)
         html = template.generate(name=self.name,
@@ -367,7 +368,6 @@ class TestSet:
 def __parse_set__(name, lines):
     test_set = TestSet(name)
     for line in lines:
-        print(line)
         row = line.replace('\n', '').split(' - ')
         test_set.tests.append(Test(name, row))
     return test_set
@@ -394,7 +394,7 @@ def generate_html_report(base_path, scope, version):
         with open(os.path.join(report_path, report_file), 'r') as rep:
             test_sets.append(__parse_set__(set_name, rep.readlines()))
     if not test_sets:
-        print("no tests set...")
+        utils.error("no tests set...")
         sys.exit(0)
     start_date = min([test_set.start_date() for test_set in test_sets])
     end_date = max([test_set.end_date() for test_set in test_sets])
@@ -406,7 +406,7 @@ def generate_html_report(base_path, scope, version):
     with open(os.path.join(__template_dir__, 'gptIndex_report_template.html'), 'r') as file:
         template = t.Template(file.read())
     if template is None:
-        print("Unable to load template")
+        utils.error("Unable to load template")
         return
     failedjson = len(list(filter(lambda x: x.is_failed(), test_sets)))
     failedtest = sum([len(x.failed_tests()) for x in test_sets])
@@ -439,6 +439,5 @@ if __name__ == '__main__':
     if len(ARGS) != 5:
         print("wrong number of arguments!\nreport_utils TEMPLATE_DIR BASE_PATH SCOPE VERSION")
         sys.exit(-1)
-    print(f'>> report_utils {ARGS}')
     __template_dir__ = ARGS[1]
     generate_html_report(ARGS[2], ARGS[3], ARGS[4])

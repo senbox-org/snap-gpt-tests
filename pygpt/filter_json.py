@@ -4,6 +4,8 @@ import os
 import sys
 import json
 
+import gpt_utils as utils
+
 
 __test_files__ = "JSONTestFiles.txt"
 __test_sequence__ = "JSONTestFilesSeq.txt"
@@ -85,18 +87,20 @@ def __main__():
     args = __arguments__()
 
     if not os.path.exists(args.test_folder):
-        print("Test folder does not exist")
-        sys.exit(-1)
+        utils.error("test folder does not exist")
+        sys.exit(1)
     if not os.path.exists(args.output_folder):
-        print("Output folder does not exist")
-        sys.exit(-1)
+        utils.error("output folder does not exist")
+        sys.exit(1)
     json_test_files = os.path.join(args.output_folder, __test_files__)
     json_test_sequence = os.path.join(args.output_folder, __test_sequence__)
 
     if __create_test_json_list__(args.test_folder, args.scope, json_test_files, json_test_sequence):
-        print(f"Filtered JSON created in {json_test_files}")
-        print(f"Seq filtered JSON created in {json_test_sequence}")
-
+        output.log(f"filtered JSON created in {json_test_files}")
+        output.log(f"seq filtered JSON created in {json_test_sequence}")
+    else:
+        output.error('something went wrong')
+        sys.exit(1)
 
 
 if __name__ == '__main__':

@@ -39,6 +39,7 @@ class ProcessStats:
             'io_write' : [],
             'io_read'  : [],
             'time'     : [],
+            'time_s'   : [],
         }
         self.__start___ = time.time()
 
@@ -59,6 +60,7 @@ class ProcessStats:
         self.stats['threads'].append(process.num_threads()) # num threads
         # sampling time
         self.stats['time'].append(int(round(1000*(time.time() - self.__start___))))
+        self.stats['time_s'].append(self.stats['time'][-1] / 1000.) # convert time in second
 
     def summary(self):
         """
@@ -172,8 +174,8 @@ class FileManager:
 
         # plot cpu usage
         plt.figure(figsize=(10, 7))
-        plt.plot(stats.stats['time'], stats.stats['cpu_perc'])
-        plt.xlabel("Elapsed time (ms)")
+        plt.plot(stats.stats['time_s'], stats.stats['cpu_perc'])
+        plt.xlabel("Elapsed time (s)")
         plt.ylabel("CPU Usage (%)")
         plt.grid(alpha=0.5)
         plt.title("CPU Usage")
@@ -182,8 +184,8 @@ class FileManager:
 
         # plot memory usage
         plt.figure(figsize=(10, 7))
-        plt.plot(stats.stats['time'], stats.stats['memory'])
-        plt.xlabel("Elapsed time (ms)")
+        plt.plot(stats.stats['time_s'], stats.stats['memory'])
+        plt.xlabel("Elapsed time (s)")
         plt.ylabel("Memory (Mb)")
         plt.grid(alpha=0.5)
         plt.title("Memory Usage")
@@ -192,10 +194,10 @@ class FileManager:
 
         # plot io activity
         plt.figure(figsize=(10, 7))
-        plt.plot(stats.stats['time'], stats.stats['io_read'], label='Read Count')
-        plt.plot(stats.stats['time'], stats.stats['io_write'], label='Write Count')
+        plt.plot(stats.stats['time_s'], stats.stats['io_read'], label='Read Count')
+        plt.plot(stats.stats['time_s'], stats.stats['io_write'], label='Write Count')
         plt.legend()
-        plt.xlabel("Elapsed time (ms)")
+        plt.xlabel("Elapsed time (s)")
         plt.ylabel("Counter")
         plt.grid(alpha=0.5)
         plt.title("Disk IO Activity")
@@ -272,12 +274,6 @@ def run(command):
     """
     proc = subprocess.run(command, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
     return proc.returncode, proc.stdout.decode('utf-8')
-
-
-def log(*args):
-    """log function"""
-    now = datetime.datetime.now()
-    print('>', now.strftime("%d/%m/%Y %H:%M:%S"), ':', *args)
 
 
 def profile(command, sampling_time, output, **kwargs):

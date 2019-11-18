@@ -17,6 +17,8 @@ import gpt_utils as utils
 __DATE_FMT__ = '%d/%m/%Y %H:%M:%S'
 __REGULAR_TAGS__ = ['REGULAR', 'DAILY', 'WEEKLY', 'RELEASE']
 
+
+
 def __load_properties__(path):
     """
     load properties file
@@ -75,7 +77,7 @@ def __check_properties__(properties):
     if None in [test_folder, graph_folder,
                 input_folder, expected_output_folder,
                 temp_folder]:
-        print('>>> Error: Some folder is null')
+        utils.error('some folder is null')
         sys.exit(1)
 
 
@@ -85,11 +87,11 @@ def __check_args__(args):
     Exit(1) if it fails
     """
     if not os.path.exists(args.json_path):
-        print(f'JSON file does not exists: {args.json_path}')
+        utils.error(f'JSON file `{args.json_path}` does not exists')
         sys.exit(1)
 
     if not os.path.exists(args.report_dir):
-        print(f'Rerpot folder doees not exists: {args.report_dir}')
+        utils.error(f'rerpot folder `{args.report_dir}` does not exists')
         sys.exit(1)
 
 
@@ -234,7 +236,7 @@ def __check_outputs__(test, args, properties):
             # check output
             output_path = __find_output__(output, properties['tempFolder'])
             if output_path is None:
-                print(f'>> Test {test["id"]} failed: output {output["outputName"]} not found!')
+                utils.error(f'test `{test["id"]}` failed, output {output["outputName"]} not found')
                 return False
             expected_output_path = os.path.join(properties['expectedOutputFolder'],
                                                 output['expected'])
@@ -246,7 +248,7 @@ def __check_outputs__(test, args, properties):
             stdout_file = os.path.join(args.report_dir, f'{test["id"]}_gptOutput.txt')
 
             if result.returncode != 0:
-                print(f">> Test {test['id']} failed:\n{result.stdout.decode('utf-8')}")
+                utils.error(f"test `{test['id']}` failed:\n{result.stdout.decode('utf-8')}")
                 with open(stdout_file, 'a') as file:
                     file.write(result.stdout.decode('utf-8'))
                 return False
@@ -276,7 +278,7 @@ def __run_test__(test, args, properties):
     gpt_parameters.append(os.path.join(properties['graphFolder'], test['graphPath']))
     gpt_parameters += __vm_parameters__(test, snap_dir) # java vm parameters (if any)
     gpt_parameters += __io_parameters__(test, properties) # custom test parameters
-    print('>>> execute:', gpt_parameters) # DEBUG print
+    utils.log('execute:', gpt_parameters) # DEBUG print
     if profiling: 
         # output directory for the profiling
         output_dir = os.path.join(args.report_dir, test['id'])
@@ -354,7 +356,7 @@ def __run_tests__(args, properties):
         # open the json file and parse it
         tests = json.load(file)
         for test in tests:
-            print('>>> Test:', test['id'])
+            utils.log(f"run test `{test['id']}`")
             # for each tests
             if not 'frequency' in test:
                 continue # if no frequency is not a test
@@ -364,19 +366,20 @@ def __run_tests__(args, properties):
             output += f'{test["id"]} - {start}'
             if not filter_json.compatible(args.scope, test['frequency']):
                 output += f' - {start} - SKIPPED\n'
-                print('>>>', test['id'], 'skipped')
+                utils.warning(f'test `{test["id"]}` skipped')
             else:
                 result = __run_test__(test, args, properties)
                 passed = passed and result
                 end = datetime.datetime.now().strftime(__DATE_FMT__)
                 result_str = 'PASSED' if result else 'FAILED'
                 output += f' - {end} - {result_str}\n'
-                print(test['id'], start, end, result_str)
+                if not result:
+                    utils.error(f"test `{test['id']} failed")
+                else:
+                    utils.log(f"test `{test['id']}` succeded")
                 if not result and not args.scope.upper() in __REGULAR_TAGS__:
                     # copy output files
                     __copy_output__(test, args, properties)
-                    print('!!! copied output')
-                print('>>>', test['id'], result_str)
     json_name = os.path.split(args.json_path)[-1]
     report_path = os.path.join(args.report_dir, f'Report_{json_name[:-5]}.txt')
     with open(report_path, 'w') as file:
