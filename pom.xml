@@ -22,40 +22,10 @@
                 <version>[2.9.10,)</version>
             </dependency>
             <dependency>
-                <groupId>junit</groupId>
-                <artifactId>junit</artifactId>
-                <version>4.12</version>
-            </dependency>
-            <dependency>
-                <groupId>commons-io</groupId>
-                <artifactId>commons-io</artifactId>
-                <version>2.6</version>
-            </dependency>
-            <dependency>
                 <groupId>org.esa.snap</groupId>
                 <artifactId>snap-engine-kit</artifactId>
                 <version>${project.version}</version>
             </dependency>
-            <!-- <dependency>
-                <groupId>org.esa.snap</groupId>
-                <artifactId>snap-core</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.esa.snap</groupId>
-                <artifactId>snap-geotiff</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.esa.snap</groupId>
-                <artifactId>snap-bigtiff</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.esa.snap</groupId>
-                <artifactId>snap-graph-builder</artifactId>
-                <version>${project.version}</version>
-            </dependency>-->
             <dependency>
                 <groupId>org.esa.snap</groupId>
                 <artifactId>snap-reader-tests</artifactId>
