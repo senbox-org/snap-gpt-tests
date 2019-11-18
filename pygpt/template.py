@@ -87,7 +87,7 @@ class _Token:
         if printable[0] == ' ':
             printable = printable[1:]
         if len(printable) > __MAX_STR_LEN__:
-            printable = printable[:__MAX_STR_LEN__-3]+'...'
+            printable = printable[:__MAX_STR_LEN__-3] + '...'
         ttype = str(self.type())[11:]
         return f"{ttype}: {printable}"
 

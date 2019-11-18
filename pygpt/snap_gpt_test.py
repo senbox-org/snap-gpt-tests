@@ -251,16 +251,21 @@ def __copy_output__(test, args, properties):
                 shutil.copy2(fpath, dpath)
 
 def __run_tests__(args, properties):
-    output = ''
-    passed = True
+    """
+    Execute list of test of a json file
+    """
+    output = '' # output string saved in Report_* file
+    passed = True # passed flag
     with open(args.json_path, 'r') as file:
+        # open the json file and parse it
         tests = json.load(file)
         for test in tests:
+            # for each tests
             if not 'frequency' in test:
-                continue
-            __save_json__(test, args)
-            __draw_graph__(test, properties, args)
-            start = datetime.datetime.now().strftime(__DATE_FMT__)
+                continue # if no frequency is not a test
+            __save_json__(test, args) # save json
+            __draw_graph__(test, properties, args) # make the graph image
+            start = datetime.datetime.now().strftime(__DATE_FMT__) # stats
             output += f'{test["id"]} - {start}'
             if not filter_json.compatible(args.scope, test['frequency']):
                 output += f' - {start} - SKIPPED\n'
@@ -285,13 +290,13 @@ def __run_tests__(args, properties):
 def __main__():
     """main entry point"""
     args = __arguments__()
-    __check_args__(args)
-    properties = __load_properties__(args.properties)
-    __check_properties__(properties)
+    __check_args__(args) # check if arguments are corrected
+    properties = __load_properties__(args.properties) # load properties file
+    __check_properties__(properties) # check if properties are correct
 
-    if not __run_tests__(args, properties):
-        sys.exit(1)
-    sys.exit(0)
+    if not __run_tests__(args, properties): # run tests with given parameters
+        sys.exit(1) # if tests fails exit with status 1
+    sys.exit(0) # otherwise normal exit
 
 if __name__ == '__main__':
     __main__() # execute script
