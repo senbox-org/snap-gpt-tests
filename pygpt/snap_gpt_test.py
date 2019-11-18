@@ -15,7 +15,7 @@ import gpt_utils as utils
 
 
 __DATE_FMT__ = '%d/%m/%Y %H:%M:%S'
-
+__REGULAR_TAGS__ = ['REGULAR', 'DAILY', 'WEEKLY', 'RELEASE']
 
 def __load_properties__(path):
     """
@@ -272,7 +272,7 @@ def __run_tests__(args, properties):
                 result_str = 'PASSED' if result else 'FAILED'
                 output += f' - {end} - {result_str}\n'
                 print(test['id'], start, end, result_str)
-                if not result and not args.scope.upper() in ['REGULAR', 'DAILY', 'WEEKLY', 'RELEASE']:
+                if not result and not args.scope.upper() in __REGULAR_TAGS__:
                     # copy output files
                     __copy_output__(test, args, properties)
     json_name = os.path.split(args.json_path)[-1]
@@ -280,7 +280,6 @@ def __run_tests__(args, properties):
     with open(report_path, 'w') as file:
         file.write(output)
     return passed
-
 
 
 def __main__():
