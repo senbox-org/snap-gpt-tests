@@ -363,7 +363,7 @@ def __run_tests__(args, properties):
             output += f'{test["id"]} - {start}'
             if not filter_json.compatible(args.scope, test['frequency']):
                 output += f' - {start} - SKIPPED\n'
-                print('skipped')
+                print('>>>', test['id'], 'skipped')
             else:
                 result = __run_test__(test, args, properties)
                 passed = passed and result
@@ -374,6 +374,8 @@ def __run_tests__(args, properties):
                 if not result and not args.scope.upper() in __REGULAR_TAGS__:
                     # copy output files
                     __copy_output__(test, args, properties)
+                    print('!!! copied output')
+                print('>>>', test['id'], result_str)
     json_name = os.path.split(args.json_path)[-1]
     report_path = os.path.join(args.report_dir, f'Report_{json_name[:-5]}.txt')
     with open(report_path, 'w') as file:
