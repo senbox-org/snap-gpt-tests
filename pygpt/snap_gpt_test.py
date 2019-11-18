@@ -62,6 +62,10 @@ def __arguments__():
 
 
 def __check_properties__(properties):
+    """
+    Check properties of the GPT Test executor.
+    Exit(1) if it fails
+    """
     test_folder = properties['testFolder']
     graph_folder = properties['graphFolder']
     input_folder = properties['inputFolder']
@@ -76,6 +80,10 @@ def __check_properties__(properties):
 
 
 def __check_args__(args):
+    """
+    Check arguments of the GPT Test executor.
+    Exit(1) if it fails
+    """
     if not os.path.exists(args.json_path):
         print(f'JSON file does not exists: {args.json_path}')
         sys.exit(1)
@@ -86,6 +94,9 @@ def __check_args__(args):
 
 
 def __vm_parameters__(test, snap_dir):
+    """
+    Prepare list of arguments for the Java VM
+    """
     config_vm = None if not 'configVM' in test else test['configVM']
     if not config_vm:
         return ['-q', '4']
@@ -112,7 +123,11 @@ def __vm_parameters__(test, snap_dir):
 
     return params
 
+
 def __vm_parameters_reset__(test, snap_dir):
+    """
+    Reset Java VM paramters
+    """
     config_vm = None if not 'configVM' in test else test['configVM']
     if not config_vm:
         return
@@ -123,7 +138,11 @@ def __vm_parameters_reset__(test, snap_dir):
         os.remove(vm_original)
     return
 
+
 def __perpare_param__(value, properties):
+    """
+    Prepare parameter with custom values
+    """
     if isinstance(value, str):
         value = value.replace('$graphFolder', properties['graphFolder'])
         value = value.replace('$inputFolder', properties['inputFolder'])
@@ -131,8 +150,21 @@ def __perpare_param__(value, properties):
         value = value.replace('$tempFolder', properties['tempFolder'])
     return value
 
+
 def __io_parameters__(test, properties):
-    params = []
+    """
+    Flag for the test parameters (inputs, outputs and paramters)
+
+    Paramters:
+    ----------
+     - json: test json object
+     - properties: test properties
+
+    Returns:
+    --------
+    return list of arguments containing the custom paramters 
+    """
+    params = [] # list of arguments
     # prepare inputs
     for in_key in test['inputs']:
         in_value = __perpare_param__(test['inputs'][in_key], properties)
@@ -153,19 +185,50 @@ def __io_parameters__(test, properties):
 
     return params
 
+
 def __find_output__(output, folder):
+    """
+    find the output produced in the selected folder.
+
+    Parameters:
+    -----------
+     - output: output json object
+     - folder: base folder where to search for ouput
+
+    Returns:
+    --------
+    A file named `{output}.*` if only one file with this pattern
+    has been found.
+    A directory named `{output}/` if it exists.
+    `None` otherwise.
+    """
+    # list of files starting with the name of the output
     files = list([f for f in os.listdir(folder)
                   if os.path.isfile(os.path.join(folder, f))
                   and f.startswith(f'{output["outputName"]}.')])
-    print(output, files)
     if len(files) == 1:
-        return os.path.join(folder, files[0])
+        return os.path.join(folder, files[0]) # file named `output.*`
     out_path = os.path.join(folder, output['outputName'])
     if os.path.exists(out_path):
-        return out_path
-    return None
+        return out_path # folder path
+    return None # if nothing has been found
+
 
 def __check_outputs__(test, args, properties):
+    """
+    Check the conformity of the resulting outputs with the expected outputs.
+
+    Properties:
+    -----------
+     - test: test json object
+     - args: arguments of the test executor
+     - properties: properties of the test executor
+
+    Returns:
+    --------
+    `True` if the output are conformed.
+    `False` if the output are not conformed or not found. 
+    """
     for output in test['outputs']:
         if 'expected' in output and output['expected'] is not None:
             # check output
@@ -191,17 +254,31 @@ def __check_outputs__(test, args, properties):
 
 
 def __run_test__(test, args, properties):
-    profiling = args.profiling == 'on'
-    gpt_parameters = []
-    snap_dir = properties['snapBin']
-    snap_dir = snap_dir if snap_dir else ''
-    gpt_bin = os.path.join(snap_dir, 'gpt')
-    gpt_parameters.append(gpt_bin)
+    """
+    Execute a test
+
+    Parameters:
+    -----------
+     - test: json test object
+     - args: test executer arguments
+     - properties: test executer properties
+
+    Returns:
+    --------
+    `True` if the test was succesful and the outputs are conformed to 
+    the expected output, `False` otherwise.
+    """
+    profiling = args.profiling == 'on' # profiling flag
+    snap_dir = properties['snapBin'] if properties['snapBin'] is not None else ''
+    gpt_bin = os.path.join(snap_dir, 'gpt') # gpt binary
+    gpt_parameters = [gpt_bin] # gpt command and arguments
+    # graph to test
     gpt_parameters.append(os.path.join(properties['graphFolder'], test['graphPath']))
-    gpt_parameters += __vm_parameters__(test, snap_dir)
-    gpt_parameters += __io_parameters__(test, properties)
-    print(gpt_parameters)
-    if profiling:
+    gpt_parameters += __vm_parameters__(test, snap_dir) # java vm parameters (if any)
+    gpt_parameters += __io_parameters__(test, properties) # custom test parameters
+    print(gpt_parameters) # DEBUG print
+    if profiling: 
+        # output directory for the profiling
         output_dir = os.path.join(args.report_dir, test['id'])
         res, stdout = profiler.profile(gpt_parameters,
                                        0.2,
@@ -209,22 +286,30 @@ def __run_test__(test, args, properties):
                                        wait=False,
                                        child=False,
                                        plot=True)
+        # execute the gpt test with the profiler at sampling time 200ms
     else:
+        # execute gpt test without profiler
         res, stdout = profiler.run(gpt_parameters)
 
+    # Reset Java VM parameters if needed
     __vm_parameters_reset__(test, snap_dir)
 
+    # gpt Ouput file to store the ouput of the previous test execution
     stdout_file = os.path.join(args.report_dir, f'{test["id"]}_gptOutput.txt')
-
     with open(stdout_file, 'w') as file:
         file.write(stdout)
 
+    # if the execution result is not 0 return False
     if res is not None and res > 0:
         return False
+    # return the confirmity of the outputs
     return __check_outputs__(test, args, properties)
 
 
 def __draw_graph__(test, properties, args):
+    """
+    Draw the diagram of the graph using the custom graph_drawer. 
+    """
     graph_path = os.path.join(properties['graphFolder'], test['graphPath'])
     image_path = os.path.join(args.report_dir, 'images', test['graphPath'])
     image_path = os.path.splitext(image_path)[0] + '.png'
@@ -233,12 +318,20 @@ def __draw_graph__(test, properties, args):
 
 
 def __save_json__(test, args):
+    """
+    Save test json individually into the report folder.
+    """
     path = os.path.join(args.report_dir, 'json', f"{test['id']}.json")
     utils.mkdirs(os.path.dirname(path))
     with open(path, 'w') as file:
         file.write(json.dumps(test))
 
+
 def __copy_output__(test, args, properties):
+    """
+    function to copy the outputs of the test (if neede) into
+    the report directory.
+    """
     files = os.listdir(properties['tempFolder'])
     for output in test['outputs']:
         name = output['outputName']
@@ -249,6 +342,7 @@ def __copy_output__(test, args, properties):
                 shutil.copytree(fpath, dpath)
             else:
                 shutil.copy2(fpath, dpath)
+
 
 def __run_tests__(args, properties):
     """
@@ -288,7 +382,7 @@ def __run_tests__(args, properties):
 
 
 def __main__():
-    """main entry point"""
+    """main test entry point"""
     args = __arguments__()
     __check_args__(args) # check if arguments are corrected
     properties = __load_properties__(args.properties) # load properties file
