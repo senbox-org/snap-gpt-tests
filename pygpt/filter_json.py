@@ -96,11 +96,8 @@ def __main__():
     json_test_sequence = os.path.join(args.output_folder, __test_sequence__)
 
     if __create_test_json_list__(args.test_folder, args.scope, json_test_files, json_test_sequence):
-        output.log(f"filtered JSON created in {json_test_files}")
-        output.log(f"seq filtered JSON created in {json_test_sequence}")
-    else:
-        output.error('something went wrong')
-        sys.exit(1)
+        utils.log(f"filtered JSON created in {json_test_files}")
+        utils.log(f"seq filtered JSON created in {json_test_sequence}")
 
 
 if __name__ == '__main__':
