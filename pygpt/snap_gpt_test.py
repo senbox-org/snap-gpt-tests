@@ -75,7 +75,7 @@ def __check_properties__(properties):
     if None in [test_folder, graph_folder,
                 input_folder, expected_output_folder,
                 temp_folder]:
-        print('Some folder is null')
+        print('>>> Error: Some folder is null')
         sys.exit(1)
 
 
@@ -276,7 +276,7 @@ def __run_test__(test, args, properties):
     gpt_parameters.append(os.path.join(properties['graphFolder'], test['graphPath']))
     gpt_parameters += __vm_parameters__(test, snap_dir) # java vm parameters (if any)
     gpt_parameters += __io_parameters__(test, properties) # custom test parameters
-    print(gpt_parameters) # DEBUG print
+    print('>>> execute:', gpt_parameters) # DEBUG print
     if profiling: 
         # output directory for the profiling
         output_dir = os.path.join(args.report_dir, test['id'])
