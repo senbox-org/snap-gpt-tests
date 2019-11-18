@@ -63,6 +63,7 @@ def launchJobsSeq(jsonString, scope, outputDir) {
     jsonString = jsonString.trim()
     jsonList = jsonString.split("\n")
     num = 0
+    status = true
     for (int i=0; i < jsonList.size(); i++) {
         item = jsonList[i]
         def currentJsonFile = "" + item
@@ -73,9 +74,13 @@ def launchJobsSeq(jsonString, scope, outputDir) {
                 sh "export LD_LIBRARY_PATH=. && python3 ${outputDir}/snap_gpt_test.py '/home/snap/snap/jre/bin/java' '-Dncsa.hdf.hdflib.HDFLibrary.hdflib=/home/snap/snap/snap/modules/lib/amd64/libjhdf.so -Dncsa.hdf.hdf5lib.H5.hdf5lib=/home/snap/snap/snap/modules/lib/amd64/libjhdf5.so -cp ${outputDir}/gptExecutorTarget/TestOutput.jar' 'org.esa.snap.test.TestOutput' /opt/snap-gpt-tests/gpt-tests-executer.properties \"${scope}\" ${currentJsonFile} ${outputDir}/report"            
             } catch (all) {
                 echo "A test filed"
+                status = false
             }
         }
         num++
+    }
+    if (!status) {
+        throw new Exception("At least a test failed!")
     }
 }
 
