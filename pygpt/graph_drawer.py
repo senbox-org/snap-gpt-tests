@@ -1,75 +1,114 @@
 """GPT Graph drawing utils"""
 from lxml import etree
 
+import math
 import matplotlib as mpl
 mpl.use('Agg') # use no graphical backend
 import matplotlib.pyplot as plt
 
 
 def __prepare_nodes__(root):
-    nodes = {}
+    """
+    robust to error graph builder
+    """
+    nodes = []
+    nodes_key = {}
     points = {'x':[], 'y': []}
+    element = root.xpath('/graph/node')
+    for elem in element:
+        n_id = elem.get('id')
+        node = {'refs': [], 'name': n_id}
+        ops = elem.xpath('./operator')
+        if ops is not None:
+            node['op'] = ops[0].text
+        for src in elem.xpath('./sources/*'):
+            r_id = src.get('refid')
+            if r_id is None:
+                r_id = src.text
+            if r_id not in node['refs']:
+                node['refs'].append(r_id)
+        nodes.append(node)
+        nodes_key[n_id] = len(nodes) - 1
 
     element = root.find('.//applicationData[@id="Presentation"]')
-    if element:
+    if element is not None:
         key = ''
+        index = 0
         for node in element.iter():
             if node.tag == 'node':
                 key = node.get('id')
             if node.tag == 'displayPosition':
-                nodes[key] = {
-                    'x': float(node.get('x')) * 20,
-                    'y': float(node.get('y')) * 20,
-                    'refs': [],
-                }
-                points['x'].append(nodes[key]['x'])
-                points['y'].append(nodes[key]['y'])
-
-        element = root.xpath('/graph/node')
-        for node in element:
-            n_id = node.get('id')
-            if n_id in nodes:
-                ops = node.xpath('./operator')
-                if ops:
-                    nodes[n_id]['op'] = ops[0].text
-                for src in node.xpath('./sources/*'):
-                    r_id = src.get('refid')
-                    if r_id in nodes and r_id not in nodes[n_id]['refs']:
-                        nodes[n_id]['refs'].append(r_id)
-    return nodes, points
+                if key in nodes_key:
+                    ind = nodes_key[key]
+                    nodes[ind]['x'] = float(node.get('x'))
+                    nodes[ind]['y'] = float(node.get('y'))
+                    points['x'].append(nodes[ind]['x'])
+                    points['y'].append(nodes[ind]['y'])
+                elif index < len(nodes) and not 'x' in nodes[index]:
+                    nodes[index]['x'] = float(node.get('x'))
+                    nodes[index]['y'] = float(node.get('y'))
+                    points['x'].append(nodes[index]['x'])
+                    points['y'].append(nodes[index]['y'])
+                index += 1
+    return nodes, nodes_key, points
 
 
-def draw(source, dest, dpi=82):
-    """draw gpt graph"""
+def __draw_nodes__(axis, nodes, scale):
+    for node in nodes:
+        oper = node['op'] if 'op' in node else node['name']
+        scaled_x = node['x'] * scale
+        scaled_y = node['y'] * scale
+        text = axis.annotate(oper, xy=(scaled_x, scaled_y), xycoords="data",
+                             va="center", ha="center",
+                             bbox=dict(boxstyle="round", fc="w"))
+        node['text'] = text
+
+
+def __draw_arrows__(axis, nodes, keys):
+    for node in nodes:
+        ttxt = node['text']
+        for ref in node['refs']:
+            if ref in keys:
+                source = nodes[keys[ref]]
+                stxt = source['text']
+                axis.annotate("",
+                              xy=(0.0, 0.5), xycoords=ttxt,
+                              xytext=(1.0, 0.5), textcoords=stxt,
+                              arrowprops=dict(arrowstyle="->",
+                                              connectionstyle="arc3"),
+                             )
+
+
+def draw(source, dest, dpi=90):
+    """
+    Draw gpt graph
+
+    Parameters
+    ----------
+     - source: source xml graph path
+     - dest: graph image destination path
+     - dpi: resolution of the resulting image
+    """
     with open(source, 'r') as file:
         root = etree.fromstring(file.read())
-        nodes, points = __prepare_nodes__(root)
+        nodes, keys, points = __prepare_nodes__(root)
         if not points:
             return
 
-        width = max(points['x']) - min(points['x']) + 100
-        height = max(points['y']) - min(points['y']) + 400
-        ratio = height/width
-        height = int(round(600 * ratio))
-        plt.figure(figsize=(600/dpi, height/dpi), dpi=dpi)
+        real_w = max(points['x']) - min(points['x'])
+        real_h = max(points['y']) - min(points['y']) + 100
+        ratio = real_h / real_w
+        scale = 1.0 / real_w
 
-        plt.xlim([min(points['x'])-50, max(points['x'])+50])
-        plt.ylim([min(points['y'])-50, max(points['y'])+50])
+        _, axis = plt.subplots(figsize=(6, 6*ratio), dpi=dpi)
 
-        for name in nodes:
-            node = nodes[name]
-            for ref in node['refs']:
-                source = nodes[ref]
-                l_xs = [source['x'], node['x']]
-                l_ys = [source['y'], node['y']]
-                plt.plot(l_xs, l_ys, color='black')
-            oper = node['op'] if 'op' in node else name
-            plt.text(node['x'], node['y'], f'{oper}', size=14,
-                     ha="center", va="center",
-                     bbox=dict(boxstyle="square",
-                               ec=(0.2, 0.5, 1.),
-                               fc=(0.5, 0.8, 1.),
-                               )
-                    )
+        plt.xlim([min(points['x']) * scale, max(points['x']) * scale])
+        plt.ylim([min(points['y']) * scale - 0.05, max(points['y']) * scale + 0.05])
+
+        # draw nodes
+        __draw_nodes__(axis, nodes, scale)
+        # draw arrows
+        __draw_arrows__(axis, nodes, keys)
+
         plt.axis('off')
         plt.savefig(dest, transparent=True)
