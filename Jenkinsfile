@@ -75,7 +75,8 @@ def launchJobsSeq(jsonString, scope, outputDir) {
                         [$class: 'StringParameterValue', name: 'dockerTagName', value: "${dockerTagName}"],
                         [$class: 'StringParameterValue', name: 'jsonPath', value: currentJsonFile],
                         [$class: 'StringParameterValue', name: 'testScope', value: "${scope}"],
-                        [$class: 'StringParameterValue', name: 'outputReportDir', value: "${outputDir}"]
+                        [$class: 'StringParameterValue', name: 'outputReportDir', value: "${outputDir}"],
+                        [$class: 'BooleanParameterValue', name: 'python', value: false]
                 ],
                         quietPeriod: 0,
                         propagate: false,
