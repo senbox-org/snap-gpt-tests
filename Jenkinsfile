@@ -40,7 +40,7 @@ def launchJobs(jsonString, scope, outputDir) {
                         [$class: 'StringParameterValue', name: 'jsonPath', value: currentJsonFile],
                         [$class: 'StringParameterValue', name: 'testScope', value: "${scope}"],
                         [$class: 'StringParameterValue', name: 'outputReportDir', value: "${outputDir}"],
-                        [$class: 'BooleanParamterValue', name: 'python', value: true]
+                        [$class: 'BooleanParameterValue', name: 'python', value: true]
                     ],
                     quietPeriod: 0,
                     propagate: false,
