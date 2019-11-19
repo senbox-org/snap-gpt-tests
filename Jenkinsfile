@@ -39,7 +39,8 @@ def launchJobs(jsonString, scope, outputDir) {
                         [$class: 'StringParameterValue', name: 'dockerTagName', value: "${dockerTagName}"],
                         [$class: 'StringParameterValue', name: 'jsonPath', value: currentJsonFile],
                         [$class: 'StringParameterValue', name: 'testScope', value: "${scope}"],
-                        [$class: 'StringParameterValue', name: 'outputReportDir', value: "${outputDir}"]
+                        [$class: 'StringParameterValue', name: 'outputReportDir', value: "${outputDir}"],
+                        [$class: 'BooleanParamterValue', name: 'python', value: true]
                     ],
                     quietPeriod: 0,
                     propagate: false,
@@ -151,7 +152,7 @@ pipeline {
                 }
                 echo "Launch parallel Jobs from ${env.JOB_NAME} from ${env.GIT_BRANCH} with commit ${env.GIT_COMMIT} using docker image snap-build-server.tilaa.cloud/${params.dockerTagName}"
                 // echo "List of json files : ${jsonString}"
-                launchJobsSeq("${jsonString}", "${testScope}", "${outputDir}")
+                launchJobs("${jsonString}", "${testScope}", "${outputDir}")
 
                 echo "Launch seq Jobs from ${env.JOB_NAME} from ${env.GIT_BRANCH} with commit ${env.GIT_COMMIT} using docker image snap-build-server.tilaa.cloud/${params.dockerTagName}"
                 // echo "List of json files : ${jsonString}"
