@@ -21,7 +21,7 @@
 def launchJobs(jsonString, scope, outputDir) {
 
     def jobs = [:]
-    println "List of Json file : " + jsonString
+    println "List of parallel Json file : " + jsonString
     jsonString = jsonString.trim()
     jsonList = jsonString.split("\n")
     num = 0
@@ -40,7 +40,7 @@ def launchJobs(jsonString, scope, outputDir) {
                         [$class: 'StringParameterValue', name: 'jsonPath', value: currentJsonFile],
                         [$class: 'StringParameterValue', name: 'testScope', value: "${scope}"],
                         [$class: 'StringParameterValue', name: 'outputReportDir', value: "${outputDir}"],
-                        [$class: 'BooleanParameterValue', name: 'python', value: true]
+                        [$class: 'BooleanParametersValue', name: 'python', value: true]
                     ],
                     quietPeriod: 0,
                     propagate: false,
@@ -60,7 +60,7 @@ def launchJobs(jsonString, scope, outputDir) {
 def launchJobsSeq(jsonString, scope, outputDir) {
 
     def jobs = [:]
-    println "List of Json file : " + jsonString
+    println "List of sequentials Json file : " + jsonString
     jsonString = jsonString.trim()
     jsonList = jsonString.split("\n")
     num = 0
