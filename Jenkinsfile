@@ -121,6 +121,7 @@ pipeline {
                 sh "mkdir -p ${outputDir}"
                 sh "mvn -Duser.home=/var/maven clean package install"
 
+                echo "Copy build to working directory..."
                 sh "cp -r ./gpt-tests-executer/target/ ${outputDir}/gptExecutorTarget"
                 sh "ls  ${outputDir}/gptExecutorTarget"
                 sh "cp ./pygpt/*.py ${outputDir}/" // << Copy profiler and libraries
