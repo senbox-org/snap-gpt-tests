@@ -116,12 +116,12 @@ pipeline {
                 sh "mvn -Duser.home=/var/maven clean package install"
             }
         }
-        stage('Filter JSON') {
+        stage('Execute Tests') {
             agent {
                 docker {
-                    image "snap-build-server.tilaa.cloud/scripts:1.0"
-                    label 'snap-test'
-                    args  "-v docker_gpt_test_results:/home/snap/output/"
+                    label 'snap'
+                    image "snap-build-server.tilaa.cloud/${dockerTagName}"
+                    args '-v /data/ssd/testData/:/data/ssd/testData/ -v /opt/snap-gpt-tests/gpt-tests-executer.properties:/opt/snap-gpt-tests/gpt-tests-executer.properties -v docker_gpt_test_results:/home/snap/output/'
                 }
             }
             steps {
@@ -134,21 +134,12 @@ pipeline {
                 sh "cp ./pygpt/*.py ${outputDir}/" // << Copy profiler and libraries
                 sh "cp -R ./pygpt/templates ${outputDir}/templates" 
                 sh "cp -R ./pygpt/statics ${outputDir}/statics" 
-            }
-        }
-        stage('Launch Jobs') {
-            agent  {
-                docker {
-                    label 'snap'
-                    image "snap-build-server.tilaa.cloud/${dockerTagName}"
-                    args '-v /data/ssd/testData/:/data/ssd/testData/ -v /opt/snap-gpt-tests/gpt-tests-executer.properties:/opt/snap-gpt-tests/gpt-tests-executer.properties -v docker_gpt_test_results:/home/snap/output/'
-                }
-            }
-            steps {
+           
                 script {
                     jsonString = sh(returnStdout: true, script: "cat ${outputDir}/JSONTestFiles.txt").trim()
                     jsonStringSeq = sh(returnStdout: true, script: "cat ${outputDir}/JSONTestFilesSeq.txt").trim()
                 }
+           
                 echo "Launch parallel Jobs from ${env.JOB_NAME} from ${env.GIT_BRANCH} with commit ${env.GIT_COMMIT} using docker image snap-build-server.tilaa.cloud/${params.dockerTagName}"
                 // echo "List of json files : ${jsonString}"
                 launchJobs("${jsonString}", "${testScope}", "${outputDir}")
