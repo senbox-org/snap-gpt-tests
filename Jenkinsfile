@@ -55,7 +55,7 @@ def launchJobs(jsonString, scope, outputDir) {
         }
         num++
     }
-    
+
     if (!status) {
         throw new Exception("At least one test failed")
     }
@@ -120,6 +120,12 @@ pipeline {
                 echo "Build project from ${env.JOB_NAME} from ${env.GIT_BRANCH} with commit ${env.GIT_COMMIT} using docker image snap-build-server.tilaa.cloud/${params.dockerTagName}"
                 sh "mkdir -p ${outputDir}"
                 sh "mvn -Duser.home=/var/maven clean package install"
+
+                sh "cp -r ./gpt-tests-executer/target/ ${outputDir}/gptExecutorTarget"
+                sh "ls  ${outputDir}/gptExecutorTarget"
+                sh "cp ./pygpt/*.py ${outputDir}/" // << Copy profiler and libraries
+                sh "cp -R ./pygpt/templates ${outputDir}/templates" 
+                sh "cp -R ./pygpt/statics ${outputDir}/statics" 
             }
         }
         stage('Execute Tests') {
@@ -135,12 +141,7 @@ pipeline {
                 sh "python3 ./pygpt/filter_json.py ./gpt-tests-resources/tests \"${params.testScope}\" ${outputDir}"
                 sh "more ${outputDir}/JSONTestFiles.txt"
                 sh "more ${outputDir}/JSONTestFilesSeq.txt"
-                sh "cp -r ./gpt-tests-executer/target/ ${outputDir}/gptExecutorTarget"
-                sh "ls  ${outputDir}/gptExecutorTarget"
-                sh "cp ./pygpt/*.py ${outputDir}/" // << Copy profiler and libraries
-                sh "cp -R ./pygpt/templates ${outputDir}/templates" 
-                sh "cp -R ./pygpt/statics ${outputDir}/statics" 
-           
+                
                 script {
                     jsonString = sh(returnStdout: true, script: "cat ${outputDir}/JSONTestFiles.txt").trim()
                     jsonStringSeq = sh(returnStdout: true, script: "cat ${outputDir}/JSONTestFilesSeq.txt").trim()
