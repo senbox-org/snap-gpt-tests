@@ -46,7 +46,7 @@ def launchJobs(jsonString, scope, outputDir) {
                     propagate: false,
                     wait: true).result
                 if(b == 'FAILURE') {
-                    echo "The job " + item + "failed."
+                    echo "The job " + item + " failed."
                     currentBuild.result = 'FAILURE'
                 }
             }
@@ -81,7 +81,6 @@ def launchJobsSeq(jsonString, scope, outputDir) {
         num++
     }
     if (!status) {
-        echo "exit(1)"
         throw new Exception("At least one test failed")
     }
 }
