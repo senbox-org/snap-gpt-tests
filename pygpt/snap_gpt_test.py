@@ -356,10 +356,10 @@ def __run_tests__(args, properties):
         # open the json file and parse it
         tests = json.load(file)
         for test in tests:
-            utils.log(f"run test `{test['id']}`")
             # for each tests
             if not 'frequency' in test:
                 continue # if no frequency is not a test
+            utils.log(f"run test `{test['id']}`")
             __save_json__(test, args) # save json
             __draw_graph__(test, properties, args) # make the graph image
             start = datetime.datetime.now().strftime(__DATE_FMT__) # stats
