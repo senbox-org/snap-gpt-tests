@@ -106,7 +106,7 @@ pipeline {
     parameters {
         string(name: 'dockerTagName', defaultValue: "snap:master", description: 'Snap version to use to launch tests')
         string(name: 'testScope', defaultValue: 'REGULAR', description: 'Scope of the tests to launch (REGULAR, DAILY, WEEKLY, RELEASE)')
-        booleanParameter(name: 'parallel', defaultValue: true, description: 'Execute the test jobs in parallel')
+        booleanParam(name: 'parallel', defaultValue: true, description: 'Execute the test jobs in parallel')
     }
     stages {
         stage('Build project') {
