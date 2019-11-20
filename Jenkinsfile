@@ -25,6 +25,7 @@ def launchJobs(jsonString, scope, outputDir) {
     jsonString = jsonString.trim()
     jsonList = jsonString.split("\n")
     num = 0
+    status = true
     for (int i=0; i < jsonList.size(); i++) {
     //jsonList.each { item ->
         item = jsonList[i]
@@ -47,11 +48,16 @@ def launchJobs(jsonString, scope, outputDir) {
                     wait: true).result
                 if(b == 'FAILURE') {
                     echo "The job " + item + " failed."
-                    currentBuild.result = 'FAILURE'
+                    // currentBuild.result = 'FAILURE'
+                    status = false
                 }
             }
         }
         num++
+    }
+    
+    if (!status) {
+        throw new Exception("At least one test failed")
     }
     // return jobs
     parallel jobs
