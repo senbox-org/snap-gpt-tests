@@ -337,6 +337,7 @@ def __copy_output__(test, args, properties):
     function to copy the outputs of the test (if neede) into
     the report directory.
     """
+    utils.log('SAVE_OUTPUT FLAG:', args.save_output)
     if args.save_output == 'false':
         files = os.listdir(properties['tempFolder'])
         for output in test['outputs']:
