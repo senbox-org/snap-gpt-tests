@@ -125,6 +125,8 @@ class ProcessStats:
             return self.stats['time'][-1] - self.stats['time'][-2]
         return self.stats['time'][0]
 
+    def time(self):
+        return self.stats['time_s'][-1]
 
 def __generate_report_table_row__(key, value, unit):
     """generates a row for the summary table of the html report."""
@@ -264,6 +266,9 @@ def __arguments__():
                         default=True,
                         help="plot perforamnces (save if save file setted)",
                         choices=[True, False])
+    parser.add_argument('--timeout',
+                        default=-1,
+                        help='set a timeout for the process (default -1, off)')
 
     # parse arguments
     return parser.parse_args()
@@ -302,10 +307,15 @@ def profile(command, sampling_time, output, **kwargs):
     # initilize results variables
     pid = process.pid
     p_stats = ProcessStats()
+    timeout = -1
+    if 'timeout' in kwargs:
+        timeout = int(kwargs['timeout'])
 
     while psutil.pid_exists(pid) and process.status() not in __END_STATUS__:
         # while process is running
         p_stats.update(process) # update stats
+        if 0 < timeout >= p_stats.time():
+            process.terminate()
         time.sleep(sampling_time) # wait for next sampling
 
     if process.status() == psutil.STATUS_ZOMBIE:
@@ -345,7 +355,8 @@ def main():
     sampling_time = args.frequence/1000.0 # convert period from ms to s
 
     return_code, stdout = profile(command, sampling_time, args.o,
-                                  wait=args.w, child=args.c, plot=args.plot)
+                                  wait=args.w, child=args.c, plot=args.plot,
+                                  timeout=args.timeout)
 
     print(stdout)
     sys.exit(return_code if return_code is not None else 0)
