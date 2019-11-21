@@ -346,6 +346,7 @@ def __copy_output__(test, args, properties):
     the report directory.
     """
     if lazy_bool(args.save_output):
+        utils.log('coping output products to `report/output` folder')
         files = os.listdir(properties['tempFolder'])
         for output in test['outputs']:
             name = output['outputName']
