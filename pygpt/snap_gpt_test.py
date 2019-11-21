@@ -54,6 +54,9 @@ def __arguments__():
     parser.add_argument('report_dir',
                         help="report directory path")
 
+    parser.add_argument('save_output',
+                        help="save output of failed tests (if scope not [REGULAR, DAILY...])")
+
 
     parser.add_argument('--profiling',
                         default='on',
@@ -164,7 +167,7 @@ def __io_parameters__(test, properties):
 
     Returns:
     --------
-    return list of arguments containing the custom paramters 
+    return list of arguments containing the custom paramters
     """
     params = [] # list of arguments
     # prepare inputs
@@ -229,7 +232,7 @@ def __check_outputs__(test, args, properties):
     Returns:
     --------
     `True` if the output are conformed.
-    `False` if the output are not conformed or not found. 
+    `False` if the output are not conformed or not found.
     """
     for output in test['outputs']:
         if 'expected' in output and output['expected'] is not None:
@@ -267,7 +270,7 @@ def __run_test__(test, args, properties):
 
     Returns:
     --------
-    `True` if the test was succesful and the outputs are conformed to 
+    `True` if the test was succesful and the outputs are conformed to
     the expected output, `False` otherwise.
     """
     profiling = args.profiling == 'on' # profiling flag
@@ -279,7 +282,7 @@ def __run_test__(test, args, properties):
     gpt_parameters += __vm_parameters__(test, snap_dir) # java vm parameters (if any)
     gpt_parameters += __io_parameters__(test, properties) # custom test parameters
     utils.log('execute:', gpt_parameters) # DEBUG print
-    if profiling: 
+    if profiling:
         # output directory for the profiling
         output_dir = os.path.join(args.report_dir, test['id'])
         res, stdout = profiler.profile(gpt_parameters,
@@ -310,7 +313,7 @@ def __run_test__(test, args, properties):
 
 def __draw_graph__(test, properties, args):
     """
-    Draw the diagram of the graph using the custom graph_drawer. 
+    Draw the diagram of the graph using the custom graph_drawer.
     """
     graph_path = os.path.join(properties['graphFolder'], test['graphPath'])
     image_path = os.path.join(args.report_dir, 'images', test['graphPath'])
@@ -334,16 +337,17 @@ def __copy_output__(test, args, properties):
     function to copy the outputs of the test (if neede) into
     the report directory.
     """
-    files = os.listdir(properties['tempFolder'])
-    for output in test['outputs']:
-        name = output['outputName']
-        for fname in [f for f in files if f.startswith(name)]:
-            fpath = os.path.join(properties['tempFolder'], fname)
-            dpath = os.path.join(args.report_dir, fname)
-            if os.path.isdir(fpath):
-                shutil.copytree(fpath, dpath)
-            else:
-                shutil.copy2(fpath, dpath)
+    if args.save_output == 'false':
+        files = os.listdir(properties['tempFolder'])
+        for output in test['outputs']:
+            name = output['outputName']
+            for fname in [f for f in files if f.startswith(name)]:
+                fpath = os.path.join(properties['tempFolder'], fname)
+                dpath = os.path.join(args.report_dir, fname)
+                if os.path.isdir(fpath):
+                    shutil.copytree(fpath, dpath)
+                else:
+                    shutil.copy2(fpath, dpath)
 
 
 def __run_tests__(args, properties):
