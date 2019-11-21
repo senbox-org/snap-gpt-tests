@@ -18,6 +18,12 @@ __DATE_FMT__ = '%d/%m/%Y %H:%M:%S'
 __REGULAR_TAGS__ = ['REGULAR', 'DAILY', 'WEEKLY', 'RELEASE']
 
 
+def lazy_bool(string):
+    """
+    convert a string to a boolean
+    """
+    return string.lower() == 'true'
+
 
 def __load_properties__(path):
     """
@@ -55,6 +61,8 @@ def __arguments__():
                         help="report directory path")
 
     parser.add_argument('save_output',
+                        default='false',
+                        choices=['true', 'false'],
                         help="save output of failed tests (if scope not [REGULAR, DAILY...])")
 
 
@@ -337,8 +345,7 @@ def __copy_output__(test, args, properties):
     function to copy the outputs of the test (if neede) into
     the report directory.
     """
-    utils.log('SAVE_OUTPUT FLAG:', args.save_output)
-    if args.save_output == 'false':
+    if lazy_bool(args.save_output):
         files = os.listdir(properties['tempFolder'])
         for output in test['outputs']:
             name = output['outputName']
