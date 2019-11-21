@@ -268,7 +268,7 @@ def __arguments__():
                         choices=[True, False])
     parser.add_argument('--timeout',
                         default=-1,
-                        help='set a timeout for the process (default -1, off)')
+                        help='set a timeout in seconds for the process (default -1, off)')
 
     # parse arguments
     return parser.parse_args()
