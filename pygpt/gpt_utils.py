@@ -24,8 +24,8 @@ def warning(*args):
 
 def mkdirs(path):
     """make a directory tree"""
-    paths = os.path.split(path)
-    crr = ''
+    paths = os.path.normpath(path).split(os.sep)
+    crr = '/'
     log('recursivly making dir tree: ', paths)
     for pth in paths:
         crr = os.path.join(crr, pth)
