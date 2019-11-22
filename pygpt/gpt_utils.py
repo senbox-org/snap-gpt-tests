@@ -24,7 +24,7 @@ def warning(*args):
 
 def mkdirs(path):
     """make a directory tree"""
-    os.makedirs(path, 0755)
+    os.makedirs(path)
 
 class Printable:
     """
