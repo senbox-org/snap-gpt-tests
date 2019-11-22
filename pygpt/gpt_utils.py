@@ -24,7 +24,14 @@ def warning(*args):
 
 def mkdirs(path):
     """make a directory tree"""
-    os.makedirs(path)
+    paths = os.path.split(path)
+    crr = ''
+    log('recursivly making dir tree: ', paths)
+    for pth in paths:
+        crr = os.path.join(crr, pth)
+        if not os.path.isdir(crr):
+            os.mkdir(crr)
+
 
 class Printable:
     """
