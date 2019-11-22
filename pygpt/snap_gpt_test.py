@@ -243,7 +243,7 @@ def __check_outputs__(test, args, properties):
     `False` if the output are not conformed or not found.
     """
     for output in test['outputs']:
-        if 'expected' in output and output['expected'] is not None:
+        if 'expected' in output and output['expected'] is not None and output['expected'] != "":
             # check output
             output_path = __find_output__(output, properties['tempFolder'])
             if output_path is None:
