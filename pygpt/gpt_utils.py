@@ -24,13 +24,7 @@ def warning(*args):
 
 def mkdirs(path):
     """make a directory tree"""
-    paths = os.path.split(path)
-    crr = ''
-    for pth in paths:
-        crr = os.path.join(crr, pth)
-        if not os.path.isdir(crr):
-            os.mkdir(crr)
-
+    os.makedirs(path, 0755)
 
 class Printable:
     """
