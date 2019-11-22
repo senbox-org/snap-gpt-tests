@@ -103,7 +103,7 @@ pipeline {
     }
     agent { label 'snap-test' }
     parameters {
-        string(name: 'dockerTagName', defaultValue: "snap:master", description: 'Snap version to use to launch tests')
+        string(name: 'dockerTagName', defaultValue: "snap:7.x", description: 'Snap version to use to launch tests')
         string(name: 'testScope', defaultValue: 'REGULAR', description: 'Scope of the tests to launch (REGULAR, DAILY, WEEKLY, RELEASE)')
     }
     stages {
