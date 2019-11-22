@@ -245,6 +245,7 @@ def __check_outputs__(test, args, properties):
     for output in test['outputs']:
         if 'expected' in output and output['expected'] is not None and output['expected'] != "":
             # check output
+            utils.log(f'comparing {output["outputName"]} with {output["expected"]}')
             output_path = __find_output__(output, properties['tempFolder'])
             if output_path is None:
                 utils.error(f'test `{test["id"]}` failed, output {output["outputName"]} not found')
@@ -255,7 +256,7 @@ def __check_outputs__(test, args, properties):
             cmd += args.java_args.split(' ')
             cmd += [args.test_output, output_path, expected_output_path, output['outputName']]
             result = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
-
+            utils.log(f'comparing done, result: {result.returncode}')
             stdout_file = os.path.join(args.report_dir, f'{test["id"]}_gptOutput.txt')
 
             if result.returncode != 0:
