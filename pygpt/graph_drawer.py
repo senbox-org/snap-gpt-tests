@@ -88,19 +88,37 @@ def __draw_arrows__(axis, nodes, keys):
     """
     for node in nodes:
         ttxt = node['text']
+        trg_x = node['x']
+        trg_y = node['y']
         for ref in node['refs']:
             if ref in keys:
                 source = nodes[keys[ref]]
                 stxt = source['text']
+                delta_x = source['x'] - trg_x
+                delta_y = source['y'] - trg_y
+                if abs(delta_x) > abs(delta_y):
+                    if delta_x > 0:
+                        xy_src = (1.0, 0.5)
+                        xy_trg = (0.0, 0.5)
+                    else:
+                        xy_src = (0.0, 0.5)
+                        xy_trg = (1.0, 0.5)
+                else:
+                    if delta_y > 0:
+                        xy_src = (0.5, 1.0)
+                        xy_trg = (0.5, 0.0)
+                    else:
+                        xy_src = (0.5, 0.0)
+                        xy_trg = (0.5, 1.0)
                 axis.annotate("",
-                              xy=(0.0, 0.5), xycoords=ttxt,
-                              xytext=(1.0, 0.5), textcoords=stxt,
+                              xy=xy_src, xycoords=ttxt,
+                              xytext=xy_trg, textcoords=stxt,
                               arrowprops=dict(arrowstyle="-|>", fc=(0, 0, 0),
                                               connectionstyle="arc3"),
                              )
 
 
-def draw(source, dest, dpi=90):
+def draw(source, dest, dpi=120):
     """
     Draw gpt graph
 
@@ -118,11 +136,12 @@ def draw(source, dest, dpi=90):
 
         # compute the size of the plot
         real_w = max(points['x']) - min(points['x'])
-        real_h = max(points['y']) - min(points['y']) + 20
+        real_h = max(points['y']) - min(points['y']) + 5
         ratio = real_h / real_w
         scale = 1.0 / real_w
 
-        _, axis = plt.subplots(figsize=(5, 6*ratio), dpi=dpi)
+        W = real_w/100.0 
+        _, axis = plt.subplots(figsize=(W, W*ratio), dpi=dpi)
 
         # set limits
         plt.xlim([min(points['x']) * scale, max(points['x']) * scale])
