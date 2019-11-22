@@ -106,7 +106,7 @@
 {{foreach .test in .tests}}
   <tr class="odd">
   <td class="testid"><a href="../{{.test.json_path}}">{{.test.name}}</a></td>
-  <td class="desc"><a href="../images/{{.test.graph_id}}.png"><img border="none" src="../images/{{.test.graph_id}}.png" alt="{{.test.name}}" title="{{.test.graph_id}}"></a></td>
+  <td class="desc"><a href="../images/{{.test.graph_id}}.png"><img border="none" src="../images/{{.test.graph_id}}.png" alt="{{.test.name}}" title="{{.test.graph_id}}" class="graph"></a></td>
   {{if .test.is_skipped}}
     <td class="result"><img width="16" height="16" alt="{{.test.status}}" src="../icons/orange.png"></td>
     <td class="env">{{.test.vm_string}}</td>
