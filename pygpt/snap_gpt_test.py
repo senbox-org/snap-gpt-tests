@@ -290,7 +290,7 @@ def __run_test__(test, args, properties):
     gpt_parameters.append(os.path.join(properties['graphFolder'], test['graphPath']))
     gpt_parameters += __vm_parameters__(test, snap_dir) # java vm parameters (if any)
     gpt_parameters += __io_parameters__(test, properties) # custom test parameters
-    utils.log('execute:', gpt_parameters) # DEBUG print
+    utils.log(f'execute: `{" ".join(gpt_parameters)}`') # DEBUG print
     if profiling:
         # output directory for the profiling
         output_dir = os.path.join(args.report_dir, test['id'])
@@ -304,7 +304,7 @@ def __run_test__(test, args, properties):
     else:
         # execute gpt test without profiler
         res, stdout = profiler.run(gpt_parameters)
-
+    utils.log('execution finished')
     # Reset Java VM parameters if needed
     __vm_parameters_reset__(test, snap_dir)
 
@@ -373,9 +373,11 @@ def __run_tests__(args, properties):
             # for each tests
             if not 'frequency' in test:
                 continue # if no frequency is not a test
-            utils.log(f"preparing test `{test['id']}`")
+            utils.log(f"saving json file for test `{test['id']}`")
             __save_json__(test, args) # save json
+            utils.log(f"drawing graph for test `{test['id']}`")
             __draw_graph__(test, properties, args) # make the graph image
+            utils.log(f"preparing test `{test['id']}`")
             start = datetime.datetime.now().strftime(__DATE_FMT__) # stats
             output += f'{test["id"]} - {start}'
             if not filter_json.compatible(args.scope, test['frequency']):
