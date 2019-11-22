@@ -380,6 +380,7 @@ def __run_tests__(args, properties):
             utils.log(f"preparing test `{test['id']}`")
             start = datetime.datetime.now().strftime(__DATE_FMT__) # stats
             output += f'{test["id"]} - {start}'
+            print('------------')
             if not filter_json.compatible(args.scope, test['frequency']):
                 output += f' - {start} - SKIPPED\n'
                 utils.warning(f'test `{test["id"]}` skipped')
