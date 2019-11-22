@@ -28,7 +28,7 @@ def mkdirs(path):
     crr = ''
     for pth in paths:
         crr = os.path.join(crr, pth)
-        if not os.path.exists(crr):
+        if not os.path.isdir(crr):
             os.mkdir(crr)
 
 
