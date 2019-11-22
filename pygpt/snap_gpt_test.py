@@ -373,7 +373,7 @@ def __run_tests__(args, properties):
             # for each tests
             if not 'frequency' in test:
                 continue # if no frequency is not a test
-            utils.log(f"run test `{test['id']}`")
+            utils.log(f"preparing test `{test['id']}`")
             __save_json__(test, args) # save json
             __draw_graph__(test, properties, args) # make the graph image
             start = datetime.datetime.now().strftime(__DATE_FMT__) # stats
@@ -382,9 +382,11 @@ def __run_tests__(args, properties):
                 output += f' - {start} - SKIPPED\n'
                 utils.warning(f'test `{test["id"]}` skipped')
             else:
+                utils.log(f"run test `{test['id']}`")
                 result = __run_test__(test, args, properties)
-                passed = passed and result
                 end = datetime.datetime.now().strftime(__DATE_FMT__)
+                utils.log(f"finish test `{test['id']}`")
+                passed = passed and result
                 result_str = 'PASSED' if result else 'FAILED'
                 output += f' - {end} - {result_str}\n'
                 if not result:
