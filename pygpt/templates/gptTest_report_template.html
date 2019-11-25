@@ -1,0 +1,134 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link type="text/css" rel="stylesheet" href="../css/gptTest.css">
+<link rel="shortcut icon" type="image/vnd.microsoft.icon" href="../icons/favicon.ico">
+<title>{{.name}} report</title>
+</head>
+
+<body>
+<table class="header" cellspacing="0">
+<tr>
+<td class="title">GPT test: {{.name}}</td><td class="homeicon"><a href="http://step.esa.int/main/toolboxes/snap/"><img width="64" height="64" alt="SNAP" title="SNAP" src="../icons/SNAP_Icon_60.png"></a></td>
+</tr>
+</table>
+
+<div class="gptsummary">
+<table class="gptsummary" cellspacing="0">
+<tr>
+<td class="gptsummary">
+<table class="gptsummarytitle" cellspacing="0">
+<tr class="title">
+<td class="margin"></td><td class="title">Summary</td>
+</tr>
+</table>
+<table class="gptsummary" cellspacing="0">
+
+<tr>
+<td class="label">Start time</td><td>{{.start_date}}</td>
+</tr>
+<tr>
+<td class="label">Total duration (s)</td><td>{{.duration}}</td>
+</tr>
+<tr>
+<td class="label">Scope</td><td>{{.scope}}</td>
+</tr>
+<tr>
+<td class="label">Operating system</td><td>{{.operating_system}}</td>
+</tr>
+<tr>
+<td class="label">Version</td><td>{{.version}}</td>
+</tr>
+</table>
+</td><td class="chart">
+<table class="chart" cellspacing="0">
+<tr>
+<td class="icon"><img class="piechart" src="../images/{{.name}}_pie.png">
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+
+
+
+<div class="resultsummary">
+<table class="resultsummary" cellspacing="0">
+<tr>
+<th class="result">Overall result</th>
+<th class="tests"><img width="16" height="16" src="icons/blueZZ.png" alt="Number of gpt tests" title="Number of gpt tests"></th>
+<th class="failed"><img width="16" height="16" src="icons/error_th.png" alt="Number of failed tests" title="Number of failed tests"></th>
+<th class="passed"><img width="16" height="16" src="icons/ok_th.png" alt="Number of passed tests" title="Number of passed tests"></th>
+<th class="percent"><img width="16" height="16" src="icons/percent_th.png" alt="Percent passed tests" title="Percent passed tests"></th>
+<th class="duration"><img width="16" height="16" src="icons/duration_th.png" alt="Time spent in tests" title="Time spent in tests"></th>
+<th class="realtime"><img width="16" height="16" src="icons/realtime_th.png" alt="Elapsed realtime" title="Elapsed realtime"></th>
+</tr>
+<tr class="even">
+<td class="result">
+{{foreach .test in .tests}}
+  {{switch .test.status}}
+    {{case "PASSED"}}
+      <img width="16" height="16" src="../icons/green.png">
+    {{case "FAILED"}}
+      <img width="16" height="16" src="../icons/red.png">
+    {{case "SKIPPED"}}
+      <img width="16" height="16" src="../icons/orange.png">
+  {{end}}
+{{end}}
+</td>
+<td class="tests">{{.total}}</td>
+<td class="failed">{{.failed_tests}}</td>
+<td class="passed">{{.passed_tests}}</td>
+<td class="percent">{{.percent}} %</td>
+<td class="duration">{{.duration}}</td>
+<td class="realtime">{{.real_duration}}</td>
+</tr>
+</table>
+</div>
+
+<div class="gpttestlist">
+<a name="gpttestlist"></a>
+
+
+<table cellspacing="0" class="gpttestlist">
+<tr class="headers">
+<th class="testid">Test</th>
+<th class="desc">Description</th>
+<th class="result">Result</th>
+<th class="env">Environment</th>
+<th class="duration"><img width="16" height="16" src="icons/duration.png" alt="Execution Time" title="Execution Time"></th>
+<th class="memory"><img width="16" height="16" src="icons/memory.png" alt="Memory Peak" title="Memory Peak"></th>
+</tr>
+
+{{foreach .test in .tests}}
+  <tr class="odd">
+  <td class="testid"><a href="../{{.test.json_path}}">{{.test.name}}</a></td>
+  <td class="desc"><a href="../images/{{.test.graph_id}}.png"><img border="none" src="../images/{{.test.graph_id}}.png" alt="{{.test.name}}" title="{{.test.graph_id}}" class="graph"></a></td>
+  {{if .test.is_skipped}}
+    <td class="result"><img width="16" height="16" alt="{{.test.status}}" src="../icons/orange.png"></td>
+    <td class="env">{{.test.vm_string}}</td>
+    <td class="duration"> - </td>
+    <td class="memory"> - </td>
+    </tr>
+  {{else}}
+    {{switch .test.status}}
+      {{case "FAILED"}}
+        <td class="result"><a href="../output/{{.test.name}}_gptOutput.txt"><img width="16" height="16" alt="{{.test.status}}" src="../icons/red.png"></a></td>
+      {{case "PASSED"}}
+        <td class="result"><img width="16" height="16" alt="{{.test.status}}" src="../icons/green.png"></td>
+    {{end}}
+    <td class="env">{{.test.vm_string}}</td>
+    <td class="duration"><a href="Performance_{{.test.name}}.html">{{.test.duration_str}}</a></td>
+    <td class="memory"><a href="Performance_{{.test.name}}.html">{{.test.memory_max_str}}</a></td> 
+  {{end}}
+  </tr>  
+{{end}}
+
+</table>
+</div>
+
+</body>
+</html>
