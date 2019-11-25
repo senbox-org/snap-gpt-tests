@@ -363,7 +363,7 @@ def __copy_output__(test, args, properties):
 def __print_stats__():
     """ print docker info """
     with open('/proc/meminfo', 'r') as meminfo:
-        print(' '.join(meminfo.readlines()[:3]))
+        print(''.join(meminfo.readlines()[:3]), end='')
 
 
 def pprint(test, starts=''):
@@ -408,7 +408,7 @@ def __run_tests__(args, properties):
             utils.log(f"Test [{count}/{len(tst_lst)}]")                
             __print_stats__() # print server stats
             print("JSON ------")
-            pprint(test)
+            pprint(test, ' ')
             print("END  ------")
             utils.log(f"saving json file for test `{test['id']}`")
             __save_json__(test, args) # save json
@@ -417,7 +417,7 @@ def __run_tests__(args, properties):
             utils.log(f"preparing test `{test['id']}`")
             start = datetime.datetime.now().strftime(__DATE_FMT__) # stats
             output += f'{test["id"]} - {start}'
-            print('------------')
+            print('START------')
             if not filter_json.compatible(args.scope, test['frequency']):
                 output += f' - {start} - SKIPPED\n'
                 utils.warning(f'test `{test["id"]}` skipped')
