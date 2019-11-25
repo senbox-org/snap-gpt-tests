@@ -62,7 +62,6 @@ def __arguments__():
 
     parser.add_argument('save_output',
                         default='false',
-                        choices=['true', 'false'],
                         help="save output of failed tests (if scope not [REGULAR, DAILY...])")
 
 
