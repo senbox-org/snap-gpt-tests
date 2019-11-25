@@ -360,6 +360,12 @@ def __copy_output__(test, args, properties):
                     shutil.copy2(fpath, dpath)
 
 
+def __print_stats__():
+    """ print docker info """
+    with open('/proc/meminfo', 'r') as meminfo:
+        print(meminfo.readlines()[:3])
+
+
 def __run_tests__(args, properties):
     """
     Execute list of test of a json file
@@ -373,6 +379,10 @@ def __run_tests__(args, properties):
             # for each tests
             if not 'frequency' in test:
                 continue # if no frequency is not a test
+            __print_stats__() # print server stats
+            print("JSON ------")
+            print(test)
+            print("END  ------")
             utils.log(f"saving json file for test `{test['id']}`")
             __save_json__(test, args) # save json
             utils.log(f"drawing graph for test `{test['id']}`")
