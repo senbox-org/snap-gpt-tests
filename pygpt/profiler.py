@@ -325,18 +325,16 @@ def profile(command, sampling_time, output, **kwargs):
         p_stats.update(process) # update stats
         if 0 < timeout >= p_stats.time():
             process.terminate()
-        output = proc.stdout.read().decode("utf-8")
+        time.sleep(sampling_time) # wait for next sampling
+        output = proc.stdout.read().decode("utf-8") # get stdoutput
         if output != '':
             __log_stdout__(output)
             stdout += output
-        time.sleep(sampling_time) # wait for next sampling
 
     if process.status() == psutil.STATUS_ZOMBIE:
         process.terminate()
 
     returncode = proc.returncode if proc.returncode else 0
-    stdout += proc.stdout.read().decode("utf-8")
-
 
     # initialize path structure and make output directories
     perf_fm = FileManager(output)
