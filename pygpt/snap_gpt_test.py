@@ -374,7 +374,7 @@ def pprint(test, starts=''):
             if isinstance(value, str):
                 print(f'{starts}.{key}: {value}')
             else:
-                pritn(f'{starts}.{key}:')
+                print(f'{starts}.{key}:')
                 pprint(value, ' '+starts)
     elif isinstance(test, list):
         for value in test:
