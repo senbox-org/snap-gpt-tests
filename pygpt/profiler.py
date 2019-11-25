@@ -273,6 +273,13 @@ def __arguments__():
     # parse arguments
     return parser.parse_args()
 
+
+def __log_stdout__(output):
+    lines = output.splitlines()
+    for line in lines:
+        print(f'>> {line}')
+
+
 def run(command):
     """
     run command
@@ -311,18 +318,24 @@ def profile(command, sampling_time, output, **kwargs):
     if 'timeout' in kwargs:
         timeout = int(kwargs['timeout'])
 
+    stdout = ''
+
     while psutil.pid_exists(pid) and process.status() not in __END_STATUS__:
         # while process is running
         p_stats.update(process) # update stats
         if 0 < timeout >= p_stats.time():
             process.terminate()
+        output = proc.stdout.read().decode("utf-8")
+        if output != '':
+            __log_stdout__(output)
+            stdout += output
         time.sleep(sampling_time) # wait for next sampling
 
     if process.status() == psutil.STATUS_ZOMBIE:
         process.terminate()
 
     returncode = proc.returncode if proc.returncode else 0
-    stdout = proc.stdout.read().decode("utf-8")
+    stdout += proc.stdout.read().decode("utf-8")
 
 
     # initialize path structure and make output directories
