@@ -51,7 +51,6 @@ class ProcessStats:
         ----------
          - process: psutils.process to profile
         """
-        print('here')
         io_counters = process.io_counters() # use system wide counters (not the process one)
         self.stats['io_read'].append(io_counters[0]) # read_bytes
         self.stats['io_write'].append(io_counters[1]) # write_bytes
@@ -290,75 +289,71 @@ def run(command):
     return proc.returncode, proc.stdout.decode('utf-8')
 
 
-def profile(test_id, command, sampling_time, output, **kwargs):
+def profile(command, sampling_time, output, **kwargs):
     """
     profile command
     """
+    # execute the command and retrive the PID
+    proc = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+    pid = proc.pid
+
+    # wait some time according to arguments
+    if 'wait' in kwargs and kwargs['wait']:
+        time.sleep(2)
+
+    # check if porcessing (still) exists
+    if not psutil.pid_exists(pid):
+        return 1, "Process not found..."
+
+    # get process
+    process = psutil.Process(pid)
+    # if profiling on children process try to get children process
+    if 'child' in kwargs and kwargs['child']:
+        chld = process.children()
+        process = process if chld else chld[0]
+
+    # initilize results variables
+    pid = process.pid
+    p_stats = ProcessStats()
+    timeout = -1
+    if 'timeout' in kwargs:
+        timeout = int(kwargs['timeout'])
+
+    stdout = ''
+
+    while psutil.pid_exists(pid) and process.status() not in __END_STATUS__:
+        # while process is running
+        p_stats.update(process) # update stats
+        if 0 < timeout >= p_stats.time():
+            process.terminate()
+        time.sleep(sampling_time) # wait for next sampling
+        stdout_tmp = iter(proc.stdout).next()
+        if stdout_tmp is not None and stdout_tmp != '':
+            __log_stdout__(stdout_tmp)
+            stdout += stdout_tmp
+
+    if process.status() == psutil.STATUS_ZOMBIE:
+        process.terminate()
+
+    returncode = proc.returncode if proc.returncode else 0
+
+    print(p_stats.stats)
     # initialize path structure and make output directories
     perf_fm = FileManager(output)
-    # gpt Ouput file to store the ouput of the previous test execution
-    stdout_file = os.path.join(perf_fm.report_dir, f'{test_id}_gptOutput.txt')
-    with open(stdout_file, 'w', 1) as file:
-        # execute the command and retrive the PID
-        proc = subprocess.Popen(command,
-                                shell=True,
-                                universal_newlines=True,
-                                stdout=stdout_file, 
-                                stderr=stdout_file)
-        pid = proc.pid
-
-        # wait some time according to arguments
-        if 'wait' in kwargs and kwargs['wait']:
-            time.sleep(2)
-
-        # check if porcessing (still) exists
-        if not psutil.pid_exists(pid):
-            return 1, "Process not found..."
-
-        # get process
-        process = psutil.Process(pid)
-        # if profiling on children process try to get children process
-        if 'child' in kwargs and kwargs['child']:
-            chld = process.children()
-            process = process if chld else chld[0]
-
-        # initilize results variables
-        pid = process.pid
-        p_stats = ProcessStats()
-        timeout = -1
-        if 'timeout' in kwargs:
-            timeout = int(kwargs['timeout'])
+    # generate csv string and display/store it
+    perf_fm.csv(p_stats.csv())
+    # compute and save/display statistic summary (max, average...)
+    summary = p_stats.summary()
+    # display/store summary
+    perf_fm.summary(summary)
 
 
-        while psutil.pid_exists(pid) and process.status() not in __END_STATUS__:
-            # while process is running
-            p_stats.update(process) # update stats
-            if 0 < timeout >= p_stats.time():
-                process.terminate()
-            time.sleep(sampling_time) # wait for next sampling
-
-        if process.status() == psutil.STATUS_ZOMBIE:
-            process.terminate()
-
-        returncode = proc.wait()
-        stdout_file.flush()
-        print(p_stats.stats)
- 
-        # generate csv string and display/store it
-        perf_fm.csv(p_stats.csv())
-        # compute and save/display statistic summary (max, average...)
-        summary = p_stats.summary()
-        # display/store summary
-        perf_fm.summary(summary)
-
-
-        # plot results if needed
-        # NOTE: only import matplotlib library here to avoid including it and limiting the functionality
-        # when not needed
-        if 'plot' in kwargs and kwargs['plot']:
-            perf_fm.plot(p_stats)
-        return returncode
-    return 1
+    # plot results if needed
+    # NOTE: only import matplotlib library here to avoid including it and limiting the functionality
+    # when not needed
+    if 'plot' in kwargs and kwargs['plot']:
+        perf_fm.plot(p_stats)
+    return returncode, stdout
 
 
 def main():
@@ -372,7 +367,7 @@ def main():
 
     sampling_time = args.frequence/1000.0 # convert period from ms to s
 
-    return_code, stdout = profile('test', command, sampling_time, args.o,
+    return_code, stdout = profile(command, sampling_time, args.o,
                                   wait=args.w, child=args.c, plot=args.plot,
                                   timeout=args.timeout)
 
