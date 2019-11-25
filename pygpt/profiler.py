@@ -326,10 +326,10 @@ def profile(command, sampling_time, output, **kwargs):
         if 0 < timeout >= p_stats.time():
             process.terminate()
         time.sleep(sampling_time) # wait for next sampling
-        output = proc.stdout.read().decode("utf-8") # get stdoutput
-        if output != '':
-            __log_stdout__(output)
-            stdout += output
+        stdout_tmp = proc.stdout.read().decode("utf-8") # get stdoutput
+        if stdout_tmp != '':
+            __log_stdout__(stdout_tmp)
+            stdout += stdout_tmp
 
     if process.status() == psutil.STATUS_ZOMBIE:
         process.terminate()
