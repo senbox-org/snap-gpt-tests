@@ -362,6 +362,7 @@ def __copy_output__(test, args, properties):
 
 def __print_stats__():
     """ print docker info """
+    print("MEMINFO----")
     with open('/proc/meminfo', 'r') as meminfo:
         print(''.join(meminfo.readlines()[:3]), end='')
 
@@ -405,6 +406,7 @@ def __run_tests__(args, properties):
             if not 'frequency' in test:
                 continue # if no frequency is not a test
             count += 1
+            print() # empty line here
             utils.log(f"Test [{count}/{len(tst_lst)}]")                
             __print_stats__() # print server stats
             print("JSON ------")
