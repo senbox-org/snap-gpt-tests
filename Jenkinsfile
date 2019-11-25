@@ -94,6 +94,7 @@ def launchJobsSeq(jsonString, scope, outputDir, saveOutput) {
 }
 
 pipeline {
+    agent any// { label 'snap-test' }
     
     options {
         buildDiscarder(logRotator(daysToKeepStr: '30', artifactDaysToKeepStr: '30'))
@@ -104,7 +105,6 @@ pipeline {
         branchVersion = sh(returnStdout: true, script: "echo ${env.GIT_BRANCH} | cut -d '/' -f 2").trim()
         outputDir = "/home/snap/output/${branchVersion}/${env.BUILD_NUMBER}"
     }
-    agent { label 'snap-test' }
     parameters {
         string(name: 'dockerTagName', defaultValue: "snap:master", description: 'Snap version to use to launch tests')
         string(name: 'testScope', defaultValue: 'REGULAR', description: 'Scope of the tests to launch (REGULAR, DAILY, WEEKLY, RELEASE)')
