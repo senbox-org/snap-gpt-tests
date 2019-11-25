@@ -94,7 +94,7 @@ def launchJobsSeq(jsonString, scope, outputDir, saveOutput) {
 }
 
 pipeline {
-    agent any// { label 'snap-test' }
+    agent { label 'snap-test' }
     
     options {
         buildDiscarder(logRotator(daysToKeepStr: '30', artifactDaysToKeepStr: '30'))
