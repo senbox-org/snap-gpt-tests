@@ -294,12 +294,13 @@ def __run_test__(test, args, properties):
     if profiling:
         # output directory for the profiling
         output_dir = os.path.join(args.report_dir, test['id'])
-        res = profiler.profile(gpt_parameters,
-                                       0.2,
-                                       output_dir,
-                                       wait=False,
-                                       child=False,
-                                       plot=True)
+        res = profiler.profile(test['id'],
+                               gpt_parameters,
+                               0.2,
+                               output_dir,
+                               wait=False,
+                               child=False,
+                               plot=True)
         # execute the gpt test with the profiler at sampling time 200ms
     else:
         # execute gpt test without profiler
