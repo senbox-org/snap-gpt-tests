@@ -11,6 +11,9 @@ import subprocess
 import json
 import psutil
 
+from threading  import Thread
+from queue import Queue, Empty
+
 import gpt_utils as utils
 
 # Directory name constants
@@ -281,6 +284,14 @@ def __log_stdout__(output):
     sys.stdout.flush()
 
 
+
+def __queue_output__(out, queue):
+    for line in iter(out.readline, b''):
+        queue.put(line)
+    out.close()
+
+
+
 def run(command):
     """
     run command
@@ -294,8 +305,17 @@ def profile(command, sampling_time, output, **kwargs):
     profile command
     """
     # execute the command and retrive the PID
-    proc = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+    proc = subprocess.Popen(command, 
+                            bufsize=1, 
+                            stdout=subprocess.PIPE, 
+                            stderr=subprocess.STDOUT)
     pid = proc.pid
+
+    # start stdout thread.
+    queue = Queue()
+    stdout_thread = Thread(target=__queue_output__, args=(proc.stdout, queue))
+    stdout_thread.daemon = True # thread dies with the program
+    stdout_thread.start()
 
     # wait some time according to arguments
     if 'wait' in kwargs and kwargs['wait']:
@@ -327,10 +347,15 @@ def profile(command, sampling_time, output, **kwargs):
         if 0 < timeout >= p_stats.time():
             process.terminate()
         time.sleep(sampling_time) # wait for next sampling
-        stdout_tmp = iter(proc.stdout).next()
-        if stdout_tmp is not None and stdout_tmp != '':
-            __log_stdout__(stdout_tmp)
-            stdout += stdout_tmp
+
+        # read stdoutput lines if any
+        try:  
+            line = queue.get_nowait() # or q.get(timeout=.1)
+        except Empty:
+            pass
+        else:
+            __log_stdout__(line)
+            stdout += line
 
     if process.status() == psutil.STATUS_ZOMBIE:
         process.terminate()
