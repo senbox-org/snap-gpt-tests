@@ -83,6 +83,7 @@ def launchJobsSeq(jsonString, scope, outputDir, saveOutput) {
             } catch (all) {
                 echo "A test failed"
                 status = false
+
             }
         }
         num++
