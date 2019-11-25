@@ -287,7 +287,9 @@ def __log_stdout__(output):
 
 def __queue_output__(out, queue):
     for line in iter(out.readline, b''):
-        queue.put(line.decode('utf-8'))
+        line = line.decode('utf-8')
+        __log_stdout__(line)
+        queue.put(line)
     out.close()
 
 
@@ -348,14 +350,9 @@ def profile(command, sampling_time, output, **kwargs):
             process.terminate()
         time.sleep(sampling_time) # wait for next sampling
 
-        # read stdoutput lines if any
-        try:  
-            line = queue.get_nowait() # or q.get(timeout=.1)
-        except Empty:
-            pass
-        else:
-            __log_stdout__(line)
-            stdout += line
+    # read stdoutput lines if any
+    while not queue.empty():
+        stdout += queue.get()
 
     if process.status() == psutil.STATUS_ZOMBIE:
         process.terminate()
