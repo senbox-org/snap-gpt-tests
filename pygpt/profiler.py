@@ -51,6 +51,7 @@ class ProcessStats:
         ----------
          - process: psutils.process to profile
         """
+        print('here')
         io_counters = process.io_counters() # use system wide counters (not the process one)
         self.stats['io_read'].append(io_counters[0]) # read_bytes
         self.stats['io_write'].append(io_counters[1]) # write_bytes
