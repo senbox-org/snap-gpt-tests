@@ -278,6 +278,7 @@ def __log_stdout__(output):
     lines = output.splitlines()
     for line in lines:
         print(f'>> {line}')
+    sys.stdout.flush()
 
 
 def run(command):
