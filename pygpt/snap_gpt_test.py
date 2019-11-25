@@ -366,6 +366,25 @@ def __print_stats__():
         print(' '.join(meminfo.readlines()[:3]))
 
 
+def pprint(test, starts=''):
+    """pretty print test"""
+    if isinstance(test, dict):
+        for key in test:
+            value = test[key]
+            if isinstance(value, str):
+                print(f'{starts}.{key}: {value}')
+            else:
+                pritn(f'{starts}.{key}:')
+                pprint(value, ' '+starts)
+    elif isinstance(test, list):
+        for value in test:
+            if isinstance(value, str):
+                print(f'{starts}- {value}')
+            else:
+                print(f'{starts}- ',end='')
+                pprint(value, '  '+starts)
+
+
 def __run_tests__(args, properties):
     """
     Execute list of test of a json file
@@ -389,7 +408,7 @@ def __run_tests__(args, properties):
             utils.log(f"Test [{count}/{len(tst_lst)}]")                
             __print_stats__() # print server stats
             print("JSON ------")
-            print(test)
+            pprint(test)
             print("END  ------")
             utils.log(f"saving json file for test `{test['id']}`")
             __save_json__(test, args) # save json
