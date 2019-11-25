@@ -79,7 +79,7 @@ def launchJobsSeq(jsonString, scope, outputDir, saveOutput) {
             sh "mkdir -p ${outputDir}/report"
             sh "mkdir -p /home/snap/tmpDir"
             try {
-                sh "export LD_LIBRARY_PATH=. && python3 ${outputDir}/snap_gpt_test.py '/home/snap/snap/jre/bin/java' '-Dncsa.hdf.hdflib.HDFLibrary.hdflib=/home/snap/snap/snap/modules/lib/amd64/libjhdf.so -Dncsa.hdf.hdf5lib.H5.hdf5lib=/home/snap/snap/snap/modules/lib/amd64/libjhdf5.so -cp ${outputDir}/gptExecutorTarget/TestOutput.jar' 'org.esa.snap.test.TestOutput' /opt/snap-gpt-tests/gpt-tests-executer.properties \"${scope}\" ${currentJsonFile} ${outputDir}/report ${saveOutput}"            
+                sh "export LD_LIBRARY_PATH=. && python3 -u ${outputDir}/snap_gpt_test.py '/home/snap/snap/jre/bin/java' '-Dncsa.hdf.hdflib.HDFLibrary.hdflib=/home/snap/snap/snap/modules/lib/amd64/libjhdf.so -Dncsa.hdf.hdf5lib.H5.hdf5lib=/home/snap/snap/snap/modules/lib/amd64/libjhdf5.so -cp ${outputDir}/gptExecutorTarget/TestOutput.jar' 'org.esa.snap.test.TestOutput' /opt/snap-gpt-tests/gpt-tests-executer.properties \"${scope}\" ${currentJsonFile} ${outputDir}/report ${saveOutput}"            
             } catch (all) {
                 echo "A test failed"
                 status = false
@@ -142,7 +142,7 @@ pipeline {
             }
             steps {
                 echo "Filtering json files..."
-                sh "python3 ./pygpt/filter_json.py ./gpt-tests-resources/tests \"${params.testScope}\" ${outputDir}"
+                sh "python3 -u ./pygpt/filter_json.py ./gpt-tests-resources/tests \"${params.testScope}\" ${outputDir}"
                 sh "more ${outputDir}/JSONTestFiles.txt"
                 sh "more ${outputDir}/JSONTestFilesSeq.txt"
                 
@@ -178,7 +178,7 @@ pipeline {
                 
                     sh "ls $WORKSPACE/report/json/"
                     echo "Generate report"
-                    sh "python3 ${outputDir}/report_utils.py ${outputDir}/templates $WORKSPACE/report \"${params.testScope}\" ${dockerTagName}"
+                    sh "python3 -u ${outputDir}/report_utils.py ${outputDir}/templates $WORKSPACE/report \"${params.testScope}\" ${dockerTagName}"
                     
                     archiveArtifacts artifacts: "report/**/*.*", fingerprint: true
                     sh "rm -rf report" 
