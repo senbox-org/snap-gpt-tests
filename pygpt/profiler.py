@@ -298,9 +298,12 @@ def profile(test_id, command, sampling_time, output, **kwargs):
     perf_fm = FileManager(output)
     # gpt Ouput file to store the ouput of the previous test execution
     stdout_file = os.path.join(perf_fm.report_dir, f'{test_id}_gptOutput.txt')
-    with open(stdout_file, 'w') as file:
+    with open(stdout_file, 'w', 1) as file:
         # execute the command and retrive the PID
-        proc = subprocess.Popen(command, stdout=stdout_file, stderr=subprocess.STDOUT)
+        proc = subprocess.Popen(command,
+                                universal_newlines=True,
+                                stdout=stdout_file, 
+                                stderr=stdout_file)
         pid = proc.pid
 
         # wait some time according to arguments
