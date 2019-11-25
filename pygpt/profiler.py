@@ -301,6 +301,7 @@ def profile(test_id, command, sampling_time, output, **kwargs):
     with open(stdout_file, 'w', 1) as file:
         # execute the command and retrive the PID
         proc = subprocess.Popen(command,
+                                shell=True,
                                 universal_newlines=True,
                                 stdout=stdout_file, 
                                 stderr=stdout_file)
