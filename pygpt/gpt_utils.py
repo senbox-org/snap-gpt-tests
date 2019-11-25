@@ -1,11 +1,13 @@
 """utils library"""
 import os
 import datetime
+import sys
+
 
 def __msg__(level, *args):
     now = datetime.datetime.now()
     print(now.strftime("%d/%m/%Y %H:%M:%S"), f'{level}:', *args)
-
+    sys.stdout.flush()
 
 def log(*args):
     """log info"""
