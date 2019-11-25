@@ -381,7 +381,7 @@ def pprint(test, starts=''):
             if isinstance(value, str):
                 print(f'{starts}- {value}')
             else:
-                print(f'{starts}- ',end='')
+                print(f'{starts}+ object:')
                 pprint(value, '  '+starts)
 
 
