@@ -107,7 +107,7 @@ pipeline {
     }
     parameters {
         string(name: 'dockerTagName', defaultValue: "snap:master", description: 'Snap version to use to launch tests')
-        string(name: 'testScope', defaultValue: 'XXXX', description: 'Scope of the tests to launch (REGULAR, DAILY, WEEKLY, RELEASE)')
+        string(name: 'testScope', defaultValue: 'REGULAR', description: 'Scope of the tests to launch (REGULAR, DAILY, WEEKLY, RELEASE)')
         booleanParam(name: 'saveOutput', defaultValue: false, description: 'Save output of failed tests (if scope is not [REGULAR, DAILY, WEEKLY, RELEASE])')
         booleanParam(name: 'parallel', defaultValue: true, description: 'Execute the test jobs in parallel')
     }
@@ -154,12 +154,12 @@ pipeline {
                 }
            
                 script {
-                    if (params.parallel) {
-                        echo "Launch parallel Jobs from ${env.JOB_NAME} from ${env.GIT_BRANCH} with commit ${env.GIT_COMMIT} using docker image snap-build-server.tilaa.cloud/${params.dockerTagName}"
-                        launchJobs("${jsonString}", "${testScope}", "${outputDir}", params.saveOutput)
-                    } else {
+                    if (params.parallel == false) {
                         echo "Launch seq Jobs from ${env.JOB_NAME} from ${env.GIT_BRANCH} with commit ${env.GIT_COMMIT} using docker image snap-build-server.tilaa.cloud/${params.dockerTagName}"
                         launchJobsSeq("${jsonString}", "${testScope}", "${outputDir}", params.saveOutput)
+                    } else {
+                        echo "Launch parallel Jobs from ${env.JOB_NAME} from ${env.GIT_BRANCH} with commit ${env.GIT_COMMIT} using docker image snap-build-server.tilaa.cloud/${params.dockerTagName}"
+                        launchJobs("${jsonString}", "${testScope}", "${outputDir}", params.saveOutput)
                     }
                 }
                 echo "Launch seq Jobs from ${env.JOB_NAME} from ${env.GIT_BRANCH} with commit ${env.GIT_COMMIT} using docker image snap-build-server.tilaa.cloud/${params.dockerTagName}"
