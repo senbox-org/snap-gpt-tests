@@ -363,7 +363,7 @@ def __copy_output__(test, args, properties):
 def __print_stats__():
     """ print docker info """
     with open('/proc/meminfo', 'r') as meminfo:
-        print(meminfo.readlines()[:3])
+        print(' '.join(meminfo.readlines()[:3]))
 
 
 def __run_tests__(args, properties):
@@ -375,10 +375,18 @@ def __run_tests__(args, properties):
     with open(args.json_path, 'r') as file:
         # open the json file and parse it
         tests = json.load(file)
+        tst_lst = []
+        for test in tests:
+            if 'frequency' in test:
+                tst_lst.append(test['id'])
+        utils.log(f'List of tests: {", ".join(tst_lst)}')
+        count = 0
         for test in tests:
             # for each tests
             if not 'frequency' in test:
                 continue # if no frequency is not a test
+            count += 1
+            utils.log(f"Test [{count}/{len(tst_lst)}]")                
             __print_stats__() # print server stats
             print("JSON ------")
             print(test)
@@ -395,7 +403,9 @@ def __run_tests__(args, properties):
                 output += f' - {start} - SKIPPED\n'
                 utils.warning(f'test `{test["id"]}` skipped')
             else:
-                utils.log(f"run test `{test['id']}`")
+                utils.log(f"Test `{test['id']}`")
+                utils.log(f'-- Author: {test["author"]}')
+                utils.log(f'-- Description: {test["description"]}')
                 result = __run_test__(test, args, properties)
                 end = datetime.datetime.now().strftime(__DATE_FMT__)
                 utils.log(f"finish test `{test['id']}`")
@@ -418,6 +428,7 @@ def __run_tests__(args, properties):
 
 def __main__():
     """main test entry point"""
+    utils.log('SNAP GPT Test Utils')
     args = __arguments__()
     __check_args__(args) # check if arguments are corrected
     properties = __load_properties__(args.properties) # load properties file
