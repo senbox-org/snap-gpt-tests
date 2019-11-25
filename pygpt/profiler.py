@@ -362,7 +362,6 @@ def profile(command, sampling_time, output, **kwargs):
 
     returncode = proc.returncode if proc.returncode else 0
 
-    print(p_stats.stats)
     # initialize path structure and make output directories
     perf_fm = FileManager(output)
     # generate csv string and display/store it
