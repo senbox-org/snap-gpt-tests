@@ -294,7 +294,7 @@ def __run_test__(test, args, properties):
     if profiling:
         # output directory for the profiling
         output_dir = os.path.join(args.report_dir, test['id'])
-        res, stdout = profiler.profile(gpt_parameters,
+        res = profiler.profile(gpt_parameters,
                                        0.2,
                                        output_dir,
                                        wait=False,
@@ -304,14 +304,14 @@ def __run_test__(test, args, properties):
     else:
         # execute gpt test without profiler
         res, stdout = profiler.run(gpt_parameters)
+        # gpt Ouput file to store the ouput of the previous test execution
+        stdout_file = os.path.join(args.report_dir, f'{test["id"]}_gptOutput.txt')
+        with open(stdout_file, 'w') as file:
+            file.write(stdout)
+
     utils.log('execution finished')
     # Reset Java VM parameters if needed
     __vm_parameters_reset__(test, snap_dir)
-
-    # gpt Ouput file to store the ouput of the previous test execution
-    stdout_file = os.path.join(args.report_dir, f'{test["id"]}_gptOutput.txt')
-    with open(stdout_file, 'w') as file:
-        file.write(stdout)
 
     # if the execution result is not 0 return False
     if res is not None and res > 0:
