@@ -122,6 +122,11 @@ pipeline {
                 }
             }
             steps {
+                def actions = Thread.currentThread().executable.actions
+                actions.grep{it instanceof ParametersAction}.each{action ->
+                  actions.remove(action)
+                  actions.add(new ParametersAction(action.parameters.grep{it.name != "outputReportDir" && it.name != "jsonPath" && it.name != "propertiesPath"}))
+                }
                 echo "Build project from ${env.JOB_NAME} from ${env.GIT_BRANCH} with commit ${env.GIT_COMMIT} using docker image snap-build-server.tilaa.cloud/${params.dockerTagName}"
                 sh "mkdir -p ${outputDir}"
                 sh "mvn -Duser.home=/var/maven clean package install"
