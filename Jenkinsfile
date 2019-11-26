@@ -143,6 +143,9 @@ pipeline {
                 }
             }
             steps {
+                echo "Checkin json test integrity..."
+                sh "python3 -u ./pygpt/check_jsons.py ./gpt-tests-resources/tests"
+                
                 echo "Filtering json files..."
                 sh "python3 -u ./pygpt/filter_json.py ./gpt-tests-resources/tests \"${params.testScope}\" ${outputDir}"
                 sh "more ${outputDir}/JSONTestFiles.txt"
