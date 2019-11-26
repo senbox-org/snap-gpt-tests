@@ -77,7 +77,7 @@ def __draw_nodes__(axis, nodes, scale):
         scaled_x = node['x'] * scale
         scaled_y = node['y'] * scale
         text = axis.annotate(oper, xy=(scaled_x, scaled_y), xycoords="data",
-                             va="center", ha="center",
+                             va="center", ha="center", size=7,
                              bbox=dict(boxstyle="round", fc="w"))
         node['text'] = text
 
@@ -118,7 +118,7 @@ def __draw_arrows__(axis, nodes, keys):
                              )
 
 
-def draw(source, dest, dpi=120):
+def draw(source, dest, dpi=110):
     """
     Draw gpt graph
 
@@ -141,11 +141,11 @@ def draw(source, dest, dpi=120):
         scale = 1.0 / real_w
 
         W = real_w/100.0 
-        _, axis = plt.subplots(figsize=(W, W*ratio), dpi=dpi)
+        _, axis = plt.subplots(figsize=(W, W*(ratio+0.1)), dpi=dpi)
 
         # set limits
         plt.xlim([min(points['x']) * scale, max(points['x']) * scale])
-        plt.ylim([min(points['y']) * scale - 0.05, max(points['y']) * scale + 0.05])
+        plt.ylim([min(points['y']) * scale - 0.01, max(points['y']) * scale + 0.01])
 
         # draw nodes
         __draw_nodes__(axis, nodes, scale)

@@ -404,6 +404,7 @@ def __run_tests__(args, properties):
             # for each tests
             if not 'frequency' in test:
                 continue # if no frequency is not a test
+            test['json_file'] = args.json_path
             count += 1
             print() # empty line here
             utils.log(f"Test [{count}/{len(tst_lst)}]")                
