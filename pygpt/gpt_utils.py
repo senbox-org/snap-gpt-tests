@@ -3,25 +3,56 @@ import os
 import datetime
 import sys
 
+from enum import Enum
 
-def __msg__(level, *args):
+class Verbosity(Enum):
+    """
+    Log verbosity
+    """
+    VERBOSE = 0
+    WARNING = 1
+    ERROR   = 2
+
+class _LogLevel(Enum):
+    """
+    Log levels
+    """
+    INFO = 'LOG'
+    ERROR = 'ERROR'
+    WARNING = 'WARNING'
+
+
+# global variable for verbosity
+verbosity = Verbosity.VERBOSE
+
+
+def __msg__(level: _LogLevel, *args):
+    global verbosity
+    # check verbosity
+    if verbosity == Verbosity.WARNING:
+        if level == _LogLevel.INFO:
+            return
+    elif verbosity == Verbosity.ERROR:
+        if level != _LogLevel.ERROR:
+            return
+
     now = datetime.datetime.now()
     print(now.strftime("%d/%m/%Y %H:%M:%S"), f'{level}:', *args)
     sys.stdout.flush()
 
 def log(*args):
     """log info"""
-    __msg__('INFO', *args)
+    __msg__(_LogLevel.INFO, *args)
 
 
 def error(*args):
     """log error"""
-    __msg__('ERROR', *args)
+    __msg__(_LogLevel.ERROR, *args)
 
 
 def warning(*args):
     """log warning"""
-    __msg__('WARNING', *args) 
+    __msg__(_LogLevel.WARNING, *args) 
 
 
 def mkdirs(path):
