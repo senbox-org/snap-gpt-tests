@@ -17,9 +17,9 @@ class _LogLevel(Enum):
     """
     Log levels
     """
-    INFO = 'LOG'
-    ERROR = 'ERROR'
-    WARNING = 'WARNING'
+    INFO = '\x1b[1mLOG\x1b[0m'
+    ERROR = '\x1b[31;1mERROR\x1b[0m'
+    WARNING = '\x1b[33;1mWARNING\x1b[0m'
 
 
 # global variable for verbosity
@@ -37,7 +37,7 @@ def __msg__(level: _LogLevel, *args):
             return
 
     now = datetime.datetime.now()
-    print(now.strftime("%d/%m/%Y %H:%M:%S"), f'{level}:', *args)
+    print(now.strftime("%d/%m/%Y %H:%M:%S"), f'{level.value}:', *args)
     sys.stdout.flush()
 
 def log(*args):
