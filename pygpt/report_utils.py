@@ -70,11 +70,12 @@ def save_report(html, path):
     with open(path, 'w') as file:
         file.write(html)
 
-class Test:
+class Test(utils.Printable):
     """
     A single test result
     """
     def __init__(self, test_set, row):
+        utils.Printable.__init__(self)
         self.name = row[0]
         self.status = row[3]
         self.start = datetime.datetime.strptime(row[1], __datetime_fmt__)
@@ -214,11 +215,12 @@ class Test:
         save_report(html, resolve_path(__tests_dir__, f'Performance_{self.name}.html'))
 
 
-class TestSet:
+class TestSet(utils.Printable):
     """
     Test Set (json test set) class
     """
     def __init__(self, name):
+        utils.Printable.__init__(self)
         self.name = name
         self.tests = []
 
