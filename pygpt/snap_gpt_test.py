@@ -436,7 +436,7 @@ def __run_tests__(args, properties):
                 if not result:
                     utils.error(f"test `{test['id']} failed")
                 else:
-                    utils.log(f"test `{test['id']}` succeded")
+                    utils.success(f"test `{test['id']}` succeded")
                 if not result and not args.scope.upper() in __REGULAR_TAGS__:
                     # copy output files
                     __copy_output__(test, args, properties)

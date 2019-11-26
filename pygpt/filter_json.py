@@ -28,19 +28,11 @@ def compatible(scope, frequency):
         return __DAILY_TAG__ in tags
     return False
 
-def __list_files__(path, filter_fn=lambda _: True):
-    res = []
-    for file in os.listdir(path):
-        file = os.path.join(path, file)
-        if os.path.isdir(file):
-            res += __list_files__(file, filter_fn)
-        elif filter_fn(file):
-            res.append(file)
-    return res
+
 
 def __create_test_json_list__(test_folder, scope, test_files_path, test_sequence_path):
     """cretas files containing list of tests to execute for a given scope"""
-    test_files = __list_files__(test_folder, lambda f: f.endswith('.json'))
+    test_files = utils.rlist_files(test_folder, lambda f: f.endswith('.json'))
     sequence = ''
     parallel = ''
     scope = scope.lower()
@@ -96,8 +88,8 @@ def __main__():
     json_test_sequence = os.path.join(args.output_folder, __test_sequence__)
 
     if __create_test_json_list__(args.test_folder, args.scope, json_test_files, json_test_sequence):
-        utils.log(f"filtered JSON created in {json_test_files}")
-        utils.log(f"seq filtered JSON created in {json_test_sequence}")
+        utils.success(f"filtered JSON created in {json_test_files}")
+        utils.success(f"seq filtered JSON created in {json_test_sequence}")
 
 
 if __name__ == '__main__':

@@ -441,3 +441,4 @@ if __name__ == '__main__':
         sys.exit(-1)
     __template_dir__ = ARGS[1]
     generate_html_report(ARGS[2], ARGS[3], ARGS[4])
+    utils.success('report generated successfully')
