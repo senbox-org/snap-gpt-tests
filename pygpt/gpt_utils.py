@@ -49,6 +49,10 @@ def log(*args):
     """log info"""
     __msg__(_LogLevel.INFO, *args)
 
+def panic(*args):
+    """log error and exit 1"""
+    __msg__(_LogLevel.ERROR, *args)
+    sys.exit(1)
 
 def error(*args):
     """log error"""
