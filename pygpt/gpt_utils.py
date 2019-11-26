@@ -43,7 +43,7 @@ def __msg__(level: _LogLevel, *args):
             return
 
     now = datetime.datetime.now()
-    previous_frame = inspect.currentframe().f_back
+    previous_frame = inspect.currentframe().f_back.f_back
     (filename, line_number, 
      _, _, _) = inspect.getframeinfo(previous_frame)
     frame = f'- {os.path.split(filename)[-1]}:{line_number}'
