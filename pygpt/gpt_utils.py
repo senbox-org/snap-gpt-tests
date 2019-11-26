@@ -43,10 +43,16 @@ def __msg__(level: _LogLevel, *args):
             return
 
     now = datetime.datetime.now()
-    previous_frame = inspect.currentframe().f_back.f_back
+    frame = inspect.currentframe() # current frame
+    if frame.f_back is not None:
+        frame = frame.f_back # log fn frame (log,error....)
+    if frame.f_back is not None:
+        frame = frame.f_back # real caller frame
+
     (filename, line_number, 
-     _, _, _) = inspect.getframeinfo(previous_frame)
-    frame = f'- {os.path.split(filename)[-1]}:{line_number}'
+     _, _, _) = inspect.getframeinfo(frame)
+    frame = f'[{os.path.split(filename)[-1]}:{line_number}]' # frame string
+    # print it
     print(now.strftime("%d/%m/%Y %H:%M:%S"), frame, f'{level.value}:', *args)
     sys.stdout.flush()
 
