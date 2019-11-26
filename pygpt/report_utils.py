@@ -372,12 +372,9 @@ def __parse_set__(name, lines):
         test_set.tests.append(Test(name, row))
     return test_set
 
-
-
-
-def generate_html_report(base_path, scope, version):
+def get_test_sets(base_path):
     """
-    Generates html reports for the given test execution.
+    Get list of test sets executed.
 
     Paramters:
     ----------
@@ -393,8 +390,20 @@ def generate_html_report(base_path, scope, version):
         set_name = report_file[7:-4]
         with open(os.path.join(report_path, report_file), 'r') as rep:
             test_sets.append(__parse_set__(set_name, rep.readlines()))
-    if not test_sets:
-        utils.error("no tests set...")
+    return test_sets
+
+
+def generate_html_report(base_path, scope, version):
+    """
+    Generates html reports for the given test execution.
+
+    Paramters:
+    ----------
+     - base_path: path containing all results of the execution
+    """
+    test_sets = get_test_sets(base_path)
+    if len(test_sets) == 0:
+        utils.error("no tests set found...")
         sys.exit(0)
     start_date = min([test_set.start_date() for test_set in test_sets])
     end_date = max([test_set.end_date() for test_set in test_sets])
