@@ -2,6 +2,7 @@
 import os
 import datetime
 import sys
+import inspect
 
 from enum import Enum
 
@@ -42,7 +43,11 @@ def __msg__(level: _LogLevel, *args):
             return
 
     now = datetime.datetime.now()
-    print(now.strftime("%d/%m/%Y %H:%M:%S"), f'{level.value}:', *args)
+    previous_frame = inspect.currentframe().f_back
+    (filename, line_number, 
+     _, _, _) = inspect.getframeinfo(previous_frame)
+    frame = f'- {os.path.split(filename)[-1]}:{line_number}'
+    print(now.strftime("%d/%m/%Y %H:%M:%S"), frame, f'{level.value}:', *args)
     sys.stdout.flush()
 
 def log(*args):
