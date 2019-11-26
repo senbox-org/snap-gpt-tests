@@ -10,8 +10,9 @@ class Verbosity(Enum):
     Log verbosity
     """
     VERBOSE = 0
-    WARNING = 1
-    ERROR   = 2
+    SUCCESS = 1
+    WARNING = 2
+    ERROR   = 3
 
 class _LogLevel(Enum):
     """
@@ -20,6 +21,7 @@ class _LogLevel(Enum):
     INFO = '\x1b[1mLOG\x1b[0m'
     ERROR = '\x1b[31;1mERROR\x1b[0m'
     WARNING = '\x1b[33;1mWARNING\x1b[0m'
+    SUCCESS = '\x1b[32;1mSUCCESS\x1b[0m'
 
 
 # global variable for verbosity
@@ -29,8 +31,11 @@ verbosity = Verbosity.VERBOSE
 def __msg__(level: _LogLevel, *args):
     global verbosity
     # check verbosity
-    if verbosity == Verbosity.WARNING:
+    if verbosity == Verbosity.SUCCESS: 
         if level == _LogLevel.INFO:
+            return
+    elif verbosity == Verbosity.WARNING:
+        if not level in [_LogLevel.WARNING, _LogLevel.ERROR]:
             return
     elif verbosity == Verbosity.ERROR:
         if level != _LogLevel.ERROR:
@@ -54,6 +59,9 @@ def warning(*args):
     """log warning"""
     __msg__(_LogLevel.WARNING, *args) 
 
+def success(*args):
+    """log success"""
+    __msg__(_LogLevel.SUCCESS, *args)
 
 def mkdirs(path):
     """make a directory tree"""
@@ -95,3 +103,21 @@ class Printable:
 
     def __repr__(self):
         return self.print()
+
+def rlist_files(path, filter_fn=lambda _: True):
+    """
+    Recursively list files in all sub folder.
+
+    Parameters:
+    -----------
+     - path: path to explore
+     - filter_fn: optional filter function
+    """
+    res = []
+    for file in os.listdir(path):
+        file = os.path.join(path, file)
+        if os.path.isdir(file):
+            res += rlist_files(file, filter_fn)
+        elif filter_fn(file):
+            res.append(file)
+    return res
