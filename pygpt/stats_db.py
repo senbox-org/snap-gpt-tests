@@ -6,6 +6,8 @@ import os
 import time
 import sys
 import sqlite3
+from functools import wraps
+
 
 import report_utils as ru
 import gpt_utils as ut
@@ -36,9 +38,8 @@ class _DBAdaptor:
         """
         Get tag id from tag name.
         """
-        pass
 
-    def create_job_entry(self, job, branch, tag_id, test_sets):
+    def create_job_entry(self, job, branch, test_scope, tag_id, test_sets):
         """
         Create job entry in the db.
 
@@ -46,11 +47,60 @@ class _DBAdaptor:
         -----------
          - job: job number
          - branch: branch name
+         - test_scope: test scope tag
          - tag_id: docker tag id
          - test_sets: test sets executed in the job
         """
-        pass
 
+    def test_entry(self, test):
+        """
+        Get ID of a test entry. If does not exists create a new test entry.
+
+        Parameters:
+        -----------
+         - test: test object
+
+        Returns:
+        --------
+        test entry ID
+        """
+
+    def create_result_entry(self, job_id, test_id, test):
+        """
+        Inserting a performance result entry for a givent test and given run.
+
+        Parameters:
+        -----------
+         - job_id: db job id 
+         - test_id: db test id
+         - test: test object
+        """
+
+    def execute(self, query, *args):
+        """
+        Execute a query
+
+        Parameters:
+        -----------
+         - query: SQL query
+         - args: additional arguments
+
+        Returns:
+        --------
+        all results found
+        """
+
+
+def ensure_connection(func):
+    """
+    ensure connection decroator
+    """
+    @wraps(func)
+    def inner(*args, **kwargs):
+        if args[0].__db__ == None:
+            ut.panic('DB not connected')
+        return func(*args, **kwargs)
+    return inner
 
 
 class _SQLiteAdaptor(_DBAdaptor):
@@ -60,7 +110,7 @@ class _SQLiteAdaptor(_DBAdaptor):
         if self.locker:
             self.__locker_path__ = self.db_path+'.lock' # lock file path
             self.__max_t__ = max_wait # max wait time in sec
-        
+
     def open(self):
         if self.__db__ is not None:
             return True
@@ -100,52 +150,270 @@ class _SQLiteAdaptor(_DBAdaptor):
             os.remove(self.__locker_path__)
         return True
     
-    def __db_init__(self):
-        query = 'SELECT * FROM dockerTags;'
+
+    def __table_exists__(self, table):
+        query = f'SELECT * FROM {table};'
         try:
             self.__cursor__.execute(query)
+            return True
         except sqlite3.OperationalError:
+            return False
+
+    @ensure_connection
+    def __db_init__(self):
+        if not self.__table_exists__('dockerTags'):
+            ut.log('creating table `dockerTags`')
             query = '''CREATE TABLE dockerTags(
                 ID INTEGER PRIMARY KEY,
                 name VARCHAR(64) NOT NULL UNIQUE);
             '''
             self.__cursor__.execute(query)
-        
-        query = 'SELECT * FROM jobs;'
-        try:
+
+        if not self.__table_exists__('resultTags'):
+            ut.log('creating table `resultTags`')
+            query = '''CREATE TABLE resultTags (
+                ID INTEGER PRIMARY KEY,
+                tag VARCHAR(64) NOT NULL UNIQUE,
+                fatal BOOLEAN NOT NULL
+            );'''
             self.__cursor__.execute(query)
-        except sqlite3.OperationalError:
+            query = 'INSERT INTO resultTags VALUES (1, "SUCCESS", false);'
+            self.__cursor__.execute(query)
+            query = 'INSERT INTO resultTags VALUES (2, "SKIPPED", false);'
+            self.__cursor__.execute(query)
+            query = 'INSERT INTO resultTags VALUES (3, "FAILED", true);'
+            self.__cursor__.execute(query)
+
+        if not self.__table_exists__('jobs'):
+            ut.log('creating table `jobs`')
             query = '''CREATE TABLE jobs(
                 ID INTEGER PRIMARY KEY,
                 branch VARCHAR(64) NOT NULL,
                 jobnum INTEGER NOT NULL,
                 dockerTag INTEGER NOT NULL,
+                testScope VARCHAR (128) NOT NULL,
                 timestamp_start DATETIME NOT NULL,
                 timestamp_end DATETIME NOT NULL,
-                result INTEGER NOT NULL
+                result INTEGER NOT NULL,
+                FOREIGN KEY (dockerTag) REFERENCES dockerTags(ID),
+                FOREIGN KEY (result) REFERENCES resultTags(ID),
+                CONSTRAINT UQ_job UNIQUE (
+                    branch, jobnum
+                )
             );
             '''
+            self.__cursor__.execute(query)
+
+        if not self.__table_exists__('tests'):
+            ut.log('creating table `tests`')
+            query = '''CREATE TABLE tests (
+                ID INTEGER PRIMARY KEY,
+                name VARCHAR(256) NOT NULL UNIQUE,
+                testset VARCHAR(256) NOT NULL,
+                description VARCHAR(256) NOT NULL,
+                author VARCHAR(256) NOT NULL,
+                frequency VARCHAR(256) NOT NULL,
+                graphPath VARCHAR(256) NOT NULL
+            );
+            '''
+            self.__cursor__.execute(query)
+
+        if not self.__table_exists__('results'):
+            ut.log('creating table `results`')
+            query = '''CREATE TABLE results (
+                ID INTEGER PRIMARY KEY,
+                test INTEGER NOT NULL,
+                job INTEGER NOT NULL,
+                result INTEGER NOT NULL, -- SUCCESS/SKIPPED/ERROR
+                start DATETIME NOT NULL,
+                duration INTEGER NOT NULL, -- in seconds
+                cpu_time INTEGER NOT NULL, -- in seconds
+                cpu_usage_avg INTEGER NOT NULL, -- percentage
+                cpu_usage_max INTEGER NOT NULL, -- percentage
+                memory_avg INTEGER NOT NULL, -- in Mb
+                memory_max INTEGER NOT NULL, -- in Mb
+                io_write INTEGER NOT NULL, -- counter
+                io_read INTEGER NOT NULL, -- counter
+                threads_avg INTEGER NOT NULL, -- counter
+                threads_max INTEGER NOT NULL, -- counter
+                raw_data BLOB NOT NULL,
+                FOREIGN KEY (test) REFERENCES tests(ID),
+                FOREIGN KEY (job) REFERENCES jobs(ID),
+                FOREIGN KEY (result) REFERENCES resultTags(ID),
+                CONSTRAINT UQ_test UNIQUE (
+                    test, job
+                )
+            );'''
+            self.__cursor__.execute(query)
+
+        if not self.__table_exists__('referenceTags'):
+            ut.log('creating table `referenceTags`')
+            query = '''CREATE TABLE referenceTags (
+                ID INTEGER PRIMARY KEY,
+                tag VARCHAR(64) NOT NULL UNIQUE
+            );'''
+            self.__cursor__.execute(query)
+            query = '''INSERT INTO referenceTags VALUES (1, "default");'''
+            self.__cursor__.execute(query)
+
+        if not self.__table_exists__('reference_values'):
+            query = '''CREATE TABLE reference_values (
+                ID INTEGER PRIMARY KEY,
+                test INTEGER NOT NULL,
+                referenceTag INTEGER NOT NULL,
+                updated DATETIME NOT NULL,
+                duration INTEGER NOT NULL, -- in seconds
+                cpu_time INTEGER NOT NULL, -- in seconds
+                cpu_usage_avg INTEGER NOT NULL, -- percentage
+                cpu_usage_max INTEGER NOT NULL, -- percentage
+                memory_avg INTEGER NOT NULL, -- in Mb
+                memory_max INTEGER NOT NULL, -- in Mb
+                io_write INTEGER NOT NULL, -- counter
+                io_read INTEGER NOT NULL, -- counter
+                threads_avg INTEGER NOT NULL, -- counter
+                threads_max INTEGER NOT NULL, -- counter
+                raw_data BLOB NOT NULL,
+                FOREIGN KEY (test) REFERENCES tests(ID),
+                FOREIGN KEY (referenceTag) REFERENCES referenceTags(ID),
+                CONSTRAINT UQ_reference UNIQUE (
+                    test, referenceTag
+                )
+            );'''
+            self.__cursor__.execute(query)
+
+
+    @ensure_connection
+    def execute(self, query, *args):
+        self.__cursor__.execute(query, *args)
+        res_list = []
+        res = self.__cursor__.fetchone()
+        while res is not None:
+            res_list.append(res)
+            res = self.__cursor__.fetchone()
+        return res_list
+
 
     def get_tag_id(self, tag_name):
-        if self.__db__ is None:
-            ut.panic('DB not connected')
-        query = f"select ID from dockerTags where name='{tag_name}';"
-        
-        self.__cursor__.execute(query)
-        res = self.__cursor__.fetchone()
-        
-        if res is None:
-            query = f"insert into dockerTags (name) values ('{tag_name}');"
-            self.__cursor__.execute(query)
+        query = f"SELECT ID FROM dockerTags WHERE name='{tag_name}';"
+        res = self.execute(query)
+        if len(res) == 0:
+            ut.log(f'inserting dockerTag `{tag_name}` into DB')
+            query = f"INSERT INTO dockerTags (name) VALUES ('{tag_name}');"
+            self.execute(query)
             return self.get_tag_id(tag_name)
 
-        return res[0]
+        return res[0][0]
 
-    def create_job_entry(self, job, branch, tag_id, test_sets):
-        start_date = min([test_set.start_date() for test_set in test_sets])
-        end_date = max([test_set.end_date() for test_set in test_sets])
-        print(start_date, end_date)
+    def test_entry(self, test):
+        name = test.json['id']
+        query = f'SELECT ID FROM tests WHERE name="{name}"'
+        res = self.execute(query)
+        if len(res) == 0:
+            ut.log(f'inserting test `{name}`')
+            query = f'''INSERT INTO tests (
+                name,
+                testset,
+                description,
+                author,
+                frequency,
+                graphPath
+            ) VALUES (
+                '{name}',
+                '{test.json["json_set"]}',
+                '{test.json["description"]}',
+                '{test.json["author"]}',
+                '{test.json["frequency"]}',
+                '{test.json["graphPath"]}'
+            );'''
+            self.execute(query)
+            return self.test_entry(test)
+        return res[0][0]
 
+    def create_result_entry(self, job_id, test_id, test):
+        if test.stats is None:
+            ut.warning(f'test `{test.name}` has no statistics')
+            return
+        query = 'SELECT * FROM results WHERE job=? AND test=?'
+        res = self.execute(query, (job_id, test_id))
+        if len(res) == 0:
+            ut.log(f'inserting results for test `{test.name}`')
+            result = 1
+            if test.is_failed():
+                result = 3
+            elif test.is_skipped():
+                result = 2
+            query = '''INSERT INTO results (
+                test,
+                job,
+                result,
+                start,
+                duration,
+                cpu_time,
+                cpu_usage_avg,
+                cpu_usage_max,
+                memory_avg,
+                memory_max,
+                io_write,
+                io_read,
+                threads_avg,
+                threads_max,
+                raw_data
+            ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);'''
+            self.execute(query, (test_id,
+                                 job_id,
+                                 result,
+                                 test.start,
+                                 test.duration(),
+                                 test.stats['cpu_time']['value'],
+                                 test.stats['cpu_usage']['average'],
+                                 test.stats['cpu_usage']['max'],
+                                 test.stats['memory']['average'],
+                                 test.stats['memory']['max'],
+                                 test.stats['io']['write'],
+                                 test.stats['io']['read'],
+                                 int(test.stats['threads']['average']),
+                                 test.stats['threads']['max'],
+                                 sqlite3.Binary(test.csv())
+                                 ))
+
+
+    def create_job_entry(self, job, branch, test_scope, tag_id, test_sets):
+        query = f'SELECT id FROM jobs WHERE branch="{branch}" AND jobnum={job};'
+        res = self.execute(query)
+
+        if len(res) == 0:
+            start_date = min([test_set.start_date() for test_set in test_sets])
+            end_date = max([test_set.end_date() for test_set in test_sets])
+            result = all([not ts.is_failed() for ts in test_sets])
+            ut.log(f'inserting job `{job}` into DB')
+            add_query = '''INSERT INTO jobs (
+                branch, 
+                jobnum,
+                dockerTag,
+                testScope,
+                timestamp_start,
+                timestamp_end,
+                result
+            ) VALUES (
+                ?, ? , ?, ?, ?, ?, ?
+            );'''
+            self.execute(add_query, (branch,
+                                     job,
+                                     tag_id,
+                                     test_scope,
+                                     start_date,
+                                     end_date,
+                                     1 if result else 3
+                                    ))
+            res = self.execute(query)
+            if len(res) == 0:
+                ut.panic('impossible to add job')
+        job_id = res[0][0]
+        for test_set in test_sets:
+            for test in test_set.tests:
+                test.json['json_set'] = test_set.name
+                test_id = self.test_entry(test)
+                self.create_result_entry(job_id, test_id, test)
         
 def __args__():
     """
@@ -179,12 +447,12 @@ def __main__():
     if adaptor is None:
         ut.error('no DB adapotor found')
         sys.exit(1)
-
-    adaptor.open()
+    
     try:
+        adaptor.open()
         test_sets = ru.get_test_sets(args.base_path)
         tag_id = adaptor.get_tag_id(args.tag_name)
-        adaptor.create_job_entry(args.job, args.branch, tag_id, test_sets)
+        adaptor.create_job_entry(args.job, args.branch, args.test_scope, tag_id, test_sets)
     finally:
         adaptor.close()
 
