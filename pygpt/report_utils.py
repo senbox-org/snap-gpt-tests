@@ -165,9 +165,10 @@ class Test(utils.Printable):
         """
         return self.status == 'SKIPPED'
 
-    def performance_report(self):
-        """generate perofmance report"""
-        if self.is_skipped() or not self.stats:
+
+def performance_report(test):
+        """generate test perofmance report"""
+        if test.is_skipped() or not test.stats:
             utils.error("No stats found")
             return
         with open(os.path.join(__template_dir__, 'perf_report_template.html'), 'r') as file:
@@ -176,7 +177,7 @@ class Test(utils.Printable):
             utils.error("Unable to load template")
             return
         summ = []
-        summary = self.stats
+        summary = test.stats
         if 'duration' in summary:
             summ.append(
                 {
@@ -219,11 +220,11 @@ class Test(utils.Printable):
             ]
 
         plots = [
-            self.name+"_cpu_usage.png",
-            self.name+"_memory_usage.png"
+            test.name+"_cpu_usage.png",
+            test.name+"_memory_usage.png"
         ]
-        html = template.generate(test_id=self.name, summary=summ, plots=plots)
-        save_report(html, resolve_path(__tests_dir__, f'Performance_{self.name}.html'))
+        html = template.generate(test_id=test.name, summary=summ, plots=plots)
+        save_report(html, resolve_path(__tests_dir__, f'Performance_{test.name}.html'))
 
 
 class TestSet(utils.Printable):
@@ -375,7 +376,7 @@ class TestSet(utils.Printable):
         save_report(html, resolve_path(__tests_dir__, f'Report_{self.name}.html'))
         # generate perofmance report for each test
         for test in self.tests:
-            test.performance_report()
+            performance_report(test)
 
 
 def __parse_set__(name, lines):
