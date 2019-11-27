@@ -19,10 +19,10 @@ class _LogLevel(Enum):
     """
     Log levels
     """
-    INFO = '\x1b[1mLOG\x1b[0m'
-    ERROR = '\x1b[31;1mERROR\x1b[0m'
-    WARNING = '\x1b[33;1mWARNING\x1b[0m'
-    SUCCESS = '\x1b[32;1mSUCCESS\x1b[0m'
+    INFO = 'LOG' #'\x1b[1mLOG\x1b[0m'
+    ERROR = 'ERROR' #'\x1b[31;1mERROR\x1b[0m'
+    WARNING = 'WARNING' #\x1b[33;1mWARNING\x1b[0m'
+    SUCCESS = 'SUCCESS' #\x1b[32;1mSUCCESS\x1b[0m'
 
 
 # global variable for verbosity
