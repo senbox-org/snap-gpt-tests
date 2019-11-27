@@ -20,7 +20,7 @@ def compatible(scope, frequency):
     """check if the tags are compatible with the current test scope"""
     scope = scope.lower()
     tags = list([x.lower() for x in frequency.split('/')])
-    if scope in tags:
+    if scope in tags or any([x.startswith(scope) for x in tags]):
         return True
     if scope == __RELEASE_TAG__:
         return __WEEKLY_TAG__ in tags or __DAILY_TAG__ in tags
