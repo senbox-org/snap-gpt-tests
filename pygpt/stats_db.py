@@ -13,7 +13,7 @@ import report_utils as ru
 import gpt_utils as ut
 
 
-class _DBAdaptor:
+class DBAdaptor:
     """
     Generic DB Adaptor
     """
@@ -24,24 +24,43 @@ class _DBAdaptor:
 
     def open(self):
         """
-        Open Database
+        Opens Database
         """
         return False
 
     def close(self):
         """
-        Close Database
+        Closes Database
         """
         return False
 
-    def get_tag_id(self, tag_name):
+    def docker_tag_id(self, tag_name):
         """
-        Get tag id from tag name.
+        Gets tag id from tag name.
         """
+        query = f"SELECT ID FROM dockerTags WHERE name='{tag_name}';"
+        res = self.execute(query)
+        if len(res) == 0:
+            ut.log(f'inserting dockerTag `{tag_name}` into DB')
+            query = f"INSERT INTO dockerTags (name) VALUES ('{tag_name}');"
+            self.execute(query)
+            return self.docker_tag_id(tag_name)
+
+        return res[0][0]
+
+    def test_id(self, test_name):
+        """
+        Gets db test id from test name
+        """
+        res = self.execute('SELECT ID FROM tests WHERE name=?', [test_name])
+        if len(res) > 0:
+            return res[0][0]
+        return None
+
 
     def create_job_entry(self, job, branch, test_scope, tag_id, test_sets):
         """
-        Create job entry in the db.
+        Creates job entry in the db.
 
         Parameters:
         -----------
@@ -51,10 +70,46 @@ class _DBAdaptor:
          - tag_id: docker tag id
          - test_sets: test sets executed in the job
         """
+        query = f'SELECT id FROM jobs WHERE branch="{branch}" AND jobnum={job};'
+        res = self.execute(query)
+
+        if len(res) == 0:
+            start_date = min([test_set.start_date() for test_set in test_sets])
+            end_date = max([test_set.end_date() for test_set in test_sets])
+            result = all([not ts.is_failed() for ts in test_sets])
+            ut.log(f'inserting job `{job}` into DB')
+            add_query = '''INSERT INTO jobs (
+                branch, 
+                jobnum,
+                dockerTag,
+                testScope,
+                timestamp_start,
+                timestamp_end,
+                result
+            ) VALUES (
+                ?, ? , ?, ?, ?, ?, ?
+            );'''
+            self.execute(add_query, (branch,
+                                     job,
+                                     tag_id,
+                                     test_scope,
+                                     start_date,
+                                     end_date,
+                                     1 if result else 3
+                                    ))
+            res = self.execute(query)
+            if len(res) == 0:
+                ut.panic('impossible to add job')
+        job_id = res[0][0]
+        for test_set in test_sets:
+            for test in test_set.tests:
+                test.json['json_set'] = test_set.name
+                test_id = self.test_entry(test)
+                self.create_result_entry(job_id, test_id, test)
 
     def test_entry(self, test):
         """
-        Get ID of a test entry. If does not exists create a new test entry.
+        Gets ID of a test entry. If does not exists create a new test entry.
 
         Parameters:
         -----------
@@ -64,6 +119,29 @@ class _DBAdaptor:
         --------
         test entry ID
         """
+        name = test.json['id']
+        query = f'SELECT ID FROM tests WHERE name="{name}"'
+        res = self.execute(query)
+        if len(res) == 0:
+            ut.log(f'inserting test `{name}`')
+            query = f'''INSERT INTO tests (
+                name,
+                testset,
+                description,
+                author,
+                frequency,
+                graphPath
+            ) VALUES (
+                '{name}',
+                '{test.json["json_set"]}',
+                '{test.json["description"]}',
+                '{test.json["author"]}',
+                '{test.json["frequency"]}',
+                '{test.json["graphPath"]}'
+            );'''
+            self.execute(query)
+            return self.test_entry(test)
+        return res[0][0]
 
     def create_result_entry(self, job_id, test_id, test):
         """
@@ -78,7 +156,7 @@ class _DBAdaptor:
 
     def execute(self, query, *args):
         """
-        Execute a query
+        Executes a query
 
         Parameters:
         -----------
@@ -89,6 +167,16 @@ class _DBAdaptor:
         --------
         all results found
         """
+
+    def values(self, test, dockerTag, value_tag, last_N=None):
+        """
+        Retrive average value for a specific performance information
+        """
+        docker_id = self.docker_tag_id(dockerTag)
+        test_id = self.test_id(test)
+        query = f'''SELECT {value_tag} FROM results WHERE test=? and job in (SELECT ID FROM jobs WHERE dockerTag=?);'''
+        res = self.execute(query, (test_id, docker_id))
+        return list([x[0] for x in res])
 
 
 def ensure_connection(func):
@@ -103,9 +191,9 @@ def ensure_connection(func):
     return inner
 
 
-class _SQLiteAdaptor(_DBAdaptor):
+class SQLiteAdaptor(DBAdaptor):
     def __init__(self, db_path, locker=True, max_wait=600):
-        _DBAdaptor.__init__(self, db_path)
+        DBAdaptor.__init__(self, db_path)
         self.locker = locker
         if self.locker:
             self.__locker_path__ = self.db_path+'.lock' # lock file path
@@ -291,43 +379,7 @@ class _SQLiteAdaptor(_DBAdaptor):
             res_list.append(res)
             res = self.__cursor__.fetchone()
         return res_list
-
-
-    def get_tag_id(self, tag_name):
-        query = f"SELECT ID FROM dockerTags WHERE name='{tag_name}';"
-        res = self.execute(query)
-        if len(res) == 0:
-            ut.log(f'inserting dockerTag `{tag_name}` into DB')
-            query = f"INSERT INTO dockerTags (name) VALUES ('{tag_name}');"
-            self.execute(query)
-            return self.get_tag_id(tag_name)
-
-        return res[0][0]
-
-    def test_entry(self, test):
-        name = test.json['id']
-        query = f'SELECT ID FROM tests WHERE name="{name}"'
-        res = self.execute(query)
-        if len(res) == 0:
-            ut.log(f'inserting test `{name}`')
-            query = f'''INSERT INTO tests (
-                name,
-                testset,
-                description,
-                author,
-                frequency,
-                graphPath
-            ) VALUES (
-                '{name}',
-                '{test.json["json_set"]}',
-                '{test.json["description"]}',
-                '{test.json["author"]}',
-                '{test.json["frequency"]}',
-                '{test.json["graphPath"]}'
-            );'''
-            self.execute(query)
-            return self.test_entry(test)
-        return res[0][0]
+           
 
     def create_result_entry(self, job_id, test_id, test):
         if test.stats is None:
@@ -375,46 +427,24 @@ class _SQLiteAdaptor(_DBAdaptor):
                                  test.stats['threads']['max'],
                                  sqlite3.Binary(test.csv())
                                  ))
-
-
-    def create_job_entry(self, job, branch, test_scope, tag_id, test_sets):
-        query = f'SELECT id FROM jobs WHERE branch="{branch}" AND jobnum={job};'
-        res = self.execute(query)
-
-        if len(res) == 0:
-            start_date = min([test_set.start_date() for test_set in test_sets])
-            end_date = max([test_set.end_date() for test_set in test_sets])
-            result = all([not ts.is_failed() for ts in test_sets])
-            ut.log(f'inserting job `{job}` into DB')
-            add_query = '''INSERT INTO jobs (
-                branch, 
-                jobnum,
-                dockerTag,
-                testScope,
-                timestamp_start,
-                timestamp_end,
-                result
-            ) VALUES (
-                ?, ? , ?, ?, ?, ?, ?
-            );'''
-            self.execute(add_query, (branch,
-                                     job,
-                                     tag_id,
-                                     test_scope,
-                                     start_date,
-                                     end_date,
-                                     1 if result else 3
-                                    ))
-            res = self.execute(query)
-            if len(res) == 0:
-                ut.panic('impossible to add job')
-        job_id = res[0][0]
-        for test_set in test_sets:
-            for test in test_set.tests:
-                test.json['json_set'] = test_set.name
-                test_id = self.test_entry(test)
-                self.create_result_entry(job_id, test_id, test)
         
+
+def adaptor(db_path):
+    """
+    Retrives adaptor for the given db.
+
+    Parametrs:
+    ----------
+     - db_path: path to the database
+
+    Returns:
+    --------
+    return db adaptor 
+    """
+    # TODO infere db type from path
+    return SQLiteAdaptor(db_path)
+
+
 def __args__():
     """
     parse arguments passed by the command line
@@ -442,7 +472,7 @@ def __main__():
     args = __args__()
     adaptor = None
     if args.adaptor == 'sqlite':
-        adaptor = _SQLiteAdaptor(args.db_path)
+        adaptor = SQLiteAdaptor(args.db_path)
 
     if adaptor is None:
         ut.error('no DB adapotor found')
@@ -451,7 +481,7 @@ def __main__():
     try:
         adaptor.open()
         test_sets = ru.get_test_sets(args.base_path)
-        tag_id = adaptor.get_tag_id(args.tag_name)
+        tag_id = adaptor.docker_tag_id(args.tag_name)
         adaptor.create_job_entry(args.job, args.branch, args.test_scope, tag_id, test_sets)
     finally:
         adaptor.close()
