@@ -19,6 +19,7 @@ __base_path__ = "Report"
 __datetime_fmt__ = '%d/%m/%Y %H:%M:%S'
 __perf_dir__ = 'performances'
 __stats_dir__ = 'stats'
+__csv_dir__ = 'csv'
 __tests_dir__ = 'tests'
 __out_dir__ = 'output'
 __template_dir__ = '.'
@@ -82,7 +83,7 @@ class Test(utils.Printable):
         self.end = datetime.datetime.strptime(row[2], __datetime_fmt__)
         self.test_set = test_set
         self.json_path = os.path.join('json', f'{self.name}.json')
-        self.graph_id, self.vm_string = self.__load_json__()
+        self.graph_id, self.vm_string, self.json = self.__load_json__()
         if self.status != 'SKIPPED':
             self.stats = self.__load_perfs__()
         else:
@@ -95,14 +96,24 @@ class Test(utils.Printable):
             param = 'Default configuration'
             if 'configVM' in struct and struct['configVM']:
                 param = struct['configVM']
-            return struct['graphPath'][:-4], param if param else 'Default configuration'
-        return None, None
+            return struct['graphPath'][:-4], param if param else 'Default configuration', struct
+        return None, None, None
 
     def __load_perfs__(self):
         perf_stats_file = resolve_path(__perf_dir__, __stats_dir__, self.name+'.json')
         with open(perf_stats_file, 'r') as stats:
             return json.load(stats)
         return None
+
+    def csv(self):
+        """
+        return raw perf csv file
+        """
+        if self.stats is None:
+            return None
+        csv_file = resolve_path(__perf_dir__, __csv_dir__ , self.name+'.csv')
+        with open(csv_file, 'rb') as raw_data:
+            return raw_data.read()
 
     def duration(self):
         """
