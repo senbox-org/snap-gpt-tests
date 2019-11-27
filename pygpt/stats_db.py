@@ -174,7 +174,10 @@ class DBAdaptor:
         """
         docker_id = self.docker_tag_id(dockerTag)
         test_id = self.test_id(test)
-        query = f'''SELECT {value_tag} FROM results WHERE test=? and job in (SELECT ID FROM jobs WHERE dockerTag=?);'''
+
+        query = f'''SELECT {value_tag} FROM results WHERE test=? and job in (SELECT ID FROM jobs WHERE dockerTag=?) ORDER BY start DESC'''
+        if last_N is not None:
+            query += f' LIMIT {last_N}'
         res = self.execute(query, (test_id, docker_id))
         return list([x[0] for x in res])
 
