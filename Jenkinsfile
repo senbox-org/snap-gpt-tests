@@ -139,7 +139,7 @@ pipeline {
                 docker {
                     label 'snap'
                     image "snap-build-server.tilaa.cloud/${dockerTagName}"
-                    args '-v /data/ssd/testData/:/data/ssd/testData/ -v /opt/snap-gpt-tests/gpt-tests-executer.properties:/opt/snap-gpt-tests/gpt-tests-executer.properties -v docker_gpt_test_results:/home/snap/output/'
+                    args '-v /data/ssd/testData/:/data/ssd/testData/ -v /data/ssd/testData/report:/report/ -v /opt/snap-gpt-tests/gpt-tests-executer.properties:/opt/snap-gpt-tests/gpt-tests-executer.properties -v docker_gpt_test_results:/home/snap/output/'
                 }
             }
             steps {
@@ -183,8 +183,9 @@ pipeline {
                 
                     sh "ls $WORKSPACE/report/json/"
                     echo "Generate report"
-                    sh "python3 -u ${outputDir}/report_utils.py ${outputDir}/templates $WORKSPACE/report \"${params.testScope}\" ${dockerTagName}"
-                    
+                    sh "python3 -u ./pygpt/report_utils.py ${outputDir}/templates $WORKSPACE/report \"${params.testScope}\" ${dockerTagName}"
+                    echo "Updating database"
+                    sh "python3 -u ./pygpt/stats_db.py /report/db/statistics.db ${dockerTagName} ${params.testScope} $WORKSPACE/report ${env.BUILD_NUMBER} ${env.GIT_BRANCH}"
                     archiveArtifacts artifacts: "report/**/*.*", fingerprint: true
                     sh "rm -rf report" 
                 }
