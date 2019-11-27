@@ -182,10 +182,13 @@ pipeline {
                     sh "mv $WORKSPACE/report/output/json $WORKSPACE/report/ && mv $WORKSPACE/report/output/performances $WORKSPACE/report/ && mv $WORKSPACE/report/output/images $WORKSPACE/report/"
                 
                     sh "ls $WORKSPACE/report/json/"
-                    echo "Generate report"
-                    sh "python3 -u ./pygpt/report_utils.py ${outputDir}/templates $WORKSPACE/report \"${params.testScope}\" ${dockerTagName}"
+                   
                     echo "Updating database"
                     sh "python3 -u ./pygpt/stats_db.py /report/db/statistics.db ${dockerTagName} ${params.testScope} $WORKSPACE/report ${env.BUILD_NUMBER} ${env.GIT_BRANCH}"
+                   
+                    echo "Generate report"
+                    sh "python3 -u ./pygpt/report_utils.py ${outputDir}/templates $WORKSPACE/report \"${params.testScope}\" ${dockerTagName}"
+                   
                     archiveArtifacts artifacts: "report/**/*.*", fingerprint: true
                     sh "rm -rf report" 
                 }
