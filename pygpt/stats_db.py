@@ -177,11 +177,11 @@ class _SQLiteAdaptor(_DBAdaptor):
                 fatal BOOLEAN NOT NULL
             );'''
             self.__cursor__.execute(query)
-            query = 'INSERT INTO resultTags VALUES (1, "SUCCESS", false);'
+            query = 'INSERT INTO resultTags (ID, tag, fatal) VALUES (1, "SUCCESS", 0);'
             self.__cursor__.execute(query)
-            query = 'INSERT INTO resultTags VALUES (2, "SKIPPED", false);'
+            query = 'INSERT INTO resultTags (ID, tag, fatal) VALUES (2, "SKIPPED", 0);'
             self.__cursor__.execute(query)
-            query = 'INSERT INTO resultTags VALUES (3, "FAILED", true);'
+            query = 'INSERT INTO resultTags (ID, tag, fatal) VALUES (3, "FAILED", 1);'
             self.__cursor__.execute(query)
 
         if not self.__table_exists__('jobs'):
@@ -253,7 +253,7 @@ class _SQLiteAdaptor(_DBAdaptor):
                 tag VARCHAR(64) NOT NULL UNIQUE
             );'''
             self.__cursor__.execute(query)
-            query = '''INSERT INTO referenceTags VALUES (1, "default");'''
+            query = '''INSERT INTO referenceTags (ID, tag) VALUES (1, "default");'''
             self.__cursor__.execute(query)
 
         if not self.__table_exists__('reference_values'):
