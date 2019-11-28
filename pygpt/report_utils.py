@@ -13,11 +13,12 @@ import stats_db as sdb
 import matplotlib as mpl
 mpl.use('Agg') # use no graphical backend
 import matplotlib.pyplot as plt
-
+import matplotlib.dates as mdates
 
 
 __base_path__ = "Report"
 __datetime_fmt__ = '%d/%m/%Y %H:%M:%S'
+__sql_fmt__ = "%Y-%m-%d %H:%M:%S"
 __perf_dir__ = 'performances'
 __stats_dir__ = 'stats'
 __csv_dir__ = 'csv'
@@ -227,23 +228,36 @@ class Test(utils.Printable):
             times = __adaptor__.values(self.name, version, 'start')
             if len(times) == 0:
                 return plots
+            times = list([datetime.datetime.strptime(x, __sql_fmt__) for x in times])
+            print(min(times), max(times))
             cpu_time = __adaptor__.values(self.name, version, 'cpu_time')
             memory = __adaptor__.values(self.name, version, 'memory_avg')
-            plt.figure(figsize=(10, 7))
+            _, axis = plt.subplots(figsize=(10, 7))
             plt.plot(times, cpu_time, 'o-')
             plt.grid(alpha=0.5)
             plt.xlabel('Date')
             plt.ylabel('CPU Average Time (s)')
             plt.title('CPU Average Time Historic')
+            #set ticks every day
+            axis.xaxis.set_major_locator(mdates.DayLocator())
+            #set major ticks format
+            axis.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))
+
+
             plt.savefig(os.path.join(__base_path__, __plot_path__, self.name+"_cpu_time_history.png"))
             plots.append(self.name+"_cpu_time_history.png")
             
-            plt.figure(figsize=(10, 7))
+            _, axis = plt.subplots(figsize=(10, 7))
             plt.plot(times, memory, 'o-')
             plt.grid(alpha=0.5)
             plt.xlabel('Date')
             plt.ylabel('Memory Average (Mb)')
             plt.title('Memory Average Historic')
+            #set ticks every day
+            axis.xaxis.set_major_locator(mdates.DayLocator())
+            #set major ticks format
+            axis.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))
+
             plt.savefig(os.path.join(__base_path__, __plot_path__, self.name+"_memory_history.png"))
             plots.append(self.name+"_memory_history.png")
 
