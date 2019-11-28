@@ -14,6 +14,7 @@ __test_sequence__ = "JSONTestFilesSeq.txt"
 __RELEASE_TAG__ = 'release'
 __WEEKLY_TAG__ = 'weekly'
 __DAILY_TAG__ = 'daily'
+__REGULAR_TAG__ = 'regular'
 
 
 def compatible(scope, frequency):
@@ -23,9 +24,14 @@ def compatible(scope, frequency):
     if scope in tags or any([x.startswith(scope) for x in tags]):
         return True
     if scope == __RELEASE_TAG__:
-        return __WEEKLY_TAG__ in tags or __DAILY_TAG__ in tags
+        return __WEEKLY_TAG__ in tags \
+                or __DAILY_TAG__ in tags \
+                or __REGULAR_TAG__ in tags
     if scope == __WEEKLY_TAG__:
-        return __DAILY_TAG__ in tags
+        return __DAILY_TAG__ in tags \
+                or __REGULAR_TAG__ in tags
+    if scope == __DAILY_TAG__:
+        return __REGULAR_TAG__ in tags
     return False
 
 
