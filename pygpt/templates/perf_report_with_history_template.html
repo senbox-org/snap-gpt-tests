@@ -1,0 +1,48 @@
+<html>
+<head>
+    <META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <link type="text/css" rel="stylesheet" href="../css/gptTest.css">
+    <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="../icons/favicon.ico">
+    <title>{{.test_id}} performance report</title>
+</head>
+<body>
+    <table class="header" cellspacing="0">
+    <tr>
+    <td class="title">{{.test_id}} performance summary</td><td class="homeicon"><a href="http://step.esa.int/main/toolboxes/snap/"><img width="64" height="64" alt="SNAP" title="SNAP" src="../icons/SNAP_Icon_60.png"></a></td>
+    </tr>
+    </table>
+    <div class="gptsummary">
+        <table class="gptsummary" cellspacing="0">
+            <tr>
+            <td class="gptsummary">
+                <table class="gptsummarytitle" cellspacing="0">
+                <tr class="title">
+                <td class="margin"></td><td class="title">Summary</td>
+                </tr>
+            </table>
+        <table class="gptsummary" cellspacing="0">
+            <tr><th></th><th>Results</th><th>Mean Value</th><th>Reference Value</th></tr>
+            {{foreach .row in .summary}}
+                <tr><td><b>{{.row.label}}</b></td><td>{{.row.value}} {{.row.unit}}</td><td>{{.row.average}} {{.row.unit}}</td><td>{{.row.reference}} {{.row.unit}}</td></tr>
+            {{end}}
+        </table>
+        </td><td class="chart">
+        <table class="chart" cellspacing="0">
+            <tr>
+            <td class="icon"><div id="piechart"></div></td>
+            </tr>
+        </table>
+        </td>
+        </tr>
+        </table>
+    </div>
+    <div class="plots">
+        <table class="resultsummary" cellspacing="0">
+            <tr><th class="result">Plots</th></tr>
+        </table>
+        {{foreach .plot in .plots}}
+            <img class="plot" src="../performances/plot/{{.plot}}">
+        {{end}}
+    </div>
+</body>
+</html>
