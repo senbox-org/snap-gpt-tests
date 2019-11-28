@@ -187,7 +187,7 @@ pipeline {
                     sh "python3 -u ./pygpt/stats_db.py /report/db/statistics.db ${dockerTagName} ${params.testScope} $WORKSPACE/report ${env.BUILD_NUMBER} ${env.GIT_BRANCH}"
                    
                     echo "Generate report"
-                    sh "python3 -u ./pygpt/report_utils.py ${outputDir}/templates $WORKSPACE/report \"${params.testScope}\" ${dockerTagName}"
+                    sh "python3 -u ./pygpt/report_utils.py ${outputDir}/templates $WORKSPACE/report \"${params.testScope}\" ${dockerTagName} /report/db/statistics.db"
                    
                     archiveArtifacts artifacts: "report/**/*.*", fingerprint: true
                     sh "rm -rf report" 
