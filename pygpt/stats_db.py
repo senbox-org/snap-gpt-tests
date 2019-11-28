@@ -181,6 +181,30 @@ class DBAdaptor:
         res = self.execute(query, (test_id, docker_id))
         return list([x[0] for x in res])
 
+    def has_reference(self, test, referenceTag="default"):
+        """
+        Check if reference exists for a given test
+        """
+
+        query = '''SELECT * FROM reference_values WHERE 
+                    test in (SELECT ID FROM tests WHERE name=?) and 
+                    referenceTag in (SELECT ID FROM referenceTags WHERE tag=?);
+                '''
+        res = self.execute(query, [test, referenceTag])
+        return len(res) > 0
+
+    def reference_value(self, test, value_tag, referenceTag='default'):
+        """
+        Retrieve a specific reference value.
+        """
+        query = f'''SELECT {value_tag} FROM reference_values WHERE 
+                    test in (SELECT ID FROM tests WHERE name=?) and 
+                    referenceTag in (SELECT ID FROM referenceTags WHERE tag=?);'''
+        res = self.execute(query, [test, referenceTag])
+        if len(res) > 0:
+            return res[0][0]
+        return None
+
 
 def ensure_connection(func):
     """
@@ -351,7 +375,7 @@ class SQLiteAdaptor(DBAdaptor):
             query = '''CREATE TABLE reference_values (
                 ID INTEGER PRIMARY KEY,
                 test INTEGER NOT NULL,
-                referenceTag INTEGER NOT NULL,
+                referenceTag INTEGER NOT NULL DEFAULT=1,
                 updated DATETIME NOT NULL,
                 duration INTEGER NOT NULL, -- in seconds
                 cpu_time INTEGER NOT NULL, -- in seconds
