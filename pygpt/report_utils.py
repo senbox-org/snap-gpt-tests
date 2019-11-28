@@ -188,7 +188,7 @@ class Test(utils.Printable):
                     db_key += '_max' 
                 vals = __adaptor__.values(self.name, version, db_key)
                 if len(vals) > 0:
-                    obj['average'] = sum(vals) / len(vals)
+                    obj['average'] = round(sum(vals) / len(vals), 1)
             
                 ref = __adaptor__.reference_value(self.name, db_key)
                 if ref is not None:
@@ -225,6 +225,8 @@ class Test(utils.Printable):
         if __db_path__ is not None:
             db_key = 'cpu_time_avg'
             times = __adaptor__.values(self.name, version, 'start')
+            if len(times) == 0:
+                return plots
             cpu_time = __adaptor__.values(self.name, version, 'cpu_time')
             memory = __adaptor__.values(self.name, version, 'memory_avg')
             plt.figure(figsize=(10, 7))
