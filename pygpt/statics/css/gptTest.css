@@ -93,6 +93,11 @@ table.gptsummary td.gptsummary {
     text-align: left;
 }
 
+table.gptsummary th {
+    text-align: left;
+    vertical-align: top;    
+}
+
 table.gptsummary td.gptchart {
     width: 50%;
     text-align: right;
@@ -312,4 +317,9 @@ table.gpttestlist td.memory{
 .grapn {
     max-width: 600px;
     max-height: 600px;
+}
+
+.version {
+    font-size: 0.8em;
+    color: #333;
 }
