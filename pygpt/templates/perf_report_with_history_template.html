@@ -21,7 +21,7 @@
                 </tr>
             </table>
         <table class="gptsummary" cellspacing="0">
-            <tr><th></th><th>Results</th><th>Mean Value</th><th>Reference Value</th></tr>
+            <tr><th></th><th>Results</th><th>Average Value<br><i class='version'>{{.version}}</i></th><th>Reference Value</th></tr>
             {{foreach .row in .summary}}
                 <tr><td><b>{{.row.label}}</b></td><td>{{.row.value}} {{.row.unit}}</td><td>{{.row.average}} {{.row.unit}}</td><td>{{.row.reference}} {{.row.unit}}</td></tr>
             {{end}}
