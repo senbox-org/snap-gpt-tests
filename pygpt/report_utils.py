@@ -8,6 +8,7 @@ import json
 
 import template as t
 import gpt_utils as utils
+import stats_db as sdb
 
 import matplotlib as mpl
 mpl.use('Agg') # use no graphical backend
@@ -24,6 +25,10 @@ __tests_dir__ = 'tests'
 __out_dir__ = 'output'
 __template_dir__ = '.'
 __image_dir__ = 'images'
+__plot_path__ = os.path.join('performances', 'plot')
+
+__db_path__ = None
+__adaptor__ = None
 
 
 
@@ -165,65 +170,106 @@ class Test(utils.Printable):
         """
         return self.status == 'SKIPPED'
 
+    def __get_value__(self, label, key, version, param='value'):
+        obj = None
+        if 'duration' in self.stats:
+            obj = {
+                'label': label,
+                'value': self.stats[key][param],
+                'unit': self.stats[key]['unit'],
+                'reference': '-',
+                'average': '-'
+            }
+            if __db_path__ is not None:    
+                db_key = key
+                if param == 'average':
+                    db_key += '_avg'
+                elif param == 'max':
+                    db_key += '_max' 
+                vals = __adaptor__.values(self.name, version, db_key)
+                if len(vals) > 0:
+                    obj['average'] = sum(vals) / len(vals)
+            
+                ref = __adaptor__.reference_value(self.name, db_key)
+                if ref is not None:
+                    obj['reference'] = ref
+            
+        return obj
 
-def performance_report(test):
+    def perf_summary(self, version):
+        """
+        Create summary struct of performances.
+        """
+        summ = []
+        vals = [("Process duration", "duration", version),
+                ("CPU total time", "cpu_time", version),
+                ("CPU average usage", "cpu_usage", version, "average"),
+                ("CPU max usage", "cpu_usage", version, "max"),
+                ("Memory average usage", "memory", version, "average"),
+                ("Memory max usage", "memory", version, "max")
+               ]
+        for val in vals:
+            result = self.__get_value__(*val)
+            if result is not None:
+                summ.append(result)
+        return summ
+
+    def plots_path(self, version):
+        """
+        return list of plots associated to the test.
+        """
+        plots = [
+            self.name+"_cpu_usage.png",
+            self.name+"_memory_usage.png"
+        ]
+        if __db_path__ is not None:
+            db_key = 'cpu_time_avg'
+            times = __adaptor__.values(self.name, version, 'start')
+            cpu_time = __adaptor__.values(self.name, version, 'cpu_time')
+            memory = __adaptor__.values(self.name, version, 'memory_avg')
+            plt.figure(figsize=(10, 7))
+            plt.plot(times, cpu_time, 'o-')
+            plt.grid(alpha=0.5)
+            plt.xlabel('Date')
+            plt.ylabel('CPU Average Time (s)')
+            plt.title('CPU Average Time Historic')
+            plt.savefig(os.path.join(__base_path__, __plot_path__, self.name+"_cpu_time_history.png"))
+            plots.append(self.name+"_cpu_time_history.png")
+            
+            plt.figure(figsize=(10, 7))
+            plt.plot(times, memory, 'o-')
+            plt.grid(alpha=0.5)
+            plt.xlabel('Date')
+            plt.ylabel('Memory Average (Mb)')
+            plt.title('Memory Average Historic')
+            plt.savefig(os.path.join(__base_path__, __plot_path__, self.name+"_memory_history.png"))
+            plots.append(self.name+"_memory_history.png")
+
+        return plots
+
+
+def performance_report(test, version):
         """generate test perofmance report"""
         if test.is_skipped() or not test.stats:
             utils.error("No stats found")
             return
-        with open(os.path.join(__template_dir__, 'perf_report_template.html'), 'r') as file:
-            template = t.Template(file.read())
+        args = {
+            'test_id' : test.name,
+            'summary' : test.perf_summary(version),
+            'plots'   : test.plots_path(version)
+        }
+        if __db_path__ is None:
+            with open(os.path.join(__template_dir__, 'perf_report_template.html'), 'r') as file:
+                template = t.Template(file.read())
+        else:
+            with open(os.path.join(__template_dir__, 'perf_report_with_history_template.html'), 'r') as file:
+                template = t.Template(file.read())
+                args['version'] = version
         if template is None:
             utils.error("Unable to load template")
             return
-        summ = []
-        summary = test.stats
-        if 'duration' in summary:
-            summ.append(
-                {
-                    'label': "Process duration",
-                    'value': summary['duration']['value'],
-                    'unit': summary['duration']['unit']
-                })
-        if 'cpu_time' in summary:
-            summ.append(
-                {
-                    'label': "CPU total timer",
-                    'value': summary['cpu_time']['value'],
-                    'unit': summary['cpu_time']['unit']
-                })
-        if 'cpu_usage' in summary:
-            summ += [
-                {
-                    'label': "CPU average usage",
-                    'value': summary['cpu_usage']['average'],
-                    'unit': summary['cpu_usage']['unit']
-                },
-                {
-                    'label': "CPU max usage",
-                    'value': summary['cpu_usage']['max'],
-                    'unit': summary['cpu_usage']['unit']
-                }
-            ]
-        if 'memory' in summary:
-            summ += [
-                {
-                    'label': "Memory average usage",
-                    'value': summary['memory']['average'],
-                    'unit': summary['memory']['unit']
-                },
-                {
-                    'label': "Memory max usage",
-                    'value': summary['memory']['max'],
-                    'unit': summary['memory']['unit']
-                }
-            ]
 
-        plots = [
-            test.name+"_cpu_usage.png",
-            test.name+"_memory_usage.png"
-        ]
-        html = template.generate(test_id=test.name, summary=summ, plots=plots)
+        html = template.generate(**args)
         save_report(html, resolve_path(__tests_dir__, f'Performance_{test.name}.html'))
 
 
@@ -376,7 +422,7 @@ class TestSet(utils.Printable):
         save_report(html, resolve_path(__tests_dir__, f'Report_{self.name}.html'))
         # generate perofmance report for each test
         for test in self.tests:
-            performance_report(test)
+            performance_report(test, version)
 
 
 def __parse_set__(name, lines):
@@ -459,9 +505,17 @@ def generate_html_report(base_path, scope, version):
 
 if __name__ == '__main__':
     ARGS = sys.argv
-    if len(ARGS) != 5:
-        print("wrong number of arguments!\nreport_utils TEMPLATE_DIR BASE_PATH SCOPE VERSION")
+    if len(ARGS) not in (5, 6):
+        print("wrong number of arguments!\nreport_utils TEMPLATE_DIR BASE_PATH SCOPE VERSION (DB_PATH=None)")
         sys.exit(-1)
     __template_dir__ = ARGS[1]
-    generate_html_report(ARGS[2], ARGS[3], ARGS[4])
-    utils.success('report generated successfully')
+    try:
+        if len(ARGS) == 6:
+            __db_path__ = ARGS[5]
+            __adaptor__ = sdb.adaptor(__db_path__)
+            __adaptor__.open()
+        generate_html_report(ARGS[2], ARGS[3], ARGS[4])
+        utils.success('report generated successfully')
+    finally:
+        if __adaptor__ is not None:
+            __adaptor__.close()
