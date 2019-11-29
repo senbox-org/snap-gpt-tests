@@ -207,8 +207,8 @@ pipeline {
                                  body: """Build status : ${currentBuild.result ?: 'SUCCESS'}: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]':
 Check console output at ${env.BUILD_URL}
 ${env.JOB_NAME} [${env.BUILD_NUMBER}]""",
-                                 attachLog: true,
-                                 compressLog: true,
+                                 attachLog: false,
+                                 compressLog: false,
                                  to: 'omar.barrilero@c-s.fr,martino.ferrari@c-s.fr,jean.seyral@c-s.fr')
                      }
              }
