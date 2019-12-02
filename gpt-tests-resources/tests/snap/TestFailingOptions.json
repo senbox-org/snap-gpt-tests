@@ -61,32 +61,6 @@
     "subsetBands": "B2,B3",
     "subsetRegion": "300,300,200,200",
     "subsetGeoRegion": "",
-    "referenceBand": "non_a_band"
-  },
-  "outputs": [{
-    "parameter": "out1",
-    "outputName": "subsetS2Test_B2B3",
-    "expected": "snap/expected_subsetS2TestB2B3_region.json"
-  }],
-  "result": {
-    "status": false,
-    "source": "process",
-    "message": "Value for 'Reference Band' is invalid: 'B3'"
-  }
-},
-{
-  "id":"TestFailing_3",
-  "author": "CS",
-  "description":"execute subset operator in a S2L1C product with bands B2 and B3 and region",
-  "frequency":"test413",
-  "graphPath": "snap/graphSubsetRefBand.xml",
-  "inputs": {
-    "input1": "s2tbx/S2/L1C/S2A_MSIL1C_20181002T034551_N0206_R104_T47PMP_20181002T073417.SAFE"
-  },
-  "parameters": {
-    "subsetBands": "B2,B3",
-    "subsetRegion": "300,300,200,200",
-    "subsetGeoRegion": "",
     "referenceBand": "B2"
   },
   "outputs": [{
@@ -97,6 +71,6 @@
   "result": {
     "status": false,
     "source": "expected",
-    "message": "?????"
+    "message": "Not_a_correct_expected_value (No such file or directory)"
   }
 }]
