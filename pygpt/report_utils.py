@@ -243,7 +243,6 @@ class Test(utils.Printable):
             #set major ticks format
             axis.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))
 
-
             plt.savefig(os.path.join(__base_path__, __plot_path__, self.name+"_cpu_time_history.png"))
             plots.append(self.name+"_cpu_time_history.png")
             

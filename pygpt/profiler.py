@@ -357,7 +357,8 @@ def profile(command, sampling_time, output, **kwargs):
     if process.status() == psutil.STATUS_ZOMBIE:
         process.terminate()
 
-    returncode = proc.returncode if proc.returncode else 0
+    returncode = proc.wait() # proc.returncode if proc.returncode else 0
+    utils.log(f"RETURN CODE {returncode}")
 
     # initialize path structure and make output directories
     perf_fm = FileManager(output)
