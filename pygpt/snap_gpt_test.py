@@ -257,12 +257,14 @@ def __check_outputs__(test, args, properties):
             utils.log(f'comparing done, result: {result.returncode}')
             stdout = result.stdout.decode('utf-8')
             stdout_file = os.path.join(args.report_dir, f'{test["id"]}_gptOutput.txt')
-
+            
+            with open(stdout_file, 'a') as file:
+                file.write(stdout)
+        
             if result.returncode != 0:
-                utils.error(f"test `{test['id']}` failed:\n{stdout}")
-                with open(stdout_file, 'a') as file:
-                    file.write(stdout)
+                utils.error(f"test `{test['id']}` failed:\n{stdout}")  
                 return False, stdout
+
     return True, stdout
 
 
