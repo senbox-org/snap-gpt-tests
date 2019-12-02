@@ -103,7 +103,7 @@ python3 pygpt/report_utils.py pygpt/templates OUTPUT_DIR/report TEST_SCOPE VERSI
 
 The `DB_PATH` is optional, but if it is provided the report_utils.py will add to the performance report of each tests the historical average values and the trend of `CPU_TIME` and `AVERAGE_MEMORY`.
 
-## JSON test structure
+## JSON Test structure
 
 Tests are grouped in test sets defined in the same json file as following:
 
