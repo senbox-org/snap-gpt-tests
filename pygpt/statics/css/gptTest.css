@@ -93,11 +93,6 @@ table.gptsummary td.gptsummary {
     text-align: left;
 }
 
-table.gptsummary th {
-    text-align: left;
-    vertical-align: top;    
-}
-
 table.gptsummary td.gptchart {
     width: 50%;
     text-align: right;
@@ -116,6 +111,11 @@ table.gptsummarytitle td.title {
 
 table.gptsummary {
     margin-left: 5em;
+}
+
+table.gptsummary th {
+    text-align: left;
+    vertical-align: top;
 }
 
 table.gptsummary td.label {
@@ -322,4 +322,29 @@ table.gpttestlist td.memory{
 .version {
     font-size: 0.8em;
     color: #333;
+}
+
+.vcenter {
+    display: flex;
+    align-items: center;
+}
+
+.head {
+    background-color: #F8DFA3;/* #f8f8f8; */
+    padding-top: 0.7em;
+    padding-bottom: 0.7em;
+    border-bottom: solid 1px #961E32;
+}
+
+table.summary th {
+    background-color: #F8DFA3;
+    border-bottom: solid 1px #961E32;
+    border-top: none;
+}
+
+.page-header{
+   border-bottom: solid 2px #961E32;
+   width: 100%;
+   padding-right: 0;
+   padding-left: 0;
 }
