@@ -229,6 +229,9 @@ class Test(utils.Printable):
             if len(times) == 0:
                 return plots
             times = list([datetime.datetime.strptime(x, __sql_fmt__) for x in times])
+            if len(times) <= 1:
+                """no history in db"""
+                return plots
             print(min(times), max(times))
             cpu_time = __adaptor__.values(self.name, version, 'cpu_time')
             memory = __adaptor__.values(self.name, version, 'memory_avg')
@@ -242,7 +245,6 @@ class Test(utils.Printable):
             axis.xaxis.set_major_locator(mdates.DayLocator())
             #set major ticks format
             axis.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))
-
 
             plt.savefig(os.path.join(__base_path__, __plot_path__, self.name+"_cpu_time_history.png"))
             plots.append(self.name+"_cpu_time_history.png")

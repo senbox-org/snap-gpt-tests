@@ -238,8 +238,7 @@ def __check_outputs__(test, args, properties):
 
     Returns:
     --------
-    `True` if the output are conformed.
-    `False` if the output are not conformed or not found.
+    output_conformity, stdout 
     """
     for output in test['outputs']:
         if 'expected' in output and output['expected'] is not None and output['expected'] != "":
@@ -256,14 +255,17 @@ def __check_outputs__(test, args, properties):
             cmd += [args.test_output, output_path, expected_output_path, output['outputName']]
             result = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
             utils.log(f'comparing done, result: {result.returncode}')
+            stdout = result.stdout.decode('utf-8')
             stdout_file = os.path.join(args.report_dir, f'{test["id"]}_gptOutput.txt')
-
+            
+            with open(stdout_file, 'a') as file:
+                file.write(stdout)
+        
             if result.returncode != 0:
-                utils.error(f"test `{test['id']}` failed:\n{result.stdout.decode('utf-8')}")
-                with open(stdout_file, 'a') as file:
-                    file.write(result.stdout.decode('utf-8'))
-                return False
-    return True
+                utils.error(f"test `{test['id']}` failed:\n{stdout}")  
+                return False, stdout
+
+    return True, stdout
 
 
 def __run_test__(test, args, properties):
@@ -312,11 +314,47 @@ def __run_test__(test, args, properties):
     with open(stdout_file, 'w') as file:
         file.write(stdout)
 
+    if res is None:
+        res = 0
+
+    # if a result output is configuated 
+    if 'result' in test:
+        if test['result']['status'] and res > 0:
+            # the process should not have failed
+            return False
+        elif not test['result']['status'] and test['result']['source'] == 'process':
+            # the process should fail graciously
+            if res == 0:
+                # process succeded and should have failed
+                utils.error(f'test `{test["id"]}` was supposed to fail')
+                return False
+            elif not test['result']['message'].lower() in stdout.lower():
+                # process failed but with a different message than expected
+                utils.error(f'test `{test["id"]}` was suppoed to fail with message `{test["result"]["message"]}`')
+                return False
+            else: 
+                utils.success(f'test `{test["id"]}` failed succesfully')
+                return True
     # if the execution result is not 0 return False
-    if res is not None and res > 0:
+    elif res > 0:
         return False
-    # return the confirmity of the outputs
-    return __check_outputs__(test, args, properties)
+    
+    # check outputs
+    conformity, check_stdout = __check_outputs__(test, args, properties)
+    if 'result' in test:
+        if test['result']['status']:
+            return conformity
+        elif conformity:
+            utils.error(f'conformity test for `{test["id"]}` was supposed to fail')
+            return False
+        elif not test['result']['message'].lower() in check_stdout.lower():
+            utils.error(f'conformity test for `{test["id"]}` was suppoed to fail with message `{test["result"]["message"]}`')
+            return False
+        else:
+            utils.success(f'conformity test `{test["id"]}` failed succesfully')
+            return True
+    else:
+        return conformity
 
 
 def __draw_graph__(test, properties, args):

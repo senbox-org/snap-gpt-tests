@@ -113,7 +113,7 @@
   {{foreach .test in .test_set.tests}}
     {{switch .test.status}}
       {{case "PASSED"}}
-        <img width="16" height="16" src="icons/green.png">
+        <a href="output/{{.test.name}}_gptOutput.txt"><img width="16" height="16" src="icons/green.png"></a>
       {{case "FAILED"}}
         <a href="output/{{.test.name}}_gptOutput.txt"><img width="16" height="16" src="icons/red.png"></a>
       {{case "SKIPPED"}}
