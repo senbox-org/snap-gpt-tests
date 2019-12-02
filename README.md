@@ -107,7 +107,7 @@ The `DB_PATH` is optional, but if it is provided the report_utils.py will add to
 
 Tests are grouped in test sets defined in the same json file as following:
 
-```json
+```json5
 [//list of tests
     {
         "id": "TEST_UNIQUE_ID",// the test will fail if the same test id is found in multiple tests
