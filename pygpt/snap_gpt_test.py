@@ -353,6 +353,9 @@ def __run_test__(test, args, properties):
         else:
             utils.success(f'conformity test `{test["id"]}` failed succesfully')
             return True
+    else:
+        return conformity
+
 
 def __draw_graph__(test, properties, args):
     """
