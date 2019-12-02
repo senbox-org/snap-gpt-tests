@@ -328,7 +328,7 @@ def __run_test__(test, args, properties):
                 return False
             elif not stdout.lower().contains(test['result']['message'].lower):
                 # process failed but with a different message than expected
-                utils.error(f'test `{test["id"]}` was suppoed to fail with message `{test['result']['message']}`')
+                utils.error(f'test `{test["id"]}` was suppoed to fail with message `{test["result"]["message"]}`')
                 return False
             else: 
                 utils.success(f'test `{test["id"]}` failed succesfully')
@@ -346,7 +346,7 @@ def __run_test__(test, args, properties):
             utils.error(f'conformity test for `{test["id"]}` was supposed to fail')
             return False
         elif not check_stdout.lower().contains(test['result']['message'].lower):
-            utils.error(f'conformity test for `{test["id"]}` was suppoed to fail with message `{test['result']['message']}`')
+            utils.error(f'conformity test for `{test["id"]}` was suppoed to fail with message `{test["result"]["message"]}`')
             return False
         else:
             utils.success(f'conformity test `{test["id"]}` failed succesfully')
