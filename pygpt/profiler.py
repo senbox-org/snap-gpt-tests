@@ -357,9 +357,6 @@ def profile(command, sampling_time, output, **kwargs):
     while not queue.empty():
         stdout += queue.get()
 
-    if process.status() == psutil.STATUS_ZOMBIE:
-        process.terminate()
-
     # initialize path structure and make output directories
     perf_fm = FileManager(output)
     # generate csv string and display/store it
