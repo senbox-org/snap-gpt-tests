@@ -350,15 +350,15 @@ def profile(command, sampling_time, output, **kwargs):
             process.terminate()
         time.sleep(sampling_time) # wait for next sampling
 
+    # retrive process return code
+    returncode = proc.wait() # proc.returncode if proc.returncode else 0
+    
     # read stdoutput lines if any
     while not queue.empty():
         stdout += queue.get()
 
     if process.status() == psutil.STATUS_ZOMBIE:
         process.terminate()
-
-    returncode = proc.wait() # proc.returncode if proc.returncode else 0
-    utils.log(f"RETURN CODE {returncode}")
 
     # initialize path structure and make output directories
     perf_fm = FileManager(output)
