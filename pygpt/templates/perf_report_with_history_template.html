@@ -1,47 +1,57 @@
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-    <META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-    <link type="text/css" rel="stylesheet" href="../css/gptTest.css">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link type="text/css" rel="stylesheet" href="../css/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="../css/gptTest.css"> 
+
     <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="../icons/favicon.ico">
+
     <title>{{.test_id}} performance report</title>
 </head>
 <body>
-    <table class="header" cellspacing="0">
-    <tr>
-    <td class="title">{{.test_id}} performance summary</td><td class="homeicon"><a href="http://step.esa.int/main/toolboxes/snap/"><img width="64" height="64" alt="SNAP" title="SNAP" src="../icons/SNAP_Icon_60.png"></a></td>
-    </tr>
-    </table>
-    <div class="gptsummary">
-        <table class="gptsummary" cellspacing="0">
-            <tr>
-            <td class="gptsummary">
-                <table class="gptsummarytitle" cellspacing="0">
-                <tr class="title">
-                <td class="margin"></td><td class="title">Summary</td>
-                </tr>
-            </table>
-        <table class="gptsummary" cellspacing="0">
-            <tr><th></th><th>Results</th><th>Average Value<br><i class='version'>{{.version}}</i></th><th>Reference Value</th></tr>
-            {{foreach .row in .summary}}
-                <tr><td><b>{{.row.label}}</b></td><td>{{.row.value}} {{.row.unit}}</td><td>{{.row.average}} {{.row.unit}}</td><td>{{.row.reference}} {{.row.unit}}</td></tr>
-            {{end}}
-        </table>
-        </td><td class="chart">
-        <table class="chart" cellspacing="0">
-            <tr>
-            <td class="icon"><div id="piechart"></div></td>
-            </tr>
-        </table>
-        </td>
-        </tr>
-        </table>
-    </div>
-    <div class="plots">
-        <table class="resultsummary" cellspacing="0">
-            <tr><th class="result">Plots</th></tr>
-        </table>
+    <div class="container">
+        <div class="row">
+          <div class="page-header">    
+              <a class="pull-right" href="http://step.esa.int/main/toolboxes/snap/">
+                  <img height="100%" alt="SNAP" title="SNAP" src="../icons/SNAP_Icon_60.png">
+              </a>
+              <h1>{{.test_id}} performance summary</h1>
+          </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row">
+                    <h2>Summary</h2>
+                </div>
+                <div class="row">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-3">Results</div>
+                    <div class="col-md-3">Average Value<br><i class='version'>{{.version}}</i></div>
+                    <div class="col-md-3">Reference Value</div>
+                </div>
+                {{foreach .row in .summary}}
+                    <div class="row">
+                        <div class="col-md-3"><b>{{.row.label}}</b></div>
+                        <div class="col-md-3">{{.row.value}} {{.row.unit}}</div>
+                        <div class="col-md-3">{{.row.average}} {{.row.unit}}</div>
+                        <div class="col-md-3">{{.row.reference}} {{.row.unit}}</div>
+                    </div>
+                {{end}}
+            </div>
+        </div>
+        <div class="row head">
+            <div class="col-xs-12">
+              <b>Plots</b>
+            </div>  
+        </div>
         {{foreach .plot in .plots}}
-            <img class="plot" src="../performances/plot/{{.plot}}">
+            <div class="col-md-6">
+             <img width="100%" src="../performances/plot/{{.plot}}">
+            </div>
         {{end}}
     </div>
 </body>
