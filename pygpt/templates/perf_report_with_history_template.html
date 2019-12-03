@@ -29,16 +29,16 @@
                 </div>
                 <div class="row">
                     <div class="col-md-3"></div>
-                    <div class="col-md-3">Results</div>
-                    <div class="col-md-3">Average Value<br><i class='version'>{{.version}}</i></div>
-                    <div class="col-md-3">Reference Value</div>
+                    <div class="col-md-2">Results</div>
+                    <div class="col-md-2">Average Value<br><i class='version'>{{.version}}</i></div>
+                    <div class="col-md-2">Reference Value</div>
                 </div>
                 {{foreach .row in .summary}}
                     <div class="row">
                         <div class="col-md-3"><b>{{.row.label}}</b></div>
-                        <div class="col-md-3">{{.row.value}} {{.row.unit}}</div>
-                        <div class="col-md-3">{{.row.average}} {{.row.unit}}</div>
-                        <div class="col-md-3">{{.row.reference}} {{.row.unit}}</div>
+                        <div class="col-md-2">{{.row.value}} {{.row.unit}}</div>
+                        <div class="col-md-2">{{.row.average}} {{.row.unit}}</div>
+                        <div class="col-md-2">{{.row.reference}} {{.row.unit}}</div>
                     </div>
                 {{end}}
             </div>
