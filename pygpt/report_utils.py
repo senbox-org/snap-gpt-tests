@@ -32,6 +32,23 @@ __db_path__ = None
 __adaptor__ = None
 
 
+def __val_to_html__(value):
+    html = ''
+    if isinstance(value, list):
+        html += '<ol>'
+        for el in value:
+            html += f'<li>'+__val_to_html__(el)+'</li>'
+        return html + '</ol>'
+    elif isinstance(value, dict):
+        return __dict_to_html__(value)
+    return str(value)
+
+def __dict_to_html__(data):
+    html = '<ul>\n'
+    for key in data:
+        html += f'<li><b>{key}</b>: {__val_to_html__(data[key])}</li>'
+    return html + '</ul>'
+
 
 def __auto_pct__(pct, total):
     val = int(round(pct/100 * total))
@@ -186,6 +203,11 @@ class Test(utils.Printable):
         if self.stdout is None:
             return ''
         return '\n'.join([f'<samp>{line}</samp><br>' for line in self.stdout.splitlines()])
+
+    def json_html(self):
+        if self.json is None:
+            return ''
+        return __dict_to_html__(self.json)
 
 
     def __get_value__(self, label, key, version, param='value'):
