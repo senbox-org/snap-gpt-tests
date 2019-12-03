@@ -92,8 +92,10 @@ class Test(utils.Printable):
         self.graph_id, self.vm_string, self.json = self.__load_json__()
         if self.status != 'SKIPPED':
             self.stats = self.__load_perfs__()
+            self.stdout = self.__load_stdout__()
         else:
             self.stats = None
+            self.stdout = None
 
     def __load_json__(self):
         json_path = resolve_path(self.json_path)
@@ -104,6 +106,12 @@ class Test(utils.Printable):
                 param = struct['configVM']
             return struct['graphPath'][:-4], param if param else 'Default configuration', struct
         return None, None, None
+
+    def __load_stdout__(self):
+        stdout_path = resolve_path(__out_dir__, f'{self.name}_gptOutput.txt')
+        with open(stdout_path, 'r') as file:
+            return file.read()
+        return None
 
     def __load_perfs__(self):
         perf_stats_file = resolve_path(__perf_dir__, __stats_dir__, self.name+'.json')
@@ -170,6 +178,15 @@ class Test(utils.Printable):
         is skipped flag
         """
         return self.status == 'SKIPPED'
+
+    def stdout_html(self):
+        """
+        Format stdout for html.
+        """
+        if self.stdout is None:
+            return ''
+        return '\n'.join([f'<samp>{line}</samp><br>' for line in self.stdout.splitlines()])
+
 
     def __get_value__(self, label, key, version, param='value'):
         obj = None
