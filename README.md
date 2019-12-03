@@ -93,7 +93,7 @@ The script will automatically fill and update the database with all the informat
 If you want to generate the HTML report for the tests you have performed first you need to copy the static resources (CSS and icons) and move the previous results in a sub directory:
 
 ```
-cp -R pygpt/statics OUTPUT_DIR/report/statics
+cp -R pygpt/statics/* OUTPUT_DIR/report/
 ```
 
 Then run the report_utils script:
