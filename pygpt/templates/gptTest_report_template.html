@@ -120,7 +120,7 @@
       </div>
       {{foreach .test in .tests}}
         <div class="row vcenter">
-          <div class="col-xs-2"><a href="../{{.test.json_path}}">{{.test.name}}</a></div>
+          <div class="col-xs-2"><a href="#modal_{{.test.name}}" data-toggle="modal">{{.test.name}}</a></div>
           <div class="col-xs-5 text-center">
             <a href="#modal_{{.test.name}}" data-toggle="modal">
               <img border="none" src="../images/{{.test.graph_id}}.png" alt="{{.test.name}}" title="{{.test.graph_id}}" width="100%">
@@ -158,14 +158,16 @@
       {{end}}
       {{foreach .test in .tests}}
         <div class="modal fade" id="modal_{{.test.name}}" tabindex="-1" role="dialog">
-          <div class="modal-dialog" role="document">
+          <div class="modal-dialog test_modal" role="document">
             <div class="modal-content">
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">{{.test.name}} Graph</h4>
+                <h4 class="modal-title">Test: <b>{{.test.name}}</b></h4>
               </div>
               <div class="modal-body">
-                    <img border="none"  src="../images/{{.test.graph_id}}.png" alt="{{.test.name}}" title="{{.test.graph_id}}" width="100%">
+                    <div class="text-center">
+                    <img border="none"  src="../images/{{.test.graph_id}}.png" alt="{{.test.name}}" title="{{.test.graph_id}}" class="graph_img"></div>
+                    {{.test.json_html}}
               </div>
             </div>
           </div>
