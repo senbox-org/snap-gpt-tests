@@ -118,7 +118,7 @@ def __draw_arrows__(axis, nodes, keys):
                              )
 
 
-def draw(source, dest, dpi=120):
+def draw(source, dest, dpi=100):
     """
     Draw gpt graph
 
