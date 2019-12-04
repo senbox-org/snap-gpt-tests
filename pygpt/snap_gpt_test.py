@@ -14,7 +14,7 @@ import json
 import subprocess
 import shutil
 
-from core.models import TestScope
+from core.models import TestScope, Test
 
 import core.profiler as profiler
 import core.graph as graph
@@ -440,49 +440,47 @@ def __run_tests__(args, properties):
     with open(args.json_path, 'r') as file:
         # open the json file and parse it
         tests = json.load(file)
-        tst_lst = []
+        test_list = []
         for test in tests:
             if 'frequency' in test:
-                tst_lst.append(test['id'])
-        log.info(f'List of tests: {", ".join(tst_lst)}')
+                test_list.append(Test(test, args.json_path))
+        log.info(f'List of tests: {", ".join([x.name for x in test_list])}')
         count = 0
-        for test in tests:
+        for test in test_list:
             # for each tests
-            if not 'frequency' in test:
-                continue # if no frequency is not a test
             test['json_file'] = args.json_path
             count += 1
             print() # empty line here
-            log.info(f"Test [{count}/{len(tst_lst)}]")                
+            log.info(f"Test [{count}/{len(test_list)}]")                
             __print_stats__() # print server stats
-            print("JSON ------")
-            pprint(test, ' ')
+            print("TEST ------")
+            print(test.pprint())
             print("END  ------")
-            log.info(f"saving json file for test `{test['id']}`")
-            __save_json__(test, args) # save json
-            log.info(f"drawing graph for test `{test['id']}`")
-            __draw_graph__(test, properties, args) # make the graph image
-            log.info(f"preparing test `{test['id']}`")
+            log.info(f"saving json file for test `{test.name}`")
+            __save_json__(test._raw, args) # save raw json copy
+            log.info(f"drawing graph for test `{test.name}`")
+            __draw_graph__(test._raw, properties, args) # make the graph image
+            log.info(f"preparing test `{test.name}`")
             start = datetime.datetime.now().strftime(__DATE_FMT__) # stats
-            output += f'{test["id"]} - {start}'
+            output += f'{test.name} - {start}'
             print('START------')
-            if not TestScope.compatibleN(TestScope.init(args.scope), test['frequency']):
+            if not test.compatible(TestScope.init(args.scope)):
                 output += f' - {start} - SKIPPED\n'
-                log.warning(f'test `{test["id"]}` skipped')
+                log.warning(f'test `{test.name}` skipped')
             else:
-                log.info(f"Test `{test['id']}`")
-                log.info(f'-- Author: {test["author"]}')
-                log.info(f'-- Description: {test["description"]}')
-                result = __run_test__(test, args, properties)
+                log.info(f"Test `{test.name}`")
+                log.info(f'-- Author: {test.author}')
+                log.info(f'-- Description: {test.description}')
+                result = __run_test__(test._raw, args, properties)
                 end = datetime.datetime.now().strftime(__DATE_FMT__)
-                log.info(f"finish test `{test['id']}`")
+                log.info(f"finish test `{test.name}`")
                 passed = passed and result
                 result_str = 'PASSED' if result else 'FAILED'
                 output += f' - {end} - {result_str}\n'
                 if not result:
-                    log.error(f"test `{test['id']} failed")
+                    log.error(f"test `{test.name} failed")
                 else:
-                    log.success(f"test `{test['id']}` succeded")
+                    log.success(f"test `{test.name}` succeded")
                 if not result and not isinstance(TestScope.init(args.scope), TestScope):
                     # copy output files
                     __copy_output__(test, args, properties)
