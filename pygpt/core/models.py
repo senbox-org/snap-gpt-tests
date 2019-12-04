@@ -182,7 +182,9 @@ class Test(log.Printable):
         """
         Source TestSet JSON path.
         """
-        return self._raw['json_file']
+        if 'json_file' in self._raw:
+            return self._raw['json_file']
+        return ''
     
     @property
     def inputs(self):
