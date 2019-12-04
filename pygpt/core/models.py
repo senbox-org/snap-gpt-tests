@@ -201,7 +201,6 @@ class Test(log.Printable):
             return self._raw['configvm']
         return None
 
-    @property
     def gpt_parameters(self):
         """
         Returns gpt parameters for the given test
