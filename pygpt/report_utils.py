@@ -271,7 +271,6 @@ class Test(utils.Printable):
             if len(times) <= 1:
                 """no history in db"""
                 return plots
-            print(min(times), max(times))
             cpu_time = __adaptor__.values(self.name, version, 'cpu_time')
             memory = __adaptor__.values(self.name, version, 'memory_avg')
             _, axis = plt.subplots(figsize=(10, 7))
