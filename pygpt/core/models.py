@@ -195,13 +195,25 @@ class Test(log.Printable):
     @property
     def jvm_config(self):
         """
+        Returns eventual JVM special configuration.
         """
         if 'configvm' in self._raw:
             return self._raw['configvm']
         return None
 
+    @property
+    def gpt_parameters(self):
+        """
+        Returns gpt parameters for the given test
+        """
+        params = self.__jvm_params__()
+        return params
+        
+    def __jvm_params__(self):
+        return []
 
-class TestReuslt(log.Printable, Test):
+
+class TestReuslt(Test):
     """
     Represents the results of execution of a test
     """
