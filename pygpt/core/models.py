@@ -5,6 +5,8 @@ Class models for the tests and test set used across pygpt.
 Author: Martino Ferrari (CS-SI) <martino.ferrari@c-s.fr>
 License: GPLv3
 """
+import os
+
 from enum import Enum
 
 import core.log as log
@@ -101,6 +103,17 @@ def __normalize_struct__(struct):
     for item in struct.items():
         res[str(item[0]).lower()] = item[1]
     return res
+
+def __perpare_param__(value, properties):
+    """
+    Prepare parameter with custom values
+    """
+    if isinstance(value, str):
+        value = value.replace('$graphFolder', properties['graphFolder'])
+        value = value.replace('$inputFolder', properties['inputFolder'])
+        value = value.replace('$expectedOutputFolder', properties['expectedOutputFolder'])
+        value = value.replace('$tempFolder', properties['tempFolder'])
+    return value
 
 
 class Test(log.Printable):
@@ -201,16 +214,49 @@ class Test(log.Printable):
             return self._raw['configvm']
         return None
 
-    def gpt_parameters(self):
+    def gpt_parameters(self, properties):
         """
         Returns gpt parameters for the given test
         """
-        params = self.__jvm_params__()
-        return params
-        
-    def __jvm_params__(self):
-        return []
+        return self.__jvm_params__() + self.__io_params__(properties)
+ 
+    def __io_params__(self, properties):
+        # prepare inputs
+        params = []
+        for in_key in self.inputs:
+            in_value = __perpare_param__(self.inputs[in_key], properties)
+            in_value = os.path.join(properties['inputFolder'], in_value)
+            params.append(f'-P{in_key}={in_value}')
 
+        # prepare paramters
+        for param_key in self.parameters:
+            param = __perpare_param__(self.parameters[param_key], properties)
+            params.append(f'-P{param_key}={param}')
+
+        # prepare outputs
+        for output in self.outputs:
+            out_key = output['parameter']
+            out_value = __perpare_param__(output['outputName'], properties)
+            out_value = os.path.join(properties['tempFolder'], out_value)
+            params.append(f'-P{out_key}={out_value}')
+
+        return params
+
+    def __jvm_params__(self):
+        if self.jvm_config is None:
+            return ['-q', '4']
+        params = []
+        params.append('-c')
+        params.append(self.jvm_config['cacheSize'])
+        params.append('-q')
+        params.append(self.jvm_config['parallelism'])
+        return params
+
+    def compatible(self, testscope):
+        """
+        Check compatibility of test scope with test.
+        """
+        return TestScope.compatibleN(testscope, self.frequency)
 
 class TestReuslt(Test):
     """
