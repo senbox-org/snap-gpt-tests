@@ -103,3 +103,9 @@ class TestReuslt(log.Printable):
     """
     Represents the results of execution of a test
     """
+
+class TestResutlSet(log.Printable):
+    """
+    Set of tests representing the result of a single JSON 
+    tests set.
+    """
