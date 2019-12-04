@@ -1,12 +1,17 @@
 """
-Tests the integrity of the jsons test files
+Chek jsons:
+Checks the integrity of the jsons test files and unicity of test IDs.
+
+Author: Martino Ferrari (CS Group) <martino.ferrari@c-s.fr>
+License: GPLv3
 """
 import argparse
 import json
 import os
 import sys
 
-import gpt_utils as ut
+import core.log as log
+import core.tools as utils
 
 def __args__():
     """
@@ -39,21 +44,21 @@ def __main__():
     """
     args = __args__()
     if not os.path.exists(args.test_folder):
-        ut.error("test folder does not exist")
+        log.error("test folder does not exist")
         sys.exit(1)
-    # cretas files containing list of all json files
-    test_files = ut.rlist_files(args.test_folder, lambda f: f.endswith('.json'))
+    # list containing all json files in all sub directories
+    test_files = utils.rlist_files(args.test_folder, lambda f: f.endswith('.json'))
     tests = {}
     status = True
     for test_file in test_files:
         for test_id in __get_ids__(test_file):
             if test_id in tests:
-                ut.error(f'duplicate test id:\n\t{test_id} is defined in `{tests[test_id]}` and in `{test_file}`')
+                log.error(f'duplicate test id:\n\t{test_id} is defined in `{tests[test_id]}` and in `{test_file}`')
                 status = False
             else:
                 tests[test_id] = test_file
     if status:
-        ut.success('no duplicated test ids found')
+        log.success('no duplicated test ids found')
         sys.exit(0)
     else:
         sys.exit(1)

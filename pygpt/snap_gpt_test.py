@@ -1,4 +1,10 @@
-"""SNAP GPT Test"""
+"""
+SNAP GPT Test:
+Executes the GPT tests for the ESA-SNAP CI project. 
+
+Author: Martino Ferrari (CS Group) <martino-ferrari@c-s.fr>
+License: GPLv3
+"""
 import argparse
 import configparser
 import datetime
@@ -8,10 +14,12 @@ import json
 import subprocess
 import shutil
 
-import filter_json
-import profiler
-import graph_drawer
-import gpt_utils as utils
+from core.models import TestScope
+
+import core.profiler as profiler
+import core.graph as graph
+import core.tools as utils
+import core.log as log
 
 
 __DATE_FMT__ = '%d/%m/%Y %H:%M:%S'
@@ -87,7 +95,7 @@ def __check_properties__(properties):
     if None in [test_folder, graph_folder,
                 input_folder, expected_output_folder,
                 temp_folder]:
-        utils.error('some folder is null')
+        log.error('some folder is null')
         sys.exit(1)
 
 
@@ -97,11 +105,11 @@ def __check_args__(args):
     Exit(1) if it fails
     """
     if not os.path.exists(args.json_path):
-        utils.error(f'JSON file `{args.json_path}` does not exists')
+        log.error(f'JSON file `{args.json_path}` does not exists')
         sys.exit(1)
 
     if not os.path.exists(args.report_dir):
-        utils.error(f'rerpot folder `{args.report_dir}` does not exists')
+        log.error(f'rerpot folder `{args.report_dir}` does not exists')
         sys.exit(1)
 
 
@@ -243,10 +251,10 @@ def __check_outputs__(test, args, properties):
     for output in test['outputs']:
         if 'expected' in output and output['expected'] is not None and output['expected'] != "":
             # check output
-            utils.log(f'comparing {output["outputName"]} with {output["expected"]}')
+            log.info(f'comparing {output["outputName"]} with {output["expected"]}')
             output_path = __find_output__(output, properties['tempFolder'])
             if output_path is None:
-                utils.error(f'test `{test["id"]}` failed, output {output["outputName"]} not found')
+                log.error(f'test `{test["id"]}` failed, output {output["outputName"]} not found')
                 return False
             expected_output_path = os.path.join(properties['expectedOutputFolder'],
                                                 output['expected'])
@@ -254,7 +262,7 @@ def __check_outputs__(test, args, properties):
             cmd += args.java_args.split(' ')
             cmd += [args.test_output, output_path, expected_output_path, output['outputName']]
             result = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
-            utils.log(f'comparing done, result: {result.returncode}')
+            log.info(f'comparing done, result: {result.returncode}')
             stdout = result.stdout.decode('utf-8')
             stdout_file = os.path.join(args.report_dir, f'{test["id"]}_gptOutput.txt')
             
@@ -262,7 +270,7 @@ def __check_outputs__(test, args, properties):
                 file.write(stdout)
         
             if result.returncode != 0:
-                utils.error(f"test `{test['id']}` failed:\n{stdout}")  
+                log.error(f"test `{test['id']}` failed:\n{stdout}")  
                 return False, stdout
 
     return True, stdout
@@ -291,7 +299,7 @@ def __run_test__(test, args, properties):
     gpt_parameters.append(os.path.join(properties['graphFolder'], test['graphPath']))
     gpt_parameters += __vm_parameters__(test, snap_dir) # java vm parameters (if any)
     gpt_parameters += __io_parameters__(test, properties) # custom test parameters
-    utils.log(f'execute: `{" ".join(gpt_parameters)}`') # DEBUG print
+    log.info(f'execute: `{" ".join(gpt_parameters)}`') # DEBUG print
     if profiling:
         # output directory for the profiling
         output_dir = os.path.join(args.report_dir, test['id'])
@@ -305,7 +313,7 @@ def __run_test__(test, args, properties):
     else:
         # execute gpt test without profiler
         res, stdout = profiler.run(gpt_parameters)
-    utils.log('execution finished')
+    log.info('execution finished')
     # Reset Java VM parameters if needed
     __vm_parameters_reset__(test, snap_dir)
 
@@ -326,14 +334,14 @@ def __run_test__(test, args, properties):
             # the process should fail graciously
             if res == 0:
                 # process succeded and should have failed
-                utils.error(f'test `{test["id"]}` was supposed to fail')
+                log.error(f'test `{test["id"]}` was supposed to fail')
                 return False
             elif not test['result']['message'].lower() in stdout.lower():
                 # process failed but with a different message than expected
-                utils.error(f'test `{test["id"]}` was suppoed to fail with message `{test["result"]["message"]}`')
+                log.error(f'test `{test["id"]}` was suppoed to fail with message `{test["result"]["message"]}`')
                 return False
             else: 
-                utils.success(f'test `{test["id"]}` failed succesfully')
+                log.success(f'test `{test["id"]}` failed succesfully')
                 return True
     # if the execution result is not 0 return False
     elif res > 0:
@@ -345,13 +353,13 @@ def __run_test__(test, args, properties):
         if test['result']['status']:
             return conformity
         elif conformity:
-            utils.error(f'conformity test for `{test["id"]}` was supposed to fail')
+            log.error(f'conformity test for `{test["id"]}` was supposed to fail')
             return False
         elif not test['result']['message'].lower() in check_stdout.lower():
-            utils.error(f'conformity test for `{test["id"]}` was suppoed to fail with message `{test["result"]["message"]}`')
+            log.error(f'conformity test for `{test["id"]}` was suppoed to fail with message `{test["result"]["message"]}`')
             return False
         else:
-            utils.success(f'conformity test `{test["id"]}` failed succesfully')
+            log.success(f'conformity test `{test["id"]}` failed succesfully')
             return True
     else:
         return conformity
@@ -365,7 +373,7 @@ def __draw_graph__(test, properties, args):
     image_path = os.path.join(args.report_dir, 'images', test['graphPath'])
     image_path = os.path.splitext(image_path)[0] + '.png'
     utils.mkdirs(os.path.dirname(image_path))
-    graph_drawer.draw(graph_path, image_path)
+    graph.draw(graph_path, image_path)
 
 
 def __save_json__(test, args):
@@ -384,7 +392,7 @@ def __copy_output__(test, args, properties):
     the report directory.
     """
     if lazy_bool(args.save_output):
-        utils.log('coping output products to `report/output` folder')
+        log.info('coping output products to `report/output` folder')
         files = os.listdir(properties['tempFolder'])
         for output in test['outputs']:
             name = output['outputName']
@@ -436,7 +444,7 @@ def __run_tests__(args, properties):
         for test in tests:
             if 'frequency' in test:
                 tst_lst.append(test['id'])
-        utils.log(f'List of tests: {", ".join(tst_lst)}')
+        log.info(f'List of tests: {", ".join(tst_lst)}')
         count = 0
         for test in tests:
             # for each tests
@@ -445,37 +453,37 @@ def __run_tests__(args, properties):
             test['json_file'] = args.json_path
             count += 1
             print() # empty line here
-            utils.log(f"Test [{count}/{len(tst_lst)}]")                
+            log.info(f"Test [{count}/{len(tst_lst)}]")                
             __print_stats__() # print server stats
             print("JSON ------")
             pprint(test, ' ')
             print("END  ------")
-            utils.log(f"saving json file for test `{test['id']}`")
+            log.info(f"saving json file for test `{test['id']}`")
             __save_json__(test, args) # save json
-            utils.log(f"drawing graph for test `{test['id']}`")
+            log.info(f"drawing graph for test `{test['id']}`")
             __draw_graph__(test, properties, args) # make the graph image
-            utils.log(f"preparing test `{test['id']}`")
+            log.info(f"preparing test `{test['id']}`")
             start = datetime.datetime.now().strftime(__DATE_FMT__) # stats
             output += f'{test["id"]} - {start}'
             print('START------')
-            if not filter_json.compatible(args.scope, test['frequency']):
+            if not TestScope.compatibleN(TestScope.init(args.scope), test['frequency']):
                 output += f' - {start} - SKIPPED\n'
-                utils.warning(f'test `{test["id"]}` skipped')
+                log.warning(f'test `{test["id"]}` skipped')
             else:
-                utils.log(f"Test `{test['id']}`")
-                utils.log(f'-- Author: {test["author"]}')
-                utils.log(f'-- Description: {test["description"]}')
+                log.info(f"Test `{test['id']}`")
+                log.info(f'-- Author: {test["author"]}')
+                log.info(f'-- Description: {test["description"]}')
                 result = __run_test__(test, args, properties)
                 end = datetime.datetime.now().strftime(__DATE_FMT__)
-                utils.log(f"finish test `{test['id']}`")
+                log.info(f"finish test `{test['id']}`")
                 passed = passed and result
                 result_str = 'PASSED' if result else 'FAILED'
                 output += f' - {end} - {result_str}\n'
                 if not result:
-                    utils.error(f"test `{test['id']} failed")
+                    log.error(f"test `{test['id']} failed")
                 else:
-                    utils.success(f"test `{test['id']}` succeded")
-                if not result and not args.scope.upper() in __REGULAR_TAGS__:
+                    log.success(f"test `{test['id']}` succeded")
+                if not result and not isinstance(TestScope.init(args.scope), TestScope):
                     # copy output files
                     __copy_output__(test, args, properties)
     json_name = os.path.split(args.json_path)[-1]
@@ -487,7 +495,7 @@ def __run_tests__(args, properties):
 
 def __main__():
     """main test entry point"""
-    utils.log('SNAP GPT Test Utils')
+    log.info('SNAP GPT Test Utils')
     args = __arguments__()
     __check_args__(args) # check if arguments are corrected
     properties = __load_properties__(args.properties) # load properties file

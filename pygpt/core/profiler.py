@@ -1,6 +1,10 @@
-#! /usr/bin/python3
 """
-Simple process profiler.
+Python process profiler.
+Profiles a process CPU, memory and IO performances, 
+it can be used as standalone program or as library.
+
+Author: Martino Ferrari (CS Group) <martino.ferrari@c-s.fr>
+License: GPLv3
 """
 import sys
 import os
@@ -14,7 +18,7 @@ import psutil
 from threading  import Thread
 from queue import Queue, Empty
 
-import gpt_utils as utils
+import core.tools as utils
 
 # Directory name constants
 __CSV_DIR__ = "csv"

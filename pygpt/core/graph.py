@@ -1,4 +1,9 @@
-"""GPT Graph drawing utils"""
+"""
+GPT Graph parser and drawer.
+
+Author: Martino Ferrari (CS Group) <martino.ferrari@c-s.fr>
+License: GPLv3
+"""
 from lxml import etree
 
 import math

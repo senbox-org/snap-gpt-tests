@@ -1,8 +1,14 @@
-"""utils library"""
-import os
+"""
+Loggin library supporting code inspection and different level of verbosity
+
+Author: Martino Ferrari (CS Group) <martino.ferrari@c-s.fr>
+License: GPLv3
+"""
+
 import datetime
 import sys
 import inspect
+import os
 
 from enum import Enum
 
@@ -26,19 +32,38 @@ class _LogLevel(Enum):
 
 
 # global variable for verbosity
-verbosity = Verbosity.VERBOSE
+__verbosity__ = Verbosity.VERBOSE
+
+def verbosity(*args):
+    """
+    Logging verbosity level.  
+    If no parameters are passed return current level 
+    of verbosity otherwise set a new level of verbosity.
+
+    Paramters:
+    ----------
+     - level: new verbosity level (OPTIONAL)
+    
+    Returns:
+    --------
+    Current verbosity level
+    """
+    global __verbosity__
+    if len(args) == 1 and isinstance(args[0], Verbosity):
+        __verbosity__ = args[0]
+    return __verbosity__
+
 
 
 def __msg__(level: _LogLevel, *args):
-    global verbosity
     # check verbosity
-    if verbosity == Verbosity.SUCCESS: 
+    if verbosity() == Verbosity.SUCCESS: 
         if level == _LogLevel.INFO:
             return
-    elif verbosity == Verbosity.WARNING:
+    elif verbosity() == Verbosity.WARNING:
         if not level in [_LogLevel.WARNING, _LogLevel.ERROR]:
             return
-    elif verbosity == Verbosity.ERROR:
+    elif verbosity() == Verbosity.ERROR:
         if level != _LogLevel.ERROR:
             return
 
@@ -56,41 +81,35 @@ def __msg__(level: _LogLevel, *args):
     print(now.strftime("%d/%m/%Y %H:%M:%S"), frame, f'{level.value}:', *args)
     sys.stdout.flush()
 
-def log(*args):
-    """log info"""
+def info(*args):
+    """Log info"""
     __msg__(_LogLevel.INFO, *args)
 
 def panic(*args):
-    """log error and exit 1"""
+    """Log error and exit 1"""
     __msg__(_LogLevel.ERROR, *args)
     sys.exit(1)
 
 def error(*args):
-    """log error"""
+    """Log error"""
     __msg__(_LogLevel.ERROR, *args)
 
 
 def warning(*args):
-    """log warning"""
+    """Log warning"""
     __msg__(_LogLevel.WARNING, *args) 
 
 def success(*args):
-    """log success"""
+    """Log success"""
     __msg__(_LogLevel.SUCCESS, *args)
 
-def mkdirs(path):
-    """make a directory tree"""
-    paths = os.path.abspath(path).split(os.sep)
-    crr = '/'
-    for pth in paths:
-        crr = os.path.join(crr, pth)
-        if not os.path.isdir(crr):
-            os.mkdir(crr)
 
 
 class Printable:
     """
-    simple auto-print function
+    Printable object:  
+    A printable object will print nicely all its public 
+    parameters and methods.
     """
     def __init__(self):
         pass
@@ -102,37 +121,31 @@ class Printable:
         res = f'{type(self).__name__}:'
         for key in self.__dict__:
             if private or not key.startswith('__'):
-                res += f'\n - {key}: {self.__dict__[key]}'
+                res += f'\n .{key}: {self.__dict__[key]}'
+        ctype = type(self)
+        for key in ctype.__dict__:
+            if not key.startswith('__') and key not in ['print', 'pretty_print']:
+                func = ctype.__dict__[key].__code__
+                params = ', '.join(func.co_varnames[1:])
+                res += f'\n .{key}({params})'
         return res
 
     def print(self, private=False):
         """
         compact print
         """
-        res = f'{type(self).__name__}['
+        res = f'{type(self).__name__}[ '
         for key in self.__dict__:
             if private or not key.startswith('__'):
-                res += f'.{key}: {self.__dict__[key]},'
-        return res[:-1]+']'
+                res += f'.{key}: {self.__dict__[key]}, '
+        ctype = type(self)
+        for key in ctype.__dict__:
+            if not key.startswith('__') and key not in ['print', 'pretty_print']:
+                func = ctype.__dict__[key].__code__
+                params = ', '.join(func.co_varnames[1:])
+                res += f'.{key}({params}), '
+        return res[:-2]+']'
 
 
     def __repr__(self):
         return self.print()
-
-def rlist_files(path, filter_fn=lambda _: True):
-    """
-    Recursively list files in all sub folder.
-
-    Parameters:
-    -----------
-     - path: path to explore
-     - filter_fn: optional filter function
-    """
-    res = []
-    for file in os.listdir(path):
-        file = os.path.join(path, file)
-        if os.path.isdir(file):
-            res += rlist_files(file, filter_fn)
-        elif filter_fn(file):
-            res.append(file)
-    return res

@@ -1,35 +1,47 @@
 """
-Report utils script
+Report generation script:
+Generates automatically the HTML report for the executed GPT tests.
+
+Author: Martino Ferrari (CS Group) <martino.ferrari@c-s.fr>
+License: GPLv3
 """
 import os
 import sys
 import datetime
 import json
 
-import temply as t
-import gpt_utils as utils
-import stats_db as sdb
+import core.temply as t
+import core.tools as utils
+import core.dbadaptor as sdb
+import core.log as log
 
 import matplotlib as mpl
-mpl.use('Agg') # use no graphical backend
+mpl.use('Agg') # use no graphical server needed
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 
 
-__base_path__ = "Report"
+# DATE TIME FORMAT STRINGS
 __datetime_fmt__ = '%d/%m/%Y %H:%M:%S'
 __sql_fmt__ = "%Y-%m-%d %H:%M:%S"
-__perf_dir__ = 'performances'
-__stats_dir__ = 'stats'
-__csv_dir__ = 'csv'
-__tests_dir__ = 'tests'
-__out_dir__ = 'output'
-__template_dir__ = '.'
-__image_dir__ = 'images'
-__plot_path__ = os.path.join('performances', 'plot')
 
-__db_path__ = None
-__adaptor__ = None
+# SOME USEFUL CONSTANTS
+__base_path__ = 'Report' # base path for report
+__perf_dir__ = 'performances' # folder containing perforamnces files
+__stats_dir__ = os.path.join(__perf_dir__, 'stats') # folder containing statistics file
+__csv_dir__ = os.path.join(__perf_dir__, 'csv') # folder containing CSV files
+__tests_dir__ = 'tests' # folder that will contains the test report html files
+__out_dir__ = 'output' # folder containing the stdout and stderr of the test executions
+__template_dir__ = 'templates' # folder containing the HTML templates
+__image_dir__ = 'images' # folder containing the graph images
+__plot_path__ = os.path.join(__perf_dir__, 'plot') # folder containing the performances plots
+
+__adaptor__ = None # optional DB adaptor
+
+
+def resolve_path(*path):
+    """create absolute path from relative to the base path"""
+    return os.path.join(__base_path__, *path)
 
 
 def __val_to_html__(value):
@@ -76,12 +88,7 @@ def __generate_pie__(name, passed, failed, skipped=0):
                 loc="center left",
                 bbox_to_anchor=(1, 0, 0.5, 1))
     axis.axis('square')  # Equal aspect ratio ensures that pie is drawn as a circle.
-    plt.savefig(os.path.join(__base_path__, __image_dir__, name), transparent=True)
-
-
-def resolve_path(*path):
-    """create absolute path from relative one"""
-    return os.path.join(__base_path__, *path)
+    plt.savefig(resolve_path(__image_dir__, name), transparent=True)
 
 def mkdir(*paths):
     """create dir if needed"""
@@ -94,12 +101,12 @@ def save_report(html, path):
     with open(path, 'w') as file:
         file.write(html)
 
-class Test(utils.Printable):
+class Test(log.Printable):
     """
     A single test result
     """
     def __init__(self, test_set, row):
-        utils.Printable.__init__(self)
+        log.Printable.__init__(self)
         self.name = row[0]
         self.status = row[3]
         self.start = datetime.datetime.strptime(row[1], __datetime_fmt__)
@@ -134,7 +141,7 @@ class Test(utils.Printable):
         return None
 
     def __load_perfs__(self):
-        perf_stats_file = resolve_path(__perf_dir__, __stats_dir__, self.name+'.json')
+        perf_stats_file = resolve_path(__stats_dir__, self.name+'.json')
         with open(perf_stats_file, 'r') as stats:
             return json.load(stats)
         return None
@@ -145,7 +152,7 @@ class Test(utils.Printable):
         """
         if self.stats is None:
             return None
-        csv_file = resolve_path(__perf_dir__, __csv_dir__ , self.name+'.csv')
+        csv_file = resolve_path(__csv_dir__ , self.name+'.csv')
         with open(csv_file, 'rb') as raw_data:
             return raw_data.read()
 
@@ -223,7 +230,7 @@ class Test(utils.Printable):
                 'reference': '-',
                 'average': '-'
             }
-            if __db_path__ is not None:    
+            if __adaptor__ is not None:    
                 db_key = key
                 if param == 'average':
                     db_key += '_avg'
@@ -265,7 +272,7 @@ class Test(utils.Printable):
             self.name+"_cpu_usage.png",
             self.name+"_memory_usage.png"
         ]
-        if __db_path__ is not None:
+        if __adaptor__ is not None:
             db_key = 'cpu_time_avg'
             times = __adaptor__.values(self.name, version, 'start')
             if len(times) == 0:
@@ -310,14 +317,14 @@ class Test(utils.Printable):
 def performance_report(test, version):
         """generate test perofmance report"""
         if test.is_skipped() or not test.stats:
-            utils.error("No stats found")
+            log.error("No stats found")
             return
         args = {
             'test_id' : test.name,
             'summary' : test.perf_summary(version),
             'plots'   : test.plots_path(version)
         }
-        if __db_path__ is None:
+        if __adaptor__ is None:
             with open(os.path.join(__template_dir__, 'perf_report_template.html'), 'r') as file:
                 template = t.Template(file.read())
         else:
@@ -325,19 +332,19 @@ def performance_report(test, version):
                 template = t.Template(file.read())
                 args['version'] = version
         if template is None:
-            utils.error("Unable to load template")
+            log.error("Unable to load template")
             return
 
         html = template.generate(**args)
         save_report(html, resolve_path(__tests_dir__, f'Performance_{test.name}.html'))
 
 
-class TestSet(utils.Printable):
+class TestSet(log.Printable):
     """
     Test Set (json test set) class
     """
     def __init__(self, name):
-        utils.Printable.__init__(self)
+        log.Printable.__init__(self)
         self.name = name
         self.tests = []
 
@@ -457,7 +464,7 @@ class TestSet(utils.Printable):
         with open(os.path.join(__template_dir__, 'gptTest_report_template.html'), 'r') as file:
             template = t.Template(file.read())
         if template is None:
-            utils.error("Unable to load template")
+            log.error("Unable to load template")
             return
         percent = round(100 * len(self.passed_tests())/len(self.tests), 2)
         html = template.generate(name=self.name,
@@ -522,7 +529,7 @@ def generate_html_report(base_path, scope, version):
     """
     test_sets = get_test_sets(base_path)
     if len(test_sets) == 0:
-        utils.error("no tests set found...")
+        log.error("no tests set found...")
         sys.exit(0)
     start_date = min([test_set.start_date() for test_set in test_sets])
     end_date = max([test_set.end_date() for test_set in test_sets])
@@ -534,7 +541,7 @@ def generate_html_report(base_path, scope, version):
     with open(os.path.join(__template_dir__, 'gptIndex_report_template.html'), 'r') as file:
         template = t.Template(file.read())
     if template is None:
-        utils.error("Unable to load template")
+        log.error("Unable to load template")
         return
     failedjson = len(list(filter(lambda x: x.is_failed(), test_sets)))
     failedtest = sum([len(x.failed_tests()) for x in test_sets])
@@ -570,11 +577,11 @@ if __name__ == '__main__':
     __template_dir__ = ARGS[1]
     try:
         if len(ARGS) == 6:
-            __db_path__ = ARGS[5]
-            __adaptor__ = sdb.adaptor(__db_path__)
+            DB_PATH = ARGS[5]
+            __adaptor__ = sdb.adaptor(DB_PATH)
             __adaptor__.open()
         generate_html_report(ARGS[2], ARGS[3], ARGS[4])
-        utils.success('report generated successfully')
+        log.success('report generated successfully')
     finally:
         if __adaptor__ is not None:
             __adaptor__.close()

@@ -1,6 +1,9 @@
 """
 Simple yet versatile template library in python.
 You can find an example at the end of this file.
+
+Author: Martino Ferrari <manda.mgf@gmail.com>
+License: GPLv3
 """
 import re
 from enum import Enum
