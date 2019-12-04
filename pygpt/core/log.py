@@ -114,20 +114,24 @@ class Printable:
     def __init__(self):
         pass
 
-    def pretty_print(self, private=False):
+    def pprint(self, private=False):
         """
         pretty print
         """
         res = f'{type(self).__name__}:'
         for key in self.__dict__:
-            if private or not key.startswith('__'):
+            if private or not key.startswith('_'):
                 res += f'\n .{key}: {self.__dict__[key]}'
         ctype = type(self)
         for key in ctype.__dict__:
-            if not key.startswith('__') and key not in ['print', 'pretty_print']:
-                func = ctype.__dict__[key].__code__
-                params = ', '.join(func.co_varnames[1:])
-                res += f'\n .{key}({params})'
+            if not key.startswith('_') and key not in ['print', 'pretty_print']:
+                obj = ctype.__dict__[key]
+                if isinstance(obj, property):
+                    res += f'\n .{key}: {obj.fget(self)}'
+                else:
+                    func = obj.__code__
+                    params = ', '.join(func.co_varnames[1:])
+                    res += f'\n .{key}({params})'
         return res
 
     def print(self, private=False):
@@ -136,15 +140,19 @@ class Printable:
         """
         res = f'{type(self).__name__}[ '
         for key in self.__dict__:
-            if private or not key.startswith('__'):
+            if private or not key.startswith('_'):
                 res += f'.{key}: {self.__dict__[key]}, '
         ctype = type(self)
         for key in ctype.__dict__:
-            if not key.startswith('__') and key not in ['print', 'pretty_print']:
-                func = ctype.__dict__[key].__code__
-                params = ', '.join(func.co_varnames[1:])
-                res += f'.{key}({params}), '
-        return res[:-2]+']'
+            if not key.startswith('_') and key not in ['print', 'pretty_print']:
+                obj = ctype.__dict__[key]
+                if isinstance(obj, property):
+                    res += f'.{key}: {obj.fget(self)}, '
+                else:
+                    func = obj.__code__
+                    params = ', '.join(func.co_varnames[1:])
+                    res += f'.{key}({params}), '
+        return (res[:-2] if res.endswith(', ') else res[:-1]) +']'
 
 
     def __repr__(self):
