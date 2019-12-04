@@ -296,7 +296,7 @@ def __run_test__(test, args, properties):
     gpt_bin = os.path.join(snap_dir, 'gpt') # gpt binary
     gpt_parameters = [gpt_bin] # gpt command and arguments
     # graph to test
-    gpt_parameters.append(os.path.join(properties['graphFolder'], test['graphPath']))
+    gpt_parameters.append(os.path.join(properties['graphFolder'], test['graphpath']))
     gpt_parameters += __vm_parameters__(test, snap_dir) # java vm parameters (if any)
     gpt_parameters += __io_parameters__(test, properties) # custom test parameters
     log.info(f'execute: `{" ".join(gpt_parameters)}`') # DEBUG print
