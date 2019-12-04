@@ -6,7 +6,7 @@ import sys
 import datetime
 import json
 
-import template as t
+import temply as t
 import gpt_utils as utils
 import stats_db as sdb
 
@@ -113,6 +113,9 @@ class Test(utils.Printable):
         else:
             self.stats = None
             self.stdout = None
+
+    def uuid(self):
+        return self.name.replace(' ', '_').replace('.', '_')
 
     def __load_json__(self):
         json_path = resolve_path(self.json_path)
