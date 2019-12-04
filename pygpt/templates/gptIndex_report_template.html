@@ -129,9 +129,9 @@
               {{foreach .test in .test_set.tests}}
                 {{switch .test.status}}
                   {{case "PASSED"}}
-                    <a href="#{{.test.name}}_stdout" data-toggle="collapse" data-parent="#tab_container" aria-expanded="false"><img width="16" height="16" src="icons/green.png"></a>
+                    <a href="#{{.test.uuid}}_stdout" data-toggle="collapse" data-parent="#tab_container" aria-expanded="false"><img width="16" height="16" src="icons/green.png"></a>
                   {{case "FAILED"}}
-                    <a href="#{{.test.name}}_stdout" data-toggle="collapse" data-parent="#tab_container" aria-expanded="false"><img width="16" height="16" src="icons/red.png"></a>
+                    <a href="#{{.test.uuid}}_stdout" data-toggle="collapse" data-parent="#tab_container" aria-expanded="false"><img width="16" height="16" src="icons/red.png"></a>
                   {{case "SKIPPED"}}
                     <img width="16" height="16" src="icons/orange.png">
                 {{end}}
@@ -145,7 +145,7 @@
                   {{case "SKIPPED"}}
                   {{default}}
                     <div class="panel invisibletab">
-                      <div class="collapse" aria-expanded="false" id="{{.test.name}}_stdout">
+                      <div class="collapse" aria-expanded="false" id="{{.test.uuid}}_stdout">
                         <div class="well">
                           <b>{{.test.name}}</b>
                           <hr class="dark_hr">
