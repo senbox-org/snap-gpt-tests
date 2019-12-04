@@ -7,6 +7,8 @@ License: GPLv3
 """
 from enum import Enum
 
+import core.log as log
+
 
 class TestScope(Enum):
     """
@@ -89,3 +91,15 @@ class TestScope(Enum):
         """
         targets = [TestScope.init(x) for x in str(targets).split('/')]
         return any([TestScope.compatible(source, x) for x in targets])
+
+
+class Test(log.Printable):
+    """
+    Represents a test and its configuration using the information
+    stored in the json file and on the XML graph.
+    """
+
+class TestReuslt(log.Printable):
+    """
+    Represents the results of execution of a test
+    """
