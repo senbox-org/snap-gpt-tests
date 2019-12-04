@@ -117,7 +117,7 @@ def __vm_parameters__(test, snap_dir):
     """
     Prepare list of arguments for the Java VM
     """
-    config_vm = None if not 'configVM' in test else test['configVM']
+    config_vm = None if not 'configvm' in test else test['configvm']
     if not config_vm:
         return ['-q', '4']
     params = []

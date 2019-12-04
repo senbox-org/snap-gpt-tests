@@ -129,9 +129,9 @@ class Test(log.Printable):
         with open(json_path, 'r') as info:
             struct = json.load(info)
             param = 'Default configuration'
-            if 'configVM' in struct and struct['configVM']:
-                param = struct['configVM']
-            return struct['graphPath'][:-4], param if param else 'Default configuration', struct
+            if 'configvm' in struct and struct['configvm']:
+                param = struct['configvm']
+            return struct['graphpath'][:-4], param if param else 'Default configuration', struct
         return None, None, None
 
     def __load_stdout__(self):
