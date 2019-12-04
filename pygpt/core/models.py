@@ -93,6 +93,16 @@ class TestScope(Enum):
         return any([TestScope.compatible(source, x) for x in targets])
 
 
+def __normalize_struct__(struct):
+    """
+    Normalize struct by putting keys in lower case.
+    """
+    res = {}
+    for item in struct.items():
+        res[str(item[0]).lower()] = item[1]
+    return res
+
+
 class Test(log.Printable):
     """
     Represents a test and its configuration using the information
@@ -103,14 +113,95 @@ class Test(log.Printable):
      - struct: json data structure
      - source_path: source json path
     """
-    def __init__(self, struct, source_path):
+    def __init__(self, struct, source_path=None):
         super().__init__()
-        struct['json_file'] = source_path # add the source information to the data structure
-        self.raw_json = struct
-        self.name = struct['id']
-        
+        if source_path is not None:
+            # add the source information to the data structure
+            struct['json_file'] = source_path 
+        self._raw = __normalize_struct__(struct)
+        self._name = struct['id']
     
-class TestReuslt(log.Printable):
+    @property
+    def name(self):
+        """
+        Test name.
+        """
+        return self._name
+    
+    @property
+    def uuid(self):
+        """
+        Test UUID is the name replacing `.` and ` ` with `_`.
+        """
+        return self._name.replace(' ', '_').replace('.', '_')
+
+    @property
+    def author(self):
+        """
+        Test author, it should contains the organization as well.
+        """
+        return self._raw['author']
+
+    @property
+    def description(self):
+        """
+        Test description.
+        """
+        return self._raw['description']
+    
+    @property
+    def frequency(self):
+        """
+        Test frequency, a string containing all the frequency tags 
+        separated by '/'.
+        """
+        return self._raw['frequency']
+
+    @property
+    def graph_path(self):
+        """
+        Path of the graph.
+        """
+        return self._raw['graphpath']
+
+    @property
+    def source_path(self):
+        """
+        Source TestSet JSON path.
+        """
+        return self._raw['json_file']
+    
+    @property
+    def inputs(self):
+        """
+        Graph inputs definition.
+        """
+        return self._raw['inputs']
+    
+    @property
+    def outputs(self):
+        """
+        Resulting outputs with optional expected value.
+        """
+        return self._raw['outputs']
+
+    @property
+    def parameters(self):
+        """
+        Additional needed graph parameters.
+        """
+        return self._raw['parameters']
+    
+    @property
+    def jvm_config(self):
+        """
+        """
+        if 'configvm' in self._raw:
+            return self._raw['configvm']
+        return None
+
+
+class TestReuslt(log.Printable, Test):
     """
     Represents the results of execution of a test
     """
