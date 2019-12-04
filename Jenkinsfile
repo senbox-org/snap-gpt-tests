@@ -79,7 +79,7 @@ def launchJobsSeq(jsonString, scope, outputDir, saveOutput) {
             sh "mkdir -p ${outputDir}/report"
             sh "mkdir -p /home/snap/tmpDir"
             try {
-                sh "export LD_LIBRARY_PATH=. && python3 -u ${outputDir}/snap_gpt_test.py '/home/snap/snap/jre/bin/java' '-Dncsa.hdf.hdflib.HDFLibrary.hdflib=/home/snap/snap/snap/modules/lib/amd64/libjhdf.so -Dncsa.hdf.hdf5lib.H5.hdf5lib=/home/snap/snap/snap/modules/lib/amd64/libjhdf5.so -cp ${outputDir}/gptExecutorTarget/TestOutput.jar' 'org.esa.snap.test.TestOutput' /opt/snap-gpt-tests/gpt-tests-executer.properties \"${scope}\" ${currentJsonFile} ${outputDir}/report ${saveOutput}"            
+                sh "export LD_LIBRARY_PATH=. && python3 -u ${outputDir}/pygpt/snap_gpt_test.py '/home/snap/snap/jre/bin/java' '-Dncsa.hdf.hdflib.HDFLibrary.hdflib=/home/snap/snap/snap/modules/lib/amd64/libjhdf.so -Dncsa.hdf.hdf5lib.H5.hdf5lib=/home/snap/snap/snap/modules/lib/amd64/libjhdf5.so -cp ${outputDir}/gptExecutorTarget/TestOutput.jar' 'org.esa.snap.test.TestOutput' /opt/snap-gpt-tests/gpt-tests-executer.properties \"${scope}\" ${currentJsonFile} ${outputDir}/report ${saveOutput}"            
             } catch (all) {
                 echo "A test failed"
                 status = false
@@ -129,7 +129,7 @@ pipeline {
                 echo "Copy build to working directory..."
                 sh "cp -r ./gpt-tests-executer/target/ ${outputDir}/gptExecutorTarget"
                 sh "ls  ${outputDir}/gptExecutorTarget"
-                sh "cp ./pygpt/*.py ${outputDir}/" // << Copy profiler and libraries
+                sh "cp -R ./pygpt/ ${outputDir}/pygpt" // << Copy profiler and libraries
                 sh "cp -R ./pygpt/templates ${outputDir}/templates" 
                 sh "cp -R ./pygpt/statics ${outputDir}/statics" 
             }
