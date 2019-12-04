@@ -369,8 +369,8 @@ def __draw_graph__(test, properties, args):
     """
     Draw the diagram of the graph using the custom graph_drawer.
     """
-    graph_path = os.path.join(properties['graphFolder'], test['graphPath'])
-    image_path = os.path.join(args.report_dir, 'images', test['graphPath'])
+    graph_path = os.path.join(properties['graphFolder'], test.graph_path)
+    image_path = os.path.join(args.report_dir, 'images', test.graph_path)
     image_path = os.path.splitext(image_path)[0] + '.png'
     utils.mkdirs(os.path.dirname(image_path))
     graph.draw(graph_path, image_path)
@@ -380,10 +380,10 @@ def __save_json__(test, args):
     """
     Save test json individually into the report folder.
     """
-    path = os.path.join(args.report_dir, 'json', f"{test['id']}.json")
+    path = os.path.join(args.report_dir, 'json', f"{test.name}.json")
     utils.mkdirs(os.path.dirname(path))
     with open(path, 'w') as file:
-        file.write(json.dumps(test))
+        file.write(json.dumps(test._raw))
 
 
 def __copy_output__(test, args, properties):
@@ -448,7 +448,6 @@ def __run_tests__(args, properties):
         count = 0
         for test in test_list:
             # for each tests
-            test['json_file'] = args.json_path
             count += 1
             print() # empty line here
             log.info(f"Test [{count}/{len(test_list)}]")                
@@ -457,9 +456,9 @@ def __run_tests__(args, properties):
             print(test.pprint())
             print("END  ------")
             log.info(f"saving json file for test `{test.name}`")
-            __save_json__(test._raw, args) # save raw json copy
+            __save_json__(test, args) # save raw json copy
             log.info(f"drawing graph for test `{test.name}`")
-            __draw_graph__(test._raw, properties, args) # make the graph image
+            __draw_graph__(test, properties, args) # make the graph image
             log.info(f"preparing test `{test.name}`")
             start = datetime.datetime.now().strftime(__DATE_FMT__) # stats
             output += f'{test.name} - {start}'
@@ -483,7 +482,7 @@ def __run_tests__(args, properties):
                     log.success(f"test `{test.name}` succeded")
                 if not result and not isinstance(TestScope.init(args.scope), TestScope):
                     # copy output files
-                    __copy_output__(test, args, properties)
+                    __copy_output__(test._raw, args, properties)
     json_name = os.path.split(args.json_path)[-1]
     report_path = os.path.join(args.report_dir, f'Report_{json_name[:-5]}.txt')
     with open(report_path, 'w') as file:
