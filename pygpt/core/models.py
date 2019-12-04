@@ -97,8 +97,19 @@ class Test(log.Printable):
     """
     Represents a test and its configuration using the information
     stored in the json file and on the XML graph.
-    """
 
+    Parameters:
+    -----------
+     - struct: json data structure
+     - source_path: source json path
+    """
+    def __init__(self, struct, source_path):
+        super().__init__()
+        struct['json_file'] = source_path # add the source information to the data structure
+        self.raw_json = struct
+        self.name = struct['id']
+        
+    
 class TestReuslt(log.Printable):
     """
     Represents the results of execution of a test
