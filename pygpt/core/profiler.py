@@ -190,6 +190,7 @@ class FileManager:
         plt.title("CPU Usage")
         if self.__file_mode__:
             plt.savefig(os.path.join(self.path_plt, self.path_fname+"_cpu_usage.png"))
+            plt.close()
 
         # plot memory usage
         plt.figure(figsize=(10, 7))
@@ -200,6 +201,7 @@ class FileManager:
         plt.title("Memory Usage")
         if self.__file_mode__:
             plt.savefig(os.path.join(self.path_plt, self.path_fname+"_memory_usage.png"))
+            plt.close()
 
         # plot io activity
         plt.figure(figsize=(10, 7))
@@ -212,7 +214,8 @@ class FileManager:
         plt.title("Disk IO Activity")
         if self.__file_mode__:
             plt.savefig(os.path.join(self.path_plt, self.path_fname+"_IO_usage.png"))
-
+            plt.close()
+        
         # show results if no output is defined
         if not self.__file_mode__:
             plt.show()
