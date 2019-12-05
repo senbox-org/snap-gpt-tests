@@ -9,6 +9,7 @@ import json
 
 import core.log as log
 import core.fs as fs
+import core.temply as t
 
 from core.models import Test
 
@@ -224,6 +225,31 @@ class TestReuslt(Test):
         return plots
 
 
+    def performance_report(self, version):
+        """generate test perofmance report"""
+        if self.is_skipped() or not self._stats:
+            log.error("No stats found")
+            return
+        args = {
+            'test_id' : test.name,
+            'summary' : test.perf_summary(version),
+            'plots'   : test.plots_path(version)
+        }
+        if self.__adaptor__ is None:
+            with open(fs.templates.resolve('perf_report_template.html'), 'r') as file:
+                template = t.Template(file.read())
+        else:
+            with open(fs.templates.resolve('perf_report_with_history_template.html'), 'r') as file:
+                template = t.Template(file.read())
+                args['version'] = version
+        if template is None:
+            log.error("Unable to load template")
+            return
+
+        html = template.generate(**args)
+        with open(fs.tests.resolve(f'Performance_{test.name}.html'), 'w') as file:
+            file.write(html)
+
 
 
 class TestResutlSet(log.Printable):
@@ -231,3 +257,144 @@ class TestResutlSet(log.Printable):
     Set of tests representing the result of a single JSON 
     tests set.
     """
+    def __init__(self, name):
+        log.Printable.__init__(self)
+        self.name = name
+        self.tests = []
+
+    @property
+    def duration(self):
+        """
+        Total duration in seconds
+        """
+        duration = 0
+        for test in self.tests:
+            duration += test.duration
+        return duration
+
+    @property
+    def memory_max(self):
+        """
+        maximum useage of memory
+        """
+        if self.tests:
+            return max([test.memory_max for test in self.tests])
+        return 0
+
+    @property
+    def memory_avg(self):
+        """
+        average usage of memory
+        """
+        if self.tests:
+            return round(sum([test.memory_avg for test in self.tests]) / len(self.tests))
+        return 0
+
+    @property
+    def start_date(self):
+        """
+        start datetime
+        """
+        if self.tests:
+            return min([test.start for test in self.tests])
+        return datetime.date(datetime.MAXYEAR, 1, 1)
+
+    @property
+    def end_date(self):
+        """
+        end datetime
+        """
+        if self.tests:
+            return max([test.end for test in self.tests])
+        return datetime.date(datetime.MINYEAR, 1, 1)
+
+    def failed_tests(self):
+        """
+        list of failed tests
+        """
+        return list(filter(lambda test: test.is_failed(), self.tests))
+
+    def passed_tests(self):
+        """
+        list of passed tests
+        """
+        return list(filter(lambda test: test.is_passed(), self.tests))
+
+    def skipped_tests(self):
+        """
+        list of skipped tests
+        """
+        return list(filter(lambda test: test.is_skipped(), self.tests))
+
+    def is_skipped(self):
+        """
+        is skipped flag
+        """
+        return not self.is_failed() and not self.is_passed()
+
+    def is_failed(self):
+        """
+        is failed flag
+        """
+        return any([test.is_failed() for test in self.tests])
+
+    def is_passed(self):
+        """
+        is passed flag
+        """
+        return all([test.is_passed() for test in self.tests])
+
+    @property
+    def status(self):
+        """
+        status of the test set
+        """
+        if self.is_failed():
+            return 'FAILED'
+        if self.is_passed():
+            return 'PASSED'
+        return 'SKIPPED'
+
+    @property
+    def real_duration(self):
+        """real elapsed time"""
+        return int((self.end_date() - self.start_date()).total_seconds())
+
+    def generate_html_report(self, scope, version):
+        """
+        Generates html reports for the given test execution.
+
+        Paramters:
+        ----------
+         - base_path: path containing all results of the execution
+        """
+        mkdir(__tests_dir__)
+        template = None
+        with open(os.path.join(__template_dir__, 'gptTest_report_template.html'), 'r') as file:
+            template = t.Template(file.read())
+        if template is None:
+            log.error("Unable to load template")
+            return
+        percent = round(100 * len(self.passed_tests())/len(self.tests), 2)
+        html = template.generate(name=self.name,
+                                 start_date=self.start_date(),
+                                 duration=f'{self.duration()} s',
+                                 scope=scope,
+                                 operating_system=sys.platform,
+                                 version=version,
+                                 total=len(self.tests),
+                                 failed_tests=len(self.failed_tests()),
+                                 passed_tests=len(self.passed_tests()),
+                                 percent=percent,
+                                 real_duration=f'{self.real_duration()} s',
+                                 tests=self.tests
+                                )
+        __generate_pie__(f'{self.name}_pie.png',
+                         len(self.passed_tests()),
+                         len(self.failed_tests()),
+                         len(self.skipped_tests())
+                        )
+        save_report(html, resolve_path(__tests_dir__, f'Report_{self.name}.html'))
+        # generate perofmance report for each test
+        for test in self.tests:
+            performance_report(test, version)
