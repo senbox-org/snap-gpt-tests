@@ -113,14 +113,14 @@ def __check_args__(args):
         sys.exit(1)
 
 
-def __vm_parameters__(test, snap_dir):
+def __vm_parameters_set__(test, snap_dir):
     """
     Prepare list of arguments for the Java VM
     """
-    config_vm = None if not 'configvm' in test else test['configvm']
+    config_vm = test.jvm_config
     if not config_vm:
-        return ['-q', '4']
-    params = []
+        return
+  
     # set memory setting to configuration file
     if 'xmx' in config_vm:
         vm_option = os.path.join(snap_dir, 'gpt.vmoptions')
@@ -135,20 +135,13 @@ def __vm_parameters__(test, snap_dir):
                     modified_str += line
         with open(vm_option, 'w') as file:
             file.write(modified_str)
-    # add extra args
-    params.append('-c')
-    params.append(config_vm['cacheSize'])
-    params.append('-q')
-    params.append(config_vm['parallelism'])
-
-    return params
 
 
 def __vm_parameters_reset__(test, snap_dir):
     """
     Reset Java VM paramters
     """
-    config_vm = None if not 'configVM' in test else test['configVM']
+    config_vm = test.jvm_config
     if not config_vm:
         return
     if 'xmx' in config_vm:
@@ -157,54 +150,6 @@ def __vm_parameters_reset__(test, snap_dir):
         shutil.copy2(vm_original, vm_option)
         os.remove(vm_original)
     return
-
-
-def __perpare_param__(value, properties):
-    """
-    Prepare parameter with custom values
-    """
-    if isinstance(value, str):
-        value = value.replace('$graphFolder', properties['graphFolder'])
-        value = value.replace('$inputFolder', properties['inputFolder'])
-        value = value.replace('$expectedOutputFolder', properties['expectedOutputFolder'])
-        value = value.replace('$tempFolder', properties['tempFolder'])
-    return value
-
-
-def __io_parameters__(test, properties):
-    """
-    Flag for the test parameters (inputs, outputs and paramters)
-
-    Paramters:
-    ----------
-     - json: test json object
-     - properties: test properties
-
-    Returns:
-    --------
-    return list of arguments containing the custom paramters
-    """
-    params = [] # list of arguments
-    # prepare inputs
-    for in_key in test['inputs']:
-        in_value = __perpare_param__(test['inputs'][in_key], properties)
-        in_value = os.path.join(properties['inputFolder'], in_value)
-        params.append(f'-P{in_key}={in_value}')
-
-    # prepare paramters
-    for param_key in test['parameters']:
-        param = __perpare_param__(test['parameters'][param_key], properties)
-        params.append(f'-P{param_key}={param}')
-
-    # prepare outputs
-    for output in test['outputs']:
-        out_key = output['parameter']
-        out_value = __perpare_param__(output['outputName'], properties)
-        out_value = os.path.join(properties['tempFolder'], out_value)
-        params.append(f'-P{out_key}={out_value}')
-
-    return params
-
 
 def __find_output__(output, folder):
     """
@@ -248,13 +193,13 @@ def __check_outputs__(test, args, properties):
     --------
     output_conformity, stdout 
     """
-    for output in test['outputs']:
+    for output in test.outputs:
         if 'expected' in output and output['expected'] is not None and output['expected'] != "":
             # check output
             log.info(f'comparing {output["outputName"]} with {output["expected"]}')
             output_path = __find_output__(output, properties['tempFolder'])
             if output_path is None:
-                log.error(f'test `{test["id"]}` failed, output {output["outputName"]} not found')
+                log.error(f'test `{test.name}` failed, output {output["outputName"]} not found')
                 return False
             expected_output_path = os.path.join(properties['expectedOutputFolder'],
                                                 output['expected'])
@@ -264,13 +209,13 @@ def __check_outputs__(test, args, properties):
             result = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
             log.info(f'comparing done, result: {result.returncode}')
             stdout = result.stdout.decode('utf-8')
-            stdout_file = os.path.join(args.report_dir, f'{test["id"]}_gptOutput.txt')
+            stdout_file = os.path.join(args.report_dir, f'{test.name}_gptOutput.txt')
             
             with open(stdout_file, 'a') as file:
                 file.write(stdout)
         
             if result.returncode != 0:
-                log.error(f"test `{test['id']}` failed:\n{stdout}")  
+                log.error(f"test `{test.name}` failed:\n{stdout}")  
                 return False, stdout
 
     return True, stdout
@@ -296,13 +241,14 @@ def __run_test__(test, args, properties):
     gpt_bin = os.path.join(snap_dir, 'gpt') # gpt binary
     gpt_parameters = [gpt_bin] # gpt command and arguments
     # graph to test
-    gpt_parameters.append(os.path.join(properties['graphFolder'], test['graphpath']))
-    gpt_parameters += __vm_parameters__(test, snap_dir) # java vm parameters (if any)
-    gpt_parameters += __io_parameters__(test, properties) # custom test parameters
+    gpt_parameters.append(os.path.join(properties['graphFolder'], test.graph_path))
+    gpt_parameters += test.gpt_parameters() 
+    # prepare JVM settings if needed
+    __vm_parameters_set__(test, snap_dir)
     log.info(f'execute: `{" ".join(gpt_parameters)}`') # DEBUG print
     if profiling:
         # output directory for the profiling
-        output_dir = os.path.join(args.report_dir, test['id'])
+        output_dir = os.path.join(args.report_dir, test.name)
         res, stdout = profiler.profile(gpt_parameters,
                                        0.2,
                                        output_dir,
@@ -318,7 +264,7 @@ def __run_test__(test, args, properties):
     __vm_parameters_reset__(test, snap_dir)
 
     # gpt Ouput file to store the ouput of the previous test execution
-    stdout_file = os.path.join(args.report_dir, f'{test["id"]}_gptOutput.txt')
+    stdout_file = os.path.join(args.report_dir, f'{test.name}_gptOutput.txt')
     with open(stdout_file, 'w') as file:
         file.write(stdout)
 
@@ -326,22 +272,22 @@ def __run_test__(test, args, properties):
         res = 0
 
     # if a result output is configuated 
-    if 'result' in test:
-        if test['result']['status'] and res > 0:
+    if test.result is not None:
+        if test.result['status'] and res > 0:
             # the process should not have failed
             return False
-        elif not test['result']['status'] and test['result']['source'] == 'process':
+        elif not test.result['status'] and test.result['source'] == 'process':
             # the process should fail graciously
             if res == 0:
                 # process succeded and should have failed
-                log.error(f'test `{test["id"]}` was supposed to fail')
+                log.error(f'test `{test.name}` was supposed to fail')
                 return False
-            elif not test['result']['message'].lower() in stdout.lower():
+            elif not test.result['message'].lower() in stdout.lower():
                 # process failed but with a different message than expected
-                log.error(f'test `{test["id"]}` was suppoed to fail with message `{test["result"]["message"]}`')
+                log.error(f'test `{test.name}` was suppoed to fail with message `{test.result["message"]}`')
                 return False
             else: 
-                log.success(f'test `{test["id"]}` failed succesfully')
+                log.success(f'test `{test.name}` failed succesfully')
                 return True
     # if the execution result is not 0 return False
     elif res > 0:
@@ -349,17 +295,17 @@ def __run_test__(test, args, properties):
     
     # check outputs
     conformity, check_stdout = __check_outputs__(test, args, properties)
-    if 'result' in test:
-        if test['result']['status']:
+    if test.result is not None:
+        if test.result['status']:
             return conformity
         elif conformity:
-            log.error(f'conformity test for `{test["id"]}` was supposed to fail')
+            log.error(f'conformity test for `{test.name}` was supposed to fail')
             return False
-        elif not test['result']['message'].lower() in check_stdout.lower():
-            log.error(f'conformity test for `{test["id"]}` was suppoed to fail with message `{test["result"]["message"]}`')
+        elif not test.result['message'].lower() in check_stdout.lower():
+            log.error(f'conformity test for `{test.name}` was suppoed to fail with message `{test.result["message"]}`')
             return False
         else:
-            log.success(f'conformity test `{test["id"]}` failed succesfully')
+            log.success(f'conformity test `{test.name}` failed succesfully')
             return True
     else:
         return conformity
@@ -394,7 +340,7 @@ def __copy_output__(test, args, properties):
     if lazy_bool(args.save_output):
         log.info('coping output products to `report/output` folder')
         files = os.listdir(properties['tempFolder'])
-        for output in test['outputs']:
+        for output in test.outputs:
             name = output['outputName']
             for fname in [f for f in files if f.startswith(name)]:
                 fpath = os.path.join(properties['tempFolder'], fname)
@@ -470,7 +416,7 @@ def __run_tests__(args, properties):
                 log.info(f"Test `{test.name}`")
                 log.info(f'-- Author: {test.author}')
                 log.info(f'-- Description: {test.description}')
-                result = __run_test__(test._raw, args, properties)
+                result = __run_test__(test, args, properties)
                 end = datetime.datetime.now().strftime(__DATE_FMT__)
                 log.info(f"finish test `{test.name}`")
                 passed = passed and result
@@ -482,7 +428,7 @@ def __run_tests__(args, properties):
                     log.success(f"test `{test.name}` succeded")
                 if not result and not isinstance(TestScope.init(args.scope), TestScope):
                     # copy output files
-                    __copy_output__(test._raw, args, properties)
+                    __copy_output__(test, args, properties)
     json_name = os.path.split(args.json_path)[-1]
     report_path = os.path.join(args.report_dir, f'Report_{json_name[:-5]}.txt')
     with open(report_path, 'w') as file:
