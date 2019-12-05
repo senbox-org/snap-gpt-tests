@@ -216,6 +216,13 @@ class Test(log.Printable):
             return self._raw['configvm']
         return None
 
+    @property
+    def result(self):
+        if 'result' in self._raw:
+            return self._raw['result']
+        return None
+    
+
     def gpt_parameters(self, properties):
         """
         Returns gpt parameters for the given test
@@ -259,14 +266,3 @@ class Test(log.Printable):
         Check compatibility of test scope with test.
         """
         return TestScope.compatibleN(testscope, self.frequency)
-
-class TestReuslt(Test):
-    """
-    Represents the results of execution of a test
-    """
-
-class TestResutlSet(log.Printable):
-    """
-    Set of tests representing the result of a single JSON 
-    tests set.
-    """
