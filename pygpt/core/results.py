@@ -5,6 +5,7 @@ Author: Martino Ferrari (CS Group) <martino.ferrari@c-s.fr>
 License: GPLv3
 """
 import datetime
+import sys
 import json
 
 import core.log as log
@@ -257,10 +258,15 @@ class TestResutlSet(log.Printable):
     Set of tests representing the result of a single JSON 
     tests set.
     """
-    def __init__(self, name):
+    def __init__(self, name, tests):
         log.Printable.__init__(self)
         self.name = name
-        self.tests = []
+        self._tests = tests
+
+    @property
+    def tests(self):
+        return self._tests
+    
 
     @property
     def duration(self):
@@ -368,17 +374,17 @@ class TestResutlSet(log.Printable):
         ----------
          - base_path: path containing all results of the execution
         """
-        mkdir(__tests_dir__)
+        fs.mkdir(fs.tests.path)
         template = None
-        with open(os.path.join(__template_dir__, 'gptTest_report_template.html'), 'r') as file:
+        with open(fs.templates.resolve('gptTest_report_template.html'), 'r') as file:
             template = t.Template(file.read())
         if template is None:
             log.error("Unable to load template")
             return
         percent = round(100 * len(self.passed_tests())/len(self.tests), 2)
         html = template.generate(name=self.name,
-                                 start_date=self.start_date(),
-                                 duration=f'{self.duration()} s',
+                                 start_date=self.start_date,
+                                 duration=f'{self.duration} s',
                                  scope=scope,
                                  operating_system=sys.platform,
                                  version=version,
@@ -386,7 +392,7 @@ class TestResutlSet(log.Printable):
                                  failed_tests=len(self.failed_tests()),
                                  passed_tests=len(self.passed_tests()),
                                  percent=percent,
-                                 real_duration=f'{self.real_duration()} s',
+                                 real_duration=f'{self.real_duration} s',
                                  tests=self.tests
                                 )
         __generate_pie__(f'{self.name}_pie.png',
@@ -394,7 +400,8 @@ class TestResutlSet(log.Printable):
                          len(self.failed_tests()),
                          len(self.skipped_tests())
                         )
-        save_report(html, resolve_path(__tests_dir__, f'Report_{self.name}.html'))
+        with open(fs.tests.resolve(f'Report_{self.name}.html'), 'r') as file:
+            file.write(html)
         # generate perofmance report for each test
         for test in self.tests:
-            performance_report(test, version)
+            test.performance_report(version)
