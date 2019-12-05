@@ -449,7 +449,10 @@ class _Context:
                 return value[index]
        # check if is a method of an object
         if hasattr(type(value), key):
-            return getattr(type(value), key)(value)
+            func = getattr(type(value), key)
+            if isinstance(func, property):
+                return func.fget(value)
+            return func(value)
         # check if is an attribute of an object
         if hasattr(value, key):
             return getattr(value, key)
