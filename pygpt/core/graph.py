@@ -159,3 +159,4 @@ def draw(source, dest, dpi=100):
 
         plt.axis('off')
         plt.savefig(dest, transparent=True)
+        plt.close()
