@@ -242,7 +242,7 @@ def __run_test__(test, args, properties):
     gpt_parameters = [gpt_bin] # gpt command and arguments
     # graph to test
     gpt_parameters.append(os.path.join(properties['graphFolder'], test.graph_path))
-    gpt_parameters += test.gpt_parameters() 
+    gpt_parameters += test.gpt_parameters(properties) 
     # prepare JVM settings if needed
     __vm_parameters_set__(test, snap_dir)
     log.info(f'execute: `{" ".join(gpt_parameters)}`') # DEBUG print
@@ -351,32 +351,6 @@ def __copy_output__(test, args, properties):
                     shutil.copy2(fpath, dpath)
 
 
-def __print_stats__():
-    """ print docker info """
-    print("MEMINFO----")
-    with open('/proc/meminfo', 'r') as meminfo:
-        print(''.join(meminfo.readlines()[:3]), end='')
-
-
-def pprint(test, starts=''):
-    """pretty print test"""
-    if isinstance(test, dict):
-        for key in test:
-            value = test[key]
-            if isinstance(value, str):
-                print(f'{starts}.{key}: {value}')
-            else:
-                print(f'{starts}.{key}:')
-                pprint(value, ' '+starts)
-    elif isinstance(test, list):
-        for value in test:
-            if isinstance(value, str):
-                print(f'{starts}- {value}')
-            else:
-                print(f'{starts}+ object:')
-                pprint(value, '  '+starts)
-
-
 def __run_tests__(args, properties):
     """
     Execute list of test of a json file
@@ -397,10 +371,6 @@ def __run_tests__(args, properties):
             count += 1
             print() # empty line here
             log.info(f"Test [{count}/{len(test_list)}]")                
-            __print_stats__() # print server stats
-            print("TEST ------")
-            print(test.pprint())
-            print("END  ------")
             log.info(f"saving json file for test `{test.name}`")
             __save_json__(test, args) # save raw json copy
             log.info(f"drawing graph for test `{test.name}`")
