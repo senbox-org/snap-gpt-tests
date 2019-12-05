@@ -295,6 +295,8 @@ class Test(log.Printable):
             axis.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))
 
             plt.savefig(os.path.join(__base_path__, __plot_path__, self.name+"_cpu_time_history.png"))
+            plt.close()
+            
             plots.append(self.name+"_cpu_time_history.png")
             
             _, axis = plt.subplots(figsize=(10, 7))
@@ -310,6 +312,7 @@ class Test(log.Printable):
 
             plt.savefig(os.path.join(__base_path__, __plot_path__, self.name+"_memory_history.png"))
             plots.append(self.name+"_memory_history.png")
+            plt.close()
 
         return plots
 
