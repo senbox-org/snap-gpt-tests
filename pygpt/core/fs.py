@@ -43,6 +43,11 @@ class Directory:
         return os.path.join(self.path, *path)
 
 
+def mkdir(path):
+    """create dir if needed"""
+    if not os.path.exists(path):
+        os.mkdir(path)
+
 performances = Directory('performances') # folder containing perforamnces files
 statistics = Directory('performances', 'stats') # folder containing statistics file
 profiles = Directory('performances', 'csv') # folder containing CSV files
