@@ -216,6 +216,18 @@ class Test(log.Printable):
             return self._raw['configvm']
         return None
 
+    def jvm_string(self):
+        if not self.jvm_config:
+            return 'Default config'
+        else:
+            conf = self.jvm_config
+            res = '<ul>'
+            for key in conf:
+                res += '<li>{key}: <code>{conf[key]}</code></li>'
+            res += '</ul>'
+            return res
+
+
     @property
     def result(self):
         if 'result' in self._raw:

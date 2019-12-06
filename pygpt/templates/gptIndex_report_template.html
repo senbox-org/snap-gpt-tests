@@ -137,8 +137,8 @@
                 {{end}}
               {{end}}
             </div>
-            <div class="col-xs-1 text-right">{{.test_set.duration_str}}</div>
-            <div class="col-xs-1 text-right">{{.test_set.memory_max_str}}</div>
+            <div class="col-xs-1 text-right">{{.test_set.duration}} s</div>
+            <div class="col-xs-1 text-right">{{.test_set.memory_max}} Mb</div>
           </div>
             {{foreach .test in .test_set.tests}}
                 {{switch .test.status}}
