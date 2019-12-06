@@ -1,8 +1,8 @@
 [{
-  "id":"Subset_S2_B2B3",
+  "id":"Subset_S2_B2B3_Ref",
   "author": "CS",
   "description":"execute subset operator in a S2L1C product with bands B2 and B3 and region",
-  "frequency":"daily/testOmar11/subset",
+  "frequency":"daily/testOmar1",
   "graphPath": "snap/graphSubsetRefBand.xml",
   "inputs": {
     "input1": "s2tbx/S2/L1C/S2A_MSIL1C_20181002T034551_N0206_R104_T47PMP_20181002T073417.SAFE"
@@ -20,10 +20,10 @@
   }]
 },
   {
-    "id":"Subset_S2_B1B2",
-  "author": "CS",
+    "id":"Subset_S2_B1B2_Ref",
+    "author": "CS",
     "description":"execute subset operator in a S2L1C product with bands B1 and B2",
-    "frequency":"daily/testOmar12/subset",
+    "frequency":"testOmar2",
     "graphPath": "snap/graphSubsetRefBand.xml",
     "inputs": {
       "input1": "s2tbx/S2/L1C/S2A_MSIL1C_20181002T034551_N0206_R104_T47PMP_20181002T073417.SAFE"
@@ -41,10 +41,10 @@
     }]
   },
   {
-    "id":"Subset_S2_B1",
+    "id":"Subset_S2_B1_Ref",
   "author": "CS",
     "description":"execute subset operator in a S2L1C product with band B1",
-    "frequency":"testOmar2/subset",
+    "frequency":"daily/testOmar3",
     "graphPath": "snap/graphSubsetRefBand.xml",
     "inputs": {
       "input1": "s2tbx/S2/L1C/S2A_MSIL1C_20181002T034551_N0206_R104_T47PMP_20181002T073417.SAFE"
