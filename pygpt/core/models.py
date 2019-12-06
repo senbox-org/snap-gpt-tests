@@ -178,6 +178,13 @@ class Test(log.Printable):
         return self._raw['graphpath']
 
     @property
+    def graph_id(self):
+        """
+        Graph ID.
+        """
+        return os.path.splitext(self.graph_path)[0]
+
+    @property
     def source_path(self):
         """
         Source TestSet JSON path.
