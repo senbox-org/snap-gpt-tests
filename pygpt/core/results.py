@@ -8,6 +8,11 @@ import datetime
 import sys
 import json
 
+import matplotlib as mpl
+mpl.use('Agg') # use no graphical server needed
+import matplotlib.pyplot as plt
+import matplotlib.dates as mdates
+
 import core.log as log
 import core.fs as fs
 import core.temply as t
