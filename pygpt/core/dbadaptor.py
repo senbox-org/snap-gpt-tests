@@ -141,7 +141,7 @@ class DBAdaptor:
                 '{test.graph_path}'
             );'''
             self.execute(query)
-            return self.test_entry(test)
+            return self.test_entry(test, parent_set)
         return res[0][0]
 
     def create_result_entry(self, job_id, test_id, test):
@@ -376,7 +376,7 @@ class SQLiteAdaptor(DBAdaptor):
             query = '''CREATE TABLE reference_values (
                 ID INTEGER PRIMARY KEY,
                 test INTEGER NOT NULL,
-                referenceTag INTEGER NOT NULL DEFAULT=1,
+                referenceTag INTEGER NOT NULL DEFAULT 1,
                 updated DATETIME NOT NULL,
                 duration INTEGER NOT NULL, -- in seconds
                 cpu_time INTEGER NOT NULL, -- in seconds
@@ -400,7 +400,11 @@ class SQLiteAdaptor(DBAdaptor):
 
     @ensure_connection
     def execute(self, query, *args):
-        self.__cursor__.execute(query, *args)
+        try:
+            self.__cursor__.execute(query, *args)
+        except sqlite3.OperationalError as e:
+            log.error(f'SQL query `{query}` malformed')
+            raise e
         res_list = []
         res = self.__cursor__.fetchone()
         while res is not None:
@@ -410,7 +414,7 @@ class SQLiteAdaptor(DBAdaptor):
            
 
     def create_result_entry(self, job_id, test_id, test):
-        if test.stats is None:
+        if not test.has_statistics():
             log.warning(f'test `{test.name}` has no statistics')
             return
         query = 'SELECT * FROM results WHERE job=? AND test=?'
@@ -444,7 +448,7 @@ class SQLiteAdaptor(DBAdaptor):
                                  result,
                                  test.start,
                                  test.duration,
-                                 test.cput_time,
+                                 test.cpu_time,
                                  test.cpu_usage_avg,
                                  test.cpu_usage_max,
                                  test.memory_avg,

@@ -15,7 +15,9 @@ import core.temply as t
 from core.models import Test
 
 
+# DATE TIME FORMAT STRINGS
 __datetime_fmt__ = '%d/%m/%Y %H:%M:%S'
+__sql_fmt__ = "%Y-%m-%d %H:%M:%S"
 
 
 def __val_to_html__(value):
@@ -35,15 +37,15 @@ def __dict_to_html__(data):
         html += f'<li><b>{key}</b>: {__val_to_html__(data[key])}</li>'
     return html + '</ul>'
 
-class TestReuslt(Test):
+class TestResult(Test):
     """
     Represents the results of execution of a test
     """
     def __init__(self, struct, results, adaptor=None):
         super().__init__(struct)
         self._status = results[3]
-        self._start = datetime.datetime.strptime(row[1], __datetime_fmt__)
-        self._end = datetime.datetime.strptime(row[2], __datetime_fmt__)
+        self._start = datetime.datetime.strptime(results[1], __datetime_fmt__)
+        self._end = datetime.datetime.strptime(results[2], __datetime_fmt__)
         self.__adaptor__ = adaptor
         if self._status != 'SKIPPED':
             self._stats = self.__load_perfs__()
@@ -68,9 +70,9 @@ class TestReuslt(Test):
         """
         return raw perf csv file
         """
-        if self.stats is None:
+        if self._stats is None:
             return None
-        csv_file = fs.profiles.resolve_path(self.name+'.csv')
+        csv_file = fs.profiles.resolve(self.name+'.csv')
         with open(csv_file, 'rb') as raw_data:
             return raw_data.read()
 
@@ -92,7 +94,7 @@ class TestReuslt(Test):
         duration in second of the test
         """
         if self._stats is not None:
-            return self.stats['duration']['value']
+            return self._stats['duration']['value']
         return (self.end - self.start).total_seconds()
 
     @property
@@ -180,12 +182,12 @@ class TestReuslt(Test):
         """
         if self._stdout is None:
             return ''
-        return '\n'.join([f'<samp>{line}</samp><br>' for line in self.stdout.splitlines()])
+        return '\n'.join([f'<samp>{line}</samp><br>' for line in self._stdout.splitlines()])
 
     def json_html(self):
         if self._raw is None:
             return ''
-        return __dict_to_html__(self.json)
+        return __dict_to_html__(self._raw)
 
 
     def __get_value__(self, label, key, version, param='value'):
@@ -290,6 +292,11 @@ class TestReuslt(Test):
         """
         return self.__adaptor__ is not None
 
+    def has_statistics(self):
+        """
+        Checks if statistics have been generated.
+        """
+        return self._stats is not None
 
 
 class TestResutlSet(log.Printable):
@@ -403,4 +410,4 @@ class TestResutlSet(log.Printable):
     @property
     def real_duration(self):
         """real elapsed time"""
-        return int((self.end_date() - self.start_date()).total_seconds())
+        return int((self.end_date - self.start_date).total_seconds())
