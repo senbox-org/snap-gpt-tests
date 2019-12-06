@@ -35,6 +35,9 @@ class Directory:
         Absolute directory path
         """
         return resolve(*self._path)
+
+    def update(self, *path):
+        self._path = path
     
     def resolve(self, *path):
         """

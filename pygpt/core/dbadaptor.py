@@ -75,8 +75,8 @@ class DBAdaptor:
         res = self.execute(query)
 
         if len(res) == 0:
-            start_date = min([test_set.start_date() for test_set in test_sets])
-            end_date = max([test_set.end_date() for test_set in test_sets])
+            start_date = min([test_set.start_date for test_set in test_sets])
+            end_date = max([test_set.end_date for test_set in test_sets])
             result = all([not ts.is_failed() for ts in test_sets])
             log.info(f'inserting job `{job}` into DB')
             add_query = '''INSERT INTO jobs (
@@ -104,23 +104,23 @@ class DBAdaptor:
         job_id = res[0][0]
         for test_set in test_sets:
             for test in test_set.tests:
-                test.json['json_set'] = test_set.name
-                test_id = self.test_entry(test)
+                test_id = self.test_entry(test, test_set.name)
                 self.create_result_entry(job_id, test_id, test)
 
-    def test_entry(self, test):
+    def test_entry(self, test, parent_set):
         """
         Gets ID of a test entry. If does not exists create a new test entry.
 
         Parameters:
         -----------
          - test: test object
+         - parent_set: parent json test set name
 
         Returns:
         --------
         test entry ID
         """
-        name = test.json['id']
+        name = test.name
         query = f'SELECT ID FROM tests WHERE name="{name}"'
         res = self.execute(query)
         if len(res) == 0:
@@ -134,11 +134,11 @@ class DBAdaptor:
                 graphPath
             ) VALUES (
                 '{name}',
-                '{test.json["json_set"]}',
-                '{test.json["description"]}',
-                '{test.json["author"]}',
-                '{test.json["frequency"]}',
-                '{test.json["graphPath"]}'
+                '{parent_set}',
+                '{test.description}',
+                '{test.author}',
+                '{test.frequency}',
+                '{test.graph_path}'
             );'''
             self.execute(query)
             return self.test_entry(test)
@@ -443,17 +443,17 @@ class SQLiteAdaptor(DBAdaptor):
                                  job_id,
                                  result,
                                  test.start,
-                                 test.duration(),
-                                 test.stats['cpu_time']['value'],
-                                 test.stats['cpu_usage']['average'],
-                                 test.stats['cpu_usage']['max'],
-                                 test.stats['memory']['average'],
-                                 test.stats['memory']['max'],
-                                 test.stats['io']['write'],
-                                 test.stats['io']['read'],
-                                 int(test.stats['threads']['average']),
-                                 test.stats['threads']['max'],
-                                 sqlite3.Binary(test.csv())
+                                 test.duration,
+                                 test.cput_time,
+                                 test.cpu_usage_avg,
+                                 test.cpu_usage_max,
+                                 test.memory_avg,
+                                 test.memory_max,
+                                 test.io_write,
+                                 test.io_read,
+                                 int(test.threads_avg),
+                                 test.threads_max,
+                                 sqlite3.Binary(test.raw_profile())
                                  ))
         
 

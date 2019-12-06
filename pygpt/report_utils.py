@@ -10,6 +10,8 @@ import sys
 import datetime
 import json
 
+import core.fs as fs
+from core.results import TestResutlSet, TestReuslt 
 import core.temply as t
 import core.tools as utils
 import core.dbadaptor as sdb
@@ -24,42 +26,6 @@ import matplotlib.dates as mdates
 # DATE TIME FORMAT STRINGS
 __datetime_fmt__ = '%d/%m/%Y %H:%M:%S'
 __sql_fmt__ = "%Y-%m-%d %H:%M:%S"
-
-# SOME USEFUL CONSTANTS
-__base_path__ = 'Report' # base path for report
-__perf_dir__ = 'performances' # folder containing perforamnces files
-__stats_dir__ = os.path.join(__perf_dir__, 'stats') # folder containing statistics file
-__csv_dir__ = os.path.join(__perf_dir__, 'csv') # folder containing CSV files
-__tests_dir__ = 'tests' # folder that will contains the test report html files
-__out_dir__ = 'output' # folder containing the stdout and stderr of the test executions
-__template_dir__ = 'templates' # folder containing the HTML templates
-__image_dir__ = 'images' # folder containing the graph images
-__plot_path__ = os.path.join(__perf_dir__, 'plot') # folder containing the performances plots
-
-__adaptor__ = None # optional DB adaptor
-
-
-def resolve_path(*path):
-    """create absolute path from relative to the base path"""
-    return os.path.join(__base_path__, *path)
-
-
-def __val_to_html__(value):
-    html = ''
-    if isinstance(value, list):
-        html += '<ol>'
-        for el in value:
-            html += f'<li>'+__val_to_html__(el)+'</li>'
-        return html + '</ol>'
-    elif isinstance(value, dict):
-        return __dict_to_html__(value)
-    return str(value)
-
-def __dict_to_html__(data):
-    html = '<ul>\n'
-    for key in data:
-        html += f'<li><b>{key}</b>: {__val_to_html__(data[key])}</li>'
-    return html + '</ul>'
 
 
 def __auto_pct__(pct, total):
@@ -101,428 +67,33 @@ def save_report(html, path):
     with open(path, 'w') as file:
         file.write(html)
 
-class Test(log.Printable):
-    """
-    A single test result
-    """
-    def __init__(self, test_set, row):
-        log.Printable.__init__(self)
-        self.name = row[0]
-        self.status = row[3]
-        self.start = datetime.datetime.strptime(row[1], __datetime_fmt__)
-        self.end = datetime.datetime.strptime(row[2], __datetime_fmt__)
-        self.test_set = test_set
-        self.json_path = os.path.join('json', f'{self.name}.json')
-        self.graph_id, self.vm_string, self.json = self.__load_json__()
-        if self.status != 'SKIPPED':
-            self.stats = self.__load_perfs__()
-            self.stdout = self.__load_stdout__()
-        else:
-            self.stats = None
-            self.stdout = None
-
-    def uuid(self):
-        return self.name.replace(' ', '_').replace('.', '_')
-
-    def __load_json__(self):
-        json_path = resolve_path(self.json_path)
-        with open(json_path, 'r') as info:
-            struct = json.load(info)
-            param = 'Default configuration'
-            if 'configvm' in struct and struct['configvm']:
-                param = struct['configvm']
-            return struct['graphpath'][:-4], param if param else 'Default configuration', struct
-        return None, None, None
-
-    def __load_stdout__(self):
-        stdout_path = resolve_path(__out_dir__, f'{self.name}_gptOutput.txt')
-        with open(stdout_path, 'r') as file:
-            return file.read()
-        return None
-
-    def __load_perfs__(self):
-        perf_stats_file = resolve_path(__stats_dir__, self.name+'.json')
-        with open(perf_stats_file, 'r') as stats:
-            return json.load(stats)
-        return None
-
-    def csv(self):
-        """
-        return raw perf csv file
-        """
-        if self.stats is None:
-            return None
-        csv_file = resolve_path(__csv_dir__ , self.name+'.csv')
-        with open(csv_file, 'rb') as raw_data:
-            return raw_data.read()
-
-    def duration(self):
-        """
-        duration in second of the test
-        """
-        if self.stats:
-            return self.stats['duration']['value']
-        return (self.end - self.start).total_seconds()
-
-    def duration_str(self):
-        """duration string"""
-        return f'{self.duration()} s'
-
-    def memory_max(self):
-        """
-        maximum use of memory
-        """
-        if not self.stats:
-            return 0
-        return self.stats['memory']['max']
-
-    def memory_max_str(self):
-        """memory max string"""
-        return f'{self.memory_max()} Mb'
-
-    def memory_avg(self):
-        """
-        average use of memory
-        """
-        if not self.stats:
-            return 0
-        return self.stats['memory']['average']
-
-    def is_failed(self):
-        """
-        is failed flag
-        """
-        return self.status == 'FAILED'
-
-    def is_passed(self):
-        """
-        is passed flag
-        """
-        return self.status == 'PASSED'
-
-    def is_skipped(self):
-        """
-        is skipped flag
-        """
-        return self.status == 'SKIPPED'
-
-    def stdout_html(self):
-        """
-        Format stdout for html.
-        """
-        if self.stdout is None:
-            return ''
-        return '\n'.join([f'<samp>{line}</samp><br>' for line in self.stdout.splitlines()])
-
-    def json_html(self):
-        if self.json is None:
-            return ''
-        return __dict_to_html__(self.json)
-
-
-    def __get_value__(self, label, key, version, param='value'):
-        obj = None
-        if 'duration' in self.stats:
-            obj = {
-                'label': label,
-                'value': self.stats[key][param],
-                'unit': self.stats[key]['unit'],
-                'reference': '-',
-                'average': '-'
-            }
-            if __adaptor__ is not None:    
-                db_key = key
-                if param == 'average':
-                    db_key += '_avg'
-                elif param == 'max':
-                    db_key += '_max' 
-                vals = __adaptor__.values(self.name, version, db_key)
-                if len(vals) > 0:
-                    obj['average'] = round(sum(vals) / len(vals), 1)
-            
-                ref = __adaptor__.reference_value(self.name, db_key)
-                if ref is not None:
-                    obj['reference'] = ref
-            
-        return obj
-
-    def perf_summary(self, version):
-        """
-        Create summary struct of performances.
-        """
-        summ = []
-        vals = [("Process duration", "duration", version),
-                ("CPU total time", "cpu_time", version),
-                ("CPU average usage", "cpu_usage", version, "average"),
-                ("CPU max usage", "cpu_usage", version, "max"),
-                ("Memory average usage", "memory", version, "average"),
-                ("Memory max usage", "memory", version, "max")
-               ]
-        for val in vals:
-            result = self.__get_value__(*val)
-            if result is not None:
-                summ.append(result)
-        return summ
-
-    def plots_path(self, version):
-        """
-        return list of plots associated to the test.
-        """
-        plots = [
-            self.name+"_cpu_usage.png",
-            self.name+"_memory_usage.png"
-        ]
-        if __adaptor__ is not None:
-            db_key = 'cpu_time_avg'
-            times = __adaptor__.values(self.name, version, 'start')
-            if len(times) == 0:
-                return plots
-            times = list([datetime.datetime.strptime(x, __sql_fmt__) for x in times])
-            if len(times) <= 1:
-                """no history in db"""
-                return plots
-            cpu_time = __adaptor__.values(self.name, version, 'cpu_time')
-            memory = __adaptor__.values(self.name, version, 'memory_avg')
-            _, axis = plt.subplots(figsize=(10, 7))
-            plt.plot(times, cpu_time, 'o-')
-            plt.grid(alpha=0.5)
-            plt.xlabel('Date')
-            plt.ylabel('CPU Average Time (s)')
-            plt.title('CPU Average Time Historic')
-            #set ticks every day
-            axis.xaxis.set_major_locator(mdates.DayLocator())
-            #set major ticks format
-            axis.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))
-
-            plt.savefig(os.path.join(__base_path__, __plot_path__, self.name+"_cpu_time_history.png"))
-            plt.close()
-            
-            plots.append(self.name+"_cpu_time_history.png")
-            
-            _, axis = plt.subplots(figsize=(10, 7))
-            plt.plot(times, memory, 'o-')
-            plt.grid(alpha=0.5)
-            plt.xlabel('Date')
-            plt.ylabel('Memory Average (Mb)')
-            plt.title('Memory Average Historic')
-            #set ticks every day
-            axis.xaxis.set_major_locator(mdates.DayLocator())
-            #set major ticks format
-            axis.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))
-
-            plt.savefig(os.path.join(__base_path__, __plot_path__, self.name+"_memory_history.png"))
-            plots.append(self.name+"_memory_history.png")
-            plt.close()
-
-        return plots
-
 
 def performance_report(test, version):
-        """generate test perofmance report"""
-        if test.is_skipped() or not test.stats:
-            log.error("No stats found")
-            return
-        args = {
-            'test_id' : test.name,
-            'summary' : test.perf_summary(version),
-            'plots'   : test.plots_path(version)
-        }
-        if __adaptor__ is None:
-            with open(os.path.join(__template_dir__, 'perf_report_template.html'), 'r') as file:
-                template = t.Template(file.read())
-        else:
-            with open(os.path.join(__template_dir__, 'perf_report_with_history_template.html'), 'r') as file:
-                template = t.Template(file.read())
-                args['version'] = version
-        if template is None:
-            log.error("Unable to load template")
-            return
-
-        html = template.generate(**args)
-        save_report(html, resolve_path(__tests_dir__, f'Performance_{test.name}.html'))
-
-
-class TestSet(log.Printable):
-    """
-    Test Set (json test set) class
-    """
-    def __init__(self, name):
-        log.Printable.__init__(self)
-        self.name = name
-        self.tests = []
-
-    def duration(self):
-        """
-        Total duration in seconds
-        """
-        duration = 0
-        for test in self.tests:
-            duration += test.duration()
-        return duration
-
-    def memory_max(self):
-        """
-        maximum useage of memory
-        """
-        if self.tests:
-            return max([test.memory_max() for test in self.tests])
-        return 0
-
-    def memory_avg(self):
-        """
-        average usage of memory
-        """
-        if self.tests:
-            return round(sum([test.memory_avg() for test in self.tests]) / len(self.tests))
-        return 0
-
-    def start_date(self):
-        """
-        start datetime
-        """
-        if self.tests:
-            return min([test.start for test in self.tests])
-        return datetime.date(datetime.MAXYEAR, 1, 1)
-
-    def end_date(self):
-        """
-        end datetime
-        """
-        if self.tests:
-            return max([test.end for test in self.tests])
-        return datetime.date(datetime.MINYEAR, 1, 1)
-
-    def failed_tests(self):
-        """
-        list of failed tests
-        """
-        return list(filter(lambda test: test.is_failed(), self.tests))
-
-    def passed_tests(self):
-        """
-        list of passed tests
-        """
-        return list(filter(lambda test: test.is_passed(), self.tests))
-
-    def skipped_tests(self):
-        """
-        list of skipped tests
-        """
-        return list(filter(lambda test: test.is_skipped(), self.tests))
-
-    def is_skipped(self):
-        """
-        is skipped flag
-        """
-        return not self.is_failed() and not self.is_passed()
-
-    def is_failed(self):
-        """
-        is failed flag
-        """
-        return any([test.is_failed() for test in self.tests])
-
-    def is_passed(self):
-        """
-        is passed flag
-        """
-        return all([test.is_passed() for test in self.tests])
-
-    def status(self):
-        """
-        status of the test set
-        """
-        if self.is_failed():
-            return 'FAILED'
-        if self.is_passed():
-            return 'PASSED'
-        return 'SKIPPED'
-
-    def duration_str(self):
-        """
-        duration string
-        """
-        return f'{self.duration()} s'
-
-    def memory_max_str(self):
-        """
-        memory max string
-        """
-        return f'{self.memory_max()} Mb'
-
-    def real_duration(self):
-        """real elapsed time"""
-        return int((self.end_date() - self.start_date()).total_seconds())
-
-    def generate_html_report(self, scope, version):
-        """
-        Generates html reports for the given test execution.
-
-        Paramters:
-        ----------
-         - base_path: path containing all results of the execution
-        """
-        mkdir(__tests_dir__)
-        template = None
-        with open(os.path.join(__template_dir__, 'gptTest_report_template.html'), 'r') as file:
+    """generate test perofmance report"""
+    if test.is_skipped() or not test._stats:
+        log.error("No stats found")
+        return
+    args = {
+        'test_id' : test.name,
+        'summary' : test.perf_summary(version),
+        'plots'   : test.plots_path(version)
+    }
+    if not test.has_adapator():
+        with open(fs.templates.resolve('perf_report_template.html'), 'r') as file:
             template = t.Template(file.read())
-        if template is None:
-            log.error("Unable to load template")
-            return
-        percent = round(100 * len(self.passed_tests())/len(self.tests), 2)
-        html = template.generate(name=self.name,
-                                 start_date=self.start_date(),
-                                 duration=f'{self.duration()} s',
-                                 scope=scope,
-                                 operating_system=sys.platform,
-                                 version=version,
-                                 total=len(self.tests),
-                                 failed_tests=len(self.failed_tests()),
-                                 passed_tests=len(self.passed_tests()),
-                                 percent=percent,
-                                 real_duration=f'{self.real_duration()} s',
-                                 tests=self.tests
-                                )
-        __generate_pie__(f'{self.name}_pie.png',
-                         len(self.passed_tests()),
-                         len(self.failed_tests()),
-                         len(self.skipped_tests())
-                        )
-        save_report(html, resolve_path(__tests_dir__, f'Report_{self.name}.html'))
-        # generate perofmance report for each test
-        for test in self.tests:
-            performance_report(test, version)
+    else:
+        with open(fs.templates.resolve('perf_report_with_history_template.html'), 'r') as file:
+            template = t.Template(file.read())
+            args['version'] = version
+    if template is None:
+        log.error("Unable to load template")
+        return
 
+    html = template.generate(**args)
+    with open(fs.tests.resolve(f'Performance_{test.name}.html'), 'w') as file:
+        file.write(html)
 
-def __parse_set__(name, lines):
-    test_set = TestSet(name)
-    for line in lines:
-        row = line.replace('\n', '').split(' - ')
-        test_set.tests.append(Test(name, row))
-    return test_set
-
-def get_test_sets(base_path):
-    """
-    Get list of test sets executed.
-
-    Paramters:
-    ----------
-     - base_path: path containing all results of the execution
-    """
-    global __base_path__
-    __base_path__ = base_path
-    report_path = os.path.join(base_path, __out_dir__)
-    filter_file = lambda x: x.startswith('Report_') and x.endswith('.txt')
-    report_files = [f for f in os.listdir(report_path) if filter_file(f)]
-    test_sets = []
-    for report_file in report_files:
-        set_name = report_file[7:-4]
-        with open(os.path.join(report_path, report_file), 'r') as rep:
-            test_sets.append(__parse_set__(set_name, rep.readlines()))
-    return test_sets
-
-
-def generate_html_report(base_path, scope, version):
+def generate_html_report(test_set, scope, version):
     """
     Generates html reports for the given test execution.
 
@@ -530,22 +101,95 @@ def generate_html_report(base_path, scope, version):
     ----------
      - base_path: path containing all results of the execution
     """
-    test_sets = get_test_sets(base_path)
-    if len(test_sets) == 0:
-        log.error("no tests set found...")
-        sys.exit(0)
-    start_date = min([test_set.start_date() for test_set in test_sets])
-    end_date = max([test_set.end_date() for test_set in test_sets])
-    total_seconds = sum([test_set.duration() for test_set in test_sets])
-    n_tests = sum([len(test_set.tests) for test_set in test_sets])
-    duration_in_min = (end_date - start_date).total_seconds() / 60.0
-    platform = sys.platform
+    fs.mkdir(fs.tests.path)
     template = None
-    with open(os.path.join(__template_dir__, 'gptIndex_report_template.html'), 'r') as file:
+    with open(fs.templates.resolve('gptTest_report_template.html'), 'r') as file:
         template = t.Template(file.read())
     if template is None:
         log.error("Unable to load template")
         return
+    percent = round(100 * len(test_set.passed_tests())/len(test_set.tests), 2)
+    html = template.generate(name=test_set.name,
+                             start_date=test_set.start_date,
+                             duration=f'{test_set.duration} s',
+                             scope=scope,
+                             operating_system=sys.platform,
+                             version=version,
+                             total=len(test_set.tests),
+                             failed_tests=len(test_set.failed_tests()),
+                             passed_tests=len(test_set.passed_tests()),
+                             percent=percent,
+                             real_duration=f'{test_set.real_duration} s',
+                             tests=test_set.tests
+                            )
+    __generate_pie__(f'{test_set.name}_pie.png',
+                     len(test_sets.passed_tests()),
+                     len(test_set.failed_tests()),
+                     len(test_set.skipped_tests())
+                    )
+    with open(fs.tests.resolve(f'Report_{test_set.name}.html'), 'r') as file:
+        file.write(html)
+    # generate perofmance report for each test
+    for test in test_set.tests:
+        performance_report(test, version)
+
+
+def __parse_set__(name, lines, dbadaptor=None):
+    tests = []
+    for line in lines:
+        row = line.replace('\n', '').split(' - ')
+        test_name = row[0]
+        json_path = os.path.join('json', f'{test_name}.json')
+        with open(fs.resolve(json_path), 'r') as f:
+            tests.append(TestResult(json.load(f), row, dbadaptor))
+    test_set = TestResutlSet(name, tests)
+    return test_set
+
+def get_test_sets(base_path, dbadaptor=None):
+    """
+    Get list of test sets executed.
+
+    Paramters:
+    ----------
+     - base_path: path containing all results of the execution
+    """
+    output_dir = fs.outputs.path
+    filter_file = lambda x: x.startswith('Report_') and x.endswith('.txt')
+    report_files = [f for f in os.listdir(output_dir) if filter_file(f)]
+    test_sets = []
+    for report_file in report_files:
+        set_name = report_file[7:-4]
+        with open(fs.outputs.resolve(report_file), 'r') as rep:
+            test_sets.append(__parse_set__(set_name, rep.readlines(), dbadaptor))
+    return test_sets
+
+
+def generate_html_report(base_path, scope, version, dbadaptor=None):
+    """
+    Generates html reports for the given test execution.
+
+    Paramters:
+    ----------
+     - base_path: path containing all results of the execution
+    """
+    fs.set_base_path(base_path)
+    test_sets = get_test_sets(dbadaptor)
+    if len(test_sets) == 0:
+        log.error("no tests set found...")
+        sys.exit(0)
+    start_date = min([test_set.start_date for test_set in test_sets])
+    end_date = max([test_set.end_date for test_set in test_sets])
+    total_seconds = sum([test_set.duration for test_set in test_sets])
+    n_tests = sum([len(test_set.tests) for test_set in test_sets])
+    duration_in_min = (end_date - start_date).total_seconds() / 60.0
+    platform = sys.platform
+    template = None
+    with open(fs.templates.resolve('gptIndex_report_template.html'), 'r') as file:
+        template = t.Template(file.read())
+    if template is None:
+        log.error("Unable to load template")
+        return
+
     failedjson = len(list(filter(lambda x: x.is_failed(), test_sets)))
     failedtest = sum([len(x.failed_tests()) for x in test_sets])
     passedjson = len(list(filter(lambda x: x.is_passed(), test_sets)))
@@ -568,23 +212,35 @@ def generate_html_report(base_path, scope, version):
                              duration=f'{total_seconds} s',
                              test_sets=test_sets
                             )
-    save_report(html, resolve_path('index.html'))
+    save_report(html, fs.resolve('index.html'))
     for test_set in test_sets:
-        test_set.generate_html_report(scope, version)
+        generate_html_report(test_set, scope, version)
 
-if __name__ == '__main__':
-    ARGS = sys.argv
-    if len(ARGS) not in (5, 6):
+
+def main():
+    """
+    Main report utils 
+    """
+    args = sys.argv[1:]
+    if len(args) not in (4, 5):
         print("wrong number of arguments!\nreport_utils TEMPLATE_DIR BASE_PATH SCOPE VERSION (DB_PATH=None)")
-        sys.exit(-1)
-    __template_dir__ = ARGS[1]
+        sys.exit(1)
+
+    # use given template dir
+    fs.templates.update(args[0])
     try:
-        if len(ARGS) == 6:
-            DB_PATH = ARGS[5]
-            __adaptor__ = sdb.adaptor(DB_PATH)
-            __adaptor__.open()
-        generate_html_report(ARGS[2], ARGS[3], ARGS[4])
+        adaptor = None
+        if len(args) == 5:
+            db_path = args[4]
+            adaptor = sdb.adaptor(db_path)
+            adaptor.open()
+        generate_html_report(args[1], args[2], args[3], adaptor)
         log.success('report generated successfully')
     finally:
         if __adaptor__ is not None:
             __adaptor__.close()
+
+if __name__ == '__main__':
+    # execute the main function
+    main()
+    

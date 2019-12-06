@@ -18,6 +18,23 @@ from core.models import Test
 __datetime_fmt__ = '%d/%m/%Y %H:%M:%S'
 
 
+def __val_to_html__(value):
+    html = ''
+    if isinstance(value, list):
+        html += '<ol>'
+        for el in value:
+            html += f'<li>'+__val_to_html__(el)+'</li>'
+        return html + '</ol>'
+    elif isinstance(value, dict):
+        return __dict_to_html__(value)
+    return str(value)
+
+def __dict_to_html__(data):
+    html = '<ul>\n'
+    for key in data:
+        html += f'<li><b>{key}</b>: {__val_to_html__(data[key])}</li>'
+    return html + '</ul>'
+
 class TestReuslt(Test):
     """
     Represents the results of execution of a test
@@ -84,7 +101,7 @@ class TestReuslt(Test):
         maximum use of memory
         """
         if self._stats is None:
-            return 0
+            return -1
         return self._stats['memory']['max']
 
     @property  
@@ -93,9 +110,51 @@ class TestReuslt(Test):
         average use of memory
         """
         if self._stats is None:
-            return 0
+            return -1
         return self._stats['memory']['average']
 
+    @property
+    def io_write(self):
+        if self._stats is None:
+            return -1
+        return self._stats['io']['write']
+    
+    @property
+    def io_read(self):
+        if self._stats is None:
+            return -1
+        return self._stats['io']['read']
+
+    @property
+    def cpu_time(self):
+        if self._stats is None:
+            return -1
+        return self._stats['cpu_time']['value']
+
+    @property
+    def cpu_usage_avg(self):
+        if self._stats is None:
+            return -1
+        return self._stats['cpu_usage']['average']
+
+    @property
+    def cpu_usage_max(self):
+        if self._stats is None:
+            return -1
+        return self._stats['cpu_usage']['max']
+
+    
+    @property
+    def threads_avg(self):
+        if self._stats is None:
+            return -1
+        return self._stats['threads']['average']
+        
+    @property
+    def threads_max(self):
+        if self._stats is None:
+            return -1
+        return self._stats['threads']['max']
 
     def is_failed(self):
         """
@@ -225,31 +284,11 @@ class TestReuslt(Test):
 
         return plots
 
-
-    def performance_report(self, version):
-        """generate test perofmance report"""
-        if self.is_skipped() or not self._stats:
-            log.error("No stats found")
-            return
-        args = {
-            'test_id' : test.name,
-            'summary' : test.perf_summary(version),
-            'plots'   : test.plots_path(version)
-        }
-        if self.__adaptor__ is None:
-            with open(fs.templates.resolve('perf_report_template.html'), 'r') as file:
-                template = t.Template(file.read())
-        else:
-            with open(fs.templates.resolve('perf_report_with_history_template.html'), 'r') as file:
-                template = t.Template(file.read())
-                args['version'] = version
-        if template is None:
-            log.error("Unable to load template")
-            return
-
-        html = template.generate(**args)
-        with open(fs.tests.resolve(f'Performance_{test.name}.html'), 'w') as file:
-            file.write(html)
+    def has_adapator(self):
+        """
+        Checks if the db adaptor is setted.
+        """
+        return self.__adaptor__ is not None
 
 
 
@@ -285,7 +324,7 @@ class TestResutlSet(log.Printable):
         """
         if self.tests:
             return max([test.memory_max for test in self.tests])
-        return 0
+        return -1
 
     @property
     def memory_avg(self):
@@ -294,7 +333,7 @@ class TestResutlSet(log.Printable):
         """
         if self.tests:
             return round(sum([test.memory_avg for test in self.tests]) / len(self.tests))
-        return 0
+        return -1
 
     @property
     def start_date(self):
@@ -365,43 +404,3 @@ class TestResutlSet(log.Printable):
     def real_duration(self):
         """real elapsed time"""
         return int((self.end_date() - self.start_date()).total_seconds())
-
-    def generate_html_report(self, scope, version):
-        """
-        Generates html reports for the given test execution.
-
-        Paramters:
-        ----------
-         - base_path: path containing all results of the execution
-        """
-        fs.mkdir(fs.tests.path)
-        template = None
-        with open(fs.templates.resolve('gptTest_report_template.html'), 'r') as file:
-            template = t.Template(file.read())
-        if template is None:
-            log.error("Unable to load template")
-            return
-        percent = round(100 * len(self.passed_tests())/len(self.tests), 2)
-        html = template.generate(name=self.name,
-                                 start_date=self.start_date,
-                                 duration=f'{self.duration} s',
-                                 scope=scope,
-                                 operating_system=sys.platform,
-                                 version=version,
-                                 total=len(self.tests),
-                                 failed_tests=len(self.failed_tests()),
-                                 passed_tests=len(self.passed_tests()),
-                                 percent=percent,
-                                 real_duration=f'{self.real_duration} s',
-                                 tests=self.tests
-                                )
-        __generate_pie__(f'{self.name}_pie.png',
-                         len(self.passed_tests()),
-                         len(self.failed_tests()),
-                         len(self.skipped_tests())
-                        )
-        with open(fs.tests.resolve(f'Report_{self.name}.html'), 'r') as file:
-            file.write(html)
-        # generate perofmance report for each test
-        for test in self.tests:
-            test.performance_report(version)
