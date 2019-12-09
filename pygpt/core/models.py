@@ -230,7 +230,7 @@ class Test(log.Printable):
             conf = self.jvm_config
             res = '<ul>'
             for key in conf:
-                res += '<li>{key}: <code>{conf[key]}</code></li>'
+                res += f'<li>{key}: <code>{conf[key]}</code></li>'
             res += '</ul>'
             return res
 
