@@ -247,7 +247,7 @@ def __run_test__(test, args, properties):
     __vm_parameters_set__(test, snap_dir)
     log.info(f'execute: `{" ".join(gpt_parameters)}`') # DEBUG print
     # prepare enviroment
-    enviroment = os.envron
+    enviroment = os.environ
     if test.seed is not None:
         enviroment[__SEED_ENV_VARIABLE__] = str(test.seed)
     if profiling:
