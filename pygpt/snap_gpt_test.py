@@ -23,7 +23,7 @@ import core.log as log
 
 
 __DATE_FMT__ = '%d/%m/%Y %H:%M:%S'
-__REGULAR_TAGS__ = ['REGULAR', 'DAILY', 'WEEKLY', 'RELEASE']
+__SEED_ENV_VARIABLE__ = 'snap.random.seed'
 
 
 def lazy_bool(string):
@@ -246,6 +246,10 @@ def __run_test__(test, args, properties):
     # prepare JVM settings if needed
     __vm_parameters_set__(test, snap_dir)
     log.info(f'execute: `{" ".join(gpt_parameters)}`') # DEBUG print
+    # prepare enviroment
+    enviroment = os.environ
+    if test.seed is not None:
+        enviroment[__SEED_ENV_VARIABLE__] = str(test.seed)
     if profiling:
         # output directory for the profiling
         output_dir = os.path.join(args.report_dir, test.name)
@@ -254,11 +258,12 @@ def __run_test__(test, args, properties):
                                        output_dir,
                                        wait=False,
                                        child=False,
-                                       plot=True)
+                                       plot=True,
+                                       env=enviroment)
         # execute the gpt test with the profiler at sampling time 200ms
     else:
         # execute gpt test without profiler
-        res, stdout = profiler.run(gpt_parameters)
+        res, stdout = profiler.run(gpt_parameters, env=enviroment)
     log.info('execution finished')
     # Reset Java VM parameters if needed
     __vm_parameters_reset__(test, snap_dir)
