@@ -139,7 +139,8 @@ Tests are grouped in test sets defined in the same json file as following:
             "xmx": "NG", // Ammount of memory allowed (5G = 5Gb)
             "cacheSize": "N", // Size of the cache allowed
             "parallelism": "N"// max number of   
-        }
+        },
+        "seed": 12345, // OPTIONAL RANDOM SEED VALUE
     }, 
     {
         // another test
