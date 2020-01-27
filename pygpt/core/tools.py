@@ -81,8 +81,14 @@ def split_args(arg):
     curr = ''
     skip = False
     skip_char = ''
+    special = False
     for c in arg:
-        if c == ' ' and not skip:
+        if special:
+            curr += c
+            special = False
+        elif c == '\\':
+            special = True
+        elif c == ' ' and not skip:
             res.append(curr)
             curr = ''
         elif not skip and c in ["'", '"']:
