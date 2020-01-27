@@ -358,12 +358,15 @@ def profile(command, sampling_time, output, **kwargs):
 
     stdout = ''
 
-    while psutil.pid_exists(pid) and process.status() not in __END_STATUS__:
-        # while process is running
-        p_stats.update(process) # update stats
-        if 0 < timeout >= p_stats.time():
-            process.terminate()
-        time.sleep(sampling_time) # wait for next sampling
+    try:
+        while psutil.pid_exists(pid) and process.status() not in __END_STATUS__:
+            # while process is running
+            p_stats.update(process) # update stats
+            if 0 < timeout >= p_stats.time():
+                process.terminate()
+            time.sleep(sampling_time) # wait for next sampling
+    except psutil.NoSuchProcess:
+        print("Process Terminated")
 
     # retrive process return code
     returncode = proc.wait() # proc.returncode if proc.returncode else 0
