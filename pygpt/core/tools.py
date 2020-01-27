@@ -15,8 +15,9 @@ from core.log import Printable
 
 def mkdirs(path):
     """make a directory tree"""
+    crr, path = os.path.splitdrive(path)
     paths = os.path.abspath(path).split(os.sep)
-    crr = '/'
+    crr += os.path.sep
     for pth in paths:
         crr = os.path.join(crr, pth)
         if not os.path.isdir(crr):
