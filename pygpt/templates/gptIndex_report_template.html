@@ -69,15 +69,15 @@
           <table class="table summary" cellspacing="0">
               <tr>
                   <th class="col-xs-3">Overall result</th>
-                  <th><img width="16" height="16" src="./icons/blueZZ.png" alt="Number of json files" title="Number of json files"></th>
-                  <th><img width="16" height="16" src="./icons/error_th.png" alt="Number of failed jsons" title="Number of failed tests"></th>
-                  <th><img width="16" height="16" src="./icons/error_th.png" alt="Number of failed tests" title="Number of failed json"></th>
-                  <th><img class="passed"><img width="16" height="16" src="./icons/ok_th.png" alt="Number of passed json" title="Number of passed tests"></th>
-                  <th><img width="16" height="16" src="./icons/ok_th.png" alt="Number of passed tests" title="Number of passed json"></th>
-                  <th><img width="16" height="16" src="./icons/percent_th.png" alt="Percent passed tests" title="Percent passed tests"></th>
-                  <th><img width="16" height="16" src="./icons/percent_th.png" alt="Percent passed jsons" title="Percent passed jsons"></th>
-                  <th><img width="16" height="16" src="./icons/percent_th.png" alt="Percent passed tests" title="Percent passed tests"></th>
-                  <th><img width="16" height="16" src="./icons/duration_th.png" alt="Time spent in tests" title="Time spent in tests"></th>
+                  <th>Number of Test Sets</th>
+                  <th>Number of failed Test Sets</th>
+                  <th>Number of passed Test Sets</th>
+                  <th>Percent of passed Test Sets</th>
+                  <th>Number of Tests</th>
+                  <th>Number of failed Tests</th>
+                  <th>Number of passed Tests</th>
+                  <th>Percent of passed Tests</th>
+                  <th>Time spent in tests</th>
               </tr>
               <tr>
                   <td class="result">
@@ -93,12 +93,12 @@
                   {{end}}
                   </td>
                   <td class="tests">{{.totaljson}}</td>
-                  <td class="tests">{{.totaltest}}</td>
                   <td class="failed">{{.failedjson}}</td>
-                  <td class="failed">{{.failedtest}}</td>
                   <td class="passed">{{.passedjson}}</td>
-                  <td class="passed">{{.passedtest}}</td>
                   <td class="percent">{{.percentjson}} %</td>
+                  <td class="tests">{{.totaltest}}</td>
+                  <td class="failed">{{.failedtest}}</td>
+                  <td class="passed">{{.passedtest}}</td>
                   <td class="percent">{{.percenttest}} %</td>
                   <td class="realtime">{{.duration}}</td>
               </tr>
