@@ -204,7 +204,7 @@ def __check_outputs__(test, args, properties):
             expected_output_path = os.path.join(properties['expectedOutputFolder'],
                                                 output['expected'])
             cmd = [args.java_path]
-            cmd += args.java_args.split(' ')
+            cmd += utils.split_args(args.java_args)
             cmd += [args.test_output, output_path, expected_output_path, output['outputName']]
             result = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
             log.info(f'comparing done, result: {result.returncode}')

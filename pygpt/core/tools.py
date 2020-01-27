@@ -75,3 +75,26 @@ def auto_setter(func):
                 setattr(ctype, setter_name, setter)
         return x
     return inner
+
+def split_args(arg):
+    res = []
+    curr = ''
+    skip = False
+    skip_char = ''
+    for c in arg:
+        if c == ' ' and not skip:
+            res.append(curr)
+            curr = ''
+        elif not skip and c in ["'", '"']:
+            skip = True
+            skip_char = c
+            curr += c
+        elif skip and c == skip_char:
+            skip = False
+            curr += c
+        else:
+            curr += c
+
+    if len(curr) > 0:
+        res.append(curr)
+    return res
