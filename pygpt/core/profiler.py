@@ -301,11 +301,14 @@ def __queue_output__(out, queue):
 
 
 
-def run(command):
+def run(command, **kwargs):
     """
     run command
     """
-    proc = subprocess.run(command, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+    env = os.environ
+    if 'env' in kwargs:
+        env = kwargs['env']
+    proc = subprocess.run(command, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, env=env)
     return proc.returncode, proc.stdout.decode('utf-8')
 
 
@@ -314,10 +317,15 @@ def profile(command, sampling_time, output, **kwargs):
     profile command
     """
     # execute the command and retrive the PID
+
+    env = os.environ
+    if 'env' in kwargs:
+        env = kwargs['env']
     proc = subprocess.Popen(command, 
                             bufsize=1, 
                             stdout=subprocess.PIPE, 
-                            stderr=subprocess.STDOUT)
+                            stderr=subprocess.STDOUT,
+                            env=env)
     pid = proc.pid
 
     # start stdout thread.

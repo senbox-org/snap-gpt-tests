@@ -223,6 +223,12 @@ class Test(log.Printable):
             return self._raw['configvm']
         return None
 
+    @property
+    def seed(self):
+        if 'seed' in self._raw:
+            return self._raw['seed']
+        return None
+    
     def jvm_string(self):
         if not self.jvm_config:
             return 'Default config'
