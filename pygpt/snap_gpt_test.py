@@ -97,6 +97,7 @@ def __check_properties__(properties):
                 temp_folder]:
         log.error('some folder is null')
         sys.exit(1)
+    utils.mkdirs(tempFolder)
 
 
 def __check_args__(args):
@@ -410,6 +411,9 @@ def __run_tests__(args, properties):
         file.write(output)
     return passed
 
+def exit(properties, code=0):
+    utils.rmfiles(properties['tempFolder'])
+    sys.exit(code)
 
 def __main__():
     """main test entry point"""
@@ -419,9 +423,8 @@ def __main__():
     properties = __load_properties__(args.properties) # load properties file
     __check_properties__(properties) # check if properties are correct
 
-    if not __run_tests__(args, properties): # run tests with given parameters
-        sys.exit(1) # if tests fails exit with status 1
-    sys.exit(0) # otherwise normal exit
-
+    exit_code = 0 if __run_tests__(args, properties) else 0 # run tests with given parameters
+    exit(properties, exit_code) # if tests fails exit with status code
+    
 if __name__ == '__main__':
     __main__() # execute script
