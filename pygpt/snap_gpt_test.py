@@ -97,7 +97,7 @@ def __check_properties__(properties):
                 temp_folder]:
         log.error('some folder is null')
         sys.exit(1)
-    utils.mkdirs(tempFolder)
+    utils.mkdirs(temp_folder)
 
 
 def __check_args__(args):
