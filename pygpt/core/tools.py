@@ -25,7 +25,7 @@ def mkdirs(path):
 
 def rmfiles(folder):
     for file_name in os.listdir(folder):
-        file_path = os.path.join(folder, path)
+        file_path = os.path.join(folder, file_name)
         if os.path.isdir(file_path):
             rmfiles(file_path)
             os.rmdir(file_path)
