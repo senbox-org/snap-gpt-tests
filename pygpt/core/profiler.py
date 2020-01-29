@@ -58,16 +58,24 @@ class ProcessStats:
         ----------
          - process: psutils.process to profile
         """
+        # extracting values to avoid errors due to unexpected process termination
         io_counters = process.io_counters() # use system wide counters (not the process one)
-        self.stats['io_read'].append(io_counters[0]) # read_bytes
-        self.stats['io_write'].append(io_counters[1]) # write_bytes
-        self.stats['memory'].append(int(round(process.memory_info().rss/__MB__))) # memory
-        self.stats['cpu_perc'].append(int(process.cpu_percent())) # cpu usage
-        self.stats['cpu_time'].append(process.cpu_times().user) # cpu time
-        self.stats['threads'].append(process.num_threads()) # num threads
-        # sampling time
+        memory = int(round(process.memory_info().rss/__MB__))
+        cpu_perc = int(process.cpu_percent())
+        cpu_time = process.cpu_times().user
+        n_threads = process.num_threads()
+        
+        # sampling time 
         self.stats['time'].append(int(round(1000*(time.time() - self.__start___))))
         self.stats['time_s'].append(self.stats['time'][-1] / 1000.) # convert time in second
+        # sampling processing
+        self.stats['io_read'].append(io_counters[0]) # read_bytes
+        self.stats['io_write'].append(io_counters[1]) # write_bytes
+        self.stats['memory'].append(memory) # memory
+        self.stats['cpu_perc'].append(cpu_perc) # cpu usage
+        self.stats['cpu_time'].append(cput_time) # cpu time
+        self.stats['threads'].append(n_threads) # num threads
+
 
     def summary(self):
         """
