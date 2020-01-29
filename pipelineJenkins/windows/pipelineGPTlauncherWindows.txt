@@ -50,6 +50,7 @@ pipeline {
         string(name: 'jsonPath', defaultValue: '', description: 'Path to json file describing tests')
         string(name: 'outputDir', defaultValue: '', description: 'Path to outputDir')
         booleanParam(name: 'saveOutput', defaultValue: false, description: 'Save output of failed tests (if scope is not [REGULAR, DAILY, WEEKLY, RELEASE])')
+        booleanParam(name: 'reinstallSNAP', defaultValue: false, description: 'Reinstall latest version of SNAP generated on build server')
     }
 
     environment {
@@ -112,11 +113,11 @@ pipeline {
                 sh "${PYTHON_CMD} -u ./pygpt/filter_json.py ./gpt-tests-resources/tests \"${params.testScope}\" ${OUTPUT_DIR}"
             }
         }
-        /*stage('Reinstall SNAP') {
+        stage('Reinstall SNAP') {
             when {
                 expression {
                     // run this stage only when json path is NOT specified
-                    return "${params.jsonPath}" == '';
+                    return (("${params.jsonPath}" == '') && ("${params.reinstallSNAP}" == 'true')) ;
                 }
             }
             agent { label 'master' }
@@ -141,7 +142,7 @@ pipeline {
                 sh "cp \"${OUTPUT_PATH}/core.properties\" \"${PROXY_FILE_CONF_PATH}/core.properties\""
                 
             }
-        }*/
+        }
         stage('Launch Jobs') {
             when {
                 expression {
