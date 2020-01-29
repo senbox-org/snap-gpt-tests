@@ -73,7 +73,7 @@ class ProcessStats:
         self.stats['io_write'].append(io_counters[1]) # write_bytes
         self.stats['memory'].append(memory) # memory
         self.stats['cpu_perc'].append(cpu_perc) # cpu usage
-        self.stats['cpu_time'].append(cput_time) # cpu time
+        self.stats['cpu_time'].append(cpu_time) # cpu time
         self.stats['threads'].append(n_threads) # num threads
 
 
