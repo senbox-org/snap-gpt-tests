@@ -1,7 +1,7 @@
 /**
  * Launch jobs for every json file listed in jsonString separated by '\n'
  */
-def launchJobs(jsonString, scope, saveOutput, outputDir) {
+def launchJobs(jsonString, scope, saveOutput, outputDir, tagName) {
 
     def jobs = [:]
     println "List of Json file : " + jsonString
@@ -18,6 +18,7 @@ def launchJobs(jsonString, scope, saveOutput, outputDir) {
                     [$class: 'StringParameterValue', name: 'jsonPath', value: currentJsonFile],
                     [$class: 'StringParameterValue', name: 'testScope', value: "${scope}"],
                     [$class: 'StringParameterValue', name: 'outputDir', value: "${outputDir}"],
+                    [$class: 'StringParameterValue', name: 'tagName', value: "${tagName}"],
                     [$class: 'BooleanParameterValue', name: 'saveOutput', value: saveOutput]
                 ],
                 quietPeriod: 0,
@@ -49,6 +50,7 @@ pipeline {
         string(name: 'testScope', defaultValue: 'REGULAR', description: 'Scope of the tests to launch (PUSH, DAILY, REGULAR, WEEKLY, RELEASE)')
         string(name: 'jsonPath', defaultValue: '', description: 'Path to json file describing tests')
         string(name: 'outputDir', defaultValue: '', description: 'Path to outputDir')
+        string(name: 'tagName', defaultValue: 'windows', description: 'Tag name used for database')
         booleanParam(name: 'saveOutput', defaultValue: false, description: 'Save output of failed tests (if scope is not [REGULAR, DAILY, WEEKLY, RELEASE])')
         booleanParam(name: 'reinstallSNAP', defaultValue: false, description: 'Reinstall latest version of SNAP generated on build server')
     }
@@ -158,10 +160,10 @@ pipeline {
                 }
 
                 echo "Launch seq Jobs from ${env.JOB_NAME} from ${env.GIT_BRANCH} with commit ${env.GIT_COMMIT}"
-                launchJobs("${jsonString}", "${params.testScope}", params.saveOutput, "${OUTPUT_DIR}")
+                launchJobs("${jsonString}", "${params.testScope}", params.saveOutput, "${OUTPUT_DIR}", "${params.tagName}")
 
                 echo "Launch seq Jobs from ${env.JOB_NAME} from ${env.GIT_BRANCH} with commit ${env.GIT_COMMIT}"
-                launchJobs("${jsonStringSeq}", "${params.testScope}", params.saveOutput, "${OUTPUT_DIR}")
+                launchJobs("${jsonStringSeq}", "${params.testScope}", params.saveOutput, "${OUTPUT_DIR}", "${params.tagName}")
             }
             post {
                 always {
@@ -176,10 +178,10 @@ pipeline {
                     sh "ls \"$WORKSPACE\"/report/json/"
                    
                     echo "Updating database"
-                    sh "${PYTHON_CMD} -u ./pygpt/stats_db.py ${DATABASE_DIR}/statistics.db windows:master ${params.testScope} \"$WORKSPACE\"/report ${env.BUILD_NUMBER} ${env.GIT_BRANCH}"
+                    sh "${PYTHON_CMD} -u ./pygpt/stats_db.py ${DATABASE_DIR}/statistics.db \"${params.tagName}\" ${params.testScope} \"$WORKSPACE\"/report ${env.BUILD_NUMBER} ${env.GIT_BRANCH}"
                    
                     echo "Generate report"
-                    sh "${PYTHON_CMD} -u ./pygpt/report_utils.py ${OUTPUT_DIR}/templates \"$WORKSPACE\"/report \"${params.testScope}\" windows:master ${DATABASE_DIR}/statistics.db"
+                    sh "${PYTHON_CMD} -u ./pygpt/report_utils.py ${OUTPUT_DIR}/templates \"$WORKSPACE\"/report \"${params.testScope}\" \"${params.tagName}\" ${DATABASE_DIR}/statistics.db"
                    
                     archiveArtifacts artifacts: "report/**/*.*", fingerprint: true
                     sh "rm -rf report" 
