@@ -243,7 +243,8 @@ class SQLiteAdaptor(DBAdaptor):
                 sys.exit(1)
                 return False
             # lock db
-            os.mknod(self.__locker_path__)
+            with open(self.__locker_path__, 'w') as f:
+                f.write('locked')
         log.info(f"connecting to db: {self.db_path}")
         # connect to db
         self.__db__ = sqlite3.connect(self.db_path)
