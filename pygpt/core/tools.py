@@ -23,6 +23,16 @@ def mkdirs(path):
         if not os.path.isdir(crr):
             os.mkdir(crr)
 
+def rmfiles(folder):
+    for file_name in os.listdir(folder):
+        file_path = os.path.join(folder, path)
+        if os.path.isdir(file_path):
+            rmfiles(file_path)
+            os.rmdir(file_path)
+        else:
+            os.remove(file_path)
+
+
 def rlist_files(path, filter_fn=lambda _: True):
     """
     Recursively list files in all sub folder.
