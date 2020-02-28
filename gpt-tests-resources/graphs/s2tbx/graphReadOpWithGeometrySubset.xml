@@ -1,0 +1,31 @@
+<graph id="GraphReadOpWithGeometrySubset">
+    <version>1.0</version>
+    <node id="Read">
+        <operator>Read</operator>
+        <sources/>
+        <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+            <file>$input1</file>
+			<sourceBands>$sourceBands</sourceBands>
+			<geometryRegion>$geometryRegion</geometryRegion>
+        </parameters>
+    </node>
+    <node id="Write">
+        <operator>Write</operator>
+        <sources>
+            <sourceProduct refid="Read"/>
+        </sources>
+        <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+            <file>$out1</file>
+            <formatName>BEAM-DIMAP</formatName>
+        </parameters>
+    </node>
+    <applicationData id="Presentation">
+        <Description/>
+        <node id="Read">
+            <displayPosition x="55.0" y="136.0"/>
+        </node>
+        <node id="Write">
+            <displayPosition x="408.0" y="131.0"/>
+        </node>
+    </applicationData>
+</graph>

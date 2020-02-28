@@ -1,0 +1,109 @@
+{
+    "id": "tempReadOpPixelSubsetAlosAV2",
+    "decodeQualification": "INTENDED",
+    "expectedContent": {
+        "sceneWidth": 155,
+        "sceneHeight": 165,
+        "startTime": "15-JUL-2008 18:17:42.204021",
+        "endTime": "15-JUL-2008 18:17:42.204021",
+        "geoCoding": {
+            "coordinates": [
+                {
+                    "x": 66.0,
+                    "y": 88.0,
+                    "lat": 82.1018160941502,
+                    "lon": -33.342219783834246
+                },
+                {
+                    "x": 115.0,
+                    "y": 107.0,
+                    "lat": 82.100138794633,
+                    "lon": -33.310213501848565
+                }
+            ],
+            "reverseAccuracy": 2.3283064365386963E-10
+        },
+        "bands": [
+            {
+                "name": "blue",
+                "description": "",
+                "bandWidth": 155,
+                "bandHeight": 165,
+                "geophysicalUnit": "W.M-2.SR-1.uM-1",
+                "noDataValue": "0.057500001043081284",
+                "noDataValueUsed": "false",
+                "spectralWavelength": "0.0",
+                "spectralBandwidth": "0.0",
+                "expectedPixels": [
+                    {
+                        "x": 8,
+                        "y": 29,
+                        "value": 50.0375
+                    },
+                    {
+                        "x": 106,
+                        "y": 140,
+                        "value": 46.5095
+                    }
+                ]
+            },
+            {
+                "name": "near_infrared",
+                "description": "",
+                "bandWidth": 155,
+                "bandHeight": 165,
+                "geophysicalUnit": "W.M-2.SR-1.uM-1",
+                "noDataValue": "0.057500001043081284",
+                "noDataValueUsed": "false",
+                "spectralWavelength": "0.0",
+                "spectralBandwidth": "0.0",
+                "expectedPixels": [
+                    {
+                        "x": 45,
+                        "y": 42,
+                        "value": 89.4025
+                    },
+                    {
+                        "x": 94,
+                        "y": 60,
+                        "value": 36.7975
+                    }
+                ]
+            }
+        ],
+        "metadata": [
+            {
+                "path": "TIFF Metadata/GeoTIFF Metadata/GeoKeyDirectory/ProjLinearUnitsGeoKey",
+                "value": "Linear_Meter"
+            },
+            {
+                "path": "Metadata/Raster_Encoding/NBITS",
+                "value": "8"
+            },
+            {
+                "path": "TIFF Metadata/GeoTIFF Metadata/GeoKeyDirectory/GTModelTypeGeoKey",
+                "value": "ModelTypeProjected"
+            },
+            {
+                "path": "TIFF Metadata/GeoTIFF Metadata/GeoKeyDirectory/GTRasterTypeGeoKey",
+                "value": "RasterPixelIsArea"
+            },
+            {
+                "path": "Metadata/Data_Strip/Ephemeris/Orbital_Bulletin/TRUE_ANOMALY",
+                "value": "-3.010445"
+            },
+            {
+                "path": "Metadata/Raster_CS/RASTER_CS_TYPE",
+                "value": "POINT"
+            },
+            {
+                "path": "TIFF Metadata/GeoTIFF Metadata/GeoKeyDirectory/GTModelTypeGeoKey",
+                "value": "ModelTypeProjected"
+            },
+            {
+                "path": "TIFF Metadata/GeoTIFF Metadata/GeoKeyDirectory/GTCitationGeoKey",
+                "value": "WGS 84 / UTM zone 25N"
+            }
+        ]
+    }
+}

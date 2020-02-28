@@ -1,0 +1,182 @@
+{
+    "id": "tempReadOpPixelSubsetSentinel2AL1C",
+    "decodeQualification": "INTENDED",
+    "expectedContent": {
+        "sceneWidth": 4663,
+        "sceneHeight": 3035,
+        "startTime": "06-DEC-2016 08:03:12.026000",
+        "endTime": "06-DEC-2016 08:03:12.026000",
+        "geoCoding": {
+            "coordinates": [
+                {
+                    "x": 2011.0,
+                    "y": 1631.0,
+                    "lat": -34.05761840149101,
+                    "lon": 22.966904122788215
+                },
+                {
+                    "x": 3462.0,
+                    "y": 1969.0,
+                    "lat": -34.085465269447326,
+                    "lon": 23.124791471448596
+                }
+            ],
+            "reverseAccuracy": 7.159542292356491E-8
+        },
+        "bands": [
+            {
+                "name": "B1",
+                "description": "Reflectance in band B1",
+                "bandWidth": 777,
+                "bandHeight": 506,
+                "geophysicalUnit": "dl",
+                "noDataValue": "0.0",
+                "noDataValueUsed": "false",
+                "spectralWavelength": "443.0",
+                "spectralBandwidth": "58.0",
+                "expectedPixels": [
+                    {
+                        "x": 40,
+                        "y": 90,
+                        "value": 0.1154
+                    },
+                    {
+                        "x": 532,
+                        "y": 430,
+                        "value": 0.1251
+                    }
+                ]
+            },
+            {
+                "name": "B2",
+                "description": "Reflectance in band B2",
+                "bandWidth": 4663,
+                "bandHeight": 3035,
+                "geophysicalUnit": "dl",
+                "noDataValue": "0.0",
+                "noDataValueUsed": "false",
+                "spectralWavelength": "490.0",
+                "spectralBandwidth": "130.0",
+                "expectedPixels": [
+                    {
+                        "x": 1356,
+                        "y": 779,
+                        "value": 0.0916
+                    },
+                    {
+                        "x": 2846,
+                        "y": 1108,
+                        "value": 0.0942
+                    }
+                ]
+            },
+            {
+                "name": "B5",
+                "description": "Reflectance in band B5",
+                "bandWidth": 2332,
+                "bandHeight": 1518,
+                "geophysicalUnit": "dl",
+                "noDataValue": "0.0",
+                "noDataValueUsed": "false",
+                "spectralWavelength": "705.0",
+                "spectralBandwidth": "97.0",
+                "expectedPixels": [
+                    {
+                        "x": 1282,
+                        "y": 1131,
+                        "value": 0.0301
+                    },
+                    {
+                        "x": 1418,
+                        "y": 1409,
+                        "value": 0.0277
+                    }
+                ]
+            },
+            {
+                "name": "view_zenith_B4",
+                "description": "Viewing incidence zenith angle",
+                "bandWidth": 10,
+                "bandHeight": 6,
+                "geophysicalUnit": "Â°",
+                "noDataValue": "NaN",
+                "noDataValueUsed": "true",
+                "spectralWavelength": "0.0",
+                "spectralBandwidth": "0.0",
+                "expectedPixels": [
+                    {
+                        "x": 1,
+                        "y": 3,
+                        "value": 10.5672
+                    },
+                    {
+                        "x": 5,
+                        "y": 5,
+                        "value": 8.95423
+                    }
+                ]
+            },
+            {
+                "name": "view_azimuth_B5",
+                "description": "Viewing incidence azimuth angle",
+                "bandWidth": 10,
+                "bandHeight": 6,
+                "geophysicalUnit": "Â°",
+                "noDataValue": "NaN",
+                "noDataValueUsed": "true",
+                "spectralWavelength": "0.0",
+                "spectralBandwidth": "0.0",
+                "expectedPixels": [
+                    {
+                        "x": 7,
+                        "y": 2,
+                        "value": 93.2424
+                    },
+                    {
+                        "x": 9,
+                        "y": 2,
+                        "value": 110.688
+                    }
+                ]
+            }
+        ],
+        "metadata": [
+            {
+                "path": "Processing_Graph/node.2/sources/sourceProduct",
+                "value": "product:Subset_S2A_MSIL1C_20161206T080312_N0204_R035_T34HFH_20161206T081929"
+            },
+            {
+                "path": "Processing_Graph/node.2/parameters/deleteOutputOnFailure",
+                "value": "true"
+            },
+            {
+                "path": "history/SubsetInfo/ProductNodeName.1",
+                "value": "B1"
+            },
+            {
+                "path": "Processing_Graph/node.2/sources/sourceProduct",
+                "value": "product:Subset_S2A_MSIL1C_20161206T080312_N0204_R035_T34HFH_20161206T081929"
+            },
+            {
+                "path": "Processing_Graph/node.1/parameters/geoRegion/class",
+                "value": "com.vividsolutions.jts.geom.Polygon"
+            },
+            {
+                "path": "Processing_Graph/node.2/sources/sourceProduct",
+                "value": "product:Subset_S2A_MSIL1C_20161206T080312_N0204_R035_T34HFH_20161206T081929"
+            },
+            {
+                "path": "history/SubsetInfo/ProductNodeName.1",
+                "value": "B1"
+            },
+            {
+                "path": "history/SubsetInfo/ProductNodeName.2",
+                "value": "B2"
+            },
+            {
+                "path": "history/SubsetInfo/ProductNodeName.2",
+                "value": "B2"
+            }
+        ]
+    }
+}

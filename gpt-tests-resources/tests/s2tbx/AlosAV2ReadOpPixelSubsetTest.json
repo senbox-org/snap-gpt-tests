@@ -1,0 +1,19 @@
+[{
+  "id":"AlosAV2ReadOpPixelSubsetTest",
+  "author": "CSRO",
+  "description":"execute Alos AVNIR-2 product reader and operators",
+  "frequency":"daily/CSROtest",
+  "graphPath": "s2tbx/graphReadOpWithPixelSubset.xml",
+  "inputs": {
+    "input1": "s2tbx/_gpt_readers/alos/AL1_NESR_AV2_OBS_1C_20080715T181736_20080715T181748_013182_0539_1810_0410.SIP/AL1_NESR_AV2_OBS_1C_20080715T181736_20080715T181748_013182_0539_1810_0410/AL01_AV2_OBS_1C_20080715T181736_20080715T181748_ESR_013182_3985.DIMA"
+  },
+  "parameters": {
+    "sourceBands": "blue,near_infrared",
+    "pixelRegion": "20,25,155,165"
+  },
+  "outputs": [{
+    "parameter": "out1",
+    "outputName": "tempReadOpPixelSubsetAlosAV2",
+    "expected": "s2tbx/expectedReadOpPixelSubsetAlosAV2.json"
+  }]
+}]
