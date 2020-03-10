@@ -518,7 +518,7 @@ def adaptor(db_path):
         return SQLiteAdaptor(path)
     if mode == 'mysql':
         return MySQLAdaptor(path)
-    if mode == 'config':
+    if mode == 'conf':
         with open(path, 'r') as file:
             db_path = file.readline().replace('\n', '')
             return adaptor(db_path)
