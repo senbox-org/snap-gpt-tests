@@ -248,7 +248,7 @@ class MySQLAdaptor(DBAdaptor):
     """MySQL adaptor."""
     def __init__(self, db_path):
         DBAdaptor.__init__(self, db_path)
-        self.user, self.password = db_path.slpit('@')[0].split(':')
+        self.user, self.password = db_path.split('@')[0].split(':')
         self.dbname = db_path.split('@')[1].split('/')[1]
         self.host, self.port = db_path.split('@')[1].split('/')[0].split(':')
 
@@ -275,7 +275,8 @@ class MySQLAdaptor(DBAdaptor):
         self.__db__ = None
         self.__cursor__ = None
         return True
-
+    
+    @ensure_connection
     def execute(self, query, *args):
         with self.__db__.cursor() as cursor:
             cursor.execute(query, *args)
@@ -492,8 +493,8 @@ def adaptor(db_path):
     return db adaptor
     """
     if '://' in db_path:
-        mode = db_path.slpit('://')[0]
-        path = db_path.slpit('://')[1]
+        mode = db_path.split('://')[0]
+        path = db_path.split('://')[1]
     else:
         # ensuring back compatibility with old syntax
         mode = 'sqlite'
@@ -505,5 +506,3 @@ def adaptor(db_path):
         return MySQLAdaptor(path)
     print(f'Database mode {mode} not supported')
     sys.exit(1)
-
-
