@@ -168,6 +168,12 @@ class TestResult(Test):
         """Test ouput."""
         return self._stdout
 
+    def is_crashed(self):
+        """
+        is crashed flag
+        """
+        return self.is_failed() and 'Exception' in self._stdout
+
     def is_failed(self):
         """
         is failed flag

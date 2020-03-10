@@ -145,8 +145,8 @@ def draw(source, dest, dpi=100):
         ratio = real_h / real_w
         scale = 1.0 / real_w
 
-        W = real_w/100.0 
-        _, axis = plt.subplots(figsize=(W, W*(ratio+0.1)), dpi=dpi)
+        width = real_w/100.0
+        _, axis = plt.subplots(figsize=(width, width*(ratio+0.1)), dpi=dpi)
 
         # set limits
         plt.xlim([min(points['x']) * scale, max(points['x']) * scale])

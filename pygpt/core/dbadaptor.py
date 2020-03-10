@@ -165,7 +165,9 @@ class DBAdaptor:
         if not res:
             log.info(f'inserting results for test `{test.name}`')
             result = 1
-            if test.is_failed():
+            if test.is_crashed():
+                result = 4
+            elif test.is_failed():
                 result = 3
             elif test.is_skipped():
                 result = 2
@@ -220,16 +222,20 @@ class DBAdaptor:
         """
         return []
 
-    def values(self, test, dockerTag, value_tag, last_N=None):
+    def values(self, test, docker_tag, value_tag, last_n=None):
         """
         Retrive average value for a specific performance information
         """
-        docker_id = self.docker_tag_id(dockerTag)
+        docker_id = self.docker_tag_id(docker_tag)
         test_id = self.test_id(test)
 
-        query = f'''SELECT {value_tag} FROM results WHERE test=? and job in (SELECT ID FROM jobs WHERE dockerTag=?) ORDER BY start DESC'''
-        if last_N is not None:
-            query += f' LIMIT {last_N}'
+        query = f'''SELECT {value_tag} FROM results
+            WHERE test=? and job in
+                (SELECT ID FROM jobs
+                WHERE dockerTag=?)
+            ORDER BY start DESC'''
+        if last_n is not None:
+            query += f' LIMIT {last_n}'
         res = self.execute(query, (test_id, docker_id))
         return list([x[0] for x in res])
 
@@ -369,6 +375,8 @@ class SQLiteAdaptor(DBAdaptor):
             query = 'INSERT INTO resultTags (ID, tag, fatal) VALUES (2, "SKIPPED", 0);'
             self.__cursor__.execute(query)
             query = 'INSERT INTO resultTags (ID, tag, fatal) VALUES (3, "FAILED", 1);'
+            self.__cursor__.execute(query)
+            query = 'INSERT INTO resultTags (ID, tag, fatal) VALUES (4, "CRASHED", 1);'
             self.__cursor__.execute(query)
 
         if not self.__table_exists__('jobs'):

@@ -1,6 +1,6 @@
 """
 SNAP GPT Test:
-Executes the GPT tests for the ESA-SNAP CI project. 
+Executes the GPT tests for the ESA-SNAP CI project.
 
 Author: Martino Ferrari (CS Group) <martino-ferrari@c-s.fr>
 License: GPLv3
@@ -121,7 +121,7 @@ def __vm_parameters_set__(test, snap_dir):
     config_vm = test.jvm_config
     if not config_vm:
         return
-  
+
     # set memory setting to configuration file
     if 'xmx' in config_vm:
         vm_option = os.path.join(snap_dir, 'gpt.vmoptions')
@@ -192,7 +192,7 @@ def __check_outputs__(test, args, properties):
 
     Returns:
     --------
-    output_conformity, stdout 
+    output_conformity, stdout
     """
     for output in test.outputs:
         if 'expected' in output and output['expected'] is not None and output['expected'] != "":
@@ -211,12 +211,12 @@ def __check_outputs__(test, args, properties):
             log.info(f'comparing done, result: {result.returncode}')
             stdout = result.stdout.decode('utf-8')
             stdout_file = os.path.join(args.report_dir, f'{test.name}_gptOutput.txt')
-            
+
             with open(stdout_file, 'a') as file:
                 file.write(stdout)
-        
+
             if result.returncode != 0:
-                log.error(f"test `{test.name}` failed:\n{stdout}")  
+                log.error(f"test `{test.name}` failed:\n{stdout}")
                 return False, stdout
 
     return True, stdout
@@ -243,7 +243,7 @@ def __run_test__(test, args, properties):
     gpt_parameters = [gpt_bin] # gpt command and arguments
     # graph to test
     gpt_parameters.append(os.path.join(properties['graphFolder'], test.graph_path))
-    gpt_parameters += test.gpt_parameters(properties) 
+    gpt_parameters += test.gpt_parameters(properties)
     # prepare JVM settings if needed
     __vm_parameters_set__(test, snap_dir)
     log.info(f'execute: `{" ".join(gpt_parameters)}`') # DEBUG print
@@ -277,7 +277,7 @@ def __run_test__(test, args, properties):
     if res is None:
         res = 0
 
-    # if a result output is configuated 
+    # if a result output is configuated
     if test.result is not None:
         if test.result['status'] and res > 0:
             # the process should not have failed
@@ -292,13 +292,13 @@ def __run_test__(test, args, properties):
                 # process failed but with a different message than expected
                 log.error(f'test `{test.name}` was suppoed to fail with message `{test.result["message"]}`')
                 return False
-            else: 
+            else:
                 log.success(f'test `{test.name}` failed succesfully')
                 return True
     # if the execution result is not 0 return False
     elif res > 0:
         return False
-    
+
     # check outputs
     conformity, check_stdout = __check_outputs__(test, args, properties)
     if test.result is not None:
@@ -376,7 +376,7 @@ def __run_tests__(args, properties):
             # for each tests
             count += 1
             print() # empty line here
-            log.info(f"Test [{count}/{len(test_list)}]")                
+            log.info(f"Test [{count}/{len(test_list)}]")
             log.info(f"saving json file for test `{test.name}`")
             __save_json__(test, args) # save raw json copy
             log.info(f"drawing graph for test `{test.name}`")
@@ -425,6 +425,6 @@ def __main__():
 
     exit_code = 0 if __run_tests__(args, properties) else 0 # run tests with given parameters
     exit(properties, exit_code) # if tests fails exit with status code
-    
+
 if __name__ == '__main__':
     __main__() # execute script
