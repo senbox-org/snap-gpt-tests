@@ -26,10 +26,6 @@ def __args__():
     parser.add_argument('base_path', help='Report base path')
     parser.add_argument('job', help='Job number')
     parser.add_argument('branch', help='Test Branch')
-
-    parser.add_argument('--adaptor', default='sqlite',
-                        choices=['sqlite'], 
-                        help='DB adaptor (sqlite, mysql)')    
     # parse arguments
     return parser.parse_args()
 
@@ -39,9 +35,7 @@ def __main__():
     Script main entry point.
     """
     args = __args__()
-    adaptor = None
-    if args.adaptor == 'sqlite':
-        adaptor = db.SQLiteAdaptor(args.db_path)
+    adaptor = db.adaptor(args.db_path)
 
     if adaptor is None:
         log.error('no DB adapotor found')
