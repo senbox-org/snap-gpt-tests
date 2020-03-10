@@ -8,6 +8,7 @@ import os
 import time
 import sys
 import sqlite3
+import pymysql
 
 from functools import wraps
 
@@ -41,7 +42,7 @@ class DBAdaptor:
         """
         query = f"SELECT ID FROM dockerTags WHERE name='{tag_name}';"
         res = self.execute(query)
-        if len(res) == 0:
+        if not res:
             log.info(f'inserting dockerTag `{tag_name}` into DB')
             query = f"INSERT INTO dockerTags (name) VALUES ('{tag_name}');"
             self.execute(query)
@@ -54,7 +55,7 @@ class DBAdaptor:
         Gets db test id from test name
         """
         res = self.execute('SELECT ID FROM tests WHERE name=?', [test_name])
-        if len(res) > 0:
+        if res:
             return res[0][0]
         return None
 
@@ -74,7 +75,7 @@ class DBAdaptor:
         query = f'SELECT id FROM jobs WHERE branch="{branch}" AND jobnum={job};'
         res = self.execute(query)
 
-        if len(res) == 0:
+        if not res:
             start_date = min([test_set.start_date for test_set in test_sets])
             end_date = max([test_set.end_date for test_set in test_sets])
             result = all([not ts.is_failed() for ts in test_sets])
@@ -99,7 +100,7 @@ class DBAdaptor:
                                      1 if result else 3
                                     ))
             res = self.execute(query)
-            if len(res) == 0:
+            if not res:
                 log.panic('impossible to add job')
         job_id = res[0][0]
         for test_set in test_sets:
@@ -123,7 +124,7 @@ class DBAdaptor:
         name = test.name
         query = f'SELECT ID FROM tests WHERE name="{name}"'
         res = self.execute(query)
-        if len(res) == 0:
+        if not res:
             log.info(f'inserting test `{name}`')
             query = f'''INSERT INTO tests (
                 name,
@@ -150,10 +151,55 @@ class DBAdaptor:
 
         Parameters:
         -----------
-         - job_id: db job id 
+         - job_id: db job id
          - test_id: db test id
          - test: test object
         """
+        if not test.has_statistics():
+            log.warning(f'test `{test.name}` has no statistics')
+            return
+        query = 'SELECT * FROM results WHERE job=? AND test=?'
+        res = self.execute(query, (job_id, test_id))
+        if not res:
+            log.info(f'inserting results for test `{test.name}`')
+            result = 1
+            if test.is_failed():
+                result = 3
+            elif test.is_skipped():
+                result = 2
+            query = '''INSERT INTO results (
+                test,
+                job,
+                result,
+                start,
+                duration,
+                cpu_time,
+                cpu_usage_avg,
+                cpu_usage_max,
+                memory_avg,
+                memory_max,
+                io_write,
+                io_read,
+                threads_avg,
+                threads_max,
+                raw_data
+            ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);'''
+            self.execute(query, (test_id,
+                                 job_id,
+                                 result,
+                                 test.start,
+                                 test.duration,
+                                 test.cpu_time,
+                                 test.cpu_usage_avg,
+                                 test.cpu_usage_max,
+                                 test.memory_avg,
+                                 test.memory_max,
+                                 test.io_write,
+                                 test.io_read,
+                                 int(test.threads_avg),
+                                 test.threads_max,
+                                 sqlite3.Binary(test.raw_profile())
+                                 ))
 
     def execute(self, query, *args):
         """
@@ -168,6 +214,7 @@ class DBAdaptor:
         --------
         all results found
         """
+        return []
 
     def values(self, test, dockerTag, value_tag, last_N=None):
         """
@@ -182,29 +229,7 @@ class DBAdaptor:
         res = self.execute(query, (test_id, docker_id))
         return list([x[0] for x in res])
 
-    def has_reference(self, test, referenceTag="default"):
-        """
-        Check if reference exists for a given test
-        """
 
-        query = '''SELECT * FROM reference_values WHERE 
-                    test in (SELECT ID FROM tests WHERE name=?) and 
-                    referenceTag in (SELECT ID FROM referenceTags WHERE tag=?);
-                '''
-        res = self.execute(query, [test, referenceTag])
-        return len(res) > 0
-
-    def reference_value(self, test, value_tag, referenceTag='default'):
-        """
-        Retrieve a specific reference value.
-        """
-        query = f'''SELECT {value_tag} FROM reference_values WHERE 
-                    test in (SELECT ID FROM tests WHERE name=?) and 
-                    referenceTag in (SELECT ID FROM referenceTags WHERE tag=?);'''
-        res = self.execute(query, [test, referenceTag])
-        if len(res) > 0:
-            return res[0][0]
-        return None
 
 
 def ensure_connection(func):
@@ -213,13 +238,53 @@ def ensure_connection(func):
     """
     @wraps(func)
     def inner(*args, **kwargs):
-        if args[0].__db__ == None:
+        if args[0].__db__ is None:
             log.panic('DB not connected')
         return func(*args, **kwargs)
     return inner
 
 
+class MySQLAdaptor(DBAdaptor):
+    """MySQL adaptor."""
+    def __init__(self, db_path):
+        DBAdaptor.__init__(self, db_path)
+        self.user, self.password = db_path.slpit('@')[0].split(':')
+        self.dbname = db_path.split('@')[1].split('/')[1]
+        self.host, self.port = db_path.split('@')[1].split('/')[0].split(':')
+
+    def open(self):
+        if self.__db__ is not None:
+            return True
+        log.info(f"connecting to db: {self.host}:{self.port}/{self.dbname}")
+        self.__db__ = pymysql.connect(
+            host=self.host,
+            port=int(self.port),
+            user=self.user,
+            password=self.password,
+            db=self.dbname,
+            cursorclass=pymysql.cursors.DictCursor
+        )
+        return True
+
+    def close(self):
+        if self.__db__ is None:
+            return True
+        log.info(f"disconnecting to db: {self.host}:{self.port}/{self.dbname}")
+        self.__db__.commit()
+        self.__db__.close()
+        self.__db__ = None
+        self.__cursor__ = None
+        return True
+
+    def execute(self, query, *args):
+        with self.__db__.cursor() as cursor:
+            cursor.execute(query, *args)
+            res_list = cursor.fetchall()
+        return res_list
+
+
 class SQLiteAdaptor(DBAdaptor):
+    """SQLite3 Adaptor."""
     def __init__(self, db_path, locker=True, max_wait=600):
         DBAdaptor.__init__(self, db_path)
         self.locker = locker
@@ -243,8 +308,8 @@ class SQLiteAdaptor(DBAdaptor):
                 sys.exit(1)
                 return False
             # lock db
-            with open(self.__locker_path__, 'w') as f:
-                f.write('locked')
+            with open(self.__locker_path__, 'w') as file:
+                file.write('locked')
         log.info(f"connecting to db: {self.db_path}")
         # connect to db
         self.__db__ = sqlite3.connect(self.db_path)
@@ -414,54 +479,6 @@ class SQLiteAdaptor(DBAdaptor):
         return res_list
 
 
-    def create_result_entry(self, job_id, test_id, test):
-        if not test.has_statistics():
-            log.warning(f'test `{test.name}` has no statistics')
-            return
-        query = 'SELECT * FROM results WHERE job=? AND test=?'
-        res = self.execute(query, (job_id, test_id))
-        if not res:
-            log.info(f'inserting results for test `{test.name}`')
-            result = 1
-            if test.is_failed():
-                result = 3
-            elif test.is_skipped():
-                result = 2
-            query = '''INSERT INTO results (
-                test,
-                job,
-                result,
-                start,
-                duration,
-                cpu_time,
-                cpu_usage_avg,
-                cpu_usage_max,
-                memory_avg,
-                memory_max,
-                io_write,
-                io_read,
-                threads_avg,
-                threads_max,
-                raw_data
-            ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);'''
-            self.execute(query, (test_id,
-                                 job_id,
-                                 result,
-                                 test.start,
-                                 test.duration,
-                                 test.cpu_time,
-                                 test.cpu_usage_avg,
-                                 test.cpu_usage_max,
-                                 test.memory_avg,
-                                 test.memory_max,
-                                 test.io_write,
-                                 test.io_read,
-                                 int(test.threads_avg),
-                                 test.threads_max,
-                                 sqlite3.Binary(test.raw_profile())
-                                 ))
-
-
 def adaptor(db_path):
     """
     Retrives adaptor for the given db.
@@ -474,5 +491,19 @@ def adaptor(db_path):
     --------
     return db adaptor
     """
-    # TODO infere db type from path
-    return SQLiteAdaptor(db_path)
+    if '://' in db_path:
+        mode = db_path.slpit('://')[0]
+        path = db_path.slpit('://')[1]
+    else:
+        # ensuring back compatibility with old syntax
+        mode = 'sqlite'
+        path = db_path
+
+    if mode == 'sqlite':
+        return SQLiteAdaptor(path)
+    if mode == 'mysql':
+        return MySQLAdaptor(path)
+    print(f'Database mode {mode} not supported')
+    sys.exit(1)
+
+
