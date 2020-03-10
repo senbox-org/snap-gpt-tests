@@ -20,7 +20,7 @@ class TestScope(Enum):
     Daily = 'daily'
     Weekly = 'weekly'
     Release = 'release'
-    
+
     @staticmethod
     def compatibility_map():
         """
@@ -31,7 +31,7 @@ class TestScope(Enum):
             TestScope.Daily : set([TestScope.Regular, TestScope.Daily]),
             TestScope.Weekly : set([TestScope.Regular, TestScope.Daily,
                                     TestScope.Weekly]),
-            TestScope.Release : set([TestScope.Regular, TestScope.Daily, 
+            TestScope.Release : set([TestScope.Regular, TestScope.Daily,
                                      TestScope.Weekly, TestScope.Release])
         }
 
@@ -39,7 +39,7 @@ class TestScope(Enum):
     def init(value):
         """
         Initializes a TestScope from its string value.
-        
+
         Parameters:
         -----------
          - value: test scope string value
@@ -52,7 +52,7 @@ class TestScope(Enum):
         if value in TestScope._value2member_map_:
             return TestScope._value2member_map_[value]
         return value
-    
+
     @staticmethod
     def compatible(source, target):
         """
@@ -60,7 +60,7 @@ class TestScope(Enum):
         The compatibility is achived in the following cases:
          - target == source or target.startswith(source)
          - source is a regular scope and the target is compatible with it
-        
+
         Parameters:
         -----------
          - source: selected source test scope
@@ -89,7 +89,7 @@ class TestScope(Enum):
 
         Returns:
         --------
-        `True` if any of the target tag is compatible with the source one. 
+        `True` if any of the target tag is compatible with the source one.
         """
         targets = [TestScope.init(x) for x in str(targets).split('/')]
         return any([TestScope.compatible(source, x) for x in targets])
@@ -130,17 +130,20 @@ class Test(log.Printable):
         super().__init__()
         if source_path is not None:
             # add the source information to the data structure
-            struct['json_file'] = source_path 
+            struct['json_file'] = source_path
         self._raw = __normalize_struct__(struct)
         self._name = struct['id']
-    
+        self._xml = ''
+        with open(f'gpt-tests-resources/graphs/{self.graph_path()}') as xml_file:
+            self._xml = xml_file.read()
+
     @property
     def name(self):
         """
         Test name.
         """
         return self._name
-    
+
     @property
     def uuid(self):
         """
@@ -161,11 +164,11 @@ class Test(log.Printable):
         Test description.
         """
         return self._raw['description']
-    
+
     @property
     def frequency(self):
         """
-        Test frequency, a string containing all the frequency tags 
+        Test frequency, a string containing all the frequency tags
         separated by '/'.
         """
         return self._raw['frequency']
@@ -176,6 +179,11 @@ class Test(log.Printable):
         Path of the graph.
         """
         return self._raw['graphpath']
+
+    @property
+    def graph_xml(self):
+        """Get graph XML raw."""
+        return self._xml
 
     @property
     def graph_id(self):
@@ -192,14 +200,14 @@ class Test(log.Printable):
         if 'json_file' in self._raw:
             return self._raw['json_file']
         return ''
-    
+
     @property
     def inputs(self):
         """
         Graph inputs definition.
         """
         return self._raw['inputs']
-    
+
     @property
     def outputs(self):
         """
@@ -213,7 +221,7 @@ class Test(log.Printable):
         Additional needed graph parameters.
         """
         return self._raw['parameters']
-    
+
     @property
     def jvm_config(self):
         """
@@ -228,7 +236,7 @@ class Test(log.Printable):
         if 'seed' in self._raw:
             return self._raw['seed']
         return None
-    
+
     def jvm_string(self):
         if not self.jvm_config:
             return 'Default config'
@@ -246,14 +254,14 @@ class Test(log.Printable):
         if 'result' in self._raw:
             return self._raw['result']
         return None
-    
+
 
     def gpt_parameters(self, properties):
         """
         Returns gpt parameters for the given test
         """
         return self.__jvm_params__() + self.__io_params__(properties)
- 
+
     def __io_params__(self, properties):
         # prepare inputs
         params = []

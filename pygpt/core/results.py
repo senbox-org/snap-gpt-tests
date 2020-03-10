@@ -84,11 +84,11 @@ class TestResult(Test):
     @property
     def status(self):
         return self._status
-    
+
     @property
     def start(self):
         return self._start
-    
+
     @property
     def end(self):
         return self._end
@@ -111,7 +111,7 @@ class TestResult(Test):
             return -1
         return self._stats['memory']['max']
 
-    @property  
+    @property
     def memory_avg(self):
         """
         average use of memory
@@ -125,7 +125,7 @@ class TestResult(Test):
         if self._stats is None:
             return -1
         return self._stats['io']['write']
-    
+
     @property
     def io_read(self):
         if self._stats is None:
@@ -150,18 +150,23 @@ class TestResult(Test):
             return -1
         return self._stats['cpu_usage']['max']
 
-    
+
     @property
     def threads_avg(self):
         if self._stats is None:
             return -1
         return self._stats['threads']['average']
-        
+
     @property
     def threads_max(self):
         if self._stats is None:
             return -1
         return self._stats['threads']['max']
+
+    @property
+    def stdout(self):
+        """Test ouput."""
+        return self._stdout
 
     def is_failed(self):
         """
@@ -205,20 +210,20 @@ class TestResult(Test):
                 'reference': '-',
                 'average': '-'
             }
-            if self.__adaptor__ is not None:    
+            if self.__adaptor__ is not None:
                 db_key = key
                 if param == 'average':
                     db_key += '_avg'
                 elif param == 'max':
-                    db_key += '_max' 
+                    db_key += '_max'
                 vals = self.__adaptor__.values(self.name, version, db_key)
                 if len(vals) > 0:
                     obj['average'] = round(sum(vals) / len(vals), 1)
-            
+
                 ref = self.__adaptor__.reference_value(self.name, db_key)
                 if ref is not None:
                     obj['reference'] = ref
-            
+
         return obj
 
     def perf_summary(self, version):
@@ -271,9 +276,9 @@ class TestResult(Test):
 
             plt.savefig(fs.plots.resolve(self.name+"_cpu_time_history.png"))
             plt.close()
-            
+
             plots.append(self.name+"_cpu_time_history.png")
-            
+
             _, axis = plt.subplots(figsize=(10, 7))
             plt.plot(times, memory, 'o-')
             plt.grid(alpha=0.5)
@@ -306,7 +311,7 @@ class TestResult(Test):
 
 class TestResutlSet(log.Printable):
     """
-    Set of tests representing the result of a single JSON 
+    Set of tests representing the result of a single JSON
     tests set.
     """
     def __init__(self, name, tests):
@@ -317,7 +322,7 @@ class TestResutlSet(log.Printable):
     @property
     def tests(self):
         return self._tests
-    
+
 
     @property
     def duration(self):

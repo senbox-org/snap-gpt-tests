@@ -81,7 +81,7 @@ class DBAdaptor:
             result = all([not ts.is_failed() for ts in test_sets])
             log.info(f'inserting job `{job}` into DB')
             add_query = '''INSERT INTO jobs (
-                branch, 
+                branch,
                 jobnum,
                 dockerTag,
                 testScope,
@@ -132,14 +132,16 @@ class DBAdaptor:
                 description,
                 author,
                 frequency,
-                graphPath
+                graphPath,
+                graphXML,
             ) VALUES (
                 '{name}',
                 '{parent_set}',
                 '{test.description}',
                 '{test.author}',
                 '{test.frequency}',
-                '{test.graph_path}'
+                '{test.graph_path}',
+                '{test.graph_xml}'
             );'''
             self.execute(query)
             return self.test_entry(test, parent_set)
@@ -182,7 +184,8 @@ class DBAdaptor:
                 io_read,
                 threads_avg,
                 threads_max,
-                raw_data
+                raw_data,
+                output,
             ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);'''
             self.execute(query, (test_id,
                                  job_id,
@@ -198,7 +201,8 @@ class DBAdaptor:
                                  test.io_read,
                                  int(test.threads_avg),
                                  test.threads_max,
-                                 sqlite3.Binary(test.raw_profile())
+                                 sqlite3.Binary(test.raw_profile()),
+                                 test.stdout
                                  ))
 
     def execute(self, query, *args):
@@ -396,7 +400,8 @@ class SQLiteAdaptor(DBAdaptor):
                 description VARCHAR(256) NOT NULL,
                 author VARCHAR(256) NOT NULL,
                 frequency VARCHAR(256) NOT NULL,
-                graphPath VARCHAR(256) NOT NULL
+                graphPath VARCHAR(256) NOT NULL,
+                graphXML BLOB,
             );
             '''
             self.__cursor__.execute(query)
@@ -420,6 +425,7 @@ class SQLiteAdaptor(DBAdaptor):
                 threads_avg INTEGER NOT NULL, -- counter
                 threads_max INTEGER NOT NULL, -- counter
                 raw_data BLOB NOT NULL,
+                output BLOB,
                 FOREIGN KEY (test) REFERENCES tests(ID),
                 FOREIGN KEY (job) REFERENCES jobs(ID),
                 FOREIGN KEY (result) REFERENCES resultTags(ID),
