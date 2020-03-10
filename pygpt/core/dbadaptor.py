@@ -237,7 +237,7 @@ class SQLiteAdaptor(DBAdaptor):
                 counter += 1
                 log.info('wating for unlocking SQLite DB')
                 time.sleep(1) # wait 1 second every time
-            # check if duration 
+            # check if duration
             if counter >= self.__max_t__:
                 log.error(f'the sqlite DB is still locked after {self.__max_t__} seconds.')
                 sys.exit(1)
@@ -266,7 +266,7 @@ class SQLiteAdaptor(DBAdaptor):
             # remove locker
             os.remove(self.__locker_path__)
         return True
-    
+
 
     def __table_exists__(self, table):
         query = f'SELECT * FROM {table};'
@@ -403,16 +403,16 @@ class SQLiteAdaptor(DBAdaptor):
     def execute(self, query, *args):
         try:
             self.__cursor__.execute(query, *args)
-        except sqlite3.OperationalError as e:
+        except sqlite3.OperationalError as exc:
             log.error(f'SQL query `{query}` malformed')
-            raise e
+            raise exc
         res_list = []
         res = self.__cursor__.fetchone()
         while res is not None:
             res_list.append(res)
             res = self.__cursor__.fetchone()
         return res_list
-           
+
 
     def create_result_entry(self, job_id, test_id, test):
         if not test.has_statistics():
@@ -420,7 +420,7 @@ class SQLiteAdaptor(DBAdaptor):
             return
         query = 'SELECT * FROM results WHERE job=? AND test=?'
         res = self.execute(query, (job_id, test_id))
-        if len(res) == 0:
+        if not res:
             log.info(f'inserting results for test `{test.name}`')
             result = 1
             if test.is_failed():
@@ -460,7 +460,7 @@ class SQLiteAdaptor(DBAdaptor):
                                  test.threads_max,
                                  sqlite3.Binary(test.raw_profile())
                                  ))
-        
+
 
 def adaptor(db_path):
     """
@@ -472,8 +472,7 @@ def adaptor(db_path):
 
     Returns:
     --------
-    return db adaptor 
+    return db adaptor
     """
     # TODO infere db type from path
     return SQLiteAdaptor(db_path)
-
