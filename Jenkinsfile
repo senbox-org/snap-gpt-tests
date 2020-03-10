@@ -108,6 +108,7 @@ pipeline {
         string(name: 'testScope', defaultValue: 'REGULAR', description: 'Scope of the tests to launch (REGULAR, DAILY, WEEKLY, RELEASE)')
         booleanParam(name: 'saveOutput', defaultValue: false, description: 'Save output of failed tests (if scope is not [REGULAR, DAILY, WEEKLY, RELEASE])')
         booleanParam(name: 'parallel', defaultValue: true, description: 'Execute the test jobs in parallel')
+        string(name: 'reportsDB', defaultValue: "sqlite:///report/db/statistics.db", description: "database to use for saving outputs and performances (sqlite://path or mysql://user:root@host:port/db)")
     }
    
     stages {
@@ -185,7 +186,7 @@ pipeline {
                     sh "python3 -u ./pygpt/stats_db.py /report/db/statistics.db ${dockerTagName} ${params.testScope} $WORKSPACE/report ${env.BUILD_NUMBER} ${env.GIT_BRANCH}"
                    
                     echo "Generate report"
-                    sh "python3 -u ./pygpt/report_utils.py ${outputDir}/templates $WORKSPACE/report \"${params.testScope}\" ${dockerTagName} /report/db/statistics.db"
+                    sh "python3 -u ./pygpt/report_utils.py ${outputDir}/templates $WORKSPACE/report \"${params.testScope}\" ${dockerTagName} ${params.reportsDB}"
                    
                     archiveArtifacts artifacts: "report/**/*.*", fingerprint: true
                     sh "rm -rf report" 
