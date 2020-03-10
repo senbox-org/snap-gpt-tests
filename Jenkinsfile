@@ -108,7 +108,7 @@ pipeline {
         string(name: 'testScope', defaultValue: 'REGULAR', description: 'Scope of the tests to launch (REGULAR, DAILY, WEEKLY, RELEASE)')
         booleanParam(name: 'saveOutput', defaultValue: false, description: 'Save output of failed tests (if scope is not [REGULAR, DAILY, WEEKLY, RELEASE])')
         booleanParam(name: 'parallel', defaultValue: true, description: 'Execute the test jobs in parallel')
-        string(name: 'reportsDB', defaultValue: "sqlite:///report/db/statistics.db", description: "database to use for saving outputs and performances (sqlite://path or mysql://user:root@host:port/db)")
+        string(name: 'reportsDB', defaultValue: "conf:///opt/snap-gpt-tests/snap-db.conf", description: "database to use for saving outputs and performances (sqlite://path or mysql://user:root@host:port/db)")
     }
    
     stages {
@@ -138,7 +138,7 @@ pipeline {
                 docker {
                     label 'snap'
                     image "snap-build-server.tilaa.cloud/${dockerTagName}"
-                    args '-v /data/ssd/testData/:/data/ssd/testData/ -v /data/ssd/testData/report:/report/ -v /opt/snap-gpt-tests/gpt-tests-executer.properties:/opt/snap-gpt-tests/gpt-tests-executer.properties -v docker_gpt_test_results:/home/snap/output/'
+                    args '-v /data/ssd/testData/:/data/ssd/testData/ -v /data/ssd/testData/report:/report/ -v /opt/snap-gpt-tests/:/opt/snap-gpt-tests/ -v docker_gpt_test_results:/home/snap/output/'
                 }
             }
             steps {
