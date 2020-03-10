@@ -183,7 +183,7 @@ pipeline {
                     sh "ls $WORKSPACE/report/json/"
                    
                     echo "Updating database"
-                    sh "python3 -u ./pygpt/stats_db.py /report/db/statistics.db ${dockerTagName} ${params.testScope} $WORKSPACE/report ${env.BUILD_NUMBER} ${env.GIT_BRANCH}"
+                    sh "python3 -u ./pygpt/stats_db.py ${params.reportsDB} ${dockerTagName} ${params.testScope} $WORKSPACE/report ${env.BUILD_NUMBER} ${env.GIT_BRANCH}"
                    
                     echo "Generate report"
                     sh "python3 -u ./pygpt/report_utils.py ${outputDir}/templates $WORKSPACE/report \"${params.testScope}\" ${dockerTagName} ${params.reportsDB}"
@@ -208,7 +208,7 @@ Check console output at ${env.BUILD_URL}
 ${env.JOB_NAME} [${env.BUILD_NUMBER}]""",
                                  attachLog: false,
                                  compressLog: false,
-                                 to: 'omar.barrilero@c-s.fr,martino.ferrari@c-s.fr,jean.seyral@c-s.fr')
+                                 to: 'martino.ferrari@c-s.fr,jean.seyral@c-s.fr')
                      }
              }
          }

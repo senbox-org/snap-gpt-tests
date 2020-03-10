@@ -40,7 +40,6 @@ def __main__():
     if adaptor is None:
         log.error('no DB adapotor found')
         sys.exit(1)
-    
     try:
         adaptor.open()
         test_sets = ru.get_test_sets(args.base_path)
