@@ -275,7 +275,7 @@ class MySQLAdaptor(DBAdaptor):
         self.__db__ = None
         self.__cursor__ = None
         return True
-    
+
     @ensure_connection
     def execute(self, query, *args):
         with self.__db__.cursor() as cursor:
@@ -504,5 +504,9 @@ def adaptor(db_path):
         return SQLiteAdaptor(path)
     if mode == 'mysql':
         return MySQLAdaptor(path)
+    if mode == 'config':
+        with open(path, 'r') as file:
+            db_path = file.readline().replace('\n', '')
+            return adaptor(db_path)
     print(f'Database mode {mode} not supported')
     sys.exit(1)
