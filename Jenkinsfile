@@ -108,7 +108,7 @@ pipeline {
         string(name: 'testScope', defaultValue: 'REGULAR', description: 'Scope of the tests to launch (REGULAR, DAILY, WEEKLY, RELEASE)')
         booleanParam(name: 'saveOutput', defaultValue: false, description: 'Save output of failed tests (if scope is not [REGULAR, DAILY, WEEKLY, RELEASE])')
         booleanParam(name: 'parallel', defaultValue: true, description: 'Execute the test jobs in parallel')
-        string(name: 'reportsDB', defaultValue: "sqlite:///report/db/statistics.db", description: "database to use for saving outputs and performances (sqlite://path or mysql://user:root@host:port/db)")
+        string(name: 'reportsDB', defaultValue: "sqlite:///report/db/statistics_new.db", description: "database to use for saving outputs and performances (sqlite://path or mysql://user:root@host:port/db)")
     }
    
     stages {
