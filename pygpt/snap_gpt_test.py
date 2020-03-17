@@ -14,6 +14,8 @@ import json
 import subprocess
 import shutil
 
+from enum import Enum
+
 from core.models import TestScope, Test
 
 import core.profiler as profiler
@@ -24,6 +26,22 @@ import core.log as log
 
 __DATE_FMT__ = '%d/%m/%Y %H:%M:%S'
 __SEED_ENV_VARIABLE__ = 'snap.random.seed'
+
+
+class Result(Enum):
+    SKIPPED = -1
+    PASSED = 0
+    FAILED = 1
+    CRASHED = 2
+
+    def __repr__(self):
+        if self == Result.SKIPPED:
+            return 'SKIPPED'
+        if self == Result.PASSED:
+            return 'PASSED'
+        if self == Result.FAILED:
+            return 'FAILED'
+        return 'CRASHED'
 
 
 def lazy_bool(string):
@@ -281,23 +299,23 @@ def __run_test__(test, args, properties):
     if test.result is not None:
         if test.result['status'] and res > 0:
             # the process should not have failed
-            return False
+            return Result.CRASHED
         elif not test.result['status'] and test.result['source'] == 'process':
             # the process should fail graciously
             if res == 0:
                 # process succeded and should have failed
                 log.error(f'test `{test.name}` was supposed to fail')
-                return False
+                return Result.FAILED
             elif not test.result['message'].lower() in stdout.lower():
                 # process failed but with a different message than expected
                 log.error(f'test `{test.name}` was suppoed to fail with message `{test.result["message"]}`')
-                return False
+                return Result.FAILED
             else:
                 log.success(f'test `{test.name}` failed succesfully')
-                return True
+                return Result.PASSED
     # if the execution result is not 0 return False
     elif res > 0:
-        return False
+        return Result.CRASHED
 
     # check outputs
     conformity, check_stdout = __check_outputs__(test, args, properties)
@@ -306,15 +324,15 @@ def __run_test__(test, args, properties):
             return conformity
         elif conformity:
             log.error(f'conformity test for `{test.name}` was supposed to fail')
-            return False
+            return Result.FAILED
         elif not test.result['message'].lower() in check_stdout.lower():
             log.error(f'conformity test for `{test.name}` was suppoed to fail with message `{test.result["message"]}`')
-            return False
+            return Result.FAILED
         else:
             log.success(f'conformity test `{test.name}` failed succesfully')
-            return True
+            return Result.PASSED
     else:
-        return conformity
+        return Result.PASSED if conformity else Result.FAILED
 
 
 def __draw_graph__(test, properties, args):
@@ -395,14 +413,14 @@ def __run_tests__(args, properties):
                 result = __run_test__(test, args, properties)
                 end = datetime.datetime.now().strftime(__DATE_FMT__)
                 log.info(f"finish test `{test.name}`")
-                passed = passed and result
-                result_str = 'PASSED' if result else 'FAILED'
+                passed = passed and (result == Result.PASSED)
+                result_str = str(result)
                 output += f' - {end} - {result_str}\n'
-                if not result:
-                    log.error(f"test `{test.name} failed")
+                if result == Result.PASSED:
+                    log.success(f"test `{test.name}` succeded")    
                 else:
-                    log.success(f"test `{test.name}` succeded")
-                if not result and not isinstance(TestScope.init(args.scope), TestScope):
+                    log.error(f"test `{test.name} failed")
+                if result != Result.PASSED and not isinstance(TestScope.init(args.scope), TestScope):
                     # copy output files
                     __copy_output__(test, args, properties)
     json_name = os.path.split(args.json_path)[-1]
