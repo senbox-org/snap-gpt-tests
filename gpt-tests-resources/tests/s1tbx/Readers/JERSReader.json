@@ -1,0 +1,19 @@
+[{
+  "id":"JERSReaderTest",
+  "author": "Alex McVittie",
+  "description":"execute JERS product reader and operators",
+  "frequency":"daily/jers",
+  "graphPath": "s1tbx/Readers/graphReaderSAR.xml",
+  "inputs": {
+    "input1": "/home/alex/WORK/data/snap-gpt-test-data/JERS/JE1_RTRS_JSA_SLC_1P_19930720T094052_19930720T094105_007981_0290_0166_4073/JE1_RTRS_JSA_SLC_1P_19930720T094052_19930720T094105_007981_0290_0166_4073.CEOS/VDF_DAT.001"
+  },
+  "parameters": {
+    "sourceBands": "i,q,Intensity",
+    "subsetRegion": "1,1,100,100"
+  },
+  "outputs": [{
+    "parameter": "out1",
+    "outputName": "tempJERS",
+    "expected": "s1tbx/expectedJERS.json"
+  }]
+}]

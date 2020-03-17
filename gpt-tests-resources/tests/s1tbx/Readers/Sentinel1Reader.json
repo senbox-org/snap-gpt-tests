@@ -1,0 +1,19 @@
+[{
+  "id":"Sentinel1GRDHReaderTest",
+  "author": "Alex McVittie",
+  "description":"execute Sentinel-1 product reader and operators",
+  "frequency":"daily/sentinel1",
+  "graphPath": "s1tbx/Readers/graphReaderSAR.xml",
+  "inputs": {
+    "input1": "/home/alex/WORK/data/snap-gpt-test-data/sentinel-1/S1A_IW_GRDH_1SDV_20200229T231623_20200229T231648_031474_039FCF_6748.zip"
+  },
+  "parameters": {
+    "sourceBands": "Amplitude_VH,Intensity_VH",
+    "subsetRegion": "8000,8000,100,100"
+  },
+  "outputs": [{
+    "parameter": "out1",
+    "outputName": "tempSentinel1",
+    "expected": "s1tbx/expectedSentinel1GRDH.json"
+  }]
+}]

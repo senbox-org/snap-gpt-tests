@@ -1,0 +1,19 @@
+[{
+  "id":"AlosPalsarReaderTest",
+  "author": "Alex McVittie",
+  "description":"execute Alos Palsar product reader and operators",
+  "frequency":"daily/alos",
+  "graphPath": "s1tbx/Readers/graphReaderSAR.xml",
+  "inputs": {
+    "input1": "/home/alex/WORK/data/snap-gpt-test-data/ALOSPALSAR/0000000000_001001_ALPSRP202350750-L1.1CEOS/VOL-ALPSRP202350750-P1.1__A"
+  },
+  "parameters": {
+    "sourceBands": "i_VV,q_VV,Intensity_VV",
+    "subsetRegion": "340,2010,440,2100"
+  },
+  "outputs": [{
+    "parameter": "out1",
+    "outputName": "tempAlosPalsar",
+    "expected": "s1tbx/expectedAlosPalsar.json"
+  }]
+}]

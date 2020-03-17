@@ -1,0 +1,116 @@
+{
+  "id": "tempAlosPalsar",
+  "decodeQualification": "INTENDED",
+  "expectedContent": {
+    "sceneWidth": 440,
+    "sceneHeight": 2100,
+    "startTime": "11-NOV-2009 06:28:39.480260",
+    "endTime": "11-NOV-2009 06:28:40.567627",
+    "bands": [
+      {
+        "name": "i_VV",
+        "description": "i_VV",
+        "bandWidth": 440,
+        "bandHeight": 2100,
+        "geophysicalUnit": "real",
+        "noDataValue": "0.0",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 221,
+            "y": 1050,
+            "value": -58593.00000
+          },
+          {
+            "x": 45,
+            "y": 387,
+            "value": 12513.00000
+          }
+        ]
+      },
+      {
+        "name": "q_VV",
+        "description": "q_VV",
+        "bandWidth": 440,
+        "bandHeight": 2100,
+        "geophysicalUnit": "imaginary",
+        "noDataValue": "0.0",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 221,
+            "y": 1050,
+            "value": -157181.00000
+          },
+          {
+            "x": 45,
+            "y": 387,
+            "value": 247007.00000
+          }
+        ]
+      },
+      {
+        "name": "Intensity_VV",
+        "description": "Intensity_VV",
+        "bandWidth": 440,
+        "bandHeight": 2100,
+        "geophysicalUnit": "intensity",
+        "noDataValue": "0.0",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 221,
+            "y": 1050,
+            "value": 28139005952.00000
+          },
+          {
+            "x": 45,
+            "y": 387,
+            "value": 61169033216
+          }
+        ]
+      }
+    ],
+    "masks": [],
+    "metadata": [
+      {
+        "path": "history/SubsetInfo/ProductNodeName.10",
+        "value": "Intensity_HV"
+      },
+      {
+        "path": "Original_Product_Metadata/Leader/Ellipsoid designator",
+        "value": "GRS80"
+      },
+      {
+        "path": "Abstracted_Metadata/total_size",
+        "value": "22547871"
+      },
+      {
+        "path": "Abstracted_Metadata/PASS",
+        "value": "ASCENDING"
+      },
+      {
+        "path": "Abstracted_Metadata/calibration_factor",
+        "value": "-83.0"
+      },
+      {
+        "path": "Abstracted_Metadata/pulse_repetition",
+        "value": "3861.0038610039"
+      },
+      {
+        "path": "Abstracted_Metadata/PRODUCT_TYPE",
+        "value": "P1.1"
+      },
+      {
+        "path": "Abstracted_Metadata/Orbit_State_Vectors/orbit_vector22/x_vel",
+        "value": "3142.101332541904"
+      }
+    ]
+  }
+}

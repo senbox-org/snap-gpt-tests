@@ -1,0 +1,19 @@
+[{
+  "id":"TerraSARXReaderTest",
+  "author": "Alex McVittie",
+  "description":"execute TerraSAR-X product reader and operators",
+  "frequency":"daily/tsx",
+  "graphPath": "s1tbx/Readers/graphReaderSAR.xml",
+  "inputs": {
+    "input1": "/home/alex/WORK/data/snap-gpt-test-data/tsx/dims_op_oc_dfd2_369722899_1/TSX-1.SAR.L1B/TSX1_SAR__SSC______SL_D_SRA_20080723T141508_20080723T141510/TSX1_SAR__SSC______SL_D_SRA_20080723T141508_20080723T141510.xml"
+  },
+  "parameters": {
+    "sourceBands": "i_HH,q_HH,Intensity_HH,i_VV,q_VV,Intensity_VV",
+    "subsetRegion": "1,1800,100,100"
+  },
+  "outputs": [{
+    "parameter": "out1",
+    "outputName": "tempTSX",
+    "expected": "s1tbx/expectedTSX.json"
+  }]
+}]

@@ -1,0 +1,89 @@
+{
+  "id": "tempPaz",
+  "decodeQualification": "INTENDED",
+  "expectedContent": {
+    "sceneWidth": 100,
+    "sceneHeight": 100,
+    "startTime": "20-JUL-1993 09:40:53.675643",
+    "endTime": "20-JUL-1993 09:40:53.739303",
+    "bands": [
+      {
+        "name": "Amplitude_HH",
+        "description": "Amplitude_HH",
+        "bandWidth": 100,
+        "bandHeight": 100,
+        "geophysicalUnit": "amplitude",
+        "noDataValue": "0.0",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 61,
+            "y": 44,
+            "value": 79
+          },
+          {
+            "x": 37,
+            "y": 56,
+            "value": 97
+          }
+        ]
+      },
+      {
+        "name": "Intensity_HH",
+        "description": "Intensity_HH",
+        "bandWidth": 100,
+        "bandHeight": 100,
+        "geophysicalUnit": "intensity",
+        "noDataValue": "0.0",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 61,
+            "y": 44,
+            "value": 6241.00000
+          },
+          {
+            "x": 37,
+            "y": 56,
+            "value": 9409.00000
+          }
+        ]
+      }
+    ],
+    "masks": [],
+    "metadata": [
+      {
+        "path": "history/SubsetInfo/ProductNodeName.4",
+        "value": "slant_range_time"
+      },
+      {
+        "path": "Abstracted_Metadata/first_near_lat",
+        "value": "29.344815320279338"
+      },
+      {
+        "path": "Abstracted_Metadata/PASS",
+        "value": "DESCENDING"
+      },
+      {
+        "path": "Abstracted_Metadata/geo_ref_system",
+        "value": "-"
+      },
+      {
+        "path": "Abstracted_Metadata/pulse_repetition_frequency",
+        "value": "3790.222406181015"
+      },
+      {
+        "path": "Abstracted_Metadata/PRODUCT_TYPE",
+        "value": "MGD_RE_SC_S"
+      },
+      {
+        "path": "Abstracted_Metadata/Orbit_State_Vectors/orbit_vector1/x_vel",
+        "value": "2043.44253914455"
+      }
+    ]
+  }
+}

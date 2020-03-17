@@ -1,0 +1,19 @@
+[{
+  "id":"CapellaSLCReaderTest",
+  "author": "Alex McVittie",
+  "description":"execute Capella product reader and operators",
+  "frequency":"daily/capella",
+  "graphPath": "s1tbx/Readers/graphReaderSAR.xml",
+  "inputs": {
+    "input1": "/home/alex/WORK/data/snap-gpt-test-data/Capella/SLC/ARL_SM_SLC_HH_20190823160819_20190823161113_extended.json"
+  },
+  "parameters": {
+    "sourceBands": "i_HH,q_HH,Intensity_HH",
+    "subsetRegion": "1,1,100,100"
+  },
+  "outputs": [{
+    "parameter": "out1",
+    "outputName": "tempCapella",
+    "expected": "s1tbx/expectedCapella.json"
+  }]
+}]

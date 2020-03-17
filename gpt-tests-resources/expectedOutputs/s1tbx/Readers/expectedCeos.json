@@ -1,0 +1,97 @@
+{
+  "id": "tempCEOS",
+  "decodeQualification": "INTENDED",
+  "expectedContent": {
+    "sceneWidth": 100,
+    "sceneHeight": 100,
+    "startTime": "04-MAY-2008 03:40:50.833819",
+    "endTime": "04-MAY-2008 03:40:51.013996",
+    "bands": [
+      {
+        "name": "Amplitude_HH",
+        "description": "Amplitude_HH",
+        "bandWidth": 100,
+        "bandHeight": 100,
+        "geophysicalUnit": "amplitude",
+        "noDataValue": "0.0",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 50,
+            "y": 50,
+            "value": 5179
+          },
+          {
+            "x": 96,
+            "y": 92,
+            "value": 3736
+          }
+        ]
+      },
+      {
+        "name": "Intensity_HH",
+        "description": "Intensity_HH",
+        "bandWidth": 100,
+        "bandHeight": 100,
+        "geophysicalUnit": "intensity",
+        "noDataValue": "0.0",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 50,
+            "y": 50,
+            "value": 26822040.00000
+          },
+          {
+            "x": 96,
+            "y": 92,
+            "value": 13957696.00000
+          }
+        ]
+      }
+    ],
+    "masks": [],
+    "metadata": [
+      {
+        "path": "history/SubsetInfo/ProductNodeName.5",
+        "value": "Amplitude_HH"
+      },
+      {
+        "path": "Original_Product_Metadata/Leader/Map Projection/Number of lines",
+        "value": "5600"
+      },
+      {
+        "path": "Abstracted_Metadata/first_near_lat",
+        "value": "37.84547472919478"
+      },
+      {
+        "path": "Abstracted_Metadata/PASS",
+        "value": "ASCENDING"
+      },
+      {
+        "path": "Abstracted_Metadata/geo_ref_system",
+        "value": "GRS80"
+      },
+      {
+        "path": "Abstracted_Metadata/map_projection",
+        "value": "Geocoded"
+      },
+      {
+        "path": "Abstracted_Metadata/pulse_repetition_frequency",
+        "value": "2155.1724137931"
+      },
+      {
+        "path": "Abstracted_Metadata/PRODUCT_TYPE",
+        "value": "H1.5"
+      },
+      {
+        "path": "Abstracted_Metadata/Orbit_State_Vectors/orbit_vector22/x_vel",
+        "value": "-1767.864081939791"
+      }
+    ]
+  }
+}

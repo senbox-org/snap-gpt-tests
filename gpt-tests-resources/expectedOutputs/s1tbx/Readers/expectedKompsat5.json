@@ -1,0 +1,89 @@
+{
+  "id": "tempKompsat5",
+  "decodeQualification": "INTENDED",
+  "expectedContent": {
+    "sceneWidth": 100,
+    "sceneHeight": 100,
+    "startTime": "28-MAY-2015 14:04:49.722538",
+    "endTime": "28-MAY-2015 14:04:49.736641",
+    "bands": [
+      {
+        "name": "Amplitude_HH",
+        "description": "Amplitude_HH",
+        "bandWidth": 100,
+        "bandHeight": 100,
+        "geophysicalUnit": "amplitude",
+        "noDataValue": "0.0",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 50,
+            "y": 50,
+            "value": 16.89063
+          },
+          {
+            "x": 5,
+            "y": 78,
+            "value": 0.84912
+          }
+        ]
+      },
+      {
+        "name": "Intensity_HH",
+        "description": "Intensity_HH",
+        "bandWidth": 100,
+        "bandHeight": 100,
+        "geophysicalUnit": "intensity",
+        "noDataValue": "0.0",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 50,
+            "y": 50,
+            "value": 285.29321
+          },
+          {
+            "x": 5,
+            "y": 78,
+            "value": 0.72101
+          }
+        ]
+      }
+    ],
+    "masks": [],
+    "metadata": [
+      {
+        "path": "history/SubsetInfo/ProductNodeName.5",
+        "value": "Amplitude_HH"
+      },
+      {
+        "path": "Abstracted_Metadata/first_near_lat",
+        "value": "49.28205596780339"
+      },
+      {
+        "path": "Abstracted_Metadata/PASS",
+        "value": "ASCENDING"
+      },
+      {
+        "path": "Abstracted_Metadata/geo_ref_system",
+        "value": "WGS84"
+      },
+      {
+        "path": "Abstracted_Metadata/pulse_repetition_frequency",
+        "value": "4023.6051502145924"
+      },
+      {
+        "path": "Abstracted_Metadata/PRODUCT_TYPE",
+        "value": "GTC_A"
+      },
+      {
+        "path": "Abstracted_Metadata/Orbit_State_Vectors/orbit_vector1/x_vel",
+        "value": "2189.8652888410224"
+      }
+    ]
+  }
+}

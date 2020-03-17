@@ -1,0 +1,18 @@
+[{
+  "id":"Kompsat5ReaderTest",
+  "author": "Alex McVittie",
+  "description":"execute Kompsat-5 product reader and operators",
+  "frequency":"daily/k5",
+  "graphPath": "s1tbx/Readers/graphReaderSAR.xml",
+  "inputs": {
+    "input1": "/home/alex/WORK/data/snap-gpt-test-data/KOMPSAT5/K5_20150528140444_004050_09683_A_ES16_HH_GTC_A_L1D_Aux.xml"
+  },
+  "parameters": {
+    "sourceBands": "Amplitude_HH,Intensity_HH",
+    "subsetRegion": "10000,10000,100,100"  },
+  "outputs": [{
+    "parameter": "out1",
+    "outputName": "tempKompsat5",
+    "expected": "s1tbx/expectedKompsat5.json"
+  }]
+}]

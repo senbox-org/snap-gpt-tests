@@ -1,0 +1,19 @@
+[{
+  "id":"NetCDFReaderTest",
+  "author": "Alex McVittie",
+  "description":"execute NetCDF product reader and operators",
+  "frequency":"daily/netcdf",
+  "graphPath": "s1tbx/Readers/graphReaderSAR.xml",
+  "inputs": {
+    "input1": "/home/alex/WORK/data/snap-gpt-test-data/NetCDF/ECMWF_ERA-40_subset.nc"
+  },
+  "parameters": {
+    "sourceBands": "msl_time5",
+    "subsetRegion": "1,1,75,75"
+  },
+  "outputs": [{
+    "parameter": "out1",
+    "outputName": "tempNetCDF",
+    "expected": "s1tbx/expectedNetCDF.json"
+  }]
+}]

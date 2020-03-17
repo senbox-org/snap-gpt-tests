@@ -1,0 +1,19 @@
+[{
+  "id":"RisatCEOSReaderTest",
+  "author": "Alex McVittie",
+  "description":"execute Risat CEOS product reader and operators",
+  "frequency":"daily/risat",
+  "graphPath": "s1tbx/Readers/graphReaderSAR.xml",
+  "inputs": {
+    "input1": "/home/alex/WORK/data/snap-gpt-test-data/risat/CEOS/FRS-1/9441sd1_s33_SLC/BAND_META.txt"
+  },
+  "parameters": {
+    "sourceBands": "i_RCH,q_RCH,Intensity_RCH,i_RCV,q_RCV,Intensity_RCV",
+    "subsetRegion": "1,1,100,100"
+  },
+  "outputs": [{
+    "parameter": "out1",
+    "outputName": "tempRisatCEOS",
+    "expected": "s1tbx/expectedRisatCEOS.json"
+  }]
+}]

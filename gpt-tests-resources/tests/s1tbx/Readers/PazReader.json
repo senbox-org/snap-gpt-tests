@@ -1,0 +1,19 @@
+[{
+  "id":"PazReaderTest",
+  "author": "Alex McVittie",
+  "description":"execute Paz product reader and operators",
+  "frequency":"daily/paz",
+  "graphPath": "s1tbx/Readers/graphReaderSAR.xml",
+  "inputs": {
+    "input1": "/home/alex/WORK/data/snap-gpt-test-data/paz/PAZ1_SAR__MGD_RE___SC_S_SRA_20180616T004650_20180616T004712/PAZ1_SAR__MGD_RE___SC_S_SRA_20180616T004650_20180616T004712.xml"
+  },
+  "parameters": {
+    "sourceBands": "Amplitude_HH,Intensity_HH",
+    "subsetRegion": "1,1,100,100"
+  },
+  "outputs": [{
+    "parameter": "out1",
+    "outputName": "tempPaz",
+    "expected": "s1tbx/expectedPaz.json"
+  }]
+}]

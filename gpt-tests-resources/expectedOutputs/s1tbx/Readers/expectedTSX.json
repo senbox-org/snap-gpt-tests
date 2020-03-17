@@ -1,0 +1,177 @@
+{
+  "id": "tempRisatCEOS",
+  "decodeQualification": "INTENDED",
+  "expectedContent": {
+    "sceneWidth": 100,
+    "sceneHeight": 100,
+    "startTime": "23-JUL-2008 14:15:09.656946",
+    "endTime": "23-JUL-2008 14:15:09.695023",
+    "bands": [
+      {
+        "name": "i_HH",
+        "description": "",
+        "bandWidth": 100,
+        "bandHeight": 100,
+        "geophysicalUnit": "real",
+        "noDataValue": "0.0",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 33,
+            "y": 21,
+            "value": -649
+          },
+          {
+            "x": 75,
+            "y": 12,
+            "value": 159
+          }
+        ]
+      },
+      {
+        "name": "q_HH",
+        "description": "",
+        "bandWidth": 100,
+        "bandHeight": 100,
+        "geophysicalUnit": "imaginary",
+        "noDataValue": "0.0",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 33,
+            "y": 21,
+            "value": 256
+          },
+          {
+            "x": 75,
+            "y": 12,
+            "value": 165
+          }
+        ]
+      },
+      {
+        "name": "Intensity_HH",
+        "description": "Intensity from complex data",
+        "bandWidth": 100,
+        "bandHeight": 100,
+        "geophysicalUnit": "intensity",
+        "noDataValue": "0.0",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 33,
+            "y": 21,
+            "value": 486737.00000
+          },
+          {
+            "x": 75,
+            "y": 12,
+            "value": 52506.00000
+          }
+        ]
+      },
+      {
+        "name": "i_VV",
+        "description": "",
+        "bandWidth": 100,
+        "bandHeight": 100,
+        "geophysicalUnit": "real",
+        "noDataValue": "0.0",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 33,
+            "y": 21,
+            "value": -359
+          },
+          {
+            "x": 75,
+            "y": 12,
+            "value": -44
+          }
+        ]
+      },
+      {
+        "name": "q_VV",
+        "description": "",
+        "bandWidth": 100,
+        "bandHeight": 100,
+        "geophysicalUnit": "imaginary",
+        "noDataValue": "0.0",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 51,
+            "y": 41,
+            "value": 633
+          },
+          {
+            "x": 75,
+            "y": 12,
+            "value": -14
+          }
+        ]
+      },
+      {
+        "name": "Intensity_VV",
+        "description": "Intensity from complex data",
+        "bandWidth": 100,
+        "bandHeight": 100,
+        "geophysicalUnit": "intensity",
+        "noDataValue": "0.0",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 51,
+            "y": 41,
+            "value": 3492697.00000
+          },
+          {
+            "x": 75,
+            "y": 12,
+            "value": 2132.00000
+          }
+        ]
+      }
+    ],
+    "masks": [],
+    "metadata": [
+      {
+        "path": "history/SubsetInfo/ProductNodeName.5",
+        "value": "i_HH"
+      },
+      {
+        "path": "Abstracted_Metadata/first_near_lat",
+        "value": "37.80005479627353"
+      },
+      {
+        "path": "Abstracted_Metadata/PASS",
+        "value": "DESCENDING"
+      },
+      {
+        "path": "Abstracted_Metadata/geo_ref_system",
+        "value": "-"
+      },
+      {
+        "path": "Abstracted_Metadata/pulse_repetition_frequency",
+        "value": "3017.5232864674867"
+      },
+      {
+        "path": "Abstracted_Metadata/PRODUCT_TYPE",
+        "value": "__SL_D"
+      }
+    ]
+  }
+}

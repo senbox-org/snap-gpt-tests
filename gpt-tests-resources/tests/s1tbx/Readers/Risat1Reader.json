@@ -1,0 +1,19 @@
+[{
+  "id":"Risat1ReaderTest",
+  "author": "Alex McVittie",
+  "description":"execute Risat-1 product reader and operators",
+  "frequency":"daily/risat",
+  "graphPath": "s1tbx/Readers/graphReaderSAR.xml",
+  "inputs": {
+    "input1": "/home/alex/WORK/data/snap-gpt-test-data/risat/GeoTiff/FRS1_LEVEL2_GEOTIFF/product.xml"
+  },
+  "parameters": {
+    "sourceBands": "Amplitude_HH,Intensity_HH,Amplitude_HV,Intensity_HV",
+    "subsetRegion": "9000,9000,100,100"
+  },
+  "outputs": [{
+    "parameter": "out1",
+    "outputName": "tempRisat1",
+    "expected": "s1tbx/expectedRisat1.json"
+  }]
+}]

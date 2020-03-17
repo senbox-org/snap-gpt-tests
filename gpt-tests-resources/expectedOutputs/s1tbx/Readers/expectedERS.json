@@ -1,0 +1,116 @@
+{
+  "id": "tempERS",
+  "decodeQualification": "INTENDED",
+  "expectedContent": {
+    "sceneWidth": 100,
+    "sceneHeight": 100,
+    "startTime": "08-AUG-1991 08:02:22.4220009",
+    "endTime": "08-AUG-1991 08:02:37.272000",
+    "bands": [
+      {
+        "name": "sst_nadir",
+        "description": "Sea surface temperature nadir view",
+        "bandWidth": 100,
+        "bandHeight": 100,
+        "geophysicalUnit": "K",
+        "noDataValue": "-2.0",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 17,
+            "y": 37,
+            "value": 298.4100
+          }
+        ]
+      },
+      {
+        "name": "sst_comb",
+        "description": "Sea surface temperature combined views",
+        "bandWidth": 100,
+        "bandHeight": 100,
+        "geophysicalUnit": "K",
+        "noDataValue": "-2.0",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 17,
+            "y": 37,
+            "value": 300.1700
+          }
+        ]
+      },
+      {
+        "name": "cloud_top_temp",
+        "description": "Cloud top temperature",
+        "bandWidth": 100,
+        "bandHeight": 100,
+        "geophysicalUnit": "K",
+        "noDataValue": "-2.0",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 23,
+            "y": 42,
+            "value": 292.4500
+          }
+        ]
+      },
+      {
+        "name": "cloud_top_height",
+        "description": "Cloud top height",
+        "bandWidth": 100,
+        "bandHeight": 100,
+        "geophysicalUnit": "m",
+        "noDataValue": "0.0",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 23,
+            "y": 42,
+            "value": 0.00000
+          }
+        ]
+      },
+      {
+        "name": "flags",
+        "description": "Classification and quality flags",
+        "bandWidth": 100,
+        "bandHeight": 100,
+        "noDataValue": "0.0",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 17,
+            "y": 37,
+            "value": 15
+          },
+          {
+            "x": 23,
+            "y": 42,
+            "value": 289
+          }
+        ]
+      }
+    ],
+    "metadata": [
+      {
+        "path": "history/SubsetInfo/ProductNodeName.5",
+        "value": "lat_corr_fward"
+      },
+      {
+        "path": "Abstracted_Metadata/PRODUCT_TYPE",
+        "value": "AT1_NR__2P"
+      }
+    ]
+  }
+}

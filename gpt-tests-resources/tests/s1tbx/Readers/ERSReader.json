@@ -1,0 +1,19 @@
+[{
+  "id":"ERSReaderTest",
+  "author": "Alex McVittie",
+  "description":"execute ERS-2 product reader and operators",
+  "frequency":"daily/ers",
+  "graphPath": "s1tbx/Readers/graphReaderSAR.xml",
+  "inputs": {
+    "input1": "/home/alex/WORK/data/snap-gpt-test-data/ers2/AT1_NR__2PURAL19910808_080222_000000001006_00006_00318_0000.E1"
+  },
+  "parameters": {
+    "sourceBands": "sst_comb,sst_nadir,cloud_top_temp,cloud_top_height,flags",
+    "subsetRegion": "1,1,100,100"
+  },
+  "outputs": [{
+    "parameter": "out1",
+    "outputName": "tempERS",
+    "expected": "s1tbx/expectedERS.json"
+  }]
+}]

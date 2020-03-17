@@ -1,0 +1,48 @@
+{
+  "id": "tempNetCDF",
+  "decodeQualification": "INTENDED",
+  "expectedContent": {
+    "sceneWidth": 75,
+    "sceneHeight": 72,
+    "bands": [
+      {
+        "name": "msl_time5",
+        "description": "Mean sea level pressure",
+        "bandWidth": 75,
+        "bandHeight": 72,
+        "geophysicalUnit": "Pa",
+        "noDataValue": "-32767.0",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 30,
+            "y": 35,
+            "value": 101228.49219
+          },
+          {
+            "x": 63,
+            "y": 60,
+            "value": 96699.75781
+          }
+        ]
+      }
+    ],
+    "masks": [],
+    "metadata": [
+      {
+        "path": "history/SubsetInfo/ProductNodeName.1",
+        "value": "msl_time5"
+      },
+      {
+        "path": "Global_Attributes/Conventions",
+        "value": "CF-1.0"
+      },
+      {
+        "path": "Variable_Attributes/msl/_FillValue",
+        "value": "-32767"
+      }
+    ]
+  }
+}

@@ -1,0 +1,177 @@
+{
+  "id": "tempRisatCEOS",
+  "decodeQualification": "INTENDED",
+  "expectedContent": {
+    "sceneWidth": 100,
+    "sceneHeight": 100,
+    "startTime": "26-JUN-2012 23:14:22.626528",
+    "endTime": "26-JUN-2012 23:14:22.659937",
+    "bands": [
+      {
+        "name": "i_RCH",
+        "description": "i",
+        "bandWidth": 100,
+        "bandHeight": 100,
+        "geophysicalUnit": "real",
+        "noDataValue": "0.0",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 51,
+            "y": 41,
+            "value": -1553
+          },
+          {
+            "x": 17,
+            "y": 90,
+            "value": 216
+          }
+        ]
+      },
+      {
+        "name": "q_RCH",
+        "description": "q",
+        "bandWidth": 100,
+        "bandHeight": 100,
+        "geophysicalUnit": "imaginary",
+        "noDataValue": "0.0",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 51,
+            "y": 41,
+            "value": 885
+          },
+          {
+            "x": 17,
+            "y": 90,
+            "value": -44
+          }
+        ]
+      },
+      {
+        "name": "Intensity_RCH",
+        "description": "intensity",
+        "bandWidth": 100,
+        "bandHeight": 100,
+        "geophysicalUnit": "intensity",
+        "noDataValue": "0.0",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 51,
+            "y": 41,
+            "value": 3195034.00000
+          },
+          {
+            "x": 17,
+            "y": 90,
+            "value": 48592.00000
+          }
+        ]
+      },
+      {
+        "name": "i_RCV",
+        "description": "i",
+        "bandWidth": 100,
+        "bandHeight": 100,
+        "geophysicalUnit": "real",
+        "noDataValue": "0.0",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 51,
+            "y": 41,
+            "value": 349
+          },
+          {
+            "x": 17,
+            "y": 90,
+            "value": -600
+          }
+        ]
+      },
+      {
+        "name": "q_RCV",
+        "description": "q",
+        "bandWidth": 100,
+        "bandHeight": 100,
+        "geophysicalUnit": "imaginary",
+        "noDataValue": "0.0",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 51,
+            "y": 41,
+            "value": -1836
+          },
+          {
+            "x": 17,
+            "y": 90,
+            "value": 673
+          }
+        ]
+      },
+      {
+        "name": "Intensity_RCV",
+        "description": "intensity",
+        "bandWidth": 100,
+        "bandHeight": 100,
+        "geophysicalUnit": "intensity",
+        "noDataValue": "0.0",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 51,
+            "y": 41,
+            "value": 3492697.00000
+          },
+          {
+            "x": 17,
+            "y": 90,
+            "value": 812929.00000
+          }
+        ]
+      }
+    ],
+    "masks": [],
+    "metadata": [
+      {
+        "path": "history/SubsetInfo/ProductNodeName.5",
+        "value": "i_RCH"
+      },
+      {
+        "path": "Abstracted_Metadata/first_near_lat",
+        "value": "34.189367369406185"
+      },
+      {
+        "path": "Abstracted_Metadata/PASS",
+        "value": "ASCENDING"
+      },
+      {
+        "path": "Abstracted_Metadata/geo_ref_system",
+        "value": "-"
+      },
+      {
+        "path": "Abstracted_Metadata/pulse_repetition_frequency",
+        "value": "3000"
+      },
+      {
+        "path": "Abstracted_Metadata/PRODUCT_TYPE",
+        "value": "L1-SLANT-RANGE"
+      }
+    ]
+  }
+}

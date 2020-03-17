@@ -1,0 +1,116 @@
+{
+  "id": "tempJERS",
+  "decodeQualification": "INTENDED",
+  "expectedContent": {
+    "sceneWidth": 100,
+    "sceneHeight": 100,
+    "startTime": "20-JUL-1993 09:40:53.675643",
+    "endTime": "20-JUL-1993 09:40:53.739303",
+    "bands": [
+      {
+        "name": "i",
+        "description": "i",
+        "bandWidth": 100,
+        "bandHeight": 100,
+        "geophysicalUnit": "real",
+        "noDataValue": "0.0",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 60,
+            "y": 93,
+            "value": 230.00000
+          },
+          {
+            "x": 16,
+            "y": 89,
+            "value": 155.00000
+          }
+        ]
+      },
+      {
+        "name": "q",
+        "description": "q",
+        "bandWidth": 100,
+        "bandHeight": 100,
+        "geophysicalUnit": "imaginary",
+        "noDataValue": "0.0",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 60,
+            "y": 92,
+            "value": 171.0000
+          },
+          {
+            "x": 16,
+            "y": 89,
+            "value": 27.00000
+          }
+        ]
+      },
+      {
+        "name": "Intensity",
+        "description": "Intensity",
+        "bandWidth": 100,
+        "bandHeight": 100,
+        "geophysicalUnit": "intensity",
+        "noDataValue": "0.0",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 60,
+            "y": 92,
+            "value": 82141.00000
+          },
+          {
+            "x": 16,
+            "y": 89,
+            "value": 24754.00000
+          }
+        ]
+      }
+    ],
+    "masks": [],
+    "metadata": [
+      {
+        "path": "history/SubsetInfo/ProductNodeName.4",
+        "value": "i"
+      },
+      {
+        "path": "Original_Product_Metadata/Leader/Map Projection/Number of lines",
+        "value": "17728"
+      },
+      {
+        "path": "Abstracted_Metadata/first_near_lat",
+        "value": "79.43009536670233"
+      },
+      {
+        "path": "Abstracted_Metadata/PASS",
+        "value": "ASCENDING"
+      },
+      {
+        "path": "Abstracted_Metadata/geo_ref_system",
+        "value": "WGS84"
+      },
+      {
+        "path": "Abstracted_Metadata/pulse_repetition_frequency",
+        "value": "1555.1716309"
+      },
+      {
+        "path": "Abstracted_Metadata/PRODUCT_TYPE",
+        "value": "SLC"
+      },
+      {
+        "path": "Abstracted_Metadata/Orbit_State_Vectors/orbit_vector1/x_vel",
+        "value": "7417.83509513043"
+      }
+    ]
+  }
+}

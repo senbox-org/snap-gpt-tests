@@ -1,0 +1,19 @@
+[{
+  "id":"Alos2ReaderTest",
+  "author": "Alex McVittie",
+  "description":"execute ALOS2 product reader and operators",
+  "frequency":"daily/alos",
+  "graphPath": "s1tbx/Readers/graphReaderSAR.xml",
+  "inputs": {
+    "input1": "/mnt/datadrive/gpt-test-data/ALOS2/0000022708_001001_ALOS2015976960-140909.zip"
+  },
+  "parameters": {
+    "sourceBands": "Amplitude_HH,Intensity_HH,Amplitude_HV,Intensity_HV",
+    "subsetRegion": "8900,8900,9000,9000"
+  },
+  "outputs": [{
+    "parameter": "out1",
+    "outputName": "tempALOS2",
+    "expected": "s1tbx/Readers/expectedALOS2.json"
+  }]
+}]

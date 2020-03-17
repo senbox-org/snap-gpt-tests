@@ -1,0 +1,19 @@
+[{
+  "id":"CEOSReaderTest",
+  "author": "Alex McVittie",
+  "description":"execute CEOS product reader and operators",
+  "frequency":"daily/ceos",
+  "graphPath": "s1tbx/Readers/graphReaderSAR.xml",
+  "inputs": {
+    "input1": "/home/alex/WORK/data/snap-gpt-test-data/ceos/ALPSRP121230740-L1.5.zip"
+  },
+  "parameters": {
+    "sourceBands": "Amplitude_HH,Intensity_HH",
+    "subsetRegion": "1,1,100,100"
+  },
+  "outputs": [{
+    "parameter": "out1",
+    "outputName": "tempCEOS",
+    "expected": "s1tbx/expectedCeos.json"
+  }]
+}]
