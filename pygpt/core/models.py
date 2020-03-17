@@ -134,7 +134,7 @@ class Test(log.Printable):
         self._raw = __normalize_struct__(struct)
         self._name = struct['id']
         self._xml = ''
-        with open(f'gpt-tests-resources/graphs/{self.graph_path}') as xml_file:
+        with open(f'gpt-tests-resources/graphs/{self.graph_path}', 'rb') as xml_file:
             self._xml = xml_file.read()
 
     @property

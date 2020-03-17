@@ -72,7 +72,7 @@ class DBAdaptor:
          - tag_id: docker tag id
          - test_sets: test sets executed in the job
         """
-        query = f'SELECT id FROM jobs WHERE branch="{branch}" AND jobnum={job};'
+        query = f'SELECT ID FROM jobs WHERE branch="{branch}" AND jobnum={job};'
         res = self.execute(query)
 
         if not res:
@@ -89,7 +89,7 @@ class DBAdaptor:
                 timestamp_end,
                 result
             ) VALUES (
-                ?, ? , ?, ?, ?, ?, ?
+                %s, %s , %s, %s, %s, %s, %s
             );'''
             self.execute(add_query, (branch,
                                      job,
@@ -102,7 +102,7 @@ class DBAdaptor:
             res = self.execute(query)
             if not res:
                 log.panic('impossible to add job')
-        job_id = res[0][0]
+        job_id = res[0]['ID']
         for test_set in test_sets:
             for test in test_set.tests:
                 test_id = self.test_entry(test, test_set.name)
@@ -133,19 +133,17 @@ class DBAdaptor:
                 author,
                 frequency,
                 graphPath,
-                graphXML,
+                graphXML
             ) VALUES (
-                '{name}',
-                '{parent_set}',
-                '{test.description}',
-                '{test.author}',
-                '{test.frequency}',
-                '{test.graph_path}',
-                '{test.graph_xml}'
+                %s, %s, %s, %s, %s, %s, %s
             );'''
-            self.execute(query)
+            print(test.graph_xml)
+            print(query)
+            self.execute(query, (name, parent_set, test.description,
+                                 test.author, test.frequency, 
+                                 test.graph_path, test.graph_xml))
             return self.test_entry(test, parent_set)
-        return res[0][0]
+        return res[0]['ID']
 
     def create_result_entry(self, job_id, test_id, test):
         """
@@ -160,7 +158,7 @@ class DBAdaptor:
         if not test.has_statistics():
             log.warning(f'test `{test.name}` has no statistics')
             return
-        query = 'SELECT * FROM results WHERE job=? AND test=?'
+        query = 'SELECT * FROM results WHERE job=%s AND test=%s'
         res = self.execute(query, (job_id, test_id))
         if not res:
             log.info(f'inserting results for test `{test.name}`')
@@ -171,41 +169,21 @@ class DBAdaptor:
                 result = 3
             elif test.is_skipped():
                 result = 2
-            query = '''INSERT INTO results (
-                test,
-                job,
-                result,
-                start,
-                duration,
-                cpu_time,
-                cpu_usage_avg,
-                cpu_usage_max,
-                memory_avg,
-                memory_max,
-                io_write,
-                io_read,
-                threads_avg,
-                threads_max,
-                raw_data,
-                output,
-            ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);'''
-            self.execute(query, (test_id,
-                                 job_id,
-                                 result,
-                                 test.start,
-                                 test.duration,
-                                 test.cpu_time,
-                                 test.cpu_usage_avg,
-                                 test.cpu_usage_max,
-                                 test.memory_avg,
-                                 test.memory_max,
-                                 test.io_write,
-                                 test.io_read,
-                                 int(test.threads_avg),
-                                 test.threads_max,
-                                 sqlite3.Binary(test.raw_profile()),
-                                 test.stdout
-                                 ))
+            query = f'''INSERT INTO results (
+                test, job, result,
+                start, duration, cpu_time,
+                cpu_usage_avg, cpu_usage_max, memory_avg,
+                memory_max, io_write, io_read,
+                threads_avg, threads_max,
+                raw_data, output
+            ) VALUES (
+                {test_id}, {job_id}, {result},
+                '{test.start}', {test.duration}, {test.cpu_time},
+                {test.cpu_usage_avg}, {test.cpu_usage_max}, {test.memory_avg},
+                {test.memory_max}, {test.io_read}, {test.io_write}, 
+                {int(test.threads_avg)}, {test.threads_max},
+                %s, %s);'''
+            self.execute(query, (test.raw_profile(), test.stdout))
 
     def execute(self, query, *args):
         """
@@ -292,6 +270,28 @@ class MySQLAdaptor(DBAdaptor):
             cursor.execute(query, *args)
             res_list = cursor.fetchall()
         return res_list
+
+    def docker_tag_id(self, tag_name):
+        """
+        Gets tag id from tag name.
+        """
+        query = f"SELECT ID FROM dockerTags WHERE name='{tag_name}';"
+        res = self.execute(query)
+        if not res:
+            log.info(f'inserting dockerTag `{tag_name}` into DB')
+            query = f"INSERT INTO dockerTags (name) VALUES ('{tag_name}');"
+            self.execute(query)
+            return self.docker_tag_id(tag_name)
+        return res[0]['ID']
+
+    def test_id(self, test_name):
+        """
+        Gets db test id from test name
+        """
+        res = self.execute('SELECT ID FROM tests WHERE name=?', [test_name])
+        if res:
+            return res[0]['ID']
+        return None
 
 
 class SQLiteAdaptor(DBAdaptor):
