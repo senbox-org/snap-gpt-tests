@@ -255,15 +255,15 @@ class TestResult(Test):
         return list of plots associated to the test.
         """
         plots = [
-            self.name+"_cpu_usage.png",
-            self.name+"_memory_usage.png"
+            self.name+"_cpu_usage.jpg",
+            self.name+"_memory_usage.jpg"
         ]
         if self.__adaptor__ is not None:
             db_key = 'cpu_time_avg'
             times = self.__adaptor__.values(self.name, version, 'start')
             if len(times) == 0:
                 return plots
-            times = list([datetime.datetime.strptime(x, __sql_fmt__) for x in times])
+            # times = list([datetime.datetime.strptime(x, __sql_fmt__) for x in times])
             if len(times) <= 1:
                 """no history in db"""
                 return plots
@@ -280,10 +280,10 @@ class TestResult(Test):
             #set major ticks format
             axis.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))
 
-            plt.savefig(fs.plots.resolve(self.name+"_cpu_time_history.png"))
+            plt.savefig(fs.plots.resolve(self.name+"_cpu_time_history.jpg"))
             plt.close()
 
-            plots.append(self.name+"_cpu_time_history.png")
+            plots.append(self.name+"_cpu_time_history.jpg")
 
             _, axis = plt.subplots(figsize=(10, 7))
             plt.plot(times, memory, 'o-')
@@ -296,8 +296,8 @@ class TestResult(Test):
             #set major ticks format
             axis.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))
 
-            plt.savefig(fs.plots.resolve(self.name+"_memory_history.png"))
-            plots.append(self.name+"_memory_history.png")
+            plt.savefig(fs.plots.resolve(self.name+"_memory_history.jpg"))
+            plots.append(self.name+"_memory_history.jpg")
             plt.close()
 
         return plots

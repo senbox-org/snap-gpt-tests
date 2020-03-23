@@ -54,7 +54,7 @@ class DBAdaptor:
         """
         Gets db test id from test name
         """
-        res = self.execute('SELECT ID FROM tests WHERE name=?', [test_name])
+        res = self.execute(f"SELECT ID FROM tests WHERE name='{test_name}'")
         if res:
             return res[0][0]
         return None
@@ -208,15 +208,27 @@ class DBAdaptor:
         test_id = self.test_id(test)
 
         query = f'''SELECT {value_tag} FROM results
-            WHERE test=? and job in
+            WHERE test={test_id} and job in
                 (SELECT ID FROM jobs
-                WHERE dockerTag=?)
+                WHERE dockerTag={docker_id})
             ORDER BY start DESC'''
         if last_n is not None:
             query += f' LIMIT {last_n}'
-        res = self.execute(query, (test_id, docker_id))
-        return list([x[0] for x in res])
+        res = self.execute(query)
+        return list([x[value_tag] for x in res])
 
+    def reference_value(self, test, value_tag):
+        """
+        Retrive reference value.
+        """
+        test_id = self.test_id(test)
+
+        query = f'''SELECT {value_tag} FROM reference_values
+            WHERE test={test_id}'''
+        res = self.execute(query)
+        if res:
+            return res[0][value_tag]
+        return None
 
 
 
@@ -288,7 +300,7 @@ class MySQLAdaptor(DBAdaptor):
         """
         Gets db test id from test name
         """
-        res = self.execute('SELECT ID FROM tests WHERE name=?', [test_name])
+        res = self.execute(f"SELECT ID FROM tests WHERE name='{test_name}'")
         if res:
             return res[0]['ID']
         return None
@@ -514,8 +526,8 @@ def adaptor(db_path):
         mode = 'sqlite'
         path = db_path
 
-    if mode == 'sqlite':
-        return SQLiteAdaptor(path)
+    #if mode == 'sqlite':
+    #    return SQLiteAdaptor(path)
     if mode == 'mysql':
         return MySQLAdaptor(path)
     if mode == 'conf':
@@ -523,4 +535,4 @@ def adaptor(db_path):
             db_path = file.readline().replace('\n', '')
             return adaptor(db_path)
     print(f'Database mode {mode} not supported')
-    sys.exit(1)
+    sys.exit(0)
