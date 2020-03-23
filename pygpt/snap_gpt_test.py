@@ -441,7 +441,7 @@ def __main__():
     properties = __load_properties__(args.properties) # load properties file
     __check_properties__(properties) # check if properties are correct
 
-    exit_code = 0 if __run_tests__(args, properties) else 0 # run tests with given parameters
+    exit_code = 0 if __run_tests__(args, properties) else 1 # run tests with given parameters
     exit(properties, exit_code) # if tests fails exit with status code
 
 if __name__ == '__main__':
