@@ -83,7 +83,7 @@ class DBAdaptor:
             end_date = max([test_set.end_date for test_set in test_sets])
             result = all([not ts.is_failed() for ts in test_sets])
             log.info(f'inserting job `{job}` into DB')
-            add_query = '''INSERT INTO jobs (
+            add_query = f'''INSERT INTO jobs (
                 ID,
                 branch,
                 jobnum,
@@ -93,17 +93,9 @@ class DBAdaptor:
                 timestamp_end,
                 result
             ) VALUES (
-                %s, %s, %s , %s, %s, %s, %s, %s
+                {new_id}, {branch}, {job}, {tag_id}, {test_scope}, {start_date}, {end_date}, {1 if result else 3}
             );'''
-            self.execute(add_query, (new_id,
-                                     branch,
-                                     job,
-                                     tag_id,
-                                     test_scope,
-                                     start_date,
-                                     end_date,
-                                     1 if result else 3
-                                    ))
+            self.execute(add_query)
             res = self.execute(query)
             if not res:
                 log.panic('impossible to add job')
