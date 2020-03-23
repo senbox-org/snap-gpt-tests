@@ -427,6 +427,7 @@ def __run_tests__(args, properties):
     report_path = os.path.join(args.report_dir, f'Report_{json_name[:-5]}.txt')
     with open(report_path, 'w') as file:
         file.write(output)
+    print('final status: ', passed)
     return passed
 
 def exit(properties, code=0):
