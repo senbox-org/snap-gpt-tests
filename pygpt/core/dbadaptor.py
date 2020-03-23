@@ -91,8 +91,9 @@ class DBAdaptor:
                 timestamp_end,
                 result
             ) VALUES (
-                {new_id}, {branch}, {job}, {tag_id}, {test_scope}, {start_date}, {end_date}, {1 if result else 3}
+                '{new_id}', '{branch}', '{job}', '{tag_id}', '{test_scope}', '{start_date}', '{end_date}', '{1 if result else 3}'
             );'''
+            print(add_query)
             res = self.execute(add_query)
             res = self.execute(query)
             if not res:
