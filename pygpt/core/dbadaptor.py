@@ -181,7 +181,6 @@ class DBAdaptor:
                 {test.memory_max}, {test.io_read}, {test.io_write}, 
                 {int(test.threads_avg)}, {test.threads_max},
                 %s, %s);'''
-            print(query)
             self.execute(query, (test.raw_profile(), test.stdout))
 
     def execute(self, query, *args):
