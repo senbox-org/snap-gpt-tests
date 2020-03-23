@@ -404,7 +404,7 @@ class TestResutlSet(log.Printable):
         """
         is failed flag
         """
-        return any([test.is_failed() for test in self.tests])
+        return any([test.is_failed() or test.is_crashed() for test in self.tests])
 
     def is_passed(self):
         """
