@@ -84,6 +84,8 @@
                           <img width="16" height="16" src="../icons/green.png">
                         {{case "FAILED"}}
                           <img width="16" height="16" src="../icons/red.png">
+                        {{case "CRASHED"}}
+                          <img width="16" height="16" src="../icons/red.png">
                         {{case "SKIPPED"}}
                           <img width="16" height="16" src="../icons/orange.png">
                       {{end}}
@@ -140,6 +142,8 @@
                   {{switch .test.status}}
                     {{case "FAILED"}}
                       <img width="16" height="16" alt="{{.test.status}}" src="../icons/red.png">
+                    {{case "CRASHED"}}
+                      <img width="16" height="16" src="../icons/red.png">
                     {{case "PASSED"}}
                       <img width="16" height="16" alt="{{.test.status}}" src="../icons/green.png">
                   {{end}}

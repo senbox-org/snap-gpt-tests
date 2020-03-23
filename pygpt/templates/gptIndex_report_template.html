@@ -87,6 +87,8 @@
                         <img width="16" height="16" src="icons/green.png">
                       {{case "FAILED"}}
                         <img width="16" height="16" src="icons/red.png">
+                      {{case "CRASHED"}}
+                        <img width="16" height="16" src="icons/red.png">
                       {{default}}
                         <img width="16" height="16" src="icons/orange.png">
                     {{end}}
@@ -131,6 +133,8 @@
                   {{case "PASSED"}}
                     <a href="#{{.test.uuid}}_stdout" data-toggle="collapse" data-parent="#tab_container" aria-expanded="false"><img width="16" height="16" src="icons/green.png"></a>
                   {{case "FAILED"}}
+                    <a href="#{{.test.uuid}}_stdout" data-toggle="collapse" data-parent="#tab_container" aria-expanded="false"><img width="16" height="16" src="icons/red.png"></a>
+                  {{case "CRASHED"}}
                     <a href="#{{.test.uuid}}_stdout" data-toggle="collapse" data-parent="#tab_container" aria-expanded="false"><img width="16" height="16" src="icons/red.png"></a>
                   {{case "SKIPPED"}}
                     <img width="16" height="16" src="icons/orange.png">
