@@ -93,7 +93,6 @@ class DBAdaptor:
             ) VALUES (
                 '{new_id}', '{branch}', '{job}', '{tag_id}', '{test_scope}', '{start_date}', '{end_date}', '{1 if result else 3}'
             );'''
-            print(add_query)
             res = self.execute(add_query)
             res = self.execute(query)
             if not res:
@@ -121,8 +120,10 @@ class DBAdaptor:
         query = f'SELECT ID FROM tests WHERE name="{name}"'
         res = self.execute(query)
         if not res:
+            new_id = self.execute('SELECT (MAX(ID)+1) AS id FROM tests;')[0]['id']
             log.info(f'inserting test `{name}`')
             query = f'''INSERT INTO tests (
+                ID,
                 name,
                 testset,
                 description,
@@ -131,11 +132,11 @@ class DBAdaptor:
                 graphPath,
                 graphXML
             ) VALUES (
-                %s, %s, %s, %s, %s, %s, %s
+                %s, %s, %s, %s, %s, %s, %s, %s
             );'''
             print(test.graph_xml)
             print(query)
-            self.execute(query, (name, parent_set, test.description,
+            self.execute(query, (new_id, name, parent_set, test.description,
                                  test.author, test.frequency, 
                                  test.graph_path, test.graph_xml))
             return self.test_entry(test, parent_set)
@@ -157,6 +158,7 @@ class DBAdaptor:
         query = 'SELECT * FROM results WHERE job=%s AND test=%s'
         res = self.execute(query, (job_id, test_id))
         if not res:
+            new_id = self.execute('SELECT (MAX(ID)+1) AS id FROM results;')[0]['id']
             log.info(f'inserting results for test `{test.name}`')
             result = 1
             if test.is_crashed():
@@ -166,14 +168,14 @@ class DBAdaptor:
             elif test.is_skipped():
                 result = 2
             query = f'''INSERT INTO results (
-                test, job, result,
+                ID, test, job, result,
                 start, duration, cpu_time,
                 cpu_usage_avg, cpu_usage_max, memory_avg,
                 memory_max, io_write, io_read,
                 threads_avg, threads_max,
                 raw_data, output
             ) VALUES (
-                {test_id}, {job_id}, {result},
+                {new_id}, {test_id}, {job_id}, {result},
                 '{test.start}', {test.duration}, {test.cpu_time},
                 {test.cpu_usage_avg}, {test.cpu_usage_max}, {test.memory_avg},
                 {test.memory_max}, {test.io_read}, {test.io_write}, 
