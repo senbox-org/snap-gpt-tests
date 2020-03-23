@@ -34,7 +34,7 @@ class Result(Enum):
     FAILED = 1
     CRASHED = 2
 
-    def __repr__(self):
+    def __str__(self):
         if self == Result.SKIPPED:
             return 'SKIPPED'
         if self == Result.PASSED:
@@ -341,7 +341,7 @@ def __draw_graph__(test, properties, args):
     """
     graph_path = os.path.join(properties['graphFolder'], test.graph_path)
     image_path = os.path.join(args.report_dir, 'images', test.graph_path)
-    image_path = os.path.splitext(image_path)[0] + '.png'
+    image_path = os.path.splitext(image_path)[0] + '.jpg'
     utils.mkdirs(os.path.dirname(image_path))
     graph.draw(graph_path, image_path)
 
