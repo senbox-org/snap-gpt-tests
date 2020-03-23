@@ -76,7 +76,6 @@ class DBAdaptor:
         res = self.execute(query)
 
         if not res:
-
             new_id = self.execute('SELECT (MAX(ID)+1) AS id FROM jobs;')[0]['id']
             start_date = min([test_set.start_date for test_set in test_sets])
             end_date = max([test_set.end_date for test_set in test_sets])
