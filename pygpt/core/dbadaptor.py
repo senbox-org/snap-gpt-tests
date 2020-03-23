@@ -76,11 +76,15 @@ class DBAdaptor:
         res = self.execute(query)
 
         if not res:
+
+            query = f'SELECT (MAX(ID)+1) AS id FROM jobs;'
+            new_id = self.execute(query)[0]['id']
             start_date = min([test_set.start_date for test_set in test_sets])
             end_date = max([test_set.end_date for test_set in test_sets])
             result = all([not ts.is_failed() for ts in test_sets])
             log.info(f'inserting job `{job}` into DB')
             add_query = '''INSERT INTO jobs (
+                ID,
                 branch,
                 jobnum,
                 dockerTag,
@@ -91,7 +95,8 @@ class DBAdaptor:
             ) VALUES (
                 %s, %s , %s, %s, %s, %s, %s
             );'''
-            self.execute(add_query, (branch,
+            self.execute(add_query, (new_id,
+                                     branch,
                                      job,
                                      tag_id,
                                      test_scope,
