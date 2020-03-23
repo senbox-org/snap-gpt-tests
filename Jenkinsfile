@@ -57,10 +57,6 @@ def launchJobs(jsonString, scope, outputDir, saveOutput) {
         num++
     }
     echo "final status "+status
-    if (!status) {
-        echo "Execution failed..."
-        throw new Exception("At least one test failed")
-    }
     // return jobs
     parallel jobs
 }
