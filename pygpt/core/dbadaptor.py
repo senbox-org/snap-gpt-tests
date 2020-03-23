@@ -93,7 +93,7 @@ class DBAdaptor:
                 timestamp_end,
                 result
             ) VALUES (
-                %s, %s , %s, %s, %s, %s, %s
+                %s, %s, %s , %s, %s, %s, %s, %s
             );'''
             self.execute(add_query, (new_id,
                                      branch,
