@@ -172,13 +172,13 @@ class TestResult(Test):
         """
         is crashed flag
         """
-        return self.is_failed() and 'Exception' in self._stdout
+        return self.status == 'CRASHED' or (self.is_failed() and 'Exception' in self._stdout)
 
     def is_failed(self):
         """
         is failed flag
         """
-        return self.status == 'FAILED'
+        return self.status == 'FAILED' 
 
     def is_passed(self):
         """
@@ -380,7 +380,7 @@ class TestResutlSet(log.Printable):
         """
         list of failed tests
         """
-        return list(filter(lambda test: test.is_failed(), self.tests))
+        return list(filter(lambda test: test.is_failed() or test.is_crashed(), self.tests))
 
     def passed_tests(self):
         """
