@@ -49,7 +49,7 @@ def launchJobs(jsonString, scope, outputDir, saveOutput) {
                     wait: true).result
                 if(b == 'FAILURE') {
                     echo "The job " + item + " failed."
-                    // currentBuild.result = 'FAILURE'
+                    currentBuild.result = 'FAILURE'
                     status = false
                 }
             }
