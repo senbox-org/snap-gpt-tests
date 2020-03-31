@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link type="text/css" rel="stylesheet" href="./css/bootstrap.min.css">
+<link type="text/css" rel="stylesheet" href="./css/gptTest.css"> 
+
+<link rel="shortcut icon" type="image/vnd.microsoft.icon" href="./icons/favicon.ico">
+<title>GPT Test Report - Index</title>
+</head>
+<body>
+  <div class="container">
+      <div class="row">
+          <div class="page-header">    
+              <a class="pull-right" href="http://step.esa.int/main/toolboxes/snap/">
+                  <img height="100%" alt="SNAP" title="SNAP" src="./icons/SNAP_Icon_60.png">
+              </a>
+              <h1>GPT Test Report - Index</h1>
+          </div>
+      </div>
+      <div class="row">
+          <div class="col-md-6">
+              <div class="row">
+                  <h2>Summary</h2>
+              </div>
+              <div class="row">
+                  <div class="col-md-4">
+                      <b>Start time</b>
+                  </div><div class="col-md-8">
+                      {{.start_date}}
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-md-4">
+                      <b>Total duration (s)</b>
+                  </div><div class="col-md-8">
+                      {{.duration_in_min}} min
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-md-4">
+                      <b>Test scope</b>
+                  </div><div class="col-md-8">
+                      {{.scope}}
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-md-4">
+                      <b>Operating system</b>
+                  </div><div class="col-md-8">
+                      {{.operating_system}}
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-md-4">
+                      <b>SNAP version</b>
+                  </div><div class="col-md-8">
+                      {{.version}}
+                  </div>
+              </div>
+          </div><div class="col-md-6 text-center">
+              <img class="piechart" src="./images/results_pie.png">
+          </div>
+      </div>
+      <div class="row">
+          <table class="table summary" cellspacing="0">
+              <tr>
+                  <th class="col-xs-3">Overall result</th>
+                  <th>Number of Test Sets</th>
+                  <th>Number of failed Test Sets</th>
+                  <th>Number of passed Test Sets</th>
+                  <th>Percent of passed Test Sets</th>
+                  <th>Number of Tests</th>
+                  <th>Number of failed Tests</th>
+                  <th>Number of passed Tests</th>
+                  <th>Percent of passed Tests</th>
+                  <th>Time spent in tests</th>
+              </tr>
+              <tr>
+                  <td class="result">
+                  {{foreach .test_set in .test_sets}}
+                    {{switch .test_set.status}}
+                      {{case "PASSED"}}
+                        <img width="16" height="16" src="icons/green.png">
+                      {{case "FAILED"}}
+                        <img width="16" height="16" src="icons/red.png">
+                      {{case "CRASHED"}}
+                        <img width="16" height="16" src="icons/red.png">
+                      {{default}}
+                        <img width="16" height="16" src="icons/orange.png">
+                    {{end}}
+                  {{end}}
+                  </td>
+                  <td class="tests">{{.totaljson}}</td>
+                  <td class="failed">{{.failedjson}}</td>
+                  <td class="passed">{{.passedjson}}</td>
+                  <td class="percent">{{.percentjson}} %</td>
+                  <td class="tests">{{.totaltest}}</td>
+                  <td class="failed">{{.failedtest}}</td>
+                  <td class="passed">{{.passedtest}}</td>
+                  <td class="percent">{{.percenttest}} %</td>
+                  <td class="realtime">{{.duration}}</td>
+              </tr>
+          </table>
+      </div>
+      <div class="row head">
+          <div class="col-xs-6">
+              <b>Json file</b>
+          </div>
+          <div class="col-xs-4 text-center">
+              <b>Result</b>
+          </div>
+          <div class="col-xs-1 text-right">
+              <b>Execution Time</b>
+          </div>
+          <div class="col-xs-1 text-right">
+              <b>Memory Peak</b>
+          </div>
+      </div>
+      <div class="panel-group invisibletab" role="tablist" aria-multiselectable="true" id="tab_container">
+
+        {{foreach .test_set in .test_sets}}
+          <div class="row vcenter">
+            <div class="col-xs-6">
+              <a href="tests/Report_{{.test_set.name}}.html">{{.test_set.name}}</a>
+            </div>
+            <div class="col-xs-4 text-center">
+              {{foreach .test in .test_set.tests}}
+                {{switch .test.status}}
+                  {{case "PASSED"}}
+                    <a href="#{{.test.uuid}}_stdout" data-toggle="collapse" data-parent="#tab_container" aria-expanded="false"><img width="16" height="16" src="icons/green.png"></a>
+                  {{case "FAILED"}}
+                    <a href="#{{.test.uuid}}_stdout" data-toggle="collapse" data-parent="#tab_container" aria-expanded="false"><img width="16" height="16" src="icons/red.png"></a>
+                  {{case "CRASHED"}}
+                    <a href="#{{.test.uuid}}_stdout" data-toggle="collapse" data-parent="#tab_container" aria-expanded="false"><img width="16" height="16" src="icons/red.png"></a>
+                  {{case "SKIPPED"}}
+                    <img width="16" height="16" src="icons/orange.png">
+                {{end}}
+              {{end}}
+            </div>
+            <div class="col-xs-1 text-right">{{.test_set.duration}} s</div>
+            <div class="col-xs-1 text-right">{{.test_set.memory_max}} Mb</div>
+          </div>
+            {{foreach .test in .test_set.tests}}
+                {{switch .test.status}}
+                  {{case "SKIPPED"}}
+                  {{default}}
+                    <div class="panel invisibletab">
+                      <div class="collapse" aria-expanded="false" id="{{.test.uuid}}_stdout">
+                        <div class="well">
+                          <b>{{.test.name}}</b>
+                          <hr class="dark_hr">
+                          {{.test.stdout_html}}
+                        </div>
+                      </div>
+                    </div>
+                {{end}}
+            {{end}}
+        {{end}}
+      </div>
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="./js/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="./js/bootstrap.min.js"></script>
+</body>
+</html>

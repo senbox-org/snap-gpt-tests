@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link type="text/css" rel="stylesheet" href="../css/bootstrap.min.css">
+<link type="text/css" rel="stylesheet" href="../css/gptTest.css"> 
+
+<link rel="shortcut icon" type="image/vnd.microsoft.icon" href="../icons/favicon.ico">
+<title>{{.name}} report</title>
+</head>
+<body>
+  <div class="container">
+      <div class="row">
+          <div class="page-header">    
+              <a class="pull-right" href="http://step.esa.int/main/toolboxes/snap/">
+                  <img height="100%" alt="SNAP" title="SNAP" src="../icons/SNAP_Icon_60.png">
+              </a>
+              <h1>GPT test: {{.name}}</h1>
+          </div>
+      </div>
+      <div class="row">
+          <div class="col-md-6">
+              <div class="row">
+                  <h2>Summary</h2>
+              </div>
+              <div class="row">
+                  <div class="col-md-4">
+                      <b>Start time</b>
+                  </div><div class="col-md-8">
+                      {{.start_date}}
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-md-4">
+                      <b>Total duration (s)</b>
+                  </div><div class="col-md-8">
+                      {{.duration}}
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-md-4">
+                      <b>Test scope</b>
+                  </div><div class="col-md-8">
+                      {{.scope}}
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-md-4">
+                      <b>Operating system</b>
+                  </div><div class="col-md-8">
+                      {{.operating_system}}
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-md-4">
+                      <b>SNAP version</b>
+                  </div><div class="col-md-8">
+                      {{.version}}
+                  </div>
+              </div>
+          </div><div class="col-md-6 text-center">
+              <img class="piechart" src="../images/{{.name}}_pie.png">
+          </div>
+      </div>
+      <div class="row">
+          <table class="table summary" cellspacing="0">
+              <tr>
+                  <th class="result col-xs-6">Overall result</th>
+                  <th class="tests"><img width="16" height="16" src="../icons/blueZZ.png" alt="Number of gpt tests" title="Number of gpt tests"></th>
+                  <th class="failed"><img width="16" height="16" src="../icons/error_th.png" alt="Number of failed tests" title="Number of failed tests"></th>
+                  <th class="passed"><img width="16" height="16" src="../icons/ok_th.png" alt="Number of passed tests" title="Number of passed tests"></th>
+                  <th class="percent"><img width="16" height="16" src="../icons/percent_th.png" alt="Percent passed tests" title="Percent passed tests"></th>
+                  <th class="duration"><img width="16" height="16" src="../icons/duration_th.png" alt="Time spent in tests" title="Time spent in tests"></th>
+                  <th class="realtime"><img width="16" height="16" src="../icons/realtime_th.png" alt="Elapsed realtime" title="Elapsed realtime"></th>
+              </tr>
+              <tr>
+                  <td class="result">
+                    {{foreach .test in .tests}}
+                      {{switch .test.status}}
+                        {{case "PASSED"}}
+                          <img width="16" height="16" src="../icons/green.png">
+                        {{case "FAILED"}}
+                          <img width="16" height="16" src="../icons/red.png">
+                        {{case "CRASHED"}}
+                          <img width="16" height="16" src="../icons/red.png">
+                        {{case "SKIPPED"}}
+                          <img width="16" height="16" src="../icons/orange.png">
+                      {{end}}
+                    {{end}}
+                  </td>
+                  <td class="tests">{{.total}}</td>
+                  <td class="failed">{{.failed_tests}}</td>
+                  <td class="passed">{{.passed_tests}}</td>
+                  <td class="percent">{{.percent}}</td>
+                  <td class="duration">{{.duration}}</td>
+                  <td class="realtime">{{.real_duration}}</td>
+              </tr>
+          </table>
+      </div>
+      <div class="row head">
+          <div class="col-xs-2">
+              <b>Test ID</b>
+          </div>
+          <div class="col-xs-5 text-center">
+              <b>Graph</b>
+          </div>
+          <div class="col-xs-1 text-center">
+              <b>Result</b>
+          </div>
+          <div class="col-xs-2">
+              <b>Environment</b>
+          </div>
+          <div class="col-xs-1 text-right">
+              <b>Execution Time</b>
+          </div>
+          <div class="col-xs-1 text-right">
+              <b>Memory Peak</b>
+          </div>
+      </div>
+      {{foreach .test in .tests}}
+        <div class="row vcenter">
+          <div class="col-xs-2"><a href="#modal_{{.test.uuid}}" data-toggle="modal">{{.test.name}}</a></div>
+          <div class="col-xs-5 text-center">
+            <a href="#modal_{{.test.uuid}}" data-toggle="modal">
+              <img border="none" src="../images/{{.test.graph_id}}.png" alt="{{.test.name}}" title="{{.test.graph_id}}" width="100%">
+            </a>
+          </div>
+          {{if .test.is_skipped}}
+              <div class="col-xs-1 text-center">
+                <img width="16" height="16" alt="{{.test.status}}" src="../icons/orange.png">
+              </div>
+              <div class="col-xs-2"> - </div>
+              <div class="col-xs-1 text-right"> - </div>
+              <div class="col-xs-1 text-right"> - </div>
+            </div>  
+          {{else}}
+              <div class="col-xs-1 text-center">
+                <a data-toggle="collapse" href="#collapse_{{.test.uuid}}" aria-expanded="false" aria-controls="collapse_{{.test.uuid}}">
+                  {{switch .test.status}}
+                    {{case "FAILED"}}
+                      <img width="16" height="16" alt="{{.test.status}}" src="../icons/red.png">
+                    {{case "CRASHED"}}
+                      <img width="16" height="16" src="../icons/red.png">
+                    {{case "PASSED"}}
+                      <img width="16" height="16" alt="{{.test.status}}" src="../icons/green.png">
+                  {{end}}
+                </a>
+              </div>
+              <div class="col-xs-2">{{.test.jvm_string}}</div>
+              <div class="col-xs-1 text-right"><a href="Performance_{{.test.name}}.html">{{.test.duration}} s</a></div>
+              <div class="col-xs-1 text-right"><a href="Performance_{{.test.name}}.html">{{.test.memory_max}} Mb</a></div> 
+            </div>
+            <div class="collapse" id="collapse_{{.test.uuid}}">
+              <div class="well">
+                {{.test.stdout_html}}
+              </div>
+            </div>
+          {{end}}
+      {{end}}
+      {{foreach .test in .tests}}
+        <div class="modal fade" id="modal_{{.test.uuid}}" tabindex="-1" role="dialog">
+          <div class="modal-dialog test_modal" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Test: <b>{{.test.name}}</b></h4>
+              </div>
+              <div class="modal-body">
+                    <div class="text-center">
+                      <img border="none"  src="../images/{{.test.graph_id}}.jpg" alt="{{.test.name}}" title="{{.test.graph_id}}" class="graph_img">
+                    </div>
+                    {{.test.json_html}}
+                    <p><a href="../json/{{.test.name}}.json">json file</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      {{end}}
+    </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="../js/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="../js/bootstrap.min.js"></script>
+</body>
+</html>

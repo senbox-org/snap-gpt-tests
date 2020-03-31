@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link type="text/css" rel="stylesheet" href="../css/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="../css/gptTest.css"> 
+
+    <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="../icons/favicon.ico">
+
+    <title>{{.test_id}} performance report</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+          <div class="page-header">    
+              <a class="pull-right" href="http://step.esa.int/main/toolboxes/snap/">
+                  <img height="100%" alt="SNAP" title="SNAP" src="../icons/SNAP_Icon_60.png">
+              </a>
+              <h1>{{.test_id}} performance summary</h1>
+          </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row">
+                    <h2>Summary</h2>
+                </div>
+                <div class="row">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-2">Results</div>
+                    <div class="col-md-2">Average Value<br><i class='version'>{{.version}}</i></div>
+                    <div class="col-md-2">Reference Value</div>
+                </div>
+                {{foreach .row in .summary}}
+                    <div class="row">
+                        <div class="col-md-3"><b>{{.row.label}}</b></div>
+                        <div class="col-md-2">{{.row.value}} {{.row.unit}}</div>
+                        <div class="col-md-2">{{.row.average}} {{.row.unit}}</div>
+                        <div class="col-md-2">{{.row.reference}} {{.row.unit}}</div>
+                    </div>
+                {{end}}
+            </div>
+        </div>
+        <div class="row head">
+            <div class="col-xs-12">
+              <b>Plots</b>
+            </div>  
+        </div>
+        {{foreach .plot in .plots}}
+            <div class="col-md-6">
+             <img width="100%" src="../performances/plot/{{.plot}}">
+            </div>
+        {{end}}
+    </div>
+</body>
+</html>

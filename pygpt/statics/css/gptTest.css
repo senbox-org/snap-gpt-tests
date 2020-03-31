@@ -1,0 +1,368 @@
+
+html {
+    font-size: 93.75%;
+}
+
+/* font and color */
+
+body,
+p,
+ul,
+ol,
+dl,
+td,
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-family: Verdana,"Trebuchet MS",Arial,sans-serif;
+    background-color: white;
+    color: black;
+}
+
+/*
+Colours and margin
+*/
+td.margin {
+    padding-right: 5em;
+}
+
+tr.odd td {
+    background: #EEEEEA;
+    border-top: 2px solid white;
+    border-right: 2px solid white;
+    padding: 2px;
+}
+
+tr.odd * {
+    background-color: #EEEEEA;
+}
+
+tr.even td {
+    background: #F5F5F3;
+    border-top: 2px solid white;
+    border-right: 2px solid white;
+    padding: 2px;
+}
+tr.even * {
+    background-color: #F5F5F3;
+}
+
+/* 
+Header 
+*/
+
+table.header {
+    width: 100%;
+    border-bottom: 2px solid #961E32;
+}
+
+table.header td {
+    padding-bottom: 4px;
+}
+
+table.header td.title {
+    font-size: 1.5385em; 
+    font-weight: bold;
+    width: 100%;
+}
+
+table.header td.icon {
+    text-align: right;
+    margin-right: 0;
+    vertical-align: bottom;
+}
+
+td.icon img {
+    vertical-align: bottom;
+    border: 0;
+}
+
+
+/*
+Summary of a json file
+*/
+
+table.gptsummary {
+    width: 100%;
+}
+
+table.gptsummary td.gptsummary {
+    width: 50%;
+    text-align: left;
+}
+
+table.gptsummary td.gptchart {
+    width: 50%;
+    text-align: right;
+}
+
+table.gptsummarytitle {
+    
+    margin-bottom: .5em;
+}
+
+table.gptsummarytitle td.title {
+    font-size: 1.2308em;    
+    font-weight: bold;
+    border-bottom: 1px solid black;
+}
+
+table.gptsummary {
+    margin-left: 5em;
+}
+
+table.gptsummary th {
+    text-align: left;
+    vertical-align: top;
+}
+
+table.gptsummary td.label {
+    padding-right: .5em;
+}
+
+/*
+Overall result in a json file
+*/
+
+table.resultsummary {
+    width: 100%;
+    margin-top: 2em;
+}
+
+table.resultsummary th {
+    background-color: #F8DFA3;
+    border-top: 1px solid #961E32;
+    border-right: 2px solid white;
+    padding: 2px;
+    vertical-align: middle;
+}
+
+table.resultsummary th.margin {
+    background-color: white;
+    width: 5em;
+    border-top: 0;
+    border-right: 0;
+    padding: 0;
+}
+
+table.resultsummary th.result {
+    text-align: left;
+}
+
+table.resultsummary th.tests,
+table.resultsummary th.skipped,
+table.resultsummary th.passed,
+table.resultsummary th.percent,
+table.resultsummary th.failed,
+table.resultsummary th.duration,
+table.resultsummary th.realtime {
+    padding-left: 2px;
+    padding-right: 2px;
+}
+
+table.resultsummary th.realtime {
+    border-right: 0;
+}
+
+table.resultsummary tr.even td.result {
+    vertical-align: middle;
+}
+
+table.resultsummary tr.even td.realtime,
+table.resultsummary tr.odd td.realtime {
+    border-right: 0;
+}
+
+table.resultsummary tr.even td.marginicon,
+table.resultsummary tr.odd td.marginicon {
+    background-color: white;
+    text-align: center;
+    border-right: 0;
+    padding-right: .5em;
+    vertical-align: middle;
+}
+
+table.resultsummary td.tests,
+table.resultsummary td.skipped,
+table.resultsummary td.passed,
+table.resultsummary td.percent,
+table.resultsummary td.failed,
+table.resultsummary td.duration,
+table.resultsummary td.realtime {
+    text-align: center;
+    vertical-align: middle;
+    width: 1px;
+    white-space: nowrap;
+}
+
+
+
+/*
+Table for every test in a jsin file
+*/
+
+table.gpttestlist {
+    width: 100%;
+    margin-top: 1em;
+}
+
+table.gpttestlist th {
+    background-color: #F8DFA3;
+    border-top: 1px solid #961E32;
+    border-right: 2px solid white;
+    padding: 2px;
+    vertical-align: middle;
+}
+
+table.gpttestlist th.margin {
+    background-color: white;
+    width: 5em;
+    border-top: 0;
+    border-right: 0;
+    padding: 0;
+}
+
+table.gpttestlist th.testid
+{
+    text-align: left;
+}
+table.gpttestlist th.desc {
+    text-align: center;
+}
+table.gpttestlist tr.even td.desc,
+table.gpttestlist tr.odd td.desc {
+    text-align: center;
+}
+
+table.gpttestlist tr.even td.testid,
+table.gpttestlist tr.odd td.testid,
+table.gpttestlist tr.even td.desc,
+table.gpttestlist tr.odd td.desc{
+    vertical-align: middle;
+}
+
+table.gpttestlist tr.even td.result,
+table.gpttestlist tr.odd td.result {
+    vertical-align: center;
+    text-align: center;
+}
+
+table.gpttestlist tr.even td.env,
+table.gpttestlist tr.odd td.env {
+    vertical-align: middle;
+    text-align: left;
+}
+
+table.gpttestlist tr.even td.realtime,
+table.gpttestlist tr.odd td.realtime {
+    border-right: 0;
+}
+
+table.gpttestlist tr.even td.marginicon,
+table.gpttestlist tr.odd td.marginicon {
+    background-color: white;
+    text-align: right;
+    border-right: 0;
+    padding-right: .5em;
+    vertical-align: middle;
+}
+
+table.gpttestlist td.tests,
+table.gpttestlist td.excepted,
+table.gpttestlist td.failed,
+table.gpttestlist td.expfailed,
+table.gpttestlist td.passed,
+table.gpttestlist td.skipped,
+table.gpttestlist td.skippedsets,
+table.gpttestlist td.notimpl,
+table.gpttestlist td.executed,
+table.gpttestlist td.percent,
+table.gpttestlist td.duration,
+table.gpttestlist td.memory,
+table.gpttestlist td.realtime {
+    text-align: right;
+    vertical-align: middle;
+    width: 1px;
+    white-space: nowrap;
+}
+
+table.gpttestlist table.testid td {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+table.gpttestlist .env {
+    padding-left: 10px;   
+    text-align: left;
+}
+
+table.gpttestlist td.duration,
+table.gpttestlist td.memory{
+    text-align: center;
+}
+
+
+
+.piechart {
+    height: 200px;
+}
+
+.plot {
+    width: 800px;
+}
+
+.grapn {
+    max-width: 600px;
+    max-height: 600px;
+}
+
+.version {
+    font-size: 0.8em;
+    color: #333;
+}
+
+.vcenter {
+    display: flex;
+    align-items: center;
+}
+
+.head {
+    background-color: #F8DFA3;/* #f8f8f8; */
+    padding-top: 0.7em;
+    padding-bottom: 0.7em;
+    border-bottom: solid 1px #961E32;
+}
+
+table.summary th {
+    background-color: #F8DFA3;
+    border-bottom: solid 1px #961E32;
+    border-top: none;
+}
+
+.page-header{
+   border-bottom: solid 2px #961E32;
+   width: 100%;
+   padding-right: 0;
+   padding-left: 0;
+}
+
+.invisibletab {
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+.dark_hr {
+    border-color: #ccc;
+}
+
+.test_modal {
+    width: 80%;
+}
+
+.graph_img {
+    width: 50%;
+}
