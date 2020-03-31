@@ -288,8 +288,9 @@ class MySQLAdaptor(DBAdaptor):
         query = f"SELECT ID FROM dockerTags WHERE name='{tag_name}';"
         res = self.execute(query)
         if not res:
+            new_id = self.execute('SELECT (MAX(ID)+1) AS id FROM dockerTags;')[0]['id']
             log.info(f'inserting dockerTag `{tag_name}` into DB')
-            query = f"INSERT INTO dockerTags (name) VALUES ('{tag_name}');"
+            query = f"INSERT INTO dockerTags (ID, name) VALUES ({new_id}, '{tag_name}');"
             self.execute(query)
             return self.docker_tag_id(tag_name)
         return res[0]['ID']
