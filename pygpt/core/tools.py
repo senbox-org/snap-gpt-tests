@@ -21,7 +21,11 @@ def mkdirs(path):
     for pth in paths:
         crr = os.path.join(crr, pth)
         if not os.path.isdir(crr):
-            os.mkdir(crr)
+            try:
+                os.mkdir(crr)
+            except Exception as e:
+                print('file with same name...')
+                print(e)
 
 def rmfiles(folder):
     for file_name in os.listdir(folder):
