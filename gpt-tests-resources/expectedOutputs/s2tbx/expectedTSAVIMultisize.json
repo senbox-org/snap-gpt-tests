@@ -75,8 +75,8 @@
     ],
     "bands": [
       {
-        "name": "tsavi_M",
-        "description": "",
+        "name": "flags_M",
+        "description": "tsavi specific flags",
         "bandWidth": 300,
         "bandHeight": 300,
         "noDataValue": "0.0",
@@ -92,12 +92,12 @@
           {
             "x": 205,
             "y": 255,
-            "value": 0.0
+            "value": 2.0
           }
         ]
       },
       {
-        "name": "flags_M",
+        "name": "flags_S",
         "description": "tsavi specific flags",
         "bandWidth": 300,
         "bandHeight": 300,
@@ -109,17 +109,17 @@
           {
             "x": 87,
             "y": 77,
-            "value": 0.0
+            "value": 2.0
           },
           {
             "x": 183,
             "y": 109,
-            "value": 0.0
+            "value": 2.0
           }
         ]
       },
       {
-        "name": "tsavi_S",
+        "name": "collocationFlags",
         "description": "",
         "bandWidth": 300,
         "bandHeight": 300,
@@ -131,18 +131,18 @@
           {
             "x": 165,
             "y": 223,
-            "value": 0.0
+            "value": 1.0
           },
           {
             "x": 182,
             "y": 278,
-            "value": -1.763581
+            "value": 1.0
           }
         ]
       },
       {
-        "name": "flags_S",
-        "description": "tsavi specific flags",
+        "name": "tsavi_M",
+        "description": "",
         "bandWidth": 300,
         "bandHeight": 300,
         "noDataValue": "0.0",
@@ -158,12 +158,12 @@
           {
             "x": 155,
             "y": 274,
-            "value": 2.0
+            "value": -2.331393
           }
         ]
       },
       {
-        "name": "collocationFlags",
+        "name": "tsavi_S",
         "description": "",
         "bandWidth": 300,
         "bandHeight": 300,
