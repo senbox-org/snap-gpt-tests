@@ -45,28 +45,6 @@
     ],
     "bands": [
       {
-        "name": "ri",
-        "description": "",
-        "bandWidth": 300,
-        "bandHeight": 300,
-        "noDataValue": "0.0",
-        "noDataValueUsed": "false",
-        "spectralWavelength": "0.0",
-        "spectralBandwidth": "0.0",
-        "expectedPixels": [
-          {
-            "x": 15,
-            "y": 53,
-            "value": 9.702933
-          },
-          {
-            "x": 205,
-            "y": 255,
-            "value": 6.9397144
-          }
-        ]
-      },
-      {
         "name": "flags",
         "description": "ri specific flags",
         "bandWidth": 300,
@@ -77,14 +55,36 @@
         "spectralBandwidth": "0.0",
         "expectedPixels": [
           {
+            "x": 15,
+            "y": 53,
+            "value": 4.0
+          },
+          {
+            "x": 205,
+            "y": 255,
+            "value": 4.0
+          }
+        ]
+      },
+      {
+        "name": "ri",
+        "description": "",
+        "bandWidth": 300,
+        "bandHeight": 300,
+        "noDataValue": "0.0",
+        "noDataValueUsed": "false",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
             "x": 87,
             "y": 77,
-            "value": 4.0
+            "value": 8.202619
           },
           {
             "x": 183,
             "y": 109,
-            "value": 4.0
+            "value": 9.814944
           }
         ]
       },
