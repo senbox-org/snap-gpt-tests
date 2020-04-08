@@ -17,7 +17,12 @@
         "outputName": "C2RCC_OLCI",
         "expected": "s3tbx/expectedC2RCC_OLCI.json"
       }
-    ]
+    ],
+    "configVM": {
+      "xmx": "8G",
+      "cacheSize": "2G",
+      "parallelism": "2"
+    }
   },
   {
     "id": "C2RCC_OLCI_uncertainties",
@@ -37,7 +42,12 @@
         "outputName": "C2RCC_OLCI_uncertainties",
         "expected": "s3tbx/expectedC2RCC_OLCI_uncertainties.json"
       }
-    ]
+    ],
+    "configVM": {
+      "xmx": "8G",
+      "cacheSize": "2G",
+      "parallelism": "2"
+    }
   }
 
 ]
