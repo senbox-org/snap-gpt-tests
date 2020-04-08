@@ -187,6 +187,8 @@ pipeline {
                    
                     archiveArtifacts artifacts: "report/**/*.*", fingerprint: true
                     sh "rm -rf report" 
+                    sh "rm -rf gptExecutorTarget"
+                    sh "rm JSONTestFiles.txt"
                 }
             }
         }
