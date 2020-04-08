@@ -186,9 +186,8 @@ pipeline {
                     sh "python3 -u ./pygpt/report_utils.py ${outputDir}/templates $WORKSPACE/report \"${params.testScope}\" ${dockerTagName} ${params.reportsDB}"
                    
                     archiveArtifacts artifacts: "report/**/*.*", fingerprint: true
-                    sh "rm -rf report" 
-                    sh "rm -rf gptExecutorTarget"
-                    sh "rm JSONTestFiles.txt"
+                    sh "rm -rf report"
+                    sh "rm -rf ${outputDir}/*" 
                 }
             }
         }
