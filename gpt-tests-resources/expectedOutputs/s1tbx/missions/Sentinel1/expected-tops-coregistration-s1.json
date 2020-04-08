@@ -74,34 +74,39 @@
       } ]
     } ],
     "bands" : [ {
-      "name" : "i_IW1_VV_mst_09Aug2014",
-      "description" : "",
-      "bandWidth" : 21253,
-      "bandHeight" : 1629,
-      "noDataValue" : 0.0,
-      "noDataValueUsed" : false,
-      "spectralWavelength" : 0.0,
-      "spectralBandwidth" : 0.0,
-      "expectedPixels" : [ {
-        "x" : 10626.0,
-        "y" : 814.0,
-        "value" : -97.0
-      } ]
-    }, {
-      "name" : "q_IW1_VV_mst_09Aug2014",
-      "description" : "",
-      "bandWidth" : 21253,
-      "bandHeight" : 1629,
-      "noDataValue" : 0.0,
-      "noDataValueUsed" : false,
-      "spectralWavelength" : 0.0,
-      "spectralBandwidth" : 0.0,
-      "expectedPixels" : [ {
-        "x" : 10626.0,
-        "y" : 814.0,
-        "value" : 85.0
-      } ]
-    }, {
+      "name": "i_IW1_VV_mst_09Aug2014",
+      "description": "",
+      "bandWidth": 21253,
+      "bandHeight": 1629,
+      "noDataValue": 0.0,
+      "noDataValueUsed": true,
+      "spectralWavelength": 0.0,
+      "spectralBandwidth": 0.0,
+      "expectedPixels": [
+        {
+          "x": 10626.0,
+          "y": 814.0,
+          "value": -97.0
+        }
+      ]
+    },
+      {
+        "name": "q_IW1_VV_mst_09Aug2014",
+        "description": "",
+        "bandWidth": 21253,
+        "bandHeight": 1629,
+        "noDataValue": 0.0,
+        "noDataValueUsed": true,
+        "spectralWavelength": 0.0,
+        "spectralBandwidth": 0.0,
+        "expectedPixels": [
+          {
+            "x": 10626.0,
+            "y": 814.0,
+            "value": 85.0
+          }
+        ]
+      }, {
       "name" : "Intensity_IW1_VV_mst_09Aug2014",
       "description" : "Intensity from complex data",
       "bandWidth" : 21253,
