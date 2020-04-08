@@ -1,8 +1,8 @@
 [{
-    "id":"MERIS_Correct-Radiometry_owtTest",
-  "author": "BC",
-    "description":"execute Meris Correct Radiometry operator",
-    "frequency":"daily",
+    "id": "MERIS_Correct-Radiometry_owtTest",
+    "author": "BC",
+    "description": "execute Meris Correct Radiometry operator",
+    "frequency": "daily",
     "graphPath": "s3tbx/defaultGraphs/graphMERIS_Correct-Radiometry_owt.xml",
     "inputs": {
         "input1": "s3tbx/sensors_platforms/MERIS/MER_FRS_1P/N1/MER_FRS_1PNMAP20100826_083555_000002002092_00236_44378_0001.N1"
@@ -12,10 +12,12 @@
         "inputReflectanceIs": "RADIANCE_REFLECTANCES",
         "reproVersion": "AUTO_DETECT"
     },
-    "outputs": [{
-        "parameter": "out1",
-        "outputName": "tempMERIS_Correct-Radiometry_owt",
-        "expected": "s3tbx/defaultGraphs/expectedMERIS_Correct-Radiometry_owt.json"
-    }]
+    "outputs": [
+        {
+            "parameter": "out1",
+            "outputName": "tempMERIS_Correct-Radiometry_owt",
+            "expected": "s3tbx/defaultGraphs/expectedMERIS_Correct-Radiometry_owt.json"
+        }
+    ]
 }
 ]

@@ -6,7 +6,7 @@
         <parameters class="com.bc.ceres.binding.dom.XppDomElement">
             <file>$input1</file>
 			<sourceBands>$sourceBands</sourceBands>
-			<pixelRegion>pixelRegion</pixelRegion>
+			<pixelRegion>$pixelRegion</pixelRegion>
         </parameters>
     </node>
     <node id="Write">
