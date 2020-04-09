@@ -14,62 +14,73 @@
     },
     "tiePointGrids" : [ ],
     "bands" : [ {
-      "name" : "Intensity_HH",
-      "description" : "",
-      "bandWidth" : 778,
-      "bandHeight" : 369,
-      "noDataValue" : 0.0,
-      "noDataValueUsed" : false,
-      "spectralWavelength" : 0.0,
-      "spectralBandwidth" : 0.0,
-      "expectedPixels" : [ {
-        "x" : 389,
-        "y" : 184,
-        "value" : 1.5571181E7
-      } ]
-    }, {
-      "name" : "Intensity_HV",
-      "description" : "",
-      "bandWidth" : 778,
-      "bandHeight" : 369,
-      "noDataValue" : 0.0,
-      "noDataValueUsed" : false,
-      "spectralWavelength" : 0.0,
-      "spectralBandwidth" : 0.0,
-      "expectedPixels" : [ {
-        "x" : 389,
-        "y" : 184,
-        "value" : 1.0851295E7
-      } ]
-    }, {
-      "name" : "Intensity_VH",
-      "description" : "",
-      "bandWidth" : 778,
-      "bandHeight" : 369,
-      "noDataValue" : 0.0,
-      "noDataValueUsed" : false,
-      "spectralWavelength" : 0.0,
-      "spectralBandwidth" : 0.0,
-      "expectedPixels" : [ {
-        "x" : 389,
-        "y" : 184,
-        "value" : 1.3509592E7
-      } ]
-    }, {
-      "name" : "Intensity_VV",
-      "description" : "",
-      "bandWidth" : 778,
-      "bandHeight" : 369,
-      "noDataValue" : 0.0,
-      "noDataValueUsed" : false,
-      "spectralWavelength" : 0.0,
-      "spectralBandwidth" : 0.0,
-      "expectedPixels" : [ {
-        "x" : 389,
-        "y" : 184,
-        "value" : 1.1089281E7
-      } ]
-    } ],
+      "name": "Intensity_HH",
+      "description": "",
+      "bandWidth": 778,
+      "bandHeight": 369,
+      "noDataValue": 0.0,
+      "noDataValueUsed": true,
+      "spectralWavelength": 0.0,
+      "spectralBandwidth": 0.0,
+      "expectedPixels": [
+        {
+          "x": 389,
+          "y": 184,
+          "value": 1.5571181E7
+        }
+      ]
+    },
+      {
+        "name": "Intensity_HV",
+        "description": "",
+        "bandWidth": 778,
+        "bandHeight": 369,
+        "noDataValue": 0.0,
+        "noDataValueUsed": true,
+        "spectralWavelength": 0.0,
+        "spectralBandwidth": 0.0,
+        "expectedPixels": [
+          {
+            "x": 389,
+            "y": 184,
+            "value": 1.0851295E7
+          }
+        ]
+      },
+      {
+        "name": "Intensity_VH",
+        "description": "",
+        "bandWidth": 778,
+        "bandHeight": 369,
+        "noDataValue": 0.0,
+        "noDataValueUsed": true,
+        "spectralWavelength": 0.0,
+        "spectralBandwidth": 0.0,
+        "expectedPixels": [
+          {
+            "x": 389,
+            "y": 184,
+            "value": 1.3509592E7
+          }
+        ]
+      },
+      {
+        "name": "Intensity_VV",
+        "description": "",
+        "bandWidth": 778,
+        "bandHeight": 369,
+        "noDataValue": 0.0,
+        "noDataValueUsed": true,
+        "spectralWavelength": 0.0,
+        "spectralBandwidth": 0.0,
+        "expectedPixels": [
+          {
+            "x": 389,
+            "y": 184,
+            "value": 1.1089281E7
+          }
+        ]
+      } ],
     "masks" : [ ]
   }
 }
