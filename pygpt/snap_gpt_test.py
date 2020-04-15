@@ -343,7 +343,8 @@ def __draw_graph__(test, properties, args):
     image_path = os.path.join(args.report_dir, 'images', test.graph_path)
     image_path = os.path.splitext(image_path)[0] + '.jpg'
     image_path = utils.mkdirs(os.path.dirname(image_path))
-    graph.draw(graph_path, image_path)
+    if image_path:
+        graph.draw(graph_path, image_path)
 
 
 def __save_json__(test, args):
