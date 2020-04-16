@@ -104,7 +104,7 @@ pipeline {
         string(name: 'dockerTagName', defaultValue: "snap:master", description: 'Snap version to use to launch tests')
         string(name: 'testScope', defaultValue: 'REGULAR', description: 'Scope of the tests to launch (REGULAR, DAILY, WEEKLY, RELEASE)')
         booleanParam(name: 'saveOutput', defaultValue: false, description: 'Save output of failed tests (if scope is not [REGULAR, DAILY, WEEKLY, RELEASE])')
-        booleanParam(name: 'parallel', defaultValue: true, description: 'Execute the test jobs in parallel')
+        booleanParam(name: 'parallel', defaultValue: false, description: 'Execute the test jobs in parallel')
         string(name: 'reportsDB', defaultValue: "conf:///opt/snap-gpt-tests/snap-db.conf", description: "database to use for saving outputs and performances (sqlite://path or mysql://user:root@host:port/db)")
     }
    
