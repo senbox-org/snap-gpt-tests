@@ -2,8 +2,8 @@
   "id": "ReprojSubset_S2",
   "decodeQualification": "INTENDED",
   "expectedContent": {
-    "sceneWidth": 14917,
-    "sceneHeight": 10981,
+    "sceneWidth": 1799,
+    "sceneHeight": 1799,
     "startTime": "16-APR-2017 10:50:31.026000",
     "endTime": "16-APR-2017 10:50:31.026000",
     "bands": [
@@ -33,8 +33,8 @@
       {
         "name": "B2",
         "description": "Reflectance in band B2",
-        "bandWidth": 1800,
-        "bandHeight": 1800,
+        "bandWidth": 1799,
+        "bandHeight": 1799,
         "geophysicalUnit": "dl",
         "noDataValue": "NaN",
         "noDataValueUsed": "true",
@@ -49,7 +49,7 @@
           {
             "x": 1233,
             "y": 1531,
-            "value": 0.6006
+            "value": 0.6136000156402588
           }
         ]
       },
@@ -79,9 +79,9 @@
       {
         "name": "view_zenith_mean",
         "description": "Viewing incidence zenith angle",
-        "bandWidth": 4,
-        "bandHeight": 4,
-        "geophysicalUnit": "°",
+        "bandWidth": 3,
+        "bandHeight": 3,
+        "geophysicalUnit": "Â°",
         "noDataValue": "NaN",
         "noDataValueUsed": "true",
         "spectralWavelength": "0.0",
@@ -90,12 +90,12 @@
           {
             "x": 2,
             "y": 2,
-            "value": 8.452503
+            "value": 7.982495307922363
           },
           {
             "x": 2,
-            "y": 3,
-            "value": 8.370762
+            "y": 1,
+            "value": 8.066109657287598
           }
         ]
       }
