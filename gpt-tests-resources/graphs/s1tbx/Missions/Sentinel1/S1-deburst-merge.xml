@@ -10,10 +10,23 @@
   <node id="TOPSAR-Deburst">
     <operator>TOPSAR-Deburst</operator>
     <sources>
+      <sourceProduct refid="TOPSAR-Split"/>
+    </sources>
+    <parameters>
+      <selectedPolarisations/>
+    </parameters>
+  </node>
+  <node id="TOPSAR-Split">
+    <operator>TOPSAR-Split</operator>
+    <sources>
       <sourceProduct refid="Read"/>
     </sources>
-    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
-      <selectedPolarisations/>
+    <parameters>
+      <subswath>IW1</subswath>
+      <selectedPolarisations>VV</selectedPolarisations>
+      <firstBurstIndex>1</firstBurstIndex>
+      <lastBurstIndex>9</lastBurstIndex>
+      <wktAoi/>
     </parameters>
   </node>
   <node id="Write">
@@ -32,7 +45,10 @@
             <displayPosition x="37.0" y="134.0"/>
     </node>
     <node id="TOPSAR-Deburst">
-      <displayPosition x="161.0" y="129.0"/>
+      <displayPosition x="250.0" y="130.0"/>
+    </node>
+    <node id="TOPSAR-Split">
+      <displayPosition x="130.0" y="132.0"/>
     </node>
     <node id="Write">
             <displayPosition x="455.0" y="135.0"/>
