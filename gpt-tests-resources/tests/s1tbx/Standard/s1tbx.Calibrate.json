@@ -328,13 +328,13 @@
     }]
   },
   {
-    "id":"s1tbx.standard.calibrate.cosmoskymed.dgm",
+    "id":"s1tbx.standard.calibrate.cosmoskymed.scs",
   "author": "Skywatch",
-    "description":"execute calibrate processor with Cosmo Skymed DGM",
+    "description":"execute calibrate processor with Cosmo Skymed SCS",
     "frequency":"daily/s1tbxError/testCalibrate",
     "graphPath": "s1tbx/Standard/Subset_Cal.xml",
     "inputs": {
-      "input1": "s1tbx/SAR/Cosmo/level 1B/hdf5/EL20141029_928699_3776081.6.2/CSKS4_DGM_B_WR_03_VV_RA_SF_20141001061215_20141001061230.h5"
+      "input1": "s1tbx/SAR/Cosmo/level1B/hdf5/EL20100624_102783_1129476.6.2/CSKS2_SCS_B_S2_01_VV_RA_SF_20100623045532_20100623045540.h5"
     },
     "parameters": {
 	    "outputImageInComplex": "false",
@@ -342,8 +342,8 @@
     },
     "outputs": [{
       "parameter": "out1",
-      "outputName": "out-calibrate-cosmoskymed-dgm",
-      "expected": "s1tbx/Standard/expected-calibrate-cosmoskymed-dgm.json"
+      "outputName": "out-calibrate-cosmoskymed-scs",
+      "expected": "s1tbx/Standard/expected-calibrate-cosmoskymed-scs.json"
     }]
   }
 ]

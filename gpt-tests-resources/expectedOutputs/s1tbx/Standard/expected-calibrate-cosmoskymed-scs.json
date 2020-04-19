@@ -1,0 +1,81 @@
+{
+  "id" : "s1tbx.standard.calibrate.cosmoskymed.scs",
+  "decodeQualification" : "INTENDED",
+  "expectedContent" : {
+    "sceneWidth" : 500,
+    "sceneHeight" : 500,
+    "geoCoding" : {
+      "coordinates" : [ {
+        "x" : 250.0,
+        "y" : 250.0,
+        "lat" : 41.80770853748596,
+        "lon" : 12.577342763105445
+      } ]
+    },
+    "tiePointGrids" : [ {
+      "name" : "incident_angle",
+      "description" : "",
+      "offsetX" : -100.0,
+      "offsetY" : -100.0,
+      "subSamplingX" : 1401.199951171875,
+      "subSamplingY" : 1439.9000244140625,
+      "expectedPixels" : [ {
+        "x" : 250.0,
+        "y" : 250.0,
+        "value" : 24.836666107177734
+      } ]
+    }, {
+      "name" : "slant_range_time",
+      "description" : "",
+      "offsetX" : -100.0,
+      "offsetY" : -100.0,
+      "subSamplingX" : 1401.199951171875,
+      "subSamplingY" : 1439.9000244140625,
+      "expectedPixels" : [ {
+        "x" : 250.0,
+        "y" : 250.0,
+        "value" : 4571409.5
+      } ]
+    }, {
+      "name" : "latitude",
+      "description" : "",
+      "offsetX" : -99.5,
+      "offsetY" : -99.5,
+      "subSamplingX" : 1556.0,
+      "subSamplingY" : 1599.0,
+      "expectedPixels" : [ {
+        "x" : 250.0,
+        "y" : 250.0,
+        "value" : 41.80771255493164
+      } ]
+    }, {
+      "name" : "longitude",
+      "description" : "",
+      "offsetX" : -99.5,
+      "offsetY" : -99.5,
+      "subSamplingX" : 1556.0,
+      "subSamplingY" : 1599.0,
+      "expectedPixels" : [ {
+        "x" : 250.0,
+        "y" : 250.0,
+        "value" : 12.577345848083496
+      } ]
+    } ],
+    "bands" : [ {
+      "name" : "Sigma0_VV",
+      "description" : "",
+      "bandWidth" : 500,
+      "bandHeight" : 500,
+      "noDataValue" : 0.0,
+      "noDataValueUsed" : true,
+      "spectralWavelength" : 0.0,
+      "spectralBandwidth" : 0.0,
+      "expectedPixels" : [ {
+        "x" : 250.0,
+        "y" : 250.0,
+        "value" : 0.052567463368177414
+      } ]
+    } ],
+    "masks" : [ ]
+  }
+}
