@@ -3,7 +3,7 @@
   "id":"s1tbx.standard.applyorbit.asar.imm",
   "author": "Skywatch",
   "description":"execute applyorbit processor with ASAR",
-  "frequency":"daily/s1tbx",
+  "frequency":"daily/s1tbx/s1tbx-standard",
   "graphPath": "s1tbx/Standard/ApplyOrbit.xml",
   "inputs": {
     "input1": "s1tbx/SAR/ASAR/ASA_IMM.zip"
@@ -20,7 +20,7 @@
   "id":"s1tbx.standard.applyorbit.asar.ims",
   "author": "Skywatch",
   "description":"execute applyorbit processor with ASAR IMS",
-  "frequency":"daily/s1tbx",
+  "frequency":"daily/s1tbx/s1tbx-standard",
   "graphPath": "s1tbx/Standard/ApplyOrbit.xml",
   "inputs": {
     "input1": "s1tbx/SAR/ASAR/Bam/ASA_IMS_1PNUPA20031203_061259_000000162022_00120_09192_0099.N1"
@@ -37,7 +37,7 @@
   "id":"s1tbx.standard.applyorbit.ers2.imm",
   "author": "Skywatch",
   "description":"execute applyorbit processor with ERS-2 IMM",
-  "frequency":"daily/s1tbx",
+  "frequency":"daily/s1tbx/s1tbx-standard",
   "graphPath": "s1tbx/Standard/ApplyOrbit.xml",
   "inputs": {
     "input1": "s1tbx/SAR/ERS/SAR_IMM_1PXESA20110310_110538_00000007A166_00037_83057_1816.E2.zip"
@@ -54,7 +54,7 @@
   "id":"s1tbx.standard.applyorbit.ers1.ims",
   "author": "Skywatch",
   "description":"execute applyorbit processor with ERS-1 IMS",
-  "frequency":"daily/s1tbx",
+  "frequency":"daily/s1tbx/s1tbx-standard",
   "graphPath": "s1tbx/Standard/ApplyOrbit.xml",
   "inputs": {
     "input1": "s1tbx/SAR/ERS/ERS_Tandem_Etna/ERS1_SLCI_VMP_CEOS_01081995_orbit 21159 frame 0747_IPAF/SCENE1/VDF_DAT.001"
@@ -71,7 +71,7 @@
   "id":"s1tbx.standard.applyorbit.ers2.ims",
   "author": "Skywatch",
   "description":"execute applyorbit processor with ERS-2 IMS",
-  "frequency":"daily/s1tbx",
+  "frequency":"daily/s1tbx/s1tbx-standard",
   "graphPath": "s1tbx/Standard/ApplyOrbit.xml",
   "inputs": {
     "input1": "s1tbx/SAR/ERS/ERS_Tandem_Etna/ERS2_SLCI_VMP_CEOS_02081995_orbit 01486 frame 0747_IPAF/SCENE1/VDF_DAT.001"
@@ -88,7 +88,7 @@
   "id":"s1tbx.standard.applyorbit.s1-grd",
   "author": "Skywatch",
   "description":"execute applyorbit processor with S1 GRD",
-  "frequency":"daily/s1tbx",
+  "frequency":"daily/s1tbx/s1tbx-standard",
   "graphPath": "s1tbx/Standard/ApplyOrbit.xml",
   "inputs": {
     "input1": "s1tbx/SAR/S1/GRD/Hawaii_slices/S1A_IW_GRDH_1SDV_20180514T043029_20180514T043054_021896_025D31_BBDA.zip"
