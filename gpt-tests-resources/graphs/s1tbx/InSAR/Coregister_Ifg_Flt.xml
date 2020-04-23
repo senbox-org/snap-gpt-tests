@@ -102,31 +102,6 @@
       <copyMetadata>true</copyMetadata>
     </parameters>
   </node>
-  <node id="AzimuthFilter">
-    <operator>AzimuthFilter</operator>
-    <sources>
-      <sourceProduct refid="Warp"/>
-    </sources>
-    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
-      <fftLength>256</fftLength>
-      <aziFilterOverlap>0</aziFilterOverlap>
-      <alphaHamming>0.75</alphaHamming>
-    </parameters>
-  </node>
-  <node id="RangeFilter">
-    <operator>RangeFilter</operator>
-    <sources>
-      <sourceProduct refid="AzimuthFilter"/>
-    </sources>
-    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
-      <fftLength>8</fftLength>
-      <alphaHamming>0.75</alphaHamming>
-      <nlMean>15</nlMean>
-      <snrThresh>5.0</snrThresh>
-      <ovsmpFactor>1</ovsmpFactor>
-      <doWeightCorrel>false</doWeightCorrel>
-    </parameters>
-  </node>
   <node id="GoldsteinPhaseFiltering">
     <operator>GoldsteinPhaseFiltering</operator>
     <sources>
@@ -143,7 +118,7 @@
   <node id="Interferogram">
     <operator>Interferogram</operator>
     <sources>
-      <sourceProduct refid="RangeFilter"/>
+      <sourceProduct refid="Warp"/>
     </sources>
     <parameters class="com.bc.ceres.binding.dom.XppDomElement">
       <subtractFlatEarthPhase>true</subtractFlatEarthPhase>
@@ -196,12 +171,6 @@
     </node>
     <node id="Subset(2)">
       <displayPosition x="35.0" y="131.0"/>
-    </node>
-    <node id="AzimuthFilter">
-      <displayPosition x="318.0" y="144.0"/>
-    </node>
-    <node id="RangeFilter">
-      <displayPosition x="329.0" y="185.0"/>
     </node>
     <node id="GoldsteinPhaseFiltering">
       <displayPosition x="299.0" y="268.0"/>
