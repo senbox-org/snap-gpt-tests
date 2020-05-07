@@ -47,7 +47,11 @@
         "expected": "snap/expectedElevation_S2.json"
       }
     ],
-     missing band 'B3 in product 'subsetS2Test_B1B2
+    "result": {
+    	"status": false,
+    	"source": "expected",
+    	"message": "missing band 'B3 in product 'subsetS2Test_B1B2"
+    }
   },
   {
     "id": "Subset_S2_B1B5",

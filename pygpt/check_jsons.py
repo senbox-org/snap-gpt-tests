@@ -50,7 +50,8 @@ def __main__():
     test_files = utils.rlist_files(args.test_folder, lambda f: f.endswith('.json'))
     tests = {}
     status = True
-    for test_file in test_files:
+    for i, test_file in enumerate(test_files):
+        print(f'{i:>3d} {test_file}')
         for test_id in __get_ids__(test_file):
             if test_id in tests:
                 log.error(f'duplicate test id:\n\t{test_id} is defined in `{tests[test_id]}` and in `{test_file}`')
