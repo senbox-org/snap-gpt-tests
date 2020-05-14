@@ -1,8 +1,8 @@
 [{
-  "id":"Spot4MulL1ATest",
+  "id": "Spot4MulL1ATest",
   "author": "CSRO",
-  "description":"execute Spot 4 (level L1A) product reader and operators",
-  "frequency":"daily/CSROtest",
+  "description": "execute Spot 4 (level L1A) product reader and operators",
+  "frequency": "daily/CSROtest/cloneIssue",
   "graphPath": "s2tbx/graphReaderSingleLevel.xml",
   "inputs": {
     "input1": "s2tbx/_gpt_readers/spot4/MUL/L1A/40332531008311110481I5_1A_NETWORK.ZIP"
@@ -12,7 +12,8 @@
     "subsetRegion": "400,400,600,600",
     "crs": "WGS84(DD)"
   },
-  "outputs": [{
+  "outputs": [
+    {
     "parameter": "out1",
     "outputName": "tempSpot4MulL1A",
     "expected": "s2tbx/expectedSpot4MulL1A.json"
