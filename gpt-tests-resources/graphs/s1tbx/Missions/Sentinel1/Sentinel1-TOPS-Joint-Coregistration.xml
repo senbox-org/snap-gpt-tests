@@ -105,8 +105,8 @@
       <outputDerampDemodPhase>true</outputDerampDemodPhase>
     </parameters>
   </node>
-  <node id="Network ESD">
-    <operator>Network ESD</operator>
+  <node id="Enhanced-Spectral-Diversity">
+    <operator>Enhanced-Spectral-Diversity</operator>
     <sources>
       <sourceProduct refid="Back-Geocoding"/>
     </sources>
@@ -134,7 +134,7 @@
   <node id="Write">
     <operator>Write</operator>
     <sources>
-      <sourceProduct refid="Network ESD"/>
+      <sourceProduct refid="Enhanced-Spectral-Diversity"/>
     </sources>
     <parameters>
       <formatName>BEAM-DIMAP</formatName>

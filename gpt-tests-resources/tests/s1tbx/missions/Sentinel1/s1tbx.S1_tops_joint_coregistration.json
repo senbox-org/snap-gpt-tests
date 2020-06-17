@@ -1,10 +1,10 @@
 [
 {
-  "id":"s1tbx.sentinel1.tops.coregistration.nesd.s1",
+  "id":"s1tbx.sentinel1.tops.joint.coregistration.s1",
   "author": "SENSAR",
   "description":"execute S1 TOPS Coregistration using Network ESD",
   "frequency":"daily/s1tbx/sentinel1",
-  "graphPath": "s1tbx/Missions/Sentinel1/Sentinel1-TOPS-NESD-Coregistration.xml",
+  "graphPath": "s1tbx/Missions/Sentinel1/Sentinel1-TOPS-Joint-Coregistration.xml",
   "inputs": {
     "input1": "s1tbx/SAR/S1/SLC/Patagonia-AR/S1A_IW_SLC__1SDV_20190304T093435_20190304T093501_026186_02EC6C_A140.zip",
 	"input2": "s1tbx/SAR/S1/SLC/Patagonia-AR/S1A_IW_SLC__1SDV_20200122T093442_20200122T093508_030911_038C4C_F4C7.zip",
@@ -15,8 +15,8 @@
   },
   "outputs": [{
     "parameter": "out1",
-    "outputName": "out-tops-coregistration-nesd-s1",
-    "expected": "s1tbx/missions/Sentinel1/expected-tops-coregistration-nesd-s1.json"
+    "outputName": "out-tops-joint-coregistration-s1",
+    "expected": "s1tbx/missions/Sentinel1/expected-tops-joint-coregistration-s1.json"
   }],
   "configVM": {
     "xmx": "10G",
