@@ -46,6 +46,30 @@
     "cacheSize": "8G",
     "parallelism": "4"
   }
+},
+{
+  "id":"s1tbx.insar.coregister.tsx-spotlight",
+  "author": "Sensar",
+  "description":"execute cross correlation coregistration for TSX spotlight",
+  "frequency":"daily/s1tbx/insar/coreg",
+  "graphPath": "s1tbx/InSAR/CoregisterDemodRemod.xml",
+  "inputs": {
+    "input1": "s1tbx/SAR/TerraSAR-X/Uluru_SlidingSpotlight/TSX1_SAR__SSC______HS_S_SRA_20090223T204240_20090223T204241/TSX1_SAR__SSC______HS_S_SRA_20090223T204240_20090223T204241.xml",
+    "input2": "s1tbx/SAR/TerraSAR-X/Uluru_SlidingSpotlight/TSX1_SAR__SSC______HS_S_SRA_20090212T204239_20090212T204240/TSX1_SAR__SSC______HS_S_SRA_20090212T204239_20090212T204240.xml"
+  },
+  "parameters": {
+	"geoRegion": "POLYGON ((131.02964621663827 -25.340714481638752, 131.02720087109506 -25.340176909397783, 131.02588367327488 -25.343837389221616, 131.02800267916078 -25.344301347721004, 131.02964621663827 -25.340714481638752))"
+  },
+  "outputs": [{
+    "parameter": "out1",
+    "outputName": "out-insar-coregister-tsx-spotlight",
+    "expected": "s1tbx/InSAR/expected-insar-coregister-tsx-spotlight.json"
+  }],
+  "configVM": {
+    "xmx": "12G",
+    "cacheSize": "8G",
+    "parallelism": "4"
+  }
 }
 ]
 
