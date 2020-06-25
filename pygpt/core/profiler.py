@@ -333,7 +333,6 @@ def profile(command, sampling_time, output, **kwargs):
     if 'env' in kwargs:
         env = kwargs['env']
     proc = subprocess.Popen(command, 
-                            bufsize=1, 
                             stdout=subprocess.PIPE, 
                             stderr=subprocess.STDOUT,
                             env=env)
