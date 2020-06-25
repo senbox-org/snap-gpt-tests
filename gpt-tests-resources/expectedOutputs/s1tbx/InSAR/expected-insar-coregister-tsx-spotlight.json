@@ -1,0 +1,123 @@
+{
+  "id" : "s1tbx.insar.coregister.tsx-spotlight",
+  "decodeQualification" : "INTENDED",
+  "expectedContent" : {
+    "sceneWidth" : 465,
+    "sceneHeight" : 498,
+    "geoCoding" : {
+      "coordinates" : [ {
+        "x" : 46.0,
+        "y" : 89.0,
+        "lat" : -25.34127011782176,
+        "lon" : 131.02897173850315
+      } ]
+    },
+    "tiePointGrids" : [ {
+      "name" : "slant_range_time",
+      "description" : "",
+      "offsetX" : -2042.6666666666665,
+      "offsetY" : -487.0,
+      "subSamplingX" : 3637.3333333333335,
+      "subSamplingY" : 2069.0,
+      "expectedPixels" : [ {
+        "x" : 46.0,
+        "y" : 89.0,
+        "value" : 4779112.0
+      } ]
+    }, {
+      "name" : "incident_angle",
+      "description" : "",
+      "offsetX" : -223.4999999999999,
+      "offsetY" : -298.409090909091,
+      "subSamplingX" : 779.4285714285714,
+      "subSamplingY" : 564.2727272727273,
+      "expectedPixels" : [ {
+        "x" : 46.0,
+        "y" : 89.0,
+        "value" : 45.862076
+      } ]
+    }, {
+      "name" : "latitude",
+      "description" : "",
+      "offsetX" : -223.4999999999999,
+      "offsetY" : -298.409090909091,
+      "subSamplingX" : 779.4285714285714,
+      "subSamplingY" : 564.2727272727273,
+      "expectedPixels" : [ {
+        "x" : 46.0,
+        "y" : 89.0,
+        "value" : -25.341272
+      } ]
+    }, {
+      "name" : "longitude",
+      "description" : "",
+      "offsetX" : -223.4999999999999,
+      "offsetY" : -298.409090909091,
+      "subSamplingX" : 779.4285714285714,
+      "subSamplingY" : 564.2727272727273,
+      "expectedPixels" : [ {
+        "x" : 46.0,
+        "y" : 89.0,
+        "value" : 131.02896
+      } ]
+    } ],
+    "bands" : [ {
+      "name" : "i_HH_mst_23Feb2009",
+      "description" : "",
+      "bandWidth" : 465,
+      "bandHeight" : 498,
+      "noDataValue" : 0.0,
+      "noDataValueUsed" : true,
+      "spectralWavelength" : 0.0,
+      "spectralBandwidth" : 0.0,
+      "expectedPixels" : [ {
+        "x" : 46.0,
+        "y" : 89.0,
+        "value" : -3.0
+      } ]
+    }, {
+      "name" : "q_HH_mst_23Feb2009",
+      "description" : "",
+      "bandWidth" : 465,
+      "bandHeight" : 498,
+      "noDataValue" : 0.0,
+      "noDataValueUsed" : true,
+      "spectralWavelength" : 0.0,
+      "spectralBandwidth" : 0.0,
+      "expectedPixels" : [ {
+        "x" : 46.0,
+        "y" : 89.0,
+        "value" : 7.0
+      } ]
+    }, {
+      "name" : "i_HH_slv1_12Feb2009",
+      "description" : "",
+      "bandWidth" : 465,
+      "bandHeight" : 498,
+      "noDataValue" : 0.0,
+      "noDataValueUsed" : true,
+      "spectralWavelength" : 0.0,
+      "spectralBandwidth" : 0.0,
+      "expectedPixels" : [ {
+        "x" : 46.0,
+        "y" : 89.0,
+        "value" : 19.68492
+      } ]
+    }, {
+      "name" : "q_HH_slv1_12Feb2009",
+      "description" : "",
+      "bandWidth" : 465,
+      "bandHeight" : 498,
+      "noDataValue" : 0.0,
+      "noDataValueUsed" : true,
+      "spectralWavelength" : 0.0,
+      "spectralBandwidth" : 0.0,
+      "expectedPixels" : [ {
+        "x" : 46.0,
+        "y" : 89.0,
+        "value" : -73.77417
+      } ]
+    } ],
+    "masks" : [ ]
+  }
+}
