@@ -4,7 +4,7 @@
         <operator>Read</operator>
         <sources/>
         <parameters>
-          <file>D:\Satellite\test_data\s3tbx\sensors_platforms\SENTINEL-3\olci\L1\S3A_OL_1_EFR____20160303T080325_20160303T080525_20160312T095955_0119_001_249______SVL_O_NR_001.SEN3/xfdumanifest.xml</file>
+          <file>$input</file>
         </parameters>
     </node>
 
@@ -14,7 +14,7 @@
             <sourceProduct refid="Read"/>
         </sources>
         <parameters>
-            <region>1800,900,200,200</region>
+            <region>$subsetRegion</region>
             <copyMetadata>false</copyMetadata>
         </parameters>
     </node>
@@ -24,11 +24,11 @@
         <sources>
             <sourceProduct refid="Subset"/>
         </sources>
-   <parameters>
-    <resolution>50</resolution>
-    <subSamplingFactorX>1</subSamplingFactorX>
-    <subSamplingFactorY>1</subSamplingFactorY>
-</parameters>
+        <parameters>
+            <resolution>$resolution</resolution>
+            <subSamplingFactorX>$subSamplingFactorX</subSamplingFactorX>
+            <subSamplingFactorY>$subSamplingFactorY</subSamplingFactorY>
+        </parameters>
 
     </node>
     <node id="Write">
@@ -37,7 +37,7 @@
             <sourceProduct refid="LandWaterMask"/>
         </sources>
         <parameters>
-            <file>D:\Satellite\DELETE/out.dim</file>
+            <file>$output</file>
             <formatName>BEAM-DIMAP</formatName>
         </parameters>
     </node>
