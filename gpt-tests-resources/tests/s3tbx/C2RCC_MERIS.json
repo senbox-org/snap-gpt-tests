@@ -17,7 +17,12 @@
         "outputName": "C2RCC_MERIS_c2rcc-nets",
         "expected": "s3tbx/expectedC2RCC_MERIS_c2rcc-nets.json"
       }
-    ]
+    ],
+    "configVM": {
+      "xmx": "8G",
+      "cacheSize": "2G",
+      "parallelism": "2"
+    }
   },
   {
     "id": "C2RCC_MERIS_c2x-nets",
@@ -37,6 +42,11 @@
         "outputName": "C2RCC_MERIS_c2x_nets",
         "expected": "s3tbx/expectedC2RCC_MERIS_c2x-nets.json"
       }
-    ]
+    ],
+    "configVM": {
+      "xmx": "8G",
+      "cacheSize": "2G",
+      "parallelism": "2"
+    }
   }
 ]
