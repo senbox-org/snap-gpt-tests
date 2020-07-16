@@ -1,102 +1,106 @@
-[{
-    "id":"FuTest_MERIS",
-  "author": "BC",
-    "description":"execute Fu operator with MERIS L2",
-    "frequency":"daily",
+[
+  {
+    "id": "FuTest_MERIS",
+    "author": "BC",
+    "description": "execute Fu operator with MERIS L2",
+    "frequency": "daily, bctest",
     "graphPath": "s3tbx/graphFuOp.xml",
     "inputs": {
-        "input1": "s3tbx/sensors_platforms/MERIS/MER_FR__2P/N1/MER_FR__2PNEPA20060716_101936_000000982049_00280_22879_0373.N1"
+      "input1": "s3tbx/sensors_platforms/MERIS/MER_FR__2P/N1/MER_FR__2PNEPA20060716_101936_000000982049_00280_22879_0373.N1"
     },
     "parameters": {
-        "subsetRegion": "700,500,200,200",
-        "copyAllSourceBands": "true",
-        "inputIsIrradianceReflectance": "true",
-        "validExpression": "l2_flags.WATER",
-        "reflectanceNamePattern": "reflec_..",
-        "instrument": "MERIS",
-        "includeIntermediateResults" : "true"
+      "subsetRegion": "700,500,200,200",
+      "copyAllSourceBands": "true",
+      "inputIsIrradianceReflectance": "true",
+      "validExpression": "l2_flags.WATER",
+      "reflectanceNamePattern": "reflec_..",
+      "instrument": "MERIS",
+      "includeIntermediateResults": "true"
     },
-    "outputs": [{
+    "outputs": [
+      {
         "parameter": "output",
         "outputName": "FuTest_MERIS",
         "expected": "s3tbx/expectedFuOP_MERIS.json"
-    }]
-},
-
-
-    {
-        "id":"FuTest_OLCI",
-  "author": "BC",
-        "description":"execute Fu operator with OLCI L2",
-        "frequency":"daily",
-        "graphPath": "s3tbx/graphFuOp.xml",
-        "inputs": {
-            "input1": "s3tbx/sensors_platforms/SENTINEL-3/olci/L2/S3A_OL_2_WFR____20070425T152940_20070425T153025_20140610T112151_0045_000_000______MAR_D_NR____.SEN3"
-        },
-        "parameters": {
-            "subsetRegion": "4000,400,200,200",
-            "copyAllSourceBands": "true",
-            "inputIsIrradianceReflectance": "true",
-            "validExpression": "not WQSF_lsb.INVALID",
-            "reflectanceNamePattern": "not used",
-            "instrument": "AUTO_DETECT",
-            "includeIntermediateResults" : "false"
-        },
-        "outputs": [{
-            "parameter": "output",
-            "outputName": "FuTest_OLCI",
-            "expected": "s3tbx/expectedFuOP_OLCI.json"
-        }]
+      }
+    ]
+  },
+  {
+    "id": "FuTest_OLCI",
+    "author": "BC",
+    "description": "execute Fu operator with OLCI L2",
+    "frequency": "daily",
+    "graphPath": "s3tbx/graphFuOp.xml",
+    "inputs": {
+      "input1": "s3tbx/sensors_platforms/SENTINEL-3/olci/L2/S3A_OL_2_WFR____20070425T152940_20070425T153025_20140610T112151_0045_000_000______MAR_D_NR____.SEN3"
     },
-
-    {
-        "id":"FuTest_CZCS",
-  "author": "BC",
-        "description":"execute Fu operator with CZCS L2",
-        "frequency":"daily",
-        "graphPath": "s3tbx/graphFuOp.xml",
-        "inputs": {
-            "input1": "s3tbx/sensors_platforms/CZCS/C1986010234000.L2_MLAC_OC"
-        },
-        "parameters": {
-            "subsetRegion": "400,900,200,200",
-            "copyAllSourceBands": "false",
-            "inputIsIrradianceReflectance": "false",
-            "validExpression": "not l2_flags.LAND",
-            "reflectanceNamePattern": "Rrs_...",
-            "instrument": "CZCS",
-            "includeIntermediateResults" : "false"
-        },
-        "outputs": [{
-            "parameter": "output",
-            "outputName": "FuTest_CZCS",
-            "expected": "s3tbx/expectedFuOP_CZCS.json"
-        }]
+    "parameters": {
+      "subsetRegion": "4000,400,200,200",
+      "copyAllSourceBands": "true",
+      "inputIsIrradianceReflectance": "true",
+      "validExpression": "not WQSF_lsb.INVALID",
+      "reflectanceNamePattern": "not used",
+      "instrument": "AUTO_DETECT",
+      "includeIntermediateResults": "false"
     },
-
-
-    {
-        "id":"FuTest_SeaWIFS",
-  "author": "BC",
-        "description":"execute Fu operator with SeaWIFS L2",
-        "frequency":"daily",
-        "graphPath": "s3tbx/graphFuOp.xml",
-        "inputs": {
-            "input1": "s3tbx/sensors_platforms/SeaWIFS/S2001014011328.L2_GAC_OC"
-        },
-        "parameters": {
-            "subsetRegion": "100,1800,100,300",
-            "copyAllSourceBands": "false",
-            "inputIsIrradianceReflectance": "false",
-            "validExpression": "not l2_flags.LAND",
-            "reflectanceNamePattern": "Rrs_...",
-            "instrument": "SEAWIFS",
-            "includeIntermediateResults" : "true"
-        },
-        "outputs": [{
-            "parameter": "output",
-            "outputName": "FuTest_SeaWIFS",
-            "expected": "s3tbx/expectedFuOP_SeaWIFS.json"
-        }]
-    }
+    "outputs": [
+      {
+        "parameter": "output",
+        "outputName": "FuTest_OLCI",
+        "expected": "s3tbx/expectedFuOP_OLCI.json"
+      }
+    ]
+  },
+  {
+    "id": "FuTest_CZCS",
+    "author": "BC",
+    "description": "execute Fu operator with CZCS L2",
+    "frequency": "daily",
+    "graphPath": "s3tbx/graphFuOp.xml",
+    "inputs": {
+      "input1": "s3tbx/sensors_platforms/CZCS/C1986010234000.L2_MLAC_OC"
+    },
+    "parameters": {
+      "subsetRegion": "400,900,200,200",
+      "copyAllSourceBands": "false",
+      "inputIsIrradianceReflectance": "false",
+      "validExpression": "not l2_flags.LAND",
+      "reflectanceNamePattern": "Rrs_...",
+      "instrument": "CZCS",
+      "includeIntermediateResults": "false"
+    },
+    "outputs": [
+      {
+        "parameter": "output",
+        "outputName": "FuTest_CZCS",
+        "expected": "s3tbx/expectedFuOP_CZCS.json"
+      }
+    ]
+  },
+  {
+    "id": "FuTest_SeaWIFS",
+    "author": "BC",
+    "description": "execute Fu operator with SeaWIFS L2",
+    "frequency": "daily",
+    "graphPath": "s3tbx/graphFuOp.xml",
+    "inputs": {
+      "input1": "s3tbx/sensors_platforms/SeaWIFS/S2001014011328.L2_GAC_OC"
+    },
+    "parameters": {
+      "subsetRegion": "100,1800,100,300",
+      "copyAllSourceBands": "false",
+      "inputIsIrradianceReflectance": "false",
+      "validExpression": "not l2_flags.LAND",
+      "reflectanceNamePattern": "Rrs_...",
+      "instrument": "SEAWIFS",
+      "includeIntermediateResults": "true"
+    },
+    "outputs": [
+      {
+        "parameter": "output",
+        "outputName": "FuTest_SeaWIFS",
+        "expected": "s3tbx/expectedFuOP_SeaWIFS.json"
+      }
+    ]
+  }
 ]

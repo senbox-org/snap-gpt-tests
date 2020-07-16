@@ -1,18 +1,18 @@
 [{
-    "id":"ReprojectionTest_OLCI",
+  "id": "ReprojectionTest_OLCI",
   "author": "BC",
-    "description":"execute Reprojection operator",
-    "frequency":"daily",
-    "graphPath": "snap/graphSubsetReprojectionOp.xml",
-    "inputs": {
-        "input1": "s3tbx/sensors_platforms/SENTINEL-3/olci/L1/S3A_OL_1_EFR____20160303T080325_20160303T080525_20160312T095955_0119_001_249______SVL_O_NR_001.SEN3"
-    },
-    "parameters": {
-        "subsetRegion": "1500,600,300,300",
-        "crs": "EPSG:4326",
-        "resampling": "Nearest",
-        "orthorectify": "false",
-        "noDataValue": "NaN",
+  "description": "execute Reprojection operator",
+  "frequency": "daily, bctest",
+  "graphPath": "snap/graphSubsetReprojectionOp.xml",
+  "inputs": {
+    "input1": "s3tbx/sensors_platforms/SENTINEL-3/olci/L1/S3A_OL_1_EFR____20160303T080325_20160303T080525_20160312T095955_0119_001_249______SVL_O_NR_001.SEN3"
+  },
+  "parameters": {
+    "subsetRegion": "1500,600,300,300",
+    "crs": "EPSG:4326",
+    "resampling": "Nearest",
+    "orthorectify": "false",
+    "noDataValue": "NaN",
         "includeTiePointGrids": "true",
         "addDeltaBands": "false"
     },
