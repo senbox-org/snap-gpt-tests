@@ -15,51 +15,6 @@
  * with this program; if not, see http://www.gnu.org/licenses/
  */
 
-/**
- * Launch jobs in parallel for every json file listed in jsonString separated by '\n'
- */
-def launchJobs(jsonString, scope, outputDir, saveOutput) {
-
-    def jobs = [:]
-    println "List of parallel Json file : " + jsonString
-    jsonString = jsonString.trim()
-    jsonList = jsonString.split("\n")
-    num = 0
-    status = true
-    for (int i=0; i < jsonList.size(); i++) {
-    //jsonList.each { item ->
-        item = jsonList[i]
-        def currentJsonFile = "" + item
-        if (currentJsonFile.trim() != "") {
-
-            echo "Schedule job for json file : " + item
-            jobs["GPT Test ${num} ${item}"] = {
-                b = build(job: "gpt-executor", parameters: [
-                // build job: "test", parameters: [
-                        [$class: 'StringParameterValue', name: 'gptBranchVersion', value: "${branchVersion}"],
-                        [$class: 'StringParameterValue', name: 'dockerTagName', value: "${dockerTagName}"],
-                        [$class: 'StringParameterValue', name: 'jsonPath', value: currentJsonFile],
-                        [$class: 'StringParameterValue', name: 'testScope', value: "${scope}"],
-                        [$class: 'StringParameterValue', name: 'outputReportDir', value: "${outputDir}"],
-                        [$class: 'BooleanParameterValue', name: 'java', value: false],
-                        [$class: 'BooleanParameterValue', name: 'saveOutput', value: saveOutput]
-                    ],
-                    quietPeriod: 0,
-                    propagate: false,
-                    wait: true).result
-                if(b == 'FAILURE') {
-                    echo "The job " + item + " failed."
-                    currentBuild.result = 'FAILURE'
-                    status = false
-                }
-            }
-        }
-        num++
-    }
-    echo "final status "+status
-    // return jobs
-    parallel jobs
-}
 
 def launchJobsSeq(jsonString, scope, outputDir, saveOutput) {
 
@@ -151,20 +106,12 @@ pipeline {
                     jsonString = sh(returnStdout: true, script: "cat ${outputDir}/JSONTestFiles.txt").trim()
                     jsonStringSeq = sh(returnStdout: true, script: "cat ${outputDir}/JSONTestFilesSeq.txt").trim()
                 }
-           
-                script {
-                    if (params.parallel == false) {
-                        echo "Launch seq Jobs from ${env.JOB_NAME} from ${env.GIT_BRANCH} with commit ${env.GIT_COMMIT} using docker image snap-build-server.tilaa.cloud/${params.dockerTagName}"
-                        launchJobsSeq("${jsonString}", "${testScope}", "${outputDir}", params.saveOutput)
-                    } else {
-                        echo "Launch parallel Jobs from ${env.JOB_NAME} from ${env.GIT_BRANCH} with commit ${env.GIT_COMMIT} using docker image snap-build-server.tilaa.cloud/${params.dockerTagName}"
-                        launchJobs("${jsonString}", "${testScope}", "${outputDir}", params.saveOutput)
-                    }
-                }
                 echo "Launch seq Jobs from ${env.JOB_NAME} from ${env.GIT_BRANCH} with commit ${env.GIT_COMMIT} using docker image snap-build-server.tilaa.cloud/${params.dockerTagName}"
                 // echo "List of json files : ${jsonString}"
                 launchJobsSeq("${jsonStringSeq}", "${testScope}", "${outputDir}", params.saveOutput)
                 // parallel jobs
+                echo "Launch long Jobs from ${env.JOB_NAME} from ${env.GIT_BRANCH} with commit ${env.GIT_COMMIT} using docker image snap-build-server.tilaa.cloud/${params.dockerTagName}"
+                launchJobsSeq("${jsonString}", "${testScope}", "${outputDir}", params.saveOutput)
             }
             post {
                 always{
