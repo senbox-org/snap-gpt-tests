@@ -59,7 +59,6 @@ pipeline {
         string(name: 'dockerTagName', defaultValue: "snap:master", description: 'Snap version to use to launch tests')
         string(name: 'testScope', defaultValue: 'REGULAR', description: 'Scope of the tests to launch (REGULAR, DAILY, WEEKLY, RELEASE)')
         booleanParam(name: 'saveOutput', defaultValue: false, description: 'Save output of failed tests (if scope is not [REGULAR, DAILY, WEEKLY, RELEASE])')
-        booleanParam(name: 'parallel', defaultValue: false, description: 'Execute the test jobs in parallel')
         string(name: 'reportsDB', defaultValue: "conf:///opt/snap-gpt-tests/snap-db.conf", description: "database to use for saving outputs and performances (sqlite://path or mysql://user:root@host:port/db)")
     }
    
@@ -100,16 +99,11 @@ pipeline {
                 echo "Filtering json files..."
                 sh "python3 -u ./pygpt/filter_json.py ./gpt-tests-resources/tests \"${params.testScope}\" ${outputDir}"
                 sh "more ${outputDir}/JSONTestFiles.txt"
-                sh "more ${outputDir}/JSONTestFilesSeq.txt"
                 
                 script {
                     jsonString = sh(returnStdout: true, script: "cat ${outputDir}/JSONTestFiles.txt").trim()
-                    jsonStringSeq = sh(returnStdout: true, script: "cat ${outputDir}/JSONTestFilesSeq.txt").trim()
                 }
-                echo "Launch seq Jobs from ${env.JOB_NAME} from ${env.GIT_BRANCH} with commit ${env.GIT_COMMIT} using docker image snap-build-server.tilaa.cloud/${params.dockerTagName}"
-                // echo "List of json files : ${jsonString}"
-                launchJobsSeq("${jsonStringSeq}", "${testScope}", "${outputDir}", params.saveOutput)
-                // parallel jobs
+                
                 echo "Launch long Jobs from ${env.JOB_NAME} from ${env.GIT_BRANCH} with commit ${env.GIT_COMMIT} using docker image snap-build-server.tilaa.cloud/${params.dockerTagName}"
                 launchJobsSeq("${jsonString}", "${testScope}", "${outputDir}", params.saveOutput)
             }
