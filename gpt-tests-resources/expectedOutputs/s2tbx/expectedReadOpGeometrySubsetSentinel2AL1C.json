@@ -142,40 +142,44 @@
         ],
         "metadata": [
             {
-                "path": "Processing_Graph/node.1/sources/sourceProduct",
-                "value": "product:Subset_S2A_MSIL1C_20161206T080312_N0204_R035_T34HFH_20161206T081929"
+                "path": "Level-1C_DataStrip_ID/Auxiliary_Data_Info/IERS_Bulletin/GPS_TIME_TAI",
+                "value": "-19"
             },
             {
-                "path": "Processing_Graph/node.1/parameters/deleteOutputOnFailure",
-                "value": "true"
+                "path": "Level-1C_DataStrip_ID/General_Info/Datastrip_Time_Info/metadataLevel",
+                "value": "Brief"
             },
             {
-                "path": "history/SubsetInfo/ProductNodeName.1",
-                "value": "B1"
+                "path": "Processing_Graph/node.1/parameters/formatName",
+                "value": "BEAM-DIMAP"
             },
             {
-                "path": "Processing_Graph/node.1/sources/sourceProduct",
-                "value": "product:Subset_S2A_MSIL1C_20161206T080312_N0204_R035_T34HFH_20161206T081929"
+                "path": "Level-1C_User_Product/Geometric_Info/Product_Footprint/Product_Footprint/Global_Footprint/EXT_POS_LIST",
+                "value": "-34.418766657104364 22.502772591850427 -34.40169995935763 22.508132800147404 -34.255186353911775 22.55398900757052 -34.108561192328914 22.599670806702857 -33.9619711707639 22.645637884347764 -33.81563843257347 22.692427645389003 -33.66879982014101 22.737587944304696 -33.5218924657765 22.78236104552971 -33.42446606961881 22.812751741746418 -33.41850594224171 23.25635442590976 -34.40801810597274 23.282597927466128 -34.418766657104364 22.502772591850427 -34.418766657104364 22.502772591850427"
             },
             {
-                "path": "Processing_Graph/node.0/parameters/geoRegion/class",
-                "value": "com.vividsolutions.jts.geom.Polygon"
+                "path": "Level-1C_DataStrip_ID/Satellite_Ancillary_Data_Info/Attitudes/Corrected_Attitudes/Values[4833]/QUATERNION_VALUES",
+                "value": "0.175592845356637 -0.533600729247485 -0.428047818505729 -0.707963614516028"
             },
             {
-                "path": "Processing_Graph/node.1/sources/sourceProduct",
-                "value": "product:Subset_S2A_MSIL1C_20161206T080312_N0204_R035_T34HFH_20161206T081929"
+                "path": "Processing_Graph/node.0/parameters/geometryRegion/class",
+                "value": "org.locationtech.jts.geom.Polygon"
             },
             {
-                "path": "history/SubsetInfo/ProductNodeName.1",
-                "value": "B1"
+                "path": "Level-1C_DataStrip_ID/Satellite_Ancillary_Data_Info/Attitudes/Raw_Attitudes/IMU_List/IMU[2]/Value[436]/Temperatures/BOARD",
+                "value": "1547.29"
             },
             {
-                "path": "history/SubsetInfo/ProductNodeName.2",
-                "value": "B2"
+                "path": "Level-1C_User_Product/Quality_Indicators_Info/Technical_Quality_Assessment/DEGRADED_MSI_DATA_PERCENTAGE",
+                "value": "0"
             },
             {
-                "path": "history/SubsetInfo/ProductNodeName.2",
-                "value": "B2"
+                "path": "Processing_Graph/node.1/parameters/clearCacheAfterRowWrite",
+                "value": "false"
+            },
+            {
+                "path": "Level-1C_User_Product/Auxiliary_Data_Info/GIPP_List/GIPP_FILENAME[35]",
+                "value": "S2A_OPER_GIP_R2DECT_MPC__20150605T094742_V20150622T000000_21000101T000000_B11"
             }
         ]
     }
