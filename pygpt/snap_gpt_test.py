@@ -257,12 +257,12 @@ def __check_outputs__(test, args, properties):
     return True, stdout
 
 
-def debug_log(enabled, *args):
+def debug_log(args, *msgs):
     """Log debug event in a file."""
-    if enabled:
+    if args.debug:
         path = os.path.join(args.report_dir, 'gpt_debug.log')
         timestamp = datetime.datetime.now().strftime(__DATE_FMT__)
-        log_mesg = ' '.join([f'{arg}' for arg in args])
+        log_mesg = ' '.join([f'{arg}' for arg in msgs])
         with open(path, 'a+') as file:
             file.write(f'{timestamp} {log_mesg}\n')
 
@@ -296,7 +296,7 @@ def __run_test__(test, args, properties):
     enviroment = os.environ
     if test.seed is not None:
         enviroment[__SEED_ENV_VARIABLE__] = str(test.seed)
-    debug_log(args.debug, 'test start', test.name)
+    debug_log(args, 'test start', test.name)
     if profiling:
         # output directory for the profiling
         output_dir = os.path.join(args.report_dir, test.name)
@@ -311,7 +311,7 @@ def __run_test__(test, args, properties):
     else:
         # execute gpt test without profiler
         res, stdout = profiler.run(gpt_parameters, env=enviroment)
-    debug_log(args.debug, 'test done', test.name, res)
+    debug_log(args, 'test done', test.name, res)
 
     log.info('execution finished')
     # Reset Java VM parameters if needed
@@ -347,10 +347,10 @@ def __run_test__(test, args, properties):
     elif res > 0:
         return Result.CRASHED
 
-    debug_log(args.debug, 'check output', test.name)
+    debug_log(args, 'check output', test.name)
     # check outputs
     conformity, check_stdout = __check_outputs__(test, args, properties)
-    debug_log(args.debug, 'check done', test.name, conformity)
+    debug_log(args, 'check done', test.name, conformity)
 
     if test.result is not None:
         if test.result['status']:
