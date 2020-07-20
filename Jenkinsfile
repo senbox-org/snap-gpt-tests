@@ -16,7 +16,7 @@
  */
 
 
-def launchJobsSeq(jsonString, scope, outputDir, saveOutput) {
+def launchJobsSeq(jsonString, scope, outputDir, saveOutput, debug) {
 
     def jobs = [:]
     println "List of sequentials Json file : " + jsonString
@@ -30,7 +30,7 @@ def launchJobsSeq(jsonString, scope, outputDir, saveOutput) {
         if (currentJsonFile.trim() != "") {
             sh "mkdir -p ${outputDir}/report"
             try {
-                sh "export LD_LIBRARY_PATH=. && python3 -u ${outputDir}/pygpt/snap_gpt_test.py '/home/snap/snap/jre/bin/java' '-Dncsa.hdf.hdflib.HDFLibrary.hdflib=/home/snap/snap/snap/modules/lib/amd64/libjhdf.so -Dncsa.hdf.hdf5lib.H5.hdf5lib=/home/snap/snap/snap/modules/lib/amd64/libjhdf5.so -cp ${outputDir}/gptExecutorTarget/TestOutput.jar' 'org.esa.snap.test.TestOutput' /opt/snap-gpt-tests/gpt-tests-executer.properties \"${scope}\" ${currentJsonFile} ${outputDir}/report ${saveOutput}"            
+                sh "export LD_LIBRARY_PATH=. && python3 -u ${outputDir}/pygpt/snap_gpt_test.py '/home/snap/snap/jre/bin/java' '-Dncsa.hdf.hdflib.HDFLibrary.hdflib=/home/snap/snap/snap/modules/lib/amd64/libjhdf.so -Dncsa.hdf.hdf5lib.H5.hdf5lib=/home/snap/snap/snap/modules/lib/amd64/libjhdf5.so -cp ${outputDir}/gptExecutorTarget/TestOutput.jar' 'org.esa.snap.test.TestOutput' /opt/snap-gpt-tests/gpt-tests-executer.properties \"${scope}\" ${currentJsonFile} ${outputDir}/report ${saveOutput} --debug=${debug}"            
             } catch (all) {
                 echo "A test failed"
                 status = false
@@ -59,6 +59,7 @@ pipeline {
         string(name: 'dockerTagName', defaultValue: "snap:master", description: 'Snap version to use to launch tests')
         string(name: 'testScope', defaultValue: 'REGULAR', description: 'Scope of the tests to launch (REGULAR, DAILY, WEEKLY, RELEASE)')
         booleanParam(name: 'saveOutput', defaultValue: false, description: 'Save output of failed tests (if scope is not [REGULAR, DAILY, WEEKLY, RELEASE])')
+        booleanParam(name: 'debug', defaultValue: false, description: 'Save gpt debug output')
         string(name: 'reportsDB', defaultValue: "conf:///opt/snap-gpt-tests/snap-db.conf", description: "database to use for saving outputs and performances (sqlite://path or mysql://user:root@host:port/db)")
     }
    
@@ -73,7 +74,7 @@ pipeline {
             }
             steps {
                 echo "Build project from ${env.JOB_NAME} from ${env.GIT_BRANCH} with commit ${env.GIT_COMMIT} using docker image snap-build-server.tilaa.cloud/${params.dockerTagName}"
-                sh "mkdir -p ${outputDir}"
+                sh "mkdir -p ${outputDir}/report"
                 sh "mvn -Duser.home=/var/maven clean package install"
 
                 echo "Copy build to working directory..."
@@ -105,7 +106,7 @@ pipeline {
                 }
                 
                 echo "Launch long Jobs from ${env.JOB_NAME} from ${env.GIT_BRANCH} with commit ${env.GIT_COMMIT} using docker image snap-build-server.tilaa.cloud/${params.dockerTagName}"
-                launchJobsSeq("${jsonString}", "${testScope}", "${outputDir}", params.saveOutput)
+                launchJobsSeq("${jsonString}", "${testScope}", "${outputDir}", params.saveOutput, params.debug)
             }
             post {
                 always{
