@@ -413,7 +413,7 @@ def __run_tests__(args, properties):
     """
     Execute list of test of a json file
     """
-    debug_log(args.debug, 'testing start')
+    debug_log(args, 'testing start')
 
     output = '' # output string saved in Report_* file
     passed = True # passed flag
@@ -464,7 +464,7 @@ def __run_tests__(args, properties):
     with open(report_path, 'w') as file:
         file.write(output)
     print('final status: ', passed)
-    debug_log(args.debug, 'testing end')
+    debug_log(args, 'testing end')
     return passed
 
 def exit(properties, code=0):
