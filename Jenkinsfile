@@ -111,7 +111,7 @@ pipeline {
                     sh script:"cp -r ${outputDir}/statics/* $WORKSPACE/report/", label: "copy report resources"
 
                     sh script:"cat $WORKSPACE/report/output/Report_*.txt > $WORKSPACE/report/output/report.txt", label: "join execution status logs"
-                    sh scritpt:"mv $WORKSPACE/report/output/json $WORKSPACE/report/ && mv $WORKSPACE/report/output/performances $WORKSPACE/report/ && mv $WORKSPACE/report/output/images $WORKSPACE/report/", label: "re-orginize copied logs"
+                    sh script:"mv $WORKSPACE/report/output/json $WORKSPACE/report/ && mv $WORKSPACE/report/output/performances $WORKSPACE/report/ && mv $WORKSPACE/report/output/images $WORKSPACE/report/", label: "re-orginize copied logs"
                 
                     echo "Updating database"
                     sh script:"python3 -u ./pygpt/stats_db.py ${params.reportsDB} ${dockerTagName} ${params.testScope} $WORKSPACE/report ${env.BUILD_NUMBER} ${env.GIT_BRANCH}", label: "update \"reports\" remote database"
