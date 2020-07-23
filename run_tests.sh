@@ -17,6 +17,8 @@ echo "Working directory: ${OUTDIR}"
 mkdir -p $OUTDIR
 echo "Building Output Tester..."
 mvn clean install -DskipTests
+echo "Check test integrity..."
+python3 pygpt/check_jsons.py gpt-tests-resources/tests
 echo "Filtering tests using scope ${SCOPE}"
 python3 pygpt/filter_json.py gpt-tests-resources/tests $SCOPE $OUTDIR
 mkdir $OUTDIR/report
