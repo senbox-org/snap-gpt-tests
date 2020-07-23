@@ -229,6 +229,7 @@ def __check_outputs__(test, args, properties):
     --------
     output_conformity, stdout
     """
+    stdout = ''
     for output in test.outputs:
         if 'expected' in output and output['expected'] is not None and output['expected'] != "":
             # check output
