@@ -26,7 +26,7 @@ __REGULAR_TAG__ = 'regular'
 def __create_test_json_list__(test_folder, scope, test_files_path):
     """cretas files containing list of tests to execute for a given scope"""
     test_files = utils.rlist_files(test_folder, lambda f: f.endswith('.json'))
-    test_list = ''
+    test_list = []
     scope = TestScope.init(scope)
     for test_path in test_files:
         with open(test_path, 'r') as test_file:
@@ -34,9 +34,11 @@ def __create_test_json_list__(test_folder, scope, test_files_path):
             for test in tests:
                 if 'frequency' in test:
                     if TestScope.compatibleN(scope, test['frequency']):
-                        test_list += f'{test_path}\n'
+                        if test_path not in test_list:
+                            test_list.append(test_path)
+                        # test_list += f'{test_path}\n'
     with open(test_files_path, 'w') as file:
-        file.write(test_list)
+        file.write('\n'.join(test_list))
     return True
 
 
