@@ -28,6 +28,11 @@
         "outputName": "Rayleigh_OLCI",
         "expected": "s3tbx/expectedRayleigh_OLCI.json"
       }
-    ]
+    ],
+    "configVM": {
+      "xmx": "8G",
+      "cacheSize": "2G",
+      "parallelism": "4"
+    }
   }
 ]
