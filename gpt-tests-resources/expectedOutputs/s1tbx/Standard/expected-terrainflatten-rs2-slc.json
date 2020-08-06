@@ -2,22 +2,22 @@
   "id" : "s1tbx.standard.terrainflatten.rs2.slc",
   "decodeQualification" : "INTENDED",
   "expectedContent" : {
-    "sceneWidth" : 808,
-    "sceneHeight" : 288,
+    "sceneWidth" : 778,
+    "sceneHeight" : 369,
     "geoCoding" : {
       "coordinates" : [ {
         "x" : 300.0,
         "y" : 300.0,
-        "lat" : 49.31341622503421,
-        "lon" : -123.0209754718405
+        "lat" : 46.0338996854399,
+        "lon" : -77.40882007308635
       } ]
     },
     "tiePointGrids" : [ ],
     "bands" : [ {
       "name" : "Gamma0_HH",
       "description" : "",
-      "bandWidth" : 808,
-      "bandHeight" : 288,
+      "bandWidth" : 778,
+      "bandHeight" : 369,
       "noDataValue" : 0.0,
       "noDataValueUsed" : true,
       "spectralWavelength" : 0.0,
@@ -25,13 +25,13 @@
       "expectedPixels" : [ {
         "x" : 200,
         "y" : 200,
-        "value" : 0.026052
+        "value" : 0.935962975025177
       } ]
     }, {
       "name" : "Gamma0_HV",
       "description" : "",
-      "bandWidth" : 808,
-      "bandHeight" : 288,
+      "bandWidth" : 778,
+      "bandHeight" : 369,
       "noDataValue" : 0.0,
       "noDataValueUsed" : true,
       "spectralWavelength" : 0.0,
@@ -39,13 +39,13 @@
       "expectedPixels" : [ {
         "x" : 200,
         "y" : 200,
-        "value" : 0.0027899577
+        "value" : 0.04602287337183952
       } ]
     }, {
       "name" : "Gamma0_VH",
       "description" : "",
-      "bandWidth" : 808,
-      "bandHeight" : 288,
+      "bandWidth" : 778,
+      "bandHeight" : 369,
       "noDataValue" : 0.0,
       "noDataValueUsed" : true,
       "spectralWavelength" : 0.0,
@@ -53,13 +53,13 @@
       "expectedPixels" : [ {
         "x" : 200,
         "y" : 200,
-        "value" : 0.0020518955
+        "value" : 0.03998838737607002
       } ]
     }, {
       "name" : "Gamma0_VV",
       "description" : "",
-      "bandWidth" : 808,
-      "bandHeight" : 288,
+      "bandWidth" : 778,
+      "bandHeight" : 369,
       "noDataValue" : 0.0,
       "noDataValueUsed" : true,
       "spectralWavelength" : 0.0,
@@ -67,7 +67,7 @@
       "expectedPixels" : [ {
         "x" : 200,
         "y" : 200,
-        "value" : 0.025759796
+        "value" : 0.22527578473091125
       } ]
     } ],
     "masks" : [ ]
