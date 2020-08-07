@@ -1,18 +1,18 @@
 [{
-    "id":"S2MCITest_L1C",
+  "id": "S2MCITest_L1C",
   "author": "BC",
-    "description":"execute MCI processor with S2 L1C",
-    "frequency":"daily",
-    "graphPath": "s2tbx/graphS2MCIOp.xml",
-    "inputs": {
-        "input": "s3tbx/sensors_platforms/SENTINEL-2/S2A_MSIL1C_20150808T110036_N0204_R094_T31UCT_20150808T110533.zip"
-    },
-    "parameters": {
-        "resampleRefBand": "B1",
-        "subsetRegion": "1200,1200,200,200",
-        "lowerBaselineBandName": "B6",
-        "upperBaselineBandName": "B4",
-        "signalBandName": "B5",
+  "description": "execute MCI processor with S2 L1C",
+  "frequency": "daily/newmsi",
+  "graphPath": "s2tbx/graphS2MCIOp.xml",
+  "inputs": {
+    "input": "s3tbx/sensors_platforms/SENTINEL-2/S2B_MSIL1C_20190506T081609_N0207_R121_T36SXA_20190506T104054"
+  },
+  "parameters": {
+    "resampleRefBand": "B1",
+    "subsetRegion": "1200,1200,200,200",
+    "lowerBaselineBandName": "B6",
+    "upperBaselineBandName": "B4",
+    "signalBandName": "B5",
         "lineHeightBandName": "MCI",
         "slope": "true",
         "slopeBandName": "MCI_slope",
