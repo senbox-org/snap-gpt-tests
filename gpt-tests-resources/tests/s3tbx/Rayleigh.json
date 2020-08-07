@@ -1,0 +1,74 @@
+[
+  {
+    "id": "Rayleigh_OLCI",
+    "author": "BC",
+    "description": "execute Rayleigh operator",
+    "frequency": "daily/rayleigh",
+    "graphPath": "s3tbx/graphRayleigh.xml",
+    "inputs": {
+      "input": "s3tbx/sensors_platforms/SENTINEL-3/olci/L1/S3B_OL_1_ERR____20180509T071747_20180509T080216_20180509T093543_2669_003_049______LN1_O_NR_002.SEN3"
+    },
+    "parameters": {
+      "sourceBandNames": "Oa01_radiance,Oa06_radiance,Oa07_radiance",
+      "computeTaur": "true",
+      "computeRBrr": "true",
+      "computeRtoaNg": "true",
+      "computeRtoa": "true",
+      "addAirMass": "true",
+      "copyTiePointGrids": "false",
+      "copyFlagBandsAndMasks": "false",
+      "copyNonSpectralBands": "false",
+      "s2MsiTargetResolution": "20",
+      "s2MsiSeaLevelPressure": "1013.25",
+      "s2MsiOzone": "300.0"
+    },
+    "outputs": [
+      {
+        "parameter": "output",
+        "outputName": "Rayleigh_OLCI",
+        "expected": "s3tbx/expectedRayleigh_OLCI.json"
+      }
+    ],
+    "configVM": {
+      "xmx": "8G",
+      "cacheSize": "2G",
+      "parallelism": "4"
+    }
+  },
+  {
+    "id": "Rayleigh_S2msi",
+    "author": "BC",
+    "description": "execute Rayleigh operator on S2 data which includes swath border",
+    "frequency": "daily/rayleigh",
+    "graphPath": "s3tbx/graphRayleigh.xml",
+    "inputs": {
+      "input": "s3tbx/sensors_platforms/SENTINEL-2/S2B_MSIL1C_20200620T160829_N0209_R140_T16QCF_20200620T193303.SAFE/MTD_MSIL1C.xml"
+    },
+    "parameters": {
+      "sourceBandNames": "B1,B3,B6",
+      "computeTaur": "true",
+      "computeRBrr": "true",
+      "computeRtoaNg": "true",
+      "computeRtoa": "true",
+      "addAirMass": "false",
+      "copyTiePointGrids": "false",
+      "copyFlagBandsAndMasks": "false",
+      "copyNonSpectralBands": "false",
+      "s2MsiTargetResolution": "60",
+      "s2MsiSeaLevelPressure": "1013.25",
+      "s2MsiOzone": "300.0"
+    },
+    "outputs": [
+      {
+        "parameter": "output",
+        "outputName": "Rayleigh_S2msi",
+        "expected": "s3tbx/expectedRayleigh_S2msi.json"
+      }
+    ],
+    "configVM": {
+      "xmx": "8G",
+      "cacheSize": "2G",
+      "parallelism": "4"
+    }
+  }
+]
