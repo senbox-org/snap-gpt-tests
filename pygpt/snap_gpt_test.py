@@ -61,6 +61,17 @@ def __load_properties__(path):
     return config['SNAP']
 
 
+def __str2bool__(v):
+    if isinstance(v, bool):
+       return v
+    if v.lower() in ('yes', 'true', 't', 'y', '1'):
+        return True
+    elif v.lower() in ('no', 'false', 'f', 'n', '0'):
+        return False
+    else:
+        raise argparse.ArgumentTypeError('Boolean value expected.')
+
+
 def __arguments__():
     """
     parse arguments passed by the command line
@@ -95,6 +106,12 @@ def __arguments__():
                         default='on',
                         choices=['on', 'off'],
                         help="enable the profiler")
+
+    parser.add_argument('--debug', 
+                        default=False,
+                        type=__str2bool__,
+                        help="enable debugging")
+
     # parse arguments
     return parser.parse_args()
 
@@ -212,6 +229,7 @@ def __check_outputs__(test, args, properties):
     --------
     output_conformity, stdout
     """
+    stdout = ''
     for output in test.outputs:
         if 'expected' in output and output['expected'] is not None and output['expected'] != "":
             # check output
@@ -238,6 +256,16 @@ def __check_outputs__(test, args, properties):
                 return False, stdout
 
     return True, stdout
+
+
+def debug_log(args, *msgs):
+    """Log debug event in a file."""
+    if args.debug:
+        path = os.path.join(args.report_dir, 'gpt_debug.log')
+        timestamp = datetime.datetime.now().strftime(__DATE_FMT__)
+        log_mesg = ' '.join([f'{arg}' for arg in msgs])
+        with open(path, 'a+') as file:
+            file.write(f'{timestamp} {log_mesg}\n')
 
 
 def __run_test__(test, args, properties):
@@ -269,6 +297,7 @@ def __run_test__(test, args, properties):
     enviroment = os.environ
     if test.seed is not None:
         enviroment[__SEED_ENV_VARIABLE__] = str(test.seed)
+    debug_log(args, 'test start', test.name)
     if profiling:
         # output directory for the profiling
         output_dir = os.path.join(args.report_dir, test.name)
@@ -283,6 +312,8 @@ def __run_test__(test, args, properties):
     else:
         # execute gpt test without profiler
         res, stdout = profiler.run(gpt_parameters, env=enviroment)
+    debug_log(args, 'test done', test.name, res)
+
     log.info('execution finished')
     # Reset Java VM parameters if needed
     __vm_parameters_reset__(test, snap_dir)
@@ -317,8 +348,11 @@ def __run_test__(test, args, properties):
     elif res > 0:
         return Result.CRASHED
 
+    debug_log(args, 'check output', test.name)
     # check outputs
     conformity, check_stdout = __check_outputs__(test, args, properties)
+    debug_log(args, 'check done', test.name, conformity)
+
     if test.result is not None:
         if test.result['status']:
             return conformity
@@ -342,8 +376,9 @@ def __draw_graph__(test, properties, args):
     graph_path = os.path.join(properties['graphFolder'], test.graph_path)
     image_path = os.path.join(args.report_dir, 'images', test.graph_path)
     image_path = os.path.splitext(image_path)[0] + '.jpg'
-    utils.mkdirs(os.path.dirname(image_path))
-    graph.draw(graph_path, image_path)
+    image_path = utils.mkdirs(os.path.dirname(image_path))
+    if image_path:
+        graph.draw(graph_path, image_path)
 
 
 def __save_json__(test, args):
@@ -379,6 +414,8 @@ def __run_tests__(args, properties):
     """
     Execute list of test of a json file
     """
+    debug_log(args, 'testing start')
+
     output = '' # output string saved in Report_* file
     passed = True # passed flag
     with open(args.json_path, 'r') as file:
@@ -428,6 +465,7 @@ def __run_tests__(args, properties):
     with open(report_path, 'w') as file:
         file.write(output)
     print('final status: ', passed)
+    debug_log(args, 'testing end')
     return passed
 
 def exit(properties, code=0):

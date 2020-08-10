@@ -15,7 +15,6 @@ import core.log as log
 from core.models import TestScope
 
 __test_files__ = "JSONTestFiles.txt"
-__test_sequence__ = "JSONTestFilesSeq.txt"
 
 # tags
 __RELEASE_TAG__ = 'release'
@@ -24,11 +23,10 @@ __DAILY_TAG__ = 'daily'
 __REGULAR_TAG__ = 'regular'
 
 
-def __create_test_json_list__(test_folder, scope, test_files_path, test_sequence_path):
+def __create_test_json_list__(test_folder, scope, test_files_path):
     """cretas files containing list of tests to execute for a given scope"""
     test_files = utils.rlist_files(test_folder, lambda f: f.endswith('.json'))
-    sequence = ''
-    parallel = ''
+    test_list = []
     scope = TestScope.init(scope)
     for test_path in test_files:
         with open(test_path, 'r') as test_file:
@@ -36,15 +34,11 @@ def __create_test_json_list__(test_folder, scope, test_files_path, test_sequence
             for test in tests:
                 if 'frequency' in test:
                     if TestScope.compatibleN(scope, test['frequency']):
-                        if 'configVM' not in test or test['configVM'] is None:
-                            parallel += f'{test_path}\n'
-                        else:
-                            sequence += f'{test_path}\n'
-                        break
+                        if test_path not in test_list:
+                            test_list.append(test_path)
+                        # test_list += f'{test_path}\n'
     with open(test_files_path, 'w') as file:
-        file.write(parallel)
-    with open(test_sequence_path, 'w') as file:
-        file.write(sequence)
+        file.write('\n'.join(test_list))
     return True
 
 
@@ -79,11 +73,9 @@ def __main__():
         log.error("output folder does not exist")
         sys.exit(1)
     json_test_files = os.path.join(args.output_folder, __test_files__)
-    json_test_sequence = os.path.join(args.output_folder, __test_sequence__)
 
-    if __create_test_json_list__(args.test_folder, args.scope, json_test_files, json_test_sequence):
+    if __create_test_json_list__(args.test_folder, args.scope, json_test_files):
         log.success(f"filtered JSON created in {json_test_files}")
-        log.success(f"seq filtered JSON created in {json_test_sequence}")
 
 
 if __name__ == '__main__':

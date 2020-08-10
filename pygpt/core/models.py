@@ -288,10 +288,12 @@ class Test(log.Printable):
         if self.jvm_config is None:
             return ['-q', '4']
         params = []
-        params.append('-c')
-        params.append(self.jvm_config['cacheSize'])
-        params.append('-q')
-        params.append(self.jvm_config['parallelism'])
+        if 'cacheSize' in self.jvm_config:
+            params.append('-c')
+            params.append(self.jvm_config['cacheSize'])
+        if 'parallelism' in self.jvm_config:
+            params.append('-q')
+            params.append(self.jvm_config['parallelism'])
         return params
 
     def compatible(self, testscope):
