@@ -5,7 +5,7 @@
     <parent>
         <artifactId>snap-gpt-tests</artifactId>
         <groupId>org.esa.snap</groupId>
-        <version>7.0.1-SNAPSHOT</version>
+        <version>7.0.5-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -20,66 +20,16 @@
     <dependencies>
         <dependency>
             <groupId>org.esa.snap</groupId>
-            <artifactId>gpt-tests-common</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>commons-io</groupId>
-            <artifactId>commons-io</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.esa.snap</groupId>
             <artifactId>snap-engine-kit</artifactId>
         </dependency>
         <dependency>
             <groupId>org.esa.snap</groupId>
             <artifactId>snap-reader-tests</artifactId>
         </dependency>
-        <!--<dependency>
-            <groupId>org.esa.snap</groupId>
-            <artifactId>snap-geotiff</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.esa.snap</groupId>
-            <artifactId>snap-bigtiff</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.esa.snap</groupId>
-            <artifactId>snap-core</artifactId>
-        </dependency> -->
     </dependencies>
 
     <build>
     <plugins>
-
-       <!-- <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-assembly-plugin</artifactId>
-            <version>2.4.1</version>
-            <configuration>
-
-                <descriptorRefs>
-                    <descriptorRef>jar-with-dependencies</descriptorRef>
-                </descriptorRefs>
-
-                <archive>
-                    <manifest>
-                        <mainClass>org.esa.snap.test.SnapGPTTest</mainClass>
-                    </manifest>
-                </archive>
-                <finalName>SnapGPTTest</finalName>
-
-            </configuration>
-            <executions>
-                <execution>
-                    <id>make-assembly</id>
-                    <phase>package</phase>
-                    <goals>
-                        <goal>single</goal>
-                    </goals>
-                </execution>
-            </executions>
-        </plugin> -->
         <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-dependency-plugin</artifactId>
@@ -103,7 +53,7 @@
             <artifactId>maven-jar-plugin</artifactId>
             <executions>
                 <execution>
-                    <id>FilterTestJSON</id>
+                    <id>TestOutput</id>
                     <goals><goal>jar</goal></goals>
                     <phase>package</phase>
                     <configuration>
@@ -113,53 +63,22 @@
                                 <classpathPrefix>libs/</classpathPrefix>
                                 <useUniqueVersions>false</useUniqueVersions>
                                 <mainClass>
-                                    org.esa.snap.test.FilterTestJSON
+                                    org.esa.snap.test.TestOutput
                                 </mainClass>
                             </manifest>
                         </archive>
-                        <finalName>FilterTestJSON</finalName>
-                    </configuration>
-                </execution>
-                <execution>
-                    <id>IndexGenerator</id>
-                    <goals><goal>jar</goal></goals>
-                    <phase>package</phase>
-                    <configuration>
-                        <archive>
-                            <manifest>
-                                <addClasspath>true</addClasspath>
-                                <classpathPrefix>libs/</classpathPrefix>
-                                <useUniqueVersions>false</useUniqueVersions>
-                                <mainClass>
-                                    org.esa.snap.test.IndexGenerator
-                                </mainClass>
-                            </manifest>
-                        </archive>
-                        <finalName>IndexGenerator</finalName>
-                    </configuration>
-                </execution>
-                <execution>
-                    <id>SnapGPTTest</id>
-                    <goals><goal>jar</goal></goals>
-                    <phase>package</phase>
-                    <configuration>
-                        <archive>
-                            <manifest>
-                                <addClasspath>true</addClasspath>
-                                <classpathPrefix>libs/</classpathPrefix>
-                                <useUniqueVersions>false</useUniqueVersions>
-                                <mainClass>
-                                    org.esa.snap.test.SnapGPTTest
-                                </mainClass>
-                            </manifest>
-                        </archive>
-                        <finalName>SnapGPTTest-jar-with-dependencies</finalName>
+                        <finalName>TestOutput</finalName>
                     </configuration>
                 </execution>
             </executions>
         </plugin>
-
     </plugins>
+    <resources> 
+        <resource>
+            <directory>src/main/resources</directory>
+            <includes>
+            </includes>
+        </resource>
+    </resources> 
     </build>
-
 </project>
