@@ -7,67 +7,19 @@
         "geoCoding": {
             "coordinates": [
                 {
-                    "x": 39.50000000000023,
-                    "y": 91.5,
-                    "lat": 52.19290578938289,
-                    "lon": 0.16049291804677518
+                    "x": 258.0,
+                    "y": 322.0,
+                    "lat": 32.09309511404195,
+                    "lon": 34.46983513975713
                 },
                 {
-                    "x": 378.5,
-                    "y": 255.5,
-                    "lat": 51.98743411188612,
-                    "lon": 0.9141822317919697
-                },
-                {
-                    "x": 492.5,
-                    "y": 283.5,
-                    "lat": 51.95383729934173,
-                    "lon": 1.1646088392091851
-                },
-                {
-                    "x": 505.5,
-                    "y": 375.5,
-                    "lat": 51.83026018394301,
-                    "lon": 1.1979390908906347
-                },
-                {
-                    "x": 544.5,
-                    "y": 346.5,
-                    "lat": 51.87062404678332,
-                    "lon": 1.2813047430350317
-                },
-                {
-                    "x": 567.5,
-                    "y": 326.5,
-                    "lat": 51.89830717006712,
-                    "lon": 1.3303945398174808
-                },
-                {
-                    "x": 439.5,
-                    "y": 455.5,
-                    "lat": 51.72013836260597,
-                    "lon": 1.058987028685669
-                },
-                {
-                    "x": 556.5,
-                    "y": 459.5,
-                    "lat": 51.718667212950145,
-                    "lon": 1.313132637127564
-                },
-                {
-                    "x": 369.5,
-                    "y": 443.5,
-                    "lat": 51.73370371327282,
-                    "lon": 0.9063358674241463
-                },
-                {
-                    "x": 306.5,
-                    "y": 449.5,
-                    "lat": 51.723100886607575,
-                    "lon": 0.769992079457913
+                    "x": 445.0,
+                    "y": 389.0,
+                    "lat": 31.998672714450677,
+                    "lon": 34.7652356639544
                 }
             ],
-            "reverseAccuracy": 3.729655873030424E-8
+            "reverseAccuracy": 1.7089405446313322E-9
         },
         "bands": [
             {
@@ -81,67 +33,19 @@
                 "spectralBandwidth": "0.0",
                 "expectedPixels": [
                     {
-                        "x": 39,
-                        "y": 91,
-                        "value": 76.0
-                    },
-                    {
-                        "x": 378,
-                        "y": 255,
-                        "value": 0.0
-                    },
-                    {
-                        "x": 492,
-                        "y": 283,
+                        "x": 31,
+                        "y": 106,
                         "value": 100.0
                     },
                     {
-                        "x": 505,
-                        "y": 375,
-                        "value": 0.0
-                    },
-                    {
-                        "x": 544,
-                        "y": 346,
-                        "value": 0.0
-                    },
-                    {
-                        "x": 567,
-                        "y": 326,
-                        "value": 100.0
-                    },
-                    {
-                        "x": 439,
-                        "y": 455,
-                        "value": 100.0
-                    },
-                    {
-                        "x": 556,
-                        "y": 459,
-                        "value": 100.0
-                    },
-                    {
-                        "x": 369,
-                        "y": 443,
-                        "value": 0.0
-                    },
-                    {
-                        "x": 306,
-                        "y": 449,
+                        "x": 411,
+                        "y": 510,
                         "value": 0.0
                     }
                 ]
             }
         ],
         "metadata": [
-            {
-                "path": "Processing_Graph/node.1/parameters/formatName",
-                "value": "BEAM-DIMAP"
-            },
-            {
-                "path": "Processing_Graph/node.0/parameters/resolution",
-                "value": "150"
-            },
             {
                 "path": "Processing_Graph/node.0/parameters/subSamplingFactorY",
                 "value": "5"
@@ -164,7 +68,7 @@
             },
             {
                 "path": "Processing_Graph/node.0/sources/sourceProduct",
-                "value": "product:Subset_S2A_MSIL1C_20150808T110036_N0204_R094_T31UCT_20150808T110533_resampled"
+                "value": "product:Subset_S2B_MSIL1C_20190506T081609_N0207_R121_T36SXA_20190506T104054_resampled"
             },
             {
                 "path": "Processing_Graph/node.1/parameters/formatName",
@@ -172,7 +76,15 @@
             },
             {
                 "path": "Processing_Graph/node.0/sources/sourceProduct",
-                "value": "product:Subset_S2A_MSIL1C_20150808T110036_N0204_R094_T31UCT_20150808T110533_resampled"
+                "value": "product:Subset_S2B_MSIL1C_20190506T081609_N0207_R121_T36SXA_20190506T104054_resampled"
+            },
+            {
+                "path": "Processing_Graph/node.0/sources/sourceProduct",
+                "value": "product:Subset_S2B_MSIL1C_20190506T081609_N0207_R121_T36SXA_20190506T104054_resampled"
+            },
+            {
+                "path": "Processing_Graph/node.0/parameters/subSamplingFactorX",
+                "value": "10"
             }
         ]
     }

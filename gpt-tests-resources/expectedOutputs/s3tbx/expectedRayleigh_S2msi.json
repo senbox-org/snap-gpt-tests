@@ -1,0 +1,403 @@
+{
+  "id": "Rayleigh_S2msi",
+  "decodeQualification": "INTENDED",
+  "expectedContent": {
+    "sceneWidth": 1830,
+    "sceneHeight": 1830,
+    "startTime": "20-JUN-2020 16:08:29.024000",
+    "endTime": "20-JUN-2020 16:08:29.024000",
+    "geoCoding": {
+      "coordinates": [
+        {
+          "x": 789.0,
+          "y": 983.0,
+          "lat": 18.4539524712955,
+          "lon": -88.4456786945932
+        },
+        {
+          "x": 1358.0,
+          "y": 1187.0,
+          "lat": 18.34553437664116,
+          "lon": -88.12171143109306
+        }
+      ],
+      "reverseAccuracy": 7.530616130679846E-10
+    },
+    "bands": [
+      {
+        "name": "taur_B1",
+        "description": "",
+        "bandWidth": 1830,
+        "bandHeight": 1830,
+        "noDataValue": "-999.9000244140625",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "443.0",
+        "spectralBandwidth": "58.0",
+        "expectedPixels": [
+          {
+            "x": 95,
+            "y": 326,
+            "value": 0.23524892
+          },
+          {
+            "x": 1253,
+            "y": 1556,
+            "value": 0.23772165
+          }
+        ]
+      },
+      {
+        "name": "taur_B3",
+        "description": "",
+        "bandWidth": 1830,
+        "bandHeight": 1830,
+        "noDataValue": "-999.9000244140625",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "560.0",
+        "spectralBandwidth": "100.0",
+        "expectedPixels": [
+          {
+            "x": 532,
+            "y": 470,
+            "value": 0.08992609
+          },
+          {
+            "x": 1117,
+            "y": 668,
+            "value": 0.090783715
+          }
+        ]
+      },
+      {
+        "name": "taur_B6",
+        "description": "",
+        "bandWidth": 1830,
+        "bandHeight": 1830,
+        "noDataValue": "-999.9000244140625",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "740.0",
+        "spectralBandwidth": "40.0",
+        "expectedPixels": [
+          {
+            "x": 1006,
+            "y": 1363,
+            "value": 0.029064275
+          },
+          {
+            "x": 1113,
+            "y": 1699,
+            "value": 0.029064275
+          }
+        ]
+      },
+      {
+        "name": "rBRR_B1",
+        "description": "",
+        "bandWidth": 1830,
+        "bandHeight": 1830,
+        "noDataValue": "-999.9000244140625",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "443.0",
+        "spectralBandwidth": "58.0",
+        "expectedPixels": [
+          {
+            "x": 289,
+            "y": 1218,
+            "value": "NaN"
+          },
+          {
+            "x": 950,
+            "y": 1671,
+            "value": "NaN"
+          }
+        ]
+      },
+      {
+        "name": "rBRR_B3",
+        "description": "",
+        "bandWidth": 1830,
+        "bandHeight": 1830,
+        "noDataValue": "-999.9000244140625",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "560.0",
+        "spectralBandwidth": "100.0",
+        "expectedPixels": [
+          {
+            "x": 1383,
+            "y": 886,
+            "value": "NaN"
+          },
+          {
+            "x": 1739,
+            "y": 889,
+            "value": 0.54492354
+          }
+        ]
+      },
+      {
+        "name": "rBRR_B6",
+        "description": "",
+        "bandWidth": 1830,
+        "bandHeight": 1830,
+        "noDataValue": "-999.9000244140625",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "740.0",
+        "spectralBandwidth": "40.0",
+        "expectedPixels": [
+          {
+            "x": 622,
+            "y": 1645,
+            "value": "NaN"
+          },
+          {
+            "x": 18,
+            "y": 861,
+            "value": "NaN"
+          }
+        ]
+      },
+      {
+        "name": "rtoa_ng_B1",
+        "description": "",
+        "bandWidth": 1830,
+        "bandHeight": 1830,
+        "noDataValue": "-999.9000244140625",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "443.0",
+        "spectralBandwidth": "58.0",
+        "expectedPixels": [
+          {
+            "x": 599,
+            "y": 360,
+            "value": "NaN"
+          },
+          {
+            "x": 499,
+            "y": 79,
+            "value": "NaN"
+          }
+        ]
+      },
+      {
+        "name": "rtoa_ng_B3",
+        "description": "",
+        "bandWidth": 1830,
+        "bandHeight": 1830,
+        "noDataValue": "-999.9000244140625",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "560.0",
+        "spectralBandwidth": "100.0",
+        "expectedPixels": [
+          {
+            "x": 1777,
+            "y": 1106,
+            "value": 0.1101544
+          },
+          {
+            "x": 1047,
+            "y": 1311,
+            "value": "NaN"
+          }
+        ]
+      },
+      {
+        "name": "rtoa_ng_B6",
+        "description": "",
+        "bandWidth": 1830,
+        "bandHeight": 1830,
+        "noDataValue": "-999.9000244140625",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "740.0",
+        "spectralBandwidth": "40.0",
+        "expectedPixels": [
+          {
+            "x": 424,
+            "y": 910,
+            "value": "NaN"
+          },
+          {
+            "x": 587,
+            "y": 1322,
+            "value": "NaN"
+          }
+        ]
+      },
+      {
+        "name": "rtoa_B1",
+        "description": "",
+        "bandWidth": 1830,
+        "bandHeight": 1830,
+        "noDataValue": "-999.9000244140625",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "443.0",
+        "spectralBandwidth": "58.0",
+        "expectedPixels": [
+          {
+            "x": 655,
+            "y": 911,
+            "value": "NaN"
+          },
+          {
+            "x": 737,
+            "y": 809,
+            "value": "NaN"
+          }
+        ]
+      },
+      {
+        "name": "rtoa_B3",
+        "description": "",
+        "bandWidth": 1830,
+        "bandHeight": 1830,
+        "noDataValue": "-999.9000244140625",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "560.0",
+        "spectralBandwidth": "100.0",
+        "expectedPixels": [
+          {
+            "x": 1051,
+            "y": 168,
+            "value": "NaN"
+          },
+          {
+            "x": 1180,
+            "y": 28,
+            "value": "NaN"
+          }
+        ]
+      },
+      {
+        "name": "rtoa_B6",
+        "description": "",
+        "bandWidth": 1830,
+        "bandHeight": 1830,
+        "noDataValue": "-999.9000244140625",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "740.0",
+        "spectralBandwidth": "40.0",
+        "expectedPixels": [
+          {
+            "x": 1784,
+            "y": 672,
+            "value": 0.1517
+          },
+          {
+            "x": 1738,
+            "y": 1731,
+            "value": 0.1323
+          }
+        ]
+      },
+      {
+        "name": "sun_zenith",
+        "description": "",
+        "bandWidth": 1830,
+        "bandHeight": 1830,
+        "geophysicalUnit": "deg",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 202,
+            "y": 826,
+            "value": 21.188738
+          },
+          {
+            "x": 1044,
+            "y": 1029,
+            "value": 20.784082
+          }
+        ]
+      },
+      {
+        "name": "view_zenith_mean",
+        "description": "",
+        "bandWidth": 1830,
+        "bandHeight": 1830,
+        "geophysicalUnit": "deg",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 925,
+            "y": 954,
+            "value": "NaN"
+          },
+          {
+            "x": 824,
+            "y": 1063,
+            "value": "NaN"
+          }
+        ]
+      },
+      {
+        "name": "sun_azimuth",
+        "description": "",
+        "bandWidth": 1830,
+        "bandHeight": 1830,
+        "geophysicalUnit": "deg",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 26,
+            "y": 777,
+            "value": 72.958694
+          },
+          {
+            "x": 128,
+            "y": 1816,
+            "value": 71.57999
+          }
+        ]
+      },
+      {
+        "name": "view_azimuth_mean",
+        "description": "",
+        "bandWidth": 1830,
+        "bandHeight": 1830,
+        "geophysicalUnit": "deg",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 543,
+            "y": 1363,
+            "value": "NaN"
+          },
+          {
+            "x": 1470,
+            "y": 1347,
+            "value": 108.46134
+          }
+        ]
+      }
+    ],
+    "metadata": [
+      {
+        "path": "Processing_Graph/node.0/parameters/s2MsiOzone",
+        "value": "300.0"
+      },
+      {
+        "path": "Processing_Graph/node.1/parameters/formatName",
+        "value": "BEAM-DIMAP"
+      },
+      {
+        "path": "Processing_Graph/node.1/parameters/writeEntireTileRows",
+        "value": "false"
+      },
+      {
+        "path": "Processing_Graph/node.0/parameters/addAirMass",
+        "value": "false"
+      }
+    ]
+  }
+}
