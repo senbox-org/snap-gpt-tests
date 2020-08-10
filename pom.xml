@@ -7,16 +7,14 @@
     <groupId>org.esa.snap</groupId>
     <artifactId>snap-gpt-tests</artifactId>
     <packaging>pom</packaging>
-    <version>7.0.1-SNAPSHOT</version>
+    <version>7.0.5-SNAPSHOT</version>
 
     <modules>
         <module>gpt-tests-executer</module>
-        <module>gpt-tests-common</module>
     </modules>
 
     <properties>
-        <snap.version>7.0.4-SNAPSHOT</snap.version>
-        <reader.test.version>7.0.1-SNAPSHOT</reader.test.version>
+        <jackson.version>2.10.0</jackson.version>
     </properties>
 
 
@@ -25,49 +23,18 @@
             <dependency>
                 <groupId>com.fasterxml.jackson.core</groupId>
                 <artifactId>jackson-databind</artifactId>
-                <version>[2.9.10,)</version>
-            </dependency>
-            <dependency>
-                <groupId>junit</groupId>
-                <artifactId>junit</artifactId>
-                <version>4.12</version>
-            </dependency>
-            <dependency>
-                <groupId>commons-io</groupId>
-                <artifactId>commons-io</artifactId>
-                <version>2.6</version>
+                <version>${jackson.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.esa.snap</groupId>
                 <artifactId>snap-engine-kit</artifactId>
-                <version>${snap.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.esa.snap</groupId>
-                <artifactId>snap-core</artifactId>
-                <version>${snap.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.esa.snap</groupId>
-                <artifactId>snap-geotiff</artifactId>
-                <version>${snap.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.esa.snap</groupId>
-                <artifactId>snap-bigtiff</artifactId>
-                <version>${snap.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.esa.snap</groupId>
-                <artifactId>snap-graph-builder</artifactId>
-                <version>${snap.version}</version>
+                <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.esa.snap</groupId>
                 <artifactId>snap-reader-tests</artifactId>
-                <version>${reader.test.version}</version>
+                <version>7.0.1-SNAPSHOT</version>
             </dependency>
-
         </dependencies>
     </dependencyManagement>
     
