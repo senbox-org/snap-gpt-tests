@@ -1,0 +1,16 @@
+[
+  {
+    "id": "MoreThenAnIntegerWriteTest",
+    "author": "BC",
+    "description": "Tests generation of very big images (more than max integer length)",
+    "frequency": "daily/maxInt",
+    "graphPath": "snap/graphMoreThenAnIntegerWriteTest.xml",
+    "outputs": [
+      {
+        "parameter": "out1",
+        "outputName": "MoreThenAnInteger",
+        "expected": "snap/expected-MoreThenAnIntegerWriteTest.json"
+      }
+    ]
+  }
+]
