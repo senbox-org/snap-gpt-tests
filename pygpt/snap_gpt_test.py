@@ -439,7 +439,6 @@ def __run_tests__(args, properties):
             log.info(f"preparing test `{test.name}`")
             start = datetime.datetime.now().strftime(__DATE_FMT__) # stats
             output += f'{test.name} - {start}'
-            print('START------')
             if not test.compatible(TestScope.init(args.scope)):
                 output += f' - {start} - SKIPPED\n'
                 log.warning(f'test `{test.name}` skipped')
