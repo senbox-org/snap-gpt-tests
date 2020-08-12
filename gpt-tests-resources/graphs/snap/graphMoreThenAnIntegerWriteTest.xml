@@ -1,0 +1,25 @@
+<graph id="Graph">
+    <version>1.0</version>
+    <node id="MoreThenAnInteger">
+        <operator>MoreThenAnIntegerOp</operator>
+    </node>
+    <node id="Write">
+        <operator>Write</operator>
+        <sources>
+            <sourceProduct refid="MoreThenAnInteger"/>
+        </sources>
+        <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+            <file>$out1</file>
+            <formatName>BEAM-DIMAP</formatName>
+        </parameters>
+    </node>
+    <applicationData id="Presentation">
+        <Description/>
+        <node id="MoreThenAnInteger">
+            <displayPosition x="198.0" y="127.0"/>
+        </node>
+        <node id="Write">
+            <displayPosition x="455.0" y="135.0"/>
+        </node>
+    </applicationData>
+</graph>
