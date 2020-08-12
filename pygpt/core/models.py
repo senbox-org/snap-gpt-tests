@@ -206,14 +206,18 @@ class Test(log.Printable):
         """
         Graph inputs definition.
         """
-        return self._raw['inputs']
+        if 'inputs' in self._raw:
+            return self._raw['inputs']
+        return {}
 
     @property
     def outputs(self):
         """
         Resulting outputs with optional expected value.
         """
-        return self._raw['outputs']
+        if 'outputs' in self._raw:
+            return self._raw['outputs']
+        return []
 
     @property
     def parameters(self):
