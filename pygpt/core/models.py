@@ -224,7 +224,9 @@ class Test(log.Printable):
         """
         Additional needed graph parameters.
         """
-        return self._raw['parameters']
+        if 'parameters' in self._raw:
+            return self._raw['parameters']
+        return {}
 
     @property
     def jvm_config(self):
