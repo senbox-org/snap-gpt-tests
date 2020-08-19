@@ -1,0 +1,58 @@
+<graph id="graphFlhMci_OLCI_L2">
+    <version>1.0</version>
+    <node id="Read">
+        <operator>Read</operator>
+        <sources/>
+        <parameters>
+            <file>$input</file>
+        </parameters>
+    </node>
+
+    <node id="Subset">
+        <operator>Subset</operator>
+        <sources>
+            <sourceProduct refid="Read"/>
+        </sources>
+        <parameters>
+            <region>$subsetRegion</region>
+            <copyMetadata>false</copyMetadata>
+        </parameters>
+    </node>
+
+    <node id="FlhMci">
+        <operator>FlhMci</operator>
+        <sources>
+            <sourceProduct>Read</sourceProduct>
+        </sources>
+        <parameters>
+            <preset>$preset</preset>
+        </parameters>
+    </node>
+
+    <node id="Write">
+        <operator>Write</operator>
+        <sources>
+            <sourceProduct refid="FlhMci"/>
+        </sources>
+        <parameters>
+            <file>$output</file>
+            <formatName>BEAM-DIMAP</formatName>
+        </parameters>
+    </node>
+
+    <applicationData id="Presentation">
+        <Description/>
+        <node id="Read">
+            <displayPosition x="20.0" y="136.0"/>
+        </node>
+        <node id="Subset">
+            <displayPosition x="140.0" y="136.0"/>
+        </node>
+        <node id="FUB.Water">
+            <displayPosition x="260.0" y="136.0"/>
+        </node>
+        <node id="Write">
+            <displayPosition x="380.0" y="136.0"/>
+        </node>
+    </applicationData>
+</graph>

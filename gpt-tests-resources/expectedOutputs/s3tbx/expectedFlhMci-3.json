@@ -1,0 +1,1226 @@
+{
+  "id": "FlhMciTest_OLCI_L1B",
+  "decodeQualification": "INTENDED",
+  "expectedContent": {
+    "sceneWidth": 4865,
+    "sceneHeight": 4091,
+    "startTime": "07-APR-2018 00:46:37.258444",
+    "endTime": "07-APR-2018 00:49:37.258444",
+    "geoCoding": {
+      "coordinates": [
+        {
+          "x": 2098.0,
+          "y": 2199.0,
+          "lat": 25.261246263980865,
+          "lon": 137.93199062347412
+        },
+        {
+          "x": 3612.0,
+          "y": 2654.0,
+          "lat": 23.30077886581421,
+          "lon": 141.5888261795044
+        }
+      ],
+      "reverseAccuracy": 0.0887651576999815
+    },
+    "flagCodings": [
+      {
+        "name": "quality_flags",
+        "samples": [
+          {
+            "name": "land",
+            "value": 2147483648,
+            "description": ""
+          },
+          {
+            "name": "coastline",
+            "value": 1073741824,
+            "description": ""
+          },
+          {
+            "name": "fresh_inland_water",
+            "value": 536870912,
+            "description": ""
+          },
+          {
+            "name": "tidal_region",
+            "value": 268435456,
+            "description": ""
+          },
+          {
+            "name": "bright",
+            "value": 134217728,
+            "description": ""
+          },
+          {
+            "name": "straylight_risk",
+            "value": 67108864,
+            "description": ""
+          },
+          {
+            "name": "invalid",
+            "value": 33554432,
+            "description": ""
+          },
+          {
+            "name": "cosmetic",
+            "value": 16777216,
+            "description": ""
+          },
+          {
+            "name": "duplicated",
+            "value": 8388608,
+            "description": ""
+          },
+          {
+            "name": "sun_glint_risk",
+            "value": 4194304,
+            "description": ""
+          },
+          {
+            "name": "dubious",
+            "value": 2097152,
+            "description": ""
+          },
+          {
+            "name": "saturated_Oa01",
+            "value": 1048576,
+            "description": ""
+          },
+          {
+            "name": "saturated_Oa02",
+            "value": 524288,
+            "description": ""
+          },
+          {
+            "name": "saturated_Oa03",
+            "value": 262144,
+            "description": ""
+          },
+          {
+            "name": "saturated_Oa04",
+            "value": 131072,
+            "description": ""
+          },
+          {
+            "name": "saturated_Oa05",
+            "value": 65536,
+            "description": ""
+          },
+          {
+            "name": "saturated_Oa06",
+            "value": 32768,
+            "description": ""
+          },
+          {
+            "name": "saturated_Oa07",
+            "value": 16384,
+            "description": ""
+          },
+          {
+            "name": "saturated_Oa08",
+            "value": 8192,
+            "description": ""
+          },
+          {
+            "name": "saturated_Oa09",
+            "value": 4096,
+            "description": ""
+          },
+          {
+            "name": "saturated_Oa10",
+            "value": 2048,
+            "description": ""
+          },
+          {
+            "name": "saturated_Oa11",
+            "value": 1024,
+            "description": ""
+          },
+          {
+            "name": "saturated_Oa12",
+            "value": 512,
+            "description": ""
+          },
+          {
+            "name": "saturated_Oa13",
+            "value": 256,
+            "description": ""
+          },
+          {
+            "name": "saturated_Oa14",
+            "value": 128,
+            "description": ""
+          },
+          {
+            "name": "saturated_Oa15",
+            "value": 64,
+            "description": ""
+          },
+          {
+            "name": "saturated_Oa16",
+            "value": 32,
+            "description": ""
+          },
+          {
+            "name": "saturated_Oa17",
+            "value": 16,
+            "description": ""
+          },
+          {
+            "name": "saturated_Oa18",
+            "value": 8,
+            "description": ""
+          },
+          {
+            "name": "saturated_Oa19",
+            "value": 4,
+            "description": ""
+          },
+          {
+            "name": "saturated_Oa20",
+            "value": 2,
+            "description": ""
+          },
+          {
+            "name": "saturated_Oa21",
+            "value": 1,
+            "description": ""
+          }
+        ]
+      }
+    ],
+    "tiePointGrids": [
+      {
+        "name": "TP_latitude",
+        "description": "Latitude",
+        "offsetX": "0.0",
+        "offsetY": "0.0",
+        "subSamplingX": "64.0",
+        "subSamplingY": "1.0",
+        "expectedPixels": [
+          {
+            "x": 253,
+            "y": 728,
+            "value": 29.85595
+          },
+          {
+            "x": 3332,
+            "y": 3479,
+            "value": 21.310602
+          }
+        ]
+      },
+      {
+        "name": "TP_longitude",
+        "description": "Longitude",
+        "offsetX": "0.0",
+        "offsetY": "0.0",
+        "subSamplingX": "64.0",
+        "subSamplingY": "1.0",
+        "expectedPixels": [
+          {
+            "x": 1415,
+            "y": 1050,
+            "value": 136.75085
+          },
+          {
+            "x": 2970,
+            "y": 1494,
+            "value": 140.65894
+          }
+        ]
+      },
+      {
+        "name": "OAA",
+        "description": "Observation (Viewing) Azimuth Angle",
+        "offsetX": "0.0",
+        "offsetY": "0.0",
+        "subSamplingX": "64.0",
+        "subSamplingY": "1.0",
+        "expectedPixels": [
+          {
+            "x": 2675,
+            "y": 3049,
+            "value": 102.032265
+          },
+          {
+            "x": 2959,
+            "y": 3798,
+            "value": 102.29869
+          }
+        ]
+      },
+      {
+        "name": "OZA",
+        "description": "Observation (Viewing) Zenith Angle",
+        "offsetX": "0.0",
+        "offsetY": "0.0",
+        "subSamplingX": "64.0",
+        "subSamplingY": "1.0",
+        "expectedPixels": [
+          {
+            "x": 769,
+            "y": 2724,
+            "value": 48.908634
+          },
+          {
+            "x": 2525,
+            "y": 3737,
+            "value": 22.570555
+          }
+        ]
+      },
+      {
+        "name": "SAA",
+        "description": "Sun Azimuth Angle",
+        "offsetX": "0.0",
+        "offsetY": "0.0",
+        "subSamplingX": "64.0",
+        "subSamplingY": "1.0",
+        "expectedPixels": [
+          {
+            "x": 3678,
+            "y": 1982,
+            "value": 121.47183
+          },
+          {
+            "x": 4625,
+            "y": 1987,
+            "value": 123.76328
+          }
+        ]
+      },
+      {
+        "name": "SZA",
+        "description": "Sun Zenith Angle",
+        "offsetX": "0.0",
+        "offsetY": "0.0",
+        "subSamplingX": "64.0",
+        "subSamplingY": "1.0",
+        "expectedPixels": [
+          {
+            "x": 1656,
+            "y": 3679,
+            "value": 34.53903
+          },
+          {
+            "x": 48,
+            "y": 1925,
+            "value": 39.608685
+          }
+        ]
+      },
+      {
+        "name": "atmospheric_temperature_profile_pressure_level_1",
+        "description": "Air temperature profile",
+        "offsetX": "0.0",
+        "offsetY": "0.0",
+        "subSamplingX": "64.0",
+        "subSamplingY": "1.0",
+        "expectedPixels": [
+          {
+            "x": 1592,
+            "y": 806,
+            "value": 291.95102
+          },
+          {
+            "x": 1329,
+            "y": 176,
+            "value": 290.94278
+          }
+        ]
+      },
+      {
+        "name": "atmospheric_temperature_profile_pressure_level_2",
+        "description": "Air temperature profile",
+        "offsetX": "0.0",
+        "offsetY": "0.0",
+        "subSamplingX": "64.0",
+        "subSamplingY": "1.0",
+        "expectedPixels": [
+          {
+            "x": 4726,
+            "y": 2473,
+            "value": 292.17032
+          },
+          {
+            "x": 2784,
+            "y": 2932,
+            "value": 292.54288
+          }
+        ]
+      },
+      {
+        "name": "atmospheric_temperature_profile_pressure_level_3",
+        "description": "Air temperature profile",
+        "offsetX": "0.0",
+        "offsetY": "0.0",
+        "subSamplingX": "64.0",
+        "subSamplingY": "1.0",
+        "expectedPixels": [
+          {
+            "x": 1128,
+            "y": 2035,
+            "value": 287.81015
+          },
+          {
+            "x": 1562,
+            "y": 2955,
+            "value": 292.47195
+          }
+        ]
+      },
+      {
+        "name": "atmospheric_temperature_profile_pressure_level_4",
+        "description": "Air temperature profile",
+        "offsetX": "0.0",
+        "offsetY": "0.0",
+        "subSamplingX": "64.0",
+        "subSamplingY": "1.0",
+        "expectedPixels": [
+          {
+            "x": 1742,
+            "y": 2038,
+            "value": 289.56168
+          },
+          {
+            "x": 1959,
+            "y": 1809,
+            "value": 289.62622
+          }
+        ]
+      },
+      {
+        "name": "atmospheric_temperature_profile_pressure_level_5",
+        "description": "Air temperature profile",
+        "offsetX": "0.0",
+        "offsetY": "0.0",
+        "subSamplingX": "64.0",
+        "subSamplingY": "1.0",
+        "expectedPixels": [
+          {
+            "x": 2795,
+            "y": 375,
+            "value": 285.6267
+          },
+          {
+            "x": 3139,
+            "y": 64,
+            "value": 286.26218
+          }
+        ]
+      },
+      {
+        "name": "atmospheric_temperature_profile_pressure_level_6",
+        "description": "Air temperature profile",
+        "offsetX": "0.0",
+        "offsetY": "0.0",
+        "subSamplingX": "64.0",
+        "subSamplingY": "1.0",
+        "expectedPixels": [
+          {
+            "x": 4744,
+            "y": 1502,
+            "value": 283.619
+          },
+          {
+            "x": 4622,
+            "y": 3871,
+            "value": 288.17218
+          }
+        ]
+      },
+      {
+        "name": "atmospheric_temperature_profile_pressure_level_7",
+        "description": "Air temperature profile",
+        "offsetX": "0.0",
+        "offsetY": "0.0",
+        "subSamplingX": "64.0",
+        "subSamplingY": "1.0",
+        "expectedPixels": [
+          {
+            "x": 539,
+            "y": 1848,
+            "value": 278.51468
+          },
+          {
+            "x": 2777,
+            "y": 2301,
+            "value": 281.55408
+          }
+        ]
+      },
+      {
+        "name": "atmospheric_temperature_profile_pressure_level_8",
+        "description": "Air temperature profile",
+        "offsetX": "0.0",
+        "offsetY": "0.0",
+        "subSamplingX": "64.0",
+        "subSamplingY": "1.0",
+        "expectedPixels": [
+          {
+            "x": 2460,
+            "y": 2133,
+            "value": 274.41794
+          },
+          {
+            "x": 2192,
+            "y": 2376,
+            "value": 274.69162
+          }
+        ]
+      },
+      {
+        "name": "atmospheric_temperature_profile_pressure_level_9",
+        "description": "Air temperature profile",
+        "offsetX": "0.0",
+        "offsetY": "0.0",
+        "subSamplingX": "64.0",
+        "subSamplingY": "1.0",
+        "expectedPixels": [
+          {
+            "x": 70,
+            "y": 1737,
+            "value": 263.25598
+          },
+          {
+            "x": 341,
+            "y": 4061,
+            "value": 267.717
+          }
+        ]
+      },
+      {
+        "name": "atmospheric_temperature_profile_pressure_level_10",
+        "description": "Air temperature profile",
+        "offsetX": "0.0",
+        "offsetY": "0.0",
+        "subSamplingX": "64.0",
+        "subSamplingY": "1.0",
+        "expectedPixels": [
+          {
+            "x": 1443,
+            "y": 3048,
+            "value": 255.84308
+          },
+          {
+            "x": 3909,
+            "y": 3012,
+            "value": 254.42352
+          }
+        ]
+      },
+      {
+        "name": "atmospheric_temperature_profile_pressure_level_11",
+        "description": "Air temperature profile",
+        "offsetX": "0.0",
+        "offsetY": "0.0",
+        "subSamplingX": "64.0",
+        "subSamplingY": "1.0",
+        "expectedPixels": [
+          {
+            "x": 4059,
+            "y": 3868,
+            "value": 241.8373
+          },
+          {
+            "x": 1209,
+            "y": 2175,
+            "value": 239.44424
+          }
+        ]
+      },
+      {
+        "name": "atmospheric_temperature_profile_pressure_level_12",
+        "description": "Air temperature profile",
+        "offsetX": "0.0",
+        "offsetY": "0.0",
+        "subSamplingX": "64.0",
+        "subSamplingY": "1.0",
+        "expectedPixels": [
+          {
+            "x": 2972,
+            "y": 1064,
+            "value": 230.05406
+          },
+          {
+            "x": 2689,
+            "y": 617,
+            "value": 229.91774
+          }
+        ]
+      },
+      {
+        "name": "atmospheric_temperature_profile_pressure_level_13",
+        "description": "Air temperature profile",
+        "offsetX": "0.0",
+        "offsetY": "0.0",
+        "subSamplingX": "64.0",
+        "subSamplingY": "1.0",
+        "expectedPixels": [
+          {
+            "x": 2313,
+            "y": 2287,
+            "value": 220.51447
+          },
+          {
+            "x": 464,
+            "y": 3476,
+            "value": 219.56715
+          }
+        ]
+      },
+      {
+        "name": "atmospheric_temperature_profile_pressure_level_14",
+        "description": "Air temperature profile",
+        "offsetX": "0.0",
+        "offsetY": "0.0",
+        "subSamplingX": "64.0",
+        "subSamplingY": "1.0",
+        "expectedPixels": [
+          {
+            "x": 467,
+            "y": 318,
+            "value": 209.83528
+          },
+          {
+            "x": 2213,
+            "y": 2766,
+            "value": 206.90897
+          }
+        ]
+      },
+      {
+        "name": "atmospheric_temperature_profile_pressure_level_15",
+        "description": "Air temperature profile",
+        "offsetX": "0.0",
+        "offsetY": "0.0",
+        "subSamplingX": "64.0",
+        "subSamplingY": "1.0",
+        "expectedPixels": [
+          {
+            "x": 2262,
+            "y": 3662,
+            "value": 195.52711
+          },
+          {
+            "x": 4220,
+            "y": 2454,
+            "value": 195.02328
+          }
+        ]
+      },
+      {
+        "name": "atmospheric_temperature_profile_pressure_level_16",
+        "description": "Air temperature profile",
+        "offsetX": "0.0",
+        "offsetY": "0.0",
+        "subSamplingX": "64.0",
+        "subSamplingY": "1.0",
+        "expectedPixels": [
+          {
+            "x": 4680,
+            "y": 1558,
+            "value": 197.74388
+          },
+          {
+            "x": 427,
+            "y": 2179,
+            "value": 197.09807
+          }
+        ]
+      },
+      {
+        "name": "atmospheric_temperature_profile_pressure_level_17",
+        "description": "Air temperature profile",
+        "offsetX": "0.0",
+        "offsetY": "0.0",
+        "subSamplingX": "64.0",
+        "subSamplingY": "1.0",
+        "expectedPixels": [
+          {
+            "x": 3577,
+            "y": 2433,
+            "value": 205.87543
+          },
+          {
+            "x": 4749,
+            "y": 760,
+            "value": 206.98883
+          }
+        ]
+      },
+      {
+        "name": "atmospheric_temperature_profile_pressure_level_18",
+        "description": "Air temperature profile",
+        "offsetX": "0.0",
+        "offsetY": "0.0",
+        "subSamplingX": "64.0",
+        "subSamplingY": "1.0",
+        "expectedPixels": [
+          {
+            "x": 2239,
+            "y": 1067,
+            "value": 218.86563
+          },
+          {
+            "x": 1114,
+            "y": 2649,
+            "value": 215.62186
+          }
+        ]
+      },
+      {
+        "name": "atmospheric_temperature_profile_pressure_level_19",
+        "description": "Air temperature profile",
+        "offsetX": "0.0",
+        "offsetY": "0.0",
+        "subSamplingX": "64.0",
+        "subSamplingY": "1.0",
+        "expectedPixels": [
+          {
+            "x": 3112,
+            "y": 1790,
+            "value": 222.47377
+          },
+          {
+            "x": 2585,
+            "y": 2320,
+            "value": 223.77336
+          }
+        ]
+      },
+      {
+        "name": "atmospheric_temperature_profile_pressure_level_20",
+        "description": "Air temperature profile",
+        "offsetX": "0.0",
+        "offsetY": "0.0",
+        "subSamplingX": "64.0",
+        "subSamplingY": "1.0",
+        "expectedPixels": [
+          {
+            "x": 1925,
+            "y": 874,
+            "value": 226.04242
+          },
+          {
+            "x": 1357,
+            "y": 3635,
+            "value": 232.96576
+          }
+        ]
+      },
+      {
+        "name": "atmospheric_temperature_profile_pressure_level_21",
+        "description": "Air temperature profile",
+        "offsetX": "0.0",
+        "offsetY": "0.0",
+        "subSamplingX": "64.0",
+        "subSamplingY": "1.0",
+        "expectedPixels": [
+          {
+            "x": 4600,
+            "y": 2372,
+            "value": 232.16205
+          },
+          {
+            "x": 3687,
+            "y": 1342,
+            "value": 230.95572
+          }
+        ]
+      },
+      {
+        "name": "atmospheric_temperature_profile_pressure_level_22",
+        "description": "Air temperature profile",
+        "offsetX": "0.0",
+        "offsetY": "0.0",
+        "subSamplingX": "64.0",
+        "subSamplingY": "1.0",
+        "expectedPixels": [
+          {
+            "x": 2727,
+            "y": 1189,
+            "value": 235.45808
+          },
+          {
+            "x": 4034,
+            "y": 3562,
+            "value": 239.9345
+          }
+        ]
+      },
+      {
+        "name": "atmospheric_temperature_profile_pressure_level_23",
+        "description": "Air temperature profile",
+        "offsetX": "0.0",
+        "offsetY": "0.0",
+        "subSamplingX": "64.0",
+        "subSamplingY": "1.0",
+        "expectedPixels": [
+          {
+            "x": 526,
+            "y": 3629,
+            "value": 251.41939
+          },
+          {
+            "x": 1673,
+            "y": 3330,
+            "value": 245.76405
+          }
+        ]
+      },
+      {
+        "name": "atmospheric_temperature_profile_pressure_level_24",
+        "description": "Air temperature profile",
+        "offsetX": "0.0",
+        "offsetY": "0.0",
+        "subSamplingX": "64.0",
+        "subSamplingY": "1.0",
+        "expectedPixels": [
+          {
+            "x": 886,
+            "y": 2832,
+            "value": 258.00806
+          },
+          {
+            "x": 2882,
+            "y": 2246,
+            "value": 260.09174
+          }
+        ]
+      },
+      {
+        "name": "atmospheric_temperature_profile_pressure_level_25",
+        "description": "Air temperature profile",
+        "offsetX": "0.0",
+        "offsetY": "0.0",
+        "subSamplingX": "64.0",
+        "subSamplingY": "1.0",
+        "expectedPixels": [
+          {
+            "x": 1000,
+            "y": 1252,
+            "value": 259.14038
+          },
+          {
+            "x": 1996,
+            "y": 3533,
+            "value": 265.85638
+          }
+        ]
+      },
+      {
+        "name": "horizontal_wind_vector_1",
+        "description": "Horizontal wind vector at 10m altitude",
+        "offsetX": "0.0",
+        "offsetY": "0.0",
+        "subSamplingX": "64.0",
+        "subSamplingY": "1.0",
+        "expectedPixels": [
+          {
+            "x": 3414,
+            "y": 3671,
+            "value": -5.60728
+          },
+          {
+            "x": 1447,
+            "y": 4061,
+            "value": -3.138591
+          }
+        ]
+      },
+      {
+        "name": "horizontal_wind_vector_2",
+        "description": "Horizontal wind vector at 10m altitude",
+        "offsetX": "0.0",
+        "offsetY": "0.0",
+        "subSamplingX": "64.0",
+        "subSamplingY": "1.0",
+        "expectedPixels": [
+          {
+            "x": 2662,
+            "y": 477,
+            "value": 9.739169
+          },
+          {
+            "x": 947,
+            "y": 2295,
+            "value": -11.85932
+          }
+        ]
+      },
+      {
+        "name": "humidity",
+        "description": "Relative humidity",
+        "offsetX": "0.0",
+        "offsetY": "0.0",
+        "subSamplingX": "64.0",
+        "subSamplingY": "1.0",
+        "expectedPixels": [
+          {
+            "x": 2228,
+            "y": 527,
+            "value": 98.29071
+          },
+          {
+            "x": 4032,
+            "y": 2343,
+            "value": 61.36401
+          }
+        ]
+      },
+      {
+        "name": "sea_level_pressure",
+        "description": "Mean sea level pressure",
+        "offsetX": "0.0",
+        "offsetY": "0.0",
+        "subSamplingX": "64.0",
+        "subSamplingY": "1.0",
+        "expectedPixels": [
+          {
+            "x": 499,
+            "y": 2768,
+            "value": 1015.94324
+          },
+          {
+            "x": 3556,
+            "y": 1931,
+            "value": 1015.66284
+          }
+        ]
+      },
+      {
+        "name": "total_columnar_water_vapour",
+        "description": "Total column water vapour",
+        "offsetX": "0.0",
+        "offsetY": "0.0",
+        "subSamplingX": "64.0",
+        "subSamplingY": "1.0",
+        "expectedPixels": [
+          {
+            "x": 696,
+            "y": 272,
+            "value": 27.99049
+          },
+          {
+            "x": 4093,
+            "y": 1226,
+            "value": 34.22586
+          }
+        ]
+      },
+      {
+        "name": "total_ozone",
+        "description": "Total columnar ozone",
+        "offsetX": "0.0",
+        "offsetY": "0.0",
+        "subSamplingX": "64.0",
+        "subSamplingY": "1.0",
+        "expectedPixels": [
+          {
+            "x": 2881,
+            "y": 3975,
+            "value": 0.00629874
+          },
+          {
+            "x": 3781,
+            "y": 112,
+            "value": 0.0068037603
+          }
+        ]
+      }
+    ],
+    "bands": [
+      {
+        "name": "MCI",
+        "description": "Line height band",
+        "bandWidth": 4865,
+        "bandHeight": 4091,
+        "geophysicalUnit": "mW.m-2.sr-1.nm-1",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "708.75",
+        "spectralBandwidth": "10.0",
+        "expectedPixels": [
+          {
+            "x": 1054,
+            "y": 1008,
+            "value": -9.7855215
+          },
+          {
+            "x": 1553,
+            "y": 792,
+            "value": -8.546571
+          }
+        ]
+      },
+      {
+        "name": "MCI_slope",
+        "description": "Baseline slope band",
+        "bandWidth": 4865,
+        "bandHeight": 4091,
+        "geophysicalUnit": "mW.m-2.sr-1.nm-1 nm-1",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 1374,
+            "y": 3613,
+            "value": -0.07597607
+          },
+          {
+            "x": 4853,
+            "y": 309,
+            "value": "NaN"
+          }
+        ]
+      },
+      {
+        "name": "quality_flags",
+        "description": "Classification and quality flags",
+        "bandWidth": 4865,
+        "bandHeight": 4091,
+        "noDataValue": "0.0",
+        "noDataValueUsed": "false",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 3984,
+            "y": 2052,
+            "value": 4194304.0
+          },
+          {
+            "x": 305,
+            "y": 1576,
+            "value": 1.34217728E8
+          }
+        ]
+      }
+    ],
+    "masks": [
+      {
+        "name": "quality_flags_land",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "0,127,63",
+        "description": "quality_flags.land"
+      },
+      {
+        "name": "quality_flags_coastline",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "255,0,0",
+        "description": "quality_flags.coastline"
+      },
+      {
+        "name": "quality_flags_fresh_inland_water",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "0,127,63",
+        "description": "quality_flags.fresh_inland_water"
+      },
+      {
+        "name": "quality_flags_tidal_region",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "0,0,255",
+        "description": "quality_flags.tidal_region"
+      },
+      {
+        "name": "quality_flags_bright",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "0,255,0",
+        "description": "quality_flags.bright"
+      },
+      {
+        "name": "quality_flags_straylight_risk",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "0,255,255",
+        "description": "quality_flags.straylight_risk"
+      },
+      {
+        "name": "quality_flags_invalid",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "255,0,255",
+        "description": "quality_flags.invalid"
+      },
+      {
+        "name": "quality_flags_cosmetic",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "255,255,0",
+        "description": "quality_flags.cosmetic"
+      },
+      {
+        "name": "quality_flags_duplicated",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "0,0,127",
+        "description": "quality_flags.duplicated"
+      },
+      {
+        "name": "quality_flags_sun_glint_risk",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "0,127,0",
+        "description": "quality_flags.sun_glint_risk"
+      },
+      {
+        "name": "quality_flags_dubious",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "0,127,127",
+        "description": "quality_flags.dubious"
+      },
+      {
+        "name": "quality_flags_saturated_Oa01",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "0,255,127",
+        "description": "quality_flags.saturated_Oa01"
+      },
+      {
+        "name": "quality_flags_saturated_Oa02",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "127,0,0",
+        "description": "quality_flags.saturated_Oa02"
+      },
+      {
+        "name": "quality_flags_saturated_Oa03",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "127,0,127",
+        "description": "quality_flags.saturated_Oa03"
+      },
+      {
+        "name": "quality_flags_saturated_Oa04",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "127,0,255",
+        "description": "quality_flags.saturated_Oa04"
+      },
+      {
+        "name": "quality_flags_saturated_Oa05",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "127,127,0",
+        "description": "quality_flags.saturated_Oa05"
+      },
+      {
+        "name": "quality_flags_saturated_Oa06",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "127,127,127",
+        "description": "quality_flags.saturated_Oa06"
+      },
+      {
+        "name": "quality_flags_saturated_Oa07",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "127,127,255",
+        "description": "quality_flags.saturated_Oa07"
+      },
+      {
+        "name": "quality_flags_saturated_Oa08",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "127,255,0",
+        "description": "quality_flags.saturated_Oa08"
+      },
+      {
+        "name": "quality_flags_saturated_Oa09",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "127,255,127",
+        "description": "quality_flags.saturated_Oa09"
+      },
+      {
+        "name": "quality_flags_saturated_Oa10",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "127,255,255",
+        "description": "quality_flags.saturated_Oa10"
+      },
+      {
+        "name": "quality_flags_saturated_Oa11",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "255,0,127",
+        "description": "quality_flags.saturated_Oa11"
+      },
+      {
+        "name": "quality_flags_saturated_Oa12",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "255,127,0",
+        "description": "quality_flags.saturated_Oa12"
+      },
+      {
+        "name": "quality_flags_saturated_Oa13",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "255,127,127",
+        "description": "quality_flags.saturated_Oa13"
+      },
+      {
+        "name": "quality_flags_saturated_Oa14",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "255,127,255",
+        "description": "quality_flags.saturated_Oa14"
+      },
+      {
+        "name": "quality_flags_saturated_Oa15",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "255,255,127",
+        "description": "quality_flags.saturated_Oa15"
+      },
+      {
+        "name": "quality_flags_saturated_Oa16",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "0,0,63",
+        "description": "quality_flags.saturated_Oa16"
+      },
+      {
+        "name": "quality_flags_saturated_Oa17",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "0,63,0",
+        "description": "quality_flags.saturated_Oa17"
+      },
+      {
+        "name": "quality_flags_saturated_Oa18",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "0,63,63",
+        "description": "quality_flags.saturated_Oa18"
+      },
+      {
+        "name": "quality_flags_saturated_Oa19",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "0,63,127",
+        "description": "quality_flags.saturated_Oa19"
+      },
+      {
+        "name": "quality_flags_saturated_Oa20",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "0,63,191",
+        "description": "quality_flags.saturated_Oa20"
+      },
+      {
+        "name": "quality_flags_saturated_Oa21",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "0,127,191",
+        "description": "quality_flags.saturated_Oa21"
+      }
+    ],
+    "metadata": [
+      {
+        "path": "Processing_Graph/node.1/parameters/writeEntireTileRows",
+        "value": "false"
+      },
+      {
+        "path": "Processing_Graph/node.0/parameters/slopeBandName",
+        "value": "MCI_slope"
+      },
+      {
+        "path": "Processing_Graph/node.1/parameters/deleteOutputOnFailure",
+        "value": "true"
+      },
+      {
+        "path": "Processing_Graph/node.1/parameters/formatName",
+        "value": "BEAM-DIMAP"
+      },
+      {
+        "path": "Processing_Graph/node.1/sources/sourceProduct",
+        "value": "FlhMci"
+      },
+      {
+        "path": "Processing_Graph/node.1/parameters/clearCacheAfterRowWrite",
+        "value": "false"
+      }
+    ]
+  }
+}
