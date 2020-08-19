@@ -17,7 +17,12 @@
         "outputName": "PPE_OLCI",
         "expected": "s3tbx/expectedPPE_OLCI.json"
       }
-    ]
+    ],
+    "configVM": {
+      "xmx": "8G",
+      "cacheSize": "2G",
+      "parallelism": "2"
+    }
   }
 
 ]
