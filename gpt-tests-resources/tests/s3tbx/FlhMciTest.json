@@ -1,0 +1,104 @@
+[{
+  "id":"FlhMciTest_OLCI_L2",
+  "author": "BC",
+  "description":"execute FlhMci operator with OLCI_L2 product using OLCI_L2 preset",
+  "frequency":"roman",
+  "graphPath": "s3tbx/graphFlhMci.xml",
+  "inputs": {
+    "input": "s3tbx/sensors_platforms/SENTINEL-3/olci/L2/S3A_OL_2_WFR____20180707T081143_20180707T081443_20180708T142606_0179_033_135_2520_MAR_O_NT_002.SEN3"
+  },
+  "parameters": {
+    "subsetRegion": "400,400,200,200",
+    "preset": "OLCI_L2_FLH"
+  },
+  "outputs": [{
+    "parameter": "output",
+    "outputName": "FlhMciTest_OLCI_L2",
+    "expected": "s3tbx/expectedFlhMci_OLCI_L2.json"
+  }]
+},
+  {
+    "id":"FlhMciTest_MERIS_L1B",
+    "author": "BC",
+    "description":"execute FlhMci operator with MERIS_L1B product using OLCI_L2 preset",
+    "frequency":"daily",
+    "graphPath": "s3tbx/graphFlhMci.xml",
+    "inputs": {
+      "input": "s3tbx/sensors_platforms/MERIS/MER_FR__1P/N1/MER_FR__1PNUPA20040401_001107_000000982025_00331_10906_0250.N1"
+    },
+    "parameters": {
+      "subsetRegion": "900,600,200,200",
+      "preset": "MERIS_L1B_MCI"
+    },
+    "outputs": [{
+      "parameter": "output",
+      "outputName": "FlhMciTest_MERIS_L1B",
+      "expected": "s3tbx/expectedFlhMci_MERIS_L1B.json"
+    }]
+  },
+  {
+    "id":"FlhMciTest_OLCI_L1B",
+    "author": "BC",
+    "description":"execute FlhMci operator with MERIS_L1B product using OLCI_L1B preset",
+    "frequency":"daily",
+    "graphPath": "s3tbx/graphFlhMci.xml",
+    "inputs": {
+      "input": "s3tbx/sensors_platforms/SENTINEL-3/olci/L1/S3A_OL_1_EFR____20180407T004637_20180407T004937_20180408T065235_0180_029_373_2520_MAR_O_NT_002.SEN3"
+    },
+    "parameters": {
+      "subsetRegion": "400,400,200,200",
+      "preset": "MERIS_L1B_MCI"
+    },
+    "outputs": [{
+      "parameter": "output",
+      "outputName": "FlhMciTest_OLCI_L1B",
+      "expected": "s3tbx/expectedFlhMci_OLCI_L1B.json"
+    }]
+  },
+  {
+    "id":"FlhMciTest_MERIS_L2_MCI",
+    "author": "BC",
+    "description":"execute FlhMci operator with MERIS_L2_MCI product using OLCI_L2 preset",
+    "frequency":"daily",
+    "graphPath": "s3tbx/graphFlhMci.xml",
+    "inputs": {
+      "input": "s3tbx/sensors_platforms/MERIS/MER_FR__2P/N1/MER_FR__2PNEPA20060716_101936_000000982049_00280_22879_0373.N1"
+    },
+    "parameters": {
+      "subsetRegion": "900,600,200,200",
+      "preset": "MERIS_L2_MCI"
+    },
+    "outputs": [{
+      "parameter": "output",
+      "outputName": "FlhMciTest_MERIS_L2_MCI",
+      "expected": "s3tbx/expectedFlhMci_MERIS_L2_MCI.json"
+    }]
+  },
+  {
+    "id":"FlhMciTest_MERIS_L2_MCI-ND",
+    "author": "BC",
+    "description":"execute FlhMci operator with MERIS_L2_MCI product using OLCI_L2 preset",
+    "frequency":"daily",
+    "graphPath": "s3tbx/graphFlhMci_MultiOptional.xml",
+    "inputs": {
+      "input": "s3tbx/sensors_platforms/MERIS/MER_FR__1P/N1/MER_FR__1PNUPA20040401_001107_000000982025_00331_10906_0250.N1"
+    },
+    "parameters": {
+      "subsetRegion": "900,600,200,200",
+      "preset": "MERIS_L2_MCI",
+      "lowerBaselineBand": "reflec_10",
+      "upperBaselineBand": "reflec_5",
+      "signalBand": "reflec_9",
+      "lineHeightBand": "MCI",
+      "slope": "true",
+      "slopeBand": "MCI_slope",
+      "maskExpression": "l2_flags.WATER",
+      "invalidValue": "NaN"
+    },
+    "outputs": [{
+      "parameter": "output",
+      "outputName": "FlhMciTest_MERIS_L2_MCI-ND",
+      "expected": "s3tbx/expectedFlhMci_MERIS_L2_MCI-ND.json"
+    }]
+  }
+]

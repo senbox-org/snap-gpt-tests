@@ -1,0 +1,524 @@
+{
+  "id": "FlhMciTest_MERIS_L1B",
+  "decodeQualification": "INTENDED",
+  "expectedContent": {
+    "sceneWidth": 2241,
+    "sceneHeight": 2241,
+    "startTime": "01-APR-2004 00:11:07.971135",
+    "endTime": "01-APR-2004 00:12:46.524415",
+    "geoCoding": {
+      "coordinates": [
+        {
+          "x": 966.0,
+          "y": 1204.0,
+          "lat": -16.09570011246251,
+          "lon": 144.5789880529046
+        },
+        {
+          "x": 1663.0,
+          "y": 1454.0,
+          "lat": -17.098787116003223,
+          "lon": 146.0887135192752
+        }
+      ],
+      "reverseAccuracy": 0.06494049150387582
+    },
+    "flagCodings": [
+      {
+        "name": "l1_flags",
+        "samples": [
+          {
+            "name": "COSMETIC",
+            "value": 1,
+            "description": "Pixel is cosmetic"
+          },
+          {
+            "name": "DUPLICATED",
+            "value": 2,
+            "description": "Pixel has been duplicated (filled in)"
+          },
+          {
+            "name": "GLINT_RISK",
+            "value": 4,
+            "description": "Pixel has glint risk"
+          },
+          {
+            "name": "SUSPECT",
+            "value": 8,
+            "description": "Pixel is suspect"
+          },
+          {
+            "name": "LAND_OCEAN",
+            "value": 16,
+            "description": "Pixel is over land, not ocean"
+          },
+          {
+            "name": "BRIGHT",
+            "value": 32,
+            "description": "Pixel is bright"
+          },
+          {
+            "name": "COASTLINE",
+            "value": 64,
+            "description": "Pixel is part of a coastline"
+          },
+          {
+            "name": "INVALID",
+            "value": 128,
+            "description": "Pixel is invalid"
+          }
+        ]
+      }
+    ],
+    "tiePointGrids": [
+      {
+        "name": "latitude",
+        "description": "Latitude of the tie points (WGS-84), positive N",
+        "offsetX": "0.5",
+        "offsetY": "0.5",
+        "subSamplingX": "64.0",
+        "subSamplingY": "64.0",
+        "expectedPixels": [
+          {
+            "x": 116,
+            "y": 399,
+            "value": -13.556454
+          },
+          {
+            "x": 1535,
+            "y": 1906,
+            "value": -18.214024
+          }
+        ]
+      },
+      {
+        "name": "longitude",
+        "description": "Longitude of the tie points (WGS-84), Greenwich origin, positive E",
+        "offsetX": "0.5",
+        "offsetY": "0.5",
+        "subSamplingX": "64.0",
+        "subSamplingY": "64.0",
+        "expectedPixels": [
+          {
+            "x": 651,
+            "y": 575,
+            "value": 144.21767
+          },
+          {
+            "x": 1368,
+            "y": 818,
+            "value": 145.76239
+          }
+        ]
+      },
+      {
+        "name": "dem_alt",
+        "description": "Digital elevation model altitude",
+        "offsetX": "0.5",
+        "offsetY": "0.5",
+        "subSamplingX": "64.0",
+        "subSamplingY": "64.0",
+        "expectedPixels": [
+          {
+            "x": 1232,
+            "y": 1670,
+            "value": 542.125
+          },
+          {
+            "x": 1363,
+            "y": 2080,
+            "value": 608.91406
+          }
+        ]
+      },
+      {
+        "name": "dem_rough",
+        "description": "Digital elevation model roughness",
+        "offsetX": "0.5",
+        "offsetY": "0.5",
+        "subSamplingX": "64.0",
+        "subSamplingY": "64.0",
+        "expectedPixels": [
+          {
+            "x": 354,
+            "y": 1492,
+            "value": 2.5019531
+          },
+          {
+            "x": 1163,
+            "y": 2047,
+            "value": 33.56714
+          }
+        ]
+      },
+      {
+        "name": "lat_corr",
+        "description": "Digital elevation model latitude corrections",
+        "offsetX": "0.5",
+        "offsetY": "0.5",
+        "subSamplingX": "64.0",
+        "subSamplingY": "64.0",
+        "expectedPixels": [
+          {
+            "x": 1694,
+            "y": 1086,
+            "value": 0.0
+          },
+          {
+            "x": 2130,
+            "y": 1088,
+            "value": 0.0
+          }
+        ]
+      },
+      {
+        "name": "lon_corr",
+        "description": "Digital elevation model longitude corrections",
+        "offsetX": "0.5",
+        "offsetY": "0.5",
+        "subSamplingX": "64.0",
+        "subSamplingY": "64.0",
+        "expectedPixels": [
+          {
+            "x": 762,
+            "y": 2015,
+            "value": -1.9628955E-4
+          },
+          {
+            "x": 22,
+            "y": 1054,
+            "value": -1.5112892E-4
+          }
+        ]
+      },
+      {
+        "name": "sun_zenith",
+        "description": "Sun zenith angle",
+        "offsetX": "0.5",
+        "offsetY": "0.5",
+        "subSamplingX": "64.0",
+        "subSamplingY": "64.0",
+        "expectedPixels": [
+          {
+            "x": 733,
+            "y": 441,
+            "value": 38.190285
+          },
+          {
+            "x": 612,
+            "y": 96,
+            "value": 37.88734
+          }
+        ]
+      },
+      {
+        "name": "sun_azimuth",
+        "description": "Sun azimuth angles",
+        "offsetX": "0.5",
+        "offsetY": "0.5",
+        "subSamplingX": "64.0",
+        "subSamplingY": "64.0",
+        "expectedPixels": [
+          {
+            "x": 2177,
+            "y": 1355,
+            "value": 57.039787
+          },
+          {
+            "x": 1282,
+            "y": 1606,
+            "value": 58.917126
+          }
+        ]
+      },
+      {
+        "name": "view_zenith",
+        "description": "Viewing zenith angles",
+        "offsetX": "0.5",
+        "offsetY": "0.5",
+        "subSamplingX": "64.0",
+        "subSamplingY": "64.0",
+        "expectedPixels": [
+          {
+            "x": 519,
+            "y": 1114,
+            "value": 9.272127
+          },
+          {
+            "x": 719,
+            "y": 1619,
+            "value": 5.090651
+          }
+        ]
+      },
+      {
+        "name": "view_azimuth",
+        "description": "Viewing azimuth angles",
+        "offsetX": "0.5",
+        "offsetY": "0.5",
+        "subSamplingX": "64.0",
+        "subSamplingY": "64.0",
+        "expectedPixels": [
+          {
+            "x": 802,
+            "y": 1116,
+            "value": 102.73634
+          },
+          {
+            "x": 902,
+            "y": 991,
+            "value": 96.73681
+          }
+        ]
+      },
+      {
+        "name": "zonal_wind",
+        "description": "Zonal wind",
+        "offsetX": "0.5",
+        "offsetY": "0.5",
+        "subSamplingX": "64.0",
+        "subSamplingY": "64.0",
+        "expectedPixels": [
+          {
+            "x": 1287,
+            "y": 205,
+            "value": -4.8812504
+          },
+          {
+            "x": 1446,
+            "y": 35,
+            "value": -3.6734376
+          }
+        ]
+      },
+      {
+        "name": "merid_wind",
+        "description": "Meridional wind",
+        "offsetX": "0.5",
+        "offsetY": "0.5",
+        "subSamplingX": "64.0",
+        "subSamplingY": "64.0",
+        "expectedPixels": [
+          {
+            "x": 2185,
+            "y": 823,
+            "value": 5.3859377
+          },
+          {
+            "x": 2129,
+            "y": 2120,
+            "value": 5.0669923
+          }
+        ]
+      },
+      {
+        "name": "atm_press",
+        "description": "Mean sea level pressure",
+        "offsetX": "0.5",
+        "offsetY": "0.5",
+        "subSamplingX": "64.0",
+        "subSamplingY": "64.0",
+        "expectedPixels": [
+          {
+            "x": 248,
+            "y": 1012,
+            "value": 1015.5813
+          },
+          {
+            "x": 1279,
+            "y": 1260,
+            "value": 1016.5391
+          }
+        ]
+      },
+      {
+        "name": "ozone",
+        "description": "Total ozone",
+        "offsetX": "0.5",
+        "offsetY": "0.5",
+        "subSamplingX": "64.0",
+        "subSamplingY": "64.0",
+        "expectedPixels": [
+          {
+            "x": 1133,
+            "y": 1168,
+            "value": 258.7822
+          },
+          {
+            "x": 1010,
+            "y": 1302,
+            "value": 259.00412
+          }
+        ]
+      },
+      {
+        "name": "rel_hum",
+        "description": "Relative humidity",
+        "offsetX": "0.5",
+        "offsetY": "0.5",
+        "subSamplingX": "64.0",
+        "subSamplingY": "64.0",
+        "expectedPixels": [
+          {
+            "x": 32,
+            "y": 951,
+            "value": 72.194534
+          },
+          {
+            "x": 157,
+            "y": 2224,
+            "value": 49.967968
+          }
+        ]
+      }
+    ],
+    "bands": [
+      {
+        "name": "MCI",
+        "description": "Line height band",
+        "bandWidth": 2241,
+        "bandHeight": 2241,
+        "geophysicalUnit": "mW/(m^2*sr*nm)",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "708.426",
+        "spectralBandwidth": "9.996",
+        "expectedPixels": [
+          {
+            "x": 665,
+            "y": 1669,
+            "value": "NaN"
+          },
+          {
+            "x": 1800,
+            "y": 1650,
+            "value": "NaN"
+          }
+        ]
+      },
+      {
+        "name": "MCI_slope",
+        "description": "Baseline slope band",
+        "bandWidth": 2241,
+        "bandHeight": 2241,
+        "geophysicalUnit": "mW/(m^2*sr*nm) nm-1",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 1870,
+            "y": 2118,
+            "value": "NaN"
+          },
+          {
+            "x": 557,
+            "y": 1191,
+            "value": "NaN"
+          }
+        ]
+      },
+      {
+        "name": "l1_flags",
+        "description": "Level 1b classification and quality flags",
+        "bandWidth": 2241,
+        "bandHeight": 2241,
+        "noDataValue": "0.0",
+        "noDataValueUsed": "false",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 1369,
+            "y": 582,
+            "value": 0.0
+          },
+          {
+            "x": 1238,
+            "y": 338,
+            "value": 0.0
+          }
+        ]
+      }
+    ],
+    "masks": [
+      {
+        "name": "coastline",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "0,255,0",
+        "description": "Pixel is part of a coastline"
+      },
+      {
+        "name": "land",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "51,153,0",
+        "description": "Pixel is over land, not ocean"
+      },
+      {
+        "name": "water",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "153,153,255",
+        "description": "Not Pixel is over land, not ocean"
+      },
+      {
+        "name": "cosmetic",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "204,153,255",
+        "description": "Pixel is cosmetic"
+      },
+      {
+        "name": "duplicated",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "255,200,0",
+        "description": "Pixel has been duplicated (filled in)"
+      },
+      {
+        "name": "glint_risk",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "255,0,255",
+        "description": "Pixel has glint risk"
+      },
+      {
+        "name": "suspect",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "204,102,255",
+        "description": "Pixel is suspect"
+      },
+      {
+        "name": "bright",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "255,255,0",
+        "description": "Pixel is bright"
+      },
+      {
+        "name": "invalid",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "255,0,0",
+        "description": "Pixel is invalid"
+      }
+    ],
+    "metadata": [
+      {
+        "path": "Processing_Graph/node.1/sources/sourceProduct",
+        "value": "FlhMci"
+      },
+      {
+        "path": "Processing_Graph/node.1/parameters/formatName",
+        "value": "BEAM-DIMAP"
+      },
+      {
+        "path": "Processing_Graph/node.1/parameters/writeEntireTileRows",
+        "value": "false"
+      },
+      {
+        "path": "Processing_Graph/node.0/parameters/preset",
+        "value": "MERIS_L1B_MCI"
+      },
+      {
+        "path": "Processing_Graph/node.0/parameters/lineHeightBandName",
+        "value": "MCI"
+      }
+    ]
+  }
+}
