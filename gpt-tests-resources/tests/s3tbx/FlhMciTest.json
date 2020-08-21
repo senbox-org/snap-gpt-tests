@@ -18,10 +18,10 @@
   }]
 },
   {
-    "id":"FlhMciTest_MERIS_L1B",
-    "author": "BC",
-    "description":"execute FlhMci operator with MERIS_L1B product using OLCI_L2 preset",
-    "frequency":"roman",
+    "id": "FlhMciTest_MERIS_L1B",
+    "author": "roman",
+    "description": "execute FlhMci operator with MERIS_L1B product using OLCI_L2 preset",
+    "frequency": "roman",
     "graphPath": "s3tbx/graphFlhMci.xml",
     "inputs": {
       "input": "s3tbx/sensors_platforms/MERIS/MER_FR__1P/N1/MER_FR__1PNUPA20040401_001107_000000982025_00331_10906_0250.N1"
@@ -37,10 +37,10 @@
     }]
   },
   {
-    "id":"FlhMciTest_OLCI_L1B",
-    "author": "BC",
-    "description":"execute FlhMci operator with MERIS_L1B product using OLCI_L1B preset",
-    "frequency":"roman",
+    "id": "FlhMciTest_OLCI_L1B",
+    "author": "roman",
+    "description": "execute FlhMci operator with MERIS_L1B product using OLCI_L1B preset",
+    "frequency": "roman",
     "graphPath": "s3tbx/graphFlhMci.xml",
     "inputs": {
       "input": "s3tbx/sensors_platforms/SENTINEL-3/olci/L1/S3A_OL_1_EFR____20180407T004637_20180407T004937_20180408T065235_0180_029_373_2520_MAR_O_NT_002.SEN3"
@@ -56,10 +56,10 @@
     }]
   },
   {
-    "id":"FlhMciTest_MERIS_L2_MCI",
-    "author": "BC",
-    "description":"execute FlhMci operator with MERIS_L2_MCI product using OLCI_L2 preset",
-    "frequency":"roman",
+    "id": "FlhMciTest_MERIS_L2_MCI",
+    "author": "roman",
+    "description": "execute FlhMci operator with MERIS_L2_MCI product using OLCI_L2 preset",
+    "frequency": "roman",
     "graphPath": "s3tbx/graphFlhMci.xml",
     "inputs": {
       "input": "s3tbx/sensors_platforms/MERIS/MER_FR__2P/N1/MER_FR__2PNEPA20060716_101936_000000982049_00280_22879_0373.N1"
@@ -75,10 +75,10 @@
     }]
   },
   {
-    "id":"FlhMciTest_MERIS_L2_MCI-ND",
-    "author": "BC",
-    "description":"execute FlhMci operator with MERIS_L2_MCI product using OLCI_L2 preset",
-    "frequency":"roman",
+    "id": "FlhMciTest_MERIS_L2_MCI-ND",
+    "author": "roman",
+    "description": "execute FlhMci operator with MERIS_L2_MCI product using OLCI_L2 preset",
+    "frequency": "roman",
     "graphPath": "s3tbx/graphFlhMci_MultiOptional.xml",
     "inputs": {
       "input": "s3tbx/sensors_platforms/MERIS/MER_FR__2P/N1/MER_FR__2PNEPA20060716_101936_000000982049_00280_22879_0373.N1"
