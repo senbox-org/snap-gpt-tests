@@ -1,0 +1,40 @@
+[
+{
+  "id": "s1tbx.insar.multimasterop",
+  "author": "Sensar",
+  "description": "execute CreateStack and MultiMasterInSAR",
+  "frequency": "daily/s1tbx/insar/multimaster",
+  "graphPath": "s1tbx/InSAR/MultiMasterInSAR.xml",
+  "inputs":{ 
+    "input1": "s1tbx/SAR/ASAR/ASA_IMS_1PNESA20061223_134214_000000182054_00067_25171_0000.N1",
+    "input2": "s1tbx/SAR/ASAR/ASA_IMS_1PNESA20070825_134215_000000172061_00067_28678_0000.N1",
+    "input3": "s1tbx/SAR/ASAR/ASA_IMS_1PNESA20080426_134208_000000172068_00067_32185_0000.N1"
+  },
+    "parameters": {
+	"demName": "SRTM 3Sec",
+	"demResamplingMethod": "BICUBIC_INTERPOLATION",
+	"elevationBandName": "elevation",
+	"orbitDegree": "4",
+        "sourceBands": "wavenumber_slv1_25Aug2007,wavenumber_slv2_26Apr2008,elevation,incidenceAngle,lat,lon,i_ifg_23Dec2006_25Aug2007,q_ifg_23Dec2006_25Aug2007,Intensity_ifg_23Dec2006_25Aug2007,Phase_ifg_23Dec2006_25Aug2007,coh_23Dec2006_25Aug2007,i_ifg_25Aug2007_26Apr2008,q_ifg_25Aug2007_26Apr2008,Intensity_ifg_25Aug2007_26Apr2008,Phase_ifg_25Aug2007_26Apr2008,coh_25Aug2007_26Apr2008",
+	"region": "2000,14000,2000,2000",
+	"subSamplingX": "1",
+	"subSamplingY": "1",
+	"fullSwath": "false",
+	"includeWavenumber": "true",
+	"includeIncidenceAngle": "true",
+	"includeLatLon": "true",
+	"cohWindowAz": "10",
+	"cohWindowRg": "10"
+  },
+  "outputs": [{
+    "parameter": "output",
+    "outputName": "output-test-multimasterop",
+    "expected": "s1tbx/InSAR/expected-insar-multimasterop.json"
+  }],
+  "configVM": {
+    "xmx": "12G",
+    "cacheSize": "8G",
+    "parallelism": "4"
+  }
+}
+]

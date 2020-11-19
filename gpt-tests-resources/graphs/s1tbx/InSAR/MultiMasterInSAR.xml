@@ -1,0 +1,99 @@
+<graph id="Graph">
+  <version>1.0</version>
+  <node id="MultiMasterInSAR">
+    <operator>MultiMasterInSAR</operator>
+    <sources>
+      <sourceProduct refid="AddElevation"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <orbitDegree>$orbitDegree</orbitDegree>
+      <pairs/>
+      <includeWavenumber>$includeWavenumber</includeWavenumber>
+      <includeIncidenceAngle>$includeIncidenceAngle</includeIncidenceAngle>
+      <includeLatLon>$includeLatLon</includeLatLon>
+      <cohWindowAz>$cohWindowAz</cohWindowAz>
+      <cohWindowRg>$cohWindowRg</cohWindowRg>
+    </parameters>
+  </node>
+  <node id="Subset">
+    <operator>Subset</operator>
+    <sources>
+      <sourceProduct refid="MultiMasterInSAR"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <sourceBands>$sourceBands</sourceBands>
+      <region>$region</region>
+      <referenceBand/>
+      <geoRegion/>
+      <subSamplingX>$subSamplingX</subSamplingX>
+      <subSamplingY>$subSamplingY</subSamplingY>
+      <fullSwath>$fullSwath</fullSwath>
+      <tiePointGridNames/>
+      <copyMetadata>true</copyMetadata>
+    </parameters>
+  </node>
+  <node id="CreateStack">
+    <operator>CreateStack</operator>
+    <sources>
+      <sourceProduct.3 refid="ProductSet-Reader"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <masterBands/>
+      <sourceBands/>
+      <resamplingType>NONE</resamplingType>
+      <extent>Master</extent>
+      <initialOffsetMethod>Orbit</initialOffsetMethod>
+    </parameters>
+  </node>
+  <node id="AddElevation">
+    <operator>AddElevation</operator>
+    <sources>
+      <sourceProduct refid="CreateStack"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <demName>$demName</demName>
+      <demResamplingMethod>$demResamplingMethod</demResamplingMethod>
+      <externalDEMFile/>
+      <externalDEMNoDataValue>0.0</externalDEMNoDataValue>
+      <elevationBandName>$elevationBandName</elevationBandName>
+    </parameters>
+  </node>
+  <node id="Write">
+    <operator>Write</operator>
+    <sources>
+      <sourceProduct refid="Subset"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+	    <file>$output</file>
+      <formatName>BEAM-DIMAP</formatName>
+    </parameters>
+  </node>
+  <node id="ProductSet-Reader">
+    <operator>ProductSet-Reader</operator>
+    <sources/>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+	    <fileList>$input1,$input2,$input3</fileList>
+    </parameters>
+  </node>
+  <applicationData id="Presentation">
+    <Description/>
+    <node id="MultiMasterInSAR">
+      <displayPosition x="473.0" y="119.0"/>
+    </node>
+    <node id="Subset">
+      <displayPosition x="650.0" y="120.0"/>
+    </node>
+    <node id="CreateStack">
+      <displayPosition x="187.0" y="120.0"/>
+    </node>
+    <node id="AddElevation">
+      <displayPosition x="333.0" y="120.0"/>
+    </node>
+    <node id="Write">
+      <displayPosition x="779.0" y="120.0"/>
+    </node>
+    <node id="ProductSet-Reader">
+      <displayPosition x="17.0" y="121.0"/>
+    </node>
+  </applicationData>
+</graph>
