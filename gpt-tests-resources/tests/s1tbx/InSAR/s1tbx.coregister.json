@@ -48,6 +48,30 @@
   }
 },
 {
+  "id":"s1tbx.insar.coregister.stripmap-demod-remod",
+  "author": "Sensar",
+  "description":"execute cross correlation coregistration with demod and remod for stripmap",
+  "frequency":"daily/s1tbx/insar/coreg",
+  "graphPath": "s1tbx/InSAR/CoregisterDemodRemod.xml",
+  "inputs": {
+    "input1": "s1tbx/SAR/ASAR/ASA_IMS_1PNESA20061223_134214_000000182054_00067_25171_0000.N1",
+    "input2": "s1tbx/SAR/ASAR/ASA_IMS_1PNESA20070825_134215_000000172061_00067_28678_0000.N1"
+  },
+  "parameters": {
+	"geoRegion": "POLYGON ((-68.06889271369347 -45.37527581838461, -68.34681972650382 -45.31276186906374, -68.3676557757978 -45.35990370333475, -68.0894747262323 -45.422468767121224, -68.06889271369347 -45.37527581838461))"
+  },
+  "outputs": [{
+    "parameter": "out1",
+    "outputName": "out-insar-coregister-stripmap-demod-remod",
+    "expected": "s1tbx/InSAR/expected-insar-coregister-stripmap-demod-remod.json"
+  }],
+  "configVM": {
+    "xmx": "12G",
+    "cacheSize": "8G",
+    "parallelism": "4"
+  }
+},
+{
   "id":"s1tbx.insar.coregister.tsx-spotlight",
   "author": "Sensar",
   "description":"execute cross correlation coregistration for TSX spotlight",
@@ -72,6 +96,3 @@
   }
 }
 ]
-
-
-
