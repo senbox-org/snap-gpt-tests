@@ -456,7 +456,7 @@ def __run_tests__(args, properties):
                     log.success(f"test `{test.name}` succeded")    
                 else:
                     log.error(f"test `{test.name} failed")
-                if result != Result.PASSED and not isinstance(TestScope.init(args.scope), TestScope):
+                if not isinstance(TestScope.init(args.scope), TestScope):
                     # copy output files
                     __copy_output__(test, args, properties)
     json_name = os.path.split(args.json_path)[-1]

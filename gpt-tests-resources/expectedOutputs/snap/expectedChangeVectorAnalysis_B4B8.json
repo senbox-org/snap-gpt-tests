@@ -1,0 +1,86 @@
+{
+  "id": "changeVectorAnalysisResult",
+  "decodeQualification": "INTENDED",
+  "expectedContent": {
+    "sceneWidth": 3246,
+    "sceneHeight": 1584,
+    "startTime": "18-NOV-2020 10:43:29.023999",
+    "endTime": "18-NOV-2020 10:43:29.023999",
+    "geoCoding": {
+      "coordinates": [
+        {
+          "x": 0.0,
+          "y": 0.0,
+          "lat": 3.384967,
+          "lon": 47.442174
+        },
+        {
+          "x": 58.0,
+          "y": 51.0,
+          "lat": 3.392626,
+          "lon": 47.437559
+        }
+      ],
+      "reverseAccuracy": 1.4081888366490602E-7
+    },
+    "flagCodings": [],
+    "bands": [
+      {
+        "name": "magnitude",
+        "description": "",
+        "bandWidth": 3246,
+        "bandHeight": 1584,
+        "noDataValue": "NaN",
+        "noDataValueUsed": "false",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 35,
+            "y": 44,
+            "value": 0.02656
+          },
+          {
+            "x": 75,
+            "y": 64,
+            "value": 0.02807
+          },
+          {
+            "x": 223,
+            "y": 144,
+            "value": 0.12692
+          }
+        ]
+      },
+      {
+        "name": "direction",
+        "description": "",
+        "bandWidth": 3246,
+        "bandHeight": 1584,
+        "noDataValue": "NaN",
+        "noDataValueUsed": "false",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 251,
+            "y": 270,
+            "value": 119.74488
+          },
+          {
+            "x": 1166,
+            "y": 542,
+            "value": 297.59729
+          },
+          {
+            "x": 1292,
+            "y": 251,
+            "value": 235.86406
+          }
+        ]
+      }
+    ],
+    "metadata": [
+    ]
+  }
+}
