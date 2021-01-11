@@ -134,8 +134,6 @@ class DBAdaptor:
             ) VALUES (
                 %s, %s, %s, %s, %s, %s, %s, %s
             );'''
-            print(test.graph_xml)
-            print(query)
             self.execute(query, (new_id, name, parent_set, test.description,
                                  test.author, test.frequency, 
                                  test.graph_path, test.graph_xml))
@@ -204,6 +202,8 @@ class DBAdaptor:
         """
         docker_id = self.docker_tag_id(docker_tag)
         test_id = self.test_id(test)
+        if not test_id:
+            return []
 
         query = f'''SELECT {value_tag} FROM results
             WHERE test={test_id} and job in
@@ -277,9 +277,12 @@ class MySQLAdaptor(DBAdaptor):
     @ensure_connection
     def execute(self, query, *args):
         with self.__db__.cursor() as cursor:
-            cursor.execute(query, *args)
-            res_list = cursor.fetchall()
-        return res_list
+            try: 
+                cursor.execute(query, *args)
+                res_list = cursor.fetchall()
+                return res_list
+            except Exception:
+                return []
 
     def docker_tag_id(self, tag_name):
         """
