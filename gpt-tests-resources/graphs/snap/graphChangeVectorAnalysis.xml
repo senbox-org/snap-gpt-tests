@@ -1,0 +1,55 @@
+<graph id="Graph">
+  <version>1.0</version>
+  <node id="Read">
+    <operator>Read</operator>
+    <sources/>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <file>$input1</file>
+    </parameters>
+  </node>
+  <node id="Read(2)">
+    <operator>Read</operator>
+    <sources/>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <file>$input2</file>
+    </parameters>
+  </node>
+  <node id="ChangeVectorAnalysis">
+    <operator>ChangeVectorAnalysisOp</operator>
+    <sources>
+      <sourceProduct1 refid="Read"/>
+      <sourceProduct2 refid="Read(2)"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <sourceBand1>$sourceBand1</sourceBand1>
+      <sourceBand2>$sourceBand2</sourceBand2>
+      <magnitudeThreshold>$magnitudeThreshold</magnitudeThreshold>
+    </parameters>
+  </node>
+  <node id="Write">
+    <operator>Write</operator>
+    <sources>
+      <sourceProduct refid="ChangeVectorAnalysis"/>
+      <!-- <sourceProduct refid="Read"/> -->
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <file>$out1</file>
+      <formatName>BEAM-DIMAP</formatName>
+    </parameters>
+  </node>
+  <applicationData id="Presentation">
+    <Description/>
+    <node id="Read">
+            <displayPosition x="66.0" y="60.0"/>
+    </node>
+    <node id="ChangeVectorAnalysis">
+      <displayPosition x="230.0" y="110.0"/>
+    </node>
+    <node id="Read(2)">
+      <displayPosition x="78.0" y="161.0"/>
+    </node>
+    <node id="Write">
+            <displayPosition x="365.0" y="111.0"/>
+    </node>
+  </applicationData>
+</graph>
