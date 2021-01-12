@@ -216,7 +216,7 @@ class TestResult(Test):
                 'reference': '-',
                 'average': '-'
             }
-            if self.__adaptor__ is not None:
+            if self.__adaptor__ is not None and self.name is not None:
                 db_key = key
                 if param == 'average':
                     db_key += '_avg'
