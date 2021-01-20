@@ -780,12 +780,35 @@
           {
             "x": 1054,
             "y": 1008,
-            "value": 0.42102537
+            "value": 0.42176995
           },
           {
             "x": 1553,
             "y": 792,
-            "value": 0.5015901
+            "value": 0.5026777
+          }
+        ]
+      },
+      {
+        "name": "transDesmiled_13",
+        "description": "",
+        "bandWidth": 4865,
+        "bandHeight": 4091,
+        "geophysicalUnit": "dl",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 1374,
+            "y": 3613,
+            "value": 0.42284912
+          },
+          {
+            "x": 4853,
+            "y": 309,
+            "value": "NaN"
           }
         ]
       },
@@ -801,14 +824,14 @@
         "spectralBandwidth": "0.0",
         "expectedPixels": [
           {
-            "x": 1374,
-            "y": 3613,
-            "value": 561.3339
+            "x": 3984,
+            "y": 2052,
+            "value": 580.1332
           },
           {
-            "x": 4853,
-            "y": 309,
-            "value": "NaN"
+            "x": 305,
+            "y": 1576,
+            "value": 561.65875
           }
         ]
       },
@@ -824,14 +847,14 @@
         "spectralBandwidth": "0.0",
         "expectedPixels": [
           {
-            "x": 3984,
-            "y": 2052,
-            "value": 0.3127117
+            "x": 1349,
+            "y": 2381,
+            "value": 0.3124434
           },
           {
-            "x": 305,
-            "y": 1576,
-            "value": 0.31251067
+            "x": 4517,
+            "y": 568,
+            "value": 0.31300306
           }
         ]
       },
@@ -847,23 +870,19 @@
         "spectralBandwidth": "0.0",
         "expectedPixels": [
           {
-            "x": 1349,
-            "y": 2381,
-            "value": 2.9886189
+            "x": 508,
+            "y": 595,
+            "value": 27.349422
           },
           {
-            "x": 4517,
-            "y": 568,
-            "value": 24.78326
+            "x": 4299,
+            "y": 436,
+            "value": 6.2061605
           }
         ]
       }
     ],
     "metadata": [
-      {
-        "path": "Processing_Graph/node.0/parameters/writeHarmonisedRadiances",
-        "value": "true"
-      },
       {
         "path": "Processing_Graph/node.1/parameters/deleteOutputOnFailure",
         "value": "true"
@@ -879,10 +898,6 @@
       {
         "path": "Processing_Graph/node.1/parameters/clearCacheAfterRowWrite",
         "value": "false"
-      },
-      {
-        "path": "Processing_Graph/node.1/sources/sourceProduct",
-        "value": "O2aHarmonisation"
       }
     ]
   }
