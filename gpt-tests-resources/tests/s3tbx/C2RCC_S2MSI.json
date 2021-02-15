@@ -38,6 +38,25 @@
         "expected": "s3tbx/expectedC2RCC_S2MSI_c2x-nets.json"
       }
     ]
+  },
+  {
+    "id": "C2RCC_S2MSI_inland-nets",
+    "author": "BC",
+    "description": "execute S2 MSI C2RCC with inland nets",
+    "frequency": "daily",
+    "graphPath": "s3tbx/graphC2RCC_S2MSI.xml",
+    "inputs": {
+      "input": "s3tbx/sensors_platforms/SENTINEL-2/S2A_OPER_MTD_SAFL1C_PDMC_20160912T173456_R108_V20160912T103022_20160912T103551_T32UNE_resampled.dim"
+    },
+    "parameters": {
+      "nets": "INLAND-Nets"
+    },
+    "outputs": [
+      {
+        "parameter": "output",
+        "outputName": "C2RCC_S2MSI_inland-nets",
+        "expected": "s3tbx/expectedC2RCC_S2MSI_inland-nets.json"
+      }
+    ]
   }
-
 ]
