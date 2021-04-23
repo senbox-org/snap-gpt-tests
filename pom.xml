@@ -15,8 +15,9 @@
 
     <properties>
         <jackson.version>2.10.0</jackson.version>
+        <snap.version>8.0.4-SNAPSHOT</snap.version>
+        <reader.tests.version>8.0.1-SNAPSHOT</reader.tests.version>
     </properties>
-
 
     <dependencyManagement>
         <dependencies>
@@ -28,12 +29,12 @@
             <dependency>
                 <groupId>org.esa.snap</groupId>
                 <artifactId>snap-engine-kit</artifactId>
-                <version>${project.version}</version>
+                <version>${snap.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.esa.snap</groupId>
                 <artifactId>snap-reader-tests</artifactId>
-                <version>${project.version}</version>
+                <version>${reader.tests.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
