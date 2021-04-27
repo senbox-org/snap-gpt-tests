@@ -303,10 +303,14 @@ def __log_stdout__(output):
 
 
 
-def __queue_output__(out, queue):
+def __queue_output__(out, queue, process):
     for line in iter(out.readline, b''):
         line = line.decode('utf-8')
         __log_stdout__(line)
+        if( "graph is done" in line):
+            print("interruption by progress monitor message")
+            time.sleep(2)
+            process.terminate()
         queue.put(line)
     out.close()
 
@@ -332,6 +336,8 @@ def profile(command, sampling_time, output, **kwargs):
     env = os.environ
     if 'env' in kwargs:
         env = kwargs['env']
+    print(env)
+    print(command)
     proc = subprocess.Popen(command, 
                             stdout=subprocess.PIPE, 
                             stderr=subprocess.STDOUT,
@@ -340,15 +346,11 @@ def profile(command, sampling_time, output, **kwargs):
 
     # start stdout thread.
     queue = Queue()
-    stdout_thread = Thread(target=__queue_output__, args=(proc.stdout, queue))
-    stdout_thread.daemon = True # thread dies with the program
-    stdout_thread.start()
-
     # wait some time according to arguments
     if 'wait' in kwargs and kwargs['wait']:
         time.sleep(2)
 
-    # check if porcessing (still) exists
+    # check if processing (still) exists
     if not psutil.pid_exists(pid):
         return 1, "Process not found..."
 
@@ -358,23 +360,25 @@ def profile(command, sampling_time, output, **kwargs):
     if 'child' in kwargs and kwargs['child']:
         chld = process.children()
         process = process if chld else chld[0]
-
+    stdout_thread = Thread(target=__queue_output__, args=(proc.stdout, queue,process))
+    stdout_thread.daemon = True # thread dies with the program
+    stdout_thread.start()
     # initilize results variables
     pid = process.pid
     p_stats = ProcessStats()
     timeout = -1
     if 'timeout' in kwargs:
         timeout = int(kwargs['timeout'])
-
+        print('timeout = ',timeout)
     stdout = ''
-
+    sampling_time *=10
     try:
         while psutil.pid_exists(pid) and process.status() not in __END_STATUS__:
             # while process is running
             p_stats.update(process) # update stats
-            if 0 < timeout >= p_stats.time():
+            if 0 < timeout  and timeout <= p_stats.time():
                 process.terminate()
-            time.sleep(sampling_time) # wait for next sampling
+            time.sleep(sampling_time) # wait for next sampling 
     except psutil.NoSuchProcess:
         print("Process Terminated")
 
@@ -393,7 +397,6 @@ def profile(command, sampling_time, output, **kwargs):
     summary = p_stats.summary()
     # display/store summary
     perf_fm.summary(summary)
-
 
     # plot results if needed
     # NOTE: only import matplotlib library here to avoid including it and limiting the functionality
