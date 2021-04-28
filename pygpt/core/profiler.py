@@ -383,8 +383,7 @@ def profile(command, sampling_time, output, **kwargs):
         print("Process Terminated")
 
     # retrive process return code
-    # returncode = proc.wait() # proc.returncode if proc.returncode else 0
-    returncode = 0
+    returncode = proc.wait() # proc.returncode if proc.returncode else 0
     
     # read stdoutput lines if any
     while not queue.empty():
