@@ -254,6 +254,8 @@ def __check_outputs__(test, args, properties):
             if result.returncode != 0:
                 log.error(f"test `{test.name}` failed:\n{stdout}")
                 return False, stdout
+        else:
+            log.info(f'comparing unavaible: ',output)
 
     return True, stdout
 
