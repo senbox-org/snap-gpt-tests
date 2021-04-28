@@ -307,11 +307,11 @@ def __queue_output__(out, queue, process, pid):
     for line in iter(out.readline, b''):
         line = line.decode('utf-8')
         __log_stdout__(line)
-        if(psutil.pid_exists(pid)):
-            if( "graph is done" in line):
-                print("interruption by progress monitor message")
-                time.sleep(5)
-                process.terminate()
+        # if(psutil.pid_exists(pid)):
+        #     if( "graph is done" in line):
+        #         print("interruption by progress monitor message")
+        #         time.sleep(5)
+        #         process.terminate()
         queue.put(line)
     out.close()
 
