@@ -307,11 +307,11 @@ def __queue_output__(out, queue, process, pid):
     for line in iter(out.readline, b''):
         line = line.decode('utf-8')
         __log_stdout__(line)
-        # if(psutil.pid_exists(pid)):
-        #     if( "graph is done" in line):
-        #         print("interruption by progress monitor message")
-        #         time.sleep(5)
-        #         process.terminate()
+        if(psutil.pid_exists(pid)):
+            if( "graph is done" in line):
+                print("interruption by progress monitor message")
+                time.sleep(5)
+                process.terminate()
         queue.put(line)
     out.close()
 
@@ -372,7 +372,6 @@ def profile(command, sampling_time, output, **kwargs):
         timeout = int(kwargs['timeout'])
         print('timeout = ',timeout)
     stdout = ''
-    sampling_time *=10
     try:
         while psutil.pid_exists(pid) and process.status() not in __END_STATUS__:
             # while process is running
@@ -384,7 +383,8 @@ def profile(command, sampling_time, output, **kwargs):
         print("Process Terminated")
 
     # retrive process return code
-    returncode = proc.wait() # proc.returncode if proc.returncode else 0
+    # returncode = proc.wait() # proc.returncode if proc.returncode else 0
+    returncode = 0
     
     # read stdoutput lines if any
     while not queue.empty():

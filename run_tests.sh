@@ -31,7 +31,7 @@ echo "Running tests..."
 cat $OUTDIR/JSONTestFiles.txt | while read jsonFile
 do
     echo "Running ${jsonFile}"
-    python3 pygpt/snap_gpt_test.py java "-Dncsa.hdf.hdflib.HDFLibrary.hdflib=${SNAP_DIR}/snap/modules/lib/amd64/libjhdf.so -Dncsa.hdf.hdf5lib.H5.hdf5lib=${SNAP_DIR}/snap/modules/lib/amd64/libjhdf5.so -cp gpt-tests-executer/target/TestOutput.jar" org.esa.snap.test.TestOutput snap.conf $SCOPE $jsonFile $OUTDIR/output true --debug True
+    python3 pygpt/snap_gpt_test.py java "-Dncsa.hdf.hdflib.HDFLibrary.hdflib=${SNAP_DIR}/snap/modules/lib/amd64/libjhdf.so -Dncsa.hdf.hdf5lib.H5.hdf5lib=${SNAP_DIR}/snap/modules/lib/amd64/libjhdf5.so -cp gpt-tests-executer/target/TestOutput.jar" org.esa.snap.test.TestOutput snap.conf $SCOPE $jsonFile $OUTDIR/output true
 done
 mv $OUTDIR/output $OUTDIR/report/output
 cat $OUTDIR/report/output/Report_*.txt > $OUTDIR/report/output/report.txt
@@ -41,4 +41,4 @@ cp -R pygpt/statics/* $OUTDIR/report/
 echo "Generate report"
 python3 pygpt/report_utils.py pygpt/templates $OUTDIR/report $SCOPE snap:master $DBCONF
 echo "Updating database"
-# python3 pygpt/stats_db.py $DBCONF $TAG $SCOPE $OUTDIR/report $ID master
+# python3 pygpt/stats_db.py $DBCONF $TAG $SCOPE $OUTDIR/report $ID snap:master

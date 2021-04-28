@@ -263,7 +263,6 @@ def __check_outputs__(test, args, properties):
 
 def debug_log(args, *msgs):
     """Log debug event in a file."""
-    print("args.debug: ",args.debug)
     if args.debug:
         log.debug(msgs)
         path = os.path.join(args.report_dir, 'gpt_debug.log')
