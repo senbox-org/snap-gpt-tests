@@ -40,5 +40,5 @@ cp -R pygpt/statics/* $OUTDIR/report/
 
 echo "Generate report"
 python3 pygpt/report_utils.py pygpt/templates $OUTDIR/report $SCOPE snap:master $DBCONF
-echo "Updating database"
+# echo "Updating database"
 # python3 pygpt/stats_db.py $DBCONF $TAG $SCOPE $OUTDIR/report $ID snap:master
