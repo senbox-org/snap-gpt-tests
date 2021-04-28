@@ -263,7 +263,9 @@ def __check_outputs__(test, args, properties):
 
 def debug_log(args, *msgs):
     """Log debug event in a file."""
+    print("args.debug: ",args.debug)
     if args.debug:
+        log.debug(msgs)
         path = os.path.join(args.report_dir, 'gpt_debug.log')
         timestamp = datetime.datetime.now().strftime(__DATE_FMT__)
         log_mesg = ' '.join([f'{arg}' for arg in msgs])

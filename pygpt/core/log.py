@@ -29,7 +29,7 @@ class _LogLevel(Enum):
     ERROR = 'ERROR' #'\x1b[31;1mERROR\x1b[0m'
     WARNING = 'WARNING' #\x1b[33;1mWARNING\x1b[0m'
     SUCCESS = 'SUCCESS' #\x1b[32;1mSUCCESS\x1b[0m'
-
+    DEBUG = 'DEBUG' #'\x1b[1mDEBUG\x1b[0m'
 
 # global variable for verbosity
 __verbosity__ = Verbosity.VERBOSE
@@ -103,7 +103,9 @@ def success(*args):
     """Log success"""
     __msg__(_LogLevel.SUCCESS, *args)
 
-
+def debug(*args):
+    """Log info"""
+    __msg__(_LogLevel.DEBUG, *args)
 
 class Printable:
     """

@@ -303,14 +303,15 @@ def __log_stdout__(output):
 
 
 
-def __queue_output__(out, queue, process):
+def __queue_output__(out, queue, process, pid):
     for line in iter(out.readline, b''):
         line = line.decode('utf-8')
         __log_stdout__(line)
-        if( "graph is done" in line):
-            print("interruption by progress monitor message")
-            time.sleep(2)
-            process.terminate()
+        if(psutil.pid_exists(pid)):
+            if( "graph is done" in line):
+                print("interruption by progress monitor message")
+                time.sleep(5)
+                process.terminate()
         queue.put(line)
     out.close()
 
@@ -360,7 +361,7 @@ def profile(command, sampling_time, output, **kwargs):
     if 'child' in kwargs and kwargs['child']:
         chld = process.children()
         process = process if chld else chld[0]
-    stdout_thread = Thread(target=__queue_output__, args=(proc.stdout, queue,process))
+    stdout_thread = Thread(target=__queue_output__, args=(proc.stdout, queue, process, pid))
     stdout_thread.daemon = True # thread dies with the program
     stdout_thread.start()
     # initilize results variables
