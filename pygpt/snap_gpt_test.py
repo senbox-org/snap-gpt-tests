@@ -230,6 +230,7 @@ def __check_outputs__(test, args, properties):
     output_conformity, stdout
     """
     stdout = ''
+    log.info(f'check outputs')
     for output in test.outputs:
         if 'expected' in output and output['expected'] is not None and output['expected'] != "":
             # check output
@@ -254,6 +255,8 @@ def __check_outputs__(test, args, properties):
             if result.returncode != 0:
                 log.error(f"test `{test.name}` failed:\n{stdout}")
                 return False, stdout
+        else:
+            log.warning(f'comparing unavaible: ',output)
 
     return True, stdout
 
@@ -261,6 +264,7 @@ def __check_outputs__(test, args, properties):
 def debug_log(args, *msgs):
     """Log debug event in a file."""
     if args.debug:
+        log.debug(msgs)
         path = os.path.join(args.report_dir, 'gpt_debug.log')
         timestamp = datetime.datetime.now().strftime(__DATE_FMT__)
         log_mesg = ' '.join([f'{arg}' for arg in msgs])
