@@ -230,6 +230,7 @@ def __check_outputs__(test, args, properties):
     output_conformity, stdout
     """
     stdout = ''
+    log.info(f'check outputs')
     for output in test.outputs:
         if 'expected' in output and output['expected'] is not None and output['expected'] != "":
             # check output
@@ -255,7 +256,7 @@ def __check_outputs__(test, args, properties):
                 log.error(f"test `{test.name}` failed:\n{stdout}")
                 return False, stdout
         else:
-            log.info(f'comparing unavaible: ',output)
+            log.warning(f'comparing unavaible: ',output)
 
     return True, stdout
 
