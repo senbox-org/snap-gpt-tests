@@ -1,0 +1,27 @@
+[
+{
+  "id": "s1tbx.insar.vhmop",
+  "author": "Sensar",
+  "description": "execute HorizontalVerticalMotion",
+  "frequency": "daily/s1tbx/insar/horizontalverticalmotion",
+  "graphPath": "s1tbx/InSAR/VHMOp.xml",
+  "inputs":{
+    "input1": "s1tbx/SAR/S1/S1B_IW_SLC__1SDV_20161027T165655_20161027T165722_002695_0048F6_1E81.zip",
+    "input2": "s1tbx/SAR/S1/S1A_IW_SLC__1SDV_20161102T165742_20161102T165809_013766_0161AB_5A25.zip",
+    "input3": "s1tbx/SAR/S1/S1B_IW_SLC__1SDV_20161026T051043_20161026T051110_002673_004854_D5C4.zip",
+    "input4": "s1tbx/SAR/S1/S1A_IW_SLC__1SDV_20161101T051118_20161101T051145_013744_0160F4_D5C1.zip"
+  },
+    "parameters": {
+  },
+  "outputs": [{
+    "parameter": "output",
+    "outputName": "output-test-vhmop",
+    "expected": "s1tbx/InSAR/expected-insar-vhmop.json"
+  }],
+  "configVM": {
+    "xmx": "12G",
+    "cacheSize": "8G",
+    "parallelism": "4"
+  }
+}
+]
