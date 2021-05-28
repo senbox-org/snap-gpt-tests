@@ -1,11 +1,11 @@
 [{
-  "id":"Landsat8L2HReaderTest",
+  "id":"Landsat8L2FReaderTest",
   "author": "CSFrance",
   "description":"execute Sentinel 2A (level L2H Landsat8) product reader and operators",
   "frequency":"daily/L2HF",
   "graphPath": "s2tbx/graphReaderMultiLevel.xml",
   "inputs": {
-    "input1": "s2tbx/S2/L2HF/LS8_OLIL2H_20200121T103424_N9999_R198_T31UFS_20200128T084427.SAFE/MTD_OLIL2H.xml"
+    "input1": "s2tbx/S2/L2HF/LS8_OLIL2F_20200121T103424_N9999_R198_T31UFS_20200128T084427.SAFE/MTD_OLIL2F.xml"
   },
   "parameters": {
     "referenceBand": "B1",
@@ -15,7 +15,7 @@
   },
   "outputs": [{
     "parameter": "out1",
-    "outputName": "tempLandsat8L2H",
-    "expected": "s2tbx/expectedLandsat8L2H.json"
+    "outputName": "tempLandsat8L2F",
+    "expected": "s2tbx/expectedLandsat8L2F.json"
   }]
 }]
