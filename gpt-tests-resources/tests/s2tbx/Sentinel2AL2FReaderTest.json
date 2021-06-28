@@ -1,0 +1,21 @@
+[{
+  "id":"Sentinel2AL2FTest",
+  "author": "CSFrance",
+  "description":"execute Sentinel 2A (level L2H) product reader and operators",
+  "frequency":"daily/fail/L2HF",
+  "graphPath": "s2tbx/graphReaderMultiLevel.xml",
+  "inputs": {
+    "input1": "s2tbx/S2/L2HF/S2A_MSIL2F_20200101T105441_N9999_R051_T31UFS_20200101T112309.SAFE/MTD_MSIL2F.xml"
+  },
+  "parameters": {
+    "referenceBand": "B1",
+    "sourceBands": "B1,B2,B3,B4,B5,B6,B7,B8,B8A,B11,B12",
+    "subsetRegion": "1 ,1,300,300",
+    "crs": "WGS84(DD)"
+  },
+  "outputs": [{
+    "parameter": "out1",
+    "outputName": "tempSentinel2AL2F",
+    "expected": "s2tbx/expectedSentinel2AL2F.json"
+  }]
+}]
