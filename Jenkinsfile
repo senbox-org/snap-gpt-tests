@@ -139,7 +139,7 @@ Check console output at ${env.BUILD_URL}
 ${env.JOB_NAME} [${env.BUILD_NUMBER}]""",
                                  attachLog: false,
                                  compressLog: false,
-                                 to: 'martino.ferrari@c-s.fr,jean.seyral@c-s.fr')
+                                 to: 'florian.douziech@csgroup.eu')
                      }
              }
          }
