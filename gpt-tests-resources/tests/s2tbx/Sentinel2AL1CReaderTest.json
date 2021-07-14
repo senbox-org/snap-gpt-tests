@@ -2,7 +2,7 @@
   "id":"Sentinel2AL1CTest",
   "author": "CSRO",
   "description":"execute Sentinel 2A (level L1C) product reader and operators",
-  "frequency":"daily",
+  "frequency":"daily/Sentinel2reader",
   "graphPath": "s2tbx/graphReaderMultiLevel.xml",
   "inputs": {
     "input1": "s2tbx/S2/L1C/S2A_MSIL1C_20161206T080312_N0204_R035_T34HFH_20161206T081929.SAFE"
@@ -11,6 +11,7 @@
     "referenceBand": "B1",
     "sourceBands": "B1,B2,B3,B4,B5,B6,B7,B8,B8A,B9,B10,B11,B12,view_zenith_mean,view_azimuth_mean,sun_zenith,sun_azimuth,view_zenith_B1,view_azimuth_B1,view_zenith_B2,view_azimuth_B2,view_zenith_B3,view_azimuth_B3,view_zenith_B4,view_azimuth_B4,view_zenith_B5,view_azimuth_B5,view_zenith_B6,view_azimuth_B6,view_zenith_B7,view_azimuth_B7,view_zenith_B8,view_azimuth_B8,view_zenith_B8A,view_azimuth_B8A,view_zenith_B9,view_azimuth_B9,view_zenith_B10,view_azimuth_B10,view_zenith_B11,view_azimuth_B11,view_zenith_B12,view_azimuth_B12",
     "subsetRegion": "1300,1200,200,200",
+    "tiePointGrids": "total_column_water_vapour,total_column_ozone,mean_sea_level_pressure",
     "crs": "WGS84(DD)"
   },
   "outputs": [{

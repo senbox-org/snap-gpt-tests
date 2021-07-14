@@ -92,6 +92,75 @@
     ],
     "bands": [
       {
+        "name": "total_column_water_vapour",
+        "description": "Total column water vapour at surface level provided by ECMWF",
+        "bandWidth": 575,
+        "bandHeight": 301,
+        "geophysicalUnit": "kg m**-2",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 156,
+            "y": 47,
+            "value": 18.139791488
+          },
+          {
+            "x": 66,
+            "y": 12,
+            "value": 18.1245403289
+          }
+          ]
+      },
+      {
+        "name": "total_column_ozone",
+        "description": "Total column ozone at surface level provided by ECMWF",
+        "bandWidth": 575,
+        "bandHeight": 301,
+        "geophysicalUnit": "kg m**-2",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+          "x": 116,
+          "y": 185,
+          "value": 0.00743671366944
+          },
+          {
+          "x": 88,
+          "y": 174,
+          "value": 0.0074362331070005
+          }
+        ]
+      },
+      {
+        "name": "mean_sea_level_pressure",
+        "description": "Mean sea level pressure at surface level provided by ECMWF",
+        "bandWidth": 575,
+        "bandHeight": 301,
+        "geophysicalUnit": "Pa",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+          "x": 157,
+          "y": 52,
+          "value": 100778.296875
+          },
+          {
+          "x": 14,
+          "y": 72,
+          "value": 100776.84375
+          }
+        ]
+      },
+      {
         "name": "B1",
         "description": "Reflectance in band B1",
         "bandWidth": 575,
@@ -1248,11 +1317,11 @@
     ],
     "metadata": [
       {
-        "path": "history/SubsetInfo/ProductNodeName.28",
+        "path": "history/SubsetInfo/ProductNodeName.31",
         "value": "view_zenith_B4"
       },
       {
-        "path": "history/SubsetInfo/ProductNodeName.11",
+        "path": "history/SubsetInfo/ProductNodeName.14",
         "value": "B11"
       },
       {
@@ -1280,11 +1349,11 @@
         "value": "None"
       },
       {
-        "path": "history/SubsetInfo/ProductNodeName.14",
+        "path": "history/SubsetInfo/ProductNodeName.17",
         "value": "quality_wvp"
       },
       {
-        "path": "history/SubsetInfo/ProductNodeName.33",
+        "path": "history/SubsetInfo/ProductNodeName.36",
         "value": "view_azimuth_B6"
       }
     ]
