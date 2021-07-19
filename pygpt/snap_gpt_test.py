@@ -311,7 +311,7 @@ def __run_test__(test, args, properties):
                                        wait=False,
                                        child=False,
                                        plot=True,
-                                       env=enviroment)
+                                       env=enviroment,timeout=2400)
         # execute the gpt test with the profiler at sampling time 200ms
     else:
         # execute gpt test without profiler
