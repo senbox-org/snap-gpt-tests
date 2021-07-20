@@ -129,7 +129,7 @@ pipeline {
          failure {
              script {
                      // send mail only on main job
-                     if ("${params.testScope}" == 'REGULAR' || "${params.testScope}" == 'DAILY' || "${params.testScope}" == 'WEEKLY' || "${params.testScope}" == 'RELEASE') {
+                     if ("${params.testScope}" == 'REGULAR' || "${params.testScope}" == 'WEEKLY' || "${params.testScope}" == 'RELEASE') {
                         echo "The test failed!"
                      } else if ("${params.saveOutput}" == 'true') {
                         emailext(
