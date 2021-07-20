@@ -244,14 +244,14 @@ def __check_outputs__(test, args, properties):
             cmd = [args.java_path]
             cmd += utils.split_args(args.java_args)
             cmd += [args.test_output, output_path, expected_output_path, output['outputName']]
+            log.info(cmd)
             result = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
             log.info(f'comparing done, result: {result.returncode}')
-            stdout = result.stdout.decode('utf-8')
+            stdout = result.stdout.decode('utf-8','ignore')
             stdout_file = os.path.join(args.report_dir, f'{test.name}_gptOutput.txt')
-
             with open(stdout_file, 'a') as file:
                 file.write(stdout)
-
+            
             if result.returncode != 0:
                 log.error(f"test `{test.name}` failed:\n{stdout}")
                 return False, stdout

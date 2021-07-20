@@ -305,7 +305,7 @@ def __log_stdout__(output):
 
 def __queue_output__(out, queue):
     for line in iter(out.readline, b''):
-        line = line.decode('utf-8')
+        line = line.decode('utf-8','ignore')
         __log_stdout__(line)
         queue.put(line)
     out.close()
