@@ -25,6 +25,75 @@
     },
     "bands": [
       {
+        "name": "total_column_water_vapour",
+        "description": "Total column water vapour at surface level provided by ECMWF",
+        "bandWidth": 308,
+        "bandHeight": 301,
+        "geophysicalUnit": "kg m**-2",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 156,
+            "y": 47,
+            "value": 49.507469177
+          },
+          {
+            "x": 66,
+            "y": 12,
+            "value": 49.8657684326
+          }
+          ]
+      },
+      {
+        "name": "total_column_ozone",
+        "description": "Total column ozone at surface level provided by ECMWF",
+        "bandWidth": 308,
+        "bandHeight": 301,
+        "geophysicalUnit": "kg m**-2",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+          "x": 116,
+          "y": 185,
+          "value": 0.00552426371723
+          },
+          {
+          "x": 88,
+          "y": 174,
+          "value": 0.00552414124831
+          }
+        ]
+      },
+      {
+        "name": "mean_sea_level_pressure",
+        "description": "Mean sea level pressure at surface level provided by ECMWF",
+        "bandWidth": 308,
+        "bandHeight": 301,
+        "geophysicalUnit": "Pa",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+          "x": 157,
+          "y": 52,
+          "value":  100884.03125
+          },
+          {
+          "x": 14,
+          "y": 72,
+          "value": 100878.7578125
+          }
+        ]
+      },
+      {
         "name": "B1",
         "description": "Reflectance in band B1",
         "bandWidth": 308,
@@ -1024,7 +1093,7 @@
         "value": "Resample"
       },
       {
-        "path": "history/SubsetInfo/ProductNodeName.39",
+        "path": "history/SubsetInfo/ProductNodeName.42",
         "value": "view_azimuth_B10"
       },
       {

@@ -2,7 +2,7 @@
   "id":"Subset_S2_B2B3_Ref",
   "author": "CS",
   "description":"execute subset operator in a S2L1C product with bands B2 and B3 and region",
-  "frequency":"daily/testOmar1",
+  "frequency":"daily/Subset_S2_Ref",
   "graphPath": "snap/graphSubsetRefBand.xml",
   "inputs": {
     "input1": "s2tbx/S2/L1C/S2A_MSIL1C_20181002T034551_N0206_R104_T47PMP_20181002T073417.SAFE"
@@ -11,6 +11,7 @@
     "subsetBands": "B2,B3",
     "subsetRegion": "300,300,200,200",
     "subsetGeoRegion": "",
+    "tiePointGrids": "total_column_water_vapour,total_column_ozone,mean_sea_level_pressure",
     "referenceBand": "B2"
   },
   "outputs": [{
@@ -23,7 +24,7 @@
     "id":"Subset_S2_B1B2_Ref",
     "author": "CS",
     "description":"execute subset operator in a S2L1C product with bands B1 and B2",
-    "frequency":"daily/testOmar2",
+    "frequency":"daily/Subset_S2_Ref",
     "graphPath": "snap/graphSubsetRefBand.xml",
     "inputs": {
       "input1": "s2tbx/S2/L1C/S2A_MSIL1C_20181002T034551_N0206_R104_T47PMP_20181002T073417.SAFE"
@@ -32,6 +33,7 @@
       "subsetBands": "B1,B2",
       "subsetRegion": "300,300,200,200",
       "subsetGeoRegion": "",
+      "tiePointGrids": "total_column_water_vapour,total_column_ozone,mean_sea_level_pressure",
       "referenceBand": "B1"
     },
     "outputs": [{
@@ -44,7 +46,7 @@
     "id":"Subset_S2_B1_Ref",
   "author": "CS",
     "description":"execute subset operator in a S2L1C product with band B1",
-    "frequency":"daily/testOmar3",
+    "frequency":"daily/Subset_S2_Ref",
     "graphPath": "snap/graphSubsetRefBand.xml",
     "inputs": {
       "input1": "s2tbx/S2/L1C/S2A_MSIL1C_20181002T034551_N0206_R104_T47PMP_20181002T073417.SAFE"
@@ -53,6 +55,7 @@
       "subsetBands": "B1",
       "subsetRegion": "300,300,200,200",
       "subsetGeoRegion": "",
+      "tiePointGrids": "total_column_water_vapour,total_column_ozone,mean_sea_level_pressure",
       "referenceBand": "B2"
     },
     "outputs": [{

@@ -3,7 +3,7 @@
     "id": "Subset_S2_B2B3",
     "author": "CS",
     "description": "execute subset operator in a S2L1C product",
-    "frequency": "daily/test",
+    "frequency": "daily/test/Subset_S2",
     "graphPath": "snap/graphSubset.xml",
     "inputs": {
       "input1": "s2tbx/S2/L1C/S2A_MSIL1C_20181002T034551_N0206_R104_T47PMP_20181002T073417.SAFE"
@@ -11,7 +11,8 @@
     "parameters": {
       "subsetBands": "B2,B3",
       "subsetRegion": "",
-      "subsetGeoRegion": ""
+      "subsetGeoRegion": "",
+      "tiePointGrids": ","
     },
     "outputs": [
       {
@@ -30,7 +31,7 @@
     "id": "Subset_S2_B1B2",
     "author": "CS",
     "description": "execute subset operator in a S2L1C product",
-    "frequency": "daily/test",
+    "frequency": "daily/test/Subset_S2",
     "graphPath": "snap/graphSubset.xml",
     "inputs": {
       "input1": "s2tbx/S2/L1C/S2A_MSIL1C_20181002T034551_N0206_R104_T47PMP_20181002T073417.SAFE"
@@ -38,7 +39,8 @@
     "parameters": {
       "subsetBands": "B1,B2",
       "subsetRegion": "",
-      "subsetGeoRegion": ""
+      "subsetGeoRegion": "",
+      "tiePointGrids": ","
     },
     "outputs": [
       {
@@ -57,7 +59,7 @@
     "id": "Subset_S2_B1B5",
     "author": "CS",
     "description": "execute subset operator in a S2L1C product",
-    "frequency": "daily/test",
+    "frequency": "daily/test/Subset_S2",
     "graphPath": "snap/graphSubset.xml",
     "inputs": {
       "input1": "s2tbx/S2/L1C/S2A_MSIL1C_20181002T034551_N0206_R104_T47PMP_20181002T073417.SAFE"
@@ -65,7 +67,8 @@
     "parameters": {
       "subsetBands": "B1,B5",
       "subsetRegion": "",
-      "subsetGeoRegion": ""
+      "subsetGeoRegion": "",
+      "tiePointGrids": ","
     },
     "outputs": [
       {
@@ -84,7 +87,7 @@
     "id": "Subset_S2_B1",
     "author": "CS",
     "description": "execute subset operator in a S2L1C product",
-    "frequency": "daily/test",
+    "frequency": "daily/test/Subset_S2",
     "graphPath": "snap/graphSubset.xml",
     "inputs": {
       "input1": "s2tbx/S2/L1C/S2A_MSIL1C_20181002T034551_N0206_R104_T47PMP_20181002T073417.SAFE"
@@ -92,7 +95,8 @@
     "parameters": {
       "subsetBands": "B1",
       "subsetRegion": "",
-      "subsetGeoRegion": ""
+      "subsetGeoRegion": "",
+      "tiePointGrids": ","
     },
     "outputs": [
       {
@@ -119,8 +123,7 @@
     "parameters": {
       "resolution": "100",
       "subsetRegion": "",
-      "subsetGeoRegion": "POLYGON ((129.67886636313352 -13.715721590621355, 129.94257830014863 -13.71485656993626, 129.93965436794002 -14.506365654676262, 129.32261661234406 -14.527300935742272, 129.41223291884015 -14.16209965802318, 129.44534222960078 -14.04397427350212, 129.58354686686687 -14.037649575863806, 129.58354686686687 -14.037649575863806, 129.582312828277 -14.037652549136581, 129.61166912843456 -13.93879216108192, 129.61166912843456 -13.93879216108192, 129.67886636313352 -13.715721590621355))"
-    },
+      "subsetGeoRegion": "POLYGON ((129.67886636313352 -13.715721590621355, 129.94257830014863 -13.71485656993626, 129.93965436794002 -14.506365654676262, 129.32261661234406 -14.527300935742272, 129.41223291884015 -14.16209965802318, 129.44534222960078 -14.04397427350212, 129.58354686686687 -14.037649575863806, 129.58354686686687 -14.037649575863806, 129.582312828277 -14.037652549136581, 129.61166912843456 -13.93879216108192, 129.61166912843456 -13.93879216108192, 129.67886636313352 -13.715721590621355))"    },
     "outputs": [
       {
         "parameter": "out1",

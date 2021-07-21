@@ -4,6 +4,8 @@
   "expectedContent": {
     "sceneWidth": 300,
     "sceneHeight": 300,
+    "startTime": "06-DEC-2016 08:03:12.026000",
+    "endTime": "06-DEC-2016 08:03:12.026000",
     "geoCoding": {
       "coordinates": [
         {
@@ -21,6 +23,68 @@
       ],
       "reverseAccuracy": 1.1314114090055227E-8
     },
+    "tiePointGrids": [
+      {
+        "name": "total_column_water_vapour",
+        "description": "Total column water vapour at surface level provided by ECMWF",
+        "offsetX": "-259.75",
+        "offsetY": "-559.75",
+        "subSamplingX": "610.0",
+        "subSamplingY": "610.0",
+        "expectedPixels": [
+          {
+            "x": 15,
+            "y": 53,
+            "value": 17.144371
+          },
+          {
+            "x": 205,
+            "y": 255,
+            "value": 17.057756
+          }
+        ]
+      },
+      {
+        "name": "total_column_ozone",
+        "description": "Total column ozone at surface level provided by ECMWF",
+        "offsetX": "-259.75",
+        "offsetY": "-559.75",
+        "subSamplingX": "610.0",
+        "subSamplingY": "610.0",
+        "expectedPixels": [
+          {
+            "x": 87,
+            "y": 77,
+            "value": 0.005775717
+          },
+          {
+            "x": 183,
+            "y": 109,
+            "value": 0.0057759625
+          }
+        ]
+      },
+      {
+        "name": "mean_sea_level_pressure",
+        "description": "Mean sea level pressure at surface level provided by ECMWF",
+        "offsetX": "-259.75",
+        "offsetY": "-559.75",
+        "subSamplingX": "610.0",
+        "subSamplingY": "610.0",
+        "expectedPixels": [
+          {
+            "x": 165,
+            "y": 223,
+            "value": 100764.555
+          },
+          {
+            "x": 182,
+            "y": 278,
+            "value": 100764.34
+          }
+        ]
+      }
+    ],
     "bands": [
       {
         "name": "B4",
@@ -34,14 +98,14 @@
         "spectralBandwidth": "90.0",
         "expectedPixels": [
           {
-            "x": 165,
-            "y": 223,
-            "value": 35.557106
+            "x": 47,
+            "y": 199,
+            "value": 72.13139
           },
           {
-            "x": 182,
-            "y": 278,
-            "value": 101.408516
+            "x": 155,
+            "y": 274,
+            "value": 91.148254
           }
         ]
       },
@@ -57,14 +121,14 @@
         "spectralBandwidth": "97.0",
         "expectedPixels": [
           {
-            "x": 47,
-            "y": 199,
-            "value": 66.4302
+            "x": 226,
+            "y": 145,
+            "value": 13.377725
           },
           {
-            "x": 155,
-            "y": 274,
-            "value": 68.88903
+            "x": 285,
+            "y": 145,
+            "value": 52.8441
           }
         ]
       },
@@ -80,32 +144,65 @@
         "spectralBandwidth": "40.0",
         "expectedPixels": [
           {
-            "x": 226,
-            "y": 145,
-            "value": 10.583316
+            "x": 102,
+            "y": 269,
+            "value": 11.411903
           },
           {
-            "x": 285,
-            "y": 145,
-            "value": 60.072556
+            "x": 2,
+            "y": 141,
+            "value": 87.60425
+          }
+        ]
+      },
+      {
+        "name": "B7",
+        "description": "Reflectance in band B7",
+        "bandWidth": 300,
+        "bandHeight": 300,
+        "geophysicalUnit": "Watts/m^2/micrometer/steradian",
+        "noDataValue": "0.0",
+        "noDataValueUsed": "false",
+        "spectralWavelength": "783.0",
+        "spectralBandwidth": "71.0",
+        "expectedPixels": [
+          {
+            "x": 98,
+            "y": 59,
+            "value": 78.48346
+          },
+          {
+            "x": 81,
+            "y": 12,
+            "value": 80.04769
+          }
+        ]
+      },
+      {
+        "name": "B8",
+        "description": "Reflectance in band B8",
+        "bandWidth": 300,
+        "bandHeight": 300,
+        "geophysicalUnit": "Watts/m^2/micrometer/steradian",
+        "noDataValue": "0.0",
+        "noDataValueUsed": "false",
+        "spectralWavelength": "842.0",
+        "spectralBandwidth": "175.0",
+        "expectedPixels": [
+          {
+            "x": 291,
+            "y": 181,
+            "value": 88.40976
+          },
+          {
+            "x": 171,
+            "y": 215,
+            "value": 69.65526
           }
         ]
       }
     ],
     "metadata": [
-      {
-        "path": "Processing_Graph/node.1/sources/sourceProduct",
-        "value": "ReflectanceToRadianceOp"
-
-      },
-      {
-        "path": "Processing_Graph/node.0/sources/sourceProduct",
-        "value": "product:Subset_S2A_MSIL1C_20161206T080312_N0204_R035_T34HFH_20161206T081929_resampled"
-      },
-      {
-        "path": "Processing_Graph/node.1/parameters/formatName",
-        "value": "BEAM-DIMAP"
-      },
       {
         "path": "Processing_Graph/node.0/sources/sourceProduct",
         "value": "product:Subset_S2A_MSIL1C_20161206T080312_N0204_R035_T34HFH_20161206T081929_resampled"
@@ -119,21 +216,32 @@
         "value": "0.0"
       },
       {
-        "path": "Processing_Graph/node.0/parameters/sourceBandNames",
-        "value": "B4,B5,B6,B7,B8"
+        "path": "Processing_Graph/node.0/parameters/solarIrradiance",
+        "value": "0.0"
       },
       {
-        "path": "Processing_Graph/node.0/parameters/copyMasks",
-        "value": "true"
+        "path": "Processing_Graph/node.0/parameters/u",
+        "value": "1.0293387"
       },
       {
         "path": "Processing_Graph/node.1/sources/sourceProduct",
         "value": "ReflectanceToRadianceOp"
-
       },
       {
         "path": "Processing_Graph/node.0/sources/sourceProduct",
         "value": "product:Subset_S2A_MSIL1C_20161206T080312_N0204_R035_T34HFH_20161206T081929_resampled"
+      },
+      {
+        "path": "Processing_Graph/node.1/parameters/formatName",
+        "value": "BEAM-DIMAP"
+      },
+      {
+        "path": "Processing_Graph/node.1/sources/sourceProduct",
+        "value": "ReflectanceToRadianceOp"
+      },
+      {
+        "path": "Processing_Graph/node.0/parameters/incidenceAngle",
+        "value": "0.0"
       }
     ]
   }
