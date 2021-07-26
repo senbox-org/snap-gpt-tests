@@ -12,16 +12,16 @@
                     "x": 86.0,
                     "y": 107.0,
                     "lat": 59.12641608901322,
-                    "lon": 12.964242958916476
+                    "lon": 12.96424314880278
                 },
                 {
                     "x": 148.0,
                     "y": 129.0,
                     "lat": 59.01847687130794,
-                    "lon": 13.18314106495378
+                    "lon": 13.183141207380686
                 }
             ],
-            "reverseAccuracy": 0.2929863249615039
+            "reverseAccuracy": 0.03
         },
         "flagCodings": [
             {
@@ -1485,7 +1485,7 @@
                     {
                         "x": 112,
                         "y": 43,
-                        "value": 0.119323194
+                        "value": "NaN"
                     },
                     {
                         "x": 19,
@@ -1847,6 +1847,10 @@
             {
                 "path": "Processing_Graph/node.1/sources/sourceProduct",
                 "value": "product:Subset_MER_FR__2PNEPA20060716_101936_000000982049_00280_22879_0373"
+            },
+            {
+                "path": "Processing_Graph/node.2/parameters/writeEntireTileRows",
+                "value": "false"
             },
             {
                 "path": "Processing_Graph/node.2/sources/sourceProduct",

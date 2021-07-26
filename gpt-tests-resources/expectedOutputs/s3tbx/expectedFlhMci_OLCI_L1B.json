@@ -11,17 +11,17 @@
         {
           "x": 2098.0,
           "y": 2199.0,
-          "lat": 25.261246263980865,
-          "lon": 137.93199062347412
+          "lat": 25.259380999999998,
+          "lon": 137.931706
         },
         {
           "x": 3612.0,
           "y": 2654.0,
-          "lat": 23.30077886581421,
-          "lon": 141.5888261795044
+          "lat": 23.302191,
+          "lon": 141.58829599999999
         }
       ],
-      "reverseAccuracy": 0.0887651576999815
+      "reverseAccuracy": 0.5
     },
     "flagCodings": [
       {
@@ -934,6 +934,52 @@
     ],
     "bands": [
       {
+        "name": "longitude",
+        "description": "DEM corrected longitude",
+        "bandWidth": 4865,
+        "bandHeight": 4091,
+        "geophysicalUnit": "degrees_east",
+        "noDataValue": "-2147.483648",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 1054,
+            "y": 1008,
+            "value": 135.78947
+          },
+          {
+            "x": 1553,
+            "y": 792,
+            "value": 137.26402
+          }
+        ]
+      },
+      {
+        "name": "latitude",
+        "description": "DEM corrected latitude",
+        "bandWidth": 4865,
+        "bandHeight": 4091,
+        "geophysicalUnit": "degrees_north",
+        "noDataValue": "-2147.483648",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 1374,
+            "y": 3613,
+            "value": 21.93344
+          },
+          {
+            "x": 4853,
+            "y": 309,
+            "value": 28.636942
+          }
+        ]
+      },
+      {
         "name": "MCI",
         "description": "Line height band",
         "bandWidth": 4865,
@@ -945,14 +991,14 @@
         "spectralBandwidth": "10.0",
         "expectedPixels": [
           {
-            "x": 1054,
-            "y": 1008,
-            "value": -9.7855215
+            "x": 3984,
+            "y": 2052,
+            "value": -1.0812725
           },
           {
-            "x": 1553,
-            "y": 792,
-            "value": -8.546571
+            "x": 305,
+            "y": 1576,
+            "value": -11.29433
           }
         ]
       },
@@ -968,14 +1014,14 @@
         "spectralBandwidth": "0.0",
         "expectedPixels": [
           {
-            "x": 1374,
-            "y": 3613,
-            "value": -0.07597607
+            "x": 1349,
+            "y": 2381,
+            "value": -0.22000659
           },
           {
-            "x": 4853,
-            "y": 309,
-            "value": "NaN"
+            "x": 4517,
+            "y": 568,
+            "value": -0.09107918
           }
         ]
       },
@@ -990,14 +1036,14 @@
         "spectralBandwidth": "0.0",
         "expectedPixels": [
           {
-            "x": 3984,
-            "y": 2052,
-            "value": 4194304.0
+            "x": 508,
+            "y": 595,
+            "value": 1.34217728E8
           },
           {
-            "x": 305,
-            "y": 1576,
-            "value": 1.34217728E8
+            "x": 4299,
+            "y": 436,
+            "value": 4194304.0
           }
         ]
       }
@@ -1198,14 +1244,6 @@
     ],
     "metadata": [
       {
-        "path": "Processing_Graph/node.1/parameters/writeEntireTileRows",
-        "value": "false"
-      },
-      {
-        "path": "Processing_Graph/node.0/parameters/slopeBandName",
-        "value": "MCI_slope"
-      },
-      {
         "path": "Processing_Graph/node.1/parameters/deleteOutputOnFailure",
         "value": "true"
       },
@@ -1220,6 +1258,10 @@
       {
         "path": "Processing_Graph/node.1/parameters/clearCacheAfterRowWrite",
         "value": "false"
+      },
+      {
+        "path": "Processing_Graph/node.1/sources/sourceProduct",
+        "value": "FlhMci"
       }
     ]
   }

@@ -11,17 +11,17 @@
         {
           "x": 2098.0,
           "y": 2199.0,
-          "lat": -28.051596999999997,
-          "lon": -41.574665249999995
+          "lat": -28.053303999999997,
+          "lon": -41.573305
         },
         {
           "x": 3612.0,
           "y": 2654.0,
-          "lat": -30.142114749999998,
-          "lon": -37.84178275
+          "lat": -30.14369,
+          "lon": -37.840756
         }
       ],
-      "reverseAccuracy": 0.67230821502244
+      "reverseAccuracy": 0.5
     },
     "tiePointGrids": [
       {
@@ -1041,6 +1041,52 @@
             "value": 0.8867207
           }
         ]
+      },
+      {
+        "name": "longitude",
+        "description": "DEM corrected longitude",
+        "bandWidth": 4865,
+        "bandHeight": 4091,
+        "geophysicalUnit": "degrees_east",
+        "noDataValue": "-2147.483648",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 4084,
+            "y": 2328,
+            "value": -36.34224
+          },
+          {
+            "x": 2872,
+            "y": 1628,
+            "value": -39.101547
+          }
+        ]
+      },
+      {
+        "name": "latitude",
+        "description": "DEM corrected latitude",
+        "bandWidth": 4865,
+        "bandHeight": 4091,
+        "geophysicalUnit": "degrees_north",
+        "noDataValue": "-2147.483648",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 1919,
+            "y": 4043,
+            "value": -32.653683
+          },
+          {
+            "x": 1116,
+            "y": 2933,
+            "value": -29.267004
+          }
+        ]
       }
     ],
     "metadata": [
@@ -1057,12 +1103,24 @@
         "value": "false"
       },
       {
+        "path": "Processing_Graph/node.1/sources/sourceProduct",
+        "value": "O2aHarmonisation"
+      },
+      {
         "path": "Processing_Graph/node.1/parameters/deleteOutputOnFailure",
         "value": "true"
       },
       {
         "path": "Processing_Graph/node.0/parameters/writeHarmonisedRadiances",
         "value": "false"
+      },
+      {
+        "path": "Processing_Graph/node.1/parameters/clearCacheAfterRowWrite",
+        "value": "false"
+      },
+      {
+        "path": "Processing_Graph/node.1/parameters/deleteOutputOnFailure",
+        "value": "true"
       }
     ]
   }

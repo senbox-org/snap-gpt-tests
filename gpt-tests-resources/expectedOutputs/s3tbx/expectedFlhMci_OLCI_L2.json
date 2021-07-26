@@ -11,17 +11,17 @@
         {
           "x": 2098.0,
           "y": 2199.0,
-          "lat": 25.402174651622772,
-          "lon": 26.6878479719162
+          "lat": 25.400053,
+          "lon": 26.688965999999997
         },
         {
           "x": 3612.0,
           "y": 2654.0,
-          "lat": 23.442403078079224,
-          "lon": 30.349059581756592
+          "lat": 23.443818,
+          "lon": 30.348527999999998
         }
       ],
-      "reverseAccuracy": 0.09080009250510557
+      "reverseAccuracy": 0.5
     },
     "flagCodings": [
       {
@@ -1034,6 +1034,52 @@
     ],
     "bands": [
       {
+        "name": "longitude",
+        "description": "DEM corrected longitude",
+        "bandWidth": 4865,
+        "bandHeight": 4091,
+        "geophysicalUnit": "degrees_east",
+        "noDataValue": "0.0",
+        "noDataValueUsed": "false",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 1054,
+            "y": 1008,
+            "value": 24.54515
+          },
+          {
+            "x": 1553,
+            "y": 792,
+            "value": 26.020535
+          }
+        ]
+      },
+      {
+        "name": "latitude",
+        "description": "DEM corrected latitude",
+        "bandWidth": 4865,
+        "bandHeight": 4091,
+        "geophysicalUnit": "degrees_north",
+        "noDataValue": "0.0",
+        "noDataValueUsed": "false",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 1374,
+            "y": 3613,
+            "value": 22.073904
+          },
+          {
+            "x": 4853,
+            "y": 309,
+            "value": 28.77657
+          }
+        ]
+      },
+      {
         "name": "FLH",
         "description": "Line height band",
         "bandWidth": 4865,
@@ -1044,13 +1090,13 @@
         "spectralBandwidth": "7.5",
         "expectedPixels": [
           {
-            "x": 1054,
-            "y": 1008,
+            "x": 3984,
+            "y": 2052,
             "value": "NaN"
           },
           {
-            "x": 1553,
-            "y": 792,
+            "x": 305,
+            "y": 1576,
             "value": "NaN"
           }
         ]
@@ -1067,13 +1113,13 @@
         "spectralBandwidth": "0.0",
         "expectedPixels": [
           {
-            "x": 1374,
-            "y": 3613,
+            "x": 1349,
+            "y": 2381,
             "value": "NaN"
           },
           {
-            "x": 4853,
-            "y": 309,
+            "x": 4517,
+            "y": 568,
             "value": "NaN"
           }
         ]
@@ -1089,14 +1135,14 @@
         "spectralBandwidth": "0.0",
         "expectedPixels": [
           {
-            "x": 3984,
-            "y": 2052,
-            "value": 4100.0
+            "x": 508,
+            "y": 595,
+            "value": 8388612.0
           },
           {
-            "x": 305,
-            "y": 1576,
-            "value": 4.0
+            "x": 4299,
+            "y": 436,
+            "value": 4100.0
           }
         ]
       },
@@ -1111,13 +1157,13 @@
         "spectralBandwidth": "0.0",
         "expectedPixels": [
           {
-            "x": 1349,
-            "y": 2381,
+            "x": 1800,
+            "y": 3605,
             "value": 0.0
           },
           {
-            "x": 4517,
-            "y": 568,
+            "x": 2846,
+            "y": 2354,
             "value": 0.0
           }
         ]
@@ -1429,17 +1475,63 @@
         "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
         "color": "63,63,127",
         "description": "WQSF_msb.RWNEG_O21"
+      },
+      {
+        "name": "WQSF_REFLECTANCE_RECOM",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "63,63,191",
+        "description": "Excluding pixels that are deemed unreliable for Water Leaving Reflectances. Flag recommended by QWG."
+      },
+      {
+        "name": "WQSF_CHL_OC4ME_RECOM",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "63,63,255",
+        "description": "Excluding pixels that are deemed unreliable for Algal Pigment Concentration. Flag recommended by QWG."
+      },
+      {
+        "name": "WQSF_KD490_M07_RECOM",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "63,127,0",
+        "description": "Excluding pixels that are deemed unreliable for Diffuse Attenuation Coefficient. Flag recommended by QWG."
+      },
+      {
+        "name": "WQSF_PAR_RECOM",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "63,127,63",
+        "description": "Excluding pixels that are deemed unreliable for Photosynthetically Active Radiation. Flag recommended by QWG."
+      },
+      {
+        "name": "WQSF_W_AER_RECOM",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "63,127,127",
+        "description": "Excluding pixels that are deemed unreliable for Aerosol Optical Thickness (T865) and Angstrom exponent (A865). Flag recommended by QWG."
+      },
+      {
+        "name": "WQSF_CHL_NN_RECOM",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "63,127,191",
+        "description": "Excluding pixels that are deemed unreliable for Algal Pigment Concentration. Flag recommended by QWG"
+      },
+      {
+        "name": "WQSF_TSM_NN_RECOM",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "63,127,255",
+        "description": "Excluding pixels that are deemed unreliable for Total Suspended Matter Concentration. Flag recommended by QWG"
+      },
+      {
+        "name": "WQSF_ADG443_NN_RECOM",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "63,191,0",
+        "description": "Excluding pixels that are deemed unreliable for Coloured Detrital and Dissolved Material Absorption. Flag recommended by QWG"
+      },
+      {
+        "name": "WQSF_IWV_RECOM",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "63,191,63",
+        "description": "Excluding pixels that are deemed unreliable for Integrated Water Vapour Column. Flag recommended by QWG"
       }
     ],
     "metadata": [
-      {
-        "path": "Processing_Graph/node.0/parameters/slopeBandName",
-        "value": "FLH_slope"
-      },
-      {
-        "path": "Processing_Graph/node.1/parameters/deleteOutputOnFailure",
-        "value": "true"
-      },
       {
         "path": "Processing_Graph/node.1/parameters/formatName",
         "value": "BEAM-DIMAP"
