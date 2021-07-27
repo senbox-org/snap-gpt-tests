@@ -1,18 +1,18 @@
 [{
-  "id":"advResampling",
+  "id": "advResampling",
   "author": "CS",
-  "description":"Apply Resampling operator to a S2 L1C product using specific band resampling.",
-  "frequency":"daily",
+  "description": "Apply Resampling operator to a S2 L1C product using specific band resampling.",
+  "frequency": "daily/snap",
   "graphPath": "snap/graphAdvancedResample.xml",
   "inputs": {
     "input1": "s2tbx/S2/L1C/S2A_MSIL1C_20181002T034551_N0206_R104_T47PMP_20181002T073417.SAFE"
   },
   "parameters": {
-      "referenceBand": "",
-      "targetResolution": "300",
-      "resamplingPreset": "",
-      "bandResampling": "B1:First:Bicubic;B2:Median:Bicubic;B3:First:Bicubic;B4:First:Bicubic;B5:Max:Bicubic;B6:First:Bilinear;B7:First:Bilinear",
-      "outputFormat": "BEAM-DIMAP"
+    "referenceBand": "",
+    "targetResolution": "300",
+    "resamplingPreset": "",
+    "bandResampling": "B1:First:Bicubic;B2:Median:Bicubic;B3:First:Bicubic;B4:First:Bicubic;B5:Max:Bicubic;B6:First:Bilinear;B7:First:Bilinear",
+    "outputFormat": "BEAM-DIMAP"
   },
   "outputs": [{
     "parameter": "out1",

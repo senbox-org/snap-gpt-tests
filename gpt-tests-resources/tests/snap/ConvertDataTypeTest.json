@@ -1,18 +1,19 @@
 [{
-    "id":"snap.convertdatatype",
+  "id": "snap.convertdatatype",
   "author": "Skywatch",
-    "description":"execute Convert DataType operator",
-    "frequency":"daily",
-    "graphPath": "snap/graphConvertDataType.xml",
-    "inputs": {
-        "input1": "s1tbx/SAR/ASAR/ASA_IMM.zip"
-    },
-    "parameters": {
-        "targetDataType": "uint8"
-    },
-    "outputs": [{
-        "parameter": "out1",
-        "outputName": "out-convertdatatype",
+  "description": "execute Convert DataType operator",
+  "frequency": "daily/snap",
+  "graphPath": "snap/graphConvertDataType.xml",
+  "inputs": {
+    "input1": "s1tbx/SAR/ASAR/ASA_IMM.zip"
+  },
+  "parameters": {
+    "targetDataType": "uint8"
+  },
+  "outputs": [
+    {
+      "parameter": "out1",
+      "outputName": "out-convertdatatype",
         "expected": "snap/expected-convertdatatype.json"
     }]
 }

@@ -1,18 +1,18 @@
 [{
-  "id":"advResamplingSubsetWithPreset",
+  "id": "advResamplingSubsetWithPreset",
   "author": "CS",
-  "description":"Apply Resampling operator to a S2 L1C product using resampling preset and a different band resampling. Make a subset and write it",
-  "frequency":"daily",
+  "description": "Apply Resampling operator to a S2 L1C product using resampling preset and a different band resampling. Make a subset and write it",
+  "frequency": "daily/snap",
   "graphPath": "snap/graphAdvResamplingSubset.xml",
   "inputs": {
     "input1": "s2tbx/S2/L1C/S2A_MSIL1C_20170416T105031_N0204_R051_T30TYN_20170416T105601.SAFE"
   },
   "parameters": {
-      "referenceBand": "B1",
-      "targetResolution": "",
-      "resamplingPreset": "$inputFolder/s2tbx/S2/auxTestData/exampleResamplingPreset.res",
-      "bandResampling": "B1:First:Nearest",
-      "subsetBands": "B1,B2,view_zenith_mean",
+    "referenceBand": "B1",
+    "targetResolution": "",
+    "resamplingPreset": "$inputFolder/s2tbx/S2/auxTestData/exampleResamplingPreset.res",
+    "bandResampling": "B1:First:Nearest",
+    "subsetBands": "B1,B2,view_zenith_mean",
       "subsetRegion": "0,0,500,500"
   },
   "outputs": [{
@@ -20,21 +20,22 @@
     "outputName": "advResamplingSubsetWithPreset",
     "expected": "snap/expectedAdvResampSubsetWithPreset.json"
   }]
-},{
-  "id":"advResamplingSubsetWithoutPreset",
-  "author": "CS",
-  "description":"Apply Resampling operator to a S2 L1C product. Make a subset and write it",
-  "frequency":"daily",
-  "graphPath": "snap/graphAdvResamplingSubset.xml",
-  "inputs": {
-    "input1": "s2tbx/S2/L1C/S2A_MSIL1C_20170416T105031_N0204_R051_T30TYN_20170416T105601.SAFE"
-  },
-  "parameters": {
-    "referenceBand": "B2",
-    "targetResolution": "",
-    "resamplingPreset": "",
-    "bandResampling": "",
-    "subsetBands": "B1,B2,view_zenith_mean",
+},
+  {
+    "id": "advResamplingSubsetWithoutPreset",
+    "author": "CS",
+    "description": "Apply Resampling operator to a S2 L1C product. Make a subset and write it",
+    "frequency": "daily/snap",
+    "graphPath": "snap/graphAdvResamplingSubset.xml",
+    "inputs": {
+      "input1": "s2tbx/S2/L1C/S2A_MSIL1C_20170416T105031_N0204_R051_T30TYN_20170416T105601.SAFE"
+    },
+    "parameters": {
+      "referenceBand": "B2",
+      "targetResolution": "",
+      "resamplingPreset": "",
+      "bandResampling": "",
+      "subsetBands": "B1,B2,view_zenith_mean",
     "subsetRegion": "0,0,500,500"
   },
   "outputs": [{

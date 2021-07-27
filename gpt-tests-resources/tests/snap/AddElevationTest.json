@@ -1,54 +1,57 @@
 [{
-    "id":"snap.dem.srtm3sec",
+  "id": "snap.dem.srtm3sec",
   "author": "Skywatch",
-    "description":"execute DEM operator with SRTM 3sec",
-    "frequency":"daily",
-    "graphPath": "snap/graphAddDEM.xml",
-    "inputs": {
-        "input1": "s1tbx/SAR/ASAR/ASA_IMM.zip"
-    },
-    "parameters": {
-        "demName": "SRTM 3Sec"
-    },
-    "outputs": [{
-        "parameter": "out1",
-        "outputName": "out-dem-srtm3sec",
+  "description": "execute DEM operator with SRTM 3sec",
+  "frequency": "daily/snap",
+  "graphPath": "snap/graphAddDEM.xml",
+  "inputs": {
+    "input1": "s1tbx/SAR/ASAR/ASA_IMM.zip"
+  },
+  "parameters": {
+    "demName": "SRTM 3Sec"
+  },
+  "outputs": [
+    {
+      "parameter": "out1",
+      "outputName": "out-dem-srtm3sec",
         "expected": "snap/expected-dem-srtm3sec.json"
     }]
 },
-    {
-        "id":"snap.dem.srtm1sec",
-  "author": "Skywatch",
-        "description":"execute DEM operator with SRTM 1sec",
-        "frequency":"daily",
-        "graphPath": "snap/graphAddDEM.xml",
-        "inputs": {
-            "input1": "s1tbx/SAR/ASAR/ASA_IMM.zip"
-        },
-        "parameters": {
-            "demName": "SRTM 1Sec HGT"
-        },
-        "outputs": [{
-            "parameter": "out1",
-            "outputName": "out-dem-srtm1sec",
+  {
+    "id": "snap.dem.srtm1sec",
+    "author": "Skywatch",
+    "description": "execute DEM operator with SRTM 1sec",
+    "frequency": "daily/snap",
+    "graphPath": "snap/graphAddDEM.xml",
+    "inputs": {
+      "input1": "s1tbx/SAR/ASAR/ASA_IMM.zip"
+    },
+    "parameters": {
+      "demName": "SRTM 1Sec HGT"
+    },
+    "outputs": [
+      {
+        "parameter": "out1",
+        "outputName": "out-dem-srtm1sec",
             "expected": "snap/expected-dem-srtm1sec.json"
         }]
     },
-    {
-        "id":"snap.dem.getasse30",
-  "author": "Skywatch",
-        "description":"execute DEM operator with GETASSE30",
-        "frequency":"daily",
-        "graphPath": "snap/graphAddDEM.xml",
-        "inputs": {
-            "input1": "s1tbx/SAR/ASAR/ASA_IMM.zip"
-        },
-        "parameters": {
-            "demName": "GETASSE30"
-        },
-        "outputs": [{
-            "parameter": "out1",
-            "outputName": "out-dem-getasse30",
+  {
+    "id": "snap.dem.getasse30",
+    "author": "Skywatch",
+    "description": "execute DEM operator with GETASSE30",
+    "frequency": "daily/snap",
+    "graphPath": "snap/graphAddDEM.xml",
+    "inputs": {
+      "input1": "s1tbx/SAR/ASAR/ASA_IMM.zip"
+    },
+    "parameters": {
+      "demName": "GETASSE30"
+    },
+    "outputs": [
+      {
+        "parameter": "out1",
+        "outputName": "out-dem-getasse30",
             "expected": "snap/expected-dem-getasse30.json"
         }]
     }

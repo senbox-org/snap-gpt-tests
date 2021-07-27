@@ -1,18 +1,18 @@
 [{
-    "id": "MphChlTest_Rayleigh_MERIS",
-    "author": "BC",
-    "description": "execute MphChl operator with Rayleigh corrected MERIS L1b",
-    "frequency": "daily",
-    "graphPath": "s3tbx/graphMphChl_Rayleigh.xml",
-    "inputs": {
-        "input": "s3tbx/sensors_platforms/MERIS/MER_FR__1P/N1/MER_FR__1PNUPA20040401_001107_000000982025_00331_10906_0250.N1"
-    },
-    "parameters": {
-        "subsetRegion": "400,500,200,200",
-        "sourceBandNames": "radiance_1,radiance_2,radiance_3,radiance_4,radiance_5,radiance_6,radiance_7,radiance_8,radiance_9,radiance_10,radiance_11,radiance_12,radiance_13,radiance_14,radiance_15",
-        "computeTaur": "true",
-        "computeRBrr": "true",
-        "computeRtoaNg": "true",
+  "id": "MphChlTest_Rayleigh_MERIS",
+  "author": "BC",
+  "description": "execute MphChl operator with Rayleigh corrected MERIS L1b",
+  "frequency": "daily/s3tbx",
+  "graphPath": "s3tbx/graphMphChl_Rayleigh.xml",
+  "inputs": {
+    "input": "s3tbx/sensors_platforms/MERIS/MER_FR__1P/N1/MER_FR__1PNUPA20040401_001107_000000982025_00331_10906_0250.N1"
+  },
+  "parameters": {
+    "subsetRegion": "400,500,200,200",
+    "sourceBandNames": "radiance_1,radiance_2,radiance_3,radiance_4,radiance_5,radiance_6,radiance_7,radiance_8,radiance_9,radiance_10,radiance_11,radiance_12,radiance_13,radiance_14,radiance_15",
+    "computeTaur": "true",
+    "computeRBrr": "true",
+    "computeRtoaNg": "true",
         "computeRtoa": "true",
         "addAirMass": "true",
         "s2MsiTargetResolution": "20",

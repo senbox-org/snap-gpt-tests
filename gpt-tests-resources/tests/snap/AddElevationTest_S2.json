@@ -1,8 +1,8 @@
 [{
-  "id":"AddElevationTest_S2",
+  "id": "AddElevationTest_S2",
   "author": "CS",
-  "description":"execute DEM operator in a S2L1C product",
-  "frequency":"daily/regular/AddElevationTest_S2",
+  "description": "execute DEM operator in a S2L1C product",
+  "frequency": "daily/snap/regular/AddElevationTest_S2",
   "graphPath": "snap/graphAddDEM.xml",
   "inputs": {
     "input1": "s2tbx/S2/L1C/S2A_MSIL1C_20181002T034551_N0206_R104_T47PMP_20181002T073417.SAFE"
@@ -10,17 +10,18 @@
   "parameters": {
     "demName": "SRTM 3Sec"
   },
-  "outputs": [{
-    "parameter": "out1",
-    "outputName": "elevationTest",
+  "outputs": [
+    {
+      "parameter": "out1",
+      "outputName": "elevationTest",
     "expected": "snap/expectedElevation_S2.json"
   }]
 },
   {
-    "id":"AddElevationTest_S2_ACE30",
+    "id": "AddElevationTest_S2_ACE30",
     "author": "CS",
-    "description":"execute DEM operator in a S2L1C product",
-    "frequency":"daily/testAuxdataACE30",
+    "description": "execute DEM operator in a S2L1C product",
+    "frequency": "daily/snap/testAuxdataACE30",
     "graphPath": "snap/graphAddDEM.xml",
     "inputs": {
       "input1": "s2tbx/S2/L1C/S2A_MSIL1C_20181002T034551_N0206_R104_T47PMP_20181002T073417.SAFE"
@@ -28,9 +29,10 @@
     "parameters": {
       "demName": "ACE30"
     },
-    "outputs": [{
-      "parameter": "out1",
-      "outputName": "elevationTestACE30",
+    "outputs": [
+      {
+        "parameter": "out1",
+        "outputName": "elevationTestACE30",
       "expected": "snap/expectedElevation_S2_ACE30.json"
     }]
   }

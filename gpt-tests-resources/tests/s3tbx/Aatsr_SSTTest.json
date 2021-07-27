@@ -1,18 +1,18 @@
 [{
-    "id":"Aatsr_SSTTest-1",
+  "id": "Aatsr_SSTTest-1",
   "author": "BC",
-    "description":"execute Aatsr_SST operator with AATSR product",
-    "frequency":"daily",
-    "graphPath": "s3tbx/graphAatsr_SSTOp.xml",
-    "inputs": {
-        "input": "s3tbx/sensors_platforms/AATSR/TOA/N1/ATS_TOA_1COLRA20030530_104438_000000762016_00451_06517_1067.N1"
-    },
-    "parameters": {
-        "subsetRegion": "250,250,200,200",
-        "dual": "true",
-        "dualCoefficientsFile": "AVERAGE_POLAR_DUAL_VIEW",
-        "dualMaskExpression": "!cloud_flags_nadir.LAND and !cloud_flags_nadir.CLOUDY and !cloud_flags_nadir.SUN_GLINT and !cloud_flags_fward.LAND and !cloud_flags_fward.CLOUDY and !cloud_flags_fward.SUN_GLINT",
-        "nadir": "true",
+  "description": "execute Aatsr_SST operator with AATSR product",
+  "frequency": "daily/s3tbx",
+  "graphPath": "s3tbx/graphAatsr_SSTOp.xml",
+  "inputs": {
+    "input": "s3tbx/sensors_platforms/AATSR/TOA/N1/ATS_TOA_1COLRA20030530_104438_000000762016_00451_06517_1067.N1"
+  },
+  "parameters": {
+    "subsetRegion": "250,250,200,200",
+    "dual": "true",
+    "dualCoefficientsFile": "AVERAGE_POLAR_DUAL_VIEW",
+    "dualMaskExpression": "!cloud_flags_nadir.LAND and !cloud_flags_nadir.CLOUDY and !cloud_flags_nadir.SUN_GLINT and !cloud_flags_fward.LAND and !cloud_flags_fward.CLOUDY and !cloud_flags_fward.SUN_GLINT",
+    "nadir": "true",
         "nadirCoefficientsFile": "AVERAGE_POLAR_SINGLE_VIEW",
         "nadirMaskExpression": "!cloud_flags_nadir.LAND and !cloud_flags_nadir.CLOUDY and !cloud_flags_nadir.SUN_GLINT",
         "invalidSstValue": "-999.0"
@@ -23,22 +23,21 @@
         "expected": "s3tbx/expectedAatsr_SST-1.json"
     }]
 },
-
-    {
-        "id":"Aatsr_SSTTest-2",
-  "author": "BC",
-        "description":"execute Aatsr_SST operator with AATSR product",
-        "frequency":"daily",
-        "graphPath": "s3tbx/graphAatsr_SSTOp.xml",
-        "inputs": {
-            "input": "s3tbx/sensors_platforms/AATSR/TOA/N1/ATS_TOA_1COLRA20030530_104438_000000762016_00451_06517_1067.N1"
-        },
-        "parameters": {
-            "subsetRegion": "250,250,200,200",
-            "dual": "true",
-            "dualCoefficientsFile": "GRIDDED_TEMPERATE_DUAL_VIEW",
-            "dualMaskExpression": "!cloud_flags_nadir.LAND",
-            "nadir": "false",
+  {
+    "id": "Aatsr_SSTTest-2",
+    "author": "BC",
+    "description": "execute Aatsr_SST operator with AATSR product",
+    "frequency": "daily/s3tbx",
+    "graphPath": "s3tbx/graphAatsr_SSTOp.xml",
+    "inputs": {
+      "input": "s3tbx/sensors_platforms/AATSR/TOA/N1/ATS_TOA_1COLRA20030530_104438_000000762016_00451_06517_1067.N1"
+    },
+    "parameters": {
+      "subsetRegion": "250,250,200,200",
+      "dual": "true",
+      "dualCoefficientsFile": "GRIDDED_TEMPERATE_DUAL_VIEW",
+      "dualMaskExpression": "!cloud_flags_nadir.LAND",
+      "nadir": "false",
             "nadirCoefficientsFile": "AVERAGE_POLAR_SINGLE_VIEW",
             "nadirMaskExpression": "!cloud_flags_nadir.LAND and !cloud_flags_nadir.CLOUDY and !cloud_flags_nadir.SUN_GLINT",
             "invalidSstValue": "-999.0"
@@ -49,22 +48,21 @@
             "expected": "s3tbx/expectedAatsr_SST-2.json"
         }]
     },
-
-    {
-        "id":"Aatsr_SSTTest-3",
-  "author": "BC",
-        "description":"execute Aatsr_SST operator with AATSR product",
-        "frequency":"daily",
-        "graphPath": "s3tbx/graphAatsr_SSTOp.xml",
-        "inputs": {
-            "input": "s3tbx/sensors_platforms/AATSR/TOA/N1/ATS_TOA_1COLRA20030530_104438_000000762016_00451_06517_1067.N1"
-        },
-        "parameters": {
-            "subsetRegion": "250,250,200,200",
-            "dual": "false",
-            "dualCoefficientsFile": "GRIDDED_TEMPERATE_DUAL_VIEW",
-            "dualMaskExpression": "!cloud_flags_nadir.LAND",
-            "nadir": "true",
+  {
+    "id": "Aatsr_SSTTest-3",
+    "author": "BC",
+    "description": "execute Aatsr_SST operator with AATSR product",
+    "frequency": "daily/s3tbx",
+    "graphPath": "s3tbx/graphAatsr_SSTOp.xml",
+    "inputs": {
+      "input": "s3tbx/sensors_platforms/AATSR/TOA/N1/ATS_TOA_1COLRA20030530_104438_000000762016_00451_06517_1067.N1"
+    },
+    "parameters": {
+      "subsetRegion": "250,250,200,200",
+      "dual": "false",
+      "dualCoefficientsFile": "GRIDDED_TEMPERATE_DUAL_VIEW",
+      "dualMaskExpression": "!cloud_flags_nadir.LAND",
+      "nadir": "true",
             "nadirCoefficientsFile": "AVERAGE_TROPICAL_SINGLE_VIEW",
             "nadirMaskExpression": "!cloud_flags_nadir.LAND and !cloud_flags_nadir.CLOUDY and !cloud_flags_nadir.SUN_GLINT",
             "invalidSstValue": "-999.0"

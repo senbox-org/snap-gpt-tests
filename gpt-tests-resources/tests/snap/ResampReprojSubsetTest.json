@@ -1,18 +1,18 @@
 [{
-    "id":"ResampReprojSubset_Muscate",
+  "id": "ResampReprojSubset_Muscate",
   "author": "CS",
-    "description":"Apply resampling, reprojection and subset to a S2 product in Muscate format",
-    "frequency":"daily",
-    "graphPath": "snap/graphResampReprojSubset.xml",
-    "inputs": {
-        "input1": "s2tbx/S2/MUSCATE/SENTINEL2A_20180529-101826-293_L2A_T32TPP_D_V1-8/SENTINEL2A_20180529-101826-293_L2A_T32TPP_D_V1-8_MTD_ALL.xml"
-    },
-    "parameters": {
-        "targetResolution": "10",
-        "upsampling": "Nearest",
-        "downsampling": "First",
-        "flagDownsampling": "First",
-        "sourceBands":"Surface_Reflectance_B2,Surface_Reflectance_B3,Surface_Reflectance_B4,Surface_Reflectance_B8",
+  "description": "Apply resampling, reprojection and subset to a S2 product in Muscate format",
+  "frequency": "daily/snap",
+  "graphPath": "snap/graphResampReprojSubset.xml",
+  "inputs": {
+    "input1": "s2tbx/S2/MUSCATE/SENTINEL2A_20180529-101826-293_L2A_T32TPP_D_V1-8/SENTINEL2A_20180529-101826-293_L2A_T32TPP_D_V1-8_MTD_ALL.xml"
+  },
+  "parameters": {
+    "targetResolution": "10",
+    "upsampling": "Nearest",
+    "downsampling": "First",
+    "flagDownsampling": "First",
+    "sourceBands": "Surface_Reflectance_B2,Surface_Reflectance_B3,Surface_Reflectance_B4,Surface_Reflectance_B8",
         "subsetRegion":"100,100,2500,2500",
         "outputFormat": "BEAM-DIMAP"
     },
@@ -22,21 +22,21 @@
         "expected": "snap/expectedResampReprojSubsetTest_Muscate.json"
     }]
 },
-    {
-        "id":"ResampSubsetReproj_SAFE",
-  "author": "CS",
-        "description":"Apply resampling,subset and reprojection to a S2 product in SAFE format",
-        "frequency":"daily",
-        "graphPath": "snap/graphResampSubsetReproj.xml",
-        "inputs": {
-            "input1": "s2tbx/S2/Maricopa/S2A_MSIL2A_20170207T182431_N0204_R084_T12SUB_20170207T182425.SAFE"
-        },
-        "parameters": {
-            "targetResolution": "10",
-            "upsampling": "Nearest",
-            "downsampling": "First",
-            "flagDownsampling": "First",
-            "sourceBands":"B2,B3,B4",
+  {
+    "id": "ResampSubsetReproj_SAFE",
+    "author": "CS",
+    "description": "Apply resampling,subset and reprojection to a S2 product in SAFE format",
+    "frequency": "daily/snap",
+    "graphPath": "snap/graphResampSubsetReproj.xml",
+    "inputs": {
+      "input1": "s2tbx/S2/Maricopa/S2A_MSIL2A_20170207T182431_N0204_R084_T12SUB_20170207T182425.SAFE"
+    },
+    "parameters": {
+      "targetResolution": "10",
+      "upsampling": "Nearest",
+      "downsampling": "First",
+      "flagDownsampling": "First",
+      "sourceBands": "B2,B3,B4",
             "subsetRegion":"100,100,2500,2500",
             "outputFormat": "BEAM-DIMAP"
         },
