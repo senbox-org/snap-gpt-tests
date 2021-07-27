@@ -1,18 +1,18 @@
 [{
-    "id": "LandWaterMask_S2MSI",
-    "author": "BC",
-    "description": "execute LandWaterMask operator over S2 MSI product",
-    "frequency": "daily",
-    "graphPath": "snap/graphLandWaterMaskS2MSI.xml",
-    "inputs": {
-        "input": "s3tbx/sensors_platforms/SENTINEL-2/S2B_MSIL1C_20190506T081609_N0207_R121_T36SXA_20190506T104054.zip"
-    },
-    "parameters": {
-        "subsetRegion": "0,0,600,600",
-        "resolution": "150",
-        "subSamplingFactorX": "10",
-        "subSamplingFactorY": "5"
-    },
+  "id": "LandWaterMask_S2MSI",
+  "author": "BC",
+  "description": "execute LandWaterMask operator over S2 MSI product",
+  "frequency": "daily/snap",
+  "graphPath": "snap/graphLandWaterMaskS2MSI.xml",
+  "inputs": {
+    "input": "s3tbx/sensors_platforms/SENTINEL-2/S2B_MSIL1C_20190506T081609_N0207_R121_T36SXA_20190506T104054.zip"
+  },
+  "parameters": {
+    "subsetRegion": "0,0,600,600",
+    "resolution": "150",
+    "subSamplingFactorX": "10",
+    "subSamplingFactorY": "5"
+  },
     "outputs": [{
         "parameter": "output",
         "outputName": "LandWaterMask_S2MSI",

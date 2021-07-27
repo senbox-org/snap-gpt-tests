@@ -1,18 +1,19 @@
 [{
-    "id":"snap.glcm.asar",
+  "id": "snap.glcm.asar",
   "author": "Skywatch",
-    "description":"execute GLCM operator",
-    "frequency":"daily",
-    "graphPath": "snap/graphGLCM.xml",
-    "inputs": {
-        "input1": "s1tbx/SAR/ASAR/ASA_IMM.zip"
-    },
-    "parameters": {
-    },
-    "outputs": [{
-        "parameter": "out1",
-        "outputName": "out-glcm-asar",
-        "expected": "snap/expected-glcm-asar.json"
+  "description": "execute GLCM operator",
+  "frequency": "daily/snap",
+  "graphPath": "snap/graphGLCM.xml",
+  "inputs": {
+    "input1": "s1tbx/SAR/ASAR/ASA_IMM.zip"
+  },
+  "parameters": {
+  },
+  "outputs": [
+    {
+      "parameter": "out1",
+      "outputName": "out-glcm-asar",
+      "expected": "snap/expected-glcm-asar.json"
     }]
 }
 ]

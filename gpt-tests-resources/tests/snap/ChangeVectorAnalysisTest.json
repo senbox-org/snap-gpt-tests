@@ -1,18 +1,18 @@
 [{
-    "id":"ChangeVectorAnalysisTest",
-    "author": "CS",
-    "description":"Compute the CVA of 2 S2 products.",
-    "frequency":"daily/CVATest",
-    "graphPath": "snap/graphChangeVectorAnalysis.xml",
-    "inputs": {
-      "input1": "s2tbx/_cva/subset_1_of_collocate.dim",
-      "input2": "s2tbx/_cva/subset_2_of_collocate.dim"
-    },
-    "parameters": {
-      "sourceBand1": "B4",
-      "sourceBand2": "B8",
-      "magnitudeThreshold":0
-    },
+  "id": "ChangeVectorAnalysisTest",
+  "author": "CS",
+  "description": "Compute the CVA of 2 S2 products.",
+  "frequency": "daily/snap/CVATest",
+  "graphPath": "snap/graphChangeVectorAnalysis.xml",
+  "inputs": {
+    "input1": "s2tbx/_cva/subset_1_of_collocate.dim",
+    "input2": "s2tbx/_cva/subset_2_of_collocate.dim"
+  },
+  "parameters": {
+    "sourceBand1": "B4",
+    "sourceBand2": "B8",
+    "magnitudeThreshold": 0
+  },
     "outputs": [{
       "parameter": "out1",
       "outputName": "changeVectorAnalysisResult",

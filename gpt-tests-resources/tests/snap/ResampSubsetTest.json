@@ -1,18 +1,18 @@
 [{
-    "id":"ResampSubset_S2",
+  "id": "ResampSubset_S2",
   "author": "CS",
-    "description":"Apply resampling operator and then subset on S2L1C product",
-    "frequency":"daily",
-    "graphPath": "snap/graphResampSubset.xml",
-    "inputs": {
-        "input1": "s2tbx/S2/L2A/Valencia/st/10m/S2A_USER_PRD_MSIL2A_PDMC_20160527T172127_R051_V20160511T105343_20160511T105343.SAFE"
-    },
-    "parameters": {
-        "referenceBand": "B2",
-        "inputFormatName": "SENTINEL-2-MSI-MultiRes-UTM30N",
-        "upsampling": "Nearest",
-        "downsampling": "First",
-        "flagDownsampling": "First",
+  "description": "Apply resampling operator and then subset on S2L1C product",
+  "frequency": "daily/snap",
+  "graphPath": "snap/graphResampSubset.xml",
+  "inputs": {
+    "input1": "s2tbx/S2/L2A/Valencia/st/10m/S2A_USER_PRD_MSIL2A_PDMC_20160527T172127_R051_V20160511T105343_20160511T105343.SAFE"
+  },
+  "parameters": {
+    "referenceBand": "B2",
+    "inputFormatName": "SENTINEL-2-MSI-MultiRes-UTM30N",
+    "upsampling": "Nearest",
+    "downsampling": "First",
+    "flagDownsampling": "First",
         "sourceBands":"B2,B3,B4",
         "subsetRegion":"0,0,2500,2500",
         "outputFormat": "BEAM-DIMAP"

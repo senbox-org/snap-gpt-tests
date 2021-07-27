@@ -1,8 +1,8 @@
 [{
-  "id":"MergeMDClassification",
+  "id": "MergeMDClassification",
   "author": "CS",
-  "description":"Read and merge three inputs, reproject, import vector, Minimum Distance Classifier and finally write the output",
-  "frequency":"daily",
+  "description": "Read and merge three inputs, reproject, import vector, Minimum Distance Classifier and finally write the output",
+  "frequency": "daily/snap",
   "graphPath": "snap/graphMerge3ReprojImportMDClassification.xml",
   "inputs": {
     "input1": "s2tbx/S2/preprocessed/20160312_preprocessed.dim",
@@ -11,7 +11,6 @@
     "vectorFile": "s2tbx/S2/auxTestData/train_plots.shp"
   },
   "parameters": {
-
   },
   "outputs": [{
     "parameter": "out1",

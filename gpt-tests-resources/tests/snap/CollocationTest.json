@@ -1,8 +1,8 @@
 [{
-  "id":"ReadReadCollocate",
+  "id": "ReadReadCollocate",
   "author": "CS",
-  "description":"Collocate a S2 product with a smaller image. Two Read used as input",
-  "frequency":"daily/collocate",
+  "description": "Collocate a S2 product with a smaller image. Two Read used as input",
+  "frequency": "daily/snap/collocate",
   "graphPath": "snap/graphReadReadCollocate.xml",
   "inputs": {
     "input1": "s2tbx/_collocation/subset_0_of_NDSI_1703.dim",
@@ -11,17 +11,18 @@
   "parameters": {
     "masterProductName": "subset_0_of_NDSI_1703"
   },
-  "outputs": [{
-    "parameter": "out1",
+  "outputs": [
+    {
+      "parameter": "out1",
     "outputName": "twoReadCollocated",
     "expected": "snap/expectedTwoReadCollocated.json"
   }]
 },
   {
-    "id":"ReadSetReaderCollocate",
-  "author": "CS",
-    "description":"Collocate multiple products defined with a Read and a ProductSetReader.",
-    "frequency":"daily/collocate",
+    "id": "ReadSetReaderCollocate",
+    "author": "CS",
+    "description": "Collocate multiple products defined with a Read and a ProductSetReader.",
+    "frequency": "daily/snap/collocate",
     "graphPath": "snap/graphReadSetReaderCollocate.xml",
     "inputs": {
       "input1": "s2tbx/S2/L1C/S2A_MSIL1C_20170416T105031_N0204_R051_T30TYN_20170416T105601.SAFE"
@@ -30,8 +31,9 @@
       "masterProductName": "subset_0_of_NDSI_1703",
       "fileList": "$inputFolder/s2tbx/_collocation/subset_0_of_NDSI_1703.dim,$inputFolder/s2tbx/_collocation/NDSI_1604.dim,$inputFolder/s2tbx/_collocation/NDSI_1502.dim"
     },
-    "outputs": [{
-      "parameter": "out1",
+    "outputs": [
+      {
+        "parameter": "out1",
       "outputName": "multipleCollocated",
       "expected": "snap/expectedMultipleCollocated.json"
     }]

@@ -1,8 +1,8 @@
 [{
-  "id":"Reproject_S2",
+  "id": "Reproject_S2",
   "author": "CS",
-  "description":"Reproject a S2 L1C product preserving resolution.",
-  "frequency":"daily/Reproject_S2",
+  "description": "Reproject a S2 L1C product preserving resolution.",
+  "frequency": "daily/snap/Reproject_S2",
   "graphPath": "snap/graphReproject.xml",
   "inputs": {
     "input1": "s2tbx/S2/L1C/S2A_MSIL1C_20170416T105031_N0204_R051_T30TYN_20170416T105601.SAFE"
@@ -11,17 +11,18 @@
     "crs": "EPSG:4326",
     "outputFormat": "BEAM-DIMAP"
   },
-  "outputs": [{
-    "parameter": "out1",
+  "outputs": [
+    {
+      "parameter": "out1",
     "outputName": "Reproj_S2",
     "expected": "snap/expectedReproj_S2.json"
   }]
 },
   {
-    "id":"ReprojectSubset_S2",
-  "author": "CS",
-    "description":"Reproject a S2 L1C product preserving resolution and apply and spatial and band subset (B1,B2,B5,view_senith_mean)",
-    "frequency":"daily/Reproject_S2",
+    "id": "ReprojectSubset_S2",
+    "author": "CS",
+    "description": "Reproject a S2 L1C product preserving resolution and apply and spatial and band subset (B1,B2,B5,view_senith_mean)",
+    "frequency": "daily/snap/Reproject_S2",
     "graphPath": "snap/graphReprojectSubset.xml",
     "inputs": {
       "input1": "s2tbx/S2/L1C/S2A_MSIL1C_20170416T105031_N0204_R051_T30TYN_20170416T105601.SAFE"
@@ -31,17 +32,18 @@
       "region": "0,0,300,300",
       "referenceBand": "B1"
     },
-    "outputs": [{
+    "outputs": [
+      {
       "parameter": "out1",
       "outputName": "ReprojSubset_S2",
       "expected": "snap/expectedReprojSubset_S2.json"
     }]
   },
   {
-    "id":"ReprojectSubsetonlyB1_S2",
-  "author": "CS",
-    "description":"Reproject a S2 L1C product preserving resolution and apply and spatial and band subset (only B1)",
-    "frequency":"daily/Reproject_S2",
+    "id": "ReprojectSubsetonlyB1_S2",
+    "author": "CS",
+    "description": "Reproject a S2 L1C product preserving resolution and apply and spatial and band subset (only B1)",
+    "frequency": "daily/snap/Reproject_S2",
     "graphPath": "snap/graphReprojectSubset.xml",
     "inputs": {
       "input1": "s2tbx/S2/L1C/S2A_MSIL1C_20170416T105031_N0204_R051_T30TYN_20170416T105601.SAFE"
@@ -51,7 +53,8 @@
       "region": "0,0,1500,1500",
       "referenceBand": "B1"
     },
-    "outputs": [{
+    "outputs": [
+      {
       "parameter": "out1",
       "outputName": "ReprojSubsetB1_S2",
       "expected": "snap/expectedReprojSubsetB1_S2.json"
