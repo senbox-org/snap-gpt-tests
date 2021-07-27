@@ -3,7 +3,7 @@
     "id": "C2RCC_MERIS_c2rcc-nets",
     "author": "BC",
     "description": "execute MERIS C2RCC with default nets",
-    "frequency": "daily",
+    "frequency": "daily/s3tbx",
     "graphPath": "s3tbx/graphC2RCC_MERIS.xml",
     "inputs": {
       "input": "s3tbx/sensors_platforms/MERIS/MER_FR__1P/N1/MER_FR__1PNUPA20040401_001107_000000982025_00331_10906_0250.N1"
@@ -28,7 +28,7 @@
     "id": "C2RCC_MERIS_c2x-nets",
     "author": "BC",
     "description": "execute MERIS C2RCC with extreme nets",
-    "frequency": "daily",
+    "frequency": "daily/s3tbx",
     "graphPath": "s3tbx/graphC2RCC_MERIS.xml",
     "inputs": {
       "input": "s3tbx/sensors_platforms/MERIS/MER_FR__1P/N1/MER_FR__1PNUPA20040401_001107_000000982025_00331_10906_0250.N1"
