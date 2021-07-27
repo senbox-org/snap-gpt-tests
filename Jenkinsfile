@@ -131,7 +131,7 @@ pipeline {
                      // send mail only on main job
                      if ("${params.testScope}" == 'REGULAR' || "${params.testScope}" == 'WEEKLY' || "${params.testScope}" == 'RELEASE') {
                         echo "The test failed!"
-                     } else if ("${params.saveOutput}" == 'true') {
+                     } else{
                         emailext(
                                  subject: "[SNAP] JENKINS - SAVED OUTPUTS: ${currentBuild.result ?: 'SUCCESS'} : Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
                                  body: """Build status : ${currentBuild.result ?: 'SUCCESS'}: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]':
