@@ -367,7 +367,7 @@ def profile(command, sampling_time, output, **kwargs):
     timeout = -1
     if 'timeout' in kwargs:
         timeout = int(kwargs['timeout'])
-        if('Subset_S2_B1B2_Ref' in str(command)):
+        if('subsetS2Test_B1B2' in str(command)):
             timeout = 600
         print('timeout = ',timeout)
     stdout = ''
