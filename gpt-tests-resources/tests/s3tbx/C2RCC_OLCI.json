@@ -3,7 +3,7 @@
     "id": "C2RCC_OLCI",
     "author": "BC",
     "description": "execute OLCI C2RCC",
-    "frequency": "daily/s3tbx/lastFailures",
+    "frequency": "daily/s3tbx",
     "graphPath": "s3tbx/graphC2RCC_OLCI.xml",
     "inputs": {
       "input": "s3tbx/sensors_platforms/SENTINEL-3/olci/L1/S3A_OL_1_EFR____20130621T100921_20130621T101417_20140613T170503_0295_001_002______LN2_D_NR____.SEN3"
@@ -20,7 +20,7 @@
     ],
     "configVM": {
       "xmx": "8G",
-      "cacheSize": "2G",
+      "cacheSize": "3G",
       "parallelism": "2"
     }
   },
@@ -45,7 +45,7 @@
     ],
     "configVM": {
       "xmx": "8G",
-      "cacheSize": "2G",
+      "cacheSize": "3G",
       "parallelism": "2"
     }
   }
