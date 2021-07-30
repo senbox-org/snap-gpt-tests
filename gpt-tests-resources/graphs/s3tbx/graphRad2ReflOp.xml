@@ -1,5 +1,6 @@
 <graph id="GraphReprojectionOp">
     <version>1.0</version>
+
     <node id="Read">
         <operator>Read</operator>
         <sources/>
@@ -7,20 +8,11 @@
             <file>$input1</file>
         </parameters>
     </node>
-    <node id="Subset">
-        <operator>Subset</operator>
-        <sources>
-            <sourceProduct refid="Read"/>
-        </sources>
-        <parameters>
-            <region>$subsetRegion</region>
-            <copyMetadata>false</copyMetadata>
-        </parameters>
-    </node>
+
     <node id="Rad2ReflOp">
         <operator>Rad2Refl</operator>
         <sources>
-            <sourceProduct refid="Subset"/>
+            <sourceProduct refid="Read"/>
         </sources>
         <parameters>
             <sensor>$sensor</sensor>
@@ -30,10 +22,22 @@
             <copyNonSpectralBands>$copyNonSpectralBands</copyNonSpectralBands>
         </parameters>
     </node>
+
+    <node id="Subset">
+        <operator>Subset</operator>
+        <sources>
+            <sourceProduct refid="Rad2ReflOp"/>
+        </sources>
+        <parameters>
+            <region>$subsetRegion</region>
+            <copyMetadata>false</copyMetadata>
+        </parameters>
+    </node>
+
     <node id="Write">
         <operator>Write</operator>
         <sources>
-            <sourceProduct refid="Rad2ReflOp"/>
+            <sourceProduct refid="Subset"/>
         </sources>
         <parameters>
             <file>$out1</file>
