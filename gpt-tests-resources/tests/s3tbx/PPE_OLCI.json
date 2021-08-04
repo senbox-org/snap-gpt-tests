@@ -1,5 +1,31 @@
 [
   {
+    "id": "PPE_OLCI_ZNAP",
+    "author": "BC",
+    "description": "execute OLCI PPE filtering",
+    "frequency": "REGULAR/s3tbx/ZNAP",
+    "graphPath": "s3tbx/graphPPE_OLCI.xml",
+    "inputs": {
+      "input": "s3tbx/sensors_platforms/SENTINEL-3/olci/L1/S3B_OL_1_EFR____20190420T120914_20190420T121214_20190421T151110_0179_024_237_3420_LN1_O_NT_002.SEN3"
+    },
+    "parameters": {
+      "computeUnc": false,
+      "outputFormat": "SNAP-Zarr"
+    },
+    "outputs": [
+      {
+        "parameter": "output",
+        "outputName": "PPE_OLCI_znap.znap",
+        "expected": "s3tbx/expectedPPE_OLCI.json"
+      }
+    ],
+    "configVM": {
+      "xmx": "12G",
+      "cacheSize": "2G",
+      "parallelism": "2"
+    }
+  },
+  {
     "id": "PPE_OLCI",
     "author": "BC",
     "description": "execute OLCI PPE filtering",
@@ -9,7 +35,8 @@
       "input": "s3tbx/sensors_platforms/SENTINEL-3/olci/L1/S3B_OL_1_EFR____20190420T120914_20190420T121214_20190421T151110_0179_024_237_3420_LN1_O_NT_002.SEN3"
     },
     "parameters": {
-      "computeUnc": false
+      "computeUnc": false,
+      "outputFormat": "BEAM-DIMAP"
     },
     "outputs": [
       {
