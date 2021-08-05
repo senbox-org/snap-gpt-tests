@@ -1,57 +1,64 @@
-[{
-  "id": "S2MCITest_L1C",
-  "author": "BC",
-  "description": "execute MCI processor with S2 L1C",
-  "frequency": "daily/newmsi",
-  "graphPath": "s2tbx/graphS2MCIOp.xml",
-  "inputs": {
-    "input": "s3tbx/sensors_platforms/SENTINEL-2/S2B_MSIL1C_20190506T081609_N0207_R121_T36SXA_20190506T104054.zip"
-  },
-  "parameters": {
-    "resampleRefBand": "B1",
-    "subsetRegion": "900,900,200,200",
-    "lowerBaselineBandName": "B6",
-    "upperBaselineBandName": "B4",
-    "signalBandName": "B5",
-    "lineHeightBandName": "MCI",
-    "slope": "true",
-    "slopeBandName": "MCI_slope",
-    "maskExpression": "B11&lt;0.01  &amp;&amp; B8&lt;B4",
-    "cloudCorrectionFactor": "1.005",
-    "invalidMciValue": "NaN"
-  },
-    "outputs": [{
+[
+  {
+    "id": "S2MCITest_L1C",
+    "author": "BC",
+    "description": "execute MCI processor with S2 L1C",
+    "frequency": "daily/s3tbx",
+    "graphPath": "s2tbx/graphS2MCIOp.xml",
+    "inputs": {
+      "input": "s3tbx/sensors_platforms/SENTINEL-2/S2B_MSIL1C_20190506T081609_N0207_R121_T36SXA_20190506T104054.zip"
+    },
+    "parameters": {
+      "resampleRefBand": "B1",
+      "subsetRegion": "900,900,200,200",
+      "lowerBaselineBandName": "B6",
+      "upperBaselineBandName": "B4",
+      "signalBandName": "B5",
+      "lineHeightBandName": "MCI",
+      "slope": "true",
+      "slopeBandName": "MCI_slope",
+      "maskExpression": "B11&lt;0.01  &amp;&amp; B8&lt;B4",
+      "cloudCorrectionFactor": "1.005",
+      "invalidMciValue": "NaN"
+    },
+    "outputs": [
+      {
         "parameter": "output",
         "outputName": "S2MCI_L1C",
         "expected": "s2tbx/expectedS2MCI_L1C.json"
-    }]
-},
-    [{
-        "id":"S2MCITest_L2A",
-  "author": "BC",
-        "description":"execute MCI processor with S2 L2A",
-        "frequency":"daily",
-        "graphPath": "s2tbx/graphS2MCIOp.xml",
-        "inputs": {
-            "input": "s3tbx/sensors_platforms/SENTINEL-2/S2A_MSIL2A_20190509T211921_N0212_R100_T04QEK_20190512T092011.zip"
-        },
-        "parameters": {
-            "resampleRefBand": "B1",
-            "subsetRegion": "1500,1500,200,200",
-            "lowerBaselineBandName": "B7",
-            "upperBaselineBandName": "B3",
-            "signalBandName": "B5",
-            "lineHeightBandName": "MCI_test",
-            "slope": "true",
-            "slopeBandName": "MCI_slope_test",
-            "maskExpression": "scl_water",
-            "cloudCorrectionFactor": "1.01",
-            "invalidMciValue": "NaN"
-        },
-        "outputs": [{
-            "parameter": "output",
-            "outputName": "S2MCI_L2A",
-            "expected": "s2tbx/expectedS2MCI_L2A.json"
-        }]
-    }]
+      }
+    ]
+  },
+  [
+    {
+      "id": "S2MCITest_L2A",
+      "author": "BC",
+      "description": "execute MCI processor with S2 L2A",
+      "frequency": "daily/s3tbx",
+      "graphPath": "s2tbx/graphS2MCIOp.xml",
+      "inputs": {
+        "input": "s2tbx/S2/L2A/S2A_MSIL2A_20181002T034551_N9999_R104_T47PMP_20190916T085624.SAFE"
+      },
+      "parameters": {
+        "resampleRefBand": "B1",
+        "subsetRegion": "600,850,400,400",
+        "lowerBaselineBandName": "B7",
+        "upperBaselineBandName": "B3",
+        "signalBandName": "B5",
+        "lineHeightBandName": "MCI_test",
+        "slope": "true",
+        "slopeBandName": "MCI_slope_test",
+        "maskExpression": "scl_water",
+        "cloudCorrectionFactor": "1.01",
+        "invalidMciValue": "NaN"
+      },
+      "outputs": [
+        {
+          "parameter": "output",
+          "outputName": "S2MCI_L2A",
+          "expected": "s2tbx/expectedS2MCI_L2A.json"
+        }
+      ]
+    }
+  ]
 ]
