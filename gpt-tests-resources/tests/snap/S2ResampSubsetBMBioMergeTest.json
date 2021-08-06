@@ -3,7 +3,7 @@
     "id": "S2ResampSubsetBMBioMerge",
     "author": "CS",
     "description": "Apply S2resampling, subset, BandMath, BiophysicalOp, band merge and finally write the output",
-    "frequency": "daily/snap/biophysicalmerge/znap",
+    "frequency": "daily/snap/biophysicalmerge",
     "graphPath": "snap/graphS2ResampSubsetBMathsBioopMerge.xml",
     "inputs": {
       "input1": "s2tbx/S2/L2A/S2A_USER_PRD_MSIL2A_PDMC_20160710T185720_R051_V20160710T105247_20160710T105247.SAFE"
