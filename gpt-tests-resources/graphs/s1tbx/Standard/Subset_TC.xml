@@ -13,7 +13,7 @@
       <sourceProduct refid="6-Terrain-Correction"/>
     </sources>
     <parameters class="com.bc.ceres.binding.dom.XppDomElement">
-      <formatName>BEAM-DIMAP</formatName>
+      <formatName>$outputFormat</formatName>
       <file>$out1</file>
     </parameters>
   </node>
