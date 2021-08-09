@@ -21,7 +21,7 @@
   {
     "id": "FlhMciTest_MERIS_L1B",
     "author": "roman",
-    "description": "execute FlhMci operator with MERIS_L1B product using OLCI_L2 preset",
+    "description": "execute FlhMci operator with MERIS_L1B product using MERIS_L1B preset",
     "frequency": "daily/s3tbx",
     "graphPath": "s3tbx/graphFlhMci.xml",
     "inputs": {
@@ -41,7 +41,7 @@
   {
     "id": "FlhMciTest_OLCI_L1B",
     "author": "roman",
-    "description": "execute FlhMci operator with MERIS_L1B product using OLCI_L1B preset",
+    "description": "execute FlhMci operator with OLCI_L1B product using OLCI_L1B preset",
     "frequency": "daily/s3tbx",
     "graphPath": "s3tbx/graphFlhMci.xml",
     "inputs": {
@@ -61,7 +61,7 @@
   {
     "id": "FlhMciTest_MERIS_L2_MCI",
     "author": "roman",
-    "description": "execute FlhMci operator with MERIS_L2_MCI product using OLCI_L2 preset",
+    "description": "execute FlhMci operator with MERIS_L2 product using MERIS_L2_MCI preset",
     "frequency": "daily/s3tbx",
     "graphPath": "s3tbx/graphFlhMci.xml",
     "inputs": {
@@ -81,7 +81,7 @@
   {
     "id": "FlhMciTest_MERIS_L2_MCI-ND",
     "author": "roman",
-    "description": "execute FlhMci operator with MERIS_L2_MCI product using OLCI_L2 preset",
+    "description": "execute FlhMci operator with MERIS_L2 product using MERIS_L2_FLH preset",
     "frequency": "daily/s3tbx",
     "graphPath": "s3tbx/graphFlhMci_MultiOptional.xml",
     "inputs": {
