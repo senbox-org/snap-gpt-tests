@@ -1,23 +1,48 @@
-[{
+[
+  {
     "id": "MERIS_Correct-Radiometry_owtTest",
     "author": "BC",
     "description": "execute Meris Correct Radiometry operator",
     "frequency": "daily/s3tbx",
     "graphPath": "s3tbx/defaultGraphs/graphMERIS_Correct-Radiometry_owt.xml",
     "inputs": {
-        "input1": "s3tbx/sensors_platforms/MERIS/MER_FRS_1P/N1/MER_FRS_1PNMAP20100826_083555_000002002092_00236_44378_0001.N1"
+      "input1": "s3tbx/sensors_platforms/MERIS/MER_FRS_1P/N1/MER_FRS_1PNMAP20100826_083555_000002002092_00236_44378_0001.N1"
     },
     "parameters": {
-        "owtType": "COASTAL",
-        "inputReflectanceIs": "RADIANCE_REFLECTANCES",
-        "reproVersion": "AUTO_DETECT"
+      "owtType": "COASTAL",
+      "inputReflectanceIs": "RADIANCE_REFLECTANCES",
+      "reproVersion": "AUTO_DETECT",
+      "outputFormat": "BEAM-DIMAP"
     },
     "outputs": [
-        {
-            "parameter": "out1",
-            "outputName": "tempMERIS_Correct-Radiometry_owt",
-            "expected": "s3tbx/defaultGraphs/expectedMERIS_Correct-Radiometry_owt.json"
-        }
+      {
+        "parameter": "out1",
+        "outputName": "tempMERIS_Correct-Radiometry_owt",
+        "expected": "s3tbx/defaultGraphs/expectedMERIS_Correct-Radiometry_owt.json"
+      }
     ]
-}
+  },
+  {
+    "id": "MERIS_Correct-Radiometry_owtTest_znap",
+    "author": "BC",
+    "description": "execute Meris Correct Radiometry operator",
+    "frequency": "daily/s3tbx/znap",
+    "graphPath": "s3tbx/defaultGraphs/graphMERIS_Correct-Radiometry_owt.xml",
+    "inputs": {
+      "input1": "s3tbx/sensors_platforms/MERIS/MER_FRS_1P/N1/MER_FRS_1PNMAP20100826_083555_000002002092_00236_44378_0001.N1"
+    },
+    "parameters": {
+      "owtType": "COASTAL",
+      "inputReflectanceIs": "RADIANCE_REFLECTANCES",
+      "reproVersion": "AUTO_DETECT",
+      "outputFormat": "SNAP-Zarr"
+    },
+    "outputs": [
+      {
+        "parameter": "out1",
+        "outputName": "tempMERIS_Correct-Radiometry_owt_znap",
+        "expected": "s3tbx/defaultGraphs/expectedMERIS_Correct-Radiometry_owt.json"
+      }
+    ]
+  }
 ]
