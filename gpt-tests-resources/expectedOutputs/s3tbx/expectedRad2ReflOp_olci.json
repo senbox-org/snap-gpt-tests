@@ -23,748 +23,6 @@
       ],
       "reverseAccuracy": 0.5
     },
-    "tiePointGrids": [
-      {
-        "name": "TP_latitude",
-        "description": "Latitude",
-        "offsetX": "-28.0",
-        "offsetY": "-0.0",
-        "subSamplingX": "64.0",
-        "subSamplingY": "1.0",
-        "expectedPixels": [
-          {
-            "x": 15,
-            "y": 53,
-            "value": -23.719595
-          },
-          {
-            "x": 205,
-            "y": 255,
-            "value": -24.359604
-          }
-        ]
-      },
-      {
-        "name": "TP_longitude",
-        "description": "Longitude",
-        "offsetX": "-28.0",
-        "offsetY": "-0.0",
-        "subSamplingX": "64.0",
-        "subSamplingY": "1.0",
-        "expectedPixels": [
-          {
-            "x": 87,
-            "y": 77,
-            "value": -41.727318
-          },
-          {
-            "x": 183,
-            "y": 109,
-            "value": -41.50596
-          }
-        ]
-      },
-      {
-        "name": "OAA",
-        "description": "Observation (Viewing) Azimuth Angle",
-        "offsetX": "-28.0",
-        "offsetY": "-0.0",
-        "subSamplingX": "64.0",
-        "subSamplingY": "1.0",
-        "expectedPixels": [
-          {
-            "x": 165,
-            "y": 223,
-            "value": 105.34817
-          },
-          {
-            "x": 182,
-            "y": 278,
-            "value": 105.3517
-          }
-        ]
-      },
-      {
-        "name": "OZA",
-        "description": "Observation (Viewing) Zenith Angle",
-        "offsetX": "-28.0",
-        "offsetY": "-0.0",
-        "subSamplingX": "64.0",
-        "subSamplingY": "1.0",
-        "expectedPixels": [
-          {
-            "x": 47,
-            "y": 199,
-            "value": 38.66963
-          },
-          {
-            "x": 155,
-            "y": 274,
-            "value": 37.08257
-          }
-        ]
-      },
-      {
-        "name": "SAA",
-        "description": "Sun Azimuth Angle",
-        "offsetX": "-28.0",
-        "offsetY": "-0.0",
-        "subSamplingX": "64.0",
-        "subSamplingY": "1.0",
-        "expectedPixels": [
-          {
-            "x": 226,
-            "y": 145,
-            "value": 51.11894
-          },
-          {
-            "x": 285,
-            "y": 145,
-            "value": 50.966248
-          }
-        ]
-      },
-      {
-        "name": "SZA",
-        "description": "Sun Zenith Angle",
-        "offsetX": "-28.0",
-        "offsetY": "-0.0",
-        "subSamplingX": "64.0",
-        "subSamplingY": "1.0",
-        "expectedPixels": [
-          {
-            "x": 102,
-            "y": 269,
-            "value": 52.380707
-          },
-          {
-            "x": 2,
-            "y": 141,
-            "value": 52.265972
-          }
-        ]
-      },
-      {
-        "name": "atmospheric_temperature_profile_pressure_level_1",
-        "description": "Air temperature profile",
-        "offsetX": "-28.0",
-        "offsetY": "-0.0",
-        "subSamplingX": "64.0",
-        "subSamplingY": "1.0",
-        "expectedPixels": [
-          {
-            "x": 98,
-            "y": 59,
-            "value": 296.9325
-          },
-          {
-            "x": 81,
-            "y": 12,
-            "value": 296.8373
-          }
-        ]
-      },
-      {
-        "name": "atmospheric_temperature_profile_pressure_level_2",
-        "description": "Air temperature profile",
-        "offsetX": "-28.0",
-        "offsetY": "-0.0",
-        "subSamplingX": "64.0",
-        "subSamplingY": "1.0",
-        "expectedPixels": [
-          {
-            "x": 291,
-            "y": 181,
-            "value": 292.98007
-          },
-          {
-            "x": 171,
-            "y": 215,
-            "value": 292.98746
-          }
-        ]
-      },
-      {
-        "name": "atmospheric_temperature_profile_pressure_level_3",
-        "description": "Air temperature profile",
-        "offsetX": "-28.0",
-        "offsetY": "-0.0",
-        "subSamplingX": "64.0",
-        "subSamplingY": "1.0",
-        "expectedPixels": [
-          {
-            "x": 69,
-            "y": 149,
-            "value": 292.8695
-          },
-          {
-            "x": 96,
-            "y": 216,
-            "value": 292.64868
-          }
-        ]
-      },
-      {
-        "name": "atmospheric_temperature_profile_pressure_level_4",
-        "description": "Air temperature profile",
-        "offsetX": "-28.0",
-        "offsetY": "-0.0",
-        "subSamplingX": "64.0",
-        "subSamplingY": "1.0",
-        "expectedPixels": [
-          {
-            "x": 107,
-            "y": 149,
-            "value": 291.30362
-          },
-          {
-            "x": 120,
-            "y": 132,
-            "value": 291.34497
-          }
-        ]
-      },
-      {
-        "name": "atmospheric_temperature_profile_pressure_level_5",
-        "description": "Air temperature profile",
-        "offsetX": "-28.0",
-        "offsetY": "-0.0",
-        "subSamplingX": "64.0",
-        "subSamplingY": "1.0",
-        "expectedPixels": [
-          {
-            "x": 172,
-            "y": 27,
-            "value": 287.61588
-          },
-          {
-            "x": 193,
-            "y": 4,
-            "value": 287.6072
-          }
-        ]
-      },
-      {
-        "name": "atmospheric_temperature_profile_pressure_level_6",
-        "description": "Air temperature profile",
-        "offsetX": "-28.0",
-        "offsetY": "-0.0",
-        "subSamplingX": "64.0",
-        "subSamplingY": "1.0",
-        "expectedPixels": [
-          {
-            "x": 292,
-            "y": 110,
-            "value": 286.96625
-          },
-          {
-            "x": 285,
-            "y": 283,
-            "value": 287.34744
-          }
-        ]
-      },
-      {
-        "name": "atmospheric_temperature_profile_pressure_level_7",
-        "description": "Air temperature profile",
-        "offsetX": "-28.0",
-        "offsetY": "-0.0",
-        "subSamplingX": "64.0",
-        "subSamplingY": "1.0",
-        "expectedPixels": [
-          {
-            "x": 33,
-            "y": 135,
-            "value": 285.10345
-          },
-          {
-            "x": 171,
-            "y": 168,
-            "value": 285.16534
-          }
-        ]
-      },
-      {
-        "name": "atmospheric_temperature_profile_pressure_level_8",
-        "description": "Air temperature profile",
-        "offsetX": "-28.0",
-        "offsetY": "-0.0",
-        "subSamplingX": "64.0",
-        "subSamplingY": "1.0",
-        "expectedPixels": [
-          {
-            "x": 151,
-            "y": 156,
-            "value": 275.28436
-          },
-          {
-            "x": 135,
-            "y": 174,
-            "value": 275.29593
-          }
-        ]
-      },
-      {
-        "name": "atmospheric_temperature_profile_pressure_level_9",
-        "description": "Air temperature profile",
-        "offsetX": "-28.0",
-        "offsetY": "-0.0",
-        "subSamplingX": "64.0",
-        "subSamplingY": "1.0",
-        "expectedPixels": [
-          {
-            "x": 4,
-            "y": 127,
-            "value": 266.10837
-          },
-          {
-            "x": 21,
-            "y": 297,
-            "value": 265.8496
-          }
-        ]
-      },
-      {
-        "name": "atmospheric_temperature_profile_pressure_level_10",
-        "description": "Air temperature profile",
-        "offsetX": "-28.0",
-        "offsetY": "-0.0",
-        "subSamplingX": "64.0",
-        "subSamplingY": "1.0",
-        "expectedPixels": [
-          {
-            "x": 89,
-            "y": 223,
-            "value": 253.77608
-          },
-          {
-            "x": 241,
-            "y": 220,
-            "value": 253.7704
-          }
-        ]
-      },
-      {
-        "name": "atmospheric_temperature_profile_pressure_level_11",
-        "description": "Air temperature profile",
-        "offsetX": "-28.0",
-        "offsetY": "-0.0",
-        "subSamplingX": "64.0",
-        "subSamplingY": "1.0",
-        "expectedPixels": [
-          {
-            "x": 250,
-            "y": 283,
-            "value": 237.15471
-          },
-          {
-            "x": 74,
-            "y": 159,
-            "value": 237.37051
-          }
-        ]
-      },
-      {
-        "name": "atmospheric_temperature_profile_pressure_level_12",
-        "description": "Air temperature profile",
-        "offsetX": "-28.0",
-        "offsetY": "-0.0",
-        "subSamplingX": "64.0",
-        "subSamplingY": "1.0",
-        "expectedPixels": [
-          {
-            "x": 183,
-            "y": 78,
-            "value": 226.99628
-          },
-          {
-            "x": 165,
-            "y": 45,
-            "value": 227.03426
-          }
-        ]
-      },
-      {
-        "name": "atmospheric_temperature_profile_pressure_level_13",
-        "description": "Air temperature profile",
-        "offsetX": "-28.0",
-        "offsetY": "-0.0",
-        "subSamplingX": "64.0",
-        "subSamplingY": "1.0",
-        "expectedPixels": [
-          {
-            "x": 142,
-            "y": 167,
-            "value": 216.52225
-          },
-          {
-            "x": 28,
-            "y": 254,
-            "value": 216.47609
-          }
-        ]
-      },
-      {
-        "name": "atmospheric_temperature_profile_pressure_level_14",
-        "description": "Air temperature profile",
-        "offsetX": "-28.0",
-        "offsetY": "-0.0",
-        "subSamplingX": "64.0",
-        "subSamplingY": "1.0",
-        "expectedPixels": [
-          {
-            "x": 28,
-            "y": 23,
-            "value": 213.11111
-          },
-          {
-            "x": 136,
-            "y": 202,
-            "value": 213.24974
-          }
-        ]
-      },
-      {
-        "name": "atmospheric_temperature_profile_pressure_level_15",
-        "description": "Air temperature profile",
-        "offsetX": "-28.0",
-        "offsetY": "-0.0",
-        "subSamplingX": "64.0",
-        "subSamplingY": "1.0",
-        "expectedPixels": [
-          {
-            "x": 139,
-            "y": 268,
-            "value": 200.56233
-          },
-          {
-            "x": 260,
-            "y": 180,
-            "value": 200.63934
-          }
-        ]
-      },
-      {
-        "name": "atmospheric_temperature_profile_pressure_level_16",
-        "description": "Air temperature profile",
-        "offsetX": "-28.0",
-        "offsetY": "-0.0",
-        "subSamplingX": "64.0",
-        "subSamplingY": "1.0",
-        "expectedPixels": [
-          {
-            "x": 288,
-            "y": 114,
-            "value": 197.50931
-          },
-          {
-            "x": 26,
-            "y": 159,
-            "value": 197.03157
-          }
-        ]
-      },
-      {
-        "name": "atmospheric_temperature_profile_pressure_level_17",
-        "description": "Air temperature profile",
-        "offsetX": "-28.0",
-        "offsetY": "-0.0",
-        "subSamplingX": "64.0",
-        "subSamplingY": "1.0",
-        "expectedPixels": [
-          {
-            "x": 220,
-            "y": 178,
-            "value": 204.83624
-          },
-          {
-            "x": 292,
-            "y": 55,
-            "value": 203.98479
-          }
-        ]
-      },
-      {
-        "name": "atmospheric_temperature_profile_pressure_level_18",
-        "description": "Air temperature profile",
-        "offsetX": "-28.0",
-        "offsetY": "-0.0",
-        "subSamplingX": "64.0",
-        "subSamplingY": "1.0",
-        "expectedPixels": [
-          {
-            "x": 138,
-            "y": 78,
-            "value": 216.5048
-          },
-          {
-            "x": 68,
-            "y": 194,
-            "value": 216.4298
-          }
-        ]
-      },
-      {
-        "name": "atmospheric_temperature_profile_pressure_level_19",
-        "description": "Air temperature profile",
-        "offsetX": "-28.0",
-        "offsetY": "-0.0",
-        "subSamplingX": "64.0",
-        "subSamplingY": "1.0",
-        "expectedPixels": [
-          {
-            "x": 191,
-            "y": 131,
-            "value": 226.26697
-          },
-          {
-            "x": 159,
-            "y": 170,
-            "value": 226.36287
-          }
-        ]
-      },
-      {
-        "name": "atmospheric_temperature_profile_pressure_level_20",
-        "description": "Air temperature profile",
-        "offsetX": "-28.0",
-        "offsetY": "-0.0",
-        "subSamplingX": "64.0",
-        "subSamplingY": "1.0",
-        "expectedPixels": [
-          {
-            "x": 118,
-            "y": 64,
-            "value": 233.06693
-          },
-          {
-            "x": 83,
-            "y": 266,
-            "value": 232.4212
-          }
-        ]
-      },
-      {
-        "name": "atmospheric_temperature_profile_pressure_level_21",
-        "description": "Air temperature profile",
-        "offsetX": "-28.0",
-        "offsetY": "-0.0",
-        "subSamplingX": "64.0",
-        "subSamplingY": "1.0",
-        "expectedPixels": [
-          {
-            "x": 283,
-            "y": 173,
-            "value": 237.77794
-          },
-          {
-            "x": 227,
-            "y": 98,
-            "value": 237.32321
-          }
-        ]
-      },
-      {
-        "name": "atmospheric_temperature_profile_pressure_level_22",
-        "description": "Air temperature profile",
-        "offsetX": "-28.0",
-        "offsetY": "-0.0",
-        "subSamplingX": "64.0",
-        "subSamplingY": "1.0",
-        "expectedPixels": [
-          {
-            "x": 168,
-            "y": 87,
-            "value": 239.64369
-          },
-          {
-            "x": 248,
-            "y": 261,
-            "value": 238.54958
-          }
-        ]
-      },
-      {
-        "name": "atmospheric_temperature_profile_pressure_level_23",
-        "description": "Air temperature profile",
-        "offsetX": "-28.0",
-        "offsetY": "-0.0",
-        "subSamplingX": "64.0",
-        "subSamplingY": "1.0",
-        "expectedPixels": [
-          {
-            "x": 32,
-            "y": 266,
-            "value": 248.67868
-          },
-          {
-            "x": 103,
-            "y": 244,
-            "value": 248.40158
-          }
-        ]
-      },
-      {
-        "name": "atmospheric_temperature_profile_pressure_level_24",
-        "description": "Air temperature profile",
-        "offsetX": "-28.0",
-        "offsetY": "-0.0",
-        "subSamplingX": "64.0",
-        "subSamplingY": "1.0",
-        "expectedPixels": [
-          {
-            "x": 54,
-            "y": 207,
-            "value": 253.99353
-          },
-          {
-            "x": 177,
-            "y": 164,
-            "value": 253.55144
-          }
-        ]
-      },
-      {
-        "name": "atmospheric_temperature_profile_pressure_level_25",
-        "description": "Air temperature profile",
-        "offsetX": "-28.0",
-        "offsetY": "-0.0",
-        "subSamplingX": "64.0",
-        "subSamplingY": "1.0",
-        "expectedPixels": [
-          {
-            "x": 61,
-            "y": 91,
-            "value": 260.9662
-          },
-          {
-            "x": 123,
-            "y": 259,
-            "value": 259.51797
-          }
-        ]
-      },
-      {
-        "name": "horizontal_wind_vector_1",
-        "description": "Horizontal wind vector at 10m altitude",
-        "offsetX": "-28.0",
-        "offsetY": "-0.0",
-        "subSamplingX": "64.0",
-        "subSamplingY": "1.0",
-        "expectedPixels": [
-          {
-            "x": 210,
-            "y": 269,
-            "value": 3.4116397
-          },
-          {
-            "x": 89,
-            "y": 297,
-            "value": 3.0632865
-          }
-        ]
-      },
-      {
-        "name": "horizontal_wind_vector_2",
-        "description": "Horizontal wind vector at 10m altitude",
-        "offsetX": "-28.0",
-        "offsetY": "-0.0",
-        "subSamplingX": "64.0",
-        "subSamplingY": "1.0",
-        "expectedPixels": [
-          {
-            "x": 164,
-            "y": 35,
-            "value": -1.7466996
-          },
-          {
-            "x": 58,
-            "y": 168,
-            "value": -2.096405
-          }
-        ]
-      },
-      {
-        "name": "humidity",
-        "description": "Relative humidity",
-        "offsetX": "-28.0",
-        "offsetY": "-0.0",
-        "subSamplingX": "64.0",
-        "subSamplingY": "1.0",
-        "expectedPixels": [
-          {
-            "x": 137,
-            "y": 38,
-            "value": 86.68777
-          },
-          {
-            "x": 248,
-            "y": 171,
-            "value": 66.68975
-          }
-        ]
-      },
-      {
-        "name": "sea_level_pressure",
-        "description": "Mean sea level pressure",
-        "offsetX": "-28.0",
-        "offsetY": "-0.0",
-        "subSamplingX": "64.0",
-        "subSamplingY": "1.0",
-        "expectedPixels": [
-          {
-            "x": 30,
-            "y": 202,
-            "value": 1014.51276
-          },
-          {
-            "x": 219,
-            "y": 141,
-            "value": 1014.61237
-          }
-        ]
-      },
-      {
-        "name": "total_columnar_water_vapour",
-        "description": "Total column water vapour",
-        "offsetX": "-28.0",
-        "offsetY": "-0.0",
-        "subSamplingX": "64.0",
-        "subSamplingY": "1.0",
-        "expectedPixels": [
-          {
-            "x": 42,
-            "y": 19,
-            "value": 27.061602
-          },
-          {
-            "x": 252,
-            "y": 89,
-            "value": 24.617304
-          }
-        ]
-      },
-      {
-        "name": "total_ozone",
-        "description": "Total columnar ozone",
-        "offsetX": "-28.0",
-        "offsetY": "-0.0",
-        "subSamplingX": "64.0",
-        "subSamplingY": "1.0",
-        "expectedPixels": [
-          {
-            "x": 177,
-            "y": 291,
-            "value": 0.0056048655
-          },
-          {
-            "x": 233,
-            "y": 8,
-            "value": 0.0056150868
-          }
-        ]
-      }
-    ],
     "bands": [
       {
         "name": "Oa01_reflectance",
@@ -778,14 +36,14 @@
         "spectralBandwidth": "15.0",
         "expectedPixels": [
           {
-            "x": 65,
-            "y": 73,
-            "value": 0.4282
+            "x": 15,
+            "y": 53,
+            "value": 0.2544
           },
           {
-            "x": 95,
-            "y": 58,
-            "value": 0.2559
+            "x": 205,
+            "y": 255,
+            "value": 0.2448
           }
         ]
       },
@@ -801,14 +59,14 @@
         "spectralBandwidth": "10.0",
         "expectedPixels": [
           {
-            "x": 84,
-            "y": 264,
-            "value": 0.2319
+            "x": 87,
+            "y": 77,
+            "value": 0.233
           },
           {
-            "x": 299,
-            "y": 22,
-            "value": 0.2231
+            "x": 183,
+            "y": 109,
+            "value": 0.2256
           }
         ]
       },
@@ -824,14 +82,14 @@
         "spectralBandwidth": "10.0",
         "expectedPixels": [
           {
-            "x": 245,
-            "y": 150,
-            "value": 0.1748
+            "x": 165,
+            "y": 223,
+            "value": 0.1747
           },
           {
-            "x": 18,
-            "y": 115,
-            "value": 0.1841
+            "x": 182,
+            "y": 278,
+            "value": 0.1779
           }
         ]
       },
@@ -847,14 +105,14 @@
         "spectralBandwidth": "10.0",
         "expectedPixels": [
           {
-            "x": 83,
-            "y": 174,
-            "value": 0.1259
+            "x": 47,
+            "y": 199,
+            "value": 0.1266
           },
           {
-            "x": 278,
-            "y": 41,
-            "value": 0.1231
+            "x": 155,
+            "y": 274,
+            "value": 0.1314
           }
         ]
       },
@@ -870,14 +128,14 @@
         "spectralBandwidth": "10.0",
         "expectedPixels": [
           {
-            "x": 31,
-            "y": 43,
-            "value": 0.1073
+            "x": 226,
+            "y": 145,
+            "value": 0.1449
           },
           {
-            "x": 265,
-            "y": 31,
-            "value": 0.1018
+            "x": 285,
+            "y": 145,
+            "value": 0.0976
           }
         ]
       },
@@ -893,14 +151,14 @@
         "spectralBandwidth": "10.0",
         "expectedPixels": [
           {
-            "x": 111,
-            "y": 264,
-            "value": 0.0656
+            "x": 102,
+            "y": 269,
+            "value": 0.066
           },
           {
-            "x": 175,
-            "y": 172,
-            "value": 0.0658
+            "x": 2,
+            "y": 141,
+            "value": 0.0726
           }
         ]
       },
@@ -916,14 +174,14 @@
         "spectralBandwidth": "10.0",
         "expectedPixels": [
           {
-            "x": 101,
-            "y": 97,
-            "value": 0.0462
+            "x": 98,
+            "y": 59,
+            "value": 0.0579
           },
           {
-            "x": 112,
-            "y": 256,
-            "value": 0.0437
+            "x": 81,
+            "y": 12,
+            "value": 0.0472
           }
         ]
       },
@@ -939,13 +197,13 @@
         "spectralBandwidth": "10.0",
         "expectedPixels": [
           {
-            "x": 97,
-            "y": 205,
-            "value": 0.036
+            "x": 291,
+            "y": 181,
+            "value": 0.0333
           },
           {
-            "x": 193,
-            "y": 202,
+            "x": 171,
+            "y": 215,
             "value": 0.0349
           }
         ]
@@ -962,14 +220,14 @@
         "spectralBandwidth": "7.5",
         "expectedPixels": [
           {
-            "x": 159,
-            "y": 39,
-            "value": 0.0362
+            "x": 69,
+            "y": 149,
+            "value": 0.0372
           },
           {
-            "x": 139,
-            "y": 240,
-            "value": 0.0331
+            "x": 96,
+            "y": 216,
+            "value": 0.0348
           }
         ]
       },
@@ -985,14 +243,14 @@
         "spectralBandwidth": "7.5",
         "expectedPixels": [
           {
-            "x": 240,
-            "y": 270,
-            "value": 0.0713
+            "x": 107,
+            "y": 149,
+            "value": 0.0341
           },
           {
-            "x": 7,
-            "y": 209,
-            "value": 0.0358
+            "x": 120,
+            "y": 132,
+            "value": 0.0349
           }
         ]
       },
@@ -1008,14 +266,14 @@
         "spectralBandwidth": "10.0",
         "expectedPixels": [
           {
-            "x": 266,
-            "y": 172,
-            "value": 0.0267
+            "x": 172,
+            "y": 27,
+            "value": 0.031
           },
           {
-            "x": 191,
-            "y": 272,
-            "value": 0.0316
+            "x": 193,
+            "y": 4,
+            "value": 0.0313
           }
         ]
       },
@@ -1031,14 +289,14 @@
         "spectralBandwidth": "7.5",
         "expectedPixels": [
           {
-            "x": 294,
-            "y": 96,
-            "value": 0.0226
+            "x": 292,
+            "y": 110,
+            "value": 0.0225
           },
           {
-            "x": 107,
-            "y": 1,
-            "value": 0.0254
+            "x": 285,
+            "y": 283,
+            "value": 0.0215
           }
         ]
       },
@@ -1054,14 +312,14 @@
         "spectralBandwidth": "2.5",
         "expectedPixels": [
           {
-            "x": 251,
-            "y": 170,
-            "value": 0.0096
+            "x": 33,
+            "y": 135,
+            "value": 0.01
           },
           {
-            "x": 177,
-            "y": 119,
-            "value": 0.011
+            "x": 171,
+            "y": 168,
+            "value": 0.0106
           }
         ]
       },
@@ -1077,14 +335,14 @@
         "spectralBandwidth": "3.75",
         "expectedPixels": [
           {
-            "x": 118,
-            "y": 296,
-            "value": 0.0174
+            "x": 151,
+            "y": 156,
+            "value": 0.0147
           },
           {
-            "x": 68,
-            "y": 215,
-            "value": 0.0139
+            "x": 135,
+            "y": 174,
+            "value": 0.0153
           }
         ]
       },
@@ -1100,14 +358,14 @@
         "spectralBandwidth": "2.5",
         "expectedPixels": [
           {
-            "x": 281,
-            "y": 86,
-            "value": 0.0217
+            "x": 4,
+            "y": 127,
+            "value": 0.0454
           },
           {
-            "x": 94,
-            "y": 255,
-            "value": 0.0204
+            "x": 21,
+            "y": 297,
+            "value": 0.0201
           }
         ]
       },
@@ -1123,14 +381,14 @@
         "spectralBandwidth": "15.0",
         "expectedPixels": [
           {
-            "x": 98,
-            "y": 158,
-            "value": 0.0215
+            "x": 89,
+            "y": 223,
+            "value": 0.0213
           },
           {
-            "x": 107,
-            "y": 239,
-            "value": 0.021
+            "x": 241,
+            "y": 220,
+            "value": 0.0307
           }
         ]
       },
@@ -1146,14 +404,14 @@
         "spectralBandwidth": "20.0",
         "expectedPixels": [
           {
-            "x": 168,
-            "y": 65,
-            "value": 0.0169
+            "x": 250,
+            "y": 283,
+            "value": 0.0145
           },
           {
-            "x": 28,
-            "y": 211,
-            "value": 0.0162
+            "x": 74,
+            "y": 159,
+            "value": 0.0174
           }
         ]
       },
@@ -1169,14 +427,14 @@
         "spectralBandwidth": "10.0",
         "expectedPixels": [
           {
-            "x": 210,
-            "y": 238,
-            "value": 0.0134
+            "x": 183,
+            "y": 78,
+            "value": 0.0204
           },
           {
-            "x": 253,
-            "y": 20,
-            "value": 0.0197
+            "x": 165,
+            "y": 45,
+            "value": 0.0159
           }
         ]
       },
@@ -1192,14 +450,14 @@
         "spectralBandwidth": "10.0",
         "expectedPixels": [
           {
-            "x": 250,
-            "y": 68,
-            "value": 0.0115
+            "x": 142,
+            "y": 167,
+            "value": 0.0116
           },
           {
-            "x": 195,
-            "y": 279,
-            "value": 0.011
+            "x": 28,
+            "y": 254,
+            "value": 0.0117
           }
         ]
       },
@@ -1215,14 +473,14 @@
         "spectralBandwidth": "20.0",
         "expectedPixels": [
           {
-            "x": 80,
-            "y": 258,
-            "value": 0.007
+            "x": 28,
+            "y": 23,
+            "value": 0.0072
           },
           {
-            "x": 115,
-            "y": 111,
-            "value": 0.007
+            "x": 136,
+            "y": 202,
+            "value": 0.0069
           }
         ]
       },
@@ -1238,14 +496,14 @@
         "spectralBandwidth": "40.0",
         "expectedPixels": [
           {
-            "x": 291,
-            "y": 204,
-            "value": 0.0113
+            "x": 139,
+            "y": 268,
+            "value": 0.0097
           },
           {
-            "x": 217,
-            "y": 128,
-            "value": 0.011
+            "x": 260,
+            "y": 180,
+            "value": 0.0099
           }
         ]
       },
@@ -1261,14 +519,14 @@
         "spectralBandwidth": "0.0",
         "expectedPixels": [
           {
-            "x": 149,
-            "y": 41,
-            "value": -41.536705
+            "x": 288,
+            "y": 114,
+            "value": -41.23748
           },
           {
-            "x": 290,
-            "y": 40,
-            "value": -41.17774
+            "x": 26,
+            "y": 159,
+            "value": -41.9506
           }
         ]
       },
@@ -1284,54 +542,50 @@
         "spectralBandwidth": "0.0",
         "expectedPixels": [
           {
-            "x": 216,
-            "y": 166,
-            "value": -24.134853
+            "x": 220,
+            "y": 178,
+            "value": -24.168493
           },
           {
-            "x": 211,
-            "y": 296,
-            "value": -24.46547
+            "x": 292,
+            "y": 55,
+            "value": -23.89776
           }
         ]
       }
     ],
     "metadata": [
       {
-        "path": "Processing_Graph/node.2/parameters/deleteOutputOnFailure",
-        "value": "true"
+        "path": "history/SubsetInfo/SubRegion.height",
+        "value": "300"
       },
       {
-        "path": "history/SubsetInfo/ProductNodeName.32",
-        "value": "horizontal_wind_vector_1"
+        "path": "Processing_Graph/node.2/parameters/formatName",
+        "value": "BEAM-DIMAP"
+      },
+      {
+        "path": "history/SubsetInfo/ProductNodeName.2",
+        "value": "Oa02_reflectance"
       },
       {
         "path": "Processing_Graph/node.2/sources/sourceProduct",
         "value": "product:Subset_S3B_OL_1_EFR____20190420T120914_20190420T121214_20190421T151110_0179_024_237_3420_LN1_O_NT_002.SEN3"
       },
       {
-        "path": "Processing_Graph/node.0/sources/sourceProduct",
-        "value": "Rad2Refl"
+        "path": "history/SubsetInfo/SubRegion.width",
+        "value": "300"
       },
       {
-        "path": "history/SubsetInfo/SubRegion.y",
-        "value": "600"
+        "path": "Processing_Graph/node.1/parameters/copyTiePointGrids",
+        "value": "false"
       },
       {
-        "path": "history/SubsetInfo/ProductNodeName.5",
-        "value": "SAA"
+        "path": "history/SubsetInfo/ProductNodeName.19",
+        "value": "Oa19_reflectance"
       },
       {
-        "path": "history/SubsetInfo/ProductNodeName.59",
-        "value": "longitude"
-      },
-      {
-        "path": "Processing_Graph/node.1/parameters/sensor",
-        "value": "OLCI"
-      },
-      {
-        "path": "Processing_Graph/node.1/parameters/sensor",
-        "value": "OLCI"
+        "path": "Processing_Graph/node.2/sources/sourceProduct",
+        "value": "product:Subset_S3B_OL_1_EFR____20190420T120914_20190420T121214_20190421T151110_0179_024_237_3420_LN1_O_NT_002.SEN3"
       }
     ]
   }

@@ -1,36 +1,62 @@
 [
 {
-  "id":"s1tbx.polsar.freemandurden.rs2",
+  "id": "s1tbx.polsar.freemandurden.rs2",
   "author": "Skywatch",
-  "description":"execute Freeman-Durden decomposition processor with RS2",
-  "frequency":"daily/s1tbx",
+  "description": "execute Freeman-Durden decomposition processor with RS2",
+  "frequency": "daily/s1tbx",
   "graphPath": "s1tbx/PolSAR/Pol_Cal_Decomp.xml",
   "inputs": {
     "input1": "s1tbx/SAR/RS2/RS2_OK76385_PK678063_DK606752_FQ2_20080415_143807_HH_VV_HV_VH_SLC.zip"
   },
   "parameters": {
     "srcBands": "",
-	"decomposition": "Freeman-Durden Decomposition"
+    "decomposition": "Freeman-Durden Decomposition",
+    "outputFormat": "BEAM-DIMAP"
   },
-  "outputs": [{
-    "parameter": "out1",
-    "outputName": "out-polsar-freemandurden-rs2",
-    "expected": "s1tbx/PolSAR/expected-polsar-freemandurden-rs2.json"
-  }]
+  "outputs": [
+    {
+      "parameter": "out1",
+      "outputName": "out-polsar-freemandurden-rs2",
+      "expected": "s1tbx/PolSAR/expected-polsar-freemandurden-rs2.json"
+    }
+  ]
 },
-{
-  "id":"s1tbx.polsar.generalizedFD.rs2",
-  "author": "Skywatch",
-  "description":"execute generalize Freeman-Durden decomposition processor with RS2",
-  "frequency":"daily/s1tbx",
-  "graphPath": "s1tbx/PolSAR/Pol_Cal_Decomp.xml",
-  "inputs": {
-    "input1": "s1tbx/SAR/RS2/RS2_OK76385_PK678063_DK606752_FQ2_20080415_143807_HH_VV_HV_VH_SLC.zip"
+  {
+    "id": "s1tbx.polsar.freemandurden.rs2_znap",
+    "author": "Skywatch",
+    "description": "execute Freeman-Durden decomposition processor with RS2 with znap",
+    "frequency": "daily/s1tbx/znap",
+    "graphPath": "s1tbx/PolSAR/Pol_Cal_Decomp.xml",
+    "inputs": {
+      "input1": "s1tbx/SAR/RS2/RS2_OK76385_PK678063_DK606752_FQ2_20080415_143807_HH_VV_HV_VH_SLC.zip"
+    },
+    "parameters": {
+      "srcBands": "",
+      "decomposition": "Freeman-Durden Decomposition",
+      "outputFormat": "ZNAP"
+    },
+    "outputs": [
+      {
+        "parameter": "out1",
+        "outputName": "out-polsar-freemandurden-rs2_znap",
+        "expected": "s1tbx/PolSAR/expected-polsar-freemandurden-rs2.json"
+      }
+    ]
   },
-  "parameters": {
-    "srcBands": "",
-	"decomposition": "Generalized Freeman-Durden Decomposition"
-  },
+  {
+    "id": "s1tbx.polsar.generalizedFD.rs2",
+    "author": "Skywatch",
+    "description": "execute generalize Freeman-Durden decomposition processor with RS2",
+    "frequency": "daily/s1tbx",
+    "graphPath": "s1tbx/PolSAR/Pol_Cal_Decomp.xml",
+    "inputs": {
+      "input1": "s1tbx/SAR/RS2/RS2_OK76385_PK678063_DK606752_FQ2_20080415_143807_HH_VV_HV_VH_SLC.zip"
+    },
+    "parameters": {
+      "srcBands": "",
+      "decomposition": "Generalized Freeman-Durden Decomposition",
+      "outputFormat": "BEAM-DIMAP"
+    },
   "outputs": [{
     "parameter": "out1",
     "outputName": "out-polsar-generalizedFD-rs2",
@@ -48,7 +74,8 @@
   },
   "parameters": {
     "srcBands": "",
-	"decomposition": "Sinclair Decomposition"
+    "decomposition": "Sinclair Decomposition",
+    "outputFormat": "BEAM-DIMAP"
   },
   "outputs": [{
     "parameter": "out1",
@@ -67,7 +94,8 @@
   },
   "parameters": {
     "srcBands": "",
-	"decomposition": "Pauli Decomposition"
+    "decomposition": "Pauli Decomposition",
+    "outputFormat": "BEAM-DIMAP"
   },
   "outputs": [{
     "parameter": "out1",
@@ -86,7 +114,8 @@
   },
   "parameters": {
     "srcBands": "",
-	"decomposition": "Yamaguchi Decomposition"
+    "decomposition": "Yamaguchi Decomposition",
+    "outputFormat": "BEAM-DIMAP"
   },
   "outputs": [{
     "parameter": "out1",
@@ -105,7 +134,8 @@
   },
   "parameters": {
     "srcBands": "",
-	"decomposition": "van Zyl Decomposition"
+    "decomposition": "van Zyl Decomposition",
+    "outputFormat": "BEAM-DIMAP"
   },
   "outputs": [{
     "parameter": "out1",
@@ -124,7 +154,8 @@
   },
   "parameters": {
     "srcBands": "",
-	"decomposition": "H-A-Alpha Quad Pol Decomposition"
+    "decomposition": "H-A-Alpha Quad Pol Decomposition",
+    "outputFormat": "BEAM-DIMAP"
   },
   "outputs": [{
     "parameter": "out1",
@@ -143,7 +174,8 @@
   },
   "parameters": {
     "srcBands": "",
-	"decomposition": "Cloude Decomposition"
+    "decomposition": "Cloude Decomposition",
+    "outputFormat": "BEAM-DIMAP"
   },
   "outputs": [{
     "parameter": "out1",
@@ -162,7 +194,8 @@
   },
   "parameters": {
     "srcBands": "",
-	"decomposition": "Touzi Decomposition"
+    "decomposition": "Touzi Decomposition",
+    "outputFormat": "BEAM-DIMAP"
   },
   "outputs": [{
     "parameter": "out1",

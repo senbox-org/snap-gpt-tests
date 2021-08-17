@@ -2,63 +2,116 @@
     "id": "S2MCI_L2A",
     "decodeQualification": "INTENDED",
     "expectedContent": {
-        "sceneWidth": 200,
-        "sceneHeight": 200,
-        "startTime": "09-MAY-2019 21:19:21.024000",
-        "endTime": "09-MAY-2019 21:19:21.024000",
+        "sceneWidth": 400,
+        "sceneHeight": 400,
+        "startTime": "02-OCT-2018 03:45:51.023999",
+        "endTime": "02-OCT-2018 03:45:51.023999",
         "geoCoding": {
             "coordinates": [
                 {
-                    "x": 63.5,
-                    "y": 64.5,
-                    "lat": 21.756495311518314,
-                    "lon": -158.09293378886258
+                    "x": 288.5,
+                    "y": 256.5,
+                    "lat": 12.063844073026509,
+                    "lon": 98.57063184577606
                 },
                 {
-                    "x": 54.5,
-                    "y": 98.5,
-                    "lat": 21.738095068189757,
-                    "lon": -158.098270812434
+                    "x": 60.5,
+                    "y": 56.5,
+                    "lat": 12.172136552811414,
+                    "lon": 98.44471556688885
                 },
                 {
-                    "x": 46.5,
-                    "y": 149.5,
-                    "lat": 21.710476983642415,
-                    "lon": -158.10308343806108
-                },
-                {
-                    "x": 104.5,
-                    "y": 36.5,
-                    "lat": 21.771539680581885,
-                    "lon": -158.0690469992539
-                },
-                {
-                    "x": 161.5,
-                    "y": 9.5,
-                    "lat": 21.78598447736578,
-                    "lon": -158.03587362320067
-                },
-                {
-                    "x": 188.5,
-                    "y": 173.5,
-                    "lat": 21.69700245219165,
-                    "lon": -158.02080735002355
-                },
-                {
-                    "x": 164.5,
-                    "y": 183.5,
-                    "lat": 21.691663897188878,
-                    "lon": -158.0347627521709
+                    "x": 227.5,
+                    "y": 361.5,
+                    "lat": 12.006818881337626,
+                    "lon": 98.53710101026469
                 }
             ],
-            "reverseAccuracy": 6.366462912410498E-11
+            "reverseAccuracy": 0.00005
         },
+        "tiePointGrids": [
+            {
+                "name": "total_column_water_vapour",
+                "description": "Total column water vapour at surface level provided by ECMWF",
+                "offsetX": "-193.25",
+                "offsetY": "-36.58333333333337",
+                "subSamplingX": "203.33333333333331",
+                "subSamplingY": "203.33333333333331",
+                "expectedPixels": [
+                    {
+                        "x": 288,
+                        "y": 256,
+                        "value": 60.589832
+                    },
+                    {
+                        "x": 60,
+                        "y": 56,
+                        "value": 60.178024
+                    },
+                    {
+                        "x": 227,
+                        "y": 361,
+                        "value": 60.889866
+                    }
+                ]
+            },
+            {
+                "name": "total_column_ozone",
+                "description": "Total column ozone at surface level provided by ECMWF",
+                "offsetX": "-193.25",
+                "offsetY": "-36.58333333333337",
+                "subSamplingX": "203.33333333333331",
+                "subSamplingY": "203.33333333333331",
+                "expectedPixels": [
+                    {
+                        "x": 288,
+                        "y": 256,
+                        "value": 0.005712092
+                    },
+                    {
+                        "x": 60,
+                        "y": 56,
+                        "value": 0.0057257083
+                    },
+                    {
+                        "x": 227,
+                        "y": 361,
+                        "value": 0.0057058823
+                    }
+                ]
+            },
+            {
+                "name": "mean_sea_level_pressure",
+                "description": "Mean sea level pressure at surface level provided by ECMWF",
+                "offsetX": "-193.25",
+                "offsetY": "-36.58333333333337",
+                "subSamplingX": "203.33333333333331",
+                "subSamplingY": "203.33333333333331",
+                "expectedPixels": [
+                    {
+                        "x": 288,
+                        "y": 256,
+                        "value": 100930.7
+                    },
+                    {
+                        "x": 60,
+                        "y": 56,
+                        "value": 100928.88
+                    },
+                    {
+                        "x": 227,
+                        "y": 361,
+                        "value": 100929.266
+                    }
+                ]
+            }
+        ],
         "bands": [
             {
                 "name": "MCI_test",
                 "description": "Line height band",
-                "bandWidth": 200,
-                "bandHeight": 200,
+                "bandWidth": 400,
+                "bandHeight": 400,
                 "geophysicalUnit": "dl",
                 "noDataValue": "NaN",
                 "noDataValueUsed": "true",
@@ -66,47 +119,27 @@
                 "spectralBandwidth": "97.0",
                 "expectedPixels": [
                     {
-                        "x": 63,
-                        "y": 64,
-                        "value": 0.0073218737
+                        "x": 288,
+                        "y": 256,
+                        "value": -0.0012080537
                     },
                     {
-                        "x": 54,
-                        "y": 98,
-                        "value": 0.015645541
+                        "x": 60,
+                        "y": 56,
+                        "value": -0.007323369
                     },
                     {
-                        "x": 46,
-                        "y": 149,
-                        "value": 0.010291375
-                    },
-                    {
-                        "x": 104,
-                        "y": 36,
-                        "value": 0.006928293
-                    },
-                    {
-                        "x": 161,
-                        "y": 9,
-                        "value": "NaN"
-                    },
-                    {
-                        "x": 188,
-                        "y": 173,
-                        "value": 0.0010914857
-                    },
-                    {
-                        "x": 164,
-                        "y": 183,
-                        "value": -0.001965691
+                        "x": 227,
+                        "y": 361,
+                        "value": -0.013815258
                     }
                 ]
             },
             {
                 "name": "MCI_slope_test",
                 "description": "Baseline slope band",
-                "bandWidth": 200,
-                "bandHeight": 200,
+                "bandWidth": 400,
+                "bandHeight": 400,
                 "geophysicalUnit": "dl nm-1",
                 "noDataValue": "NaN",
                 "noDataValueUsed": "true",
@@ -114,39 +147,19 @@
                 "spectralBandwidth": "0.0",
                 "expectedPixels": [
                     {
-                        "x": 63,
-                        "y": 64,
-                        "value": -9.058296E-5
+                        "x": 288,
+                        "y": 256,
+                        "value": -2.9596413E-4
                     },
                     {
-                        "x": 54,
-                        "y": 98,
-                        "value": 5.9641265E-5
+                        "x": 60,
+                        "y": 56,
+                        "value": -1.4708519E-4
                     },
                     {
-                        "x": 46,
-                        "y": 149,
-                        "value": 1.2242152E-4
-                    },
-                    {
-                        "x": 104,
-                        "y": 36,
-                        "value": 3.1389998E-6
-                    },
-                    {
-                        "x": 161,
-                        "y": 9,
-                        "value": "NaN"
-                    },
-                    {
-                        "x": 188,
-                        "y": 173,
-                        "value": -4.609866E-4
-                    },
-                    {
-                        "x": 164,
-                        "y": 183,
-                        "value": -1.2286997E-4
+                        "x": 227,
+                        "y": 361,
+                        "value": -3.304933E-4
                     }
                 ]
             }
@@ -182,7 +195,7 @@
             },
             {
                 "path": "Processing_Graph/node.0/sources/sourceProduct",
-                "value": "product:Subset_S2A_MSIL2A_20190509T211921_N0212_R100_T04QEK_20190512T092011_resampled"
+                "value": "product:Subset_S2A_MSIL2A_20181002T034551_N9999_R104_T47PMP_20190916T085624_resampled"
             },
             {
                 "path": "Processing_Graph/node.1/parameters/formatName",
@@ -190,7 +203,7 @@
             },
             {
                 "path": "Processing_Graph/node.0/sources/sourceProduct",
-                "value": "product:Subset_S2A_MSIL2A_20190509T211921_N0212_R100_T04QEK_20190512T092011_resampled"
+                "value": "product:Subset_S2A_MSIL2A_20181002T034551_N9999_R104_T47PMP_20190916T085624_resampled"
             }
         ]
     }

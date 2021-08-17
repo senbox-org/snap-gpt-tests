@@ -24,7 +24,7 @@
     "id": "Subset_S2_B1B2_Ref",
     "author": "CS",
     "description": "execute subset operator in a S2L1C product with bands B1 and B2",
-    "frequency": "daily/snap/Subset_S2_Ref",
+    "frequency": "daily/snap/Subset_S2_Ref/Subset_S2_B1B2_Ref",
     "graphPath": "snap/graphSubsetRefBand.xml",
     "inputs": {
       "input1": "s2tbx/S2/L1C/S2A_MSIL1C_20181002T034551_N0206_R104_T47PMP_20181002T073417.SAFE"
@@ -40,7 +40,12 @@
       "parameter": "out1",
       "outputName": "subsetS2Test_B1B2",
       "expected": "snap/expected_subsetS2TestB1B2_region.json"
-    }]
+    }],
+    "configVM": {
+      "xmx": "8G",
+      "cacheSize": "2048",
+      "parallelism": "4"
+    }
   },
   {
     "id": "Subset_S2_B1_Ref",

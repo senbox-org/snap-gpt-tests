@@ -12,13 +12,13 @@
           "x": 129.0,
           "y": 161.0,
           "lat": 48.25239355373196,
-          "lon": 2.0095655069484932
+          "lon": 2.009565480897436
         },
         {
           "x": 222.0,
           "y": 194.0,
           "lat": 48.11974625173025,
-          "lon": 2.298349778463179
+          "lon": 2.298349813790992
         }
       ],
       "reverseAccuracy": 0.16
@@ -72,26 +72,6 @@
     ],
     "tiePointGrids": [
       {
-        "name": "latitude",
-        "description": "Latitude of the tie points (WGS-84), positive N",
-        "offsetX": "-39.5",
-        "offsetY": "-39.5",
-        "subSamplingX": "64.0",
-        "subSamplingY": "64.0",
-        "expectedPixels": [
-          {
-            "x": 15,
-            "y": 53,
-            "value": 48.586643
-          },
-          {
-            "x": 205,
-            "y": 255,
-            "value": 47.969658
-          }
-        ]
-      },
-      {
         "name": "longitude",
         "description": "Longitude of the tie points (WGS-84), Greenwich origin, positive E",
         "offsetX": "-39.5",
@@ -100,14 +80,34 @@
         "subSamplingY": "64.0",
         "expectedPixels": [
           {
+            "x": 15,
+            "y": 53,
+            "value": 1.7118136
+          },
+          {
+            "x": 205,
+            "y": 255,
+            "value": 2.1887732
+          }
+        ]
+      },
+      {
+        "name": "latitude",
+        "description": "Latitude of the tie points (WGS-84), positive N",
+        "offsetX": "-39.5",
+        "offsetY": "-39.5",
+        "subSamplingX": "64.0",
+        "subSamplingY": "64.0",
+        "expectedPixels": [
+          {
             "x": 87,
             "y": 77,
-            "value": 1.9390206
+            "value": 48.488758
           },
           {
             "x": 183,
             "y": 109,
-            "value": 2.240524
+            "value": 48.357384
           }
         ]
       },
@@ -821,32 +821,40 @@
     ],
     "metadata": [
       {
-        "path": "history/SubsetInfo/ProductNodeName.1",
-        "value": "latitude"
+        "path": "Processing_Graph/node.0/sources/sourceProduct",
+        "value": "Rad2ReflOp"
       },
       {
-        "path": "history/SubsetInfo/SubRegion.width",
-        "value": "300"
+        "path": "history/SubsetInfo/ProductNodeName.26",
+        "value": "reflectance_11"
       },
       {
-        "path": "Processing_Graph/node.1/sources/sourceProduct",
-        "value": "product:Subset_MER_FRS_1PNACR20040515_101402_000002112026_00466_11542_0000"
+        "path": "Processing_Graph/node.0/parameters/copyMetadata",
+        "value": "false"
       },
       {
-        "path": "Processing_Graph/node.1/sources/sourceProduct",
-        "value": "product:Subset_MER_FRS_1PNACR20040515_101402_000002112026_00466_11542_0000"
+        "path": "history/SubsetInfo/SubSampling.y",
+        "value": "1"
       },
       {
         "path": "Processing_Graph/node.0/parameters/region",
         "value": "1000,1000,300,300"
       },
       {
-        "path": "Processing_Graph/node.0/parameters/subSamplingX",
-        "value": "1"
+        "path": "Processing_Graph/node.0/sources/sourceProduct",
+        "value": "Rad2ReflOp"
       },
       {
-        "path": "history/SubsetInfo/ProductNodeName.7",
-        "value": "sun_zenith"
+        "path": "history/SubsetInfo/ProductNodeName.5",
+        "value": "lat_corr"
+      },
+      {
+        "path": "Processing_Graph/node.2/sources/sourceProduct",
+        "value": "product:Subset_MER_FRS_1PNACR20040515_101402_000002112026_00466_11542_0000"
+      },
+      {
+        "path": "Processing_Graph/node.0/sources/sourceProduct",
+        "value": "Rad2ReflOp"
       }
     ]
   }
