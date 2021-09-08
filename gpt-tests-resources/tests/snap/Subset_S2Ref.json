@@ -45,6 +45,30 @@
     ]
   },
   {
+    "id": "Subset_S2_B1B4_Ref",
+    "author": "CS",
+    "description": "execute subset operator in a S2L1C product with bands B1(60m) and B4(10m)",
+    "frequency": "daily/snap/Subset_S2_Ref",
+    "graphPath": "snap/graphSubsetRefBand.xml",
+    "inputs": {
+      "input1": "s2tbx/S2/L1C/S2A_MSIL1C_20181002T034551_N0206_R104_T47PMP_20181002T073417.SAFE"
+    },
+    "parameters": {
+      "subsetBands": "B1,B4",
+      "subsetRegion": "300,300,200,200",
+      "subsetGeoRegion": "",
+      "tiePointGrids": "total_column_water_vapour,total_column_ozone,mean_sea_level_pressure",
+      "referenceBand": "B1"
+    },
+    "outputs": [
+      {
+        "parameter": "out1",
+        "outputName": "subsetS2Test_B1B4",
+        "expected": "snap/expected_subsetS2TestB1B4_region.json"
+      }
+    ]
+  },
+  {
     "id": "Subset_S2_B1B9_Ref",
     "author": "CS",
     "description": "execute subset operator in a S2L1C product with bands B1 and B9 (both 60m)",
