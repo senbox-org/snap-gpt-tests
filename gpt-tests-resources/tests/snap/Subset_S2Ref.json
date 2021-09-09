@@ -1,29 +1,58 @@
-[{
-  "id": "Subset_S2_B2B3_Ref",
-  "author": "CS",
-  "description": "execute subset operator in a S2L1C product with bands B2 and B3 (both 10m) and region",
-  "frequency": "daily/snap/Subset_S2_Ref",
-  "graphPath": "snap/graphSubsetRefBand.xml",
-  "inputs": {
-    "input1": "s2tbx/S2/L1C/S2A_MSIL1C_20181002T034551_N0206_R104_T47PMP_20181002T073417.SAFE"
+[
+  {
+    "id": "Subset_S2_B2B3_Ref",
+    "author": "CS",
+    "description": "execute subset operator in a S2L1C product with bands B2 and B3 (both 10m) and region",
+    "frequency": "daily/snap/Subset_S2_Ref",
+    "graphPath": "snap/graphSubsetRefBand.xml",
+    "inputs": {
+      "input1": "s2tbx/S2/L1C/S2A_MSIL1C_20181002T034551_N0206_R104_T47PMP_20181002T073417.SAFE"
+    },
+    "parameters": {
+      "subsetBands": "B2,B3",
+      "subsetRegion": "300,300,200,200",
+      "subsetGeoRegion": "",
+      "tiePointGrids": "total_column_water_vapour,total_column_ozone,mean_sea_level_pressure",
+      "referenceBand": "B2",
+      "outputFormat": "BEAM-DIMAP"
+    },
+    "outputs": [
+      {
+        "parameter": "out1",
+        "outputName": "subsetS2Test_B2B3",
+        "expected": "snap/expected_subsetS2TestB2B3_region.json"
+      }
+    ]
   },
-  "parameters": {
-    "subsetBands": "B2,B3",
-    "subsetRegion": "300,300,200,200",
-    "subsetGeoRegion": "",
-    "tiePointGrids": "total_column_water_vapour,total_column_ozone,mean_sea_level_pressure",
-    "referenceBand": "B2"
+  {
+    "id": "Subset_S2_B5B6_Ref",
+    "author": "CS",
+    "description": "execute subset operator in a S2L1C product with bands B5 and B6 (both 20m) and region",
+    "frequency": "daily/snap/Subset_S2_Ref",
+    "graphPath": "snap/graphSubsetRefBand.xml",
+    "inputs": {
+      "input1": "s2tbx/S2/L1C/S2A_MSIL1C_20181002T034551_N0206_R104_T47PMP_20181002T073417.SAFE"
+    },
+    "parameters": {
+      "subsetBands": "B5,B6",
+      "subsetRegion": "300,300,200,200",
+      "subsetGeoRegion": "",
+      "tiePointGrids": "total_column_water_vapour,total_column_ozone,mean_sea_level_pressure",
+      "referenceBand": "B5",
+      "outputFormat": "BEAM-DIMAP"
+    },
+    "outputs": [
+      {
+        "parameter": "out1",
+        "outputName": "subsetS2Test_B2B3",
+        "expected": "snap/expected_subsetS2TestB2B3_region.json"
+      }
+    ]
   },
-  "outputs": [{
-    "parameter": "out1",
-    "outputName": "subsetS2Test_B2B3",
-    "expected": "snap/expected_subsetS2TestB2B3_region.json"
-  }]
-},
   {
     "id": "Subset_S2_B1B2_Ref",
     "author": "CS",
-    "description": "execute subset operator in a S2L1C product with bands B1(60m) and B2(10m)",
+    "description": "execute subset operator in a S2L1C product with bands B1(60m) and B2(10m), ref is B1",
     "frequency": "daily/snap/Subset_S2_Ref/Subset_S2_B1B2_Ref",
     "graphPath": "snap/graphSubsetRefBand.xml",
     "inputs": {
@@ -34,7 +63,33 @@
       "subsetRegion": "300,300,200,200",
       "subsetGeoRegion": "",
       "tiePointGrids": "total_column_water_vapour,total_column_ozone,mean_sea_level_pressure",
-      "referenceBand": "B1"
+      "referenceBand": "B1",
+      "outputFormat": "BEAM-DIMAP"
+    },
+    "outputs": [
+      {
+        "parameter": "out1",
+        "outputName": "subsetS2Test_B1B2",
+        "expected": "snap/expected_subsetS2TestB1B2_region.json"
+      }
+    ]
+  },
+  {
+    "id": "Subset_S2_B1B2_RefB2",
+    "author": "CS",
+    "description": "execute subset operator in a S2L1C product with bands B1(60m) and B2(10m), ref is B2",
+    "frequency": "daily/snap/Subset_S2_Ref/Subset_S2_B1B2_Ref",
+    "graphPath": "snap/graphSubsetRefBand.xml",
+    "inputs": {
+      "input1": "s2tbx/S2/L1C/S2A_MSIL1C_20181002T034551_N0206_R104_T47PMP_20181002T073417.SAFE"
+    },
+    "parameters": {
+      "subsetBands": "B1,B2",
+      "subsetRegion": "300,300,200,200",
+      "subsetGeoRegion": "",
+      "tiePointGrids": "total_column_water_vapour,total_column_ozone,mean_sea_level_pressure",
+      "referenceBand": "B2",
+      "outputFormat": "BEAM-DIMAP"
     },
     "outputs": [
       {
@@ -58,7 +113,8 @@
       "subsetRegion": "300,300,200,200",
       "subsetGeoRegion": "",
       "tiePointGrids": "total_column_water_vapour,total_column_ozone,mean_sea_level_pressure",
-      "referenceBand": "B1"
+      "referenceBand": "B1",
+      "outputFormat": "ZNAP"
     },
     "outputs": [
       {
@@ -82,7 +138,8 @@
       "subsetRegion": "300,300,200,200",
       "subsetGeoRegion": "",
       "tiePointGrids": "total_column_water_vapour,total_column_ozone,mean_sea_level_pressure",
-      "referenceBand": "B1"
+      "referenceBand": "B1",
+      "outputFormat": "ZNAP"
     },
     "outputs": [
       {
@@ -106,7 +163,8 @@
       "subsetRegion": "300,300,200,200",
       "subsetGeoRegion": "",
       "tiePointGrids": "total_column_water_vapour,total_column_ozone,mean_sea_level_pressure",
-      "referenceBand": "B1"
+      "referenceBand": "B1",
+      "outputFormat": "ZNAP"
     },
     "outputs": [
       {
@@ -130,13 +188,15 @@
       "subsetRegion": "300,300,200,200",
       "subsetGeoRegion": "",
       "tiePointGrids": "total_column_water_vapour,total_column_ozone,mean_sea_level_pressure",
-      "referenceBand": "B2"
+      "referenceBand": "B2",
+      "outputFormat": "BEAM-DIMAP"
     },
-    "outputs": [{
-      "parameter": "out1",
-      "outputName": "subset_S2_Test_B1",
-      "expected": "snap/expected_subsetS2Test_region.json"
-    }]
+    "outputs": [
+      {
+        "parameter": "out1",
+        "outputName": "subset_S2_Test_B1",
+        "expected": "snap/expected_subsetS2Test_region.json"
+      }
+    ]
   }
-
 ]
