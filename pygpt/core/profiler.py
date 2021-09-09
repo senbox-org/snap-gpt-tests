@@ -367,8 +367,8 @@ def profile(command, sampling_time, output, **kwargs):
     timeout = -1
     if 'timeout' in kwargs:
         timeout = int(kwargs['timeout'])
-        if('subsetS2Test_B1B2' in str(command)):
-            timeout = 2000
+        if('subsetS2Test' in str(command)):
+            timeout = 60
         print('timeout = ',timeout)
     stdout = ''
     try:
@@ -383,7 +383,6 @@ def profile(command, sampling_time, output, **kwargs):
 
     # retrive process return code
     returncode = proc.wait() # proc.returncode if proc.returncode else 0
-    
     # read stdoutput lines if any
     while not queue.empty():
         stdout += queue.get()
