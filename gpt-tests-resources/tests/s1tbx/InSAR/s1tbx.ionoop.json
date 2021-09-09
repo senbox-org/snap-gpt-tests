@@ -3,7 +3,7 @@
   "id": "s1tbx.insar.ionoop",
   "author": "Sensar",
   "description": "execute estimation of ionospheric phase screen",
-  "frequency": "daily/s1tbx/insar/iono",
+  "frequency": "weekly/s1tbx/insar/iono",
   "graphPath": "s1tbx/InSAR/IonoOp.xml",
   "inputs":{
     "input1": "s1tbx/SAR/S1/SLC/Taiwan/S1A_IW_SLC__1SDV_20160202T100047_20160202T100115_009766_00E469_5727.zip",
@@ -17,7 +17,7 @@
     "expected": "s1tbx/InSAR/expected-insar-ionoop.json"
   }],
   "configVM": {
-    "xmx": "28G",
+    "xmx": "32G",
     "cacheSize": "4G",
     "parallelism": "2"
   }
