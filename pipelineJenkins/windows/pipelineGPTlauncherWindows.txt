@@ -1,35 +1,27 @@
 /**
  * Launch jobs for every json file listed in jsonString separated by '\n'
  */
-def launchJobs(jsonString, scope, saveOutput, outputDir, tagName) {
-
-    def jobs = [:]
-    println "List of Json file : " + jsonString
+def launchJobs(jsonString, scope, outputDir, saveOutput, debug) {
+	println saveOutput
+    println "List of sequentials Json file : " + jsonString
     jsonString = jsonString.trim()
     jsonList = jsonString.split("\n")
     num = 0
     status = true
+    sh script:"mkdir -p ${outputDir}/OUT", label: "create report directory"
     for (int i=0; i < jsonList.size(); i++) {
         item = jsonList[i]
         def currentJsonFile = "" + item
         if (currentJsonFile.trim() != "") {
-            echo "Schedule job for json file : " + item
-            b = build(job: "gpt-test-launcherV2", parameters: [
-                    [$class: 'StringParameterValue', name: 'jsonPath', value: currentJsonFile],
-                    [$class: 'StringParameterValue', name: 'testScope', value: "${scope}"],
-                    [$class: 'StringParameterValue', name: 'outputDir', value: "${outputDir}"],
-                    [$class: 'StringParameterValue', name: 'tagName', value: "${tagName}"],
-                    [$class: 'BooleanParameterValue', name: 'saveOutput', value: saveOutput]
-                ],
-                quietPeriod: 0,
-                propagate: false,
-                wait: true).result
-            if(b == 'FAILURE') {
-                echo "The job " + item + " failed."
-                // currentBuild.result = 'FAILURE'
+			// Test commit message for flags
+			try{
+				echo """export LD_LIBRARY_PATH=. && ${PYTHON_CMD} -u "${outputDir}/pygpt/snap_gpt_test.py" '${JAVA_CMD}' '-Dncsa.hdf.hdflib.HDFLibrary.hdflib=${SNAP_INSTALL_ROOT_DIR2}/snap/modules/lib/amd64/jhdf.${LIB_EXTENSION} -Dncsa.hdf.hdf5lib.H5.hdf5lib=${SNAP_INSTALL_ROOT_DIR2}/snap/modules/lib/amd64/jhdf5.${LIB_EXTENSION} -cp ./gpt-tests-executer/target/TestOutput.jar' org.esa.snap.test.TestOutput \"${GPT_EXEC_PROPERTIES}\" \"${scope}\" \"${currentJsonFile}\" \"${outputDir}/report\" ${saveOutput}"""
+				sh """export LD_LIBRARY_PATH=. && ${PYTHON_CMD} -u "${outputDir}/pygpt/snap_gpt_test.py" '${JAVA_CMD}' '-Dncsa.hdf.hdflib.HDFLibrary.hdflib=${SNAP_INSTALL_ROOT_DIR2}/snap/modules/lib/amd64/jhdf.${LIB_EXTENSION} -Dncsa.hdf.hdf5lib.H5.hdf5lib=${SNAP_INSTALL_ROOT_DIR2}/snap/modules/lib/amd64/jhdf5.${LIB_EXTENSION} -cp ./gpt-tests-executer/target/TestOutput.jar' org.esa.snap.test.TestOutput \"${GPT_EXEC_PROPERTIES}\" \"${scope}\" \"${currentJsonFile}\" \"${outputDir}/report\" ${saveOutput}"""
+			} catch (all) {
+                echo "A test from the testset \"${currentJsonFile}\" failed"
                 status = false
             }
-        }
+		}
         num++
     }
     if (!status) {
@@ -37,22 +29,22 @@ def launchJobs(jsonString, scope, saveOutput, outputDir, tagName) {
     }
 }
 
-
 pipeline {
     agent { label 'master' }
     tools {
         maven 'Maven-3.6.1'
-        jdk 'JDK1.8.0_202'
+        jdk 'JDK1.8.0_242'
     }
 
     parameters {
         string(name: 'gptBranch', defaultValue: 'master', description: 'Name of the branch to test for GPT project')
-        string(name: 'testScope', defaultValue: 'REGULAR', description: 'Scope of the tests to launch (PUSH, DAILY, REGULAR, WEEKLY, RELEASE)')
+        string(name: 'testScope', defaultValue: 'DAILY', description: 'Scope of the tests to launch (PUSH, DAILY, REGULAR, WEEKLY, RELEASE)')
         string(name: 'jsonPath', defaultValue: '', description: 'Path to json file describing tests')
         string(name: 'outputDir', defaultValue: '', description: 'Path to outputDir')
-        string(name: 'tagName', defaultValue: 'windows', description: 'Tag name used for database')
+        string(name: 'tagName', defaultValue: 'snap-windows:master', description: 'Tag name used for database')
         booleanParam(name: 'saveOutput', defaultValue: false, description: 'Save output of failed tests (if scope is not [REGULAR, DAILY, WEEKLY, RELEASE])')
         booleanParam(name: 'reinstallSNAP', defaultValue: false, description: 'Reinstall latest version of SNAP generated on build server')
+		string(name: 'reportsDB', defaultValue: "conf://C:/Data/GPT/snap-db.conf", description: "database to use for saving outputs and performances (sqlite://path or mysql://user:root@host:port/db)")
     }
 
     environment {
@@ -62,13 +54,14 @@ pipeline {
         OUTPUT_PATH = 'C:/Data/GPT'
         PYTHON_SCRIPT_PATH = 'C:/Users/admin/PycharmProjects/test_manager/scripts'
         SNAP_INSTALL_ROOT_DIR = 'C:/Program Files/snap'
+		SNAP_INSTALL_ROOT_DIR2 = 'C:'
         DOT_SNAP_DIR = 'C:/Users/admin/.snap'
         GPT_EXEC_PROPERTIES = 'C:/Data/GPT/gpt-tests-executer.properties'
         LIB_EXTENSION = 'dll'
         PROXY_FILE_CONF_PATH = 'C:/Users/admin/AppData/Roaming/SNAP/config/Preferences/org/netbeans'
         SNAP_TEMP_FOLDER = 'C:/Windows/Temp/snap-VM-SNAP-WIN10$'
         OUTPUT_DIR = "${OUTPUT_PATH}/${params.gptBranch}/${env.BUILD_NUMBER}"
-        DATABASE_DIR = 'C:/Data/GPT/report/db'
+		DATABASE_DIR = 'C:/Data/GPT/report/db'
     }
     stages {
         stage ("Checkout") {
@@ -76,18 +69,19 @@ pipeline {
             steps {
                 echo "Checkout project"
                 git branch: "${params.gptBranch}", url: 'https://github.com/senbox-org/snap-gpt-tests.git'
-            }
+				//def commit_id = sh(returnStdout: true, script: 'git rev-parse HEAD')
+			}
         }
         stage ("Build") {
-            when {
+            /*when {
                 expression {
                     // run this stage only when json path is NOT specified
                     return "${params.jsonPath}" == '';
                 }
-            }
+            }*/
             agent { label 'master' }
             steps {
-                echo "Build project from ${env.JOB_NAME} from ${env.GIT_BRANCH} with commit ${env.GIT_COMMIT}"
+                echo "Build project from ${env.JOB_NAME} from ${params.gptBranch} with commit ${env.GIT_COMMIT}"
                 sh "mkdir -p ${OUTPUT_DIR}"
                 sh 'mvn clean package install'
 
@@ -125,7 +119,8 @@ pipeline {
             agent { label 'master' }
             steps {
                 echo "Reinstall SNAP from branch ${params.gptBranch}"
-                sh ". ${ACTIVATE_VENV_PATH} && ${PYTHON_CMD} ${PYTHON_SCRIPT_PATH}/install.py ${params.gptBranch}"
+				echo ". ${ACTIVATE_VENV_PATH} && ${PYTHON_CMD} ${PYTHON_SCRIPT_PATH}/install.py ${params.gptBranch}"
+				sh ". ${ACTIVATE_VENV_PATH} && ${PYTHON_CMD} ${PYTHON_SCRIPT_PATH}/install.py master"
                 sh "sed -e \"s#Xmx[0-9]*#Xmx5#g\" -i \"${SNAP_INSTALL_ROOT_DIR}/bin/gpt.vmoptions\""
                 sh "echo \"-Dhttp.proxyHost=proxy2.si.c-s.fr\" >> \"${SNAP_INSTALL_ROOT_DIR}/bin/gpt.vmoptions\""
                 sh "echo \"-Dhttp.proxyPort=3128\" >> \"${SNAP_INSTALL_ROOT_DIR}/bin/gpt.vmoptions\""
@@ -154,16 +149,38 @@ pipeline {
             }
             agent { label 'master' } 
             steps {
+		
+				echo "Launch jobs : ${OUTPUT_DIR}"
+				sh "mkdir -p ${OUTPUT_DIR}/report/json"
+				sh "mkdir -p ${OUTPUT_DIR}/report/images/s1tbx"
+				sh "mkdir -p ${OUTPUT_DIR}/report/images/s2tbx"
+				sh "mkdir -p ${OUTPUT_DIR}/report/images/s3tbx"
+				sh "mkdir -p ${OUTPUT_DIR}/report/images/snap"
+				sh "mkdir -p ${OUTPUT_DIR}/report/css"
+				sh "mkdir -p ${OUTPUT_DIR}/report/icons"
+				sh "mkdir -p ${OUTPUT_DIR}/report/js"
+				sh "mkdir -p ${OUTPUT_DIR}/report/output"
+				sh "mkdir -p ${OUTPUT_DIR}/report/performances/csv"
+				sh "mkdir -p ${OUTPUT_DIR}/report/performances/plot"
+				sh "mkdir -p ${OUTPUT_DIR}/report/performances/stats"
+				sh "mkdir -p ${OUTPUT_DIR}/report/tests"
+				sh "rm -rf \"$WORKSPACE\"/report"
+				sh "mkdir \"$WORKSPACE\"/report && mkdir \"$WORKSPACE\"/report/output"
+				sh "cp -r \"${OUTPUT_DIR}\"/report/* \"$WORKSPACE\"/report/output/"
+				sh "cp -r \"${OUTPUT_DIR}\"/statics/* \"$WORKSPACE\"/report/"
+				echo "Checkin json test integrity..."
+                sh "${PYTHON_CMD} -u ./pygpt/check_jsons.py ./gpt-tests-resources/tests"
+
+                echo "Filtering json files..."
+                sh "${PYTHON_CMD} -u ./pygpt/filter_json.py ./gpt-tests-resources/tests \"${params.testScope}\" ${OUTPUT_DIR}"
+				
                 script {
                     jsonString = sh(returnStdout: true, script: "cat ${OUTPUT_DIR}/JSONTestFiles.txt").trim()
-                    jsonStringSeq = sh(returnStdout: true, script: "cat ${OUTPUT_DIR}/JSONTestFilesSeq.txt").trim()
                 }
 
-                echo "Launch seq Jobs from ${env.JOB_NAME} from ${env.GIT_BRANCH} with commit ${env.GIT_COMMIT}"
-                launchJobs("${jsonString}", "${params.testScope}", params.saveOutput, "${OUTPUT_DIR}", "${params.tagName}")
+                echo "Launch seq Jobs from ${env.JOB_NAME} from ${params.gptBranch} with commit ${env.GIT_COMMIT}"
+                launchJobs("${jsonString}", "${params.testScope}",  "${OUTPUT_DIR}", params.saveOutput, "${params.tagName}")
 
-                echo "Launch seq Jobs from ${env.JOB_NAME} from ${env.GIT_BRANCH} with commit ${env.GIT_COMMIT}"
-                launchJobs("${jsonStringSeq}", "${params.testScope}", params.saveOutput, "${OUTPUT_DIR}", "${params.tagName}")
             }
             post {
                 always {
@@ -171,14 +188,14 @@ pipeline {
                     sh "mkdir \"$WORKSPACE\"/report && mkdir \"$WORKSPACE\"/report/output"
                     sh "cp -r \"${OUTPUT_DIR}\"/report/* \"$WORKSPACE\"/report/output/"
                     sh "cp -r \"${OUTPUT_DIR}\"/statics/* \"$WORKSPACE\"/report/" 
-
+					
                     sh "cat \"$WORKSPACE\"/report/output/Report_*.txt > \"$WORKSPACE\"/report/output/report.txt"
                     sh "mv \"$WORKSPACE\"/report/output/json \"$WORKSPACE\"/report/ && mv \"$WORKSPACE\"/report/output/performances \"$WORKSPACE\"/report/ && mv \"$WORKSPACE\"/report/output/images \"$WORKSPACE\"/report/"
                 
                     sh "ls \"$WORKSPACE\"/report/json/"
                    
                     echo "Updating database"
-                    sh "${PYTHON_CMD} -u ./pygpt/stats_db.py ${DATABASE_DIR}/statistics.db \"${params.tagName}\" ${params.testScope} \"$WORKSPACE\"/report ${env.BUILD_NUMBER} ${env.GIT_BRANCH}"
+                    sh "${PYTHON_CMD} -u ./pygpt/stats_db.py ${DATABASE_DIR}/statistics.db \"${params.tagName}\" ${params.testScope} \"$WORKSPACE\"/report windows:${env.BUILD_NUMBER} ${params.gptBranch}"
                    
                     echo "Generate report"
                     sh "${PYTHON_CMD} -u ./pygpt/report_utils.py ${OUTPUT_DIR}/templates \"$WORKSPACE\"/report \"${params.testScope}\" \"${params.tagName}\" ${DATABASE_DIR}/statistics.db"
@@ -206,7 +223,8 @@ pipeline {
                     
                 }
                 echo "Setup GPT Tests "
-                echo "Reinstall SNAP from branch ${params.gptBranch}"
+                echo "Check SNAP test data"
+				echo ". ${ACTIVATE_VENV_PATH} && ${PYTHON_CMD} \"${PYTHON_SCRIPT_PATH}/gpt_test.py\" \"${WORKSPACE}${jsonFilePath}\""
                 sh ". ${ACTIVATE_VENV_PATH} && ${PYTHON_CMD} \"${PYTHON_SCRIPT_PATH}/gpt_test.py\" \"${WORKSPACE}${jsonFilePath}\""
             }
         }
@@ -219,27 +237,53 @@ pipeline {
             agent  { label 'master' }
             steps {
                 echo "Launch GPT Tests with json file ${params.jsonPath}"
-                sh "mkdir -p ${params.outputDir}/report/json"
-                sh "mkdir -p ${params.outputDir}/report/images/s1tbx"
-                sh "mkdir -p ${params.outputDir}/report/images/s2tbx"
-                sh "mkdir -p ${params.outputDir}/report/images/s3tbx"
-                sh "mkdir -p ${params.outputDir}/report/images/snap"
-                sh "mkdir -p ${params.outputDir}/report/css"
-                sh "mkdir -p ${params.outputDir}/report/icons"
-                sh "mkdir -p ${params.outputDir}/report/js"
-                sh "mkdir -p ${params.outputDir}/report/output"
-                sh "mkdir -p ${params.outputDir}/report/performances/csv"
-                sh "mkdir -p ${params.outputDir}/report/performances/plot"
-                sh "mkdir -p ${params.outputDir}/report/performances/stats"
-                sh "mkdir -p ${params.outputDir}/report/tests"
-                sh """export LD_LIBRARY_PATH=. && ${PYTHON_CMD} -u ${params.outputDir}/pygpt/snap_gpt_test.py '${JAVA_CMD}' '-Dncsa.hdf.hdflib.HDFLibrary.hdflib="${SNAP_INSTALL_ROOT_DIR}"/snap/modules/lib/amd64/jhdf.${LIB_EXTENSION} -Dncsa.hdf.hdf5lib.H5.hdf5lib="${SNAP_INSTALL_ROOT_DIR}"/snap/modules/lib/amd64/jhdf5.${LIB_EXTENSION} -cp ${params.outputDir}/gptExecutorTarget/TestOutput.jar' org.esa.snap.test.TestOutput \"${GPT_EXEC_PROPERTIES}\" \"${params.testScope}\" \"${params.jsonPath}\" \"${params.outputDir}/report\" ${params.saveOutput}"""
+				echo "params.outputDir: ${params.outputDir}"
+				echo "OUTPUT_DIR : ${OUTPUT_DIR}"
+				echo "WORKSPACE : ${WORKSPACE}"
+                sh "mkdir -p ${OUTPUT_DIR}/report/json"
+                sh "mkdir -p ${OUTPUT_DIR}/report/images/s1tbx"
+                sh "mkdir -p ${OUTPUT_DIR}/report/images/s2tbx"
+                sh "mkdir -p ${OUTPUT_DIR}/report/images/s3tbx"
+                sh "mkdir -p ${OUTPUT_DIR}/report/images/snap"
+                sh "mkdir -p ${OUTPUT_DIR}/report/css"
+                sh "mkdir -p ${OUTPUT_DIR}/report/icons"
+                sh "mkdir -p ${OUTPUT_DIR}/report/js"
+                sh "mkdir -p ${OUTPUT_DIR}/report/output"
+                sh "mkdir -p ${OUTPUT_DIR}/report/performances/csv"
+                sh "mkdir -p ${OUTPUT_DIR}/report/performances/plot"
+                sh "mkdir -p ${OUTPUT_DIR}/report/performances/stats"
+                sh "mkdir -p ${OUTPUT_DIR}/report/tests"
+				echo """export LD_LIBRARY_PATH=. && ${PYTHON_CMD} -u "${WORKSPACE}/pygpt/snap_gpt_test.py" '${JAVA_CMD}' '-Dncsa.hdf.hdflib.HDFLibrary.hdflib=${SNAP_INSTALL_ROOT_DIR2}/snap/modules/lib/amd64/jhdf.${LIB_EXTENSION} -Dncsa.hdf.hdf5lib.H5.hdf5lib=${SNAP_INSTALL_ROOT_DIR2}/snap/modules/lib/amd64/jhdf5.${LIB_EXTENSION} -cp "${WORKSPACE}"/gpt-tests-executer/target/TestOutput.jar' org.esa.snap.test.TestOutput \"${GPT_EXEC_PROPERTIES}\" \"${params.testScope}\" \"${params.jsonPath}\" \"${OUTPUT_DIR}/report\" ${params.saveOutput}"""
+				sh """export LD_LIBRARY_PATH=. && ${PYTHON_CMD} -u "${WORKSPACE}/pygpt/snap_gpt_test.py" '${JAVA_CMD}' '-Dncsa.hdf.hdflib.HDFLibrary.hdflib=${SNAP_INSTALL_ROOT_DIR2}/snap/modules/lib/amd64/jhdf.${LIB_EXTENSION} -Dncsa.hdf.hdf5lib.H5.hdf5lib=${SNAP_INSTALL_ROOT_DIR2}/snap/modules/lib/amd64/jhdf5.${LIB_EXTENSION} -cp ./gpt-tests-executer/target/TestOutput.jar' org.esa.snap.test.TestOutput \"${GPT_EXEC_PROPERTIES}\" \"${params.testScope}\" \"${params.jsonPath}\" \"${OUTPUT_DIR}/report\" ${params.saveOutput}"""
                 sh "rm -rf ${DOT_SNAP_DIR}/var/cache/*"
                 sh "rm -rf ${DOT_SNAP_DIR}/auxdata/dem/*"
                 sh "rm -rf ${DOT_SNAP_DIR}/auxdata/Orbits/*"
                 sh "rm -rf ${DOT_SNAP_DIR}/auxdata/LandCover/*"
                 sh "rm -rf ${SNAP_TEMP_FOLDER}/*"
             }
+			post {
+                always{
+
+                    sh script:"rm -rf $WORKSPACE/report", label: "clean-up old report"
+                    sh script:"mkdir $WORKSPACE/report && mkdir $WORKSPACE/report/output", label: "initialize final report directory"
+                    sh script:"cp -r ${outputDir}/report/* $WORKSPACE/report/output/", label: "copy gnerated log files"
+                    sh script:"cp -r ${outputDir}/statics/* $WORKSPACE/report/", label: "copy report resources"
+
+                    sh script:"cat $WORKSPACE/report/output/Report_*.txt > $WORKSPACE/report/output/report.txt", label: "join execution status logs"
+                    sh script:"mv $WORKSPACE/report/output/json $WORKSPACE/report/ && mv $WORKSPACE/report/output/performances $WORKSPACE/report/ && mv $WORKSPACE/report/output/images $WORKSPACE/report/", label: "re-orginize copied logs"
+                
+                    echo "Updating database"
+                    sh script:"python3 -u ./pygpt/stats_db.py ${DATABASE_DIR}/statistics.db ${tagName} ${params.testScope} $WORKSPACE/report ${env.BUILD_NUMBER} ${params.gptBranch}", label: "update \"reports\" remote database"
+                   
+                    echo "Generate report"
+                    sh script:"python3 -u ./pygpt/report_utils.py ${outputDir}/templates $WORKSPACE/report \"${params.testScope}\" ${tagName} ${DATABASE_DIR}/statistics.db", label: "generate local HTML report"
+                   
+                    archiveArtifacts artifacts: "report/**/*.*", fingerprint: true
+                    sh script:"rm -rf report && rm -rf ${outputDir}/*", label: "clean-up files"
+                }
+            }
         }
+		
     }
     /*post {
         failure {
