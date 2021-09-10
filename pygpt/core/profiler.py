@@ -367,8 +367,13 @@ def profile(command, sampling_time, output, **kwargs):
     timeout = -1
     if 'timeout' in kwargs:
         timeout = int(kwargs['timeout'])
+
+        #add specific rules (temporarly for debugging) : TODO remove after
         if('subsetS2Test' in str(command)):
             timeout = 60
+        elif('s1tbx.ionoop' in str(command)):
+            timeout = 6000
+
         print('timeout = ',timeout)
     stdout = ''
     try:
