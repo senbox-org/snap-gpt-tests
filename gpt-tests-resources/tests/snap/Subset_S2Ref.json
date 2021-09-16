@@ -3,7 +3,7 @@
     "id": "Subset_S2_B2B3_Ref",
     "author": "CS",
     "description": "execute subset operator in a S2L1C product with bands B2 and B3 (both 10m) and region",
-    "frequency": "daily/snap/Subset_S2_Ref",
+    "frequency": "daily/snap/Subset_S2_Ref/Subset_S2_B2B3_Ref",
     "graphPath": "snap/graphSubsetRefBand.xml",
     "inputs": {
       "input1": "s2tbx/S2/L1C/S2A_MSIL1C_20181002T034551_N0206_R104_T47PMP_20181002T073417.SAFE"
@@ -44,8 +44,8 @@
     "outputs": [
       {
         "parameter": "out1",
-        "outputName": "subsetS2Test_B2B3",
-        "expected": "snap/expected_subsetS2TestB2B3_region.json"
+        "outputName": "subsetS2Test_B5B6",
+        "expected": "snap/expected_subsetS2TestB5B6_region.json"
       }
     ]
   },
@@ -78,7 +78,7 @@
     "id": "Subset_S2_B1B2_RefB2",
     "author": "CS",
     "description": "execute subset operator in a S2L1C product with bands B1(60m) and B2(10m), ref is B2",
-    "frequency": "daily/snap/Subset_S2_Ref/Subset_S2_B1B2_Ref",
+    "frequency": "daily/snap/Subset_S2_Ref",
     "graphPath": "snap/graphSubsetRefBand.xml",
     "inputs": {
       "input1": "s2tbx/S2/L1C/S2A_MSIL1C_20181002T034551_N0206_R104_T47PMP_20181002T073417.SAFE"
@@ -153,7 +153,7 @@
     "id": "Subset_S2_B1B5_Ref",
     "author": "CS",
     "description": "execute subset operator in a S2L1C product with bands B1(60m) and B5 (20m)",
-    "frequency": "daily/snap/Subset_S2_Ref",
+    "frequency": "daily/snap/Subset_S2_Ref/Subset_S2_B1B5_Ref",
     "graphPath": "snap/graphSubsetRefBand.xml",
     "inputs": {
       "input1": "s2tbx/S2/L1C/S2A_MSIL1C_20181002T034551_N0206_R104_T47PMP_20181002T073417.SAFE"
