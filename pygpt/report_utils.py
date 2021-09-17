@@ -53,6 +53,7 @@ def __generate_pie__(name, passed, failed, skipped=0):
                 bbox_to_anchor=(1, 0, 0.5, 1))
     axis.axis('square')  # Equal aspect ratio ensures that pie is drawn as a circle.
     plt.savefig(fs.images.resolve(name), transparent=True)
+    plt.close(fig)
 
 
 def save_report(html, path):
