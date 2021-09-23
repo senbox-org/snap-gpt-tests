@@ -1,11 +1,11 @@
 {
-  "id": "tempSpot5Take5",
+  "id": "projected_Subset_SPOT5_HRG1_XS_20150725_N2A_LanguedocFranceD0000B0000",
   "decodeQualification": "INTENDED",
   "expectedContent": {
     "sceneWidth": 830,
     "sceneHeight": 601,
-    "startTime": "25-JUL-2015 09:13:32.999999",
-    "endTime": "25-JUL-2015 09:13:32.999999",
+    "startTime": "25-JUL-2015 09:13:33.999999",
+    "endTime": "25-JUL-2015 09:13:33.999999",
     "geoCoding": {
       "coordinates": [
         {
@@ -85,7 +85,7 @@
           {
             "name": "clouds_1.38band",
             "value": 32,
-            "description": "high clouds detected with 1.38 Âµm band (LANDSAT 8 only)"
+            "description": "high clouds detected with 1.38 µm band (LANDSAT 8 only)"
           },
           {
             "name": "shadows_matched_clouds",
@@ -338,6 +338,7 @@
         "description": "MASK_DIV",
         "bandWidth": 830,
         "bandHeight": 601,
+        "geophysicalUnit": "N/A",
         "noDataValue": "0.0",
         "noDataValueUsed": "true",
         "spectralWavelength": "0.0",
@@ -360,6 +361,7 @@
         "description": "MASK_CLOUDS",
         "bandWidth": 830,
         "bandHeight": 601,
+        "geophysicalUnit": "N/A",
         "noDataValue": "0.0",
         "noDataValueUsed": "true",
         "spectralWavelength": "0.0",
@@ -382,6 +384,7 @@
         "description": "MASK_SATURATION",
         "bandWidth": 830,
         "bandHeight": 601,
+        "geophysicalUnit": "N/A",
         "noDataValue": "0.0",
         "noDataValueUsed": "true",
         "spectralWavelength": "0.0",
@@ -459,7 +462,7 @@
         "name": "clouds_1.38band",
         "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
         "color": "178,0,178",
-        "description": "high clouds detected with 1.38 Âµm band (LANDSAT 8 only)"
+        "description": "high clouds detected with 1.38 µm band (LANDSAT 8 only)"
       },
       {
         "name": "shadows_matched_clouds",
@@ -510,8 +513,8 @@
         "value": "10.0"
       },
       {
-        "path": "TIFF Metadata[3]/GeoTIFF Metadata/GeoKeyDirectory/GTCitationGeoKey",
-        "value": "RGF93 / Lambert-93"
+        "path": "TIFF Metadata[3]/GeoTIFF Metadata/GeoKeyDirectory/GeogCitationGeoKey",
+        "value": "RGF93"
       },
       {
         "path": "TIFF Metadata[3]/GeoTIFF Metadata/GeoKeyDirectory/GTModelTypeGeoKey",
@@ -538,8 +541,8 @@
         "value": "/work/theia/prod/data/WORKSPACE/SC_N1_S5T5_LanguedocFrance_20150725_SO15011852-55-01_50462621507250913331J1/EXECUTIONS/T0_EXTRACTREF_LanguedocFrance_EXTRACTREF/OUT/REF_ORTHO_S5T5_LanguedocFrance_20150725_SO15011852-55-01_50462621507250913331J1/REF_ORTHO_S5T5_LanguedocFrance_20150725_SO15011852-55-01_50462621507250913331J1.xml"
       },
       {
-        "path": "TIFF Metadata[2]/GeoTIFF Metadata/GeoKeyDirectory/GeogCitationGeoKey",
-        "value": "RGF93"
+        "path": "TIFF Metadata[2]/GeoTIFF Metadata/GeoKeyDirectory/GeogAngularUnitsGeoKey",
+        "value": "Angular_Degree"
       },
       {
         "path": "history/SubsetInfo/SubSampling.x",
