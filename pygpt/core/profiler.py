@@ -369,8 +369,8 @@ def profile(command, sampling_time, output, **kwargs):
         timeout = int(kwargs['timeout'])
 
         #add specific rules (temporarly for debugging) : TODO remove after
-        if('subsetS2Test' in str(command)):
-            timeout = 60
+        if('subsetS2TestRef' in str(command)):
+            timeout = 80
         elif('IonoOp' in str(command)):
             timeout = 10000
 
