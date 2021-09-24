@@ -12,7 +12,7 @@ import org.esa.snap.dataio.ExpectedDataset;
 
 public class TestOutput {
     public static void main(String[] args) throws IOException {
-        System.setProperty("file.encoding","UTF-8");
+        System.setProperty("file.encoding","ISO-8859-1");
         if (args.length != 3) {
             System.out.println("OUTPUT_PATH EXPECTED_OUTPUT_PATH OUTPUT_NAME");
             System.exit(1);
