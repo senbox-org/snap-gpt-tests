@@ -249,7 +249,7 @@ def __check_outputs__(test, args, properties):
             log.info(f'comparing done, result: {result.returncode}')
             stdout = result.stdout.decode('utf-8','ignore')
             stdout_file = os.path.join(args.report_dir, f'{test.name}_gptOutput.txt')
-            with open(stdout_file, 'a') as file:
+            with open(stdout_file, 'a',encoding="utf-8") as file:
                 file.write(stdout)
             
             if result.returncode != 0:
