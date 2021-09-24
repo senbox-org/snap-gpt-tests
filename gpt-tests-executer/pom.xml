@@ -57,6 +57,7 @@
                     <goals><goal>jar</goal></goals>
                     <phase>package</phase>
                     <configuration>
+                        <encoding>UTF-8</encoding>
                         <archive>
                             <manifest>
                                 <addClasspath>true</addClasspath>
