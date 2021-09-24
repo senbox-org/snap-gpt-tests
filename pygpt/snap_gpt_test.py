@@ -24,6 +24,10 @@ import core.tools as utils
 import core.log as log
 import locale
 
+if os.name == "nt":
+    import _locale
+    _locale._gdl_bak = _locale._getdefaultlocale
+    _locale._getdefaultlocale = (lambda *args: (_locale._gdl_bak()[0], 'iso-8859-1'))
 
 __DATE_FMT__ = '%d/%m/%Y %H:%M:%S'
 __SEED_ENV_VARIABLE__ = 'snap.random.seed'
