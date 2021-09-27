@@ -22,12 +22,6 @@ import core.profiler as profiler
 import core.graph as graph
 import core.tools as utils
 import core.log as log
-import locale
-
-if os.name == "nt":
-    import _locale
-    _locale._gdl_bak = _locale._getdefaultlocale
-    _locale._getdefaultlocale = (lambda *args: (_locale._gdl_bak()[0], 'iso-8859-1'))
 
 __DATE_FMT__ = '%d/%m/%Y %H:%M:%S'
 __SEED_ENV_VARIABLE__ = 'snap.random.seed'
@@ -252,10 +246,8 @@ def __check_outputs__(test, args, properties):
             log.info(cmd)
             result = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
             log.info(f'comparing done, result: {result.returncode}')
-            print("getdefaultlocale: ", locale.getdefaultlocale())
-            print("getpreferredencoding: ", locale.getpreferredencoding())
             try:
-                print("utf8 ignore")
+                print("utf8")
                 print(result.stdout)
                 print("---------")
                 stdout = result.stdout.decode('utf-8','ignore')
@@ -269,14 +261,14 @@ def __check_outputs__(test, args, properties):
                     log.error(f"test `{test.name}` failed:\n{stdout}")
                     return False, stdout
             except Exception as ex:
-                print("iso-8859-1")
+                print("utf8 encoding")
                 print(result.stdout)
                 print("---------")
-                stdout = result.stdout.decode('iso-8859-1','ignore')
+                stdout = result.stdout.decode('utf-8','ignore')
                 print(stdout)
                 print("********")
                 stdout_file = os.path.join(args.report_dir, f'{test.name}_gptOutput.txt')
-                with open(stdout_file, 'a', encoding='iso-8859-1') as file:
+                with open(stdout_file, 'a', encoding='utf-8') as file:
                     file.write(stdout)
 
                 if result.returncode != 0:
