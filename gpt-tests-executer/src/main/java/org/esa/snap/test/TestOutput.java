@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -16,30 +17,29 @@ import org.esa.snap.dataio.ExpectedDataset;
 
 public class TestOutput {
     public static void main(String[] args) throws IOException {
-        System.setProperty("file.encoding","UTF-8");
-        if (args.length != 3) {
-            System.out.println("OUTPUT_PATH EXPECTED_OUTPUT_PATH OUTPUT_NAME");
-            System.exit(1);
-        }
         String outputNameWithExtension = args[0];
         String expectedOutput = args[1];
         String outputName = args[2];
         Product product = ProductIO.readProduct(outputNameWithExtension);
         final ObjectMapper mapper = new ObjectMapper();
-        String str="";
+        String jsonStr="";
+        String OS = System.getProperty("os.name").toLowerCase();
+        Charset encoding = StandardCharsets.UTF_8;
+        // if((OS.indexOf("win") >= 0))
+        //     encoding = StandardCharsets.ISO_8859_1;
         try (FileInputStream fis = new FileInputStream(expectedOutput);
-                InputStreamReader isr = new InputStreamReader(fis, StandardCharsets.UTF_8);
+                InputStreamReader isr = new InputStreamReader(fis, encoding);
                 BufferedReader reader = new BufferedReader(isr)
         ) {
-            
+            String str;
             while ((str = reader.readLine()) != null) {
-                str+=str+"\n";
+                jsonStr+=str+"\n";
             }
         
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
-        final ExpectedDataset expectedDataset = mapper.readValue(str, ExpectedDataset.class);
+        final ExpectedDataset expectedDataset = mapper.readValue(jsonStr, ExpectedDataset.class);
         if(product == null){
             System.out.println("Cannot read output file: " + outputNameWithExtension);
             System.exit(1);

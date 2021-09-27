@@ -248,10 +248,10 @@ def __check_outputs__(test, args, properties):
             log.info(f'comparing done, result: {result.returncode}')
             try:
                 print("utf8")
-                print(result.stdout)
+                # print(result.stdout)
                 print("---------")
-                stdout = result.stdout.decode('utf-8','ignore')
-                print(stdout)
+                stdout = result.stdout.decode('utf-8')
+                # print(stdout)
                 print("*********")
                 stdout_file = os.path.join(args.report_dir, f'{test.name}_gptOutput.txt')
                 with open(stdout_file, 'a') as file:
@@ -262,10 +262,10 @@ def __check_outputs__(test, args, properties):
                     return False, stdout
             except Exception as ex:
                 print("utf8 encoding")
-                print(result.stdout)
+                # print(result.stdout)
                 print("---------")
                 stdout = result.stdout.decode('utf-8','ignore')
-                print(stdout)
+                # print(stdout)
                 print("********")
                 stdout_file = os.path.join(args.report_dir, f'{test.name}_gptOutput.txt')
                 with open(stdout_file, 'a', encoding='utf-8') as file:
