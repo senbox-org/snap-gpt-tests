@@ -3,14 +3,15 @@
   "author": "CSRO",
   "description":"execute RapidEye product reader and operators",
   "frequency":"daily/fail",
-  "graphPath": "s2tbx/graphReaderSingleLevel.xml",
+  "graphPath": "s2tbx/graphReaderSingleLevel_withWriteFormat.xml",
   "inputs": {
     "input1": "s2tbx/_gpt_readers/rapideye/Demo05_1B.zip"
   },
   "parameters": {
     "sourceBands": "blue,green,red,red_edge,near_infrared,unusable_data",
     "subsetRegion": "200,650,600,600",
-    "crs": "WGS84(DD)"
+    "crs": "WGS84(DD)",
+    "formatName": "ZNAP"
   },
   "outputs": [{
     "parameter": "out1",

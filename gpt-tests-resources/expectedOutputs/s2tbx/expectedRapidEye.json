@@ -1,5 +1,5 @@
 {
-  "id": "tempRapidEye",
+  "id": "projected_Subset_2009-06-13T180151_RE3_1B-NAC_3436907_84307",
   "decodeQualification": "INTENDED",
   "expectedContent": {
     "sceneWidth": 780,
@@ -68,10 +68,9 @@
     "bands": [
       {
         "name": "blue",
-        "description": "",
         "bandWidth": 780,
         "bandHeight": 601,
-        "geophysicalUnit": "cW/mÂ² sr Î¼m",
+        "geophysicalUnit": "cW/m² sr μm",
         "noDataValue": "NaN",
         "noDataValueUsed": "true",
         "spectralWavelength": "440.0",
@@ -91,10 +90,9 @@
       },
       {
         "name": "green",
-        "description": "",
         "bandWidth": 780,
         "bandHeight": 601,
-        "geophysicalUnit": "cW/mÂ² sr Î¼m",
+        "geophysicalUnit": "cW/m² sr μm",
         "noDataValue": "NaN",
         "noDataValueUsed": "true",
         "spectralWavelength": "520.0",
@@ -114,10 +112,9 @@
       },
       {
         "name": "red",
-        "description": "",
         "bandWidth": 780,
         "bandHeight": 601,
-        "geophysicalUnit": "cW/mÂ² sr Î¼m",
+        "geophysicalUnit": "cW/m² sr μm",
         "noDataValue": "NaN",
         "noDataValueUsed": "true",
         "spectralWavelength": "630.0",
@@ -137,10 +134,9 @@
       },
       {
         "name": "red_edge",
-        "description": "",
         "bandWidth": 780,
         "bandHeight": 601,
-        "geophysicalUnit": "cW/mÂ² sr Î¼m",
+        "geophysicalUnit": "cW/m² sr μm",
         "noDataValue": "NaN",
         "noDataValueUsed": "true",
         "spectralWavelength": "690.0",
@@ -160,10 +156,9 @@
       },
       {
         "name": "near_infrared",
-        "description": "",
         "bandWidth": 780,
         "bandHeight": 601,
-        "geophysicalUnit": "cW/mÂ² sr Î¼m",
+        "geophysicalUnit": "cW/m² sr μm",
         "noDataValue": "NaN",
         "noDataValueUsed": "true",
         "spectralWavelength": "760.0",
@@ -183,7 +178,6 @@
       },
       {
         "name": "unusable_data",
-        "description": "",
         "bandWidth": 780,
         "bandHeight": 601,
         "noDataValue": "0.0",
@@ -205,7 +199,6 @@
       },
       {
         "name": "latitude",
-        "description": "",
         "bandWidth": 780,
         "bandHeight": 601,
         "noDataValue": "NaN",
@@ -227,7 +220,6 @@
       },
       {
         "name": "longitude",
-        "description": "",
         "bandWidth": 780,
         "bandHeight": 601,
         "noDataValue": "NaN",
@@ -330,8 +322,8 @@
         "value": "blue,green,red,red_edge,near_infrared,unusable_data"
       },
       {
-        "path": "NITF Metadata/Image Subheaders/Image Subheader 0/Bands/BAND1/ISUBCAT",
-        "value": "475"
+        "path": "NITF Metadata/Image Subheaders/Image Subheader 0/Bands/BAND1/IREPBAND",
+        "value": ""
       }
     ]
   }

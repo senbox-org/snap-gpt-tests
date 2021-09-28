@@ -3,7 +3,7 @@
   "author": "CSRO",
   "description":"execute Kompsat product reader and operators",
   "frequency":"daily/fail",
-  "graphPath": "s2tbx/graphReaderMultiLevel.xml",
+  "graphPath": "s2tbx/graphReaderMultiLevel_withWriteFormat.xml",
   "inputs": {
     "input1": "s2tbx/_gpt_readers/kompsat/KO2_OPER_MSC_MUL_1G_20090803T082351_20090803T082353_016098_0250_1356_0001.SIP/KO2_OPER_MSC_MUL_1G_20090803T082351_20090803T082353_016098_0250_1356_0001.MD.XML"
   },
@@ -11,7 +11,8 @@
     "referenceBand": "MS1",
     "sourceBands": "MS1,MS2,MS3,MS4,PAN",
     "subsetRegion": "2090,2180,300,300",
-    "crs": "WGS84(DD)"
+    "crs": "WGS84(DD)",
+    "formatName": "ZNAP"
   },
   "outputs": [{
     "parameter": "out1",

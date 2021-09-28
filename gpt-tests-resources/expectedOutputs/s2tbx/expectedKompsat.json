@@ -1,5 +1,5 @@
 {
-  "id": "tempKompsat",
+  "id": "projected_Subset_KO2_OPER_MSC_MUL_1G_20090803T082351_20090803T082353_016098_0250_1356_0001_resampled",
   "decodeQualification": "INTENDED",
   "expectedContent": {
     "sceneWidth": 443,
@@ -25,153 +25,156 @@
     },
     "bands": [
       {
-        "name": "MS4",
-        "description": "",
-        "bandWidth": 443,
-        "bandHeight": 301,
-        "geophysicalUnit": "mW cm-2 sr-1 Î¼m-1",
-        "noDataValue": "NaN",
-        "noDataValueUsed": "true",
-        "spectralWavelength": "830.0",
-        "spectralBandwidth": "0.0",
-        "expectedPixels": [
-          {
-            "x": 23,
-            "y": 53,
-            "value": 0.7726414
-          },
-          {
-            "x": 303,
-            "y": 256,
-            "value": 0.352536
-          }
-        ]
-      },
-      {
-        "name": "MS2",
-        "description": "",
-        "bandWidth": 443,
-        "bandHeight": 301,
-        "geophysicalUnit": "mW cm-2 sr-1 Î¼m-1",
-        "noDataValue": "NaN",
-        "noDataValueUsed": "true",
-        "spectralWavelength": "560.0",
-        "spectralBandwidth": "0.0",
-        "expectedPixels": [
-          {
-            "x": 128,
-            "y": 77,
-            "value": 0.93009
-          },
-          {
-            "x": 270,
-            "y": 109,
-            "value": 0.956046
-          }
-        ]
-      },
-      {
-        "name": "PAN",
-        "description": "",
-        "bandWidth": 443,
-        "bandHeight": 301,
-        "geophysicalUnit": "mW cm-2 sr-1 Î¼m-1",
-        "noDataValue": "NaN",
-        "noDataValueUsed": "true",
-        "spectralWavelength": "700.0",
-        "spectralBandwidth": "0.0",
-        "expectedPixels": [
-          {
-            "x": 243,
-            "y": 224,
-            "value": 0.48591420
-          },
-          {
-            "x": 269,
-            "y": 279,
-            "value": 0.60480809
-          }
-        ]
-      },
-      {
-        "name": "MS3",
-        "description": "",
-        "bandWidth": 443,
-        "bandHeight": 301,
-        "geophysicalUnit": "mW cm-2 sr-1 Î¼m-1",
-        "noDataValue": "NaN",
-        "noDataValueUsed": "true",
-        "spectralWavelength": "660.0",
-        "spectralBandwidth": "0.0",
-        "expectedPixels": [
-          {
-            "x": 70,
-            "y": 200,
-            "value": 0.8161058
-          },
-          {
-            "x": 229,
-            "y": 274,
-            "value": 0.8020954
-          }
-        ]
-      },
-      {
         "name": "MS1",
-        "description": "",
         "bandWidth": 443,
         "bandHeight": 301,
-        "geophysicalUnit": "mW cm-2 sr-1 Î¼m-1",
+        "geophysicalUnit": "mW cm-2 sr-1 μm-1",
         "noDataValue": "NaN",
         "noDataValueUsed": "true",
         "spectralWavelength": "485.0",
         "spectralBandwidth": "0.0",
         "expectedPixels": [
           {
+            "x": 23,
+            "y": 53,
+            "value": 0.913066
+          },
+          {
+            "x": 303,
+            "y": 256,
+            "value": 0.6595204
+          }
+        ]
+      },
+      {
+        "name": "MS4",
+        "bandWidth": 443,
+        "bandHeight": 301,
+        "geophysicalUnit": "mW cm-2 sr-1 μm-1",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "830.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 128,
+            "y": 77,
+            "value": 0.2981867
+          },
+          {
+            "x": 270,
+            "y": 109,
+            "value": 0.2761532
+          }
+        ]
+      },
+      {
+        "name": "MS2",
+        "bandWidth": 443,
+        "bandHeight": 301,
+        "geophysicalUnit": "mW cm-2 sr-1 μm-1",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "560.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 243,
+            "y": 224,
+            "value": 0.986328
+          },
+          {
+            "x": 269,
+            "y": 279,
+            "value": 1.098804
+          }
+        ]
+      },
+      {
+        "name": "PAN",
+        "bandWidth": 443,
+        "bandHeight": 301,
+        "geophysicalUnit": "mW cm-2 sr-1 μm-1",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "700.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 70,
+            "y": 200,
+            "value": 0.5772385
+          },
+          {
+            "x": 229,
+            "y": 274,
+            "value": 0.5789616
+          }
+        ]
+      },
+      {
+        "name": "MS3",
+        "bandWidth": 443,
+        "bandHeight": 301,
+        "geophysicalUnit": "mW cm-2 sr-1 μm-1",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "660.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
             "x": 334,
             "y": 145,
-            "value": 0.5116188
+            "value": 0.4080529
           },
           {
             "x": 421,
             "y": 146,
-            "value": 0.5780236
+            "value": 0.472851
           }
         ]
       }
     ],
     "metadata": [
       {
-        "path": "Processing_Graph/node.4/sources/sourceProduct",
-        "value": "Reproject"
+        "path": "TIFF Metadata[2]/GeoTIFF Metadata/GeoKeyDirectory/GeogEllipsoidGeoKey",
+        "value": "Ellipse_WGS_84"
       },
       {
-        "path": "Metadata/resultTime/TimeInstant/gml:id",
-        "value": "KO2_OPER_MSC_MUL_1G_20090803T082351_20090803T082353_016098_0250_1356_0001_3"
+        "path": "TIFF Metadata[2]/GeoTIFF Metadata/GeoKeyDirectory/GTModelTypeGeoKey",
+        "value": "ModelTypeProjected"
       },
       {
         "path": "history/SubsetInfo/SubRegion.height",
         "value": "300"
       },
       {
-        "path": "history/SubsetInfo/SubRegion.width",
-        "value": "300"
+        "path": "TIFF Metadata[5]/GeoTIFF Metadata/GeoKeyDirectory/GeographicTypeGeoKey",
+        "value": "32767"
       },
       {
-        "path": "history/SubsetInfo/SubSampling.x",
-        "value": "1"
+        "path": "TIFF Metadata[5]/GeoTIFF Metadata/GeoKeyDirectory/GeogGeodeticDatumGeoKey",
+        "value": "Datum_WGS84"
       },
       {
-        "path": "Processing_Graph/node.2/parameters/subSamplingX",
-        "value": "1"
+        "path": "TIFF Metadata[3]/GeoTIFF Metadata/GeoKeyDirectory/GeogSemiMajorAxisGeoKey",
+        "value": "6378137.0"
       },
       {
-        "path": "Processing_Graph/node.2/parameters/sourceBands",
-        "value": "MS1,MS2,MS3,MS4,PAN"
+        "path": "Metadata/metaDataProperty/EarthObservationMetaData/vendorSpecific/SpecificInformation/localAttribute",
+        "value": "originalName"
       },
       {
-        "path": "history/SubsetInfo/ProductNodeName.2",
-        "value": "MS2"
+        "path": "TIFF Metadata[3]/GeoTIFF Metadata/GeoKeyDirectory/GeogEllipsoidGeoKey",
+        "value": "Ellipse_WGS_84"
+      },
+      {
+        "path": "TIFF Metadata[4]/GeoTIFF Metadata/GeoKeyDirectory/GTModelTypeGeoKey",
+        "value": "ModelTypeProjected"
+      },
+      {
+        "path": "TIFF Metadata[3]/GeoTIFF Metadata/GeoKeyDirectory/GeographicTypeGeoKey",
+        "value": "32767"
       }
     ]
   }
