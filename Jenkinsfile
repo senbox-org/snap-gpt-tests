@@ -73,7 +73,7 @@ pipeline {
             steps {
                 echo "Build project from ${env.JOB_NAME} from ${env.GIT_BRANCH} with commit ${env.GIT_COMMIT} using docker image snap-build-server.tilaa.cloud/${params.dockerTagName}"
                 sh script:"mkdir -p ${outputDir}/report", label: "initialize environment"
-                sh script:"mvn -Duser.home=/var/maven clean package install", label: "build product check java tool"
+                sh script:"mvn -Duser.home=/var/maven clean package install -U", label: "build product check java tool"
 
                 echo "Copy build to working directory..."
                 sh script:"cp -r ./gpt-tests-executer/target/ ${outputDir}/gptExecutorTarget", label: "copy java tool"
