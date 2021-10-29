@@ -12,7 +12,7 @@
       "subsetBands": "B2,B3",
       "subsetRegion": "300,300,200,200",
       "subsetGeoRegion": "",
-      "tiePointGrids": "total_column_water_vapour,total_column_ozone,mean_sea_level_pressure",
+      "tiePointGrids": "tco3,tcwv,msl",
       "referenceBand": "B2",
       "outputFormat": "BEAM-DIMAP"
     },
@@ -37,7 +37,7 @@
       "subsetBands": "B1,B2",
       "subsetRegion": "300,300,200,200",
       "subsetGeoRegion": "",
-      "tiePointGrids": "total_column_water_vapour,total_column_ozone,mean_sea_level_pressure",
+      "tiePointGrids": "tco3,tcwv,msl",
       "referenceBand": "B1",
       "outputFormat": "BEAM-DIMAP"
     },
@@ -53,7 +53,7 @@
     "id": "Subset_S2_B1B2_RefB2",
     "author": "CS",
     "description": "execute subset operator in a S2L1C product with bands B1(60m) and B2(10m), ref is B2",
-    "frequency": "daily/snap/Subset_S2_Ref",
+    "frequency": "daily/snap/Subset_S2_B1B2_RefB2",
     "graphPath": "snap/graphSubsetRefBand.xml",
     "inputs": {
       "input1": "s2tbx/S2/L1C/S2A_MSIL1C_20181002T034551_N0206_R104_T47PMP_20181002T073417.SAFE"
@@ -62,7 +62,7 @@
       "subsetBands": "B1,B2",
       "subsetRegion": "300,300,200,200",
       "subsetGeoRegion": "",
-      "tiePointGrids": "total_column_water_vapour,total_column_ozone,mean_sea_level_pressure",
+      "tiePointGrids": "tco3,tcwv,msl",
       "referenceBand": "B2",
       "outputFormat": "BEAM-DIMAP"
     },
@@ -87,7 +87,7 @@
       "subsetBands": "B1,B4",
       "subsetRegion": "300,300,200,200",
       "subsetGeoRegion": "",
-      "tiePointGrids": "total_column_water_vapour,total_column_ozone,mean_sea_level_pressure",
+      "tiePointGrids": "tco3,tcwv,msl",
       "referenceBand": "B1",
       "outputFormat": "ZNAP"
     },
@@ -112,7 +112,7 @@
       "subsetBands": "B1,B9",
       "subsetRegion": "300,300,200,200",
       "subsetGeoRegion": "",
-      "tiePointGrids": "total_column_water_vapour,total_column_ozone,mean_sea_level_pressure",
+      "tiePointGrids": "tco3,tcwv,msl",
       "referenceBand": "B1",
       "outputFormat": "ZNAP"
     },
@@ -137,7 +137,7 @@
       "subsetBands": "B1,B5",
       "subsetRegion": "300,300,200,200",
       "subsetGeoRegion": "",
-      "tiePointGrids": "total_column_water_vapour,total_column_ozone,mean_sea_level_pressure",
+      "tiePointGrids": "tco3,tcwv,msl",
       "referenceBand": "B1",
       "outputFormat": "ZNAP"
     },
@@ -162,7 +162,7 @@
       "subsetBands": "B1",
       "subsetRegion": "300,300,200,200",
       "subsetGeoRegion": "",
-      "tiePointGrids": "total_column_water_vapour,total_column_ozone,mean_sea_level_pressure",
+      "tiePointGrids": "tco3,tcwv,msl",
       "referenceBand": "B2",
       "outputFormat": "BEAM-DIMAP"
     },
