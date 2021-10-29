@@ -53,6 +53,83 @@
             ],
             "reverseAccuracy": 6.366462912410498E-11
         },
+        "tiePointGrids": [
+            {
+                "name": "tco3",
+                "description": "Total column water vapour at surface level provided by ECMWF",
+                "offsetX": "-193.25",
+                "offsetY": "-36.58333333333337",
+                "subSamplingX": "203.33333333333331",
+                "subSamplingY": "203.33333333333331",
+                "expectedPixels": [
+                    {
+                        "x": 288,
+                        "y": 256,
+                        "value": 60.589832
+                    },
+                    {
+                        "x": 60,
+                        "y": 56,
+                        "value": 60.178024
+                    },
+                    {
+                        "x": 227,
+                        "y": 361,
+                        "value": 60.889866
+                    }
+                ]
+            },
+            {
+                "name": "tcwv",
+                "description": "Total column ozone at surface level provided by ECMWF",
+                "offsetX": "-193.25",
+                "offsetY": "-36.58333333333337",
+                "subSamplingX": "203.33333333333331",
+                "subSamplingY": "203.33333333333331",
+                "expectedPixels": [
+                    {
+                        "x": 288,
+                        "y": 256,
+                        "value": 0.005712092
+                    },
+                    {
+                        "x": 60,
+                        "y": 56,
+                        "value": 0.0057257083
+                    },
+                    {
+                        "x": 227,
+                        "y": 361,
+                        "value": 0.0057058823
+                    }
+                ]
+            },
+            {
+                "name": "msl",
+                "description": "Mean sea level pressure at surface level provided by ECMWF",
+                "offsetX": "-193.25",
+                "offsetY": "-36.58333333333337",
+                "subSamplingX": "203.33333333333331",
+                "subSamplingY": "203.33333333333331",
+                "expectedPixels": [
+                    {
+                        "x": 288,
+                        "y": 256,
+                        "value": 100930.7
+                    },
+                    {
+                        "x": 60,
+                        "y": 56,
+                        "value": 100928.88
+                    },
+                    {
+                        "x": 227,
+                        "y": 361,
+                        "value": 100929.266
+                    }
+                ]
+            }
+        ],
         "bands": [
             {
                 "name": "MCI_test",

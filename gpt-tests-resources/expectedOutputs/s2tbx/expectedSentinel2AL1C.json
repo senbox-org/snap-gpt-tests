@@ -23,7 +23,77 @@
       ],
       "reverseAccuracy": 7.275957614183426E-12
     },
-    "bands": [
+    "tiePointGrids": [
+      {
+        "name": "tco3",
+        "description": "Total column water vapour at surface level provided by ECMWF",
+        "bandWidth": 241,
+        "bandHeight": 201,
+        "geophysicalUnit": "kg m**-2",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 156,
+            "y": 47,
+            "value": 16.652263641
+          },
+          {
+            "x": 66,
+            "y": 12,
+            "value": 16.753684997
+          }
+          ]
+      },
+      {
+        "name": "tcwv",
+        "description": "Total column ozone at surface level provided by ECMWF",
+        "bandWidth": 241,
+        "bandHeight": 201,
+        "geophysicalUnit": "kg m**-2",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+          "x": 116,
+          "y": 185,
+          "value": 0.00577874388545
+          },
+          {
+          "x": 88,
+          "y": 174,
+          "value": 0.00577861163765
+          }
+        ]
+      },
+      {
+        "name": "msl",
+        "description": "Mean sea level pressure at surface level provided by ECMWF",
+        "bandWidth": 241,
+        "bandHeight": 201,
+        "geophysicalUnit": "Pa",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+          "x": 157,
+          "y": 52,
+          "value": 100751.90625
+          },
+          {
+          "x": 14,
+          "y": 72,
+          "value": 100754.15625
+          }
+        ]
+      }],
+      "bands": [
       {
         "name": "B1",
         "description": "Reflectance in band B1",

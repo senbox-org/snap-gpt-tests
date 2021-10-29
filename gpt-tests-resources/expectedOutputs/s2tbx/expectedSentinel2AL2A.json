@@ -90,7 +90,77 @@
         ]
       }
     ],
-    "bands": [
+    "tiePointGrids": [
+      {
+        "name": "tco3",
+        "description": "Total column water vapour at surface level provided by ECMWF",
+        "bandWidth": 438,
+        "bandHeight": 301,
+        "geophysicalUnit": "kg m**-2",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 156,
+            "y": 47,
+            "value": 5.3371477127
+          },
+          {
+            "x": 66,
+            "y": 12,
+            "value": 5.39389991760
+          }
+          ]
+      },
+      {
+        "name": "tcwv",
+        "description": "Total column ozone at surface level provided by ECMWF",
+        "bandWidth": 438,
+        "bandHeight": 301,
+        "geophysicalUnit": "kg m**-2",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+          "x": 116,
+          "y": 185,
+          "value": 0.00599825615063
+          },
+          {
+          "x": 88,
+          "y": 174,
+          "value": 0.0059976791962981
+          }
+        ]
+      },
+      {
+        "name": "msl",
+        "description": "Mean sea level pressure at surface level provided by ECMWF",
+        "bandWidth": 438,
+        "bandHeight": 301,
+        "geophysicalUnit": "Pa",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+          "x": 157,
+          "y": 52,
+          "value": 101884.578125
+          },
+          {
+          "x": 14,
+          "y": 72,
+          "value": 101878.671875
+          }
+        ]
+      }],
+      "bands": [
       {
         "name": "B1",
         "description": "Reflectance in band B1",

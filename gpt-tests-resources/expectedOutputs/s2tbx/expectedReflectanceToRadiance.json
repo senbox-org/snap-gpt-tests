@@ -21,6 +21,68 @@
       ],
       "reverseAccuracy": 1.1314114090055227E-8
     },
+    "tiePointGrids": [
+      {
+        "name": "tco3",
+        "description": "Total column water vapour at surface level provided by ECMWF",
+        "offsetX": "-259.75",
+        "offsetY": "-559.75",
+        "subSamplingX": "610.0",
+        "subSamplingY": "610.0",
+        "expectedPixels": [
+          {
+            "x": 15,
+            "y": 53,
+            "value": 17.144371
+          },
+          {
+            "x": 205,
+            "y": 255,
+            "value": 17.057756
+          }
+        ]
+      },
+      {
+        "name": "tcwv",
+        "description": "Total column ozone at surface level provided by ECMWF",
+        "offsetX": "-259.75",
+        "offsetY": "-559.75",
+        "subSamplingX": "610.0",
+        "subSamplingY": "610.0",
+        "expectedPixels": [
+          {
+            "x": 87,
+            "y": 77,
+            "value": 0.005775717
+          },
+          {
+            "x": 183,
+            "y": 109,
+            "value": 0.0057759625
+          }
+        ]
+      },
+      {
+        "name": "msl",
+        "description": "Mean sea level pressure at surface level provided by ECMWF",
+        "offsetX": "-259.75",
+        "offsetY": "-559.75",
+        "subSamplingX": "610.0",
+        "subSamplingY": "610.0",
+        "expectedPixels": [
+          {
+            "x": 165,
+            "y": 223,
+            "value": 100764.555
+          },
+          {
+            "x": 182,
+            "y": 278,
+            "value": 100764.34
+          }
+        ]
+      }
+    ],
     "bands": [
       {
         "name": "B4",
