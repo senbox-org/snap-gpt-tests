@@ -2,7 +2,7 @@
     "id":"ResampReproject_S2",
   "author": "CS",
     "description":"Apply resampling operator and then reproject to lat/lon on S2L1C product",
-    "frequency":"daily",
+    "frequency":"daily/minor_release",
     "graphPath": "snap/graphResampReproj.xml",
     "inputs": {
         "input1": "s2tbx/S2/L1C/S2B_MSIL1C_20170315T013719_N0100_R000_T52LEK_20170315T013714.SAFE"

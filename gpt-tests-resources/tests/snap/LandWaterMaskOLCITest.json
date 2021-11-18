@@ -2,7 +2,7 @@
     "id":"LandWaterMask_OLCI_L1b",
     "author": "BC",
     "description":"execute LandWaterMask operator over OLCI L1B product",
-    "frequency":"daily",
+    "frequency":"daily/minor_release",
     "graphPath": "snap/graphLandWaterMaskOLCI.xml",
     "inputs": {
         "input": "s3tbx/sensors_platforms/SENTINEL-3/olci/L1/S3A_OL_1_EFR____20160303T080325_20160303T080525_20160312T095955_0119_001_249______SVL_O_NR_001.SEN3"

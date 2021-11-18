@@ -2,7 +2,7 @@
   "id":"Sentinel2BL2ATest",
   "author": "CSRO",
   "description":"execute Sentinel 2B (level L2A) product reader and operators",
-  "frequency":"daily/fail",
+  "frequency":"daily/minor_release/fail",
   "graphPath": "s2tbx/graphReaderMultiLevel.xml",
   "inputs": {
     "input1": "s2tbx/S2/L2A/S2B_MSIL2A_20190528T085609_N0212_R007_T36VWK_20190528T121447.zip"

@@ -2,7 +2,7 @@
     "id": "LandWaterMask_S2MSI",
     "author": "BC",
     "description": "execute LandWaterMask operator over S2 MSI product",
-    "frequency": "daily",
+    "frequency": "daily/minor_release",
     "graphPath": "snap/graphLandWaterMaskS2MSI.xml",
     "inputs": {
         "input": "s3tbx/sensors_platforms/SENTINEL-2/S2B_MSIL1C_20190506T081609_N0207_R121_T36SXA_20190506T104054.zip"

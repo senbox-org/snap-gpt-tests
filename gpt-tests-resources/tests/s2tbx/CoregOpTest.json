@@ -2,7 +2,7 @@
   "id":"CoregTest",
   "author": "CSRO",
   "description":"execute Coregistration processor",
-  "frequency":"daily",
+  "frequency":"daily/minor_release",
   "graphPath": "s2tbx/graphCoregOp.xml",
   "inputs": {
     "input1_MasterProduct": "s2tbx/_coregistration_gpt/radar_bandep.png",

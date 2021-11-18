@@ -2,7 +2,7 @@
   "id":"Reproject_S2",
   "author": "CS",
   "description":"Reproject a S2 L1C product preserving resolution.",
-  "frequency":"daily",
+  "frequency":"daily/minor_release",
   "graphPath": "snap/graphReproject.xml",
   "inputs": {
     "input1": "s2tbx/S2/L1C/S2A_MSIL1C_20170416T105031_N0204_R051_T30TYN_20170416T105601.SAFE"
@@ -21,7 +21,7 @@
     "id":"ReprojectSubset_S2",
   "author": "CS",
     "description":"Reproject a S2 L1C product preserving resolution and apply and spatial and band subset (B1,B2,B5,view_senith_mean)",
-    "frequency":"daily",
+    "frequency":"daily/minor_release",
     "graphPath": "snap/graphReprojectSubset.xml",
     "inputs": {
       "input1": "s2tbx/S2/L1C/S2A_MSIL1C_20170416T105031_N0204_R051_T30TYN_20170416T105601.SAFE"
@@ -41,7 +41,7 @@
     "id":"ReprojectSubsetonlyB1_S2",
   "author": "CS",
     "description":"Reproject a S2 L1C product preserving resolution and apply and spatial and band subset (only B1)",
-    "frequency":"daily",
+    "frequency":"daily/minor_release",
     "graphPath": "snap/graphReprojectSubset.xml",
     "inputs": {
       "input1": "s2tbx/S2/L1C/S2A_MSIL1C_20170416T105031_N0204_R051_T30TYN_20170416T105601.SAFE"

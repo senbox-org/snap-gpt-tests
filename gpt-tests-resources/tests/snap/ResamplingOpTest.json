@@ -3,7 +3,7 @@
     "id": "ResamplingTest_S2_1tile",
   "author": "CS",
     "description": "Do resampling operator on S2 one tile product",
-    "frequency": "daily",
+    "frequency": "daily/minor_release",
     "graphPath": "snap/graphResample.xml",
     "inputs": {
       "input1": "s2tbx/S2/PSD14/L1C/S2A_MSIL1C_20160914T074612_N0204_R135_T36JTT_20160914T081456.SAFE"
@@ -27,7 +27,7 @@
     "id": "ResamplingTest_S2_2tile",
   "author": "CS",
     "description": "Do resampling operator on S2 two tiles product",
-    "frequency": "daily",
+    "frequency": "daily/minor_release",
     "graphPath": "snap/graphResampleWithFormat.xml",
     "inputs": {
       "input1": "s2tbx/S2/L1C/Valencia/st/S2A_OPER_PRD_MSIL1C_PDMC_20160527T172127_R051_V20160511T105343_20160511T105343.SAFE"
@@ -52,7 +52,7 @@
     "id": "ResampleS2_WriteNetCDF",
   "author": "CS",
     "description": "Do resampling S2 product and safe as NetCDF [SNAP-1088]",
-    "frequency": "daily",
+    "frequency": "daily/minor_release",
     "graphPath": "snap/graphResampleWithFormat.xml",
     "inputs": {
       "input1": "s2tbx/S2/PSD14/L1C/S2A_MSIL1C_20160914T074612_N0204_R135_T36JTT_20160914T081456.SAFE"

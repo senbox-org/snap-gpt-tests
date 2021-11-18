@@ -2,7 +2,7 @@
     "id":"Aatsr_SSTTest-1",
   "author": "BC",
     "description":"execute Aatsr_SST operator with AATSR product",
-    "frequency":"daily",
+    "frequency":"daily/minor_release",
     "graphPath": "s3tbx/graphAatsr_SSTOp.xml",
     "inputs": {
         "input": "s3tbx/sensors_platforms/AATSR/TOA/N1/ATS_TOA_1COLRA20030530_104438_000000762016_00451_06517_1067.N1"
@@ -28,7 +28,7 @@
         "id":"Aatsr_SSTTest-2",
   "author": "BC",
         "description":"execute Aatsr_SST operator with AATSR product",
-        "frequency":"daily",
+        "frequency":"daily/minor_release",
         "graphPath": "s3tbx/graphAatsr_SSTOp.xml",
         "inputs": {
             "input": "s3tbx/sensors_platforms/AATSR/TOA/N1/ATS_TOA_1COLRA20030530_104438_000000762016_00451_06517_1067.N1"
@@ -54,7 +54,7 @@
         "id":"Aatsr_SSTTest-3",
   "author": "BC",
         "description":"execute Aatsr_SST operator with AATSR product",
-        "frequency":"daily",
+        "frequency":"daily/minor_release",
         "graphPath": "s3tbx/graphAatsr_SSTOp.xml",
         "inputs": {
             "input": "s3tbx/sensors_platforms/AATSR/TOA/N1/ATS_TOA_1COLRA20030530_104438_000000762016_00451_06517_1067.N1"

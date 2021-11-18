@@ -3,7 +3,7 @@
   "id":"s1tbx.insar.interferogram.asar",
   "author": "Skywatch",
   "description":"execute interferogram with ASAR IMS",
-  "frequency":"daily/s1tbx/insar/s1tbxError",
+  "frequency":"daily/minor_release/s1tbx/insar/s1tbxError",
   "graphPath": "s1tbx/InSAR/Coregister_Interferogram.xml",
   "inputs": {
     "input1": "s1tbx/SAR/ASAR/Bam/ASA_IMS_1PNUPA20031203_061259_000000162022_00120_09192_0099.N1",
@@ -27,7 +27,7 @@
   "id":"s1tbx.insar.interferogram.s1-sm",
   "author": "Skywatch",
   "description":"execute interferogram with S1 SM",
-  "frequency":"daily/s1tbx/insar/s1tbxError",
+  "frequency":"daily/minor_release/s1tbx/insar/s1tbxError",
   "graphPath": "s1tbx/InSAR/Coregister_Interferogram.xml",
   "inputs": {
     "input1": "s1tbx/SAR/S1/Stripmap/S1A_S1_SLC__1SSV_20140807T142342_20140807T142411_001835_001BC1_05AA.SAFE/manifest.safe",

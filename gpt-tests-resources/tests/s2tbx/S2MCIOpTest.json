@@ -2,7 +2,7 @@
   "id": "S2MCITest_L1C",
   "author": "BC",
   "description": "execute MCI processor with S2 L1C",
-  "frequency": "daily/newmsi",
+  "frequency": "daily/minor_release/newmsi",
   "graphPath": "s2tbx/graphS2MCIOp.xml",
   "inputs": {
     "input": "s3tbx/sensors_platforms/SENTINEL-2/S2B_MSIL1C_20190506T081609_N0207_R121_T36SXA_20190506T104054.zip"
@@ -30,7 +30,7 @@
         "id":"S2MCITest_L2A",
   "author": "BC",
         "description":"execute MCI processor with S2 L2A",
-        "frequency":"daily",
+        "frequency":"daily/minor_release",
         "graphPath": "s2tbx/graphS2MCIOp.xml",
         "inputs": {
             "input": "s3tbx/sensors_platforms/SENTINEL-2/S2A_MSIL2A_20190509T211921_N0212_R100_T04QEK_20190512T092011.zip"

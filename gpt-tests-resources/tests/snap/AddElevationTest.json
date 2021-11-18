@@ -2,7 +2,7 @@
     "id":"snap.dem.srtm3sec",
   "author": "Skywatch",
     "description":"execute DEM operator with SRTM 3sec",
-    "frequency":"daily",
+    "frequency":"daily/minor_release",
     "graphPath": "snap/graphAddDEM.xml",
     "inputs": {
         "input1": "s1tbx/SAR/ASAR/ASA_IMM.zip"
@@ -20,7 +20,7 @@
         "id":"snap.dem.srtm1sec",
   "author": "Skywatch",
         "description":"execute DEM operator with SRTM 1sec",
-        "frequency":"daily",
+        "frequency":"daily/minor_release",
         "graphPath": "snap/graphAddDEM.xml",
         "inputs": {
             "input1": "s1tbx/SAR/ASAR/ASA_IMM.zip"
@@ -38,7 +38,7 @@
         "id":"snap.dem.getasse30",
   "author": "Skywatch",
         "description":"execute DEM operator with GETASSE30",
-        "frequency":"daily",
+        "frequency":"daily/minor_release",
         "graphPath": "snap/graphAddDEM.xml",
         "inputs": {
             "input1": "s1tbx/SAR/ASAR/ASA_IMM.zip"
