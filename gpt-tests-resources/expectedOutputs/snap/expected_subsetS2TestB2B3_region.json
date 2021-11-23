@@ -2,8 +2,8 @@
   "id": "subsetS2Test_B2B3",
   "decodeQualification": "INTENDED",
   "expectedContent": {
-    "sceneWidth": 200,
-    "sceneHeight": 200,
+    "sceneWidth": 201,
+    "sceneHeight": 202,
     "startTime": "02-OCT-2018 03:45:51.024000",
     "endTime": "02-OCT-2018 03:45:51.024000",
     "geoCoding": {
@@ -11,17 +11,17 @@
         {
           "x": 86.0,
           "y": 107.0,
-          "lat": 12.626275371767372,
+          "lat": 12.626365485093693,
           "lon": 98.11440758724332
         },
         {
           "x": 148.0,
           "y": 129.0,
-          "lat": 12.62430503466917,
+          "lat": 12.624395150166668,
           "lon": 98.1201226592261
         }
       ],
-      "reverseAccuracy": 1.2223608791828156E-9
+      "reverseAccuracy": 1.2369127944111824E-9
     },
     "bands": [
       {
@@ -50,8 +50,8 @@
       {
         "name": "B3",
         "description": "Reflectance in band B3",
-        "bandWidth": 200,
-        "bandHeight": 200,
+        "bandWidth": 201,
+        "bandHeight": 202,
         "geophysicalUnit": "dl",
         "noDataValue": "0.0",
         "noDataValueUsed": "false",
@@ -61,12 +61,12 @@
           {
             "x": 58,
             "y": 51,
-            "value": 0.2403
+            "value": 0.238000
           },
           {
             "x": 122,
             "y": 73,
-            "value": 0.2602
+            "value": 0.256500
           }
         ]
       }
