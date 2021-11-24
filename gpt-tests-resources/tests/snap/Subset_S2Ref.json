@@ -50,30 +50,6 @@
     ]
   },
   {
-    "id":"Subset_S2_B1B2_Ref",
-    "author": "CS",
-    "description": "execute subset operator in a S2L1C product with bands B1(60m) and B2(10m), ref is B2",
-    "frequency": "daily/snap/minor_release/Subset_S2_B1B2_RefB2",
-    "graphPath": "snap/graphSubsetRefBand.xml",
-    "inputs": {
-      "input1": "s2tbx/S2/L1C/S2A_MSIL1C_20181002T034551_N0206_R104_T47PMP_20181002T073417.SAFE"
-    },
-    "parameters": {
-      "subsetBands": "B1,B2",
-      "subsetRegion": "300,300,200,200",
-      "subsetGeoRegion": "",
-      "referenceBand": "B1",
-      "tiePointGrids": "tco3,tcwv,msl",
-      "referenceBand": "B2",
-      "outputFormat": "BEAM-DIMAP"
-    },
-    "outputs": [{
-      "parameter": "out1",
-      "outputName": "subsetS2Test_B1B2",
-      "expected": "snap/expected_subsetS2TestB1B2_region.json"
-    }]
-  },
-  {
     "id": "Subset_S2_B1B4_Ref",
     "author": "CS",
     "description": "execute subset operator in a S2L1C product with bands B1(60m) and B4(10m)",
