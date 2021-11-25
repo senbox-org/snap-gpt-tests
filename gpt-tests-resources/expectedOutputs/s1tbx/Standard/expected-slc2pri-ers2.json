@@ -2,14 +2,14 @@
   "id" : "s1tbx.standard.slc2pri.ers2",
   "decodeQualification" : "INTENDED",
   "expectedContent" : {
-    "sceneWidth" : 2843,
+    "sceneWidth" : 2841,
     "sceneHeight" : 600,
     "geoCoding" : {
       "coordinates" : [ {
         "x" : 1421.0,
         "y" : 300.0,
-        "lat" : 37.389858254885205,
-        "lon" : 15.425334304699701
+        "lat" : 37.38977812932922,
+        "lon" : 15.424971051301508
       } ]
     },
     "tiePointGrids" : [ {
@@ -17,54 +17,54 @@
       "description" : "",
       "offsetX" : 0.0,
       "offsetY" : 0.0,
-      "subSamplingX" : 284.29998779296875,
+      "subSamplingX" : 284.1000061035156,
       "subSamplingY" : 60.0,
       "expectedPixels" : [ {
         "x" : 1421.0,
         "y" : 300.0,
-        "value" : 37.389965
+        "value" : 37.38988494873047
       } ]
     }, {
       "name" : "longitude",
       "description" : "",
       "offsetX" : 0.0,
       "offsetY" : 0.0,
-      "subSamplingX" : 284.29998779296875,
+      "subSamplingX" : 284.1000061035156,
       "subSamplingY" : 60.0,
       "expectedPixels" : [ {
         "x" : 1421.0,
         "y" : 300.0,
-        "value" : 15.425426
+        "value" : 15.42506217956543
       } ]
     }, {
       "name" : "incident_angle",
       "description" : "",
       "offsetX" : 0.0,
       "offsetY" : 0.0,
-      "subSamplingX" : 284.29998779296875,
+      "subSamplingX" : 284.1000061035156,
       "subSamplingY" : 60.0,
       "expectedPixels" : [ {
         "x" : 1421.0,
         "y" : 300.0,
-        "value" : 24.512247
+        "value" : 24.513797760009766
       } ]
     }, {
       "name" : "slant_range_time",
       "description" : "",
       "offsetX" : 0.0,
       "offsetY" : 0.0,
-      "subSamplingX" : 284.29998779296875,
+      "subSamplingX" : 284.1000061035156,
       "subSamplingY" : 60.0,
       "expectedPixels" : [ {
         "x" : 1421.0,
         "y" : 300.0,
-        "value" : 5723006.0
+        "value" : 5723068.5
       } ]
     } ],
     "bands" : [ {
       "name" : "Sigma0_VV",
       "description" : "",
-      "bandWidth" : 2843,
+      "bandWidth" : 2841,
       "bandHeight" : 600,
       "noDataValue" : 0.0,
       "noDataValueUsed" : true,
@@ -73,7 +73,7 @@
       "expectedPixels" : [ {
         "x" : 1421.0,
         "y" : 300.0,
-        "value" : 0.029864263
+        "value" : 0.048719022423028946
       } ]
     } ],
     "masks" : [ ]

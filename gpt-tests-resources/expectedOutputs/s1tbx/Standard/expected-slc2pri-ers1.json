@@ -2,14 +2,14 @@
   "id" : "s1tbx.standard.slc2pri.ers1",
   "decodeQualification" : "INTENDED",
   "expectedContent" : {
-    "sceneWidth" : 2844,
+    "sceneWidth" : 2841,
     "sceneHeight" : 600,
     "geoCoding" : {
       "coordinates" : [ {
         "x" : 1422.0,
         "y" : 300.0,
-        "lat" : 37.394580842234745,
-        "lon" : 15.423513821876568
+        "lat" : 37.39450864261868,
+        "lon" : 15.42315117665327
       } ]
     },
     "tiePointGrids" : [ {
@@ -17,54 +17,54 @@
       "description" : "",
       "offsetX" : 0.0,
       "offsetY" : 0.0,
-      "subSamplingX" : 284.3999938964844,
+      "subSamplingX" : 284.1000061035156,
       "subSamplingY" : 60.0,
       "expectedPixels" : [ {
         "x" : 1422.0,
         "y" : 300.0,
-        "value" : 37.394688
+        "value" : 37.394615173339844
       } ]
     }, {
       "name" : "longitude",
       "description" : "",
       "offsetX" : 0.0,
       "offsetY" : 0.0,
-      "subSamplingX" : 284.3999938964844,
+      "subSamplingX" : 284.1000061035156,
       "subSamplingY" : 60.0,
       "expectedPixels" : [ {
         "x" : 1422.0,
         "y" : 300.0,
-        "value" : 15.423605
+        "value" : 15.42324161529541
       } ]
     }, {
       "name" : "incident_angle",
       "description" : "",
       "offsetX" : 0.0,
       "offsetY" : 0.0,
-      "subSamplingX" : 284.3999938964844,
+      "subSamplingX" : 284.1000061035156,
       "subSamplingY" : 60.0,
       "expectedPixels" : [ {
         "x" : 1422.0,
         "y" : 300.0,
-        "value" : 24.513004
+        "value" : 24.514554977416992
       } ]
     }, {
       "name" : "slant_range_time",
       "description" : "",
       "offsetX" : 0.0,
       "offsetY" : 0.0,
-      "subSamplingX" : 284.3999938964844,
+      "subSamplingX" : 284.1000061035156,
       "subSamplingY" : 60.0,
       "expectedPixels" : [ {
         "x" : 1422.0,
         "y" : 300.0,
-        "value" : 5723036.5
+        "value" : 5723098.5
       } ]
     } ],
     "bands" : [ {
       "name" : "Sigma0_VV",
       "description" : "",
-      "bandWidth" : 2844,
+      "bandWidth" : 2841,
       "bandHeight" : 600,
       "noDataValue" : 0.0,
       "noDataValueUsed" : true,
@@ -73,7 +73,7 @@
       "expectedPixels" : [ {
         "x" : 1422.0,
         "y" : 300.0,
-        "value" : 0.049181253
+        "value" : 0.04821870103478432
       } ]
     } ],
     "masks" : [ ]
