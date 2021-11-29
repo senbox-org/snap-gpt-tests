@@ -3,7 +3,7 @@
     "id": "Subset_S2Evo_B1B2_Ref",
     "author": "CS",
     "description": "execute subset operator in a S2L2A product with bands B1(60m) and B2(10m), ref is B1",
-    "frequency": "daily/snap/Subset_S2Evo_Ref",
+    "frequency": "daily/snap/s2tbx/Subset_S2Evo_Ref/Subset_S2Evo_Ref_B1",
     "graphPath": "snap/graphSubsetRefBand.xml",
     "inputs": {
       "input1": "s2tbx/S2/PSD149/L2A/S2B_MSIL2A_20210517T103619_N7990_R008_T30QVE_20211004T113819.SAFE"
@@ -12,7 +12,7 @@
       "subsetBands": "B1,B2",
       "subsetRegion": "300,300,200,200",
       "subsetGeoRegion": "",
-      "tiePointGrids": "tco3,tcwv,msl,r,10u,10v,aod550,z,bcaod550,omaod550,ssaod550,suaod550,aod469,aod670,aod865,aod1240",
+      "tiePointGrids": "tco3,tcwv,msl,r,bcaod550",
       "referenceBand": "B1",
       "outputFormat": "BEAM-DIMAP"
     },
@@ -28,7 +28,7 @@
     "id": "Subset_S2Evo_B1_Ref",
     "author": "CS",
     "description": "execute subset operator in a S2L2A product with band B1 (60m)",
-    "frequency": "daily/snap/Subset_S2Evo_Ref/Subset_S2Evo_Ref_B1",
+    "frequency": "daily/snap/Subset_S2Evo_Ref/Subset_S2Evo_Ref_B2",
     "graphPath": "snap/graphSubsetRefBand.xml",
     "inputs": {
       "input1": "s2tbx/S2/PSD149/L2A/S2B_MSIL2A_20210517T103619_N7990_R008_T30QVE_20211004T113819.SAFE"
@@ -37,7 +37,7 @@
       "subsetBands": "B1",
       "subsetRegion": "300,300,200,200",
       "subsetGeoRegion": "",
-      "tiePointGrids": "tco3,tcwv,msl,r,10u,10v,aod550,z,bcaod550,omaod550,ssaod550,suaod550,aod469,aod670,aod865,aod1240",
+      "tiePointGrids": "tco3,tcwv,msl",
       "referenceBand": "B2",
       "outputFormat": "BEAM-DIMAP"
     },

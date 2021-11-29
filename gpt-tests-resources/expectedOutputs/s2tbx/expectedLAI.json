@@ -55,6 +55,68 @@
                 ]
             }
         ],
+        "tiePointGrids": [
+            {
+                "name": "tco3",
+                "description": "Total column water vapour at surface level provided by ECMWF",
+                "offsetX": "0.08333333333333331",
+                "offsetY": "0.08333333333333331",
+                "subSamplingX": "203.33333333333331",
+                "subSamplingY": "203.33333333333331",
+                "expectedPixels": [
+                    {
+                        "x": 5,
+                        "y": 17,
+                        "value": 16.527754
+                    },
+                    {
+                        "x": 68,
+                        "y": 85,
+                        "value": 16.413269
+                    }
+                ]
+            },
+            {
+                "name": "tcwv",
+                "description": "Total column ozone at surface level provided by ECMWF",
+                "offsetX": "0.08333333333333331",
+                "offsetY": "0.08333333333333331",
+                "subSamplingX": "203.33333333333331",
+                "subSamplingY": "203.33333333333331",
+                "expectedPixels": [
+                    {
+                        "x": 29,
+                        "y": 25,
+                        "value": 0.0060648653
+                    },
+                    {
+                        "x": 61,
+                        "y": 36,
+                        "value": 0.0060646483
+                    }
+                ]
+            },
+            {
+                "name": "msl",
+                "description": "Mean sea level pressure at surface level provided by ECMWF",
+                "offsetX": "0.08333333333333331",
+                "offsetY": "0.08333333333333331",
+                "subSamplingX": "203.33333333333331",
+                "subSamplingY": "203.33333333333331",
+                "expectedPixels": [
+                    {
+                        "x": 55,
+                        "y": 74,
+                        "value": 102531.836
+                    },
+                    {
+                        "x": 60,
+                        "y": 92,
+                        "value": 102532.555
+                    }
+                ]
+            }
+        ],
         "bands": [
             {
                 "name": "lai",
@@ -67,14 +129,14 @@
                 "spectralBandwidth": "0.0",
                 "expectedPixels": [
                     {
-                        "x": 5,
-                        "y": 17,
-                        "value": 0.064181298
+                        "x": 15,
+                        "y": 66,
+                        "value": 0.04727312
                     },
                     {
-                        "x": 68,
-                        "y": 85,
-                        "value": 0.11343051
+                        "x": 51,
+                        "y": 91,
+                        "value": 0.13711981
                     }
                 ]
             },
@@ -89,14 +151,14 @@
                 "spectralBandwidth": "0.0",
                 "expectedPixels": [
                     {
-                        "x": 29,
-                        "y": 25,
+                        "x": 75,
+                        "y": 48,
                         "value": 1.0
                     },
                     {
-                        "x": 61,
-                        "y": 36,
-                        "value": 0.0
+                        "x": 95,
+                        "y": 48,
+                        "value": 1.0
                     }
                 ]
             }
@@ -135,44 +197,44 @@
         ],
         "metadata": [
             {
-                "path": "Granules/Level-1C_Tile_36JTT/Geometric_Info/Tile_Angles/Viewing_Incidence_Angles_Grids[7]/Azimuth/Values_List/VALUES[22]",
-                "value": "NaN NaN NaN 271.16 271.745 272.279 272.758 273.204 NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN"
-            },
-            {
-                "path": "Processing_Graph/node.2/parameters/subSamplingX",
-                "value": "1"
-            },
-            {
                 "path": "Level-1C_DataStrip_ID/Auxiliary_Data_Info/IERS_Bulletin/GPS_TIME_TAI",
                 "value": "-19"
             },
             {
-                "path": "Level-1C_User_Product/General_Info/Product_Info/Datatake/SENSING_ORBIT_DIRECTION",
-                "value": "DESCENDING"
+                "path": "Level-1C_DataStrip_ID/General_Info/Datastrip_Time_Info/metadataLevel",
+                "value": "Brief"
             },
             {
-                "path": "Granules/Level-1C_Tile_36JTT/Quality_Indicators_Info/Image_Content_QI/CLOUDY_PIXEL_PERCENTAGE",
-                "value": "71.9619"
+                "path": "history/SubsetInfo/ProductNodeName.24",
+                "value": "view_azimuth_B2"
             },
             {
-                "path": "Level-1C_User_Product/Auxiliary_Data_Info/GIPP_List/GIPP_FILENAME[65]",
-                "value": "S2A_OPER_GIP_R2EOB2_MPC__20150827T165847_V20150819T000000_99999999T999999_B06"
+                "path": "Processing_Graph/node.1/sources/sourceProduct",
+                "value": "file:/home/florian/dev/snap-test-data/s2tbx/S2/PSD14/L1C/S2A_MSIL1C_20160914T074612_N0204_R135_T36JTT_20160914T081456.SAFE/"
             },
             {
-                "path": "Level-1C_DataStrip_ID/Satellite_Ancillary_Data_Info/Attitudes/Corrected_Attitudes/Values[2646]/QUATERNION_VALUES",
-                "value": "0.203423823003742 0.471042809832698 -0.152449585213438 0.844687245971969"
+                "path": "Processing_Graph/node.1/sources/sourceProduct",
+                "value": "file:/home/florian/dev/snap-test-data/s2tbx/S2/PSD14/L1C/S2A_MSIL1C_20160914T074612_N0204_R135_T36JTT_20160914T081456.SAFE/"
             },
             {
-                "path": "history/SubsetInfo/ProductNodeName.41",
+                "path": "Granules/Level-1C_Tile_36JTT/General_Info/Archiving_Info/metadataLevel",
+                "value": "Expertise"
+            },
+            {
+                "path": "history/SubsetInfo/ProductNodeName.44",
                 "value": "view_azimuth_B11"
             },
             {
-                "path": "history/SubsetInfo/ProductNodeName.16",
-                "value": "sun_zenith"
+                "path": "history/SubsetInfo/ProductNodeName.17",
+                "value": "view_zenith_mean"
             },
             {
                 "path": "Granules/Level-1C_Tile_36JTT/Geometric_Info/Tile_Angles/Viewing_Incidence_Angles_Grids[23]/Azimuth/Values_List/VALUES[10]",
                 "value": "NaN NaN NaN NaN NaN 276.979 277.319 277.627 277.909 278.165 278.397 NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN"
+            },
+            {
+                "path": "Level-1C_User_Product/Quality_Indicators_Info/Technical_Quality_Assessment/DEGRADED_MSI_DATA_PERCENTAGE",
+                "value": "0"
             }
         ]
     }

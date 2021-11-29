@@ -13,6 +13,7 @@
       "resamplingPreset": "$inputFolder/s2tbx/S2/auxTestData/exampleResamplingPreset.res",
       "bandResampling": "B1:First:Nearest",
       "subsetBands": "B1,B2,view_zenith_mean",
+      "tiePointGrids": "tco3,tcwv,msl",
       "subsetRegion": "0,0,500,500"
   },
   "outputs": [{
@@ -35,6 +36,7 @@
     "resamplingPreset": "",
     "bandResampling": "",
     "subsetBands": "B1,B2,view_zenith_mean",
+    "tiePointGrids": ",",
     "subsetRegion": "0,0,500,500"
   },
   "outputs": [{
