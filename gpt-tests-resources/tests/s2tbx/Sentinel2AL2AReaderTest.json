@@ -2,7 +2,7 @@
   "id":"Sentinel2AL2ATest",
   "author": "CS",
   "description":"execute Sentinel 2A (level L2A) product reader and operators",
-  "frequency":"daily/fail/Sentinel2reader_L2A",
+  "frequency":"daily/fail/Sentinel2reader_L2A/s2tbx",
   "graphPath": "s2tbx/graphReaderMultiLevel.xml",
   "inputs": {
     "input1": "s2tbx/S2/PSD149/L2A/S2B_MSIL2A_20210517T103619_N7990_R008_T30QVE_20211004T113819.SAFE"

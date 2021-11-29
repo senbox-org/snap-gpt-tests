@@ -3,7 +3,7 @@
     "id": "Subset_S2Evo_B1B2_Ref",
     "author": "CS",
     "description": "execute subset operator in a S2L2A product with bands B1(60m) and B2(10m), ref is B1",
-    "frequency": "daily/snap/s2tbx/Subset_S2Evo_Ref/Subset_S2Evo_Ref_B1",
+    "frequency": "daily/snap/s2tbx/Subset_S2Evo_Ref/Subset_S2Evo_Ref_B1/s2tbx",
     "graphPath": "snap/graphSubsetRefBand.xml",
     "inputs": {
       "input1": "s2tbx/S2/PSD149/L2A/S2B_MSIL2A_20210517T103619_N7990_R008_T30QVE_20211004T113819.SAFE"
@@ -28,7 +28,7 @@
     "id": "Subset_S2Evo_B1_Ref",
     "author": "CS",
     "description": "execute subset operator in a S2L2A product with band B1 (60m)",
-    "frequency": "daily/snap/Subset_S2Evo_Ref/Subset_S2Evo_Ref_B2",
+    "frequency": "daily/snap/Subset_S2Evo_Ref/Subset_S2Evo_Ref_B2/s2tbx",
     "graphPath": "snap/graphSubsetRefBand.xml",
     "inputs": {
       "input1": "s2tbx/S2/PSD149/L2A/S2B_MSIL2A_20210517T103619_N7990_R008_T30QVE_20211004T113819.SAFE"

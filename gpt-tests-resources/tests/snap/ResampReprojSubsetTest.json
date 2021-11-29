@@ -26,7 +26,7 @@
         "id":"ResampSubsetReproj_SAFE",
   "author": "CS",
         "description":"Apply resampling,subset and reprojection to a S2 product in SAFE format",
-        "frequency":"daily/minor_release",
+        "frequency":"daily/minor_release/s2tbx",
         "graphPath": "snap/graphResampSubsetReproj.xml",
         "inputs": {
             "input1": "s2tbx/S2/Maricopa/S2A_MSIL2A_20170207T182431_N0204_R084_T12SUB_20170207T182425.SAFE"
