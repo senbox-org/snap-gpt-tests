@@ -2,83 +2,75 @@
   "id": "tempMultiSizeMosaic",
   "decodeQualification": "INTENDED",
   "expectedContent": {
-    "sceneWidth": 8236,
-    "sceneHeight": 5489,
-    "geoCoding": {
-      "coordinates": [
-        {
-          "x": 3552.0,
-          "y": 2950.0,
-          "lat": 48.21804577418538,
-          "lon": 26.283240013509282
-        },
-        {
-          "x": 6114.0,
-          "y": 3561.0,
-          "lat": 48.10724114981422,
-          "lon": 26.747857767419113
-        }
-      ],
-      "reverseAccuracy": 2.9103830456733704E-11
-    },
-    "bands": [
-      {
-        "name": "B5",
-        "description": "B5",
-        "bandWidth": 8236,
-        "bandHeight": 5489,
-        "geophysicalUnit": "dl",
-        "noDataValue": "NaN",
-        "noDataValueUsed": "false",
-        "spectralWavelength": "705.0",
-        "spectralBandwidth": "97.0",
-        "expectedPixels": [
+      "sceneWidth": 16472,
+      "sceneHeight": 10979,
+      "geoCoding": {
+          "coordinates": [
+              {
+                  "x": 7104.0,
+                  "y": 5901.0,
+                  "lat": 47.68288301392467,
+                  "lon": 26.92739390183392
+              },
+              {
+                  "x": 12229.0,
+                  "y": 7124.0,
+                  "lat": 47.46109241555164,
+                  "lon": 27.85681075928431
+              }
+          ],
+          "reverseAccuracy": 2.9103830456733704E-11
+      },
+      "bands": [
           {
-            "x": 429,
-            "y": 977,
-            "value": 0.0840179
+              "name": "B5",
+              "description": "B5",
+              "bandWidth": 8236,
+              "bandHeight": 5489,
+              "geophysicalUnit": "dl",
+              "noDataValue": "NaN",
+              "noDataValueUsed": "false",
+              "spectralWavelength": "705.0",
+              "spectralBandwidth": "97.0",
+              "expectedPixels": [
+                  {
+                      "x": 429,
+                      "y": 977,
+                      "value": 0.0840179
+                  },
+                  {
+                      "x": 5642,
+                      "y": 4668,
+                      "value": 0.10605143
+                  }
+              ]
+          }
+      ],
+      "metadata": [
+          {
+              "path": "Processing_Graph/node.0/parameters/variables/variable/expression",
+              "value": "B5"
           },
           {
-            "x": 5642,
-            "y": 4668,
-            "value": 0.10605143
+              "path": "Processing_Graph/node.1/sources/sourceProduct",
+              "value": "Multi-size_Mosaic"
+          },
+          {
+              "path": "Processing_Graph/node.1/parameters/deleteOutputOnFailure",
+              "value": "true"
+          },
+          {
+              "path": "Processing_Graph/node.0/parameters/variables/variable/expression",
+              "value": "B5"
+          },
+          {
+              "path": "Processing_Graph/node.0/parameters/variables/variable/name",
+              "value": "B5"
+          },
+          {
+              "path": "Processing_Graph/node.1/sources/sourceProduct",
+              "value": "Multi-size_Mosaic"
           }
-        ]
-      }
-    ],
-    "metadata": [
-      {
-        "path": "Processing_Graph/node.0/parameters/variables/variable/expression",
-        "value": "B5"
-      },
-      {
-        "path": "Processing_Graph/node.1/parameters/deleteOutputOnFailure",
-        "value": "true"
-      },
-      {
-        "path": "Processing_Graph/node.1/parameters/formatName",
-        "value": "BEAM-DIMAP"
-      },
-      {
-        "path": "Processing_Graph/node.0/parameters/variables/variable/name",
-        "value": "B5"
-      },
-      {
-        "path": "Processing_Graph/node.1/sources/sourceProduct",
-        "value": "Multi-size_Mosaic"
-      },
-      {
-        "path": "Processing_Graph/node.1/parameters/deleteOutputOnFailure",
-        "value": "true"
-      },
-      {
-        "path": "Processing_Graph/node.1/parameters/clearCacheAfterRowWrite",
-        "value": "false"
-      },
-      {
-        "path": "Processing_Graph/node.0/parameters/variables/variable/expression",
-        "value": "B5"
-      }
-    ]
+      ]
   }
 }
