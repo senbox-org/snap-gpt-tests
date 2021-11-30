@@ -1,12 +1,32 @@
-[
-  {
-  "id":"Sentinel2AL2ATest",
-  "author": "CS",
+[{
+  "id":"Sentinel2AL2ATest_PSD143",
+  "author": "CSRO",
   "description":"execute Sentinel 2A (level L2A) product reader and operators",
-  "frequency":"daily/minor_release/fail/Sentinel2A/s2tbx",
+  "frequency":"daily/fail/Sentinel2reader/Sentinel2AL2ATest1",
   "graphPath": "s2tbx/graphReaderMultiLevel.xml",
   "inputs": {
-    "input1": "s2tbx/S2/PSD149/L2A/S2B_MSIL2A_20210517T103619_N7990_R008_T30QVE_20211004T113819.SAFE"
+    "input1": "s2tbx/S2/L2A/PSD143/S2A_MSIL2A_20171103T102201_N0206_R065_T32TNS_20171106T195236.SAFE"
+  },
+  "parameters": {
+    "referenceBand": "B1",
+    "sourceBands": "B1,B2,B3,B4,B5,B6,B7,B8,B8A,B9,B11,B12,quality_aot,quality_wvp,quality_cloud_confidence,quality_snow_confidence,quality_scene_classification,view_zenith_mean,view_azimuth_mean,sun_zenith,sun_azimuth,view_zenith_B1,view_azimuth_B1,view_zenith_B2,view_azimuth_B2,view_zenith_B3,view_azimuth_B3,view_zenith_B4,view_azimuth_B4,view_zenith_B5,view_azimuth_B5,view_zenith_B6,view_azimuth_B6,view_zenith_B7,view_azimuth_B7,view_zenith_B8,view_azimuth_B8,view_zenith_B8A,view_azimuth_B8A,view_zenith_B9,view_azimuth_B9,view_zenith_B10,view_azimuth_B10,view_zenith_B11,view_azimuth_B11,view_zenith_B12,view_azimuth_B12",
+    "subsetRegion": "1,1,300,300",
+    "crs": "WGS84(DD)"
+  },
+  "outputs": [{
+    "parameter": "out1",
+    "outputName": "tempSentinel2AL2A",
+    "expected": "s2tbx/expectedSentinel2AL2A.json"
+  }]
+  },
+  {
+  "id":"Sentinel2AL2ATest_PSD149",
+  "author": "CS",
+  "description":"execute Sentinel 2A (level L2A) product reader and operators",
+  "frequency":"daily/fail/Sentinel2reader/Sentinel2AL2ATest",
+  "graphPath": "s2tbx/graphReaderMultiLevel.xml",
+  "inputs": {
+    "input1": "s2tbx/S2/PSD149/L2A/S2A_MSIL2A_20210728T103031_N7990_R108_T34WDA_20211119T150533.SAFE"
   },
   "parameters": {
     "referenceBand": "B1",
