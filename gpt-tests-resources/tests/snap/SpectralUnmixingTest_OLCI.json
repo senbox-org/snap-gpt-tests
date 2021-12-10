@@ -6,7 +6,7 @@
     "frequency": "daily/minor_release",
     "graphPath": "snap/graphSpectralUnmixing_OLCI.xml",
     "inputs": {
-      "input1": "s3tbx/sensors_platforms/SENTINEL-3/olci/L1/S3A_OL_1_EFR____20160303T080325_20160303T080525_20160312T095955_0119_001_249______SVL_O_NR_001.SEN3"
+      "input1": "s3tbx/sensors_platforms/SENTINEL-3/olci/L1/S3A_OL_1_EFR____20130621T100921_20130621T101417_20140613T170503_0295_001_002______LN2_D_NR____.SEN3"
     },
     "parameters": {
       "subsetRegion": "2000,500,500,500",
@@ -27,7 +27,7 @@
     "outputs": [
       {
         "parameter": "output",
-        "outputName": "SpecUnmix_S2A_L1C",
+        "outputName": "SpecUnmix_S3A_L1C",
         "expected": "snap/expectedSpectUnmix_OLCI.json"
       }
     ]

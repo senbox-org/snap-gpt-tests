@@ -1,9 +1,9 @@
 [
   {
     "id": "SMACTest-AATSR",
-  "author": "BC",
+    "author": "BC",
     "description": "execute SMAC operator with AATSR product",
-    "frequency": "daily/minor_release",
+    "frequency": "daily/s3tbx/minor_release",
     "graphPath": "s3tbx/graphSMACOp.xml",
     "inputs": {
       "input": "s3tbx/sensors_platforms/AATSR/TOA/N1/ATS_TOA_1COLRA20030530_104438_000000762016_00451_06517_1067.N1"
@@ -31,12 +31,12 @@
   },
   {
     "id": "SMACTest-MERIS",
-  "author": "BC",
+    "author": "BC",
     "description": "execute SMAC operator with MERIS L1b product",
-    "frequency": "daily/minor_release",
+    "frequency": "daily/s3tbx/minor_release",
     "graphPath": "s3tbx/graphSMACOp.xml",
     "inputs": {
-      "input": "s3tbx/sensors_platforms/MERIS/for_mosaic1/MER_RR__1PQBCM20030407_100459_000007352015_00194_05759_0002.N1"
+      "input": "s3tbx/sensors_platforms/MERIS/MER_RR__1P/N1/MER_RR__1PQBCM20030407_100459_000007352015_00194_05759_0002.N1"
     },
     "parameters": {
       "subsetRegion": "800,3600,200,200",

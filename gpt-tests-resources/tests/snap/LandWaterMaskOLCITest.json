@@ -1,11 +1,11 @@
 [{
-    "id":"LandWaterMask_OLCI_L1b",
+    "id": "LandWaterMask_OLCI_L1b",
     "author": "BC",
-    "description":"execute LandWaterMask operator over OLCI L1B product",
-    "frequency":"daily/minor_release",
+    "description": "execute LandWaterMask operator over OLCI L1B product",
+    "frequency": "daily/snap/minor_release",
     "graphPath": "snap/graphLandWaterMaskOLCI.xml",
     "inputs": {
-        "input": "s3tbx/sensors_platforms/SENTINEL-3/olci/L1/S3A_OL_1_EFR____20160303T080325_20160303T080525_20160312T095955_0119_001_249______SVL_O_NR_001.SEN3"
+        "input": "s3tbx/sensors_platforms/SENTINEL-3/olci/L1/S3B_OL_1_EFR____20190420T120914_20190420T121214_20190421T151110_0179_024_237_3420_LN1_O_NT_002.SEN3"
     },
     "parameters": {
         "subsetRegion": "1800,900,200,200",

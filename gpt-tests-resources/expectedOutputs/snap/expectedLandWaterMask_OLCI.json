@@ -7,98 +7,23 @@
         "geoCoding": {
             "coordinates": [
                 {
-                    "x": 97.5,
-                    "y": 34.5,
-                    "lat": 30.882060441226574,
-                    "lon": 29.221552106879145
+                    "x": 86.0,
+                    "y": 107.0,
+                    "lat": -24.86322569847107,
+                    "lon": -41.21072292327881
                 },
                 {
-                    "x": 162.5,
-                    "y": 24.5,
-                    "lat": 30.877806779855813,
-                    "lon": 29.407497053306322
-                },
-                {
-                    "x": 33.5,
-                    "y": 66.5,
-                    "lat": 30.828431661785935,
-                    "lon": 29.02578687045164
-                },
-                {
-                    "x": 86.5,
-                    "y": 142.5,
-                    "lat": 30.60650226658061,
-                    "lon": 29.128871603565887
-                },
-                {
-                    "x": 134.5,
-                    "y": 101.5,
-                    "lat": 30.690743214317706,
-                    "lon": 29.28528509741618
-                },
-                {
-                    "x": 159.5,
-                    "y": 23.5,
-                    "lat": 30.88180607475194,
-                    "lon": 29.399764364560458
-                },
-                {
-                    "x": 158.5,
-                    "y": 23.5,
-                    "lat": 30.882272718842216,
-                    "lon": 29.39699295031702
+                    "x": 148.0,
+                    "y": 129.0,
+                    "lat": -24.95887017250061,
+                    "lon": -41.06729483604431
                 }
             ],
             "reverseAccuracy": 0.025
         },
         "tiePointGrids": [
             {
-                "name": "latitude",
-                "description": "Latitude",
-                "offsetX": "-8.0",
-                "offsetY": "0.0",
-                "subSamplingX": "64.0",
-                "subSamplingY": "1.0",
-                "expectedPixels": [
-                    {
-                        "x": 97,
-                        "y": 34,
-                        "value": 30.882061
-                    },
-                    {
-                        "x": 162,
-                        "y": 24,
-                        "value": 30.877808
-                    },
-                    {
-                        "x": 33,
-                        "y": 66,
-                        "value": 30.828432
-                    },
-                    {
-                        "x": 86,
-                        "y": 142,
-                        "value": 30.606503
-                    },
-                    {
-                        "x": 134,
-                        "y": 101,
-                        "value": 30.690742
-                    },
-                    {
-                        "x": 159,
-                        "y": 23,
-                        "value": 30.881805
-                    },
-                    {
-                        "x": 158,
-                        "y": 23,
-                        "value": 30.882273
-                    }
-                ]
-            },
-            {
-                "name": "longitude",
+                "name": "TP_longitude",
                 "description": "Longitude",
                 "offsetX": "-8.0",
                 "offsetY": "0.0",
@@ -106,39 +31,34 @@
                 "subSamplingY": "1.0",
                 "expectedPixels": [
                     {
-                        "x": 97,
-                        "y": 34,
-                        "value": 29.221552
+                        "x": 10,
+                        "y": 35,
+                        "value": -41.351135
                     },
                     {
-                        "x": 162,
-                        "y": 24,
-                        "value": 29.407497
+                        "x": 137,
+                        "y": 170,
+                        "value": -41.12578
+                    }
+                ]
+            },
+            {
+                "name": "TP_latitude",
+                "description": "Latitude",
+                "offsetX": "-8.0",
+                "offsetY": "0.0",
+                "subSamplingX": "64.0",
+                "subSamplingY": "1.0",
+                "expectedPixels": [
+                    {
+                        "x": 58,
+                        "y": 51,
+                        "value": -24.703323
                     },
                     {
-                        "x": 33,
-                        "y": 66,
-                        "value": 29.025787
-                    },
-                    {
-                        "x": 86,
-                        "y": 142,
-                        "value": 29.128872
-                    },
-                    {
-                        "x": 134,
-                        "y": 101,
-                        "value": 29.285286
-                    },
-                    {
-                        "x": 159,
-                        "y": 23,
-                        "value": 29.399765
-                    },
-                    {
-                        "x": 158,
-                        "y": 23,
-                        "value": 29.396994
+                        "x": 122,
+                        "y": 73,
+                        "value": -24.800253
                     }
                 ]
             }
@@ -155,60 +75,19 @@
                 "spectralBandwidth": "0.0",
                 "expectedPixels": [
                     {
-                        "x": 97,
-                        "y": 34,
+                        "x": 110,
+                        "y": 149,
                         "value": 100.0
                     },
                     {
-                        "x": 162,
-                        "y": 24,
+                        "x": 121,
+                        "y": 185,
                         "value": 100.0
-                    },
-                    {
-                        "x": 33,
-                        "y": 66,
-                        "value": 100.0
-                    },
-                    {
-                        "x": 86,
-                        "y": 142,
-                        "value": 0.0
-                    },
-                    {
-                        "x": 134,
-                        "y": 101,
-                        "value": 0.0
-                    },
-                    {
-                        "x": 159,
-                        "y": 23,
-                        "value": 100.0
-                    },
-                    {
-                        "x": 158,
-                        "y": 23,
-                        "value": 0.0
                     }
                 ]
             }
         ],
         "metadata": [
-            {
-                "path": "Processing_Graph/node.1/parameters/formatName",
-                "value": "BEAM-DIMAP"
-            },
-            {
-                "path": "Processing_Graph/node.0/parameters/resolution",
-                "value": "50"
-            },
-            {
-                "path": "Processing_Graph/node.0/parameters/subSamplingFactorY",
-                "value": "1"
-            },
-            {
-                "path": "Processing_Graph/node.1/parameters/clearCacheAfterRowWrite",
-                "value": "false"
-            },
             {
                 "path": "Processing_Graph/node.1/parameters/clearCacheAfterRowWrite",
                 "value": "false"
@@ -223,15 +102,23 @@
             },
             {
                 "path": "Processing_Graph/node.0/sources/sourceProduct",
-                "value": "product:Subset_S3A_OL_1_EFR____20160303T080325_20160303T080525_20160312T095955_0119_001_249______SVL_O_NR_001.SEN3"
+                "value": "product:Subset_S3B_OL_1_EFR____20190420T120914_20190420T121214_20190421T151110_0179_024_237_3420_LN1_O_NT_002.SEN3"
             },
             {
                 "path": "Processing_Graph/node.1/parameters/formatName",
                 "value": "BEAM-DIMAP"
             },
             {
-                "path": "Processing_Graph/node.0/sources/sourceProduct",
-                "value": "product:Subset_S3A_OL_1_EFR____20160303T080325_20160303T080525_20160312T095955_0119_001_249______SVL_O_NR_001.SEN3"
+                "path": "Processing_Graph/node.0/parameters/subSamplingFactorX",
+                "value": "1"
+            },
+            {
+                "path": "Processing_Graph/node.0/parameters/resolution",
+                "value": "50"
+            },
+            {
+                "path": "Processing_Graph/node.0/parameters/subSamplingFactorY",
+                "value": "1"
             }
         ]
     }

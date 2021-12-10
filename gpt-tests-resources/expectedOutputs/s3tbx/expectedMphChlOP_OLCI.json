@@ -4,24 +4,24 @@
     "expectedContent": {
         "sceneWidth": 200,
         "sceneHeight": 200,
-        "startTime": "03-MAR-2016 08:03:47.023737",
-        "endTime": "03-MAR-2016 08:03:55.779976",
+        "startTime": "20-APR-2019 12:09:36.480480",
+        "endTime": "20-APR-2019 12:09:45.238426",
         "geoCoding": {
             "coordinates": [
                 {
                     "x": 86.0,
                     "y": 107.0,
-                    "lat": 31.140218722167745,
-                    "lon": 32.71498451563699
+                    "lat": -24.55655872821808,
+                    "lon": -37.81964075565338
                 },
                 {
                     "x": 148.0,
                     "y": 129.0,
-                    "lat": 31.049922675219214,
-                    "lon": 32.87131660635216
+                    "lat": -24.648921489715576,
+                    "lon": -37.67404866218567
                 }
             ],
-            "reverseAccuracy": 0.02408121810111652
+            "reverseAccuracy": 0.1
         },
         "flagCodings": [
             {
@@ -212,8 +212,8 @@
         ],
         "tiePointGrids": [
             {
-                "name": "latitude",
-                "description": "Latitude",
+                "name": "TP_longitude",
+                "description": "Longitude",
                 "offsetX": "-56.0",
                 "offsetY": "0.0",
                 "subSamplingX": "64.0",
@@ -222,18 +222,18 @@
                     {
                         "x": 10,
                         "y": 35,
-                        "value": 31.365755
+                        "value": -37.96585
                     },
                     {
                         "x": 137,
                         "y": 170,
-                        "value": 30.947908
+                        "value": -37.72968
                     }
                 ]
             },
             {
-                "name": "longitude",
-                "description": "Longitude",
+                "name": "TP_latitude",
+                "description": "Latitude",
                 "offsetX": "-56.0",
                 "offsetY": "0.0",
                 "subSamplingX": "64.0",
@@ -242,72 +242,12 @@
                     {
                         "x": 58,
                         "y": 51,
-                        "value": 32.676277
+                        "value": -24.397387
                     },
                     {
                         "x": 122,
                         "y": 73,
-                        "value": 32.838417
-                    }
-                ]
-            },
-            {
-                "name": "SZA",
-                "description": "Sun Zenith Angle",
-                "offsetX": "-56.0",
-                "offsetY": "-0.0",
-                "subSamplingX": "64.0",
-                "subSamplingY": "1.0",
-                "expectedPixels": [
-                    {
-                        "x": 110,
-                        "y": 149,
-                        "value": 46.880207
-                    },
-                    {
-                        "x": 121,
-                        "y": 185,
-                        "value": 46.798775
-                    }
-                ]
-            },
-            {
-                "name": "SAA",
-                "description": "Sun Azimuth Angle",
-                "offsetX": "-56.0",
-                "offsetY": "-0.0",
-                "subSamplingX": "64.0",
-                "subSamplingY": "1.0",
-                "expectedPixels": [
-                    {
-                        "x": 31,
-                        "y": 133,
-                        "value": 138.15125
-                    },
-                    {
-                        "x": 103,
-                        "y": 182,
-                        "value": 138.24261
-                    }
-                ]
-            },
-            {
-                "name": "OZA",
-                "description": "Observation (Viewing) Zenith Angle",
-                "offsetX": "-56.0",
-                "offsetY": "-0.0",
-                "subSamplingX": "64.0",
-                "subSamplingY": "1.0",
-                "expectedPixels": [
-                    {
-                        "x": 151,
-                        "y": 96,
-                        "value": 9.972777
-                    },
-                    {
-                        "x": 190,
-                        "y": 97,
-                        "value": 9.149728
+                        "value": -24.490948
                     }
                 ]
             },
@@ -320,114 +260,74 @@
                 "subSamplingY": "1.0",
                 "expectedPixels": [
                     {
+                        "x": 110,
+                        "y": 149,
+                        "value": 104.13959
+                    },
+                    {
+                        "x": 121,
+                        "y": 185,
+                        "value": 104.14482
+                    }
+                ]
+            },
+            {
+                "name": "OZA",
+                "description": "Observation (Viewing) Zenith Angle",
+                "offsetX": "-56.0",
+                "offsetY": "-0.0",
+                "subSamplingX": "64.0",
+                "subSamplingY": "1.0",
+                "expectedPixels": [
+                    {
+                        "x": 31,
+                        "y": 133,
+                        "value": 12.350619
+                    },
+                    {
+                        "x": 103,
+                        "y": 182,
+                        "value": 10.857185
+                    }
+                ]
+            },
+            {
+                "name": "SAA",
+                "description": "Sun Azimuth Angle",
+                "offsetX": "-56.0",
+                "offsetY": "-0.0",
+                "subSamplingX": "64.0",
+                "subSamplingY": "1.0",
+                "expectedPixels": [
+                    {
+                        "x": 151,
+                        "y": 96,
+                        "value": 47.45897
+                    },
+                    {
+                        "x": 190,
+                        "y": 97,
+                        "value": 47.34902
+                    }
+                ]
+            },
+            {
+                "name": "SZA",
+                "description": "Sun Zenith Angle",
+                "offsetX": "-56.0",
+                "offsetY": "-0.0",
+                "subSamplingX": "64.0",
+                "subSamplingY": "1.0",
+                "expectedPixels": [
+                    {
                         "x": 68,
                         "y": 179,
-                        "value": 102.7827
+                        "value": 49.95645
                     },
                     {
                         "x": 1,
                         "y": 94,
-                        "value": 102.69883
-                    }
-                ]
-            },
-            {
-                "name": "horizontal_wind_vector_1",
-                "description": "Horizontal wind vector at 10m altitude",
-                "offsetX": "-56.0",
-                "offsetY": "-0.0",
-                "subSamplingX": "64.0",
-                "subSamplingY": "1.0",
-                "expectedPixels": [
-                    {
-                        "x": 65,
-                        "y": 39,
-                        "value": 9.413313
-                    },
-                    {
-                        "x": 54,
-                        "y": 8,
-                        "value": 9.684841
-                    }
-                ]
-            },
-            {
-                "name": "horizontal_wind_vector_2",
-                "description": "Horizontal wind vector at 10m altitude",
-                "offsetX": "-56.0",
-                "offsetY": "-0.0",
-                "subSamplingX": "64.0",
-                "subSamplingY": "1.0",
-                "expectedPixels": [
-                    {
-                        "x": 194,
-                        "y": 120,
-                        "value": 2.376091
-                    },
-                    {
-                        "x": 114,
-                        "y": 143,
-                        "value": 1.4584314
-                    }
-                ]
-            },
-            {
-                "name": "sea_level_pressure",
-                "description": "Mean sea level pressure",
-                "offsetX": "-56.0",
-                "offsetY": "-0.0",
-                "subSamplingX": "64.0",
-                "subSamplingY": "1.0",
-                "expectedPixels": [
-                    {
-                        "x": 46,
-                        "y": 99,
-                        "value": 1009.17615
-                    },
-                    {
-                        "x": 64,
-                        "y": 144,
-                        "value": 1009.41614
-                    }
-                ]
-            },
-            {
-                "name": "total_ozone",
-                "description": "Total columnar ozone",
-                "offsetX": "-56.0",
-                "offsetY": "-0.0",
-                "subSamplingX": "64.0",
-                "subSamplingY": "1.0",
-                "expectedPixels": [
-                    {
-                        "x": 71,
-                        "y": 99,
-                        "value": 0.006806119
-                    },
-                    {
-                        "x": 80,
-                        "y": 88,
-                        "value": 0.006808216
-                    }
-                ]
-            },
-            {
-                "name": "humidity",
-                "description": "Relative humidity",
-                "offsetX": "-56.0",
-                "offsetY": "-0.0",
-                "subSamplingX": "64.0",
-                "subSamplingY": "1.0",
-                "expectedPixels": [
-                    {
-                        "x": 114,
-                        "y": 18,
-                        "value": 61.185036
-                    },
-                    {
-                        "x": 129,
-                        "y": 3,
-                        "value": 62.452587
+                        "value": 49.870647
                     }
                 ]
             },
@@ -440,14 +340,14 @@
                 "subSamplingY": "1.0",
                 "expectedPixels": [
                     {
-                        "x": 195,
-                        "y": 73,
-                        "value": 289.30237
+                        "x": 65,
+                        "y": 39,
+                        "value": 296.7249
                     },
                     {
-                        "x": 190,
-                        "y": 189,
-                        "value": 288.30502
+                        "x": 54,
+                        "y": 8,
+                        "value": 296.7512
                     }
                 ]
             },
@@ -460,14 +360,14 @@
                 "subSamplingY": "1.0",
                 "expectedPixels": [
                     {
-                        "x": 22,
-                        "y": 90,
-                        "value": 284.63522
+                        "x": 194,
+                        "y": 120,
+                        "value": 292.40152
                     },
                     {
                         "x": 114,
-                        "y": 112,
-                        "value": 284.77057
+                        "y": 143,
+                        "value": 292.54675
                     }
                 ]
             },
@@ -480,14 +380,14 @@
                 "subSamplingY": "1.0",
                 "expectedPixels": [
                     {
-                        "x": 101,
-                        "y": 104,
-                        "value": 283.31747
+                        "x": 46,
+                        "y": 99,
+                        "value": 292.8167
                     },
                     {
-                        "x": 90,
-                        "y": 116,
-                        "value": 283.24185
+                        "x": 64,
+                        "y": 144,
+                        "value": 292.77432
                     }
                 ]
             },
@@ -500,14 +400,14 @@
                 "subSamplingY": "1.0",
                 "expectedPixels": [
                     {
-                        "x": 2,
-                        "y": 84,
-                        "value": 282.25052
+                        "x": 71,
+                        "y": 99,
+                        "value": 291.48953
                     },
                     {
-                        "x": 14,
-                        "y": 198,
-                        "value": 282.7132
+                        "x": 80,
+                        "y": 88,
+                        "value": 291.4798
                     }
                 ]
             },
@@ -520,14 +420,14 @@
                 "subSamplingY": "1.0",
                 "expectedPixels": [
                     {
-                        "x": 59,
-                        "y": 149,
-                        "value": 281.3621
+                        "x": 114,
+                        "y": 18,
+                        "value": 289.39423
                     },
                     {
-                        "x": 160,
-                        "y": 147,
-                        "value": 281.23657
+                        "x": 129,
+                        "y": 3,
+                        "value": 289.46063
                     }
                 ]
             },
@@ -540,14 +440,14 @@
                 "subSamplingY": "1.0",
                 "expectedPixels": [
                     {
-                        "x": 166,
-                        "y": 189,
-                        "value": 278.8852
+                        "x": 195,
+                        "y": 73,
+                        "value": 286.69638
                     },
                     {
-                        "x": 49,
-                        "y": 106,
-                        "value": 279.0408
+                        "x": 190,
+                        "y": 189,
+                        "value": 286.6514
                     }
                 ]
             },
@@ -560,14 +460,14 @@
                 "subSamplingY": "1.0",
                 "expectedPixels": [
                     {
-                        "x": 122,
-                        "y": 52,
-                        "value": 271.42233
+                        "x": 22,
+                        "y": 90,
+                        "value": 284.69153
                     },
                     {
-                        "x": 110,
-                        "y": 30,
-                        "value": 271.3968
+                        "x": 114,
+                        "y": 112,
+                        "value": 284.57468
                     }
                 ]
             },
@@ -580,14 +480,14 @@
                 "subSamplingY": "1.0",
                 "expectedPixels": [
                     {
-                        "x": 95,
-                        "y": 111,
-                        "value": 265.64798
+                        "x": 101,
+                        "y": 104,
+                        "value": 275.13077
                     },
                     {
-                        "x": 19,
-                        "y": 169,
-                        "value": 265.73175
+                        "x": 90,
+                        "y": 116,
+                        "value": 275.1365
                     }
                 ]
             },
@@ -600,14 +500,14 @@
                 "subSamplingY": "1.0",
                 "expectedPixels": [
                     {
-                        "x": 19,
-                        "y": 15,
-                        "value": 257.7156
+                        "x": 2,
+                        "y": 84,
+                        "value": 265.21597
                     },
                     {
-                        "x": 91,
-                        "y": 135,
-                        "value": 257.98264
+                        "x": 14,
+                        "y": 198,
+                        "value": 265.10156
                     }
                 ]
             },
@@ -620,14 +520,14 @@
                 "subSamplingY": "1.0",
                 "expectedPixels": [
                     {
-                        "x": 93,
-                        "y": 179,
-                        "value": 242.90521
+                        "x": 59,
+                        "y": 149,
+                        "value": 253.45013
                     },
                     {
-                        "x": 173,
-                        "y": 120,
-                        "value": 243.00789
+                        "x": 160,
+                        "y": 147,
+                        "value": 253.34808
                     }
                 ]
             },
@@ -640,14 +540,14 @@
                 "subSamplingY": "1.0",
                 "expectedPixels": [
                     {
-                        "x": 192,
-                        "y": 76,
-                        "value": 229.99495
+                        "x": 166,
+                        "y": 189,
+                        "value": 235.61421
                     },
                     {
-                        "x": 17,
+                        "x": 49,
                         "y": 106,
-                        "value": 229.96388
+                        "value": 235.78088
                     }
                 ]
             },
@@ -660,14 +560,14 @@
                 "subSamplingY": "1.0",
                 "expectedPixels": [
                     {
-                        "x": 147,
-                        "y": 118,
-                        "value": 223.37605
+                        "x": 122,
+                        "y": 52,
+                        "value": 224.75534
                     },
                     {
-                        "x": 195,
-                        "y": 37,
-                        "value": 223.44725
+                        "x": 110,
+                        "y": 30,
+                        "value": 224.78185
                     }
                 ]
             },
@@ -680,14 +580,14 @@
                 "subSamplingY": "1.0",
                 "expectedPixels": [
                     {
-                        "x": 92,
-                        "y": 52,
-                        "value": 219.55449
+                        "x": 95,
+                        "y": 111,
+                        "value": 217.68575
                     },
                     {
-                        "x": 45,
-                        "y": 129,
-                        "value": 219.56198
+                        "x": 19,
+                        "y": 169,
+                        "value": 217.50227
                     }
                 ]
             },
@@ -700,14 +600,14 @@
                 "subSamplingY": "1.0",
                 "expectedPixels": [
                     {
-                        "x": 127,
-                        "y": 87,
-                        "value": 215.23534
+                        "x": 19,
+                        "y": 15,
+                        "value": 215.46916
                     },
                     {
-                        "x": 106,
-                        "y": 113,
-                        "value": 215.3039
+                        "x": 91,
+                        "y": 135,
+                        "value": 215.50014
                     }
                 ]
             },
@@ -720,14 +620,14 @@
                 "subSamplingY": "1.0",
                 "expectedPixels": [
                     {
-                        "x": 79,
-                        "y": 42,
-                        "value": 208.19308
+                        "x": 93,
+                        "y": 179,
+                        "value": 203.39246
                     },
                     {
-                        "x": 55,
-                        "y": 177,
-                        "value": 208.02678
+                        "x": 173,
+                        "y": 120,
+                        "value": 203.46957
                     }
                 ]
             },
@@ -740,14 +640,14 @@
                 "subSamplingY": "1.0",
                 "expectedPixels": [
                     {
-                        "x": 189,
-                        "y": 115,
-                        "value": 208.19884
+                        "x": 192,
+                        "y": 76,
+                        "value": 198.08658
                     },
                     {
-                        "x": 151,
-                        "y": 65,
-                        "value": 208.62187
+                        "x": 17,
+                        "y": 106,
+                        "value": 197.76675
                     }
                 ]
             },
@@ -760,14 +660,14 @@
                 "subSamplingY": "1.0",
                 "expectedPixels": [
                     {
-                        "x": 112,
-                        "y": 58,
-                        "value": 206.76912
+                        "x": 147,
+                        "y": 118,
+                        "value": 203.92632
                     },
                     {
-                        "x": 165,
-                        "y": 174,
-                        "value": 206.4583
+                        "x": 195,
+                        "y": 37,
+                        "value": 203.66405
                     }
                 ]
             },
@@ -780,14 +680,14 @@
                 "subSamplingY": "1.0",
                 "expectedPixels": [
                     {
-                        "x": 21,
-                        "y": 177,
-                        "value": 212.75777
+                        "x": 92,
+                        "y": 52,
+                        "value": 217.29843
                     },
                     {
-                        "x": 68,
-                        "y": 162,
-                        "value": 213.40344
+                        "x": 45,
+                        "y": 129,
+                        "value": 217.41466
                     }
                 ]
             },
@@ -800,14 +700,14 @@
                 "subSamplingY": "1.0",
                 "expectedPixels": [
                     {
-                        "x": 36,
-                        "y": 138,
-                        "value": 218.73483
+                        "x": 127,
+                        "y": 87,
+                        "value": 225.22742
                     },
                     {
-                        "x": 118,
-                        "y": 109,
-                        "value": 217.71988
+                        "x": 106,
+                        "y": 113,
+                        "value": 225.21568
                     }
                 ]
             },
@@ -820,14 +720,14 @@
                 "subSamplingY": "1.0",
                 "expectedPixels": [
                     {
-                        "x": 41,
-                        "y": 61,
-                        "value": 228.28593
+                        "x": 79,
+                        "y": 42,
+                        "value": 231.496
                     },
                     {
-                        "x": 82,
-                        "y": 172,
-                        "value": 228.14635
+                        "x": 55,
+                        "y": 177,
+                        "value": 231.40105
                     }
                 ]
             },
@@ -840,14 +740,14 @@
                 "subSamplingY": "1.0",
                 "expectedPixels": [
                     {
-                        "x": 140,
-                        "y": 179,
-                        "value": 239.75783
+                        "x": 189,
+                        "y": 115,
+                        "value": 236.5078
                     },
                     {
-                        "x": 59,
-                        "y": 198,
-                        "value": 239.73053
+                        "x": 151,
+                        "y": 65,
+                        "value": 236.46619
                     }
                 ]
             },
@@ -860,14 +760,14 @@
                 "subSamplingY": "1.0",
                 "expectedPixels": [
                     {
-                        "x": 109,
-                        "y": 23,
-                        "value": 251.6533
+                        "x": 112,
+                        "y": 58,
+                        "value": 239.80469
                     },
                     {
-                        "x": 38,
-                        "y": 112,
-                        "value": 251.24829
+                        "x": 165,
+                        "y": 174,
+                        "value": 239.92903
                     }
                 ]
             },
@@ -880,14 +780,14 @@
                 "subSamplingY": "1.0",
                 "expectedPixels": [
                     {
-                        "x": 91,
-                        "y": 25,
-                        "value": 260.68594
+                        "x": 21,
+                        "y": 177,
+                        "value": 247.90254
                     },
                     {
-                        "x": 165,
-                        "y": 114,
-                        "value": 260.38715
+                        "x": 68,
+                        "y": 162,
+                        "value": 247.72527
                     }
                 ]
             },
@@ -900,14 +800,14 @@
                 "subSamplingY": "1.0",
                 "expectedPixels": [
                     {
-                        "x": 20,
-                        "y": 135,
-                        "value": 264.39127
+                        "x": 36,
+                        "y": 138,
+                        "value": 254.47531
                     },
                     {
-                        "x": 146,
-                        "y": 94,
-                        "value": 264.68417
+                        "x": 118,
+                        "y": 109,
+                        "value": 254.66066
                     }
                 ]
             },
@@ -920,14 +820,94 @@
                 "subSamplingY": "1.0",
                 "expectedPixels": [
                     {
-                        "x": 28,
-                        "y": 13,
-                        "value": 255.96863
+                        "x": 41,
+                        "y": 61,
+                        "value": 260.65787
                     },
                     {
-                        "x": 168,
-                        "y": 59,
-                        "value": 256.167
+                        "x": 82,
+                        "y": 172,
+                        "value": 260.3161
+                    }
+                ]
+            },
+            {
+                "name": "horizontal_wind_vector_1",
+                "description": "Horizontal wind vector at 10m altitude",
+                "offsetX": "-56.0",
+                "offsetY": "-0.0",
+                "subSamplingX": "64.0",
+                "subSamplingY": "1.0",
+                "expectedPixels": [
+                    {
+                        "x": 140,
+                        "y": 179,
+                        "value": 0.6175572
+                    },
+                    {
+                        "x": 59,
+                        "y": 198,
+                        "value": 0.5782528
+                    }
+                ]
+            },
+            {
+                "name": "horizontal_wind_vector_2",
+                "description": "Horizontal wind vector at 10m altitude",
+                "offsetX": "-56.0",
+                "offsetY": "-0.0",
+                "subSamplingX": "64.0",
+                "subSamplingY": "1.0",
+                "expectedPixels": [
+                    {
+                        "x": 109,
+                        "y": 23,
+                        "value": 1.114091
+                    },
+                    {
+                        "x": 38,
+                        "y": 112,
+                        "value": 0.77193344
+                    }
+                ]
+            },
+            {
+                "name": "humidity",
+                "description": "Relative humidity",
+                "offsetX": "-56.0",
+                "offsetY": "-0.0",
+                "subSamplingX": "64.0",
+                "subSamplingY": "1.0",
+                "expectedPixels": [
+                    {
+                        "x": 91,
+                        "y": 25,
+                        "value": 65.863945
+                    },
+                    {
+                        "x": 165,
+                        "y": 114,
+                        "value": 60.864784
+                    }
+                ]
+            },
+            {
+                "name": "sea_level_pressure",
+                "description": "Mean sea level pressure",
+                "offsetX": "-56.0",
+                "offsetY": "-0.0",
+                "subSamplingX": "64.0",
+                "subSamplingY": "1.0",
+                "expectedPixels": [
+                    {
+                        "x": 20,
+                        "y": 135,
+                        "value": 1014.6214
+                    },
+                    {
+                        "x": 146,
+                        "y": 94,
+                        "value": 1014.61646
                     }
                 ]
             },
@@ -940,14 +920,34 @@
                 "subSamplingY": "1.0",
                 "expectedPixels": [
                     {
+                        "x": 28,
+                        "y": 13,
+                        "value": 27.228737
+                    },
+                    {
+                        "x": 168,
+                        "y": 59,
+                        "value": 26.454798
+                    }
+                ]
+            },
+            {
+                "name": "total_ozone",
+                "description": "Total columnar ozone",
+                "offsetX": "-56.0",
+                "offsetY": "-0.0",
+                "subSamplingX": "64.0",
+                "subSamplingY": "1.0",
+                "expectedPixels": [
+                    {
                         "x": 118,
                         "y": 194,
-                        "value": 19.338612
+                        "value": 0.00567077
                     },
                     {
                         "x": 155,
                         "y": 5,
-                        "value": 21.34851
+                        "value": 0.0056784493
                     }
                 ]
             }
@@ -988,12 +988,12 @@
                     {
                         "x": 56,
                         "y": 176,
-                        "value": 2.28170138E9
+                        "value": 0.0
                     },
                     {
                         "x": 199,
                         "y": 15,
-                        "value": 4194304.0
+                        "value": 0.0
                     }
                 ]
             },
@@ -1011,12 +1011,12 @@
                     {
                         "x": 163,
                         "y": 100,
-                        "value": 9.781807
+                        "value": 3.6159418
                     },
                     {
                         "x": 12,
                         "y": 77,
-                        "value": 3.7256584
+                        "value": 1.903128
                     }
                 ]
             },
@@ -1301,12 +1301,12 @@
         ],
         "metadata": [
             {
-                "path": "Processing_Graph/node.1/sources/sourceProduct",
-                "value": "product:Subset_S3A_OL_1_EFR____20160303T080325_20160303T080525_20160312T095955_0119_001_249______SVL_O_NR_001.SEN3"
-            },
-            {
                 "path": "Processing_Graph/node.2/parameters/validPixelExpression",
                 "value": "not quality_flags.land"
+            },
+            {
+                "path": "Processing_Graph/node.0/sources/sourceProduct",
+                "value": "RayleighCorrection$17DA4D11B91"
             },
             {
                 "path": "Processing_Graph/node.3/sources/sourceProduct",
@@ -1318,23 +1318,15 @@
             },
             {
                 "path": "Processing_Graph/node.1/sources/sourceProduct",
-                "value": "product:Subset_S3A_OL_1_EFR____20160303T080325_20160303T080525_20160312T095955_0119_001_249______SVL_O_NR_001.SEN3"
+                "value": "product:Subset_S3B_OL_1_EFR____20190420T120914_20190420T121214_20190421T151110_0179_024_237_3420_LN1_O_NT_002.SEN3"
             },
             {
                 "path": "Processing_Graph/node.2/parameters/applyLowPassFilter",
                 "value": "true"
             },
             {
-                "path": "Processing_Graph/node.3/sources/sourceProduct",
-                "value": "MphChl"
-            },
-            {
-                "path": "Processing_Graph/node.1/sources/sourceProduct",
-                "value": "product:Subset_S3A_OL_1_EFR____20160303T080325_20160303T080525_20160312T095955_0119_001_249______SVL_O_NR_001.SEN3"
-            },
-            {
                 "path": "Processing_Graph/node.2/sources/sourceProduct",
-                "value": "product:Subset_S3A_OL_1_EFR____20160303T080325_20160303T080525_20160312T095955_0119_001_249______SVL_O_NR_001.SEN3"
+                "value": "product:Subset_S3B_OL_1_EFR____20190420T120914_20190420T121214_20190421T151110_0179_024_237_3420_LN1_O_NT_002.SEN3"
             }
         ]
     }
