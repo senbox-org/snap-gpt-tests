@@ -21,6 +21,68 @@
             ],
             "reverseAccuracy": 4.73664840683341E-9
         },
+        "tiePointGrids": [
+            {
+                "name": "tco3",
+                "description": "Total column water vapour at surface level provided by ECMWF",
+                "offsetX": "-189.91666666666669",
+                "offsetY": "-189.91666666666669",
+                "subSamplingX": "203.33333333333331",
+                "subSamplingY": "203.33333333333331",
+                "expectedPixels": [
+                    {
+                        "x": 26,
+                        "y": 89,
+                        "value": 17.926035
+                    },
+                    {
+                        "x": 342,
+                        "y": 425,
+                        "value": 14.479951
+                    }
+                ]
+            },
+            {
+                "name": "tcwv",
+                "description": "Total column ozone at surface level provided by ECMWF",
+                "offsetX": "-189.91666666666669",
+                "offsetY": "-189.91666666666669",
+                "subSamplingX": "203.33333333333331",
+                "subSamplingY": "203.33333333333331",
+                "expectedPixels": [
+                    {
+                        "x": 145,
+                        "y": 128,
+                        "value": 0.006421178
+                    },
+                    {
+                        "x": 305,
+                        "y": 182,
+                        "value": 0.006414595
+                    }
+                ]
+            },
+            {
+                "name": "msl",
+                "description": "Mean sea level pressure at surface level provided by ECMWF",
+                "offsetX": "-189.91666666666669",
+                "offsetY": "-189.91666666666669",
+                "subSamplingX": "203.33333333333331",
+                "subSamplingY": "203.33333333333331",
+                "expectedPixels": [
+                    {
+                        "x": 275,
+                        "y": 372,
+                        "value": 101034.055
+                    },
+                    {
+                        "x": 304,
+                        "y": 464,
+                        "value": 101041.46
+                    }
+                ]
+            }
+        ],
         "bands": [
             {
                 "name": "Forest_abundance",
@@ -33,14 +95,14 @@
                 "spectralBandwidth": "0.0",
                 "expectedPixels": [
                     {
-                        "x": 26,
-                        "y": 89,
-                        "value": -1.2861601
+                        "x": 79,
+                        "y": 333,
+                        "value": -1.286322
                     },
                     {
-                        "x": 342,
-                        "y": 425,
-                        "value": -1.3131429
+                        "x": 259,
+                        "y": 456,
+                        "value": -1.3133278
                     }
                 ]
             },
@@ -55,14 +117,14 @@
                 "spectralBandwidth": "0.0",
                 "expectedPixels": [
                     {
-                        "x": 145,
-                        "y": 128,
-                        "value": -2.0517247
+                        "x": 378,
+                        "y": 242,
+                        "value": -2.0677178
                     },
                     {
-                        "x": 305,
-                        "y": 182,
-                        "value": -2.0563672
+                        "x": 475,
+                        "y": 242,
+                        "value": -2.0795658
                     }
                 ]
             },
@@ -77,14 +139,14 @@
                 "spectralBandwidth": "0.0",
                 "expectedPixels": [
                     {
-                        "x": 275,
-                        "y": 372,
-                        "value": 2.3980849
+                        "x": 170,
+                        "y": 449,
+                        "value": 2.4091904
                     },
                     {
-                        "x": 304,
-                        "y": 464,
-                        "value": 2.4188235
+                        "x": 4,
+                        "y": 235,
+                        "value": 2.366165
                     }
                 ]
             },
@@ -99,46 +161,30 @@
                 "spectralBandwidth": "0.0",
                 "expectedPixels": [
                     {
-                        "x": 79,
-                        "y": 333,
-                        "value": 1.971292
+                        "x": 163,
+                        "y": 98,
+                        "value": 1.9709858
                     },
                     {
-                        "x": 259,
-                        "y": 456,
-                        "value": 1.9852091
+                        "x": 136,
+                        "y": 21,
+                        "value": 1.9708745
                     }
                 ]
             }
         ],
         "metadata": [
             {
-                "path": "Processing_Graph/node.1/parameters/resampleOnPyramidLevels",
-                "value": "true"
+                "path": "Processing_Graph/node.2/parameters/endmembers/endmember.0/wavelengths",
+                "value": "412.691,442.559,489.882,509.819,559.694,619.601,664.573,680.821,708.329,753.371,761.508,778.409,864.876,884.94,900.0"
             },
             {
-                "path": "history/SubsetInfo/SourceProduct.name",
-                "value": "S2B_MSIL1C_20190506T081609_N0207_R121_T36SXA_20190506T104054_resampled"
+                "path": "history/SubsetInfo/ProductNodeName.12",
+                "value": "B8A"
             },
             {
-                "path": "history/SubsetInfo/ProductNodeName.3",
-                "value": "B3"
-            },
-            {
-                "path": "history/SubsetInfo/ProductNodeName.42",
-                "value": "view_zenith_B12"
-            },
-            {
-                "path": "Processing_Graph/node.2/parameters/sourceBands/band.2",
-                "value": "B6"
-            },
-            {
-                "path": "history/SubsetInfo/ProductNodeName.11",
-                "value": "B10"
-            },
-            {
-                "path": "history/SubsetInfo/ProductNodeName.16",
-                "value": "sun_zenith"
+                "path": "history/SubsetInfo/ProductNodeName.17",
+                "value": "view_zenith_mean"
             },
             {
                 "path": "Processing_Graph/node.0/parameters/fullSwath",
@@ -149,8 +195,24 @@
                 "value": "B1"
             },
             {
-                "path": "history/SubsetInfo/ProductNodeName.22",
-                "value": "view_zenith_B3"
+                "path": "history/SubsetInfo/ProductNodeName.24",
+                "value": "view_azimuth_B2"
+            },
+            {
+                "path": "Processing_Graph/node.2/parameters/sourceBands/band.2",
+                "value": "B6"
+            },
+            {
+                "path": "history/SubsetInfo/SubRegion.x",
+                "value": "800"
+            },
+            {
+                "path": "Processing_Graph/node.1/parameters/referenceBand",
+                "value": "B1"
+            },
+            {
+                "path": "Processing_Graph/node.3/parameters/file",
+                "value": "./tmp/SpecUnmix_S2A_L1C"
             }
         ]
     }
