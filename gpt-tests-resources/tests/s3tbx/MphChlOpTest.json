@@ -3,7 +3,7 @@
     "id": "MphChlTest_MERIS",
     "author": "BC",
     "description": "execute MphChl operator with MERIS L1b",
-    "frequency": "daily",
+    "frequency": "daily/upref",
     "graphPath": "s3tbx/graphMphChlOp.xml",
     "inputs": {
       "input": "s3tbx/sensors_platforms/MERIS/MER_FR__1P/N1/MER_FR__1PNUPA20040401_001107_000000982025_00331_10906_0250.N1"
@@ -31,7 +31,7 @@
     "frequency": "daily",
     "graphPath": "s3tbx/graphMphChlOp.xml",
     "inputs": {
-      "input": "s3tbx/sensors_platforms/SENTINEL-3/olci/L1/S3A_OL_1_EFR____20160303T080325_20160303T080525_20160312T095955_0119_001_249______SVL_O_NR_001.SEN3"
+      "input": "s3tbx/sensors_platforms/SENTINEL-3/olci/L1/S3B_OL_1_EFR____20190420T120914_20190420T121214_20190421T151110_0179_024_237_3420_LN1_O_NT_002.SEN3"
     },
     "parameters": {
       "subsetRegion": "3000,500,200,200",

@@ -2,10 +2,10 @@
     "id":"FUB_WaterTest-1",
   "author": "BC",
     "description":"execute FUB.Water operator with MERIS product",
-    "frequency":"daily",
+    "frequency":"daily/upref",
     "graphPath": "s3tbx/graphFUB_Water.xml",
     "inputs": {
-        "input": "s3tbx/sensors_platforms/MERIS/for_mosaic1/MER_RR__1PQBCM20030407_100459_000007352015_00194_05759_0002.N1"
+        "input": "s3tbx/sensors_platforms/MERIS/MER_RR__1P/N1/MER_RR__1PQBCM20030407_100459_000007352015_00194_05759_0002.N1"
     },
     "parameters": {
         "subsetRegion": "800,2800,200,200",
@@ -30,7 +30,7 @@
         "frequency":"daily",
         "graphPath": "s3tbx/graphFUB_Water.xml",
         "inputs": {
-            "input": "s3tbx/sensors_platforms/MERIS/for_mosaic1/MER_RR__1PQBCM20030407_100459_000007352015_00194_05759_0002.N1"
+            "input": "s3tbx/sensors_platforms/MERIS/MER_RR__1P/N1/MER_RR__1PQBCM20030407_100459_000007352015_00194_05759_0002.N1"
         },
         "parameters": {
             "subsetRegion": "800,2800,200,200",

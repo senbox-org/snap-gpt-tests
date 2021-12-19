@@ -2,7 +2,7 @@
     "id":"snap.dem.srtm3sec",
   "author": "Skywatch",
     "description":"execute DEM operator with SRTM 3sec",
-    "frequency":"daily",
+    "frequency":"daily/upref",
     "graphPath": "snap/graphAddDEM.xml",
     "inputs": {
         "input1": "s1tbx/SAR/ASAR/ASA_IMM.zip"
