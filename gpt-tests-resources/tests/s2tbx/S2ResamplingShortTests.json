@@ -78,4 +78,26 @@
     "outputName": "temp4",
     "expected": "s2tbx/expectedS2ResamplingL2A.json"
   }]
-}]
+},
+{
+  "id":"s2Resampling-L2A",
+  "author": "CS",
+  "description":"execute s2Resampling and make a subset",
+  "frequency":"daily/weekly/release/testGeo/s2resampling/s2resamplingpb400",
+  "graphPath": "s2tbx/graphS2ResamplingSubset.xml",
+  "inputs": {
+    "inputFile": "s2tbx/S2/PSD149/L2A/S2A_MSIL2A_20210728T103031_N7990_R108_T34WDA_20211119T150533.SAFE"
+  },
+  "parameters": {
+    "resolution": "20",
+    "subsetBands": "B1,B3,B5,sun_zenith,sun_azimuth,view_zenith_mean,view_azimuth_B12",
+    "subsetRegion": "12,12,120,120",
+    "outputFormat": "GeoTIFF"
+  },
+  "outputs": [{
+    "parameter": "outputFile",
+    "outputName": "expectedS2ResamplingL2APB400",
+    "expected": "s2tbx/expectedS2ResamplingL2APB400.json"
+  }]
+}
+]
