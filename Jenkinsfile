@@ -54,7 +54,7 @@ pipeline {
         outputDir = "/home/snap/output/${branchVersion}/${env.BUILD_NUMBER}"
     }
     parameters {
-        string(name: 'dockerTagName', defaultValue: "snap:master", description: 'Snap version to use to launch tests')
+        string(name: 'dockerTagName', defaultValue: "snap:9.0.0-RC1", description: 'Snap version to use to launch tests')
         string(name: 'testScope', defaultValue: 'REGULAR', description: 'Scope of the tests to launch (REGULAR, DAILY, WEEKLY, RELEASE)')
         booleanParam(name: 'saveOutput', defaultValue: false, description: 'Save output of failed tests (if scope is not [REGULAR, DAILY, WEEKLY, RELEASE])')
         booleanParam(name: 'debug', defaultValue: false, description: 'Save gpt debug output')
@@ -65,7 +65,7 @@ pipeline {
         stage('Build project') {
             agent {
                 docker {
-                    image "snap-build-server.tilaa.cloud/snap-ci:master"
+                    image "snap-build-server.tilaa.cloud/snap-ci:9.0.0-RC1"
                     label 'snap-test'
                     args "-e MAVEN_CONFIG=/var/maven/.m2 -v /opt/maven/.m2/settings.xml:/var/maven/.m2/settings.xml -v docker_gpt_test_results:/home/snap/output/"
                 }
@@ -79,6 +79,7 @@ pipeline {
                 sh script:"cp -r ./gpt-tests-executer/target/ ${outputDir}/gptExecutorTarget", label: "copy java tool"
                 sh script:"cp -R ./pygpt/ ${outputDir}/pygpt", label: "copy python execution tools"
                 sh script:"cp -R ./pygpt/templates ${outputDir}/templates && cp -R ./pygpt/statics ${outputDir}/statics", label: "copy report templates resources"
+                echo "next step with docker agent image: snap-build-server.tilaa.cloud/${dockerTagName}"
             }
         }
         stage('Execute Tests') {
@@ -90,6 +91,7 @@ pipeline {
                 }
             }
             steps {
+                echo "Execute Tests"
                 sh script:"python3 -u ./pygpt/check_jsons.py ./gpt-tests-resources/tests", label: "Check JSON tests integrity"
     
                 sh script:"python3 -u ./pygpt/filter_json.py ./gpt-tests-resources/tests \"${params.testScope}\" ${outputDir}", label: "Filter tests with test-scope: \"${params.testScope}\""
