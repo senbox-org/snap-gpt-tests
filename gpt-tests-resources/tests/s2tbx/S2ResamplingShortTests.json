@@ -9,6 +9,7 @@
   },
   "parameters": {
     "resolution": "60",
+    "tiePointGrids": ",",
     "subsetBands": "Surface_Reflectance_B2,Surface_Reflectance_B5,sun_zenith,sun_azimuth,view_zenith_B3,view_azimuth_B7",
     "subsetRegion": "0,0,500,500",
     "outputFormat": "BEAM-DIMAP"
@@ -29,6 +30,7 @@
   },
   "parameters": {
     "resolution": "20",
+    "tiePointGrids": ",",
     "subsetBands": "Surface_Reflectance_B3,Surface_Reflectance_B11,sun_zenith,sun_azimuth,view_zenith_mean,view_azimuth_mean",
     "subsetRegion": "0,0,100,100",
     "outputFormat": "GeoTIFF"
@@ -49,6 +51,7 @@
   },
   "parameters": {
     "resolution": "10",
+    "tiePointGrids": ",",
     "subsetBands": "B1,B2,B5,sun_zenith,sun_azimuth,view_zenith_B11,view_azimuth_B12",
     "subsetRegion": "0,0,100,100",
     "outputFormat": "BEAM-DIMAP"
@@ -69,6 +72,7 @@
   },
   "parameters": {
     "resolution": "20",
+    "tiePointGrids": ",",
     "subsetBands": "B2,B3,B5,sun_zenith,sun_azimuth,view_zenith_mean,view_azimuth_B12",
     "subsetRegion": "5,5,100,100",
     "outputFormat": "GeoTIFF"
@@ -90,6 +94,7 @@
   },
   "parameters": {
     "resolution": "20",
+    "tiePointGrids": ",",
     "subsetBands": "B1,B3,B5,sun_zenith,sun_azimuth,view_zenith_mean,view_azimuth_B12",
     "subsetRegion": "12,12,120,120",
     "outputFormat": "GeoTIFF"
