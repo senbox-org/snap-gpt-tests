@@ -2,99 +2,140 @@
   "id": "subsetS2Test_B1B2",
   "decodeQualification": "INTENDED",
   "expectedContent": {
-    "sceneWidth": 1196,
-    "sceneHeight": 1196,
-    "startTime": "02-OCT-2018 03:45:51.024000",
-    "endTime": "02-OCT-2018 03:45:51.024000",
-    "bands": [
-      {
-        "name": "B1",
-        "description": "Reflectance in band B1",
-        "bandWidth": 200,
-        "bandHeight": 200,
-        "geophysicalUnit": "dl",
-        "noDataValue": "0.0",
-        "noDataValueUsed": "false",
-        "spectralWavelength": "443.0",
-        "spectralBandwidth": "58.0",
-        "expectedPixels": [
+      "sceneWidth": 1196,
+      "sceneHeight": 1196,
+      "startTime": "02-OCT-2018 03:45:51.024000",
+      "endTime": "02-OCT-2018 03:45:51.024000",
+      "geoCoding": {
+          "coordinates": [
+              {
+                  "x": 515.0,
+                  "y": 642.0,
+                  "lat": 12.442613637835661,
+                  "lon": 98.29269922219414
+              },
+              {
+                  "x": 887.0,
+                  "y": 776.0,
+                  "lat": 12.430584034772716,
+                  "lon": 98.32695739776175
+              }
+          ],
+          "reverseAccuracy": 5.238689482212067E-10
+      },
+      "tiePointGrids": [
           {
-            "x": 86,
-            "y": 107,
-            "value": 0.2231
+              "name": "tcwv",
+              "description": "Total column ozone at surface level provided by ECMWF",
+              "offsetX": "-581.5",
+              "offsetY": "-581.5",
+              "subSamplingX": "1220.0",
+              "subSamplingY": "1220.0",
+              "expectedPixels": [
+                  {
+                      "x": 62,
+                      "y": 213,
+                      "value": 0.0057573155
+                  },
+                  {
+                      "x": 819,
+                      "y": 1017,
+                      "value": 0.00574583
+                  }
+              ]
+          }
+      ],
+      "bands": [
+          {
+              "name": "B1",
+              "description": "Reflectance in band B1",
+              "bandWidth": 200,
+              "bandHeight": 200,
+              "geophysicalUnit": "dl",
+              "noDataValue": "0.0",
+              "noDataValueUsed": "false",
+              "spectralWavelength": "443.0",
+              "spectralBandwidth": "58.0",
+              "expectedPixels": [
+                  {
+                      "x": 58,
+                      "y": 51,
+                      "value": 0.3531
+                  },
+                  {
+                      "x": 122,
+                      "y": 73,
+                      "value": 0.2794
+                  }
+              ]
           },
           {
-            "x": 148,
-            "y": 129,
-            "value": 0.2433
-          }
-        ]
-      },
-      {
+              "name": "B2",
         "name": "B2", 
-        "description": "Reflectance in band B2",
-        "bandWidth": 1196,
-        "bandHeight": 1196,
-        "geophysicalUnit": "dl",
-        "noDataValue": "0.0",
-        "noDataValueUsed": "false",
-        "spectralWavelength": "490.0",
-        "spectralBandwidth": "130.0",
-        "expectedPixels": [
+              "name": "B2",
+              "description": "Reflectance in band B2",
+              "bandWidth": 1196,
+              "bandHeight": 1196,
+              "geophysicalUnit": "dl",
+              "noDataValue": "0.0",
+              "noDataValueUsed": "false",
+              "spectralWavelength": "490.0",
+              "spectralBandwidth": "130.0",
+              "expectedPixels": [
+                  {
+                      "x": 657,
+                      "y": 891,
+                      "value": 0.1891
+                  },
+                  {
+                      "x": 727,
+                      "y": 1110,
+                      "value": 0.2027
+                  }
+              ]
+          }
+      ],
+      "metadata": [
           {
-            "x": 62,
-            "y": 213,
-            "value": 0.3103
+              "path": "history/SubsetInfo/SubSampling.y",
+              "value": "1"
           },
           {
-            "x": 822,
-            "y": 1020,
-            "value": 0.2075
+              "path": "history/SubsetInfo/SubSampling.y",
+              "value": "1"
+          },
+          {
+              "path": "history/SubsetInfo/SubSampling.y",
+              "value": "1"
+          },
+          {
+              "path": "Level-1C_DataStrip_ID/General_Info/Datastrip_Time_Info/metadataLevel",
+              "value": "Brief"
+          },
+          {
+              "path": "history/SubsetInfo/ProductNodeName.1",
+              "value": "tcwv"
+          },
+          {
+              "path": "Granules/Level-1C_Tile_47PMP/Geometric_Info/Tile_Geocoding/Geoposition/resolution",
+              "value": "10"
+          },
+          {
+              "path": "history/SubsetInfo/ProductNodeName.3",
+              "value": "B2"
+          },
+          {
+              "path": "history/SubsetInfo/SubSampling.y",
+              "value": "1"
+          },
+          {
+              "path": "Granules/Level-1C_Tile_47PMP/Geometric_Info/Tile_Angles/Viewing_Incidence_Angles_Grids[35]/Azimuth/Values_List/VALUES[10]",
+              "value": "NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN 293.943 293.365 292.856 292.404 292.002 291.64 NaN"
+          },
+          {
+              "path": "Level-1C_User_Product/Quality_Indicators_Info/Technical_Quality_Assessment/DEGRADED_MSI_DATA_PERCENTAGE",
+              "value": "0"
           }
-        ]
-      }
-    ],
-    "metadata": [
-      {
-        "path": "Level-1C_DataStrip_ID/Image_Data_Info/Radiometric_Info/Image_Display_Order/GREEN_CHANNEL",
-        "value": "2"
-      },
-      {
-        "path": "Processing_Graph/node.1/parameters/fullSwath",
-        "value": "false"
-      },
-      {
-        "path": "Processing_Graph/node.1/parameters/copyMetadata",
-        "value": "true"
-      },
-      {
-        "path": "Granules/Level-1C_Tile_47PMP/Geometric_Info/Tile_Geocoding/Geoposition[3]/resolution",
-        "value": "60"
-      },
-      {
-        "path": "Granules/Level-1C_Tile_47PMP/General_Info/Archiving_Info/metadataLevel",
-        "value": "Expertise"
-      },
-      {
-        "path": "history/SubsetInfo/SubSampling.y",
-        "value": "1"
-      },
-      {
-        "path": "Granules/Level-1C_Tile_47PMP/Geometric_Info/Tile_Geocoding/Geoposition/resolution",
-        "value": "10"
-      },
-      {
-        "path": "history/SubsetInfo/ProductNodeName.5",
-        "value": "B2"
-      },
-      {
-        "path": "history/SubsetInfo/SubSampling.y",
-        "value": "1"
-      },
-      {
-        "path": "Granules/Level-1C_Tile_47PMP/Geometric_Info/Tile_Angles/Viewing_Incidence_Angles_Grids[35]/Azimuth/Values_List/VALUES[10]",
-        "value": "NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN 293.943 293.365 292.856 292.404 292.002 291.64 NaN"
-      }
-    ]
+      ]
   }
 }
