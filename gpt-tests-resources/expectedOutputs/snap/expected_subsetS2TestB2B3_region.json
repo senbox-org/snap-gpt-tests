@@ -1,117 +1,139 @@
 {
-  "id": "subsetS2Test_B2B3",
+  "id": "subsetS2TestRef_B2B3",
   "decodeQualification": "INTENDED",
   "expectedContent": {
-    "sceneWidth": 200,
-    "sceneHeight": 200,
-    "startTime": "02-OCT-2018 03:45:51.024000",
-    "endTime": "02-OCT-2018 03:45:51.024000",
-    "geoCoding": {
-      "coordinates": [
-        {
-          "x": 86.0,
-          "y": 107.0,
-          "lat": 12.626275371767372,
-          "lon": 98.11440758724332
-        },
-        {
-          "x": 148.0,
-          "y": 129.0,
-          "lat": 12.62430503466917,
-          "lon": 98.1201226592261
-        }
+      "sceneWidth": 200,
+      "sceneHeight": 200,
+      "startTime": "02-OCT-2018 03:45:51.024000",
+      "endTime": "02-OCT-2018 03:45:51.024000",
+      "geoCoding": {
+          "coordinates": [
+              {
+                  "x": 86.0,
+                  "y": 107.0,
+                  "lat": 12.626275371767372,
+                  "lon": 98.11440758724332
+              },
+              {
+                  "x": 148.0,
+                  "y": 129.0,
+                  "lat": 12.62430503466917,
+                  "lon": 98.1201226592261
+              }
+          ],
+          "reverseAccuracy": 1.2223608791828156E-9
+      },
+      "tiePointGrids": [
+          {
+              "name": "tco3",
+              "description": "Total column water vapour at surface level provided by ECMWF",
+              "offsetX": "-299.5",
+              "offsetY": "-299.5",
+              "subSamplingX": "1220.0",
+              "subSamplingY": "1220.0",
+              "expectedPixels": [
+                  {
+                      "x": 10,
+                      "y": 35,
+                      "value": 59.467823
+                  },
+                  {
+                      "x": 137,
+                      "y": 170,
+                      "value": 59.509216
+                  }
+              ]
+          }
       ],
-      "reverseAccuracy": 1.2223608791828156E-9
-    },
-    "bands": [
-      {
-        "name": "B2",
-        "description": "Reflectance in band B2",
-        "bandWidth": 200,
-        "bandHeight": 200,
-        "geophysicalUnit": "dl",
-        "noDataValue": "0.0",
-        "noDataValueUsed": "false",
-        "spectralWavelength": "490.0",
-        "spectralBandwidth": "130.0",
-        "expectedPixels": [
+      "bands": [
           {
-            "x": 10,
-            "y": 35,
-            "value": 0.2643
+              "name": "B2",
+              "description": "Reflectance in band B2",
+              "bandWidth": 200,
+              "bandHeight": 200,
+              "geophysicalUnit": "dl",
+              "noDataValue": "0.0",
+              "noDataValueUsed": "false",
+              "spectralWavelength": "490.0",
+              "spectralBandwidth": "130.0",
+              "expectedPixels": [
+                  {
+                      "x": 58,
+                      "y": 51,
+                      "value": 0.2724
+                  },
+                  {
+                      "x": 122,
+                      "y": 73,
+                      "value": 0.295
+                  }
+              ]
           },
           {
-            "x": 137,
-            "y": 170,
-            "value": 0.3066
+              "name": "B3",
+              "description": "Reflectance in band B3",
+              "bandWidth": 200,
+              "bandHeight": 200,
+              "geophysicalUnit": "dl",
+              "noDataValue": "0.0",
+              "noDataValueUsed": "false",
+              "spectralWavelength": "560.0",
+              "spectralBandwidth": "100.0",
+              "expectedPixels": [
+                  {
+                      "x": 110,
+                      "y": 149,
+                      "value": 0.2691
+                  },
+                  {
+                      "x": 121,
+                      "y": 185,
+                      "value": 0.2586
+                  }
+              ]
           }
-        ]
-      },
-      {
-        "name": "B3",
-        "description": "Reflectance in band B3",
-        "bandWidth": 200,
-        "bandHeight": 200,
-        "geophysicalUnit": "dl",
-        "noDataValue": "0.0",
-        "noDataValueUsed": "false",
-        "spectralWavelength": "560.0",
-        "spectralBandwidth": "100.0",
-        "expectedPixels": [
+      ],
+      "metadata": [
           {
-            "x": 58,
-            "y": 51,
-            "value": 0.2403
+              "path": "history/SubsetInfo/SubSampling.y",
+              "value": "1"
           },
           {
-            "x": 122,
-            "y": 73,
-            "value": 0.2602
+              "path": "history/SubsetInfo/SubSampling.y",
+              "value": "1"
+          },
+          {
+              "path": "history/SubsetInfo/SubSampling.y",
+              "value": "1"
+          },
+          {
+              "path": "Level-1C_DataStrip_ID/General_Info/Datastrip_Time_Info/metadataLevel",
+              "value": "Brief"
+          },
+          {
+              "path": "history/SubsetInfo/ProductNodeName.1",
+              "value": "tco3"
+          },
+          {
+              "path": "Granules/Level-1C_Tile_47PMP/Geometric_Info/Tile_Geocoding/Geoposition/resolution",
+              "value": "10"
+          },
+          {
+              "path": "history/SubsetInfo/ProductNodeName.3",
+              "value": "B3"
+          },
+          {
+              "path": "history/SubsetInfo/SubSampling.y",
+              "value": "1"
+          },
+          {
+              "path": "Granules/Level-1C_Tile_47PMP/Geometric_Info/Tile_Angles/Viewing_Incidence_Angles_Grids[35]/Azimuth/Values_List/VALUES[10]",
+              "value": "NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN 293.943 293.365 292.856 292.404 292.002 291.64 NaN"
+          },
+          {
+              "path": "Level-1C_User_Product/Quality_Indicators_Info/Technical_Quality_Assessment/DEGRADED_MSI_DATA_PERCENTAGE",
+              "value": "0"
           }
-        ]
-      }
-    ],
-    "metadata": [
-      {
-        "path": "Granules/Level-1C_Tile_47PMP/Geometric_Info/Tile_Angles/Viewing_Incidence_Angles_Grids[11]/Azimuth/Values_List/VALUES[22]",
-        "value": "NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN 301.074 300.141 299.308 298.56 297.886 NaN NaN NaN NaN"
-      },
-      {
-        "path": "Processing_Graph/node.1/parameters/subSamplingY",
-        "value": "1"
-      },
-      {
-        "path": "Level-1C_DataStrip_ID/Auxiliary_Data_Info/IERS_Bulletin/GPS_TIME_TAI",
-        "value": "-19"
-      },
-      {
-        "path": "Level-1C_DataStrip_ID/General_Info/Datastrip_Time_Info/metadataLevel",
-        "value": "Brief"
-      },
-      {
-        "path": "history/SubsetInfo/SubSampling.y",
-        "value": "1"
-      },
-      {
-        "path": "Granules/Level-1C_Tile_47PMP/Geometric_Info/Tile_Geocoding/Geoposition/resolution",
-        "value": "10"
-      },
-      {
-        "path": "history/SubsetInfo/ProductNodeName.5",
-        "value": "B3"
-      },
-      {
-        "path": "history/SubsetInfo/SubSampling.y",
-        "value": "1"
-      },
-      {
-        "path": "Granules/Level-1C_Tile_47PMP/Geometric_Info/Tile_Angles/Viewing_Incidence_Angles_Grids[35]/Azimuth/Values_List/VALUES[10]",
-        "value": "NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN 293.943 293.365 292.856 292.404 292.002 291.64 NaN"
-      },
-      {
-        "path": "Level-1C_User_Product/Quality_Indicators_Info/Technical_Quality_Assessment/DEGRADED_MSI_DATA_PERCENTAGE",
-        "value": "0"
-      }
-    ]
+      ]
   }
 }
