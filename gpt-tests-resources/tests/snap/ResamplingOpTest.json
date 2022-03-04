@@ -24,6 +24,30 @@
     ]
   },
   {
+    "id": "ResamplingTest_S2_1tile_PB400",
+    "author": "CS",
+    "description": "Do resampling operator on S2PB400 one tile product",
+    "frequency": "daily/snap/ResamplingTest_S2_1tile",
+    "graphPath": "snap/graphResample.xml",
+    "inputs": {
+      "input1": "s2tbx/S2/PSD149/L1C/S2B_MSIL1C_20210517T103619_N7990_R008_T30QVE_20210929T075738.SAFE"
+    },
+    "parameters": {
+      "targetResolution": "100",
+      "upsampling": "Nearest",
+      "downsampling": "First",
+      "flagDownsampling": "First",
+      "outputFormat": "BEAM-DIMAP"
+    },
+    "outputs": [
+      {
+        "parameter": "out1",
+        "outputName": "ResamplingTest_S2_1tile_PB400",
+        "expected": "snap/expectedResamplingTest_S2_1tile_PB400.json"
+      }
+    ]
+  },
+  {
     "id": "ResamplingTest_S2_2tile",
     "author": "CS",
     "description": "Do resampling operator on S2 two tiles product",
