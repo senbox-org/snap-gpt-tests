@@ -38,7 +38,7 @@ cat $OUTDIR/report/output/Report_*.txt > $OUTDIR/report/output/report.txt
 mv $OUTDIR/report/output/json $OUTDIR/report/ && mv $OUTDIR/report/output/performances $OUTDIR/report/ && mv $OUTDIR/report/output/images $OUTDIR/report/
 cp -R pygpt/statics/* $OUTDIR/report/
 
-echo "Generate report"
-python3 pygpt/report_utils.py pygpt/templates $OUTDIR/report $SCOPE snap:master $DBCONF
+# echo "Generate report"
+# python3 pygpt/report_utils.py pygpt/templates $OUTDIR/report $SCOPE snap:master $DBCONF
 # echo "Updating database"
 # python3 pygpt/stats_db.py $DBCONF $TAG $SCOPE $OUTDIR/report $ID snap:master
