@@ -45,7 +45,10 @@
         "outputName": "ResamplingTest_S2_1tile_PB400",
         "expected": "snap/expectedResamplingTest_S2_1tile_PB400.json"
       }
-    ]
+    ],
+    "configVM": {
+      "xmx": "5G"
+    }
   },
   {
     "id": "ResamplingTest_S2_2tile",
