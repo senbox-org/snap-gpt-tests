@@ -22,5 +22,30 @@
         "outputName": "ResampSubsetTest_S2",
         "expected": "snap/expectedResampSubsetTest_S2.json"
     }]
-}
+  },
+  {
+    "id": "ResampSubset_S2_PB400",
+    "author": "CS",
+    "description": "Apply resampling operator and then subset on S2L1C product PB400",
+    "frequency": "daily/snap/ResampSubset_S2_PB400",
+    "graphPath": "snap/graphResampSubset.xml",
+    "inputs": {
+      "input1": "s2tbx/S2/PSD149/L1C/S2B_MSIL1C_20210617T100559_N7990_R022_T35VLJ_20211119T091141.SAFE"
+    },
+    "parameters": {
+      "referenceBand": "B2",
+      "inputFormatName": "",
+      "upsampling": "Nearest",
+      "downsampling": "First",
+      "flagDownsampling": "First",
+          "sourceBands":"B2,B3,B4",
+          "subsetRegion":"",
+          "outputFormat": "BEAM-DIMAP"
+      },
+      "outputs": [{
+          "parameter": "out1",
+          "outputName": "ResampSubsetTest_S2",
+          "expected": "snap/expectedResampSubsetTest_S2_PB400.json"
+      }]
+    }
 ]
