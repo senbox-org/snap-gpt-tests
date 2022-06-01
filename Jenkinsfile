@@ -54,7 +54,7 @@ pipeline {
         outputDir = "/home/snap/output/${branchVersion}/${env.BUILD_NUMBER}"
     }
     parameters {
-        string(name: 'dockerTagName', defaultValue: "snap:master", description: 'Snap version to use to launch tests')
+        string(name: 'dockerTagName', defaultValue: "snap:master-adoptJDK", description: 'Snap version to use to launch tests')
         string(name: 'testScope', defaultValue: 'REGULAR', description: 'Scope of the tests to launch (REGULAR, DAILY, WEEKLY, RELEASE)')
         booleanParam(name: 'saveOutput', defaultValue: false, description: 'Save output of failed tests (if scope is not [REGULAR, DAILY, WEEKLY, RELEASE])')
         booleanParam(name: 'debug', defaultValue: false, description: 'Save gpt debug output')
@@ -65,7 +65,7 @@ pipeline {
         stage('Build project') {
             agent {
                 docker {
-                    image "snap-build-server.tilaa.cloud/snap-ci:master"
+                    image "snap-build-server.tilaa.cloud/snap-ci:master-adoptJDK"
                     label 'snap-test'
                     args "-e MAVEN_CONFIG=/var/maven/.m2 -v /opt/maven/.m2/settings.xml:/var/maven/.m2/settings.xml -v docker_gpt_test_results:/home/snap/output/"
                 }
