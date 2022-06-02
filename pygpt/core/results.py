@@ -255,8 +255,8 @@ class TestResult(Test):
         return list of plots associated to the test.
         """
         plots = [
-            self.name+"_cpu_usage.jpg",
-            self.name+"_memory_usage.jpg"
+            self.name+"_cpu_usage.svg",
+            self.name+"_memory_usage.svg"
         ]
         if self.__adaptor__ is not None:
             db_key = 'cpu_time_avg'
@@ -280,10 +280,10 @@ class TestResult(Test):
             #set major ticks format
             axis.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))
 
-            plt.savefig(fs.plots.resolve(self.name+"_cpu_time_history.jpg"))
+            plt.savefig(fs.plots.resolve(self.name+"_cpu_time_history.svg"))
             plt.close()
 
-            plots.append(self.name+"_cpu_time_history.jpg")
+            plots.append(self.name+"_cpu_time_history.svg")
 
             _, axis = plt.subplots(figsize=(10, 7))
             plt.plot(times, memory, 'o-')
@@ -296,8 +296,8 @@ class TestResult(Test):
             #set major ticks format
             axis.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))
 
-            plt.savefig(fs.plots.resolve(self.name+"_memory_history.jpg"))
-            plots.append(self.name+"_memory_history.jpg")
+            plt.savefig(fs.plots.resolve(self.name+"_memory_history.svg"))
+            plots.append(self.name+"_memory_history.svg")
             plt.close()
 
         return plots
