@@ -276,7 +276,7 @@ class TestResult(Test):
             plt.ylabel('CPU Average Time (s)')
             plt.title('CPU Average Time Historic')
             #set ticks every day
-            axis.xaxis.set_major_locator(mdates.DayLocator())
+            axis.xaxis.set_major_locator(mdates.DayLocator(interval=5))
             #set major ticks format
             axis.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))
 
