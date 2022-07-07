@@ -292,7 +292,7 @@ class TestResult(Test):
             plt.ylabel('Memory Average (Mb)')
             plt.title('Memory Average Historic')
             #set ticks every day
-            axis.xaxis.set_major_locator(mdates.DayLocator())
+            axis.xaxis.set_major_locator(mdates.DayLocator(interval=5))
             #set major ticks format
             axis.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))
 
