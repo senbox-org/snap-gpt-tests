@@ -68,7 +68,7 @@ prepare:
   stage: prepare
   tags:
     - kube
-  image: docker-hosted.snap-ci.ovh/snap/snap-installer:latest
+  image: docker-hosted.snap-ci.ovh/snap/snap-installer:java8
   extends: .prepare
   script:
     - ls -a $TEST_DATA_DIR/$SCOPE
