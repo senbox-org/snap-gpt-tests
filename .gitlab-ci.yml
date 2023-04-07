@@ -1,0 +1,104 @@
+image: docker-hosted.snap-ci.ovh/snap/snap-installer:latest
+
+variables:
+  PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
+  # $DOCKER_AUTH_CONFIG should have been setup as projet variable
+  SCOPE: regular
+  REPORT_DIR: "${CI_PROJECT_DIR}/result"
+  TEST_DATA_DIR: "${CI_PROJECT_DIR}/testData"
+  MAVEN_CLI_OPTS: >-
+    --no-transfer-progress
+    --batch-mode
+    --errors
+    --fail-at-end
+    --show-version
+    -DinstallAtEnd=false
+    -DdeployAtEnd=false
+
+cache:
+  unprotect: true
+  untracked: true
+  key: testData
+  paths:
+    - "${CI_PROJECT_DIR}/.m2/repository"
+    - "${TEST_DATA_DIR}"
+    - ".cache/pip"
+
+stages:
+  # - prepare
+  - test
+  - report
+
+# prepare:
+#   stage: prepare
+#   tags:
+#     - build
+#   image: registry.gitlab.com/gitlab-org/cloud-deploy/aws-base:latest
+
+
+test:
+  stage: test
+  tags:
+    - build
+  variables:
+    S3_ARGS:  --endpoint-url $S3_ENDPOINT --region sbg
+    SNAP_DIR: /opt/snap
+    TAG: master
+    PROPERTIES_PATH: $CI_PROJECT_DIR/snap.conf
+    # TEST_FILE: s1tbx.coregister-coherence.json
+  before_script:
+    # build project
+    - mvn $MAVEN_CLI_OPTS package install
+    # Clean old report
+    - rm -rf $REPORT_DIR
+    - mkdir -p $TEST_DATA_DIR $REPORT_DIR $REPORT_DIR/report $REPORT_DIR/report/output
+    - pip3 install -r $CI_PROJECT_DIR/requirements.txt
+    - pip3 install awscli
+    # Produce a list of tests to run
+    - python3 $CI_PROJECT_DIR/pygpt/filter_json.py gpt-tests-resources/tests $SCOPE $REPORT_DIR
+    # Download test data
+    - |
+      for line in $(cat $REPORT_DIR/testData.txt)
+      do
+        if [ ! -a $TEST_DATA_DIR/$line ] && [ ! -d $TEST_DATA_DIR/$line ]; then
+          if [[ "$line" =~ (.xml|.XML|.JP2|.zip|.ZIP|.tgz|.NTF|.dim|.DIMA|.h5|.txt|.tif)$ ]]; then
+            echo "Download file $line"
+            ~/.local/bin/aws s3 cp s3://$S3_BUCKET/testData/$line $TEST_DATA_DIR/$line $S3_ARGS
+          else
+            echo "Download directory $line"
+            ~/.local/bin/aws s3 cp s3://$S3_BUCKET/testData/$line $TEST_DATA_DIR/$line $S3_ARGS --recursive
+          fi
+        else
+          echo "$line exists: skip download"
+        fi
+      done
+    - ls -a $TEST_DATA_DIR
+  script:
+    # Run GPT Tests list
+    - ${CI_PROJECT_DIR}/run_tests.sh $SNAP_DIR $SCOPE $REPORT_DIR $TAG
+    # Setup for report generation
+    - cp -R $REPORT_DIR/report/output/* pygpt/statics/* $REPORT_DIR/report
+    # Run a single test
+    # - python3 pygpt/snap_gpt_test.py $JAVA_HOME/bin/ '${JAVA_OPTIONS} -cp gpt-test-executer/target/TestOutput.jar' \
+    #   org.esa.snap.test.TestOutput $PROPERTIES_PATH $SCOPE $TEST_FILE $REPORT_DIR false 
+  artifacts:
+    untracked: false
+    when: on_success
+    expire_in: "10 hours"
+    paths:
+      - "${REPORT_DIR}"
+
+report:
+  stage: report
+  script:
+    - echo "Generate report"
+    - python3 pygpt/report_utils.py pygpt/templates $REPORT_DIR/report $SCOPE snap:master
+  after_script:
+    - echo "Clean up"
+    - rm -rf $REPORT_DIR/report/output
+  dependencies:
+    - "test"
+  artifacts:
+    expire_in: "10 days"
+    paths:
+      - "${REPORT_DIR}/report"

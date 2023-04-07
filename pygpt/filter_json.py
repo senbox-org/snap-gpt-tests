@@ -15,6 +15,7 @@ import core.log as log
 from core.models import TestScope
 
 __test_files__ = "JSONTestFiles.txt"
+__data_files__ = "testData.txt"
 
 # tags
 __RELEASE_TAG__ = 'release'
@@ -23,10 +24,11 @@ __DAILY_TAG__ = 'daily'
 __REGULAR_TAG__ = 'regular'
 
 
-def __create_test_json_list__(test_folder, scope, test_files_path):
+def __create_test_json_list__(test_folder, scope, test_files_path, data_files_path):
     """cretas files containing list of tests to execute for a given scope"""
     test_files = utils.rlist_files(test_folder, lambda f: f.endswith('.json'))
     test_list = []
+    test_data = []
     scope = TestScope.init(scope)
     for test_path in test_files:
         with open(test_path, 'r') as test_file:
@@ -36,9 +38,30 @@ def __create_test_json_list__(test_folder, scope, test_files_path):
                     if TestScope.compatibleN(scope, test['frequency']):
                         if test_path not in test_list:
                             test_list.append(test_path)
+                        if 'inputs' in test:
+                            if 'input1' in test['inputs']:
+                                if test['inputs']['input1'] not in test_data:
+                                    test_data.append(test['inputs']['input1'])
+                            if 'input2' in test['inputs']:
+                                if test['inputs']['input2'] not in test_data:
+                                    test_data.append(test['inputs']['input2'])
+                            if 'input3' in test['inputs']:
+                                if test['inputs']['input3'] not in test_data:
+                                    test_data.append(test['inputs']['input3'])
+                            if 'input4' in test['inputs']:
+                                if test['inputs']['input4'] not in test_data:
+                                    test_data.append(test['inputs']['input4'])
+                            if 'input5' in test['inputs']:
+                                if test['inputs']['input5'] not in test_data:
+                                    test_data.append(test['inputs']['input5'])
+                            if 'input6' in test['inputs']:
+                                if test['inputs']['input6'] not in test_data:
+                                    test_data.append(test['inputs']['input6'])
                         # test_list += f'{test_path}\n'
     with open(test_files_path, 'w') as file:
         file.write('\n'.join(test_list))
+    with open(data_files_path, 'w') as file:
+        file.write('\n'.join(test_data))
     return True
 
 
@@ -73,8 +96,9 @@ def __main__():
         log.error("output folder does not exist")
         sys.exit(1)
     json_test_files = os.path.join(args.output_folder, __test_files__)
+    data_file = os.path.join(args.output_folder, __data_files__)
 
-    if __create_test_json_list__(args.test_folder, args.scope, json_test_files):
+    if __create_test_json_list__(args.test_folder, args.scope, json_test_files, data_file):
         log.success(f"filtered JSON created in {json_test_files}")
 
 
