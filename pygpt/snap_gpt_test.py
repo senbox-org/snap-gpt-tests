@@ -291,12 +291,13 @@ def __run_test__(test, args, properties):
     snap_dir = properties['snapBin'] if properties['snapBin'] is not None else ''
     gpt_bin = os.path.join(snap_dir, 'gpt') # gpt binary
     gpt_parameters = [gpt_bin] # gpt command and arguments
+    log.info(f'execute: `{" ".join(gpt_parameters)}`') # DEBUG print
     # graph to test
     gpt_parameters.append(os.path.join(properties['graphFolder'], test.graph_path))
     gpt_parameters += test.gpt_parameters(properties)
     # prepare JVM settings if needed
     __vm_parameters_set__(test, snap_dir)
-    log.info(f'execute: `{" ".join(gpt_parameters)}`') # DEBUG print
+    # log.info(f'execute: `{" ".join(gpt_parameters)}`') # DEBUG print
     # prepare enviroment
     enviroment = os.environ
     if test.seed is not None:

@@ -150,3 +150,14 @@ Tests are grouped in test sets defined in the same json file as following:
 
 The optional parts can be skipped safely.  
 The inputs, parameters and outputs will be passed to gpt as `-Pparam_name=param_value`.
+
+## Giltlab runner
+
+### Test data
+
+Test data should have been uploaded to S3 bucket.
+A [Confluence page](https://senbox.atlassian.net/wiki/spaces/SENBOX/pages/2490433537/S3+bucket) indicates how to connect.
+
+The root path of test data in the bucket should be:
+
+`s3://<BUCKET_NAME>/runner/project/43939974/testData`
