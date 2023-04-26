@@ -41,7 +41,7 @@ test:
   tags:
     - build
   variables:
-    S3_ARGS:  --endpoint-url $S3_ENDPOINT --region sbg
+    S3_ARGS:  --endpoint-url $S3_ENDPOINT --region sbg --no-progress
     SNAP_DIR: /opt/snap
     TAG: master
     PROPERTIES_PATH: $CI_PROJECT_DIR/snap.conf
@@ -63,10 +63,10 @@ test:
         if [ ! -a $TEST_DATA_DIR/$line ] && [ ! -d $TEST_DATA_DIR/$line ]; then
           if [[ "$line" =~ (.xml|.XML|.JP2|.zip|.ZIP|.tgz|.NTF|.dim|.DIMA|.h5|.txt|.tif)$ ]]; then
             echo "Download file $line"
-            ~/.local/bin/aws s3 cp s3://$S3_BUCKET/testData/$line $TEST_DATA_DIR/$line $S3_ARGS
+            ~/.local/bin/aws s3 cp "s3://$S3_BUCKET/testData/$line" "$TEST_DATA_DIR/$line" $S3_ARGS
           else
             echo "Download directory $line"
-            ~/.local/bin/aws s3 cp s3://$S3_BUCKET/testData/$line $TEST_DATA_DIR/$line $S3_ARGS --recursive
+            ~/.local/bin/aws s3 cp "s3://$S3_BUCKET/testData/$line" "$TEST_DATA_DIR/$line" $S3_ARGS --recursive
           fi
         else
           echo "$line exists: skip download"
