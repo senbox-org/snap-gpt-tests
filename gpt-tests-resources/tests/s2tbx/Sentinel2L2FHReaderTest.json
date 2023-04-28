@@ -3,7 +3,7 @@
   "id":"Sentinel2AL2HTest",
   "author": "CSFrance",
   "description":"execute Sentinel 2A (level L2H) product reader and operators",
-  "frequency":"daily/fail/L2HF",
+  "frequency":"daily/fail/L2HF/s2tbx",
   "graphPath": "s2tbx/graphReaderMultiLevel.xml",
   "inputs": {
     "input1": "s2tbx/S2/L2HF/S2A_MSIL2H_20200210T105201_N9999_R051_T31UFS_20200210T113338.SAFE/MTD_MSIL2H.xml"
@@ -24,7 +24,7 @@
   "id":"Sentinel2AL2FTest",
   "author": "CSFrance",
   "description":"execute Sentinel 2A (level L2H) product reader and operators",
-  "frequency":"daily/fail/L2HF",
+  "frequency":"daily/fail/L2HF/s2tbx",
   "graphPath": "s2tbx/graphReaderMultiLevel.xml",
   "inputs": {
     "input1": "s2tbx/S2/L2HF/S2A_MSIL2F_20200101T105441_N9999_R051_T31UFS_20200101T112309.SAFE/MTD_MSIL2F.xml"

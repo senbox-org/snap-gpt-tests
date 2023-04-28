@@ -39,6 +39,9 @@ def __create_test_json_list__(test_folder, scope, test_files_path, data_files_pa
                         if test_path not in test_list:
                             test_list.append(test_path)
                         if 'inputs' in test:
+                            if 'input' in test['inputs']:
+                                if test['inputs']['input'] not in test_data:
+                                    test_data.append(test['inputs']['input'])
                             if 'input1' in test['inputs']:
                                 if test['inputs']['input1'] not in test_data:
                                     test_data.append(test['inputs']['input1'])

@@ -3,7 +3,7 @@ image: docker-hosted.snap-ci.ovh/snap/snap-installer:latest
 variables:
   PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
   # $DOCKER_AUTH_CONFIG should have been setup as projet variable
-  SCOPE: s2tbx
+  SCOPE: s3tbx
   REPORT_DIR: "${CI_PROJECT_DIR}/result"
   TEST_DATA_DIR: "${CI_PROJECT_DIR}/testData"
   MAVEN_CLI_OPTS: >-
@@ -20,6 +20,7 @@ cache:
     paths:
       - "${CI_PROJECT_DIR}/.m2/repository"
       - ".cache/pip"
+      - "${CI_PROJECT_DIR}/**/target"
   - key: testData-$SCOPE
     paths:
       - "${TEST_DATA_DIR}/$SCOPE"
@@ -34,17 +35,18 @@ prepare:
   tags:
     - build
   variables:
-    S3_ARGS:  --endpoint-url $S3_ENDPOINT --region sbg --no-progress
+    S3_ARGS: --endpoint-url $S3_ENDPOINT --region sbg --no-progress
   script:
     # build project
     - mvn $MAVEN_CLI_OPTS package install
     # Clean old report
     - rm -rf $REPORT_DIR
-    - mkdir -p $TEST_DATA_DIR $REPORT_DIR $REPORT_DIR/report $REPORT_DIR/report/output
+    - mkdir -p $TEST_DATA_DIR/$SCOPE $REPORT_DIR $REPORT_DIR/report $REPORT_DIR/report/output
     - pip3 install -r $CI_PROJECT_DIR/requirements.txt
     - pip3 install awscli
     # Produce a list of tests to run
     - python3 $CI_PROJECT_DIR/pygpt/filter_json.py gpt-tests-resources/tests $SCOPE $REPORT_DIR
+    - cat $REPORT_DIR/testData.txt
     # Download test data
     - |
       for line in $(cat $REPORT_DIR/testData.txt)
@@ -61,7 +63,13 @@ prepare:
           echo "$line exists: skip download"
         fi
       done
-    - ls -a $TEST_DATA_DIR
+    - ls -a $TEST_DATA_DIR/$SCOPE
+  artifacts:
+    untracked: false
+    when: on_success
+    expire_in: "10 hours"
+    paths:
+      - "${REPORT_DIR}"
 
 test:
   stage: test
@@ -73,12 +81,14 @@ test:
     PROPERTIES_PATH: $CI_PROJECT_DIR/snap.conf
     # TEST_FILE: s1tbx.coregister-coherence.json
   script:
-    - ls -a $TEST_DATA_DIR
+    - ls -a $TEST_DATA_DIR/$SCOPE
     # Run GPT Tests list
     - ${CI_PROJECT_DIR}/run_tests.sh $SNAP_DIR $SCOPE $REPORT_DIR $TAG
     # Run a single test
     # - python3 pygpt/snap_gpt_test.py $JAVA_HOME/bin/ '${JAVA_OPTIONS} -cp gpt-test-executer/target/TestOutput.jar' \
-    #   org.esa.snap.test.TestOutput $PROPERTIES_PATH $SCOPE $TEST_FILE $REPORT_DIR false 
+    #   org.esa.snap.test.TestOutput $PROPERTIES_PATH $SCOPE $TEST_FILE $REPORT_DIR false
+  dependencies:
+    - "prepare"
   artifacts:
     untracked: false
     when: on_success

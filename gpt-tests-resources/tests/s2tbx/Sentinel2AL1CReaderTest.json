@@ -2,7 +2,7 @@
   "id":"Sentinel2AL1CTest",
   "author": "CSRO",
   "description":"execute Sentinel 2A (level L1C) product reader and operators",
-  "frequency":"daily/Sentinel2reader",
+  "frequency":"daily/Sentinel2reader/s2tbx",
   "graphPath": "s2tbx/graphReaderMultiLevel.xml",
   "inputs": {
     "input1": "s2tbx/S2/L1C/S2A_MSIL1C_20161206T080312_N0204_R035_T34HFH_20161206T081929.SAFE"
@@ -23,7 +23,7 @@
   "id":"Sentinel2AL1CTest_PSD149",
   "author": "CS",
   "description":"execute Sentinel 2A PSD 149 (level L1C) product reader and operators",
-  "frequency":"daily/Sentinel2reader/Sentinel2reader_L1C",
+  "frequency":"daily/Sentinel2reader/Sentinel2reader_L1C/s2tbx",
   "graphPath": "s2tbx/graphReaderMultiLevel.xml",
   "inputs": {
     "input1": "s2tbx/S2/PSD149/L1C/S2B_MSIL1C_20210517T103619_N7990_R008_T30QVE_20210929T075738.SAFE"

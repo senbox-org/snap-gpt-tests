@@ -2,7 +2,7 @@
   "id":"KompsatTest",
   "author": "CSRO",
   "description":"execute Kompsat product reader and operators",
-  "frequency":"daily/fail",
+  "frequency":"daily/fail/s2tbx",
   "graphPath": "s2tbx/graphReaderMultiLevel_withWriteFormat.xml",
   "inputs": {
     "input1": "s2tbx/_gpt_readers/kompsat/KO2_OPER_MSC_MUL_1G_20090803T082351_20090803T082353_016098_0250_1356_0001.SIP/KO2_OPER_MSC_MUL_1G_20090803T082351_20090803T082353_016098_0250_1356_0001.MD.XML"

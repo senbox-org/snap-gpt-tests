@@ -2,7 +2,7 @@
   "id":"s2Resampling-Muscatev14",
   "author": "CS",
   "description":"execute s2Resampling and make a subset",
-  "frequency":"daily/weekly/release/s2resampling",
+  "frequency":"daily/weekly/release/s2resampling/s2tbx",
   "graphPath": "s2tbx/graphS2ResamplingSubset.xml",
   "inputs": {
     "inputFile": "s2tbx/S2/MUSCATE/SENTINEL2B_20171127-105827-648_L2A_T31TCJ_D_V1-4/SENTINEL2B_20171127-105827-648_L2A_T31TCJ_D_V1-4_MTD_ALL.xml"
@@ -23,7 +23,7 @@
   "id":"s2Resampling-Muscatev18",
   "author": "CS",
   "description":"execute s2Resampling and make a subset",
-  "frequency":"daily/weekly/release/testGeo/s2resampling",
+  "frequency":"daily/weekly/release/testGeo/s2resampling/s2tbx",
   "graphPath": "s2tbx/graphS2ResamplingSubset.xml",
   "inputs": {
     "inputFile": "s2tbx/S2/MUSCATE/SENTINEL2A_20180529-101826-293_L2A_T32TPP_D_V1-8/SENTINEL2A_20180529-101826-293_L2A_T32TPP_D_V1-8_MTD_ALL.xml"
@@ -44,7 +44,7 @@
   "id":"s2Resampling-L1C",
   "author": "CS",
   "description":"execute s2Resampling and make a subset",
-  "frequency":"daily/weekly/release/testGeo/s2resampling",
+  "frequency":"daily/weekly/release/testGeo/s2resampling/s2tbx",
   "graphPath": "s2tbx/graphS2ResamplingSubset.xml",
   "inputs": {
     "inputFile": "s2tbx/S2/PSD14/L1C/S2A_MSIL1C_20160914T074612_N0204_R135_T36JTT_20160914T081456.SAFE"
@@ -65,7 +65,7 @@
   "id":"s2Resampling-L2A",
   "author": "CS",
   "description":"execute s2Resampling and make a subset",
-  "frequency":"daily/weekly/release/testGeo/s2resampling",
+  "frequency":"daily/weekly/release/testGeo/s2resampling/s2tbx",
   "graphPath": "s2tbx/graphS2ResamplingSubset.xml",
   "inputs": {
     "inputFile": "s2tbx/S2/PSD14/L2A/10m/S2A_MSIL2A_20160914T074612_N0204_R135_T36JTT_20160914T081456.SAFE"
@@ -87,7 +87,7 @@
   "id":"s2Resampling-L2APB400",
   "author": "CS",
   "description":"execute s2Resampling and make a subset",
-  "frequency":"daily/weekly/release/testGeo/s2resampling/s2resamplingpb400",
+  "frequency":"daily/weekly/release/testGeo/s2resampling/s2resamplingpb400/s2tbx",
   "graphPath": "s2tbx/graphS2ResamplingSubset.xml",
   "inputs": {
     "inputFile": "s2tbx/S2/PSD149/L2A/S2A_MSIL2A_20210728T103031_N7990_R108_T34WDA_20211119T150533.SAFE"
