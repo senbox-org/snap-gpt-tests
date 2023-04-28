@@ -28,7 +28,6 @@ cache:
 stages:
   - prepare
   - test
-  - report
 
 prepare:
   stage: prepare
@@ -87,29 +86,18 @@ test:
     # Run a single test
     # - python3 pygpt/snap_gpt_test.py $JAVA_HOME/bin/ '${JAVA_OPTIONS} -cp gpt-test-executer/target/TestOutput.jar' \
     #   org.esa.snap.test.TestOutput $PROPERTIES_PATH $SCOPE $TEST_FILE $REPORT_DIR false
+  after_script:
+    # Copy assets for report generation
+    - cp -R $REPORT_DIR/report/output/* pygpt/statics/* $REPORT_DIR/report
+    - echo "Generate report"
+    - python3 pygpt/report_utils.py pygpt/templates $REPORT_DIR/report $SCOPE snap:master
+    - echo "Clean up"
+    - rm -rf $REPORT_DIR/report/output
   dependencies:
     - "prepare"
   artifacts:
     untracked: false
     when: on_success
-    expire_in: "10 hours"
-    paths:
-      - "${REPORT_DIR}"
-
-report:
-  stage: report
-  before_script:
-    # Copy assets for report generation
-    - cp -R $REPORT_DIR/report/output/* pygpt/statics/* $REPORT_DIR/report
-  script:
-    - echo "Generate report"
-    - python3 pygpt/report_utils.py pygpt/templates $REPORT_DIR/report $SCOPE snap:master
-  after_script:
-    - echo "Clean up"
-    - rm -rf $REPORT_DIR/report/output
-  dependencies:
-    - "test"
-  artifacts:
     expire_in: "10 days"
     paths:
       - "${REPORT_DIR}/report"
