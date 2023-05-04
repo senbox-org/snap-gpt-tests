@@ -24,6 +24,11 @@ cache:
   - key: testData-$SCOPE
     paths:
       - "${TEST_DATA_DIR}/$SCOPE"
+      # Special cache for s2tbx because "${TEST_DATA_DIR}/$SCOPE" is too large
+      - "${TEST_DATA_DIR}/$SCOPE/_deimos"
+      - "${TEST_DATA_DIR}/$SCOPE/_FCC_gpt"
+      - "${TEST_DATA_DIR}/$SCOPE/_gpt_readers"
+      - "${TEST_DATA_DIR}/$SCOPE/S2"
 
 stages:
   - prepare
@@ -63,12 +68,6 @@ prepare:
         fi
       done
     - ls -a $TEST_DATA_DIR/$SCOPE
-  artifacts:
-    untracked: false
-    when: on_success
-    expire_in: "10 hours"
-    paths:
-      - "${REPORT_DIR}"
 
 test:
   stage: test
@@ -93,7 +92,7 @@ test:
     - python3 pygpt/report_utils.py pygpt/templates $REPORT_DIR/report $SCOPE snap:master
     - echo "Clean up"
     - rm -rf $REPORT_DIR/report/output
-  dependencies:
+  needs:
     - "prepare"
   artifacts:
     untracked: false
