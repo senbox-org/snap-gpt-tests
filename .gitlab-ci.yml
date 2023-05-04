@@ -68,23 +68,20 @@ prepare:
         fi
       done
     - ls -a $TEST_DATA_DIR/$SCOPE
+  artifacts:
+    untracked: false
+    when: always
+    expire_in: "10 hours"
+    paths:
+      - "${REPORT_DIR}"
 
-test:
-  stage: test
-  tags:
-    - build
-  variables:
-    SNAP_DIR: /opt/snap
-    TAG: master
-    PROPERTIES_PATH: $CI_PROJECT_DIR/snap.conf
-    # TEST_FILE: s1tbx.coregister-coherence.json
-  script:
-    - ls -a $TEST_DATA_DIR/$SCOPE
-    # Run GPT Tests list
-    - ${CI_PROJECT_DIR}/run_tests.sh $SNAP_DIR $SCOPE $REPORT_DIR $TAG
-    # Run a single test
-    # - python3 pygpt/snap_gpt_test.py $JAVA_HOME/bin/ '${JAVA_OPTIONS} -cp gpt-test-executer/target/TestOutput.jar' \
-    #   org.esa.snap.test.TestOutput $PROPERTIES_PATH $SCOPE $TEST_FILE $REPORT_DIR false
+test_s3tbx:
+  rules:
+    - if: $SCOPE == 's3tbx'
+      when: always
+    - when: never
+  parallel: 22
+  script: python3 pygpt/snap_gpt_test.py JAVA_BIN_PATH 'JAVA_OPTIONS -cp gpt-test-executer/target/TestOutput.jar' org.esa.snap.test.TestOutput $PROPERTIES_PATH $SCOPE (sed "${CI_NODE_INDEX}q;d" $REPORT_DIR/JSONTestFiles.txt) $REPORT_DIR
   after_script:
     # Copy assets for report generation
     - cp -R $REPORT_DIR/report/output/* pygpt/statics/* $REPORT_DIR/report
@@ -100,3 +97,81 @@ test:
     expire_in: "10 days"
     paths:
       - "${REPORT_DIR}/report"
+
+test_s2tbx:
+  rules:
+    - if: $SCOPE == 's2tbx'
+      when: always
+    - when: never
+  parallel: 100
+  script: python3 pygpt/snap_gpt_test.py JAVA_BIN_PATH 'JAVA_OPTIONS -cp gpt-test-executer/target/TestOutput.jar' org.esa.snap.test.TestOutput $PROPERTIES_PATH $SCOPE (sed "${CI_NODE_INDEX}q;d" $REPORT_DIR/JSONTestFiles.txt) $REPORT_DIR
+  after_script:
+    # Copy assets for report generation
+    - cp -R $REPORT_DIR/report/output/* pygpt/statics/* $REPORT_DIR/report
+    - echo "Generate report"
+    - python3 pygpt/report_utils.py pygpt/templates $REPORT_DIR/report $SCOPE snap:master
+    - echo "Clean up"
+    - rm -rf $REPORT_DIR/report/output
+  needs:
+    - "prepare"
+  artifacts:
+    untracked: false
+    when: always
+    expire_in: "10 days"
+    paths:
+      - "${REPORT_DIR}/report"
+
+test_s1tbx:
+  rules:
+    - if: $SCOPE == 's1tbx'
+      when: always
+    - when: never
+  parallel: 34
+  script: python3 pygpt/snap_gpt_test.py JAVA_BIN_PATH 'JAVA_OPTIONS -cp gpt-test-executer/target/TestOutput.jar' org.esa.snap.test.TestOutput $PROPERTIES_PATH $SCOPE (sed "${CI_NODE_INDEX}q;d" $REPORT_DIR/JSONTestFiles.txt) $REPORT_DIR
+  after_script:
+    # Copy assets for report generation
+    - cp -R $REPORT_DIR/report/output/* pygpt/statics/* $REPORT_DIR/report
+    - echo "Generate report"
+    - python3 pygpt/report_utils.py pygpt/templates $REPORT_DIR/report $SCOPE snap:master
+    - echo "Clean up"
+    - rm -rf $REPORT_DIR/report/output
+  needs:
+    - "prepare"
+  artifacts:
+    untracked: false
+    when: always
+    expire_in: "10 days"
+    paths:
+      - "${REPORT_DIR}/report"
+
+# test:
+#   stage: test
+#   tags:
+#     - build
+#   variables:
+#     SNAP_DIR: /opt/snap
+#     TAG: master
+#     PROPERTIES_PATH: $CI_PROJECT_DIR/snap.conf
+#     # TEST_FILE: s1tbx.coregister-coherence.json
+#   script:
+#     - ls -a $TEST_DATA_DIR/$SCOPE
+#     # Run GPT Tests list
+#     - ${CI_PROJECT_DIR}/run_tests.sh $SNAP_DIR $SCOPE $REPORT_DIR $TAG
+#     # Run a single test
+#     # - python3 pygpt/snap_gpt_test.py $JAVA_HOME/bin/ '${JAVA_OPTIONS} -cp gpt-test-executer/target/TestOutput.jar' \
+#     #   org.esa.snap.test.TestOutput $PROPERTIES_PATH $SCOPE $TEST_FILE $REPORT_DIR false
+#   after_script:
+#     # Copy assets for report generation
+#     - cp -R $REPORT_DIR/report/output/* pygpt/statics/* $REPORT_DIR/report
+#     - echo "Generate report"
+#     - python3 pygpt/report_utils.py pygpt/templates $REPORT_DIR/report $SCOPE snap:master
+#     - echo "Clean up"
+#     - rm -rf $REPORT_DIR/report/output
+#   needs:
+#     - "prepare"
+#   artifacts:
+#     untracked: false
+#     when: always
+#     expire_in: "10 days"
+#     paths:
+#       - "${REPORT_DIR}/report"
