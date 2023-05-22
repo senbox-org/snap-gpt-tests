@@ -17,7 +17,7 @@ variables:
   S3_ARGS: --endpoint-url $S3_ENDPOINT --region sbg --no-progress
 
 cache:
-  - key: testData
+  - key: ${CI_CI_COMMIT_BRANCH}
     paths:
       - "${CI_PROJECT_DIR}/.m2/repository"
       - ".cache/pip"
