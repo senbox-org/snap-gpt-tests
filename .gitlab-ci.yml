@@ -1,4 +1,4 @@
-image: docker-hosted.snap-ci.ovh/snap/snap-installer:latest
+image: docker-hosted.snap-ci.ovh/snap/snap-installer:java-8
 
 variables:
   PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
@@ -14,6 +14,7 @@ variables:
     --show-version
     -DinstallAtEnd=false
     -DdeployAtEnd=false
+  S3_ARGS: --endpoint-url $S3_ENDPOINT --region sbg --no-progress
 
 cache:
   - key: testData
@@ -34,13 +35,8 @@ stages:
   - prepare
   - test
 
-prepare:
-  stage: prepare
-  tags:
-    - build
-  variables:
-    S3_ARGS: --endpoint-url $S3_ENDPOINT --region sbg --no-progress
-  script:
+.prepare:
+  before_script:
     # build project
     - mvn $MAVEN_CLI_OPTS package install
     # Clean old report
@@ -67,6 +63,14 @@ prepare:
           echo "$line exists: skip download"
         fi
       done
+
+prepare:
+  stage: prepare
+  tags:
+    - kube
+  image: docker-hosted.snap-ci.ovh/snap/snap-installer:latest
+  extends: .prepare
+  script:
     - ls -a $TEST_DATA_DIR/$SCOPE
   artifacts:
     untracked: false
@@ -81,7 +85,7 @@ test_s3tbx:
       when: always
     - when: never
   parallel: 22
-  script: python3 pygpt/snap_gpt_test.py JAVA_BIN_PATH 'JAVA_OPTIONS -cp gpt-test-executer/target/TestOutput.jar' org.esa.snap.test.TestOutput $PROPERTIES_PATH $SCOPE (sed "${CI_NODE_INDEX}q;d" $REPORT_DIR/JSONTestFiles.txt) $REPORT_DIR
+  script: python3 pygpt/snap_gpt_test.py JAVA_BIN_PATH 'JAVA_OPTIONS -cp gpt-test-executer/target/TestOutput.jar' org.esa.snap.test.TestOutput $PROPERTIES_PATH $SCOPE $(sed "${CI_NODE_INDEX}q;d" $REPORT_DIR/JSONTestFiles.txt) $REPORT_DIR
   after_script:
     # Copy assets for report generation
     - cp -R $REPORT_DIR/report/output/* pygpt/statics/* $REPORT_DIR/report
@@ -127,7 +131,7 @@ test_s1tbx:
       when: always
     - when: never
   parallel: 34
-  script: python3 pygpt/snap_gpt_test.py JAVA_BIN_PATH 'JAVA_OPTIONS -cp gpt-test-executer/target/TestOutput.jar' org.esa.snap.test.TestOutput $PROPERTIES_PATH $SCOPE (sed "${CI_NODE_INDEX}q;d" $REPORT_DIR/JSONTestFiles.txt) $REPORT_DIR
+  script: python3 pygpt/snap_gpt_test.py JAVA_BIN_PATH 'JAVA_OPTIONS -cp gpt-test-executer/target/TestOutput.jar' org.esa.snap.test.TestOutput $PROPERTIES_PATH $SCOPE $(sed "${CI_NODE_INDEX}q;d" $REPORT_DIR/JSONTestFiles.txt) $REPORT_DIR
   after_script:
     # Copy assets for report generation
     - cp -R $REPORT_DIR/report/output/* pygpt/statics/* $REPORT_DIR/report
@@ -143,6 +147,30 @@ test_s1tbx:
     expire_in: "10 days"
     paths:
       - "${REPORT_DIR}/report"
+
+test_windows:
+  tags:
+    - windows
+  image: docker-hosted.snap-ci.ovh/snap/snap-installer:win-latest
+  variables:
+    SCOPE: daily
+    SNAP_DIR: /c/users/snap
+    TAG: master
+    PROPERTIES_PATH: $CI_PROJECT_DIR/snap.conf
+  extends: .prepare
+  script:
+    - ${CI_PROJECT_DIR}/run_tests.sh $SNAP_DIR $SCOPE $REPORT_DIR $TAG
+
+test_mac:
+  image: macos-12-xcode-14
+  variables:
+    SCOPE: daily
+    SNAP_DIR: /opt/snap
+    TAG: master
+    PROPERTIES_PATH: $CI_PROJECT_DIR/snap.conf
+  extends: .prepare
+  script:
+    - ${CI_PROJECT_DIR}/run_tests.sh $SNAP_DIR $SCOPE $REPORT_DIR $TAG
 
 # test:
 #   stage: test
