@@ -6,6 +6,10 @@ variables:
   SCOPE: s3tbx
   REPORT_DIR: "${CI_PROJECT_DIR}/result"
   TEST_DATA_DIR: "${CI_PROJECT_DIR}/testData"
+  SNAP_DIR: /opt/snap
+  TAG: master
+  PROPERTIES_PATH: $CI_PROJECT_DIR/snap.conf
+  # TEST_FILE: s1tbx.coregister-coherence.json
   MAVEN_CLI_OPTS: >-
     --no-transfer-progress
     --batch-mode
@@ -14,10 +18,13 @@ variables:
     --show-version
     -DinstallAtEnd=false
     -DdeployAtEnd=false
+  JAVA_OPTIONS: >-
+    -Dncsa.hdf.hdflib.HDFLibrary.hdflib=.../libjhdf.so
+    -Dncsa.hdf.hdf5lib.H5.hdf5lib=.../libjhdf5.so
   S3_ARGS: --endpoint-url $S3_ENDPOINT --region sbg --no-progress
 
 cache:
-  - key: ${CI_CI_COMMIT_BRANCH}
+  - key: ${CI_COMMIT_BRANCH}
     paths:
       - "${CI_PROJECT_DIR}/.m2/repository"
       - ".cache/pip"
@@ -48,21 +55,21 @@ stages:
     - python3 $CI_PROJECT_DIR/pygpt/filter_json.py gpt-tests-resources/tests $SCOPE $REPORT_DIR
     - cat $REPORT_DIR/testData.txt
     # Download test data
-    - |
-      for line in $(cat $REPORT_DIR/testData.txt)
-      do
-        if [ ! -a "$TEST_DATA_DIR/$line" ] && [ ! -d "$TEST_DATA_DIR/$line" ]; then
-          if [[ "$line" =~ (.xml|.XML|.JP2|.zip|.ZIP|.tgz|.NTF|.dim|.DIMA|.h5|.txt|.tif|_OC)$ ]]; then
-            echo "Download file $line"
-            ~/.local/bin/aws s3 cp "s3://$S3_BUCKET/testData/$line" "$TEST_DATA_DIR/$line" $S3_ARGS
-          else
-            echo "Download directory $line"
-            ~/.local/bin/aws s3 cp "s3://$S3_BUCKET/testData/$line" "$TEST_DATA_DIR/$line" $S3_ARGS --recursive
-          fi
-        else
-          echo "$line exists: skip download"
-        fi
-      done
+    # - |
+    #   for line in $(cat $REPORT_DIR/testData.txt)
+    #   do
+    #     if [ ! -a "$TEST_DATA_DIR/$line" ] && [ ! -d "$TEST_DATA_DIR/$line" ]; then
+    #       if [[ "$line" =~ (.xml|.XML|.JP2|.zip|.ZIP|.tgz|.NTF|.dim|.DIMA|.h5|.txt|.tif|_OC)$ ]]; then
+    #         echo "Download file $line"
+    #         ~/.local/bin/aws s3 cp "s3://$S3_BUCKET/testData/$line" "$TEST_DATA_DIR/$line" $S3_ARGS
+    #       else
+    #         echo "Download directory $line"
+    #         ~/.local/bin/aws s3 cp "s3://$S3_BUCKET/testData/$line" "$TEST_DATA_DIR/$line" $S3_ARGS --recursive
+    #       fi
+    #     else
+    #       echo "$line exists: skip download"
+    #     fi
+    #   done
 
 prepare:
   stage: prepare
@@ -80,12 +87,43 @@ prepare:
       - "${REPORT_DIR}"
 
 test_s3tbx:
+  variables:
+    TEST_DATA_LIST: singleTestData.txt
   rules:
     - if: $SCOPE == 's3tbx'
       when: always
     - when: never
   parallel: 22
-  script: python3 pygpt/snap_gpt_test.py JAVA_BIN_PATH 'JAVA_OPTIONS -cp gpt-test-executer/target/TestOutput.jar' org.esa.snap.test.TestOutput $PROPERTIES_PATH $SCOPE $(sed "${CI_NODE_INDEX}q;d" $REPORT_DIR/JSONTestFiles.txt) $REPORT_DIR
+  cache:
+    - key: ${CI_COMMIT_BRANCH}
+    - key: $TEST_DATA_DIR-$SCOPE-$CI_NODE_INDEX
+      paths:
+        - ${TEST_DATA_DIR}/$(echo sed "${CI_NODE_INDEX}q;d" $REPORT_DIR/JSONTestFiles.txt)
+  before_script:
+    - pip3 install awscli
+    # Get test data for single test file
+    - |
+      export test=$(sed "${CI_NODE_INDEX}q;d" $REPORT_DIR/JSONTestFiles.txt)
+      python3 $CI_PROJECT_DIR/pygpt/get_test_data_list.py $test $REPORT_DIR
+    # Download test data
+    - |
+      export line=$(sed "${CI_NODE_INDEX}q;d" $REPORT_DIR/$TEST_DATA_LIST)
+      if [ ! -a "$TEST_DATA_DIR/$line" ] && [ ! -d "$TEST_DATA_DIR/$line" ]; then
+        if [[ "$line" =~ (.xml|.XML|.JP2|.zip|.ZIP|.tgz|.NTF|.dim|.DIMA|.h5|.txt|.tif|_OC)$ ]]; then
+          echo "Download file $line"
+          ~/.local/bin/aws s3 cp "s3://$S3_BUCKET/testData/$line" "$TEST_DATA_DIR/$line" $S3_ARGS
+        else
+          echo "Download directory $line"
+          ~/.local/bin/aws s3 cp "s3://$S3_BUCKET/testData/$line" "$TEST_DATA_DIR/$line" $S3_ARGS --recursive
+        fi
+      else
+        echo "$line exists: skip download"
+      fi
+  script: 
+    - echo "Running $(sed "${CI_NODE_INDEX}q;d" ${REPORT_DIR}/JSONTestFiles.txt)"
+    - |
+      export FILE=$(sed "${CI_NODE_INDEX}q;d" $REPORT_DIR/JSONTestFiles.txt)
+      python3 pygpt/snap_gpt_test.py java '${JAVA_OPTIONS} -cp gpt-test-executer/target/TestOutput.jar' org.esa.snap.test.TestOutput $PROPERTIES_PATH $SCOPE $FILE $REPORT_DIR true
   after_script:
     # Copy assets for report generation
     - cp -R $REPORT_DIR/report/output/* pygpt/statics/* $REPORT_DIR/report
@@ -107,8 +145,12 @@ test_s2tbx:
     - if: $SCOPE == 's2tbx'
       when: always
     - when: never
+  cache:
+    - key: $TEST_DATA_DIR-$SCOPE-$CI_NODE_INDEX
+      paths:
+        - ${TEST_DATA_DIR}/$(echo sed "${CI_NODE_INDEX}q;d" $REPORT_DIR/testData.txt)
   parallel: 100
-  script: python3 pygpt/snap_gpt_test.py JAVA_BIN_PATH 'JAVA_OPTIONS -cp gpt-test-executer/target/TestOutput.jar' org.esa.snap.test.TestOutput $PROPERTIES_PATH $SCOPE (sed "${CI_NODE_INDEX}q;d" $REPORT_DIR/JSONTestFiles.txt) $REPORT_DIR
+  script: python3 pygpt/snap_gpt_test.py JAVA_BIN_PATH '${JAVA_OPTIONS} -cp gpt-test-executer/target/TestOutput.jar' org.esa.snap.test.TestOutput $PROPERTIES_PATH $SCOPE (sed "${CI_NODE_INDEX}q;d" $REPORT_DIR/JSONTestFiles.txt) $REPORT_DIR
   after_script:
     # Copy assets for report generation
     - cp -R $REPORT_DIR/report/output/* pygpt/statics/* $REPORT_DIR/report
@@ -130,8 +172,13 @@ test_s1tbx:
     - if: $SCOPE == 's1tbx'
       when: always
     - when: never
+  cache:
+    - key: $TEST_DATA_DIR-$SCOPE-$CI_NODE_INDEX
+      paths:
+        - ${TEST_DATA_DIR}/$(echo sed "${CI_NODE_INDEX}q;d" $REPORT_DIR/testData.txt)
   parallel: 34
-  script: python3 pygpt/snap_gpt_test.py JAVA_BIN_PATH 'JAVA_OPTIONS -cp gpt-test-executer/target/TestOutput.jar' org.esa.snap.test.TestOutput $PROPERTIES_PATH $SCOPE $(sed "${CI_NODE_INDEX}q;d" $REPORT_DIR/JSONTestFiles.txt) $REPORT_DIR
+  script: 
+    - python3 pygpt/snap_gpt_test.py JAVA_BIN_PATH '${JAVA_OPTIONS} -cp gpt-test-executer/target/TestOutput.jar' org.esa.snap.test.TestOutput $PROPERTIES_PATH $SCOPE $(sed "${CI_NODE_INDEX}q;d" $REPORT_DIR/JSONTestFiles.txt) $REPORT_DIR true
   after_script:
     # Copy assets for report generation
     - cp -R $REPORT_DIR/report/output/* pygpt/statics/* $REPORT_DIR/report
@@ -151,7 +198,7 @@ test_s1tbx:
 test_windows:
   tags:
     - windows
-  image: docker-hosted.snap-ci.ovh/snap/snap-installer:win-latest
+  image: docker.snap-ci.ovh/snap/snap-installer:win-latest
   variables:
     SCOPE: daily
     SNAP_DIR: /c/users/snap
