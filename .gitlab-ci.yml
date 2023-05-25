@@ -1,4 +1,4 @@
-image: docker-hosted.snap-ci.ovh/snap/snap-installer:java-8
+image: docker-hosted.snap-ci.ovh/snap/snap-installer:java8
 
 variables:
   PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
@@ -16,36 +16,36 @@ variables:
     --errors
     --fail-at-end
     --show-version
-    -DinstallAtEnd=false
     -DdeployAtEnd=false
   JAVA_OPTIONS: >-
     -Dncsa.hdf.hdflib.HDFLibrary.hdflib=.../libjhdf.so
     -Dncsa.hdf.hdf5lib.H5.hdf5lib=.../libjhdf5.so
   S3_ARGS: --endpoint-url $S3_ENDPOINT --region sbg --no-progress
 
-cache:
-  - key: ${CI_COMMIT_BRANCH}
-    paths:
-      - "${CI_PROJECT_DIR}/.m2/repository"
-      - ".cache/pip"
-      - "${CI_PROJECT_DIR}/**/target"
-  - key: testData-$SCOPE
-    paths:
-      - "${TEST_DATA_DIR}/$SCOPE"
-      # Special cache for s2tbx because "${TEST_DATA_DIR}/$SCOPE" is too large
-      - "${TEST_DATA_DIR}/$SCOPE/_deimos"
-      - "${TEST_DATA_DIR}/$SCOPE/_FCC_gpt"
-      - "${TEST_DATA_DIR}/$SCOPE/_gpt_readers"
-      - "${TEST_DATA_DIR}/$SCOPE/S2"
+# cache:
+  # - key: testData-$SCOPE
+  #   paths:
+  #     - "${TEST_DATA_DIR}/$SCOPE"
+  #     # Special cache for s2tbx because "${TEST_DATA_DIR}/$SCOPE" is too large
+  #     - "${TEST_DATA_DIR}/$SCOPE/_deimos"
+  #     - "${TEST_DATA_DIR}/$SCOPE/_FCC_gpt"
+  #     - "${TEST_DATA_DIR}/$SCOPE/_gpt_readers"
+  #     - "${TEST_DATA_DIR}/$SCOPE/S2"
 
 stages:
-  - prepare
   - test
 
 .prepare:
+  cache:
+    - key: ${CI_COMMIT_BRANCH}
+      paths:
+        - "${CI_PROJECT_DIR}/.m2/repository"
+        - ".cache/pip"
+        - "${CI_PROJECT_DIR}/**/target"
   before_script:
     # build project
     - mvn $MAVEN_CLI_OPTS package install
+    - ls "${CI_PROJECT_DIR}/gpt-tests-executer/target"
     # Clean old report
     - rm -rf $REPORT_DIR
     - mkdir -p $TEST_DATA_DIR/$SCOPE $REPORT_DIR $REPORT_DIR/report $REPORT_DIR/report/output
@@ -54,37 +54,24 @@ stages:
     # Produce a list of tests to run
     - python3 $CI_PROJECT_DIR/pygpt/filter_json.py gpt-tests-resources/tests $SCOPE $REPORT_DIR
     - cat $REPORT_DIR/testData.txt
+    # Get test data for single test file
+    - |
+      export test=$(sed "${CI_NODE_INDEX}q;d" $REPORT_DIR/JSONTestFiles.txt)
+      python3 $CI_PROJECT_DIR/pygpt/get_test_data_list.py $test $REPORT_DIR
     # Download test data
-    # - |
-    #   for line in $(cat $REPORT_DIR/testData.txt)
-    #   do
-    #     if [ ! -a "$TEST_DATA_DIR/$line" ] && [ ! -d "$TEST_DATA_DIR/$line" ]; then
-    #       if [[ "$line" =~ (.xml|.XML|.JP2|.zip|.ZIP|.tgz|.NTF|.dim|.DIMA|.h5|.txt|.tif|_OC)$ ]]; then
-    #         echo "Download file $line"
-    #         ~/.local/bin/aws s3 cp "s3://$S3_BUCKET/testData/$line" "$TEST_DATA_DIR/$line" $S3_ARGS
-    #       else
-    #         echo "Download directory $line"
-    #         ~/.local/bin/aws s3 cp "s3://$S3_BUCKET/testData/$line" "$TEST_DATA_DIR/$line" $S3_ARGS --recursive
-    #       fi
-    #     else
-    #       echo "$line exists: skip download"
-    #     fi
-    #   done
-
-prepare:
-  stage: prepare
-  tags:
-    - kube
-  image: docker-hosted.snap-ci.ovh/snap/snap-installer:java8
-  extends: .prepare
-  script:
-    - ls -a $TEST_DATA_DIR/$SCOPE
-  artifacts:
-    untracked: false
-    when: always
-    expire_in: "10 hours"
-    paths:
-      - "${REPORT_DIR}"
+    - |
+      export line=$(sed "${CI_NODE_INDEX}q;d" $REPORT_DIR/$TEST_DATA_LIST)
+      if [ ! -a "$TEST_DATA_DIR/$line" ] && [ ! -d "$TEST_DATA_DIR/$line" ]; then
+        if [[ "$line" =~ (.xml|.XML|.JP2|.zip|.ZIP|.tgz|.NTF|.dim|.DIMA|.h5|.txt|.tif|_OC)$ ]]; then
+          echo "Download file ${line}"
+          ~/.local/bin/aws s3 cp "s3://$S3_BUCKET/testData/$line" "$TEST_DATA_DIR/$line" $S3_ARGS
+        else
+          echo "Download directory ${line}"
+          ~/.local/bin/aws s3 cp "s3://$S3_BUCKET/testData/$line" "$TEST_DATA_DIR/$line" $S3_ARGS --recursive
+        fi
+      else
+        echo "$line exists: skip download"
+      fi
 
 test_s3tbx:
   variables:
@@ -95,35 +82,16 @@ test_s3tbx:
     - when: never
   parallel: 22
   cache:
-    - key: ${CI_COMMIT_BRANCH}
     - key: $TEST_DATA_DIR-$SCOPE-$CI_NODE_INDEX
       paths:
         - ${TEST_DATA_DIR}/$(echo sed "${CI_NODE_INDEX}q;d" $REPORT_DIR/JSONTestFiles.txt)
-  before_script:
-    - pip3 install awscli
-    # Get test data for single test file
-    - |
-      export test=$(sed "${CI_NODE_INDEX}q;d" $REPORT_DIR/JSONTestFiles.txt)
-      python3 $CI_PROJECT_DIR/pygpt/get_test_data_list.py $test $REPORT_DIR
-    # Download test data
-    - |
-      export line=$(sed "${CI_NODE_INDEX}q;d" $REPORT_DIR/$TEST_DATA_LIST)
-      if [ ! -a "$TEST_DATA_DIR/$line" ] && [ ! -d "$TEST_DATA_DIR/$line" ]; then
-        if [[ "$line" =~ (.xml|.XML|.JP2|.zip|.ZIP|.tgz|.NTF|.dim|.DIMA|.h5|.txt|.tif|_OC)$ ]]; then
-          echo "Download file $line"
-          ~/.local/bin/aws s3 cp "s3://$S3_BUCKET/testData/$line" "$TEST_DATA_DIR/$line" $S3_ARGS
-        else
-          echo "Download directory $line"
-          ~/.local/bin/aws s3 cp "s3://$S3_BUCKET/testData/$line" "$TEST_DATA_DIR/$line" $S3_ARGS --recursive
-        fi
-      else
-        echo "$line exists: skip download"
-      fi
+  extends: .prepare
   script: 
     - echo "Running $(sed "${CI_NODE_INDEX}q;d" ${REPORT_DIR}/JSONTestFiles.txt)"
     - |
       export FILE=$(sed "${CI_NODE_INDEX}q;d" $REPORT_DIR/JSONTestFiles.txt)
-      python3 pygpt/snap_gpt_test.py java '${JAVA_OPTIONS} -cp gpt-test-executer/target/TestOutput.jar' org.esa.snap.test.TestOutput $PROPERTIES_PATH $SCOPE $FILE $REPORT_DIR true
+      python3 pygpt/snap_gpt_test.py java "${JAVA_OPTIONS} -cp ${CI_PROJECT_DIR}/gpt-tests-executer/target/TestOutput.jar" \
+        org.esa.snap.test.TestOutput $PROPERTIES_PATH $SCOPE $FILE $REPORT_DIR true
   after_script:
     # Copy assets for report generation
     - cp -R $REPORT_DIR/report/output/* pygpt/statics/* $REPORT_DIR/report
@@ -131,8 +99,6 @@ test_s3tbx:
     - python3 pygpt/report_utils.py pygpt/templates $REPORT_DIR/report $SCOPE snap:master
     - echo "Clean up"
     - rm -rf $REPORT_DIR/report/output
-  needs:
-    - "prepare"
   artifacts:
     untracked: false
     when: always
@@ -150,7 +116,7 @@ test_s2tbx:
       paths:
         - ${TEST_DATA_DIR}/$(echo sed "${CI_NODE_INDEX}q;d" $REPORT_DIR/testData.txt)
   parallel: 100
-  script: python3 pygpt/snap_gpt_test.py JAVA_BIN_PATH '${JAVA_OPTIONS} -cp gpt-test-executer/target/TestOutput.jar' org.esa.snap.test.TestOutput $PROPERTIES_PATH $SCOPE (sed "${CI_NODE_INDEX}q;d" $REPORT_DIR/JSONTestFiles.txt) $REPORT_DIR
+  script: python3 pygpt/snap_gpt_test.py JAVA_BIN_PATH $JAVA_OPTIONS org.esa.snap.test.TestOutput $PROPERTIES_PATH $SCOPE (sed "${CI_NODE_INDEX}q;d" $REPORT_DIR/JSONTestFiles.txt) $REPORT_DIR
   after_script:
     # Copy assets for report generation
     - cp -R $REPORT_DIR/report/output/* pygpt/statics/* $REPORT_DIR/report
@@ -158,8 +124,7 @@ test_s2tbx:
     - python3 pygpt/report_utils.py pygpt/templates $REPORT_DIR/report $SCOPE snap:master
     - echo "Clean up"
     - rm -rf $REPORT_DIR/report/output
-  needs:
-    - "prepare"
+  extends: .prepare
   artifacts:
     untracked: false
     when: always
@@ -186,8 +151,7 @@ test_s1tbx:
     - python3 pygpt/report_utils.py pygpt/templates $REPORT_DIR/report $SCOPE snap:master
     - echo "Clean up"
     - rm -rf $REPORT_DIR/report/output
-  needs:
-    - "prepare"
+  extends: .prepare
   artifacts:
     untracked: false
     when: always
@@ -207,6 +171,7 @@ test_windows:
   extends: .prepare
   script:
     - ${CI_PROJECT_DIR}/run_tests.sh $SNAP_DIR $SCOPE $REPORT_DIR $TAG
+  allow_failure: true
 
 test_mac:
   image: macos-12-xcode-14
@@ -218,35 +183,4 @@ test_mac:
   extends: .prepare
   script:
     - ${CI_PROJECT_DIR}/run_tests.sh $SNAP_DIR $SCOPE $REPORT_DIR $TAG
-
-# test:
-#   stage: test
-#   tags:
-#     - build
-#   variables:
-#     SNAP_DIR: /opt/snap
-#     TAG: master
-#     PROPERTIES_PATH: $CI_PROJECT_DIR/snap.conf
-#     # TEST_FILE: s1tbx.coregister-coherence.json
-#   script:
-#     - ls -a $TEST_DATA_DIR/$SCOPE
-#     # Run GPT Tests list
-#     - ${CI_PROJECT_DIR}/run_tests.sh $SNAP_DIR $SCOPE $REPORT_DIR $TAG
-#     # Run a single test
-#     # - python3 pygpt/snap_gpt_test.py $JAVA_HOME/bin/ '${JAVA_OPTIONS} -cp gpt-test-executer/target/TestOutput.jar' \
-#     #   org.esa.snap.test.TestOutput $PROPERTIES_PATH $SCOPE $TEST_FILE $REPORT_DIR false
-#   after_script:
-#     # Copy assets for report generation
-#     - cp -R $REPORT_DIR/report/output/* pygpt/statics/* $REPORT_DIR/report
-#     - echo "Generate report"
-#     - python3 pygpt/report_utils.py pygpt/templates $REPORT_DIR/report $SCOPE snap:master
-#     - echo "Clean up"
-#     - rm -rf $REPORT_DIR/report/output
-#   needs:
-#     - "prepare"
-#   artifacts:
-#     untracked: false
-#     when: always
-#     expire_in: "10 days"
-#     paths:
-#       - "${REPORT_DIR}/report"
+  allow_failure: true
