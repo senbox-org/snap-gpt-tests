@@ -1,4 +1,4 @@
-image: docker-hosted.snap-ci.ovh/snap/snap-installer:java-8
+image: docker-hosted.snap-ci.ovh/snap/snap-installer:unix-latest
 
 variables:
   PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
@@ -68,7 +68,6 @@ prepare:
   stage: prepare
   tags:
     - kube
-  image: docker-hosted.snap-ci.ovh/snap/snap-installer:latest
   extends: .prepare
   script:
     - ls -a $TEST_DATA_DIR/$SCOPE
