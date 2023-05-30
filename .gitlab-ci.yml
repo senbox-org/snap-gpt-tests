@@ -1,4 +1,4 @@
-image: docker-hosted.snap-ci.ovh/snap/snap-installer:java8
+image: docker-hosted.snap-ci.ovh/snap-installer:java8
 
 variables:
   PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
@@ -162,7 +162,6 @@ test_s1tbx:
 test_windows:
   tags:
     - windows
-  image: docker.snap-ci.ovh/snap/snap-installer:win-latest
   variables:
     SCOPE: daily
     SNAP_DIR: /c/users/snap
@@ -174,7 +173,6 @@ test_windows:
   allow_failure: true
 
 test_mac:
-  image: macos-12-xcode-14
   variables:
     SCOPE: daily
     SNAP_DIR: /opt/snap
