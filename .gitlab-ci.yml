@@ -1,4 +1,4 @@
-image: docker-hosted.snap-ci.ovh/snap/snap-installer:unix-latest
+image: docker-hosted.snap-ci.ovh/snap-installer:unix-latest
 
 variables:
   PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
@@ -64,6 +64,24 @@ stages:
         fi
       done
 
+.test:
+  script: python3 pygpt/snap_gpt_test.py JAVA_BIN_PATH 'JAVA_OPTIONS -cp gpt-test-executer/target/TestOutput.jar' org.esa.snap.test.TestOutput $PROPERTIES_PATH $SCOPE (sed "${CI_NODE_INDEX}q;d" $REPORT_DIR/JSONTestFiles.txt) $REPORT_DIR
+  after_script:
+    # Copy assets for report generation
+    - cp -R $REPORT_DIR/report/output/* pygpt/statics/* $REPORT_DIR/report
+    - echo "Generate report"
+    - python3 pygpt/report_utils.py pygpt/templates $REPORT_DIR/report $SCOPE snap:master
+    - echo "Clean up"
+    - rm -rf $REPORT_DIR/report/output
+  needs:
+    - "prepare"
+  artifacts:
+    untracked: false
+    when: always
+    expire_in: "10 days"
+    paths:
+      - "${REPORT_DIR}/report"
+
 prepare:
   stage: prepare
   tags:
@@ -84,22 +102,7 @@ test_s3tbx:
       when: always
     - when: never
   parallel: 22
-  script: python3 pygpt/snap_gpt_test.py JAVA_BIN_PATH 'JAVA_OPTIONS -cp gpt-test-executer/target/TestOutput.jar' org.esa.snap.test.TestOutput $PROPERTIES_PATH $SCOPE $(sed "${CI_NODE_INDEX}q;d" $REPORT_DIR/JSONTestFiles.txt) $REPORT_DIR
-  after_script:
-    # Copy assets for report generation
-    - cp -R $REPORT_DIR/report/output/* pygpt/statics/* $REPORT_DIR/report
-    - echo "Generate report"
-    - python3 pygpt/report_utils.py pygpt/templates $REPORT_DIR/report $SCOPE snap:master
-    - echo "Clean up"
-    - rm -rf $REPORT_DIR/report/output
-  needs:
-    - "prepare"
-  artifacts:
-    untracked: false
-    when: always
-    expire_in: "10 days"
-    paths:
-      - "${REPORT_DIR}/report"
+  extends: .test
 
 test_s2tbx:
   rules:
@@ -107,22 +110,7 @@ test_s2tbx:
       when: always
     - when: never
   parallel: 100
-  script: python3 pygpt/snap_gpt_test.py JAVA_BIN_PATH 'JAVA_OPTIONS -cp gpt-test-executer/target/TestOutput.jar' org.esa.snap.test.TestOutput $PROPERTIES_PATH $SCOPE (sed "${CI_NODE_INDEX}q;d" $REPORT_DIR/JSONTestFiles.txt) $REPORT_DIR
-  after_script:
-    # Copy assets for report generation
-    - cp -R $REPORT_DIR/report/output/* pygpt/statics/* $REPORT_DIR/report
-    - echo "Generate report"
-    - python3 pygpt/report_utils.py pygpt/templates $REPORT_DIR/report $SCOPE snap:master
-    - echo "Clean up"
-    - rm -rf $REPORT_DIR/report/output
-  needs:
-    - "prepare"
-  artifacts:
-    untracked: false
-    when: always
-    expire_in: "10 days"
-    paths:
-      - "${REPORT_DIR}/report"
+  extends: .test
 
 test_s1tbx:
   rules:
@@ -130,22 +118,30 @@ test_s1tbx:
       when: always
     - when: never
   parallel: 34
-  script: python3 pygpt/snap_gpt_test.py JAVA_BIN_PATH 'JAVA_OPTIONS -cp gpt-test-executer/target/TestOutput.jar' org.esa.snap.test.TestOutput $PROPERTIES_PATH $SCOPE $(sed "${CI_NODE_INDEX}q;d" $REPORT_DIR/JSONTestFiles.txt) $REPORT_DIR
-  after_script:
-    # Copy assets for report generation
-    - cp -R $REPORT_DIR/report/output/* pygpt/statics/* $REPORT_DIR/report
-    - echo "Generate report"
-    - python3 pygpt/report_utils.py pygpt/templates $REPORT_DIR/report $SCOPE snap:master
-    - echo "Clean up"
-    - rm -rf $REPORT_DIR/report/output
-  needs:
-    - "prepare"
-  artifacts:
-    untracked: false
-    when: always
-    expire_in: "10 days"
-    paths:
-      - "${REPORT_DIR}/report"
+  extends: .test
+
+test_snap:
+  rules:
+    - if: $SCOPE == 'snap'
+      when: always
+    - when: never
+  parallel: 26
+  extends: .test
+
+test_all:
+  rules:
+    - if: $SCOPE == 'all'
+  parallel:
+    matrix:
+      - SCOPE: s1tbx
+      - SCOPE: s2tbx
+      - SCOPE: s3tbx
+      - SCOPE: snap
+  extends:
+    - test_s1tbx
+    - test_s2tbx
+    - test_s3tbx
+    - test_snap
 
 test_windows:
   tags:
