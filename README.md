@@ -160,4 +160,4 @@ A [Confluence page](https://senbox.atlassian.net/wiki/spaces/SENBOX/pages/249043
 
 The root path of test data in the bucket should be:
 
-`s3://<BUCKET_NAME>/runner/project/43939974/testData`
+`s3://<BUCKET_NAME>/testData`
