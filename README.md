@@ -163,4 +163,4 @@ Access to confluence and the S3 Bucket is restricted to team members.
 
 The root path of test data in the bucket should be:
 
-`s3://<BUCKET_NAME>/runner/project/43939974/testData`
+`s3://<BUCKET_NAME>/testData`
