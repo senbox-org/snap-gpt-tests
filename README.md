@@ -5,12 +5,13 @@ GPT test platform, it contains both the gpt tests that will be executed on the j
 The utilities are mostly written in Python3 a part for the output comparator that use the internal java code. 
 
 The main functionality of the test utilities are:
- - to filter the test using a `test scope`
- - to execute `gpt` with the given parameters and profile the perfomance of the execution
- - to compare the output with an expected output
- - to test failing conditions both for the `gpt` process than for the expected output
- - to generate HTML report containing all the important informations (results, logs and perfomances)
- - to keep track of the evolution of the perfomances using an sql database
+
+- to filter the test using a `test scope`
+- to execute `gpt` with the given parameters and profile the performance of the execution
+- to compare the output with an expected output
+- to test failing conditions both for the `gpt` process than for the expected output
+- to generate HTML report containing all the important informations (results, logs and performances)
+- to keep track of the evolution of the performances using an sql database
 
 ## How To Use SNAP-GPT-TESTS
 
@@ -58,7 +59,7 @@ mkdir OUTPUT_DIR/report/output
 
 Then run the run the following command for each JSON file you want to test:
 ```
-python3 pygpt/snap_gpt_test.py JAVA_BIN_PATH 'JAVA_OPTIONS -cp gpt-test-executer/target/TestOutput.jar' org.esa.snap.test.TestOutput GPT_TEST_EXECUTOR_PROPERTIES_PATH TEST_SCOPE JSON_FILE_TO_TEST OUTPUT_DIR/report/output false
+python3 pygpt/snap_gpt_test.py JAVA_BIN_PATH 'JAVA_OPTIONS -cp gpt-test-executer/target/gpt-test-exec.jar' GPT_TEST_EXECUTOR_PROPERTIES_PATH TEST_SCOPE JSON_FILE_TO_TEST OUTPUT_DIR/report/output false
 ```
 
 The parameters are the following:
@@ -156,7 +157,9 @@ The inputs, parameters and outputs will be passed to gpt as `-Pparam_name=param_
 ### Test data
 
 Test data should have been uploaded to S3 bucket.
-A [Confluence page](https://senbox.atlassian.net/wiki/spaces/SENBOX/pages/2490433537/S3+bucket) indicates how to connect.
+A [Confluence page](https://senbox.atlassian.net/wiki/spaces/SENBOX/pages/2490433537/S3+bucket) indicates how to
+connect.
+Access to confluence and the S3 Bucket is restricted to team members.
 
 The root path of test data in the bucket should be:
 
