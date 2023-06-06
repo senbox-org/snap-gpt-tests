@@ -132,6 +132,7 @@ test_s1tbx:
 test_windows:
   tags:
     - windows
+  stage: test
   variables:
     SCOPE: daily
     SNAP_DIR: /c/users/snap
@@ -166,6 +167,7 @@ test_windows:
 test_mac:
   tags:
    - mac
+  stage: test
   variables:
     SCOPE: daily
     SNAP_DIR: /opt/snap
