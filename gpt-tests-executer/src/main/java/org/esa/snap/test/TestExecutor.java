@@ -2,19 +2,13 @@ package org.esa.snap.test;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.commons.io.FileUtils;
-import org.apache.commons.io.filefilter.TrueFileFilter;
 import org.apache.commons.io.filefilter.WildcardFileFilter;
 import org.esa.snap.core.dataio.ProductIO;
 import org.esa.snap.core.datamodel.Product;
 import org.esa.snap.dataio.ContentAssert;
 import org.esa.snap.dataio.ExpectedDataset;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
@@ -34,7 +28,7 @@ public class TestExecutor {
         boolean testPassed = true;
         //prepare parameters
         ArrayList<String> params = new ArrayList<>();
-        if(snapBin != null) {
+        if (snapBin != null) {
             params.add(snapBin.resolve("gpt").toString());
         } else {
             params.add("gpt");
@@ -43,20 +37,18 @@ public class TestExecutor {
 
         //if specific VM, configure gpt
         //set XMX in gpt.vmoption
-        if(graphTest.getConfigVM() != null && graphTest.getConfigVM().getXmX() != null) {
+        if (graphTest.getConfigVM() != null && graphTest.getConfigVM().getXmX() != null) {
             Files.copy(snapBin.resolve("gpt.vmoptions"), snapBin.resolve("gpt.vmoptionsORIGINAL"));
             File fileBackup = snapBin.resolve("gpt.vmoptionsORIGINAL").toFile();
             File fileVM = snapBin.resolve("gpt.vmoptions").toFile();
             String modifiedString = "";
             BufferedReader reader = null;
             FileWriter writer = null;
-            try
-            {
+            try {
                 reader = new BufferedReader(new FileReader(fileBackup));
                 String line = reader.readLine();
-                while (line != null)
-                {
-                    if(line.startsWith("-Xmx")) {
+                while (line != null) {
+                    if (line.startsWith("-Xmx")) {
                         modifiedString = modifiedString + "-Xmx" + graphTest.getConfigVM().getXmX() + System.lineSeparator();
                     } else {
                         modifiedString = modifiedString + line + System.lineSeparator();
@@ -66,25 +58,18 @@ public class TestExecutor {
 
                 writer = new FileWriter(fileVM);
                 writer.write(modifiedString);
-            }
-            catch (IOException e)
-            {
+            } catch (IOException e) {
                 e.printStackTrace();
-            }
-            finally
-            {
-                try
-                {
+            } finally {
+                try {
                     reader.close();
                     writer.close();
-                }
-                catch (IOException e)
-                {
+                } catch (IOException e) {
                     e.printStackTrace();
                 }
             }
         }
-        if(graphTest.getConfigVM() != null) {
+        if (graphTest.getConfigVM() != null) {
             params.add("-c");
             params.add(graphTest.getConfigVM().getCacheSize());
             params.add("-q");
@@ -93,7 +78,7 @@ public class TestExecutor {
 
 
         //inputs
-        for(Map.Entry<String, String> entry : graphTest.getInputs().entrySet()) {
+        for (Map.Entry<String, String> entry : graphTest.getInputs().entrySet()) {
             String value = entry.getValue();
             value = value.replaceAll("\\$graphFolder", Matcher.quoteReplacement(graphFolder.toString()));
             value = value.replaceAll("\\$inputFolder", Matcher.quoteReplacement(inputFolder.toString()));
@@ -103,23 +88,23 @@ public class TestExecutor {
         }
 
         //parameters
-        for(Map.Entry<String, String> entry : graphTest.getParameters().entrySet()) {
+        for (Map.Entry<String, String> entry : graphTest.getParameters().entrySet()) {
             String value = entry.getValue();
             value = value.replaceAll("\\$graphFolder", Matcher.quoteReplacement(graphFolder.toString()));
             value = value.replaceAll("\\$inputFolder", Matcher.quoteReplacement(inputFolder.toString()));
             value = value.replaceAll("\\$expectedOutputFolder", Matcher.quoteReplacement(expectedOutputFolder.toString()));
             value = value.replaceAll("\\$tempFolder", Matcher.quoteReplacement(tempFolder.toString()));
-            params.add(String.format("-P%s=%s",entry.getKey(),value));
+            params.add(String.format("-P%s=%s", entry.getKey(), value));
         }
 
         //outputs
-        for(Output output : graphTest.getOutputs()) {
+        for (Output output : graphTest.getOutputs()) {
             String value = output.getOutputName();
             value = value.replaceAll("\\$graphFolder", Matcher.quoteReplacement(graphFolder.toString()));
             value = value.replaceAll("\\$inputFolder", Matcher.quoteReplacement(inputFolder.toString()));
             value = value.replaceAll("\\$expectedOutputFolder", Matcher.quoteReplacement(expectedOutputFolder.toString()));
             value = value.replaceAll("\\$tempFolder", Matcher.quoteReplacement(tempFolder.toString()));
-            params.add(String.format("-P%s=%s",output.getParameter(), tempFolder.resolve(value).toString()));
+            params.add(String.format("-P%s=%s", output.getParameter(), tempFolder.resolve(value).toString()));
         }
 
         //execute graph
@@ -136,33 +121,33 @@ public class TestExecutor {
             process.waitFor();
         } catch (InterruptedException e) {
             e.printStackTrace();
-            if(graphTest.getConfigVM() != null && graphTest.getConfigVM().getXmX() != null) {
+            if (graphTest.getConfigVM() != null && graphTest.getConfigVM().getXmX() != null) {
                 resetVMOptions(snapBin);
             }
             return false;
         }
 
         //check outputs
-        for(Output output : graphTest.getOutputs()) {
+        for (Output output : graphTest.getOutputs()) {
             final ObjectMapper mapper = new ObjectMapper();
             boolean expectedIsDefined = true;
-            if(output.getExpected() == null || output.getExpected().length() == 0) {
+            if (output.getExpected() == null || output.getExpected().length() == 0) {
                 expectedIsDefined = false;
             }
 
             String outputNameWithExtension = findOutput(output, tempFolder);
-            if(outputNameWithExtension == null) {
+            if (outputNameWithExtension == null) {
                 System.out.println("Output not found!!!");
-                if(graphTest.getConfigVM() != null && graphTest.getConfigVM().getXmX() != null) {
+                if (graphTest.getConfigVM() != null && graphTest.getConfigVM().getXmX() != null) {
                     resetVMOptions(snapBin);
                 }
                 return false;
             }
 
-            if(expectedIsDefined) { //if expected output is not defined, then skip this step
+            if (expectedIsDefined) { //if expected output is not defined, then skip this step
                 Product product = ProductIO.readProduct(outputNameWithExtension);
                 final ExpectedDataset expectedDataset = mapper.readValue(new File(expectedOutputFolder.resolve(output.getExpected()).toString()), ExpectedDataset.class);
-                if(product == null){
+                if (product == null) {
                     System.out.println("Cannot read output file: " + outputNameWithExtension);
                     testPassed = false;
                     break;
@@ -174,7 +159,7 @@ public class TestExecutor {
                 } catch (AssertionError e) {
                     System.out.println("Error in test!!!");
                     System.out.println(e.getMessage());
-                    try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(tempFolder.resolve(graphTest.getId()).toString() + "_gptOutput.txt",true))) {
+                    try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(tempFolder.resolve(graphTest.getId()).toString() + "_gptOutput.txt", true))) {
                         bufferedWriter.write("\n\n---------------------------------------------------------------------\n\n");
                         bufferedWriter.write("Error when comparing expected output:\n");
                         bufferedWriter.write(e.getMessage());
@@ -187,19 +172,20 @@ public class TestExecutor {
         }
 
         //reset VMOptions file
-        if(graphTest.getConfigVM() != null && graphTest.getConfigVM().getXmX() != null) {
+        if (graphTest.getConfigVM() != null && graphTest.getConfigVM().getXmX() != null) {
             resetVMOptions(snapBin);
         }
         return testPassed;
     }
-    private static String findOutput (Output output, Path tempFolder) {
-        Collection<File> filelist = FileUtils.listFiles(tempFolder.toFile(), new WildcardFileFilter(String.format("%s.*",output.getOutputName())), null);
-        if(filelist.size() == 1) {
+
+    private static String findOutput(Output output, Path tempFolder) {
+        Collection<File> filelist = FileUtils.listFiles(tempFolder.toFile(), new WildcardFileFilter(String.format("%s.*", output.getOutputName())), null);
+        if (filelist.size() == 1) {
             File[] files = filelist.toArray(new File[filelist.size()]);
             return files[0].getAbsolutePath();
         }
         Path outPath = tempFolder.resolve(output.getOutputName());
-        if(Files.exists(outPath)) {
+        if (Files.exists(outPath)) {
             return outPath.toAbsolutePath().toString();
         }
 

@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.filefilter.TrueFileFilter;
 import org.apache.commons.io.filefilter.WildcardFileFilter;
+import org.esa.snap.dataio.netcdf.NetCdfActivator;
 
 import java.io.*;
 import java.nio.file.Files;
@@ -79,7 +80,7 @@ public class SnapGPTTest {
             return;
         }
 
-        boolean reportHtml = false; //todo add this option as parameter
+        boolean reportHtml = true; //todo add this option as parameter
         if (reportHtml) {
             //create html folder structure
             reportFolderPath.resolve("html").toFile().mkdir();
