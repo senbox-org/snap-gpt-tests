@@ -88,7 +88,6 @@ stages:
     - echo "Clean up"
     - rm -rf $REPORT_DIR/report/output
   artifacts:
-    untracked: true
     when: always
     expire_in: "10 days"
     paths:
@@ -151,7 +150,6 @@ test_windows:
     - echo "Clean up"
     - rm -rf $REPORT_DIR/report/output
   artifacts:
-    untracked: true
     when: always
     expire_in: "10 days"
     paths:
@@ -186,7 +184,6 @@ test_mac:
     - echo "Clean up"
     - rm -rf $REPORT_DIR/report/output
   artifacts:
-    untracked: true
     when: always
     expire_in: "10 days"
     paths:
