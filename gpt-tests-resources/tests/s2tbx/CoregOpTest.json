@@ -5,8 +5,8 @@
   "frequency":"daily",
   "graphPath": "s2tbx/graphCoregOp.xml",
   "inputs": {
-    "input1_MasterProduct": "s2tbx/_coregistration_gpt/radar_bandep.png",
-    "input2_SlaveProduct": "s2tbx/_coregistration_gpt/lidar_georef.png"
+    "input1_MasterProduct": "_coregistration_gpt/radar_bandep.png",
+    "input2_SlaveProduct": "_coregistration_gpt/lidar_georef.png"
   },
   "parameters": {
     "subsetRegionMasterProduct": "0,0,500,500",
