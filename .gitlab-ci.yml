@@ -67,6 +67,7 @@ stages:
   artifacts:
     paths:
     - "${CI_PROJECT_DIR}/**/target"
+
 .test:
   stage: test
   cache:
@@ -85,10 +86,7 @@ stages:
     - cp -R $REPORT_DIR/report/output/* pygpt/statics/* $REPORT_DIR/report
     - echo "Generate report"
     - python3 pygpt/report_utils.py pygpt/templates $REPORT_DIR/report $SCOPE snap:master
-    - echo "Clean up"
-    - rm -rf $REPORT_DIR/report/output
   artifacts:
-    untracked: true
     when: always
     expire_in: "10 days"
     paths:
@@ -129,33 +127,61 @@ test_windows:
   stage: test
   variables:
     SCOPE: daily
+    REPORT_DIR: .\result
+    TEST_DATA_DIR: .\testData
     SNAP_DIR: /c/users/snap
     TAG: master
-    PROPERTIES_PATH: $CI_PROJECT_DIR/snap.conf
-  extends: .prepare
+    PROPERTIES_PATH: .\snap.conf
   cache:
-    - key: $TEST_DATA_DIR-$SCOPE-$CI_NODE_INDEX
       paths:
-        - ${TEST_DATA_DIR}/$(echo sed "${CI_NODE_INDEX}q;d" $REPORT_DIR/JSONTestFiles.txt)
-  script: 
-    - echo "Running $(sed "${CI_NODE_INDEX}q;d" ${REPORT_DIR}/JSONTestFiles.txt)"
+        - "%TEST_DATA_DIR%"
+  before_script:
+    # build project
+    - call mvn %MAVEN_CLI_OPTS% package install
+    # - dir .\gpt-tests-executer\target
+    # Clean old report
+    - rd /s /q %REPORT_DIR%
+    - mkdir %TEST_DATA_DIR%\%SCOPE% && mkdir %REPORT_DIR% && mkdir %REPORT_DIR%\report && mkdir %REPORT_DIR%\report\output
+    - pip3 install -r %CI_PROJECT_DIR%\requirements.txt
+    # Produce a list of tests to run
+    - python3 %CI_PROJECT_DIR%\pygpt\filter_json.py gpt-tests-resources\tests %SCOPE% %REPORT_DIR%
+    - type %REPORT_DIR%\testData.txt
+    # Get test data for single test file
     - |
-      export FILE=$(sed "${CI_NODE_INDEX}q;d" $REPORT_DIR/JSONTestFiles.txt)
-      python3 pygpt/snap_gpt_test.py java "${JAVA_OPTIONS} -cp ${CI_PROJECT_DIR}/gpt-tests-executer/target/TestOutput.jar" \
-        org.esa.snap.test.TestOutput $PROPERTIES_PATH $SCOPE $FILE $REPORT_DIR true
+      set test=%(sed %CI_NODE_INDEX%q;d %REPORT_DIR%\JSONTestFiles.txt)
+      python3 %CI_PROJECT_DIR%\pygpt\get_test_data_list.py %test% %REPORT_DIR%
+    # Download test data
+    - |
+      set line=%(sed %CI_NODE_INDEX%q;d %REPORT_DIR%\%TEST_DATA_LIST%)
+      IF NOT EXIST "%TEST_DATA_DIR%\%line%" (
+        IF "%line%" == (.xml|.XML|.JP2|.zip|.ZIP|.tgz|.NTF|.dim|.DIMA|.h5|.txt|.tif|_OC)$ (
+          echo "Download file %line%"
+          aws s3 cp s3://%S3_BUCKET%/testData/%line% %TEST_DATA_DIR%/%line% %S3_ARGS%
+        ) ELSE (
+          echo "Download directory %line%"
+          aws s3 cp s3://%S3_BUCKET%/testData/%line% %TEST_DATA_DIR%/%line% %S3_ARGS% --recursive
+        )
+      ) ELSE ( echo "%line% exists: skip download" )
+    # Install snap
+    - curl https://nexus.snap-ci.ovh/repository/snap-maven-releases/org/esa/snap/installers-snapshot/snap_all_windows/10_0_0/snap_all_windows-10_0_0.exe
+    - "%USERPROFILE%/Downloads/snap_all_windows-10_0_0.exe -q"
+  script: 
+    - echo "Running %(sed "%CI_NODE_INDEX%q;d" %REPORT_DIR%/JSONTestFiles.txt)"
+    - |
+      set FILE=%(sed "%CI_NODE_INDEX%q;d" %REPORT_DIR%/JSONTestFiles.txt)
+      python3 pygpt/snap_gpt_test.py java "%JAVA_OPTIONS% -cp %CI_PROJECT_DIR%/gpt-tests-executer/target/TestOutput.jar" \
+        org.esa.snap.test.TestOutput %PROPERTIES_PATH% %SCOPE% %FILE% %REPORT_DIR% true
   after_script:
     # Copy assets for report generation
-    - cp -R $REPORT_DIR/report/output/* pygpt/statics/* $REPORT_DIR/report
+    - xcopy %REPORT_DIR%\report\output\* %REPORT_DIR%\report \E
+    - xcopy pygpt\statics\* %REPORT_DIR%\report \E
     - echo "Generate report"
-    - python3 pygpt/report_utils.py pygpt/templates $REPORT_DIR/report $SCOPE snap:master
-    - echo "Clean up"
-    - rm -rf $REPORT_DIR/report/output
+    - python3 pygpt/report_utils.py pygpt/templates %REPORT_DIR%/report %SCOPE% snap:master
   artifacts:
-    untracked: true
     when: always
     expire_in: "10 days"
     paths:
-      - "${REPORT_DIR}/report"
+      - "%REPORT_DIR%\report"
   allow_failure: true
 
 test_mac:
@@ -186,7 +212,6 @@ test_mac:
     - echo "Clean up"
     - rm -rf $REPORT_DIR/report/output
   artifacts:
-    untracked: true
     when: always
     expire_in: "10 days"
     paths:
