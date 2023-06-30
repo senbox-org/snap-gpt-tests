@@ -1,4 +1,4 @@
-image: docker-hosted.snap-ci.ovh/snap-installer:unix-snapshot-latest
+image: docker-hosted.snap-ci.ovh/snap-installer:unix-pRC10
 
 variables:
   VERSION: "$(mvn --non-recursive help:evaluate -Dexpression=project.version -q -DforceStdout  | tr . _)"
@@ -79,8 +79,8 @@ stages:
     - echo "Running $(sed "${CI_NODE_INDEX}q;d" ${REPORT_DIR}/JSONTestFiles.txt)"
     - |
       export FILE=$(sed "${CI_NODE_INDEX}q;d" $REPORT_DIR/JSONTestFiles.txt)
-      python3 pygpt/snap_gpt_test.py java "${JAVA_OPTIONS} -cp ${CI_PROJECT_DIR}/gpt-tests-executer/target/TestOutput.jar" \
-        org.esa.snap.test.TestOutput $PROPERTIES_PATH $SCOPE $FILE $REPORT_DIR true
+      python3 pygpt/snap_gpt_test.py java "${JAVA_OPTIONS} -cp ${CI_PROJECT_DIR}/gpt-tests-executer/target/gpt-test-exec.jar" \
+        org.esa.snap.test.TestExecutor $PROPERTIES_PATH $SCOPE $FILE $REPORT_DIR true
   after_script:
     # Copy assets for report generation
     - cp -R $REPORT_DIR/report/output/* pygpt/statics/* $REPORT_DIR/report
@@ -132,7 +132,7 @@ test_windows:
     SNAP_DIR: '%USERPROFILE%\Documents'
     TAG: master
     PROPERTIES_PATH: win.conf
-    SNAP_INSTALLER: snap_all_windows-10_0_0.exe
+    SNAP_INSTALLER: snap_all_windows-pRC10.exe
     TEST_DATA_LIST: singleTestData.txt
   before_script:
     # build project
@@ -163,13 +163,13 @@ test_windows:
         )
       ) ELSE ( echo "%line% exists: skip download" )
     # Install snap
-    - curl --progress-bar -s --show-error -o "C:\\Users\\Public\\Downloads\\%SNAP_INSTALLER%" "https://nexus.snap-ci.ovh/repository/snap-maven-releases/org/esa/snap/installers-snapshot/snap_all_windows/10_0_0/snap_all_windows-10_0_0.exe"
+    - curl --progress-bar -s --show-error -o "C:\\Users\\Public\\Downloads\\%SNAP_INSTALLER%" "https://nexus.snap-ci.ovh/repository/snap-maven-releases/org/esa/snap/installers-snapshot/snap_all_windows/pRC10/snap_all_windows-pRC10.exe"
     - echo "Install SNAP" && C:\Users\Public\Downloads\%SNAP_INSTALLER% -q -dir C:\Users\Public\Documents\snap -console -overwrite
   script: 
     - echo "Running %test%"
     - >
       sed "%CI_NODE_INDEX%q;d" %REPORT_DIR%/JSONTestFiles.txt > FILE.txt && set /p FILE=<FILE.txt &&
-      python pygpt\snap_gpt_test.py java "%JAVA_OPTIONS% -cp %CI_PROJECT_DIR%\gpt-tests-executer\target\TestOutput.jar" org.esa.snap.test.TestOutput %PROPERTIES_PATH% %SCOPE% %FILE% %REPORT_DIR% true
+      python pygpt\snap_gpt_test.py java "%JAVA_OPTIONS% -cp %CI_PROJECT_DIR%\gpt-tests-executer\target\gpt-test-exec.jar" org.esa.snap.test.TestExecutor %PROPERTIES_PATH% %SCOPE% %FILE% %REPORT_DIR% true
   after_script:
     # Copy assets for report generation
     - xcopy ".\%REPORT_DIR%\report\output" ".\%REPORT_DIR%\report" \e
@@ -192,7 +192,7 @@ test_mac:
     SNAP_DIR: ~/Documents/snap
     TAG: master
     PROPERTIES_PATH: $CI_PROJECT_DIR/mac.conf
-    SNAP_INSTALLER: snap_all_macos-10_0_0.dmg
+    SNAP_INSTALLER: snap_all_macos-pRC10.dmg
     TEST_DATA_LIST: singleTestData.txt
   before_script:
     # build project
@@ -227,14 +227,14 @@ test_mac:
         echo "$line exists: skip download"
       fi
   script:
-    - curl --progress-bar "https://nexus.snap-ci.ovh/repository/snap-maven-releases/org/esa/snap/installers-snapshot/snap_all_macos/10_0_0/${SNAP_INSTALLER}" >> "${CI_PROJECT_DIR}/${SNAP_INSTALLER}"
+    - curl --progress-bar "https://nexus.snap-ci.ovh/repository/snap-maven-releases/org/esa/snap/installers-snapshot/snap_all_macos/pRC10/${SNAP_INSTALLER}" >> "${CI_PROJECT_DIR}/${SNAP_INSTALLER}"
     - chmod a+x ${CI_PROJECT_DIR}/${SNAP_INSTALLER} && xattr -dr com.apple.quarantine ${CI_PROJECT_DIR}/${SNAP_INSTALLER} && file ${CI_PROJECT_DIR}/${SNAP_INSTALLER}
     - ${CI_PROJECT_DIR}/${SNAP_INSTALLER} -q -dir ${CI_PROJECT_DIR}/snap -console -overwrite -Dinstall4j.debug=true && rm ${CI_PROJECT_DIR}/${SNAP_INSTALLER}
     - echo "Running $(sed "${CI_NODE_INDEX}q;d" ${REPORT_DIR}/JSONTestFiles.txt)"
     - |
       export FILE=$(sed "${CI_NODE_INDEX}q;d" $REPORT_DIR/JSONTestFiles.txt)
-      python3 pygpt/snap_gpt_test.py java "${JAVA_OPTIONS} -cp ${CI_PROJECT_DIR}/gpt-tests-executer/target/TestOutput.jar" \
-        org.esa.snap.test.TestOutput $PROPERTIES_PATH $SCOPE $FILE $REPORT_DIR true
+      python3 pygpt/snap_gpt_test.py java "${JAVA_OPTIONS} -cp ${CI_PROJECT_DIR}/gpt-tests-executer/target/gpt-test-exec.jar" \
+        org.esa.snap.test.TestExecutor $PROPERTIES_PATH $SCOPE $FILE $REPORT_DIR true
   after_script:
     # Copy assets for report generation
     - cp -R $REPORT_DIR/report/output/* pygpt/statics/* $REPORT_DIR/report
