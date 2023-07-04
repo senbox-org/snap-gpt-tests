@@ -342,7 +342,7 @@ def __run_test__(test, args, properties):
                 # process succeded and should have failed
                 log.error(f'test `{test.name}` was supposed to fail')
                 return Result.FAILED
-            elif not test.result['message'].lower() in stdout.lower():
+            elif test.result['message'].lower() not in stdout.lower():
                 # process failed but with a different message than expected
                 log.error(f'test `{test.name}` was suppoed to fail with message `{test.result["message"]}`')
                 return Result.FAILED
@@ -364,7 +364,7 @@ def __run_test__(test, args, properties):
         elif conformity:
             log.error(f'conformity test for `{test.name}` was supposed to fail')
             return Result.FAILED
-        elif not test.result['message'].lower() in check_stdout.lower():
+        elif test.result['message'].lower() not in check_stdout.lower():
             log.error(f'conformity test for `{test.name}` was suppoed to fail with message `{test.result["message"]}`')
             return Result.FAILED
         else:

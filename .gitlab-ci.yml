@@ -199,6 +199,10 @@ test_mac:
     SNAP_INSTALLER: snap_all_macos-pRC10.dmg
     TEST_DATA_LIST: singleTestData.txt
   before_script:
+    # Install JDK
+    - curl --progress-bar "https://github.com/adoptium/temurin11-binaries/releases/download/jdk-11.0.19%2B7/OpenJDK11U-jdk_aarch64_linux_hotspot_11.0.19_7.tar.gz" >> "${CI_PROJECT_DIR}/java.tar.gz"
+    - chmod a+x ${CI_PROJECT_DIR}/java.dmg && xattr -dr com.apple.quarantine ${CI_PROJECT_DIR}/java.dmg && file ${CI_PROJECT_DIR}/java.tar.gz
+    - ${CI_PROJECT_DIR}/java.dmg && rm ${CI_PROJECT_DIR}/java.dmg
     # build project
     - mvn $MAVEN_CLI_OPTS package install
     - ls "${CI_PROJECT_DIR}/gpt-tests-executer/target"
