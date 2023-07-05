@@ -7,9 +7,9 @@
     "geoCoding" : {
       "coordinates" : [ {
         "x" : 506.0,
-        "y" : 1584.0,
-        "lat" : 44.41219864044597,
-        "lon" : 37.81693425199395
+        "y" : 2300.0,
+        "lat" : 44.88883052152746,
+        "lon" : 37.704764476434434
       } ]
     },
     "tiePointGrids" : [ {
@@ -21,7 +21,7 @@
       "subSamplingY" : 132.0,
       "expectedPixels" : [ {
         "x" : 506.0,
-        "y" : 1584.0,
+        "y" : 2300.0,
         "value" : 503.15686
       } ]
     }, {
@@ -33,8 +33,8 @@
       "subSamplingY" : 132.0,
       "expectedPixels" : [ {
         "x" : 506.0,
-        "y" : 1584.0,
-        "value" : 6715353.0
+        "y" : 2300.0,
+        "value" : 6716219.5
       } ]
     }, {
       "name" : "incident_angle",
@@ -45,8 +45,8 @@
       "subSamplingY" : 132.0,
       "expectedPixels" : [ {
         "x" : 506.0,
-        "y" : 1584.0,
-        "value" : 40.977894
+        "y" : 2300.0,
+        "value" : 40.978389739990234
       } ]
     }, {
       "name" : "latitude",
@@ -57,8 +57,8 @@
       "subSamplingY" : 132.0,
       "expectedPixels" : [ {
         "x" : 506.0,
-        "y" : 1584.0,
-        "value" : 44.412586
+        "y" : 2300.0,
+        "value" : 44.889217376708984
       } ]
     }, {
       "name" : "longitude",
@@ -69,8 +69,8 @@
       "subSamplingY" : 132.0,
       "expectedPixels" : [ {
         "x" : 506.0,
-        "y" : 1584.0,
-        "value" : 37.817303
+        "y" : 2300.0,
+        "value" : 37.705135345458984
       } ]
     } ],
     "bands" : [ {
@@ -84,8 +84,8 @@
       "spectralBandwidth" : 0.0,
       "expectedPixels" : [ {
         "x" : 506.0,
-        "y" : 1584.0,
-        "value" : 483.0
+        "y" : 2300.0,
+        "value" : 1392.0
       } ]
     }, {
       "name" : "Intensity",
@@ -98,22 +98,22 @@
       "spectralBandwidth" : 0.0,
       "expectedPixels" : [ {
         "x" : 506.0,
-        "y" : 1584.0,
-        "value" : 233289.0
+        "y" : 2300.0,
+        "value" : 1937664.0
       } ]
     }, {
       "name" : "elevation",
       "description" : "SRTM 1Sec HGT",
       "bandWidth" : 1012,
       "bandHeight" : 3168,
-      "noDataValue" : -32768.0,
+      "noDataValue" : 0.0,
       "noDataValueUsed" : true,
       "spectralWavelength" : 0.0,
       "spectralBandwidth" : 0.0,
       "expectedPixels" : [ {
         "x" : 506.0,
-        "y" : 1584.0,
-        "value" : 14.251816
+        "y" : 2300.0,
+        "value" : 321.1253967285156
       } ]
     } ],
     "masks" : [ ]
