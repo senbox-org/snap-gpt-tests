@@ -77,8 +77,8 @@ stages:
     - echo "Generate report"
     - python3 pygpt/report_utils.py pygpt/templates $REPORT_DIR/report $SCOPE snap:master
   artifacts:
-    when: always
-    expire_in: "10 days"
+    when: on_success
+    expire_in: "3 days"
     paths:
       - "${REPORT_DIR}/report"
 
