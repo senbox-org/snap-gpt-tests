@@ -128,8 +128,8 @@ test_windows:
   stage: test
   variables:
     SCOPE: daily
-    REPORT_DIR: $CI_PROJECT_DIR%\result
-    TEST_DATA_DIR: testData
+    REPORT_DIR: result
+    TEST_DATA_DIR: 'C:\testData'
     SNAP_DIR: '%USERPROFILE%\Documents'
     TAG: master
     PROPERTIES_PATH: win.conf
@@ -141,7 +141,7 @@ test_windows:
     # - dir .\gpt-tests-executer\target
     # Clean old report
     - rd /s /q %REPORT_DIR%
-    - mkdir %TEST_DATA_DIR%\%SCOPE% && mkdir %REPORT_DIR% && mkdir %REPORT_DIR%\report && mkdir %REPORT_DIR%\report\output && mkdir %CI_PROJECT_DIR%\tmp
+    - mkdir %REPORT_DIR% && mkdir %REPORT_DIR%\report && mkdir %REPORT_DIR%\report\output && mkdir .\tmp
     - python -m venv snapenv && call .\snapenv\Scripts\activate.bat && pip3 install -r %CI_PROJECT_DIR%\requirements.txt
     # Produce a list of tests to run
     - python %CI_PROJECT_DIR%\pygpt\filter_json.py gpt-tests-resources\tests %SCOPE% %REPORT_DIR%
@@ -150,31 +150,31 @@ test_windows:
     - |
       sed %CI_NODE_INDEX%q;d %REPORT_DIR%\JSONTestFiles.txt > test.txt && set /p test=<test.txt
       python %CI_PROJECT_DIR%\pygpt\get_test_data_list.py %test% %REPORT_DIR%
+    - type %REPORT_DIR%\%TEST_DATA_LIST%
     # Download test data
+    - sed %CI_NODE_INDEX%q;d %REPORT_DIR%\%TEST_DATA_LIST% > %REPORT_DIR%\line.txt && set /p line=<%REPORT_DIR%\line.txt
     - >
-      sed %CI_NODE_INDEX%q;d %REPORT_DIR%\%TEST_DATA_LIST% > line.txt && set /p line=<line.txt &&
       IF NOT EXIST %TEST_DATA_DIR%\%line% (
-        echo %line%|findstr /r ".xml$ .XML$ .JP2$ .zip$ .ZIP$ .tgz$ .NTF$ .dim$ .DIMA$ .h5$ .txt$ .tif$ _OC$"
+        echo %line%|findstr /r ".xml$ .XML$ .JP2$ .zip$ .ZIP$ .tgz$ .NTF$ .dim$ .DIMA$ .h5$ .txt$ .tif$ _OC$ .N1$ .nc$"
         IF %errorlevel% == 0 (
           echo "Download file %line%"
-          aws s3 cp s3://%S3_BUCKET%/testData/%line% %TEST_DATA_DIR%/%line% %S3_ARGS%
+          "C:\Program Files\Amazon\AWSCLIV2\aws.exe" s3 cp s3://%S3_BUCKET%/testData/%line% %TEST_DATA_DIR%\%line% %S3_ARGS%
         ) ELSE (
           echo "Download directory %line%"
-          aws s3 cp s3://%S3_BUCKET%/testData/%line% %TEST_DATA_DIR%/%line% %S3_ARGS% --recursive
+          "C:\Program Files\Amazon\AWSCLIV2\aws.exe" s3 cp s3://%S3_BUCKET%/testData/%line% %TEST_DATA_DIR%\%line% %S3_ARGS% --recursive
         )
       ) ELSE ( echo "%line% exists: skip download" )
     # Install snap
-    - curl --progress-bar -s --show-error -o "C:\\Users\\Public\\Downloads\\%SNAP_INSTALLER%" "https://nexus.snap-ci.ovh/repository/snap-maven-releases/org/esa/snap/installers-snapshot/snap_all_windows/pRC10/snap_all_windows-pRC10.exe"
-    - echo "Install SNAP" && C:\Users\Public\Downloads\%SNAP_INSTALLER% -q -dir C:\Users\Public\Documents\snap -console -overwrite
+    - curl --progress-bar "https://nexus.snap-ci.ovh/repository/snap-maven-releases/org/esa/snap/installers-snapshot/snap_all_windows/pRC10/snap_all_windows-pRC10.exe" >> "%CI_PROJECT_DIR%\%SNAP_INSTALLER%"
+    - echo "Install SNAP" && "%CI_PROJECT_DIR%\%SNAP_INSTALLER%" -q -dir "C:\Users\Public\Documents\snap" -console -overwrite -v
   script: 
     - echo "Running %test%"
-    - echo python pygpt\snap_gpt_test.py java "%JAVA_OPTIONS% -cp %CI_PROJECT_DIR%\gpt-tests-executer\target\gpt-test-exec.jar" org.esa.snap.test.TestOutput %PROPERTIES_PATH% %SCOPE% %test% %REPORT_DIR%\report\output true
     # sed "%CI_NODE_INDEX%q;d" %REPORT_DIR%/JSONTestFiles.txt > FILE.txt && set /p FILE=<FILE.txt &&
-    - python pygpt\snap_gpt_test.py java "%JAVA_OPTIONS% -cp %CI_PROJECT_DIR%\gpt-tests-executer\target\gpt-test-exec.jar" "org.esa.snap.test.TestOutput" %PROPERTIES_PATH% %SCOPE% %test% "%REPORT_DIR%\report\output" true
+    - python pygpt\snap_gpt_test.py java "%JAVA_OPTIONS% -cp gpt-tests-executer\target\gpt-test-exec.jar" org.esa.snap.test.TestOutput %PROPERTIES_PATH% %SCOPE% %test% "%CI_PROJECT_DIR%\%REPORT_DIR%\report\output" true
   after_script:
     # Copy assets for report generation
-    - xcopy ".\%REPORT_DIR%\report\output" ".\%REPORT_DIR%\report" \e
-    - xcopy ".\pygpt\statics" "%CI_PROJECT_DIR%\%REPORT_DIR%\report" \e
+    - xcopy "%CI_PROJECT_DIR%\%REPORT_DIR%\report\output" "%CI_PROJECT_DIR%\%REPORT_DIR%\report"
+    - xcopy "%CI_PROJECT_DIR%\pygpt\statics" "%CI_PROJECT_DIR%\%REPORT_DIR%\report"
     - echo "Generate report"
     - python %CI_PROJECT_DIR%\pygpt\report_utils.py %CI_PROJECT_DIR%\pygpt\templates %CI_PROJECT_DIR%\%REPORT_DIR%\report %SCOPE% snap:master
   artifacts:
@@ -195,11 +195,16 @@ test_mac:
     PROPERTIES_PATH: $CI_PROJECT_DIR/mac.conf
     SNAP_INSTALLER: snap_all_macos-pRC10.dmg
     TEST_DATA_LIST: singleTestData.txt
+    MAVEN_CLI_OPTS: >-
+      --no-transfer-progress
+      --batch-mode
+      --errors
+      --fail-at-end
+      --show-version
+      -DdeployAtEnd=false
+      -Dmaven.wagon.http.ssl.insecure=true
+      -Dmaven.wagon.http.ssl.allowall=true
   before_script:
-    # Install JDK
-    - curl --progress-bar -o "${CI_PROJECT_DIR}/java.pkg" "https://github.com/adoptium/temurin11-binaries/releases/download/jdk-11.0.19%2B7/OpenJDK11U-jdk_x64_mac_hotspot_11.0.19_7.pkg"
-    - chmod a+x ${CI_PROJECT_DIR}/java.pkg && xattr -dr com.apple.quarantine ${CI_PROJECT_DIR}/java.pkg
-    - installer -pkg ${CI_PROJECT_DIR}/java.pkg -target CurrentUserHomeDirectory
     # build project
     - mvn $MAVEN_CLI_OPTS package install
     - ls "${CI_PROJECT_DIR}/gpt-tests-executer/target"
