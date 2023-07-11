@@ -1,4 +1,12 @@
-image: docker-hosted.snap-ci.ovh/snap-installer:unix-pRC10
+default:
+  image: docker-hosted.snap-ci.ovh/snap-installer:unix-pRC10
+  cache:
+    - key: ${CI_COMMIT_BRANCH}
+      paths:
+        - "${CI_PROJECT_DIR}/.m2/repository"
+        - "${CI_PROJECT_DIR}/.cache/pip"
+        - "${CI_PROJECT_DIR}/**/target"
+        - "${TEST_DATA_DIR}"
 
 variables:
   VERSION: "$(mvn --non-recursive help:evaluate -Dexpression=project.version -q -DforceStdout  | tr . _)"
@@ -27,6 +35,7 @@ variables:
 
 stages:
   - test
+  - report
 
 .prepare:
   cache:
@@ -41,7 +50,7 @@ stages:
     - mvn $MAVEN_CLI_OPTS package install
     - ls "${CI_PROJECT_DIR}/gpt-tests-executer/target"
     # Clean old report
-    - rm -rf $REPORT_DIR
+    # - rm -rf $REPORT_DIR
     - mkdir -p $TEST_DATA_DIR/$SCOPE $REPORT_DIR $REPORT_DIR/report $REPORT_DIR/report/output
     - pip3 install -r $CI_PROJECT_DIR/requirements.txt
     # Produce a list of tests to run
@@ -65,19 +74,21 @@ stages:
       paths:
         - ${TEST_DATA_DIR}/$(echo sed "${CI_NODE_INDEX}q;d" $REPORT_DIR/JSONTestFiles.txt)
   extends: .prepare
-  script: 
+  script:
     - echo "Running $(sed "${CI_NODE_INDEX}q;d" ${REPORT_DIR}/JSONTestFiles.txt)"
     - |
       export FILE=$(sed "${CI_NODE_INDEX}q;d" $REPORT_DIR/JSONTestFiles.txt)
       python3 pygpt/snap_gpt_test.py java "${JAVA_OPTIONS} -cp ${CI_PROJECT_DIR}/gpt-tests-executer/target/gpt-test-exec.jar" \
-        org.esa.snap.test.TestExecutor $PROPERTIES_PATH $SCOPE $FILE $REPORT_DIR true
+        org.esa.snap.test.TestOutput $PROPERTIES_PATH $SCOPE $FILE $REPORT_DIR/report/output true
   after_script:
     # Copy assets for report generation
-    - cp -R $REPORT_DIR/report/output/* pygpt/statics/* $REPORT_DIR/report
-    - echo "Generate report"
-    - python3 pygpt/report_utils.py pygpt/templates $REPORT_DIR/report $SCOPE snap:master
+    - cp -rf $REPORT_DIR/report/output/* $REPORT_DIR/report
+    - cp -rf pygpt/statics/* $REPORT_DIR/report
+    - rm -rf $REPORT_DIR/report/output
+    # - echo "Generate report"
+    # - python3 pygpt/report_utils.py pygpt/templates $REPORT_DIR/report $SCOPE snap:master
   artifacts:
-    when: on_success
+    when: always
     expire_in: "3 days"
     paths:
       - "${REPORT_DIR}/report"
@@ -117,7 +128,7 @@ test_windows:
   stage: test
   variables:
     SCOPE: daily
-    REPORT_DIR: result
+    REPORT_DIR: $CI_PROJECT_DIR%\result
     TEST_DATA_DIR: testData
     SNAP_DIR: '%USERPROFILE%\Documents'
     TAG: master
@@ -157,9 +168,9 @@ test_windows:
     - echo "Install SNAP" && C:\Users\Public\Downloads\%SNAP_INSTALLER% -q -dir C:\Users\Public\Documents\snap -console -overwrite
   script: 
     - echo "Running %test%"
-    - >
-      sed "%CI_NODE_INDEX%q;d" %REPORT_DIR%/JSONTestFiles.txt > FILE.txt && set /p FILE=<FILE.txt &&
-      python pygpt\snap_gpt_test.py java "%JAVA_OPTIONS% -cp %CI_PROJECT_DIR%\gpt-tests-executer\target\gpt-test-exec.jar" org.esa.snap.test.TestExecutor %PROPERTIES_PATH% %SCOPE% %FILE% %REPORT_DIR% true
+    - echo python pygpt\snap_gpt_test.py java "%JAVA_OPTIONS% -cp %CI_PROJECT_DIR%\gpt-tests-executer\target\gpt-test-exec.jar" org.esa.snap.test.TestOutput %PROPERTIES_PATH% %SCOPE% %test% %REPORT_DIR%\report\output true
+    # sed "%CI_NODE_INDEX%q;d" %REPORT_DIR%/JSONTestFiles.txt > FILE.txt && set /p FILE=<FILE.txt &&
+    - python pygpt\snap_gpt_test.py java "%JAVA_OPTIONS% -cp %CI_PROJECT_DIR%\gpt-tests-executer\target\gpt-test-exec.jar" "org.esa.snap.test.TestOutput" %PROPERTIES_PATH% %SCOPE% %test% "%REPORT_DIR%\report\output" true
   after_script:
     # Copy assets for report generation
     - xcopy ".\%REPORT_DIR%\report\output" ".\%REPORT_DIR%\report" \e
@@ -168,7 +179,7 @@ test_windows:
     - python %CI_PROJECT_DIR%\pygpt\report_utils.py %CI_PROJECT_DIR%\pygpt\templates %CI_PROJECT_DIR%\%REPORT_DIR%\report %SCOPE% snap:master
   artifacts:
     when: always
-    expire_in: "10 days"
+    expire_in: "3 days"
     paths:
       - result\report
   allow_failure: true
@@ -186,9 +197,9 @@ test_mac:
     TEST_DATA_LIST: singleTestData.txt
   before_script:
     # Install JDK
-    - curl --progress-bar "https://github.com/adoptium/temurin11-binaries/releases/download/jdk-11.0.19%2B7/OpenJDK11U-jdk_aarch64_linux_hotspot_11.0.19_7.tar.gz" >> "${CI_PROJECT_DIR}/java.tar.gz"
-    - chmod a+x ${CI_PROJECT_DIR}/java.dmg && xattr -dr com.apple.quarantine ${CI_PROJECT_DIR}/java.dmg && file ${CI_PROJECT_DIR}/java.tar.gz
-    - ${CI_PROJECT_DIR}/java.dmg && rm ${CI_PROJECT_DIR}/java.dmg
+    - curl --progress-bar -o "${CI_PROJECT_DIR}/java.pkg" "https://github.com/adoptium/temurin11-binaries/releases/download/jdk-11.0.19%2B7/OpenJDK11U-jdk_x64_mac_hotspot_11.0.19_7.pkg"
+    - chmod a+x ${CI_PROJECT_DIR}/java.pkg && xattr -dr com.apple.quarantine ${CI_PROJECT_DIR}/java.pkg
+    - installer -pkg ${CI_PROJECT_DIR}/java.pkg -target CurrentUserHomeDirectory
     # build project
     - mvn $MAVEN_CLI_OPTS package install
     - ls "${CI_PROJECT_DIR}/gpt-tests-executer/target"
@@ -226,17 +237,29 @@ test_mac:
     - ${CI_PROJECT_DIR}/${SNAP_INSTALLER} -q -dir ${CI_PROJECT_DIR}/snap -console -overwrite -Dinstall4j.debug=true && rm ${CI_PROJECT_DIR}/${SNAP_INSTALLER}
     - echo "Running $(sed "${CI_NODE_INDEX}q;d" ${REPORT_DIR}/JSONTestFiles.txt)"
     - |
-      export FILE=$(sed "${CI_NODE_INDEX}q;d" $REPORT_DIR/JSONTestFiles.txt)
+     export FILE=$(sed "${CI_NODE_INDEX}q;d" $REPORT_DIR/JSONTestFiles.txt)
       python3 pygpt/snap_gpt_test.py java "${JAVA_OPTIONS} -cp ${CI_PROJECT_DIR}/gpt-tests-executer/target/gpt-test-exec.jar" \
-        org.esa.snap.test.TestExecutor $PROPERTIES_PATH $SCOPE $FILE $REPORT_DIR true
+        org.esa.snap.test.TestOutput $PROPERTIES_PATH $SCOPE $FILE $REPORT_DIR/report/output true
   after_script:
     # Copy assets for report generation
-    - cp -R $REPORT_DIR/report/output/* pygpt/statics/* $REPORT_DIR/report
+    - cp -rf $REPORT_DIR/report/output/* $REPORT_DIR/report
+    - cp -rf pygpt/statics/* $REPORT_DIR/report
     - echo "Generate report"
     - python3 pygpt/report_utils.py pygpt/templates $REPORT_DIR/report $SCOPE snap:master
   artifacts:
     when: always
-    expire_in: "10 days"
+    expire_in: "3 days"
     paths:
       - "${REPORT_DIR}/report"
   allow_failure: true
+
+report:
+  stage: report
+  script:
+    - echo "Generate report"
+    - python3 pygpt/report_utils.py pygpt/templates $REPORT_DIR/report $SCOPE snap:master
+  artifacts:
+    when: always
+    expire_in: "3 days"
+    paths:
+      - "${REPORT_DIR}/report"
