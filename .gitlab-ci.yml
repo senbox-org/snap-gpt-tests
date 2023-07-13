@@ -122,6 +122,33 @@ test_s1tbx:
   parallel: 34
   extends: .test
 
+test_snap:
+  tags: [kube]
+  rules:
+    - if: $SCOPE == 'snap'
+      when: always
+    - when: never
+  parallel: 26
+  extends: .test
+
+test_weekly:
+  tags: [kube]
+  rules:
+    - if: $SCOPE == 'weekly'
+      when: always
+    - when: never
+  parallel: 117
+  extends: .test
+
+test_daily:
+  tags: [kube]
+  rules:
+    - if: $SCOPE == 'daily'
+      when: always
+    - when: never
+  parallel: 115
+  extends: .test
+
 test_windows:
   tags:
     - windows
