@@ -39,24 +39,38 @@ def __create_test_json_list__(test_path, data_files_path):
                     if 'input' in test['inputs']:
                         if test['inputs']['input'] not in test_data:
                             test_data.append(test['inputs']['input'])
+                            if test['inputs']['input'].endswith('.dim'):
+                                test_data.append(os.path.splitext(test['inputs']['input'])[0] + '.data')
                     if 'input1' in test['inputs']:
                         if test['inputs']['input1'] not in test_data:
                             test_data.append(test['inputs']['input1'])
+                            if test['inputs']['input1'].endswith('.dim'):
+                                test_data.append(os.path.splitext(test['inputs']['input1'])[0] + '.data')
                     if 'input2' in test['inputs']:
                         if test['inputs']['input2'] not in test_data:
                             test_data.append(test['inputs']['input2'])
+                            if test['inputs']['input2'].endswith('.dim'):
+                                test_data.append(os.path.splitext(test['inputs']['input2'])[0] + '.data')
                     if 'input3' in test['inputs']:
                         if test['inputs']['input3'] not in test_data:
                             test_data.append(test['inputs']['input3'])
+                            if test['inputs']['input3'].endswith('.dim'):
+                                test_data.append(os.path.splitext(test['inputs']['input3'])[0] + '.data')
                     if 'input4' in test['inputs']:
                         if test['inputs']['input4'] not in test_data:
                             test_data.append(test['inputs']['input4'])
+                            if test['inputs']['input4'].endswith('.dim'):
+                                test_data.append(os.path.splitext(test['inputs']['input4'])[0] + '.data')
                     if 'input5' in test['inputs']:
                         if test['inputs']['input5'] not in test_data:
                             test_data.append(test['inputs']['input5'])
+                            if test['inputs']['input5'].endswith('.dim'):
+                                test_data.append(os.path.splitext(test['inputs']['input5'])[0] + '.data')
                     if 'input6' in test['inputs']:
                         if test['inputs']['input6'] not in test_data:
                             test_data.append(test['inputs']['input6'])
+                            if test['inputs']['input6'].endswith('.dim'):
+                                test_data.append(os.path.splitext(test['inputs']['input6'])[0] + '.data')
                 # test_list += f'{test_path}\n'
     with open(data_files_path, 'w') as file:
         file.write('\n'.join(test_data))
