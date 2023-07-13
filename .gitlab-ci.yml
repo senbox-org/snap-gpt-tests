@@ -122,6 +122,33 @@ test_s1tbx:
   parallel: 34
   extends: .test
 
+test_snap:
+  tags: [kube]
+  rules:
+    - if: $SCOPE == 'snap'
+      when: always
+    - when: never
+  parallel: 26
+  extends: .test
+
+test_weekly:
+  tags: [kube]
+  rules:
+    - if: $SCOPE == 'weekly'
+      when: always
+    - when: never
+  parallel: 117
+  extends: .test
+
+test_daily:
+  tags: [kube]
+  rules:
+    - if: $SCOPE == 'daily'
+      when: always
+    - when: never
+  parallel: 115
+  extends: .test
+
 test_windows:
   tags:
     - windows
@@ -155,7 +182,7 @@ test_windows:
     - sed %CI_NODE_INDEX%q;d %REPORT_DIR%\%TEST_DATA_LIST% > %REPORT_DIR%\line.txt && set /p line=<%REPORT_DIR%\line.txt
     - >
       IF NOT EXIST %TEST_DATA_DIR%\%line% (
-        echo %line%|findstr /r ".xml$ .XML$ .JP2$ .zip$ .ZIP$ .tgz$ .NTF$ .dim$ .DIMA$ .h5$ .txt$ .tif$ _OC$ .N1$ .nc$"
+        echo %line%|findstr /r ".xml$ .XML$ .JP2$ .zip$ .ZIP$ .tgz$ .NTF$ .dim$ .DIMA$ .h5$ .txt$ .tif$ .TIF$ _OC$ .N1$ .nc$"
         IF %errorlevel% == 0 (
           echo "Download file %line%"
           "C:\Program Files\Amazon\AWSCLIV2\aws.exe" s3 cp s3://%S3_BUCKET%/testData/%line% %TEST_DATA_DIR%\%line% %S3_ARGS%
