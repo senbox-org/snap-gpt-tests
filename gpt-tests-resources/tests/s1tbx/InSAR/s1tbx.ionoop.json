@@ -4,12 +4,13 @@
   "author": "Sensar",
   "description": "execute estimation of ionospheric phase screen",
   "frequency": "weekly/s1tbx/insar/iono",
-  "graphPath": "s1tbx/InSAR/IonoOp.xml",
+  "graphPath": "s1tbx/InSAR/IonoOp2.xml",
   "inputs":{
-    "input1": "SAR/S1/SLC/Taiwan/S1A_IW_SLC__1SDV_20160202T100047_20160202T100115_009766_00E469_5727.zip",
-    "input2": "SAR/S1/SLC/Taiwan/S1A_IW_SLC__1SDV_20160109T100047_20160109T100115_009416_00DA43_3351.zip"
+    "input1": "SAR/S1/SLC/Taiwan/ionosphere_input/subset_0_of_S1A_IW_SLC__1SDV_20160109T100047_20160109T100115_009416_00DA43_3351_iono_input1.dim",
+    "input2": "SAR/S1/SLC/Taiwan/ionosphere_input/subset_1_of_S1A_IW_SLC__1SDV_20160109T100047_20160109T100115_009416_00DA43_3351_iono_input2.dim",
+    "input3": "SAR/S1/SLC/Taiwan/ionosphere_input/subset_2_of_S1A_IW_SLC__1SDV_20160109T100047_20160109T100115_009416_00DA43_3351_iono_input3.dim"
   },
-    "parameters": {
+  "parameters": {
   },
   "outputs": [{
     "parameter": "output",
