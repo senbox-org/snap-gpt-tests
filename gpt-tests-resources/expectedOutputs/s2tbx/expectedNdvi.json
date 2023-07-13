@@ -4,8 +4,6 @@
   "expectedContent": {
     "sceneWidth": 10980,
     "sceneHeight": 10980,
-    "startTime": "06-DEC-2016 08:03:12.026000",
-    "endTime": "06-DEC-2016 08:03:12.026000",
     "geoCoding": {
       "coordinates": [
         {
@@ -25,29 +23,29 @@
     },
     "flagCodings": [
       {
-        "name": "ndvi_flags",
+        "name": "flags",
         "samples": [
           {
-            "name": "NDVI_ARITHMETIC",
+            "name": "ARITHMETIC",
             "value": 1,
-            "description": "NDVI value calculation failed due to an arithmetic exception"
+            "description": "Value calculation failed due to an arithmetic exception"
           },
           {
-            "name": "NDVI_NEGATIVE",
+            "name": "NEGATIVE",
             "value": 2,
-            "description": "NDVI value is too low"
+            "description": "Index value is too low"
           },
           {
-            "name": "NDVI_SATURATION",
+            "name": "SATURATION",
             "value": 4,
-            "description": "NDVI value is too high"
+            "description": "Index value is too high"
           }
         ]
       }
     ],
     "bands": [
       {
-        "name": "ndvi",
+        "name": "S2A_MSIL1C_20161206T080312_N0204_R035_T34HFH_20161206T081929_ndvi",
         "description": "",
         "bandWidth": 10980,
         "bandHeight": 10980,
@@ -69,8 +67,8 @@
         ]
       },
       {
-        "name": "ndvi_flags",
-        "description": "NDVI specific flags",
+        "name": "flags",
+        "description": "S2A_MSIL1C_20161206T080312_N0204_R035_T34HFH_20161206T081929_ndvi specific flags",
         "bandWidth": 10980,
         "bandHeight": 10980,
         "noDataValue": "0.0",
@@ -93,22 +91,22 @@
     ],
     "masks": [
       {
-        "name": "NDVI_ARITHMETIC",
+        "name": "ARITHMETIC",
         "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
         "color": "255,0,0",
         "description": "An arithmetic exception occurred."
       },
       {
-        "name": "NDVI_NEGATIVE",
+        "name": "NEGATIVE",
         "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
         "color": "255,0,0",
-        "description": "NDVI value is too low."
+        "description": "Index value is too low."
       },
       {
-        "name": "NDVI_SATURATION",
+        "name": "SATURATION",
         "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
         "color": "178,0,0",
-        "description": "NDVI value is too high."
+        "description": "Index value is too high."
       }
     ],
     "metadata": [
