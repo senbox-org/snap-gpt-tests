@@ -10,6 +10,7 @@
   },
   "parameters": {
     "srcBands": "i_HH,q_HH,i_HV,q_HV,i_VH,q_VH,i_VV,q_VV",
+    "region": "200,2000,500,500",
 	"decomposition": "M-Chi Decomposition"
   },
   "outputs": [{
@@ -29,6 +30,7 @@
   },
   "parameters": {
     "srcBands": "i_HH,q_HH,i_HV,q_HV,i_VH,q_VH,i_VV,q_VV",
+    "region": "200,2000,500,500",
 	"decomposition": "M-Delta Decomposition"
   },
   "outputs": [{
@@ -48,6 +50,7 @@
   },
   "parameters": {
     "srcBands": "i_HH,q_HH,i_HV,q_HV,i_VH,q_VH,i_VV,q_VV",
+    "region": "200,2000,500,500",
 	"decomposition": "H-Alpha Decomposition"
   },
   "outputs": [{
@@ -67,6 +70,7 @@
   },
   "parameters": {
     "srcBands": "i_HH,q_HH,i_HV,q_HV,i_VH,q_VH,i_VV,q_VV",
+    "region": "200,2000,500,500",
 	"decomposition": "2 Layer RVOG Model Based Decomposition"
   },
   "outputs": [{
