@@ -12,7 +12,7 @@ variables:
   VERSION: "$(mvn --non-recursive help:evaluate -Dexpression=project.version -q -DforceStdout  | tr . _)"
   PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
   # $DOCKER_AUTH_CONFIG should have been setup as projet variable
-  SCOPE: s3tbx
+  SCOPE: daily
   REPORT_DIR: "${CI_PROJECT_DIR}/result"
   TEST_DATA_DIR: "${CI_PROJECT_DIR}/testData"
   TEST_DATA_LIST: "singleTestData.txt"
