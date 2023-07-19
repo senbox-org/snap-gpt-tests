@@ -55,7 +55,7 @@ stages:
     - pip3 install -r $CI_PROJECT_DIR/requirements.txt
     # Produce a list of tests to run
     - python3 $CI_PROJECT_DIR/pygpt/filter_json.py gpt-tests-resources/tests $SCOPE $REPORT_DIR
-    - cat $REPORT_DIR/testData.txt
+    # - cat $REPORT_DIR/testData.txt
     # Get test data for single test file
     - |
       export test=$(sed "${CI_NODE_INDEX}q;d" $REPORT_DIR/JSONTestFiles.txt)
@@ -172,7 +172,7 @@ test_windows:
     - python -m venv snapenv && call .\snapenv\Scripts\activate.bat && pip3 install -r %CI_PROJECT_DIR%\requirements.txt
     # Produce a list of tests to run
     - python %CI_PROJECT_DIR%\pygpt\filter_json.py gpt-tests-resources\tests %SCOPE% %REPORT_DIR%
-    - type %REPORT_DIR%\testData.txt
+    # - type %REPORT_DIR%\testData.txt
     # Get test data for single test file
     - |
       sed %CI_NODE_INDEX%q;d %REPORT_DIR%\JSONTestFiles.txt > test.txt && set /p test=<test.txt
@@ -182,7 +182,7 @@ test_windows:
     - sed %CI_NODE_INDEX%q;d %REPORT_DIR%\%TEST_DATA_LIST% > %REPORT_DIR%\line.txt && set /p line=<%REPORT_DIR%\line.txt
     - >
       IF NOT EXIST %TEST_DATA_DIR%\%line% (
-        echo %line%|findstr /r ".xml$ .XML$ .JP2$ .zip$ .ZIP$ .tgz$ .NTF$ .dim$ .DIMA$ .h5$ .txt$ .tif$ .TIF$ .img$ .hdr$ _OC$ .N1$ .nc$ .data$ .SAFE$"
+        echo %line%|findstr /r ".xml$ .XML$ .JP2$ .zip$ .ZIP$ .tgz$ .NTF$ .dim$ .DIMA$ .h5$ .txt$ .tif$ .TIF$ .img$ .hdr$ _OC$ .N1$ .nc$ .SAFE$ .dbf$ .prj$ .qix$ .shp$ .shx$ .qpj$"
         IF %errorlevel% == 0 (
           echo "Download file %line%"
           "C:\Program Files\Amazon\AWSCLIV2\aws.exe" s3 cp s3://%S3_BUCKET%/testData/%line% %TEST_DATA_DIR%\%line% %S3_ARGS%
@@ -196,11 +196,11 @@ test_windows:
     - echo "Install SNAP" && "%CI_PROJECT_DIR%\%SNAP_INSTALLER%" -q -dir "C:\Users\Public\Documents\snap" -console -overwrite -v
   script: 
     - echo "Running %test%"
-    # sed "%CI_NODE_INDEX%q;d" %REPORT_DIR%/JSONTestFiles.txt > FILE.txt && set /p FILE=<FILE.txt &&
-    - python pygpt\snap_gpt_test.py java "%JAVA_OPTIONS% -cp gpt-tests-executer\target\gpt-test-exec.jar" org.esa.snap.test.TestOutput %PROPERTIES_PATH% %SCOPE% %test% "%CI_PROJECT_DIR%\%REPORT_DIR%\report\output" true
+    - python pygpt\snap_gpt_test.py java "-cp gpt-tests-executer\target\gpt-test-exec.jar" org.esa.snap.test.TestOutput %PROPERTIES_PATH% %SCOPE% %test% "%CI_PROJECT_DIR%\%REPORT_DIR%\report\output" true
   after_script:
     # Copy assets for report generation
     - xcopy "%CI_PROJECT_DIR%\%REPORT_DIR%\report\output" "%CI_PROJECT_DIR%\%REPORT_DIR%\report"
+    - mkdir "%CI_PROJECT_DIR%\%REPORT_DIR%\report\json" && xcopy "%CI_PROJECT_DIR%\%REPORT_DIR%\report\output\json" "%CI_PROJECT_DIR%\%REPORT_DIR%\report\json"
     - xcopy "%CI_PROJECT_DIR%\pygpt\statics" "%CI_PROJECT_DIR%\%REPORT_DIR%\report"
     - echo "Generate report"
     - python %CI_PROJECT_DIR%\pygpt\report_utils.py %CI_PROJECT_DIR%\pygpt\templates %CI_PROJECT_DIR%\%REPORT_DIR%\report %SCOPE% snap:master
@@ -292,13 +292,16 @@ pages:
   before_script:
     - pip3 install -r $CI_PROJECT_DIR/requirements.txt
   script:
-    # Copy assets for report generation
-    - cp -rf $REPORT_DIR/report/output/* $REPORT_DIR/report
-    - cp -rf pygpt/statics/* $REPORT_DIR/report
+    - echo "Copy assets for report generation in $HOME/report"
+    - mkdir $HOME/report $HOME/report/output
+    - cp -rf $REPORT_DIR/report/output/* $HOME/report
+    - rm -rf $REPORT_DIR/report/output
+    # TODO remove next line when test data will be cropped (ATM pages cannot upload gigabytes of tests data)
+    - rm -rf $HOME/report/images
+    - cp -rf pygpt/statics/* $HOME/report
     - echo "Generate report"
-    - python3 pygpt/report_utils.py pygpt/templates $REPORT_DIR/report $SCOPE snap:master
-    - mv $REPORT_DIR/report $CI_PROJECT_DIR/report
-    - rm -rf $REPORT_DIR
+    - python3 pygpt/report_utils.py pygpt/templates $HOME/report $SCOPE snap:master
+    - mv $HOME/report $CI_PROJECT_DIR/report
   artifacts:
     paths:
       - report
