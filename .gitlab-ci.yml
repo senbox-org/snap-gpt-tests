@@ -12,7 +12,7 @@ variables:
   VERSION: "$(mvn --non-recursive help:evaluate -Dexpression=project.version -q -DforceStdout  | tr . _)"
   PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
   # $DOCKER_AUTH_CONFIG should have been setup as projet variable
-  SCOPE: daily
+  SCOPE: s3tbx
   REPORT_DIR: "${CI_PROJECT_DIR}/result"
   TEST_DATA_DIR: "${CI_PROJECT_DIR}/testData"
   TEST_DATA_LIST: "singleTestData.txt"
@@ -231,7 +231,7 @@ test_mac:
     - |
       export line=$(sed "${CI_NODE_INDEX}q;d" $REPORT_DIR/$TEST_DATA_LIST)
       if [ ! -a "$TEST_DATA_DIR/$line" ] && [ ! -d "$TEST_DATA_DIR/$line" ]; then
-        if [[ "$line" =~ (.xml|.XML|.JP2|.zip|.ZIP|.tgz|.NTF|.dim|.DIMA|.h5|.txt|.tif|.img|.hdr|_OC|.data|.SAFE)$ ]]; then
+        if [[ "$line" =~ (.xml|.XML|.JP2|.zip|.ZIP|.tgz|.NTF|.dim|.DIMA|.h5|.txt|.tif|.img|.hdr|_OC)$ ]]; then
           echo "Download file ${line}"
           snap/bin/aws s3 cp "s3://$S3_BUCKET/testData/$line" "$TEST_DATA_DIR/$line" $S3_ARGS
         else
@@ -273,7 +273,6 @@ pages:
     - echo "Copy assets for report generation in $HOME/report"
     - mkdir $HOME/report $HOME/report/output
     - cp -rf $REPORT_DIR/report/output/* $HOME/report
-    - rm -rf $REPORT_DIR/report/output
     # TODO remove next line when test data will be cropped (ATM pages cannot upload gigabytes of tests data)
     - rm -rf $HOME/report/images
     - cp -rf pygpt/statics/* $HOME/report
