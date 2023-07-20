@@ -235,19 +235,7 @@ test_mac:
       export test=$(sed "${CI_NODE_INDEX}q;d" $REPORT_DIR/JSONTestFiles.txt)
       python3 $CI_PROJECT_DIR/pygpt/get_test_data_list.py $test $REPORT_DIR
     # Download test data
-    - |
-      export line=$(sed "${CI_NODE_INDEX}q;d" $REPORT_DIR/$TEST_DATA_LIST)
-      if [ ! -a "$TEST_DATA_DIR/$line" ] && [ ! -d "$TEST_DATA_DIR/$line" ]; then
-        if [[ "$line" =~ (.xml|.XML|.JP2|.zip|.ZIP|.tgz|.NTF|.dim|.DIMA|.h5|.txt|.tif|.img|.hdr|_OC)$ ]]; then
-          echo "Download file ${line}"
-          snap/bin/aws s3 cp "s3://$S3_BUCKET/testData/$line" "$TEST_DATA_DIR/$line" $S3_ARGS
-        else
-          echo "Download directory ${line}"
-          snap/bin/aws s3 cp "s3://$S3_BUCKET/testData/$line" "$TEST_DATA_DIR/$line" $S3_ARGS --recursive
-        fi
-      else
-        echo "$line exists: skip download"
-      fi
+    - $CI_PROJECT_DIR/download_test_data.sh "${REPORT_DIR}" "${TEST_DATA_DIR}" "${TEST_DATA_LIST}" "${S3_BUCKET}" "${S3_ARGS}"
   script:
     - curl --progress-bar "https://nexus.snap-ci.ovh/repository/snap-maven-releases/org/esa/snap/installers-snapshot/snap_all_macos/pRC10/${SNAP_INSTALLER}" >> "${CI_PROJECT_DIR}/${SNAP_INSTALLER}"
     - chmod a+x ${CI_PROJECT_DIR}/${SNAP_INSTALLER} && xattr -dr com.apple.quarantine ${CI_PROJECT_DIR}/${SNAP_INSTALLER} && file ${CI_PROJECT_DIR}/${SNAP_INSTALLER}
@@ -274,6 +262,15 @@ pages:
   stage: report
   rules:
     - when: always
+  variables:
+    # output upload and download progress every 2 seconds
+    TRANSFER_METER_FREQUENCY: "2s"
+    # Use fast compression for artifacts, resulting in larger archives
+    ARTIFACT_COMPRESSION_LEVEL: "fast"
+    # Use no compression for caches
+    CACHE_COMPRESSION_LEVEL: "fastest"
+    # Set maximum duration of cache upload and download
+    CACHE_REQUEST_TIMEOUT: 5
   before_script:
     - pip3 install -r $CI_PROJECT_DIR/requirements.txt
   script:
