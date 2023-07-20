@@ -8,11 +8,10 @@ import argparse
 import os
 import sys
 import json
+import re
+import fs
 
-import core.tools as utils
 import core.log as log
-
-from core.models import TestScope
 
 __test_files__ = "JSONTestFiles.txt"
 __data_files__ = "singleTestData.txt"
@@ -25,7 +24,9 @@ __REGULAR_TAG__ = 'regular'
 
 def get_parent(path):
     """returns parent directory for files"""
-    if os.path.isfile(path):
+    log.info('getParent ' + path)
+    if re.search("(.xml|.XML|.JP2|.zip|.ZIP|.tgz|.NTF|.dim|.DIMA|.h5|.txt|.tif|.TIF|_OC|.N1|.nc|.dbf|.prj|.qix|.shp|.shx|.qpj)$", path):
+        log.info("file !!!!")
         return fs.path.dirname(path)
     else:
         return path
@@ -40,6 +41,9 @@ def __create_test_json_list__(test_path, data_files_path):
                 if 'inputs' in test:
                     for input in list(test['inputs']):
                         if test['inputs'][input] not in test_data:
+                            log.info('file ' + test['inputs'][input])
+                            log.info('folder ' + get_parent(test['inputs'][input]))
+
                             test_data.append(get_parent(test['inputs'][input]))
     with open(data_files_path, 'w') as file:
         file.write('\n'.join(test_data))
