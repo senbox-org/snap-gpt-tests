@@ -277,13 +277,14 @@ pages:
     - echo "Copy assets for report generation in $HOME/report"
     - mkdir $HOME/report $HOME/report/output
     - cp -rf $REPORT_DIR/report/output/* $HOME/report
+    - cat $HOME/report
     # TODO remove next line when test data will be cropped (ATM pages cannot upload gigabytes of tests data)
     - rm -rf $HOME/report/images
     - cp -rf pygpt/statics/* $HOME/report
     - echo "Generate report"
     - python3 pygpt/report_utils.py pygpt/templates $HOME/report $SCOPE snap:master
-    - mv $HOME/report $CI_PROJECT_DIR/report
+    - mv $HOME/report public
   artifacts:
     paths:
-      - $CI_PROJECT_DIR/report
-  publish: $CI_PROJECT_DIR/report
+      - public
+  publish: public
