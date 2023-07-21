@@ -271,7 +271,7 @@ pages:
     - echo "Copy assets for report generation in $HOME/report"
     - mkdir $HOME/report $HOME/report/output
     - cp -rf $REPORT_DIR/report/output/* $HOME/report
-    - cat $HOME/report
+    - ls $HOME/report
     - cp -rf pygpt/statics/* $HOME/report
     - echo "Generate report"
     - python3 pygpt/report_utils.py pygpt/templates $HOME/report $SCOPE snap:master
