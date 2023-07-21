@@ -78,6 +78,8 @@ stages:
       export FILE=$(sed "${CI_NODE_INDEX}q;d" $REPORT_DIR/JSONTestFiles.txt)
       python3 pygpt/snap_gpt_test.py java "${JAVA_OPTIONS} -cp ${CI_PROJECT_DIR}/gpt-tests-executer/target/gpt-test-exec.jar" \
         org.esa.snap.test.TestOutput $PROPERTIES_PATH $SCOPE $FILE $REPORT_DIR/report/output true
+    # TODO remove next line when test data will be cropped (ATM pages cannot upload gigabytes of tests data)
+    - rm -rf $REPORT_DIR/report/output/images
   retry:
     max: 2
     when:
@@ -278,8 +280,6 @@ pages:
     - mkdir $HOME/report $HOME/report/output
     - cp -rf $REPORT_DIR/report/output/* $HOME/report
     - cat $HOME/report
-    # TODO remove next line when test data will be cropped (ATM pages cannot upload gigabytes of tests data)
-    - rm -rf $HOME/report/images
     - cp -rf pygpt/statics/* $HOME/report
     - echo "Generate report"
     - python3 pygpt/report_utils.py pygpt/templates $HOME/report $SCOPE snap:master
