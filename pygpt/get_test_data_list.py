@@ -1,8 +1,8 @@
 """
-Filter JSON:
-filters json files using a given test scope.
+Get test data:
+Produce a file listing relative test data for a given json test path.
 
-Author: Martino Ferrari (CS Group) <martino.ferrari@c-s.fr>
+Author: Frederick BALDO (CS Group) <frederick.baldo@csgroup.eu>
 """
 import argparse
 import os
@@ -13,14 +13,8 @@ import fs
 
 import core.log as log
 
-__test_files__ = "JSONTestFiles.txt"
+# Output file
 __data_files__ = "singleTestData.txt"
-
-# tags
-__RELEASE_TAG__ = 'release'
-__WEEKLY_TAG__ = 'weekly'
-__DAILY_TAG__ = 'daily'
-__REGULAR_TAG__ = 'regular'
 
 def get_parent(path):
     """returns parent directory for files"""
