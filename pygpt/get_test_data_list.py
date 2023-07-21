@@ -38,8 +38,9 @@ def __create_test_json_list__(test_path, data_files_path):
             for test in tests:
                 if 'inputs' in test:
                     for input in list(test['inputs']):
-                        if test['inputs'][input] not in test_data:
-                            test_data.append(get_parent(test['inputs'][input]))
+                        folder = get_parent(test['inputs'][input])
+                        if folder not in test_data:
+                            test_data.append(folder)
     with open(data_files_path, 'w') as file:
         file.write('\n'.join(test_data))
     return True
