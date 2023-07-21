@@ -109,10 +109,21 @@ def __perpare_param__(value, properties):
     Prepare parameter with custom values
     """
     if isinstance(value, str):
-        value = value.replace('$graphFolder', properties['graphFolder'])
-        value = value.replace('$inputFolder', properties['inputFolder'])
-        value = value.replace('$expectedOutputFolder', properties['expectedOutputFolder'])
-        value = value.replace('$tempFolder', properties['tempFolder'])
+        graph_folder = properties['graphFolder']
+        input_folder = properties['inputFolder']
+        expected_output_folder = properties['expectedOutputFolder']
+        temp_folder = properties['tempFolder']
+
+        if os.environ.get('CI_PROJECT_DIR') is not None:
+            graph_folder = os.path.join(os.environ.get('CI_PROJECT_DIR'), graph_folder)
+            input_folder = os.path.join(os.environ.get('CI_PROJECT_DIR'), input_folder)
+            expected_output_folder = os.path.join(os.environ.get('CI_PROJECT_DIR'), expected_output_folder)
+            temp_folder = os.path.join(os.environ.get('CI_PROJECT_DIR'), temp_folder)
+
+        value = value.replace('$graphFolder', graph_folder)
+        value = value.replace('$inputFolder', input_folder)
+        value = value.replace('$expectedOutputFolder', expected_output_folder)
+        value = value.replace('$tempFolder', temp_folder)
     return value
 
 
