@@ -16,7 +16,7 @@ variables:
   REPORT_DIR: "${CI_PROJECT_DIR}/result"
   TEST_DATA_DIR: "${CI_PROJECT_DIR}/testData"
   TEST_DATA_LIST: "singleTestData.txt"
-  SNAP_DIR: /opt/snap
+  SNAP_DIR: /home/snap/esa-snap-software
   TAG: master
   PROPERTIES_PATH: $CI_PROJECT_DIR/snap.conf
   # TEST_FILE: s1tbx.coregister-coherence.json
@@ -28,8 +28,8 @@ variables:
     --show-version
     -DdeployAtEnd=false
   JAVA_OPTIONS: >-
-    -Dncsa.hdf.hdflib.HDFLibrary.hdflib=.../libjhdf.so
-    -Dncsa.hdf.hdf5lib.H5.hdf5lib=.../libjhdf5.so
+    -Dncsa.hdf.hdflib.HDFLibrary.hdflib=$SNAP_DIR/snap/modules/lib/amd64/libjhdf.so
+    -Dncsa.hdf.hdf5lib.H5.hdf5lib=$SNAP_DIR/snap/modules/lib/amd64/libjhdf5.so
   S3_ARGS: --endpoint-url $S3_ENDPOINT --region sbg --no-progress
 
 
@@ -67,10 +67,6 @@ stages:
 
 .test:
   stage: test
-  cache:
-    - key: $TEST_DATA_DIR-$SCOPE-$CI_NODE_INDEX
-      paths:
-        - ${TEST_DATA_DIR}/$(echo sed "${CI_NODE_INDEX}q;d" $REPORT_DIR/JSONTestFiles.txt)
   extends: .prepare
   script:
     - echo "Running $(sed "${CI_NODE_INDEX}q;d" ${REPORT_DIR}/JSONTestFiles.txt)"
@@ -158,11 +154,14 @@ test_windows:
     SCOPE: daily
     REPORT_DIR: result
     TEST_DATA_DIR: 'D:\testData'
-    SNAP_DIR: '%USERPROFILE%\Documents'
+    SNAP_DIR: 'C:\Users\Public\Documents\snap'
     TAG: master
     PROPERTIES_PATH: win.conf
     SNAP_INSTALLER: snap_all_windows-pRC10.exe
     TEST_DATA_LIST: singleTestData.txt
+    JAVA_OPTIONS: >-
+      -Dncsa.hdf.hdflib.HDFLibrary.hdflib=%SNAP_DIR%\snap\modules\lib\amd64\jhdf.dll
+      -Dncsa.hdf.hdf5lib.H5.hdf5lib=%SNAP_DIR%\snap\modules\lib\amd64\jhdf5.dll
   before_script:
     # build project
     - call mvn %MAVEN_CLI_OPTS% package install
