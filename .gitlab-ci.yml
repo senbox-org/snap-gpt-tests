@@ -78,6 +78,8 @@ stages:
       export FILE=$(sed "${CI_NODE_INDEX}q;d" $REPORT_DIR/JSONTestFiles.txt)
       python3 pygpt/snap_gpt_test.py java "${JAVA_OPTIONS} -cp ${CI_PROJECT_DIR}/gpt-tests-executer/target/gpt-test-exec.jar" \
         org.esa.snap.test.TestOutput $PROPERTIES_PATH $SCOPE $FILE $REPORT_DIR/report/output true
+    # TODO remove next line when test data will be cropped (ATM pages cannot upload gigabytes of tests data)
+    - rm -rf $REPORT_DIR/report/output/images
   retry:
     max: 2
     when:
@@ -169,19 +171,11 @@ test_windows:
     - python -m venv snapenv && call .\snapenv\Scripts\activate.bat && pip3 install -r %CI_PROJECT_DIR%\requirements.txt
     # Produce a list of tests to run
     - python %CI_PROJECT_DIR%\pygpt\filter_json.py gpt-tests-resources\tests %SCOPE% %REPORT_DIR%
-    # Get test data for single test file
-    - |
-      sed %CI_NODE_INDEX%q;d %REPORT_DIR%\JSONTestFiles.txt > test.txt && set /p test=<test.txt
-      python %CI_PROJECT_DIR%\pygpt\get_test_data_list.py %test% %REPORT_DIR%
-    - type %REPORT_DIR%\%TEST_DATA_LIST%
-    # Download test data
-    - '%CI_PROJECT_DIR%\download_test_data.bat'
     # Install snap
     - curl --progress-bar "https://nexus.snap-ci.ovh/repository/snap-maven-releases/org/esa/snap/installers-snapshot/snap_all_windows/pRC10/snap_all_windows-pRC10.exe" >> "%CI_PROJECT_DIR%\%SNAP_INSTALLER%"
     - echo "Install SNAP" && "%CI_PROJECT_DIR%\%SNAP_INSTALLER%" -q -dir "C:\Users\Public\Documents\snap" -console -overwrite -v
-  script: 
-    - echo "Running %test%"
-    - python pygpt\snap_gpt_test.py java "-cp gpt-tests-executer\target\gpt-test-exec.jar" org.esa.snap.test.TestOutput %PROPERTIES_PATH% %SCOPE% %test% "%CI_PROJECT_DIR%\%REPORT_DIR%\report\output" true
+  script:
+    - run_tests.bat
   after_script:
     # Copy assets for report generation
     - xcopy "%CI_PROJECT_DIR%\%REPORT_DIR%\report\output" "%CI_PROJECT_DIR%\%REPORT_DIR%\report"
@@ -277,13 +271,12 @@ pages:
     - echo "Copy assets for report generation in $HOME/report"
     - mkdir $HOME/report $HOME/report/output
     - cp -rf $REPORT_DIR/report/output/* $HOME/report
-    # TODO remove next line when test data will be cropped (ATM pages cannot upload gigabytes of tests data)
-    - rm -rf $HOME/report/images
+    - cat $HOME/report
     - cp -rf pygpt/statics/* $HOME/report
     - echo "Generate report"
     - python3 pygpt/report_utils.py pygpt/templates $HOME/report $SCOPE snap:master
-    - mv $HOME/report $CI_PROJECT_DIR/report
+    - mv $HOME/report public
   artifacts:
     paths:
-      - $CI_PROJECT_DIR/report
-  publish: $CI_PROJECT_DIR/report
+      - public
+  publish: public
