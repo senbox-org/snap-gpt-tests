@@ -27,7 +27,6 @@ import core.log as log
 __DATE_FMT__ = '%d/%m/%Y %H:%M:%S'
 __SEED_ENV_VARIABLE__ = 'snap.random.seed'
 
-
 class Result(Enum):
     SKIPPED = -1
     PASSED = 0
@@ -121,18 +120,27 @@ def __check_properties__(properties):
     Check properties of the GPT Test executor.
     Exit(1) if it fails
     """
-    test_folder = properties['testFolder']
-    graph_folder = properties['graphFolder']
-    input_folder = properties['inputFolder']
-    expected_output_folder = properties['expectedOutputFolder']
-    temp_folder = properties['tempFolder']
+    test_folder = __check_root_folder(properties['testFolder'])
+    graph_folder = __check_root_folder(properties['graphFolder'])
+    input_folder = __check_root_folder(properties['inputFolder'])
+    expected_output_folder = __check_root_folder(properties['expectedOutputFolder'])
+    temp_folder = __check_root_folder(properties['tempFolder'])
 
     if None in [test_folder, graph_folder,
                 input_folder, expected_output_folder,
                 temp_folder]:
         log.error('some folder is null')
         sys.exit(1)
+
     utils.mkdirs(temp_folder)
+
+    properties['testFolder'] = test_folder
+    properties['graphFolder'] = graph_folder
+    properties['inputFolder'] = input_folder
+    properties['expectedOutputFolder'] = expected_output_folder
+    properties['tempFolder'] = temp_folder
+
+    return properties
 
 
 def __check_args__(args):
@@ -140,6 +148,11 @@ def __check_args__(args):
     Check arguments of the GPT Test executor.
     Exit(1) if it fails
     """
+    java_args = args.java_args.split(" ")
+    class_path = java_args[java_args.index('-cp') + 1]
+    java_args[java_args.index('-cp') + 1] = __check_root_folder(class_path)
+    args.java_args = " ".join(java_args)
+
     if not os.path.exists(args.json_path):
         log.error(f'JSON file `{args.json_path}` does not exists')
         sys.exit(1)
@@ -147,6 +160,7 @@ def __check_args__(args):
     if not os.path.exists(args.report_dir):
         log.error(f'rerpot folder `{args.report_dir}` does not exists')
         sys.exit(1)
+    return args
 
 
 def __vm_parameters_set__(test, snap_dir):
@@ -238,11 +252,11 @@ def __check_outputs__(test, args, properties):
             output_path = __find_output__(output, properties['tempFolder'])
             if output_path is None:
                 log.error(f'test `{test.name}` failed, output {output["outputName"]} not found')
-                return False
+                return False, stdout
             expected_output_path = os.path.join(properties['expectedOutputFolder'],
                                                 output['expected'])
             cmd = [args.java_path]
-            cmd += utils.split_args(args.java_args)
+            cmd += args.java_args.split(" ")
             cmd += [args.test_output, output_path, expected_output_path, output['outputName']]
             log.info(cmd)
             result = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
@@ -293,7 +307,8 @@ def __run_test__(test, args, properties):
     gpt_parameters = [gpt_bin] # gpt command and arguments
     log.info(f'execute: `{" ".join(gpt_parameters)}`') # DEBUG print
     # graph to test
-    gpt_parameters.append(os.path.join(properties['graphFolder'], test.graph_path))
+    graph_full_path = os.path.join(properties['graphFolder'], test.graph_path)
+    gpt_parameters.append(graph_full_path)
     gpt_parameters += test.gpt_parameters(properties)
     # prepare JVM settings if needed
     __vm_parameters_set__(test, snap_dir)
@@ -395,6 +410,14 @@ def __save_json__(test, args):
     with open(path, 'w') as file:
         file.write(json.dumps(test._raw))
 
+def __check_root_folder(folder):
+    """ 
+    Turn to absolute path for CI
+    """
+    if os.environ.get('CI_PROJECT_DIR') is not None:
+        if not str(folder).startswith(os.environ.get('CI_PROJECT_DIR')):
+            folder = os.path.join(os.path.normpath(os.environ.get('CI_PROJECT_DIR')), folder)
+    return folder
 
 def __copy_output__(test, args, properties):
     """
@@ -480,9 +503,9 @@ def __main__():
     """main test entry point"""
     log.info('SNAP GPT Test Utils')
     args = __arguments__()
-    __check_args__(args) # check if arguments are corrected
+    args = __check_args__(args) # check if arguments are corrected
     properties = __load_properties__(args.properties) # load properties file
-    __check_properties__(properties) # check if properties are correct
+    properties = __check_properties__(properties) # check if properties are correct
 
     exit_code = 0 if __run_tests__(args, properties) else 1 # run tests with given parameters
     exit(properties, exit_code) # if tests fails exit with status code
