@@ -257,6 +257,7 @@ def __split_command_args__(command):
             token += char
     if token:
         args.append(token)
+
     return args
 
 

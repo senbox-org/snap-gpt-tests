@@ -28,6 +28,7 @@ variables:
     --show-version
     -DdeployAtEnd=false
   JAVA_OPTIONS: >-
+    -XX:MaxRAMFraction=2
     -Dncsa.hdf.hdflib.HDFLibrary.hdflib=$SNAP_DIR/snap/modules/lib/amd64/libjhdf.so
     -Dncsa.hdf.hdf5lib.H5.hdf5lib=$SNAP_DIR/snap/modules/lib/amd64/libjhdf5.so
   S3_ARGS: --endpoint-url $S3_ENDPOINT --region sbg --no-progress
@@ -153,15 +154,16 @@ test_windows:
   variables:
     SCOPE: daily
     REPORT_DIR: result
-    TEST_DATA_DIR: 'D:\testData'
-    SNAP_DIR: 'C:\Users\Public\Documents\snap'
+    TEST_DATA_DIR: 'D:\\testData'
+    SNAP_DIR: 'C:\\Users\\Public\\Documents\\snap'
     TAG: master
     PROPERTIES_PATH: win.conf
     SNAP_INSTALLER: snap_all_windows-pRC10.exe
     TEST_DATA_LIST: singleTestData.txt
     JAVA_OPTIONS: >-
-      -Dncsa.hdf.hdflib.HDFLibrary.hdflib=%SNAP_DIR%\snap\modules\lib\amd64\jhdf.dll
-      -Dncsa.hdf.hdf5lib.H5.hdf5lib=%SNAP_DIR%\snap\modules\lib\amd64\jhdf5.dll
+      -Dncsa.hdf.hdflib.HDFLibrary.hdflib=%SNAP_DIR%\\snap\\modules\\lib\\amd64\\jhdf.dll
+      -Dncsa.hdf.hdf5lib.H5.hdf5lib=%SNAP_DIR%\\snap\modules\\lib\amd64\\jhdf5.dll
+    CLASSPATH: gpt-tests-executer\\target\\gpt-test-exec.jar
   before_script:
     # build project
     - call mvn %MAVEN_CLI_OPTS% package install

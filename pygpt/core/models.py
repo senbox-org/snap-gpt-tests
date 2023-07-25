@@ -134,7 +134,8 @@ class Test(log.Printable):
         self._raw = __normalize_struct__(struct)
         self._name = struct['id']
         self._xml = ''
-        with open(f'gpt-tests-resources/graphs/{self.graph_path}', 'rb') as xml_file:
+        graph_folder = os.path.join('gpt-tests-resources', 'graphs')
+        with open(os.path.normpath(os.path.join(graph_folder, self.graph_path)), 'rb') as xml_file:
             self._xml = xml_file.read()
 
     @property
@@ -178,7 +179,7 @@ class Test(log.Printable):
         """
         Path of the graph.
         """
-        return self._raw['graphpath']
+        return os.path.normpath(self._raw['graphpath'])
 
     @property
     def graph_xml(self):
@@ -198,7 +199,7 @@ class Test(log.Printable):
         Source TestSet JSON path.
         """
         if 'json_file' in self._raw:
-            return self._raw['json_file']
+            return os.path.normpath(self._raw['json_file'])
         return ''
 
     @property
