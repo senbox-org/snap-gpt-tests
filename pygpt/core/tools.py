@@ -93,8 +93,8 @@ def auto_setter(func):
 def split_args(arg):
     """
     DEPRECATED since it does not work on CI.
-    Useless because str.split(" ") does the job better
-    
+    Useless because str.split(" ") does the job
+    """
     res = []
     curr = ''
     skip = False
@@ -122,4 +122,3 @@ def split_args(arg):
     if len(curr) > 0:
         res.append(curr)
     return res
-    """

@@ -17,6 +17,7 @@ variables:
   TEST_DATA_DIR: "${CI_PROJECT_DIR}/testData"
   TEST_DATA_LIST: "singleTestData.txt"
   SNAP_DIR: /home/snap/esa-snap-software
+  TEMP_DIR: /home/snap/tmp
   TAG: master
   PROPERTIES_PATH: $CI_PROJECT_DIR/snap.conf
   # TEST_FILE: s1tbx.coregister-coherence.json
@@ -28,7 +29,6 @@ variables:
     --show-version
     -DdeployAtEnd=false
   JAVA_OPTIONS: >-
-    -XX:MaxRAMFraction=2
     -Dncsa.hdf.hdflib.HDFLibrary.hdflib=$SNAP_DIR/snap/modules/lib/amd64/libjhdf.so
     -Dncsa.hdf.hdf5lib.H5.hdf5lib=$SNAP_DIR/snap/modules/lib/amd64/libjhdf5.so
   S3_ARGS: --endpoint-url $S3_ENDPOINT --region sbg --no-progress
@@ -51,7 +51,7 @@ stages:
     - mvn $MAVEN_CLI_OPTS package install
     - ls "${CI_PROJECT_DIR}/gpt-tests-executer/target"
     # Clean old report
-    - mkdir -p $TEST_DATA_DIR/$SCOPE $REPORT_DIR $REPORT_DIR/report $REPORT_DIR/report/output
+    - mkdir -p $TEST_DATA_DIR/$SCOPE $REPORT_DIR $REPORT_DIR/report $REPORT_DIR/report/output $TEMP_DIR
     - pip3 install -r $CI_PROJECT_DIR/requirements.txt
     # Produce a list of tests to run
     - python3 $CI_PROJECT_DIR/pygpt/filter_json.py gpt-tests-resources/tests $SCOPE $REPORT_DIR
