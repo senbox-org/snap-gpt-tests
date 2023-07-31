@@ -220,6 +220,7 @@ def __find_output__(output, folder):
     A directory named `{output}/` if it exists.
     `None` otherwise.
     """
+    folder = __check_root_folder(folder)
     # list of files starting with the name of the output
     files = list([f for f in os.listdir(folder)
                   if os.path.isfile(os.path.join(folder, f))
@@ -259,7 +260,10 @@ def __check_outputs__(test, args, properties):
             expected_output_path = os.path.join(properties['expectedOutputFolder'],
                                                 output['expected'])
             cmd = [args.java_path]
-            cmd += args.java_args.split(" ")
+            if is_ci_pipeline():
+                cmd += args.java_args.split(" ")
+            else:
+                cmd += utils.split_args(args.java_args)
             cmd += [args.test_output, output_path, expected_output_path, output['outputName']]
             log.info(cmd)
             result = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
