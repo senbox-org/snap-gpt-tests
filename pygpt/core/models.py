@@ -135,6 +135,9 @@ class Test(log.Printable):
         self._name = struct['id']
         self._xml = ''
         graph_folder = os.path.join('gpt-tests-resources', 'graphs')
+        # Special case on gitlab CI windows relative path does not work
+        if os.getenv('CI_PROJECT_DIR') is not None:
+            graph_folder = os.path.join(os.getenv('CI_PROJECT_DIR'), graph_folder)
         with open(os.path.normpath(os.path.join(graph_folder, self.graph_path)), 'rb') as xml_file:
             self._xml = xml_file.read()
 

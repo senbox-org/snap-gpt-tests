@@ -26,6 +26,7 @@ import core.log as log
 
 __DATE_FMT__ = '%d/%m/%Y %H:%M:%S'
 __SEED_ENV_VARIABLE__ = 'snap.random.seed'
+__GITLAB_ENV_VAR__ = 'CI_PROJECT_DIR'
 
 class Result(Enum):
     SKIPPED = -1
@@ -41,7 +42,9 @@ class Result(Enum):
         if self == Result.FAILED:
             return 'FAILED'
         return 'CRASHED'
-
+    
+def is_ci_pipeline():
+    return os.environ.get(__GITLAB_ENV_VAR__) is not None
 
 def lazy_bool(string):
     """
@@ -307,7 +310,7 @@ def __run_test__(test, args, properties):
     gpt_parameters = [gpt_bin] # gpt command and arguments
     log.info(f'execute: `{" ".join(gpt_parameters)}`') # DEBUG print
     # graph to test
-    graph_full_path = os.path.join(properties['graphFolder'], test.graph_path)
+    graph_full_path = os.path.join(__check_root_folder(properties['graphFolder']), test.graph_path)
     gpt_parameters.append(graph_full_path)
     gpt_parameters += test.gpt_parameters(properties)
     # prepare JVM settings if needed
@@ -388,7 +391,6 @@ def __run_test__(test, args, properties):
     else:
         return Result.PASSED if conformity else Result.FAILED
 
-
 def __draw_graph__(test, properties, args):
     """
     Draw the diagram of the graph using the custom graph_drawer.
@@ -399,7 +401,6 @@ def __draw_graph__(test, properties, args):
     image_path = utils.mkdirs(os.path.dirname(image_path))
     if image_path:
         graph.draw(graph_path, image_path)
-
 
 def __save_json__(test, args):
     """
@@ -414,9 +415,9 @@ def __check_root_folder(folder):
     """ 
     Turn to absolute path for CI
     """
-    if os.environ.get('CI_PROJECT_DIR') is not None:
-        if not str(folder).startswith(os.environ.get('CI_PROJECT_DIR')):
-            folder = os.path.join(os.path.normpath(os.environ.get('CI_PROJECT_DIR')), folder)
+    if is_ci_pipeline():
+        if not str(folder).startswith(os.environ.get(__GITLAB_ENV_VAR__)):
+            folder = os.path.join(os.path.normpath(os.environ.get(__GITLAB_ENV_VAR__)), folder)
     return folder
 
 def __copy_output__(test, args, properties):
@@ -436,7 +437,6 @@ def __copy_output__(test, args, properties):
                     shutil.copytree(fpath, dpath)
                 else:
                     shutil.copy2(fpath, dpath)
-
 
 def __run_tests__(args, properties):
     """
