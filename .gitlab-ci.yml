@@ -9,7 +9,7 @@ default:
         - "${TEST_DATA_DIR}"
 
 variables:
-  VERSION: "$(mvn --non-recursive help:evaluate -Dexpression=project.version -q -DforceStdout  | tr . _)"
+  PLATFORM: linux
   PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
   # $DOCKER_AUTH_CONFIG should have been setup as projet variable
   SCOPE: s3tbx
@@ -76,8 +76,8 @@ stages:
     - ls $REPORT_DIR/report
     - ls $REPORT_DIR/report/output
     # TODO remove next line when test data will be cropped (ATM some tests produce gigabytes of tests data)
-    - rm -rf $REPORT_DIR/report/output/images
-    - mv $REPORT_DIR result
+    - rm -rf $REPORT_DIR/report/output/*.zip $REPORT_DIR/report/output/*.dim $REPORT_DIR/report/output/*.data
+    - mv $REPORT_DIR $CI_PROJECT_DIR/result
   retry:
     max: 2
     when:
@@ -89,14 +89,14 @@ stages:
     when: always
     expire_in: "1 day"
     paths:
-      - result
+      - $CI_PROJECT_DIR/result
 
 test_s3tbx:
   tags: [kube]
   variables:
     TEST_DATA_LIST: singleTestData.txt
   rules:
-    - if: $SCOPE == 's3tbx'
+    - if: $SCOPE == 's3tbx' && $PLATFORM == 'linux'
       when: always
     - when: never
   parallel: 22
@@ -105,7 +105,7 @@ test_s3tbx:
 test_s2tbx:
   tags: [kube]
   rules:
-    - if: $SCOPE == 's2tbx'
+    - if: $SCOPE == 's2tbx' && $PLATFORM == 'linux'
       when: always
     - when: never
   parallel: 100
@@ -114,7 +114,7 @@ test_s2tbx:
 test_s1tbx:
   tags: [kube]
   rules:
-    - if: $SCOPE == 's1tbx'
+    - if: $SCOPE == 's1tbx' && $PLATFORM == 'linux'
       when: always
     - when: never
   parallel: 34
@@ -123,7 +123,7 @@ test_s1tbx:
 test_snap:
   tags: [kube]
   rules:
-    - if: $SCOPE == 'snap'
+    - if: $SCOPE == 'snap' && $PLATFORM == 'linux'
       when: always
     - when: never
   parallel: 26
@@ -132,7 +132,7 @@ test_snap:
 test_weekly:
   tags: [kube]
   rules:
-    - if: $SCOPE == 'weekly'
+    - if: $SCOPE == 'weekly' && $PLATFORM == 'linux'
       when: always
     - when: never
   parallel: 117
@@ -141,7 +141,7 @@ test_weekly:
 test_daily:
   tags: [kube]
   rules:
-    - if: $SCOPE == 'daily'
+    - if: $SCOPE == 'daily' && $PLATFORM == 'linux'
       when: always
     - when: never
   parallel: 115
@@ -151,6 +151,10 @@ test_windows:
   tags:
     - windows
   stage: test
+  rules:
+    - if: $PLATFORM == 'windows'
+      when: always
+    - when: never
   variables:
     SCOPE: daily
     REPORT_DIR: result
@@ -196,6 +200,10 @@ test_mac:
   tags:
    - mac
   stage: test
+  rules:
+    - if: $PLATFORM == 'darwin'
+      when: always
+    - when: never
   variables:
     SCOPE: daily
     SNAP_DIR: ~/Documents/snap
@@ -257,7 +265,9 @@ test_mac:
 pages:
   stage: report
   rules:
-    - when: always
+    - if: $PLATFORM == 'linux'
+      when: always
+    - when: never
   cache: []
   variables:
     # output upload and download progress every 2 seconds
@@ -271,15 +281,14 @@ pages:
   before_script:
     - pip3 install -r $CI_PROJECT_DIR/requirements.txt
   script:
-    - echo "Copy assets for report generation in $REPORT_DIR/report"
-    - mkdir $REPORT_DIR/report $REPORT_DIR/report/output
-    - ls $REPORT_DIR/report
-    - ls $REPORT_DIR/report/output/
-    - cp -rf $REPORT_DIR/report/output/* $REPORT_DIR/report
-    - cp -rf pygpt/statics/* $REPORT_DIR/report
+    - echo "Copy assets for report generation in result/report"
+    - ls result/report/output/
+    - cp -rf result/report/output/* result/report
+    - cp -rf pygpt/statics/* result/report
+    - ls result/report
     - echo "Generate report"
-    - python3 pygpt/report_utils.py pygpt/templates $REPORT_DIR/report $SCOPE snap:master
-    - mv $REPORT_DIR/report public
+    - python3 pygpt/report_utils.py pygpt/templates result/report $SCOPE snap:master
+    - mv result/report public
   artifacts:
     expire_in: 1 week
     paths:
