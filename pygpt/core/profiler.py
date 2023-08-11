@@ -333,7 +333,8 @@ def profile(command, sampling_time, output, **kwargs):
     env = os.environ
     if 'env' in kwargs:
         env = kwargs['env']
-    print(env)
+    if os.environ.get('CI_PROJECT_DIR') is None:
+        print(env)
     print(command)
     proc = subprocess.Popen(command, 
                             stdout=subprocess.PIPE, 
