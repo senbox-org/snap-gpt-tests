@@ -183,6 +183,10 @@ test_windows:
   script:
     - run_tests.bat
   after_script:
+    # Remove heavy images
+    - DEL /Q /F /S %REPORT_DIR%/report/output/*.zip
+    - DEL /Q /F /S %REPORT_DIR%/report/output/*.dim
+    - DEL /Q /F /S %REPORT_DIR%/report/output/*.data
     # Copy assets for report generation
     - xcopy "%CI_PROJECT_DIR%\%REPORT_DIR%\report\output" "%CI_PROJECT_DIR%\%REPORT_DIR%\report"
     - mkdir "%CI_PROJECT_DIR%\%REPORT_DIR%\report\json" && xcopy "%CI_PROJECT_DIR%\%REPORT_DIR%\report\output\json" "%CI_PROJECT_DIR%\%REPORT_DIR%\report\json"
