@@ -1,0 +1,76 @@
+test_windows:
+  tags:
+    - windows
+  stage: test
+  variables:
+    SCOPE: daily
+    REPORT_DIR: result
+    TEST_DATA_DIR: 'D:\\testData'
+    SNAP_DIR: 'C:\\Users\\Public\\Documents\\snap'
+    TAG: master
+    PROPERTIES_PATH: win.conf
+    SNAP_INSTALLER: snap_all_windows-pRC10.exe
+    TEST_DATA_LIST: singleTestData.txt
+    JAVA_OPTIONS: >-
+      -Dncsa.hdf.hdflib.HDFLibrary.hdflib=%SNAP_DIR%\\snap\\modules\\lib\\amd64\\jhdf.dll
+      -Dncsa.hdf.hdf5lib.H5.hdf5lib=%SNAP_DIR%\\snap\modules\\lib\amd64\\jhdf5.dll
+    CLASSPATH: gpt-tests-executer\\target\\gpt-test-exec.jar
+    # output upload and download progress every 2 seconds
+    TRANSFER_METER_FREQUENCY: "2s"
+    # Use fast compression for artifacts, resulting in larger archives
+    ARTIFACT_COMPRESSION_LEVEL: "slowest"
+  cache: []
+  before_script:
+    # build project
+    - call mvn %MAVEN_CLI_OPTS% package install
+    # Clean old report
+    - rd /s /q %REPORT_DIR%
+    - mkdir %REPORT_DIR% && mkdir %REPORT_DIR%\report && mkdir %REPORT_DIR%\report\output && mkdir .\tmp
+    - python -m venv snapenv && call .\snapenv\Scripts\activate.bat && pip3 install -r %CI_PROJECT_DIR%\requirements.txt
+    # Produce a list of tests to run
+    - python %CI_PROJECT_DIR%\pygpt\filter_json.py gpt-tests-resources\tests %SCOPE% %REPORT_DIR%
+    # Install snap
+    - curl --progress-bar "https://nexus.snap-ci.ovh/repository/snap-maven-releases/org/esa/snap/installers-snapshot/snap_all_windows/pRC10/snap_all_windows-pRC10.exe" >> "%CI_PROJECT_DIR%\%SNAP_INSTALLER%"
+    - echo "Install SNAP" && "%CI_PROJECT_DIR%\%SNAP_INSTALLER%" -q -dir "C:\Users\Public\Documents\snap" -console -overwrite -v
+  script:
+    - run_tests.bat
+  after_script:
+    # Remove heavy images
+    - DEL /Q /F /S %REPORT_DIR%\report\output\*.zip
+    - DEL /Q /F /S %REPORT_DIR%\report\output\*.dim
+    - DEL /Q /F /S %REPORT_DIR%\report\output\*.data
+  artifacts:
+    when: always
+    expire_in: "3 days"
+    paths:
+      - result\report
+
+pages:
+  stage: report
+  cache: []
+  variables:
+    # output upload and download progress every 2 seconds
+    TRANSFER_METER_FREQUENCY: "2s"
+    # Use fast compression for artifacts, resulting in larger archives
+    ARTIFACT_COMPRESSION_LEVEL: "fast"
+    # Use no compression for caches
+    CACHE_COMPRESSION_LEVEL: "fastest"
+    # Set maximum duration of cache upload and download
+    CACHE_REQUEST_TIMEOUT: 5
+    DEST_DIR: public\windows
+  script:
+    - echo "Copy assets for report generation"
+    - xcopy "%CI_PROJECT_DIR%\%REPORT_DIR%\report\output" "%CI_PROJECT_DIR%\%REPORT_DIR%\report"
+    - mkdir "%CI_PROJECT_DIR%\%REPORT_DIR%\report\json" && xcopy "%CI_PROJECT_DIR%\%REPORT_DIR%\report\output\json" "%CI_PROJECT_DIR%\%REPORT_DIR%\report\json"
+    - xcopy "%CI_PROJECT_DIR%\pygpt\statics\*" "%CI_PROJECT_DIR%\%REPORT_DIR%\report"
+    - type result\report\output
+    - echo "Generate report"
+    - python %CI_PROJECT_DIR%\pygpt\report_utils.py %CI_PROJECT_DIR%\pygpt\templates %CI_PROJECT_DIR%\%REPORT_DIR%\report %SCOPE% snap:master
+    - rd /s /q %DEST_DIR%
+    - mkdir public %DEST_DIR%
+    - move /Y result\report %DEST_DIR%
+  artifacts:
+    expire_in: 1 week
+    paths:
+      - public/windows
+  publish: public/windows
