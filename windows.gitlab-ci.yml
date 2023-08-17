@@ -48,6 +48,10 @@ test_windows:
 pages:
   stage: report
   cache: []
+  rules:
+    - if: $PLATFORM == 'windows'
+      when: always
+    - when: never
   variables:
     # output upload and download progress every 2 seconds
     TRANSFER_METER_FREQUENCY: "2s"

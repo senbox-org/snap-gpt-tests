@@ -1,4 +1,12 @@
 include:
+  - local: linux.gitlab-ci.yml
+    rules:
+      - if: $PLATFORM == 'linux'
+        when: always
+      - if: $PLATFORM == 'windows'
+        when: never
+      - if: $PLATFORM == 'darwin'
+        when: never
   - local: windows.gitlab-ci.yml
     rules:
       - if: $PLATFORM == 'windows'
@@ -6,6 +14,14 @@ include:
       - if: $PLATFORM == 'linux'
         when: never
       - if: $PLATFORM == 'darwin'
+        when: never
+  - local: darwin.gitlab-ci.yml
+    rules:
+      - if: $PLATFORM == 'darwin'
+        when: always
+      - if: $PLATFORM == 'linux'
+        when: never
+      - if: $PLATFORM == 'windows'
         when: never
 
 default:
@@ -16,7 +32,6 @@ default:
         - "${CI_PROJECT_DIR}/.m2/repository"
         - "${CI_PROJECT_DIR}/.cache/pip"
         - "${CI_PROJECT_DIR}/**/target"
-        - "${TEST_DATA_DIR}"
 
 variables:
   PLATFORM: linux
@@ -30,7 +45,6 @@ variables:
   TEMP_DIR: /home/snap/tmp
   TAG: master
   PROPERTIES_PATH: $CI_PROJECT_DIR/snap.conf
-  # TEST_FILE: s1tbx.coregister-coherence.json
   MAVEN_CLI_OPTS: >-
     --no-transfer-progress
     --batch-mode
@@ -43,215 +57,6 @@ variables:
     -Dncsa.hdf.hdf5lib.H5.hdf5lib=$SNAP_DIR/snap/modules/lib/amd64/libjhdf5.so
   S3_ARGS: --endpoint-url $S3_ENDPOINT --region sbg --no-progress
 
-
 stages:
   - test
   - report
-
-.prepare:
-  cache:
-    - key: ${CI_COMMIT_BRANCH}
-      paths:
-        - "${CI_PROJECT_DIR}/.m2/repository"
-        - "${HOME}/.cache/pip"
-        - "${CI_PROJECT_DIR}/**/target"
-        - "${TEST_DATA_DIR}"
-  before_script:
-    # build project
-    - mvn $MAVEN_CLI_OPTS package install
-    - ls "${CI_PROJECT_DIR}/gpt-tests-executer/target"
-    # Clean old report
-    - mkdir -p $TEST_DATA_DIR/$SCOPE $REPORT_DIR $REPORT_DIR/report $REPORT_DIR/report/output $TEMP_DIR
-    - pip3 install -r $CI_PROJECT_DIR/requirements.txt
-    # Produce a list of tests to run
-    - python3 $CI_PROJECT_DIR/pygpt/filter_json.py gpt-tests-resources/tests $SCOPE $REPORT_DIR
-    # Get test data for single test file
-    - |
-      export test=$(sed "${CI_NODE_INDEX}q;d" $REPORT_DIR/JSONTestFiles.txt)
-      python3 $CI_PROJECT_DIR/pygpt/get_test_data_list.py $test $REPORT_DIR
-    - cat $REPORT_DIR/$TEST_DATA_LIST
-    # Download test data
-    - $CI_PROJECT_DIR/download_test_data.sh "${REPORT_DIR}" "${TEST_DATA_DIR}" "${TEST_DATA_LIST}" "${S3_BUCKET}" "${S3_ARGS}"
-
-.test:
-  stage: test
-  extends: .prepare
-  script:
-    - echo "Running $(sed "${CI_NODE_INDEX}q;d" ${REPORT_DIR}/JSONTestFiles.txt)"
-    - |
-      export FILE=$(sed "${CI_NODE_INDEX}q;d" $REPORT_DIR/JSONTestFiles.txt)
-      python3 pygpt/snap_gpt_test.py java "${JAVA_OPTIONS} -cp ${CI_PROJECT_DIR}/gpt-tests-executer/target/gpt-test-exec.jar" \
-        org.esa.snap.test.TestOutput $PROPERTIES_PATH $SCOPE $FILE $REPORT_DIR/report/output true
-  after_script:
-    - ls $REPORT_DIR/report
-    - ls $REPORT_DIR/report/output
-    # TODO remove next line when test data will be cropped (ATM some tests produce gigabytes of tests data)
-    - rm -rf $REPORT_DIR/report/output/*.zip $REPORT_DIR/report/output/*.dim $REPORT_DIR/report/output/*.data
-    - mv $REPORT_DIR $CI_PROJECT_DIR/result
-  retry:
-    max: 2
-    when:
-      - runner_system_failure
-      - stuck_or_timeout_failure
-      - script_failure
-      - unknown_failure
-  artifacts:
-    when: always
-    expire_in: "1 day"
-    paths:
-      - $CI_PROJECT_DIR/result
-
-test_s3tbx:
-  tags: [kube]
-  variables:
-    TEST_DATA_LIST: singleTestData.txt
-  rules:
-    - if: $SCOPE == 's3tbx' && $PLATFORM == 'linux'
-      when: always
-    - when: never
-  parallel: 22
-  extends: .test
-  
-test_s2tbx:
-  tags: [kube]
-  rules:
-    - if: $SCOPE == 's2tbx' && $PLATFORM == 'linux'
-      when: always
-    - when: never
-  parallel: 100
-  extends: .test
-
-test_s1tbx:
-  tags: [kube]
-  rules:
-    - if: $SCOPE == 's1tbx' && $PLATFORM == 'linux'
-      when: always
-    - when: never
-  parallel: 34
-  extends: .test
-
-test_snap:
-  tags: [kube]
-  rules:
-    - if: $SCOPE == 'snap' && $PLATFORM == 'linux'
-      when: always
-    - when: never
-  parallel: 26
-  extends: .test
-
-test_weekly:
-  tags: [kube]
-  rules:
-    - if: $SCOPE == 'weekly' && $PLATFORM == 'linux'
-      when: always
-    - when: never
-  parallel: 117
-  extends: .test
-
-test_daily:
-  tags: [kube]
-  rules:
-    - if: $SCOPE == 'daily' && $PLATFORM == 'linux'
-      when: always
-    - when: never
-  parallel: 115
-  extends: .test
-
-test_mac:
-  tags:
-   - mac
-  stage: test
-  rules:
-    - if: $PLATFORM == 'darwin'
-      when: always
-    - when: never
-  variables:
-    SCOPE: daily
-    SNAP_DIR: ~/Documents/snap
-    TAG: master
-    PROPERTIES_PATH: $CI_PROJECT_DIR/mac.conf
-    SNAP_INSTALLER: snap_all_macos-pRC10.dmg
-    TEST_DATA_LIST: singleTestData.txt
-    MAVEN_CLI_OPTS: >-
-      --no-transfer-progress
-      --batch-mode
-      --errors
-      --fail-at-end
-      --show-version
-      -DdeployAtEnd=false
-      -Dmaven.wagon.http.ssl.insecure=true
-      -Dmaven.wagon.http.ssl.allowall=true
-  before_script:
-    # build project
-    - mvn $MAVEN_CLI_OPTS package install
-    - ls "${CI_PROJECT_DIR}/gpt-tests-executer/target"
-    # Clean old report
-    - rm -rf $REPORT_DIR
-    - mkdir -p $TEST_DATA_DIR/$SCOPE $REPORT_DIR $REPORT_DIR/report $REPORT_DIR/report/output
-    - python3 -m venv snap
-    - source snap/bin/activate
-    - pip3 install -r $CI_PROJECT_DIR/requirements.txt
-    - pip3 install awscli
-    # Produce a list of tests to run
-    - python3 $CI_PROJECT_DIR/pygpt/filter_json.py gpt-tests-resources/tests $SCOPE $REPORT_DIR
-    - cat $REPORT_DIR/testData.txt
-    # Get test data for single test file
-    - |
-      export test=$(sed "${CI_NODE_INDEX}q;d" $REPORT_DIR/JSONTestFiles.txt)
-      python3 $CI_PROJECT_DIR/pygpt/get_test_data_list.py $test $REPORT_DIR
-    # Download test data
-    - $CI_PROJECT_DIR/download_test_data.sh "${REPORT_DIR}" "${TEST_DATA_DIR}" "${TEST_DATA_LIST}" "${S3_BUCKET}" "${S3_ARGS}"
-  script:
-    - curl --progress-bar "https://nexus.snap-ci.ovh/repository/snap-maven-releases/org/esa/snap/installers-snapshot/snap_all_macos/pRC10/${SNAP_INSTALLER}" >> "${CI_PROJECT_DIR}/${SNAP_INSTALLER}"
-    - chmod a+x ${CI_PROJECT_DIR}/${SNAP_INSTALLER} && xattr -dr com.apple.quarantine ${CI_PROJECT_DIR}/${SNAP_INSTALLER} && file ${CI_PROJECT_DIR}/${SNAP_INSTALLER}
-    - ${CI_PROJECT_DIR}/${SNAP_INSTALLER} -q -dir ${CI_PROJECT_DIR}/snap -console -overwrite -Dinstall4j.debug=true && rm ${CI_PROJECT_DIR}/${SNAP_INSTALLER}
-    - echo "Running $(sed "${CI_NODE_INDEX}q;d" ${REPORT_DIR}/JSONTestFiles.txt)"
-    - |
-      export FILE=$(sed "${CI_NODE_INDEX}q;d" $REPORT_DIR/JSONTestFiles.txt)
-      python3 pygpt/snap_gpt_test.py java "${JAVA_OPTIONS} -cp ${CI_PROJECT_DIR}/gpt-tests-executer/target/gpt-test-exec.jar" \
-        org.esa.snap.test.TestOutput $PROPERTIES_PATH $SCOPE $FILE $REPORT_DIR/report/output true
-  after_script:
-    # Copy assets for report generation
-    - cp -rf $REPORT_DIR/report/output/* $REPORT_DIR/report
-    - cp -rf pygpt/statics/* $REPORT_DIR/report
-    - echo "Generate report"
-    - python3 pygpt/report_utils.py pygpt/templates $REPORT_DIR/report $SCOPE snap:master
-  artifacts:
-    when: always
-    expire_in: "3 days"
-    paths:
-      - "${REPORT_DIR}/report"
-  allow_failure: true
-
-pages:
-  stage: report
-  rules:
-    - if: $PLATFORM == 'linux'
-      when: always
-    - when: never
-  cache: []
-  variables:
-    # output upload and download progress every 2 seconds
-    TRANSFER_METER_FREQUENCY: "2s"
-    # Use fast compression for artifacts, resulting in larger archives
-    ARTIFACT_COMPRESSION_LEVEL: "fast"
-    # Use no compression for caches
-    CACHE_COMPRESSION_LEVEL: "fastest"
-    # Set maximum duration of cache upload and download
-    CACHE_REQUEST_TIMEOUT: 5
-  before_script:
-    - pip3 install -r $CI_PROJECT_DIR/requirements.txt
-  script:
-    - echo "Copy assets for report generation in result/report"
-    - ls result/report/output/
-    - cp -rf result/report/output/* result/report
-    - cp -rf pygpt/statics/* result/report
-    - ls result/report
-    - echo "Generate report"
-    - python3 pygpt/report_utils.py pygpt/templates result/report $SCOPE snap:master
-    - mv result/report public
-  artifacts:
-    expire_in: 1 week
-    paths:
-      - public
-  publish: public
