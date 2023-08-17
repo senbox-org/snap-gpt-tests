@@ -16,4 +16,6 @@ while IFS="" read -r line || [ -n "$line" ]
 do
     echo "Download directory ${line}"
     aws s3 sync "s3://${S3_BUCKET}/testData/${line}" "${TEST_DATA_DIR}/${line}" $S3_ARGS
+    # Create empty DATASTRIP folder needed by GPT tests
+    mkdir -p "${TEST_DATA_DIR}/${line}/DATASTRIP"
 done < "${REPORT_DIR}/${TEST_DATA_FILE}"
