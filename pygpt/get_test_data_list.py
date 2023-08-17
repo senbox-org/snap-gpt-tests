@@ -18,7 +18,7 @@ __data_files__ = "singleTestData.txt"
 
 def get_parent(path):
     """returns parent directory for files"""
-    if re.search("(.xml|.XML|.JP2|.zip|.ZIP|.tgz|.NTF|.dim|.DIMA|.h5|.txt|.tif|.TIF|_OC|.N1|.nc|.dbf|.prj|.qix|.shp|.shx|.qpj)$", path):
+    if re.search("(.xml|.XML|.JP2|.zip|.ZIP|.tgz|.NTF|.dim|.DIMA|.h5|.txt|.tif|.TIF|_OC|.N1|.nc|.dbf|.prj|.qix|.shp|.shx|.qpj|.png|.PNG|.jpg|.JPG)$", path):
         return fs.path.dirname(path)
     else:
         return path
