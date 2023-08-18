@@ -67,6 +67,8 @@ test_mac:
 
 pages:
   stage: report
+  tags:
+    - mac
   rules:
     - if: $PLATFORM == 'darwin'
       when: always

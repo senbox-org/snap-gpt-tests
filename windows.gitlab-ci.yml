@@ -47,6 +47,8 @@ test_windows:
 
 pages:
   stage: report
+  tags:
+    - windows
   cache: []
   rules:
     - if: $PLATFORM == 'windows'
