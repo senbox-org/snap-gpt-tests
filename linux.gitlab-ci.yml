@@ -104,7 +104,7 @@ test_daily:
     - if: $SCOPE == 'daily' && $PLATFORM == 'linux'
       when: always
     - when: never
-  parallel: 115
+  parallel: 181
   extends: .test
 
 pages:
