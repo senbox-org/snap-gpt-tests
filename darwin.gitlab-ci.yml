@@ -9,6 +9,7 @@ test_mac:
   variables:
     SCOPE: daily
     SNAP_DIR: ~/Documents/snap
+    REPORT_DIR: $CI_PROJECT_DIR/result
     TAG: master
     PROPERTIES_PATH: $CI_PROJECT_DIR/mac.conf
     SNAP_INSTALLER: snap_all_macos-pRC10.dmg
