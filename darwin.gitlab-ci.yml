@@ -67,7 +67,7 @@ test_mac:
   allow_failure: true
 
 
-pages:
+report:
   stage: report
   tags:
     - mac
@@ -95,9 +95,10 @@ pages:
     - ls result/report
     - echo "Generate report"
     - python3 pygpt/report_utils.py pygpt/templates result/report $SCOPE snap:master
-    - mv result/report public/macos
+    # Upload to s3
+    - aws s3 rm "s3://${S3_REPORTS}/macos" --recursive --endpoint-url https://s3.sbg.io.cloud.ovh.net --region sbg
+    - aws s3 sync result/report "s3://${S3_REPORTS}/macos" --endpoint-url https://s3.sbg.io.cloud.ovh.net --region sbg --acl public-read
   artifacts:
-    expire_in: 1 week
+    expire_in: 1 day
     paths:
-      - public/macos
-  publish: public/macos
+      - result/report
