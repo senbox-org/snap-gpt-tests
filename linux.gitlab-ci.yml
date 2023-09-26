@@ -32,6 +32,11 @@
       export FILE=$(sed "${CI_NODE_INDEX}q;d" $REPORT_DIR/JSONTestFiles.txt)
       python3 pygpt/snap_gpt_test.py java "${JAVA_OPTIONS} -cp ${CI_PROJECT_DIR}/gpt-tests-executer/target/gpt-test-exec.jar" \
         org.esa.snap.test.TestOutput $PROPERTIES_PATH $SCOPE $FILE $REPORT_DIR/report/output true
+    - |
+      if [ $CI_COMMIT_BRANCH = 'master' ] || [ ! -z $CI_COMMIT_TAG  ]
+      then
+        python3 pygpt/stat_db.py $DB_PATH $VERSION $SCOPE $REPORT_DIR/report $CI_JOB_ID $CI_COMMIT_REF_NAME
+      fi
   after_script:
     - ls $REPORT_DIR/report
     - ls $REPORT_DIR/report/output
