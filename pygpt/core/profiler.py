@@ -76,8 +76,8 @@ class ProcessStats:
             self.stats['cpu_perc'].append(cpu_perc) # cpu usage
             self.stats['cpu_time'].append(cpu_time) # cpu time
             self.stats['threads'].append(n_threads) # num threads
-        except Exception:
-            print('No access to process...')
+        except Exception as e:
+            print(e.args)
 
 
     def summary(self):
