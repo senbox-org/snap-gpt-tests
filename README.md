@@ -78,6 +78,8 @@ The parameters are the following:
     JSON_FILE_TO_TEST is the JSON file you are currently testing.
  ```
 
+ > Note on MacOS `--profiling off` should be added because it not compatible
+
 ### 3. Report generation (optional)
 
 If you want to generate the HTML report for the tests you have performed first you need to copy the static resources (CSS and icons) and move the previous results in a sub directory:
