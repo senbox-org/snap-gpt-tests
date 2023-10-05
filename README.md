@@ -78,18 +78,7 @@ The parameters are the following:
     JSON_FILE_TO_TEST is the JSON file you are currently testing.
  ```
 
-
-### 3. Performance Database support (Optional)
-
-If you want to monitor the evolution of the performance of your project the profiler is able to store the information inside a sqlite data base (and mysql in the future). To do this simply run the script `stat_db.py`:
-
-```
-python3 pygpt/stat_db.py DB_PATH SNAP_VERSION TEST_SCOPE OUTPUT_DIR/report JOB_ID BRANCH
-``` 
-
-The script will automatically fill and update the database with all the information produced by the profiler
-
-### 4. Report generation (optional)
+### 3. Report generation (optional)
 
 If you want to generate the HTML report for the tests you have performed first you need to copy the static resources (CSS and icons) and move the previous results in a sub directory:
 
@@ -103,6 +92,16 @@ python3 pygpt/report_utils.py pygpt/templates OUTPUT_DIR/report TEST_SCOPE VERSI
 ```
 
 The `DB_PATH` is optional, but if it is provided the report_utils.py will add to the performance report of each tests the historical average values and the trend of `CPU_TIME` and `AVERAGE_MEMORY`.
+
+### 4. Performance Database support (Optional)
+
+If you want to monitor the evolution of the performance of your project the profiler is able to store the information inside a sqlite data base (and mysql in the future). To do this simply run the script `stat_db.py`:
+
+```
+python3 pygpt/stat_db.py DB_PATH SNAP_VERSION TEST_SCOPE OUTPUT_DIR/report JOB_ID BRANCH
+``` 
+
+The script will automatically fill and update the database with all the information produced by the profiler
 
 ## JSON Test structure
 

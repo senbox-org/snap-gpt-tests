@@ -34,6 +34,7 @@ default:
         - "${CI_PROJECT_DIR}/**/target"
 
 variables:
+  VERSION: pRC10
   PLATFORM: linux
   PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
   # $DOCKER_AUTH_CONFIG should have been setup as projet variable

@@ -9,10 +9,12 @@ test_mac:
   variables:
     SCOPE: daily
     SNAP_DIR: ~/Documents/snap
+    REPORT_DIR: $CI_PROJECT_DIR/result
     TAG: master
     PROPERTIES_PATH: $CI_PROJECT_DIR/mac.conf
     SNAP_INSTALLER: snap_all_macos-pRC10.dmg
     TEST_DATA_LIST: singleTestData.txt
+    JAVA_HOME: /Library/Java/JavaVirtualMachines/temurin-11.jdk/Contents/Home
     MAVEN_CLI_OPTS: >-
       --no-transfer-progress
       --batch-mode
@@ -49,8 +51,13 @@ test_mac:
     - echo "Running $(sed "${CI_NODE_INDEX}q;d" ${REPORT_DIR}/JSONTestFiles.txt)"
     - |
       export FILE=$(sed "${CI_NODE_INDEX}q;d" $REPORT_DIR/JSONTestFiles.txt)
-      python3 pygpt/snap_gpt_test.py java "${JAVA_OPTIONS} -cp ${CI_PROJECT_DIR}/gpt-tests-executer/target/gpt-test-exec.jar" \
+      python3 pygpt/snap_gpt_test.py $JAVA_HOME/bin/java "${JAVA_OPTIONS} -cp ${CI_PROJECT_DIR}/gpt-tests-executer/target/gpt-test-exec.jar" \
         org.esa.snap.test.TestOutput $PROPERTIES_PATH $SCOPE $FILE $REPORT_DIR/report/output true
+    # - |
+    #   if [ $CI_COMMIT_BRANCH = 'master' ] || [ ! -z $CI_COMMIT_TAG  ]
+    #   then
+    #     python3 pygpt/stat_db.py $DB_PATH $VERSION $SCOPE $REPORT_DIR/report $CI_JOB_ID $CI_COMMIT_REF_NAME
+    #   fi
   after_script:
     # Copy assets for report generation
     - cp -rf $REPORT_DIR/report/output/* $REPORT_DIR/report
@@ -65,7 +72,7 @@ test_mac:
   allow_failure: true
 
 
-pages:
+report:
   stage: report
   tags:
     - mac
@@ -93,9 +100,10 @@ pages:
     - ls result/report
     - echo "Generate report"
     - python3 pygpt/report_utils.py pygpt/templates result/report $SCOPE snap:master
-    - mv result/report public/macos
+    # Upload to s3
+    - aws s3 rm "s3://${S3_REPORTS}/macos" --recursive --endpoint-url https://s3.sbg.io.cloud.ovh.net --region sbg
+    - aws s3 sync result/report "s3://${S3_REPORTS}/macos" --endpoint-url https://s3.sbg.io.cloud.ovh.net --region sbg --acl public-read
   artifacts:
-    expire_in: 1 week
+    expire_in: 1 day
     paths:
-      - public/macos
-  publish: public/macos
+      - result/report

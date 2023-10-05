@@ -38,14 +38,13 @@ test_windows:
     # Remove heavy images
     - DEL /Q /F /S %REPORT_DIR%\report\output\*.zip
     - DEL /Q /F /S %REPORT_DIR%\report\output\*.dim
-    - rd /s /q %REPORT_DIR%\report\output\*.data
   artifacts:
     when: always
-    expire_in: "3 days"
+    expire_in: "1 hour"
     paths:
-      - result\report
+      - result
 
-pages:
+report:
   stage: report
   tags:
     - windows
@@ -55,6 +54,7 @@ pages:
       when: always
     - when: never
   variables:
+    REPORT_DIR: result
     # output upload and download progress every 2 seconds
     TRANSFER_METER_FREQUENCY: "2s"
     # Use fast compression for artifacts, resulting in larger archives
@@ -66,17 +66,24 @@ pages:
     DEST_DIR: public\windows
   script:
     - echo "Copy assets for report generation"
-    - xcopy "%CI_PROJECT_DIR%\%REPORT_DIR%\report\output" "%CI_PROJECT_DIR%\%REPORT_DIR%\report"
-    - mkdir "%CI_PROJECT_DIR%\%REPORT_DIR%\report\json" && xcopy "%CI_PROJECT_DIR%\%REPORT_DIR%\report\output\json" "%CI_PROJECT_DIR%\%REPORT_DIR%\report\json"
-    - xcopy "%CI_PROJECT_DIR%\pygpt\statics\*" "%CI_PROJECT_DIR%\%REPORT_DIR%\report"
-    - type result\report\output
+    - mkdir %CI_PROJECT_DIR%\%REPORT_DIR%\report\json %CI_PROJECT_DIR%\%REPORT_DIR%\report\performances %CI_PROJECT_DIR%\%REPORT_DIR%\report\images
+    - xcopy /Y "%CI_PROJECT_DIR%\%REPORT_DIR%\report\output\json\*.json" "%CI_PROJECT_DIR%\%REPORT_DIR%\report\json\"
+    - xcopy /E /H /C /I "%CI_PROJECT_DIR%\%REPORT_DIR%\report\output\performances" "%CI_PROJECT_DIR%\%REPORT_DIR%\report\performances\" 
+    - xcopy /Y "%CI_PROJECT_DIR%\%REPORT_DIR%\report\output\*.txt" "%CI_PROJECT_DIR%\%REPORT_DIR%\report\"
+    - rmdir /Y /S "%CI_PROJECT_DIR%\%REPORT_DIR%\report\output"
+    - mkdir %CI_PROJECT_DIR%\result\report\css %CI_PROJECT_DIR%\result\report\icons %CI_PROJECT_DIR%\result\report\js
+    - xcopy /Y "%CI_PROJECT_DIR%\pygpt\statics\css\*.css*" "%CI_PROJECT_DIR%\result\report\css\"
+    - xcopy /Y "%CI_PROJECT_DIR%\pygpt\statics\icons\*.jpg" "%CI_PROJECT_DIR%\result\report\icons\"
+    - xcopy /Y "%CI_PROJECT_DIR%\pygpt\statics\icons\*.png" "%CI_PROJECT_DIR%\result\report\icons\"
+    - xcopy /Y "%CI_PROJECT_DIR%\pygpt\statics\js\*.js" "%CI_PROJECT_DIR%\result\report\js\"
     - echo "Generate report"
-    - python %CI_PROJECT_DIR%\pygpt\report_utils.py %CI_PROJECT_DIR%\pygpt\templates %CI_PROJECT_DIR%\%REPORT_DIR%\report %SCOPE% snap:master
-    - rd /s /q %DEST_DIR%
-    - mkdir public %DEST_DIR%
-    - move /Y result\report %DEST_DIR%
+    - python pygpt\report_utils.py pygpt\templates %CI_PROJECT_DIR%\%REPORT_DIR%\report %SCOPE% snap:master
+    - rd /s /q %CI_PROJECT_DIR%\%DEST_DIR%
+    - mkdir %CI_PROJECT_DIR%\public %CI_PROJECT_DIR%\%DEST_DIR%
+    # Upload report to s3
+    - '"C:\Program Files\Amazon\AWSCLIV2\aws.exe" s3 rm "s3://%S3_REPORTS%/windows" --recursive --endpoint-url https://s3.sbg.io.cloud.ovh.net --region sbg"'
+    - '"C:\Program Files\Amazon\AWSCLIV2\aws.exe" s3 sync %CI_PROJECT_DIR%\%REPORT_DIR%\report "s3://%S3_REPORTS%/windows" --endpoint-url https://s3.sbg.io.cloud.ovh.net --region sbg --acl public-read'
   artifacts:
-    expire_in: 1 week
+    expire_in: 1 day
     paths:
-      - public/windows
-  publish: public/windows
+      - '%CI_PROJECT_DIR%\%REPORT_DIR%\report'
