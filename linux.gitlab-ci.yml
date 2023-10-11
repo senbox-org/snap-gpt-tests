@@ -21,7 +21,6 @@
     - cat $REPORT_DIR/$TEST_DATA_LIST
     # Download test data
     - $CI_PROJECT_DIR/download_test_data.sh "${REPORT_DIR}" "${TEST_DATA_DIR}" "${TEST_DATA_LIST}" "${S3_BUCKET}" "${S3_ARGS}"
-
 .test:
   stage: test
   extends: .prepare
@@ -32,6 +31,8 @@
       python3 pygpt/snap_gpt_test.py java "${JAVA_OPTIONS} -cp ${CI_PROJECT_DIR}/gpt-tests-executer/target/gpt-test-exec.jar" \
         org.esa.snap.test.TestOutput $PROPERTIES_PATH $SCOPE $FILE $REPORT_DIR/report/output true
   after_script:
+    # DEBUG
+    - ls ~/.snap/auxdata/ && echo "DEBUG END"
     - ls $REPORT_DIR/report
     - ls $REPORT_DIR/report/output
     # TODO remove next line when test data will be cropped (ATM some tests produce gigabytes of tests data)
