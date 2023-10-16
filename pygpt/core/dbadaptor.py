@@ -72,6 +72,7 @@ class DBAdaptor:
          - tag_id: docker tag id
          - test_sets: test sets executed in the job
         """
+        log.info(f'Execute: SELECT ID FROM jobs WHERE branch="{branch}" AND jobnum={job};')
         query = f'SELECT ID FROM jobs WHERE branch="{branch}" AND jobnum={job};'
         res = self.execute(query)
 
@@ -93,7 +94,11 @@ class DBAdaptor:
             ) VALUES (
                 '{new_id}', '{branch}', '{job}', '{tag_id}', '{test_scope}', '{start_date}', '{end_date}', '{1 if result else 3}'
             );'''
-            res = self.execute(add_query)
+            try:
+                res = self.execute(add_query)
+            except Exception as e:
+                print(e)
+                
             res = self.execute(query)
             if not res:
                 log.panic('impossible to add job')
@@ -228,11 +233,15 @@ class DBAdaptor:
             return res[0][value_tag]
         return None
 
-
+def handleError(connection, cursor, errorclass, errorvalue):
+    log.debug(connection)
+    log.debug(cursor)
+    log.debug(errorclass)
+    log.panic(errorvalue)
 
 def ensure_connection(func):
     """
-    ensure connection decroator
+    ensure connection decorator
     """
     @wraps(func)
     def inner(*args, **kwargs):
@@ -254,35 +263,45 @@ class MySQLAdaptor(DBAdaptor):
         if self.__db__ is not None:
             return True
         log.info(f"connecting to db: {self.host}:{self.port}/{self.dbname}")
-        self.__db__ = pymysql.connect(
-            host=self.host,
-            port=int(self.port),
-            user=self.user,
-            password=self.password,
-            db=self.dbname,
-            cursorclass=pymysql.cursors.DictCursor
-        )
-        return True
+        try:
+            self.__db__ = pymysql.connect(
+                host=self.host,
+                port=int(self.port),
+                user=self.user,
+                password=self.password,
+                database=self.dbname,
+                cursorclass=pymysql.cursors.DictCursor,
+                autocommit=True,
+            )
+            self.__db__.errorhandler: handleError
+            return True
+        except Exception as e:
+            log.panic(e)
+            return False
 
     def close(self):
         if self.__db__ is None:
             return True
-        log.info(f"disconnecting to db: {self.host}:{self.port}/{self.dbname}")
-        self.__db__.commit()
-        self.__db__.close()
-        self.__db__ = None
-        self.__cursor__ = None
+        log.info(f"disconnecting db: {self.host}:{self.port}/{self.dbname}")
+        try:
+            self.__db__.close()
+        finally:
+            self.__db__ = None
+            self.__cursor__ = None
         return True
 
     @ensure_connection
     def execute(self, query, *args):
-        with self.__db__.cursor() as cursor:
-            try: 
-                cursor.execute(query, *args)
-                res_list = cursor.fetchall()
-                return res_list
-            except Exception:
-                return []
+        with self.__db__  as connection:
+            # TODO : Next line is a workaround
+            connection.ping()
+            with connection.cursor() as cursor:
+                try: 
+                    cursor.execute(query, *args)
+                    res_list = cursor.fetchall()
+                    return res_list
+                except Exception as e:
+                    log.panic(e)
 
     def docker_tag_id(self, tag_name):
         """
