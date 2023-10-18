@@ -21,7 +21,6 @@
     - cat $REPORT_DIR/$TEST_DATA_LIST
     # Download test data
     - $CI_PROJECT_DIR/download_test_data.sh "${REPORT_DIR}" "${TEST_DATA_DIR}" "${TEST_DATA_LIST}" "${S3_BUCKET}" "${S3_ARGS}"
-
 .test:
   stage: test
   extends: .prepare
@@ -32,6 +31,8 @@
       python3 pygpt/snap_gpt_test.py java "${JAVA_OPTIONS} -cp ${CI_PROJECT_DIR}/gpt-tests-executer/target/gpt-test-exec.jar" \
         org.esa.snap.test.TestOutput $PROPERTIES_PATH $SCOPE $FILE $REPORT_DIR/report/output true
   after_script:
+    # DEBUG
+    - ls ~/.snap/auxdata/ && echo "DEBUG END"
     - ls $REPORT_DIR/report
     - ls $REPORT_DIR/report/output
     # TODO remove next line when test data will be cropped (ATM some tests produce gigabytes of tests data)
@@ -150,15 +151,14 @@ report:
     - echo "Generate report"
     - python3 pygpt/report_utils.py pygpt/templates result/report $SCOPE snap:master
     # Upload to s3
-    - aws s3 rm "s3://${S3_REPORTS}/linux" --recursive --endpoint-url https://s3.sbg.io.cloud.ovh.net --region sbg
-    - aws s3 sync result/report "s3://${S3_REPORTS}/linux" --endpoint-url https://s3.sbg.io.cloud.ovh.net --region sbg --acl public-read
+    # - aws s3 rm "s3://${S3_REPORTS}/linux" --recursive --endpoint-url https://s3.sbg.io.cloud.ovh.net --region sbg
+    # - aws s3 sync result/report "s3://${S3_REPORTS}/linux" --endpoint-url https://s3.sbg.io.cloud.ovh.net --region sbg --acl public-read
   after_script:
     - |
-      if [ $CI_COMMIT_BRANCH = 'master' ] || [ ! -z $CI_COMMIT_TAG  ]
-      then
+      if [[ "${CI_COMMIT_BRANCH}" == "master" ]] || [[ "${CI_COMMIT_BRANCH}" =~ "*.x$" ]] || [[ "${CI_COMMIT_BRANCH}" =~ "*RC*" ]] || [[ ! -z "${CI_COMMIT_TAG}" ]]; then
         ls result/report/json
         echo "Update database"
-        python3 pygpt/stats_db.py $DB_PATH $VERSION $SCOPE result/report $CI_JOB_ID $CI_COMMIT_REF_NAME
+        python3 pygpt/stats_db.py $DB_PATH "snap:${CI_COMMIT_REF_NAME}" $SCOPE result/report ${CI_JOB_ID:6:10} $CI_COMMIT_REF_NAME
       fi
   artifacts:
     expire_in: 1 day
