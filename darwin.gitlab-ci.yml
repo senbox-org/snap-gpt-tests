@@ -12,7 +12,7 @@ test_mac:
   variables:
     SCOPE: daily
     SNAP_DIR: /Users/otb/Applications/snap
-    REPORT_DIR: $CI_PROJECT_DIR/result
+    REPORT_DIR: ./result
     TAG: master
     PROPERTIES_PATH: $CI_PROJECT_DIR/mac.conf
     SNAP_INSTALLER: snap_all_macos_archive-pRC10.dmg
