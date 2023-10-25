@@ -10,6 +10,7 @@ FOR /F "usebackq tokens=1,2* delims=" %%t in ("%CI_PROJECT_DIR%\%REPORT_DIR%\JSO
     echo "Running %%t"
     set CI_PROJECT_DIR=%CI_PROJECT_DIR%
     echo  java args: "%JAVA_OPTIONS% -cp %CLASSPATH%"
+    echo %USERPROFILE%
     python "%CI_PROJECT_DIR%\pygpt\snap_gpt_test.py" java "%JAVA_OPTIONS% -cp %CLASSPATH%" org.esa.snap.test.TestOutput "%CI_PROJECT_DIR%\%PROPERTIES_PATH%" %SCOPE% "%CI_PROJECT_DIR%\%%t" "%CI_PROJECT_DIR%\%REPORT_DIR%\report\output" true
 )
 endlocal
