@@ -14,6 +14,7 @@ test_windows:
     JAVA_OPTIONS: >-
       -Dncsa.hdf.hdflib.HDFLibrary.hdflib=%SNAP_DIR%\\snap\\modules\\lib\\amd64\\jhdf.dll
       -Dncsa.hdf.hdf5lib.H5.hdf5lib=%SNAP_DIR%\\snap\modules\\lib\amd64\\jhdf5.dll
+      -Dfile.encoding=Windows-1252
     CLASSPATH: gpt-tests-executer\\target\\gpt-test-exec.jar
     # output upload and download progress every 2 seconds
     TRANSFER_METER_FREQUENCY: "2s"
@@ -21,6 +22,7 @@ test_windows:
     ARTIFACT_COMPRESSION_LEVEL: "slowest"
   cache: []
   before_script:
+    - echo %USERNAME%
     # build project
     - call mvn %MAVEN_CLI_OPTS% package install
     # Clean old report
@@ -32,6 +34,7 @@ test_windows:
     # Install snap
     - curl --progress-bar "https://nexus.snap-ci.ovh/repository/snap-maven-releases/org/esa/snap/installers-snapshot/snap_all_windows/pRC10/snap_all_windows-pRC10.exe" >> "%CI_PROJECT_DIR%\%SNAP_INSTALLER%"
     - echo "Install SNAP" && "%CI_PROJECT_DIR%\%SNAP_INSTALLER%" -q -dir "C:\Users\Public\Documents\snap" -console -overwrite -v
+    - echo "Post install" && xcopy "C:\Users\Public\Documents\snap.properties" "%SNAP_DIR%\etc" /Y
   script:
     - run_tests.bat
   after_script:
@@ -53,6 +56,8 @@ report:
     - if: $PLATFORM == 'windows'
       when: always
     - when: never
+    - if: $SCOPE == 'CItest'
+      when: never
   variables:
     REPORT_DIR: result
     # output upload and download progress every 2 seconds
