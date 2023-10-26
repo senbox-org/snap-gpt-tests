@@ -53,11 +53,9 @@ report:
     - windows
   cache: []
   rules:
-    - if: $PLATFORM == 'windows'
+    - if: $PLATFORM == 'windows' && $SCOPE != 'CItest'
       when: always
     - when: never
-    - if: $SCOPE == 'CItest'
-      when: never
   variables:
     REPORT_DIR: result
     # output upload and download progress every 2 seconds

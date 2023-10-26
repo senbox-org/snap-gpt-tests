@@ -121,7 +121,7 @@ test_daily:
 report:
   stage: report
   rules:
-    - if: $PLATFORM == 'linux'
+    - if: $PLATFORM == 'linux' && $SCOPE != 'CItest'
       when: always
     - when: never
     - if: $CI_COMMIT_BRANCH == 'master'
@@ -130,8 +130,6 @@ report:
     - if: $CI_COMMIT_TAG
       variables:
         VERSION: snap:$CI_COMMIT_TAG
-    - if: $SCOPE == 'CItest'
-      when: never
   cache: []
   variables:
     # output upload and download progress every 2 seconds
