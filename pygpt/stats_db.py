@@ -42,6 +42,7 @@ def __main__():
         sys.exit(1)
     try:
         adaptor.open()
+        log.info("Database openned")
         test_sets = ru.get_test_sets(args.base_path)
         tag_id = adaptor.docker_tag_id(args.tag_name)
         adaptor.create_job_entry(args.job, args.branch, args.test_scope, tag_id, test_sets)

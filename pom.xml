@@ -8,7 +8,7 @@
     <artifactId>snap-gpt-tests</artifactId>
     <name>SNAP GPT Tests</name>
     <packaging>pom</packaging>
-    <version>9.0.3-SNAPSHOT</version>
+    <version>9.0.0</version>
 
     <modules>
         <module>gpt-tests-executer</module>
@@ -90,15 +90,39 @@
     <build>
         <plugins>
             <plugin>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.5.1</version>
-                <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
-                    <debug>true</debug>
-                    <encoding>UTF-8</encoding>
-                </configuration>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>gpt-test-exec</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                        <configuration>
+                            <classifier>exec</classifier>
+                            <finalName>gpt-test</finalName> <!--will create final name gpt-test-exec.jar-->
+                            <archive>
+                                <manifest>
+                                    <addClasspath>true</addClasspath>
+                                    <classpathPrefix>libs/</classpathPrefix>
+                                    <useUniqueVersions>false</useUniqueVersions>
+                                    <mainClass>
+                                        org.esa.snap.test.TestOutput
+                                    </mainClass>
+                                </manifest>
+                            </archive>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
+        <resources> 
+        <resource>
+            <directory>src/main/resources</directory>
+            <includes>
+            </includes>
+        </resource>
+    </resources> 
     </build>
 </project>

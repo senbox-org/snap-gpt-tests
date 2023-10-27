@@ -1,0 +1,160 @@
+.prepare:
+  cache:
+    - key: ${CI_COMMIT_BRANCH}
+      paths:
+        - "${CI_PROJECT_DIR}/.m2/repository"
+        - "${HOME}/.cache/pip"
+        - "${CI_PROJECT_DIR}/**/target"
+  before_script:
+    # build project
+    - echo "Waitting maven install ..." && mvn -q $MAVEN_CLI_OPTS package install
+    - ls "${CI_PROJECT_DIR}/gpt-tests-executer/target"
+    # Clean old report
+    - mkdir -p $REPORT_DIR $REPORT_DIR/report $REPORT_DIR/report/output $TEMP_DIR
+    - echo "Installing pip requirements..." && pip3 install -q -r $CI_PROJECT_DIR/requirements.txt
+    # Produce a list of tests to run
+    - python3 $CI_PROJECT_DIR/pygpt/filter_json.py gpt-tests-resources/tests $SCOPE $REPORT_DIR
+    # Get test data for single test file
+    - |
+      export test=$(sed "${CI_NODE_INDEX}q;d" $REPORT_DIR/JSONTestFiles.txt)
+      python3 $CI_PROJECT_DIR/pygpt/get_test_data_list.py "${test}" "${REPORT_DIR}" "${TEST_DATA_DIR}"
+    - cat $REPORT_DIR/$TEST_DATA_LIST
+    # Download test data
+    - $CI_PROJECT_DIR/download_test_data.sh "${REPORT_DIR}" "${TEST_DATA_DIR}" "${TEST_DATA_LIST}" "${S3_BUCKET}" "${S3_ARGS}"
+.test:
+  stage: test
+  extends: .prepare
+  script:
+    - echo "Running $(sed "${CI_NODE_INDEX}q;d" ${REPORT_DIR}/JSONTestFiles.txt)"
+    - |
+      export FILE=$(sed "${CI_NODE_INDEX}q;d" $REPORT_DIR/JSONTestFiles.txt)
+      python3 pygpt/snap_gpt_test.py java "${JAVA_OPTIONS} -cp ${CI_PROJECT_DIR}/gpt-tests-executer/target/gpt-test-exec.jar" \
+        org.esa.snap.test.TestOutput $PROPERTIES_PATH $SCOPE $FILE $REPORT_DIR/report/output true
+  after_script:
+    # DEBUG
+    - ls ~/.snap/auxdata/ && echo "DEBUG END"
+    - ls $REPORT_DIR/report
+    - ls $REPORT_DIR/report/output
+    # TODO remove next line when test data will be cropped (ATM some tests produce gigabytes of tests data)
+    - rm -rf $REPORT_DIR/report/output/*.zip $REPORT_DIR/report/output/*.dim $REPORT_DIR/report/output/*.data
+    - mv $REPORT_DIR $CI_PROJECT_DIR/result
+  retry:
+    # max: 2
+    when:
+      - runner_system_failure
+      - stuck_or_timeout_failure
+      - script_failure
+      - unknown_failure
+  artifacts:
+    when: always
+    expire_in: "1 day"
+    paths:
+      - $CI_PROJECT_DIR/result
+
+test_CItest:
+  tags: [kube]
+  variables:
+    TEST_DATA_LIST: singleTestData.txt
+  rules:
+    - if: $SCOPE == 'CItest' && $PLATFORM == 'linux'
+      when: always
+    - when: never
+  parallel: 2
+  extends: .test
+
+test_s3tbx:
+  tags: [kube]
+  variables:
+    TEST_DATA_LIST: singleTestData.txt
+  rules:
+    - if: $SCOPE == 's3tbx' && $PLATFORM == 'linux'
+      when: always
+    - when: never
+  parallel: 22
+  extends: .test
+  
+test_s2tbx:
+  tags: [kube]
+  rules:
+    - if: $SCOPE == 's2tbx' && $PLATFORM == 'linux'
+      when: always
+    - when: never
+  parallel: 100
+  extends: .test
+
+test_s1tbx:
+  tags: [kube]
+  rules:
+    - if: $SCOPE == 's1tbx' && $PLATFORM == 'linux'
+      when: always
+    - when: never
+  parallel: 34
+  extends: .test
+
+test_snap:
+  tags: [kube]
+  rules:
+    - if: $SCOPE == 'snap' && $PLATFORM == 'linux'
+      when: always
+    - when: never
+  parallel: 26
+  extends: .test
+
+test_weekly:
+  tags: [kube]
+  rules:
+    - if: $SCOPE == 'weekly' && $PLATFORM == 'linux'
+      when: always
+    - when: never
+  parallel: 117
+  extends: .test
+
+test_daily:
+  tags: [kube]
+  rules:
+    - if: $SCOPE == 'daily' && $PLATFORM == 'linux'
+      when: always
+    - when: never
+  parallel: 181
+  extends: .test
+
+report:
+  stage: report
+  rules:
+    - if: $PLATFORM == 'linux' && $SCOPE != 'CItest'
+      when: always
+    - when: never
+  cache: []
+  variables:
+    # output upload and download progress every 2 seconds
+    TRANSFER_METER_FREQUENCY: "2s"
+    # Use fast compression for artifacts, resulting in larger archives
+    ARTIFACT_COMPRESSION_LEVEL: "fast"
+    # Use no compression for caches
+    CACHE_COMPRESSION_LEVEL: "fastest"
+    # Set maximum duration of cache upload and download
+    CACHE_REQUEST_TIMEOUT: 5
+  before_script:
+    - pip3 install -r $CI_PROJECT_DIR/requirements.txt
+  script:
+    - echo "Copy assets for report generation in result/report"
+    - ls result/report/output/
+    - cp -rf result/report/output/* result/report
+    - cp -rf pygpt/statics/* result/report
+    - ls result/report
+    - echo "Generate report"
+    - python3 pygpt/report_utils.py pygpt/templates result/report $SCOPE snap:master
+    # No upload to s3 for this branch
+    - aws s3 rm "s3://${S3_REPORTS}/9" --recursive --endpoint-url https://s3.sbg.io.cloud.ovh.net --region sbg
+    - aws s3 sync result/report "s3://${S3_REPORTS}/9" --endpoint-url https://s3.sbg.io.cloud.ovh.net --region sbg --acl public-read
+  after_script:
+    - |
+      if [[ "${CI_COMMIT_BRANCH}" == "9.0.0-reference" ]]; then
+        ls result/report/json
+        echo "Update database"
+        python3 pygpt/stats_db.py $DB_PATH "snap:${CI_COMMIT_BRANCH}" $SCOPE result/report ${CI_JOB_ID:6:10} $CI_COMMIT_BRANCH
+      fi
+  artifacts:
+    expire_in: 1 day
+    paths:
+      - result/report
