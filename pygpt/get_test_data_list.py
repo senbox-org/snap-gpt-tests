@@ -18,12 +18,12 @@ __data_files__ = "singleTestData.txt"
 
 def get_parent(path):
     """returns parent directory for files"""
-    if re.search("(.xml|.XML|.JP2|.zip|.ZIP|.tgz|.NTF|.dim|.DIMA|.h5|.txt|.tif|.TIF|_OC|.N1|.nc|.dbf|.prj|.qix|.shp|.shx|.qpj|.png|.PNG|.jpg|.JPG)$", path):
+    if re.search("(.xml|.XML|.JP2|.zip|.ZIP|.tgz|.NTF|.dim|.DIMA|.h5|.txt|.tif|.TIF|_OC|.N1|.nc|.dbf|.prj|.qix|.shp|.shx|.qpj|.png|.PNG|.jpg|.JPG|.E1|.E2|.001|.safe)$", path):
         return fs.path.dirname(path)
     else:
         return path
 
-def __create_test_json_list__(test_path, data_files_path):
+def __create_test_json_list__(test_path, data_files_path, testdata_folder):
     """creates files containing list of tests data for a given test"""
     test_data = []
     for path in [test_path]:
@@ -33,8 +33,12 @@ def __create_test_json_list__(test_path, data_files_path):
                 if 'inputs' in test:
                     for input in list(test['inputs']):
                         folder = get_parent(test['inputs'][input])
+                        # TODO Check if folder alreay exist locally
                         if folder not in test_data:
-                            test_data.append(folder)
+                            if os.access(os.path.join(testdata_folder, folder), 0):
+                                print(folder + ' already exists - skip download')
+                            else:
+                                test_data.append(folder)
     with open(data_files_path, 'w') as file:
         file.write('\n'.join(test_data))
     return True
@@ -52,6 +56,9 @@ def __arguments__():
 
     parser.add_argument('output_folder',
                         help="output folder path")
+    
+    parser.add_argument('test_data_path',
+                        help="test data folder path")
 
     # parse arguments
     return parser.parse_args()
@@ -68,9 +75,13 @@ def __main__():
     if not os.path.exists(args.output_folder):
         log.error("output folder does not exist")
         sys.exit(1)
+
+    if not os.path.exists(args.test_data_path):
+        log.error("test data folder does not exist")
+        sys.exit(1)
     data_file = os.path.join(args.output_folder, __data_files__)
 
-    if __create_test_json_list__(args.test_path, data_file):
+    if __create_test_json_list__(args.test_path, data_file, args.test_data_path):
         log.success(f"filtered test data list created in {data_file}")
 
 

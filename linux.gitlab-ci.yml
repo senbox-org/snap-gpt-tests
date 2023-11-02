@@ -7,17 +7,17 @@
         - "${CI_PROJECT_DIR}/**/target"
   before_script:
     # build project
-    - mvn $MAVEN_CLI_OPTS package install
+    - mvn -q $MAVEN_CLI_OPTS package install
     - ls "${CI_PROJECT_DIR}/gpt-tests-executer/target"
     # Clean old report
-    - mkdir -p $TEST_DATA_DIR/$SCOPE $REPORT_DIR $REPORT_DIR/report $REPORT_DIR/report/output $TEMP_DIR
-    - pip3 install -r $CI_PROJECT_DIR/requirements.txt
+    - mkdir -p $REPORT_DIR $REPORT_DIR/report $REPORT_DIR/report/output $TEMP_DIR
+    - pip3 install -q -r $CI_PROJECT_DIR/requirements.txt
     # Produce a list of tests to run
     - python3 $CI_PROJECT_DIR/pygpt/filter_json.py gpt-tests-resources/tests $SCOPE $REPORT_DIR
     # Get test data for single test file
     - |
       export test=$(sed "${CI_NODE_INDEX}q;d" $REPORT_DIR/JSONTestFiles.txt)
-      python3 $CI_PROJECT_DIR/pygpt/get_test_data_list.py $test $REPORT_DIR
+      python3 $CI_PROJECT_DIR/pygpt/get_test_data_list.py $test $REPORT_DIR $TEST_DATA_DIR
     - cat $REPORT_DIR/$TEST_DATA_LIST
     # Download test data
     - $CI_PROJECT_DIR/download_test_data.sh "${REPORT_DIR}" "${TEST_DATA_DIR}" "${TEST_DATA_LIST}" "${S3_BUCKET}" "${S3_ARGS}"
