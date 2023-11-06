@@ -353,7 +353,7 @@ def __run_test__(test, args, properties):
     if res is None:
         res = 0
 
-    # if a result output is configuated
+    # if a result output is configured
     if test.result is not None:
         if test.result['status'] and res > 0:
             # the process should not have failed
@@ -361,15 +361,15 @@ def __run_test__(test, args, properties):
         elif not test.result['status'] and test.result['source'] == 'process':
             # the process should fail graciously
             if res == 0:
-                # process succeded and should have failed
+                # process succeeded and should have failed
                 log.error(f'test `{test.name}` was supposed to fail')
                 return Result.FAILED
             elif test.result['message'].lower() not in stdout.lower():
                 # process failed but with a different message than expected
-                log.error(f'test `{test.name}` was suppoed to fail with message `{test.result["message"]}`')
+                log.error(f'test `{test.name}` was supposed to fail with message `{test.result["message"]}`')
                 return Result.FAILED
             else:
-                log.success(f'test `{test.name}` failed succesfully')
+                log.success(f'test `{test.name}` failed successfully')
                 return Result.PASSED
     # if the execution result is not 0 return False
     elif res > 0:
@@ -485,7 +485,7 @@ def __run_tests__(args, properties):
                 result_str = str(result)
                 output += f' - {end} - {result_str}\n'
                 if result == Result.PASSED:
-                    log.success(f"test `{test.name}` succeded")    
+                    log.success(f"test `{test.name}` succeeded")
                 else:
                     log.error(f"test `{test.name} failed")
                 if not isinstance(TestScope.init(args.scope), TestScope):
