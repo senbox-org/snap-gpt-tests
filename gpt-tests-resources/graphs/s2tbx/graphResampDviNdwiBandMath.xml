@@ -64,7 +64,7 @@
         <targetBand>
           <name>newBand</name>
           <type>float32</type>
-          <expression>if($1.dvi &gt; $2.ndwi) then 1 else 0</expression>
+          <expression>if($1.S2B_MSIL1C_20170315T013719_N0100_R000_T52LEK_20170315T013714_resampled_dvi &gt; $2.S2B_MSIL1C_20170315T013719_N0100_R000_T52LEK_20170315T013714_resampled_ndwi) then 1 else 0</expression>
           <description/>
           <unit/>
           <noDataValue>0.0</noDataValue>
