@@ -8,14 +8,14 @@ test_mac:
     - when: never
     # - if: $CI_COMMIT_TAG
     #   variables:
-    #     DL_URL: https://nexus.snap-ci.ovh/repository/snap-maven-releases/org/esa/snap/installers/snap_all_macos/pRC10/snap_all_macos-pRC10.dmg
+    #     DL_URL: https://nexus.snap-ci.ovh/repository/snap-maven-releases/org/esa/snap/installers/snap_all_macos/RC10/snap_all_macos-RC10.dmg
   variables:
     SCOPE: daily
     SNAP_DIR: /Users/otb/Applications/snap
     REPORT_DIR: ./result
     TAG: master
     PROPERTIES_PATH: $CI_PROJECT_DIR/mac.conf
-    SNAP_INSTALLER: snap_all_macos_archive-pRC10.dmg
+    SNAP_INSTALLER: snap_all_macos_archive-RC10.dmg
     TEST_DATA_LIST: singleTestData.txt
     JAVA_HOME: /Library/Java/JavaVirtualMachines/temurin-11.jdk/Contents/Home
     MAVEN_CLI_OPTS: >-
@@ -27,7 +27,7 @@ test_mac:
       -DdeployAtEnd=false
       -Dmaven.wagon.http.ssl.insecure=true
       -Dmaven.wagon.http.ssl.allowall=true
-    DL_URL: https://nexus.snap-ci.ovh/repository/snap-maven-releases/org/esa/snap/installers-snapshot/snap_all_macos_archive/pRC10/snap_all_macos_archive-pRC10.dmg
+    DL_URL: https://nexus.snap-ci.ovh/repository/snap-maven-releases/org/esa/snap/installers-snapshot/snap_all_macos_archive/RC10/snap_all_macos_archive-RC10.dmg
   before_script:
     # build project
     - mvn $MAVEN_CLI_OPTS package install
