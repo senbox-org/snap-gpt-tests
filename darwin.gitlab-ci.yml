@@ -2,10 +2,7 @@ test_mac:
   tags:
    - mac
   stage: test
-  rules:
-    - if: $PLATFORM == 'darwin'
-      when: always
-    - when: never
+    # rules:
     # - if: $CI_COMMIT_TAG
     #   variables:
     #     DL_URL: https://nexus.snap-ci.ovh/repository/snap-maven-releases/org/esa/snap/installers/snap_all_macos/RC10/snap_all_macos-RC10.dmg
@@ -28,7 +25,7 @@ test_mac:
       -DdeployAtEnd=false
       -Dmaven.wagon.http.ssl.insecure=true
       -Dmaven.wagon.http.ssl.allowall=true
-    DL_URL: https://nexus.snap-ci.ovh/repository/snap-maven-releases/org/esa/snap/installers-snapshot/snap_all_macos_archive/$VERSION/snap_all_macos_archive-$VERSION.dmg
+    DL_URL: "https://nexus.snap-ci.ovh/repository/snap-maven-releases/org/esa/snap/installers-snapshot/snap_all_macos_archive/${VERSION}/snap_all_macos_archive-$VERSION.dmg"
   before_script:
     - mvn $MAVEN_CLI_OPTS package install
     - ls "${CI_PROJECT_DIR}/gpt-tests-executer/target"
@@ -39,13 +36,13 @@ test_mac:
     - pip3 install -r $CI_PROJECT_DIR/requirements.txt
     - curl --progress-bar "${DL_URL}" >> "${CI_PROJECT_DIR}/${SNAP_INSTALLER}"
     - hdiutil attach ${CI_PROJECT_DIR}/${SNAP_INSTALLER}
-    - "/Volumes/esa-snap 1/ESA SNAP.app/Contents/MacOS/JavaApplicationStub" -q -console -dir $SNAP_DIR
+    - '"/Volumes/esa-snap/ESA SNAP.app/Contents/MacOS/JavaApplicationStub" -dir ${SNAP_DIR} -q -console -overwrite'
     - ls $SNAP_DIR/bin
     - python3 $CI_PROJECT_DIR/pygpt/filter_json.py gpt-tests-resources/tests $SCOPE $REPORT_DIR
   script:
     - $CI_PROJECT_DIR/prepare.sh "${REPORT_DIR}" "${TEST_DATA_DIR}" "${TEST_DATA_LIST}" "${S3_BUCKET}" "${S3_ARGS}" "${CI_PROJECT_DIR}"
   after_script:
-    - hdiutil eject /dev/disk3
+    - hdiutil detach /dev/disk3
   artifacts:
     when: always
     expire_in: "3 days"
@@ -57,9 +54,7 @@ report:
   tags:
     - mac
   rules:
-    - if: $PLATFORM == 'darwin' && $SCOPE != 'CItest'
-      when: always
-    - when: never
+    - if: $SCOPE != 'CItest'
     - if: $CI_COMMIT_BRANCH == 'master'
       variables:
         VERSION: snap:master

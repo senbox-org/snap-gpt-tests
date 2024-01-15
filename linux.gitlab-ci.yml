@@ -56,7 +56,7 @@ test_CItest:
   variables:
     TEST_DATA_LIST: singleTestData.txt
   rules:
-    - if: $SCOPE == 'CItest' && $PLATFORM == 'linux'
+    - if: $SCOPE == 'CItest'
       when: always
     - when: never
   parallel: 2
@@ -67,7 +67,7 @@ test_s3tbx:
   variables:
     TEST_DATA_LIST: singleTestData.txt
   rules:
-    - if: $SCOPE == 's3tbx' && $PLATFORM == 'linux'
+    - if: $SCOPE == 's3tbx'
       when: always
     - when: never
   parallel: 22
@@ -76,7 +76,7 @@ test_s3tbx:
 test_s2tbx:
   tags: [kube]
   rules:
-    - if: $SCOPE == 's2tbx' && $PLATFORM == 'linux'
+    - if: $SCOPE == 's2tbx'
       when: always
     - when: never
   parallel: 100
@@ -85,7 +85,7 @@ test_s2tbx:
 test_s1tbx:
   tags: [kube]
   rules:
-    - if: $SCOPE == 's1tbx' && $PLATFORM == 'linux'
+    - if: $SCOPE == 's1tbx'
       when: always
     - when: never
   parallel: 34
@@ -94,7 +94,7 @@ test_s1tbx:
 test_snap:
   tags: [kube]
   rules:
-    - if: $SCOPE == 'snap' && $PLATFORM == 'linux'
+    - if: $SCOPE == 'snap'
       when: always
     - when: never
   parallel: 26
@@ -103,7 +103,7 @@ test_snap:
 test_weekly:
   tags: [kube]
   rules:
-    - if: $SCOPE == 'weekly' && $PLATFORM == 'linux'
+    - if: $SCOPE == 'weekly'
       when: always
     - when: never
   parallel: 117
@@ -112,7 +112,7 @@ test_weekly:
 test_daily:
   tags: [kube]
   rules:
-    - if: $SCOPE == 'daily' && $PLATFORM == 'linux'
+    - if: $SCOPE == 'daily'
       when: always
     - when: never
   parallel: 181
@@ -121,9 +121,7 @@ test_daily:
 report:
   stage: report
   rules:
-    - if: $PLATFORM == 'linux' && $SCOPE != 'CItest'
-      when: always
-    - when: never
+    - if: $SCOPE != 'CItest'
     - if: $CI_COMMIT_BRANCH == 'master'
       variables:
         VERSION: snap:master
