@@ -30,21 +30,17 @@ test_mac:
       -Dmaven.wagon.http.ssl.allowall=true
     DL_URL: https://nexus.snap-ci.ovh/repository/snap-maven-releases/org/esa/snap/installers-snapshot/snap_all_macos_archive/$VERSION/snap_all_macos_archive-$VERSION.dmg
   before_script:
-    # build project
     - mvn $MAVEN_CLI_OPTS package install
     - ls "${CI_PROJECT_DIR}/gpt-tests-executer/target"
-    # Clean old report
     - rm -rf $REPORT_DIR
     - mkdir -p $TEST_DATA_DIR/$SCOPE $REPORT_DIR $REPORT_DIR/report $REPORT_DIR/report/output
     - python3 -m venv snap
     - source snap/bin/activate
     - pip3 install -r $CI_PROJECT_DIR/requirements.txt
-    # Download & install snap app
     - curl --progress-bar "${DL_URL}" >> "${CI_PROJECT_DIR}/${SNAP_INSTALLER}"
     - hdiutil attach ${CI_PROJECT_DIR}/${SNAP_INSTALLER}
     - "/Volumes/esa-snap 1/ESA SNAP.app/Contents/MacOS/JavaApplicationStub" -q -console -dir $SNAP_DIR
     - ls $SNAP_DIR/bin
-    # Produce a list of tests to run
     - python3 $CI_PROJECT_DIR/pygpt/filter_json.py gpt-tests-resources/tests $SCOPE $REPORT_DIR
   script:
     - $CI_PROJECT_DIR/prepare.sh "${REPORT_DIR}" "${TEST_DATA_DIR}" "${TEST_DATA_LIST}" "${S3_BUCKET}" "${S3_ARGS}" "${CI_PROJECT_DIR}"
