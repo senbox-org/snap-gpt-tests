@@ -41,15 +41,14 @@ test_mac:
     # Download & install snap app
     - curl --progress-bar "${DL_URL}" >> "${CI_PROJECT_DIR}/${SNAP_INSTALLER}"
     - hdiutil attach ${CI_PROJECT_DIR}/${SNAP_INSTALLER}
-    - rm -rf $SNAP_DIR && ls /Volumes/esa-snap
-    - cp -rf "/Volumes/esa-snap/ESA SNAP.app/Contents/Resources/app" $SNAP_DIR && ls $SNAP_DIR
+    - "/Volumes/esa-snap 1/ESA SNAP.app/Contents/MacOS/JavaApplicationStub" -q -console -dir $SNAP_DIR
     - ls $SNAP_DIR/bin
     # Produce a list of tests to run
     - python3 $CI_PROJECT_DIR/pygpt/filter_json.py gpt-tests-resources/tests $SCOPE $REPORT_DIR
   script:
     - $CI_PROJECT_DIR/prepare.sh "${REPORT_DIR}" "${TEST_DATA_DIR}" "${TEST_DATA_LIST}" "${S3_BUCKET}" "${S3_ARGS}" "${CI_PROJECT_DIR}"
   after_script:
-    - hdiutil detach /dev/disk3s2
+    - hdiutil eject /dev/disk3
   artifacts:
     when: always
     expire_in: "3 days"
