@@ -17,6 +17,7 @@ test_mac:
     PROPERTIES_PATH: $CI_PROJECT_DIR/mac.conf
     SNAP_INSTALLER: snap_all_macos_archive-$VERSION.dmg
     TEST_DATA_LIST: singleTestData.txt
+    TEST_DATA_DIR: "/Volumes/snap-ext/SNAP/testData"
     JAVA_HOME: /Library/Java/JavaVirtualMachines/temurin-11.jdk/Contents/Home
     MAVEN_CLI_OPTS: >-
       --no-transfer-progress
