@@ -36,9 +36,9 @@ test_mac:
     - pip3 install -r $CI_PROJECT_DIR/requirements.txt
     - curl --progress-bar "${DL_URL}" >> "${CI_PROJECT_DIR}/${SNAP_INSTALLER}"
     - hdiutil attach ${CI_PROJECT_DIR}/${SNAP_INSTALLER}
-    # - '"/Volumes/esa-snap/ESA SNAP.app/Contents/MacOS/JavaApplicationStub" -dir ${SNAP_DIR} -q -console -overwrite'
-    - rm -rf $SNAP_DIR && ls /Volumes/esa-snap
-    - cp -rf "/Volumes/esa-snap/ESA SNAP.app/Contents/Resources/app" $SNAP_DIR && ls $SNAP_DIR
+    - '"/Volumes/esa-snap/ESA SNAP.app/Contents/MacOS/JavaApplicationStub" -dir ${SNAP_DIR} -q -console -overwrite'
+    # - rm -rf $SNAP_DIR && ls /Volumes/esa-snap
+    # - cp -rf "/Volumes/esa-snap/ESA SNAP.app/Contents/Resources/app" $SNAP_DIR && ls $SNAP_DIR
     - ls $SNAP_DIR/bin
     - python3 $CI_PROJECT_DIR/pygpt/filter_json.py gpt-tests-resources/tests $SCOPE $REPORT_DIR
   script:
