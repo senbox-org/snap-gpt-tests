@@ -36,7 +36,7 @@ test_mac:
     - pip3 install -r $CI_PROJECT_DIR/requirements.txt
     - curl --progress-bar "${DL_URL}" >> "${CI_PROJECT_DIR}/${SNAP_INSTALLER}"
     - hdiutil attach ${CI_PROJECT_DIR}/${SNAP_INSTALLER}
-    - 'INSTALL4J_LOG=yes "/Volumes/esa-snap/ESA SNAP.app/Contents/MacOS/JavaApplicationStub" -dir ${SNAP_DIR} -q -console -overwrite'
+    - 'INSTALL4J_LOG=yes "/Volumes/esa-snap/ESA SNAP.app/Contents/MacOS/JavaApplicationStub" -dir ${SNAP_DIR} -q -console -overwrite -Dsnap.mainClass=org.esa.snap.main.Main'
     # - rm -rf $SNAP_DIR && ls /Volumes/esa-snap
     # - cp -rf "/Volumes/esa-snap/ESA SNAP.app/Contents/Resources/app" $SNAP_DIR && ls $SNAP_DIR
     - ls $SNAP_DIR/bin
