@@ -3,11 +3,12 @@
   "author": "CSRO",
   "description":"execute Gdal reader and operators",
   "frequency":"daily/fail",
-  "graphPath": "s2tbx/graphReaderSingleLevel.xml",
+  "graphPath": "s2tbx/graphReaderSingleLevelFormat.xml",
   "inputs": {
     "input1": "_gpt_readers/gdal/U_1001A.NTF"
   },
   "parameters": {
+    "formatName": "GDAL-JP2OpenJPEG-READER",
     "sourceBands": "band_1",
     "subsetRegion": "400,100,600,600",
     "crs": "WGS84(DD)"
