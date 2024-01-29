@@ -1,31 +1,5 @@
-include:
-  - local: linux.gitlab-ci.yml
-    rules:
-      - if: $PLATFORM == 'linux'
-        when: always
-      - if: $PLATFORM == 'windows'
-        when: never
-      - if: $PLATFORM == 'darwin'
-        when: never
-  - local: windows.gitlab-ci.yml
-    rules:
-      - if: $PLATFORM == 'windows'
-        when: always
-      - if: $PLATFORM == 'linux'
-        when: never
-      - if: $PLATFORM == 'darwin'
-        when: never
-  - local: darwin.gitlab-ci.yml
-    rules:
-      - if: $PLATFORM == 'darwin'
-        when: always
-      - if: $PLATFORM == 'linux'
-        when: never
-      - if: $PLATFORM == 'windows'
-        when: never
-
 default:
-  image: docker-hosted.snap-ci.ovh/snap-installer:unix-pRC10
+  image: docker-hosted.snap-ci.ovh/snap-installer:10.0.0-RC1-snapshot
   cache:
     - key: ${CI_COMMIT_BRANCH}
       paths:
@@ -34,7 +8,8 @@ default:
         - "${CI_PROJECT_DIR}/**/target"
 
 variables:
-  VERSION: pRC10
+  VERSION: 10.0.0-RC1
+  # Can be 'linux' | 'windows' | 'darwin'
   PLATFORM: linux
   PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
   # $DOCKER_AUTH_CONFIG should have been setup as projet variable
@@ -61,3 +36,6 @@ variables:
 stages:
   - test
   - report
+
+include:
+  - local: $PLATFORM.gitlab-ci.yml

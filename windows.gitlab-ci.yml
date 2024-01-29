@@ -7,9 +7,10 @@ test_windows:
     REPORT_DIR: result
     TEST_DATA_DIR: 'D:\\testData'
     SNAP_DIR: 'C:\\Users\\Public\\Documents\\snap'
+    TEMP_DIR: 'D:\\tmp'
     TAG: master
     PROPERTIES_PATH: win.conf
-    SNAP_INSTALLER: snap_all_windows-pRC10.exe
+    SNAP_INSTALLER: "snap_all_windows-%VERSION%.exe"
     TEST_DATA_LIST: singleTestData.txt
     JAVA_OPTIONS: >-
       -Dncsa.hdf.hdflib.HDFLibrary.hdflib=%SNAP_DIR%\\snap\\modules\\lib\\amd64\\jhdf.dll
@@ -27,12 +28,12 @@ test_windows:
     - call mvn %MAVEN_CLI_OPTS% package install
     # Clean old report
     - rd /s /q %REPORT_DIR%
-    - mkdir %REPORT_DIR% && mkdir %REPORT_DIR%\report && mkdir %REPORT_DIR%\report\output && mkdir .\tmp
+    - mkdir %REPORT_DIR% && mkdir %REPORT_DIR%\report && mkdir %REPORT_DIR%\report\output
     - python -m venv snapenv && call .\snapenv\Scripts\activate.bat && pip3 install -r %CI_PROJECT_DIR%\requirements.txt
     # Produce a list of tests to run
     - python %CI_PROJECT_DIR%\pygpt\filter_json.py gpt-tests-resources\tests %SCOPE% %REPORT_DIR%
     # Install snap
-    - curl --progress-bar "https://nexus.snap-ci.ovh/repository/snap-maven-releases/org/esa/snap/installers-snapshot/snap_all_windows/pRC10/snap_all_windows-pRC10.exe" >> "%CI_PROJECT_DIR%\%SNAP_INSTALLER%"
+    - curl --progress-bar "https://nexus.snap-ci.ovh/repository/snap-maven-releases/org/esa/snap/installers-snapshot/snap_all_windows/%VERSION%/snap_all_windows-%VERSION%.exe" >> "%CI_PROJECT_DIR%\%SNAP_INSTALLER%"
     - echo "Install SNAP" && "%CI_PROJECT_DIR%\%SNAP_INSTALLER%" -q -dir "C:\Users\Public\Documents\snap" -console -overwrite -v
     - echo "Post install" && xcopy "C:\Users\Public\Documents\snap.properties" "%SNAP_DIR%\etc" /Y
   script:
@@ -53,9 +54,7 @@ report:
     - windows
   cache: []
   rules:
-    - if: $PLATFORM == 'windows' && $SCOPE != 'CItest'
-      when: always
-    - when: never
+    - if: $SCOPE != 'CItest'
   variables:
     REPORT_DIR: result
     # output upload and download progress every 2 seconds

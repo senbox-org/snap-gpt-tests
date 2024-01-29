@@ -16,10 +16,10 @@ CI_PROJECT_DIR=$6
 while IFS="" read -r test || [ -n "$test" ]
 do
     echo "Start get test data for ${test}"
-    python3 pygpt/get_test_data_list.py "${test}" "${REPORT_DIR}"
+    python3 pygpt/get_test_data_list.py "${test}" "${REPORT_DIR}" "${TEST_DATA_DIR}"
     cat "${REPORT_DIR}/${TEST_DATA_LIST}"
     # Download test data
-    ./download_test_data.sh "${REPORT_DIR}" "${TEST_DATA_DIR}" "${TEST_DATA_LIST}" "${S3_BUCKET}" "${S3_ARGS}"
+    "${CI_PROJECT_DIR}/download_test_data.sh" "${REPORT_DIR}" "${TEST_DATA_DIR}" "${TEST_DATA_LIST}" "${S3_BUCKET}" "${S3_ARGS}"
 
     echo "Running ${test}"
     python3 pygpt/snap_gpt_test.py "${JAVA_HOME}/bin/java" "${JAVA_OPTIONS} -cp gpt-tests-executer/target/gpt-test-exec.jar" \
