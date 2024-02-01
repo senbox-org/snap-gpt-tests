@@ -21,7 +21,10 @@
         "outputName": "ResampReprojTest_S2",
         "expected": "snap/expectedResampReprojTest_S2.json"
       }
-    ]
+    ],
+    "configVM": {
+      "xmx": "8G"
+    }
   },
   {
     "id": "ResampReproject_S2_znap",
@@ -45,6 +48,9 @@
         "outputName": "ResampReprojTest_S2_znap",
         "expected": "snap/expectedResampReprojTest_S2_znap.json"
       }
-    ]
+    ],
+    "configVM": {
+      "xmx": "8G"
+    }
   }
 ]

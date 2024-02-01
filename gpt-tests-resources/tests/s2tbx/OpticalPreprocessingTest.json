@@ -23,7 +23,10 @@
         "outputName": "tempOpticalPreprocessing",
         "expected": "s2tbx/expectedOpticalPreprocessing.json"
       }
-    ]
+    ],
+    "configVM": {
+      "xmx": "8G"
+    }
   },
   {
     "id": "OpticalPreprocessingTest_znap",
@@ -49,7 +52,10 @@
         "outputName": "tempOpticalPreprocessing_znap",
         "expected": "s2tbx/expectedOpticalPreprocessing_znap.json"
       }
-    ]
+    ],
+    "configVM": {
+      "xmx": "8G"
+    }
   }
 ]
 
