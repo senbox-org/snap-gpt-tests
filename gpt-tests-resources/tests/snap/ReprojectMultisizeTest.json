@@ -1,23 +1,28 @@
-[{
-  "id": "Reproject_S2",
-  "author": "CS",
-  "description": "Reproject a S2 L1C product preserving resolution.",
-  "frequency": "daily/snap/Reproject_S2",
-  "graphPath": "snap/graphReproject.xml",
-  "inputs": {
-    "input1": "S2/L1C/S2A_MSIL1C_20170416T105031_N0204_R051_T30TYN_20170416T105601.SAFE"
+[
+  {
+    "id": "Reproject_S2",
+    "author": "CS",
+    "description": "Reproject a S2 L1C product preserving resolution.",
+    "frequency": "daily/snap/Reproject_S2",
+    "graphPath": "snap/graphReproject.xml",
+    "inputs": {
+      "input1": "S2/L1C/S2A_MSIL1C_20170416T105031_N0204_R051_T30TYN_20170416T105601.SAFE"
+    },
+    "parameters": {
+      "crs": "EPSG:4326",
+      "outputFormat": "BEAM-DIMAP"
+    },
+    "outputs": [
+      {
+        "parameter": "out1",
+        "outputName": "Reproj_S2",
+        "expected": "snap/expectedReproj_S2.json"
+      }
+    ],
+    "configVM": {
+      "xmx": "12G"
+    }
   },
-  "parameters": {
-    "crs": "EPSG:4326",
-    "outputFormat": "BEAM-DIMAP"
-  },
-  "outputs": [
-    {
-      "parameter": "out1",
-    "outputName": "Reproj_S2",
-    "expected": "snap/expectedReproj_S2.json"
-  }]
-},
   {
     "id": "ReprojectSubset_S2",
     "author": "CS",
@@ -34,10 +39,11 @@
     },
     "outputs": [
       {
-      "parameter": "out1",
-      "outputName": "ReprojSubset_S2",
-      "expected": "snap/expectedReprojSubset_S2.json"
-    }]
+        "parameter": "out1",
+        "outputName": "ReprojSubset_S2",
+        "expected": "snap/expectedReprojSubset_S2.json"
+      }
+    ]
   },
   {
     "id": "ReprojectSubsetonlyB1_S2",
@@ -55,9 +61,10 @@
     },
     "outputs": [
       {
-      "parameter": "out1",
-      "outputName": "ReprojSubsetB1_S2",
-      "expected": "snap/expectedReprojSubsetB1_S2.json"
-    }]
+        "parameter": "out1",
+        "outputName": "ReprojSubsetB1_S2",
+        "expected": "snap/expectedReprojSubsetB1_S2.json"
+      }
+    ]
   }
 ]
