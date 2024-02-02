@@ -18,7 +18,9 @@
     "expected": "s2tbx/expectedMultiSizeMosaic.json"
   }],
   "configVM": {
-    "xmx": "6G"
+    "xmx": "6G",
+    "cacheSize": "3500M",
+    "parallelism": "8"
   }
 }]
 
