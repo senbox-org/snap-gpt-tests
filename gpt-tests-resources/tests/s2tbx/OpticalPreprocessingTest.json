@@ -25,7 +25,9 @@
       }
     ],
     "configVM": {
-      "xmx": "8G"
+      "xmx": "8G",
+      "cacheSize": "3500M",
+      "parallelism": "8"
     }
   },
   {
@@ -54,7 +56,9 @@
       }
     ],
     "configVM": {
-      "xmx": "8G"
+      "xmx": "8G",
+      "cacheSize": "3500M",
+      "parallelism": "8"
     }
   }
 ]
