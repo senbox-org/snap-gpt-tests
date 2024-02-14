@@ -7,14 +7,14 @@ include:
         when: never
       - if: $PLATFORM == 'darwin'
         when: never
-  # - local: windows.gitlab-ci.yml
-  #   rules:
-  #     - if: $PLATFORM == 'windows'
-  #       when: always
-  #     - if: $PLATFORM == 'linux'
-  #       when: never
-  #     - if: $PLATFORM == 'darwin'
-  #       when: never
+  - local: windows.gitlab-ci.yml
+    rules:
+      - if: $PLATFORM == 'windows'
+        when: always
+      - if: $PLATFORM == 'linux'
+        when: never
+      - if: $PLATFORM == 'darwin'
+        when: never
   # - local: darwin.gitlab-ci.yml
   #   rules:
   #     - if: $PLATFORM == 'darwin'
