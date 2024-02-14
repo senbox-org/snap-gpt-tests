@@ -11,6 +11,7 @@ test_windows:
     PROPERTIES_PATH: win.conf
     SNAP_INSTALLER: snap_all_windows-9.exe
     TEST_DATA_LIST: singleTestData.txt
+    JAVA_HOME: C:\\Program Files\\Eclipse Adoptium\\jdk-8.0.402.6-hotspot
     JAVA_OPTIONS: >-
       -Dncsa.hdf.hdflib.HDFLibrary.hdflib=%SNAP_DIR%\\snap\\modules\\lib\\amd64\\jhdf.dll
       -Dncsa.hdf.hdf5lib.H5.hdf5lib=%SNAP_DIR%\\snap\modules\\lib\amd64\\jhdf5.dll
