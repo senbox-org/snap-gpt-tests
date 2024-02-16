@@ -8,10 +8,11 @@ test_windows:
     TEST_DATA_DIR: 'D:\\testData'
     SNAP_DIR: 'C:\\Users\\Public\\Documents\\snap'
     TEMP_DIR: 'D:\\tmp'
-    TAG: master
+    TAG: 10.0.0-RC1
     PROPERTIES_PATH: win.conf
     SNAP_INSTALLER: "snap_all_windows-%VERSION%.exe"
     TEST_DATA_LIST: singleTestData.txt
+    JAVA_HOME: C:\\Program Files\\Eclipse Adoptium\\jdk-11.0.22.7-hotspot
     JAVA_OPTIONS: >-
       -Dncsa.hdf.hdflib.HDFLibrary.hdflib=%SNAP_DIR%\\snap\\modules\\lib\\amd64\\jhdf.dll
       -Dncsa.hdf.hdf5lib.H5.hdf5lib=%SNAP_DIR%\\snap\modules\\lib\amd64\\jhdf5.dll
