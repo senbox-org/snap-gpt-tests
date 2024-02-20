@@ -152,7 +152,7 @@ report:
     - cp -rf pygpt/statics/* result/report
     - ls result/report
     - echo "Generate report"
-    - python3 pygpt/report_utils.py pygpt/templates result/report $SCOPE snap:10.0.0-RC1
+    - python3 pygpt/report_utils.py pygpt/templates result/report $SCOPE snap:10.0.0-RC2
     # Upload to s3
     - aws s3 rm "s3://${S3_REPORTS}/linux" --recursive --endpoint-url https://s3.sbg.io.cloud.ovh.net --region sbg
     - aws s3 sync result/report "s3://${S3_REPORTS}/linux" --endpoint-url https://s3.sbg.io.cloud.ovh.net --region sbg --acl public-read

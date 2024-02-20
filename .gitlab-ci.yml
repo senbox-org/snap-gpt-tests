@@ -1,5 +1,5 @@
 default:
-  image: docker-hosted.snap-ci.ovh/snap-installer:10.0.0-RC1-snapshot
+  image: docker-hosted.snap-ci.ovh/snap-installer:10.0.0-RC2-snapshot
   cache:
     - key: ${CI_COMMIT_BRANCH}
       paths:
@@ -8,7 +8,7 @@ default:
         - "${CI_PROJECT_DIR}/**/target"
 
 variables:
-  VERSION: 10.0.0-RC1
+  VERSION: 10.0.0-RC2
   # Can be 'linux' | 'windows' | 'darwin'
   PLATFORM: linux
   PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
