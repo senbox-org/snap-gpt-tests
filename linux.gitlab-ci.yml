@@ -43,7 +43,6 @@
     when:
       - runner_system_failure
       - stuck_or_timeout_failure
-      - script_failure
       - unknown_failure
   artifacts:
     when: always
