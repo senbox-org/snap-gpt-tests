@@ -34,8 +34,8 @@ test_windows:
     # Produce a list of tests to run
     - python %CI_PROJECT_DIR%\pygpt\filter_json.py gpt-tests-resources\tests %SCOPE% %REPORT_DIR%
     # Install snap
-    - curl --progress-bar "https://nexus.snap-ci.ovh/repository/snap-maven-releases/org/esa/snap/installers-snapshot/snap_all_windows/%VERSION%/snap_all_windows-%VERSION%.exe" >> "%SNAP_DIR%\%SNAP_INSTALLER%"
-    - echo "Install SNAP" && "%SNAP_DIR%\%SNAP_INSTALLER%" -q -dir "C:\Users\Public\Documents\snap" -console -overwrite -v
+    - curl --progress-bar "https://nexus.snap-ci.ovh/repository/snap-maven-releases/org/esa/snap/installers-snapshot/snap_all_windows/%VERSION%/snap_all_windows-%VERSION%.exe" >> "C:\Users\Public\Documents\%SNAP_INSTALLER%"
+    - echo "Install SNAP" && "C:\Users\Public\Documents\%SNAP_INSTALLER%" -q -dir "%SNAP_DIR%" -console -overwrite -v
     - echo "Post install" && xcopy "C:\Users\Public\Documents\snap.properties" "%SNAP_DIR%\etc" /Y
   script:
     - run_tests.bat
