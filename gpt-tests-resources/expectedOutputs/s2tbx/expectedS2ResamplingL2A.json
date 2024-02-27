@@ -4,103 +4,93 @@
     "expectedContent": {
         "sceneWidth": 100,
         "sceneHeight": 100,
-        "startTime": "14-SEP-2016 07:46:13.596917",
-        "endTime": "14-SEP-2016 07:46:44.701079",
         "geoCoding": {
             "coordinates": [
                 {
                     "x": 43.0,
                     "y": 53.0,
-                    "lat": -24.395182498861683,
-                    "lon": 30.05149778655864
+                    "lat": -24.395182498861686,
+                    "lon": 30.051497786558645
                 },
                 {
                     "x": 74.0,
                     "y": 64.0,
                     "lat": -24.397285714024836,
-                    "lon": 30.057558185673447
+                    "lon": 30.057558185673454
                 }
             ],
             "reverseAccuracy": 1.22174242278561E-7
         },
         "bands": [
             {
-                "name": "B2",
-                "description": "Reflectance in band B2",
+                "name": "band_1",
                 "bandWidth": 100,
                 "bandHeight": 100,
-                "geophysicalUnit": "dl",
                 "noDataValue": "0.0",
                 "noDataValueUsed": "false",
-                "spectralWavelength": "490.0",
-                "spectralBandwidth": "130.0",
+                "spectralWavelength": "0.0",
+                "spectralBandwidth": "0.0",
                 "expectedPixels": [
                     {
                         "x": 5,
                         "y": 17,
-                        "value": 0.0839
+                        "value": 839.0
                     },
                     {
                         "x": 68,
                         "y": 85,
-                        "value": 0.0623
+                        "value": 623.0
                     }
                 ]
             },
             {
-                "name": "B3",
-                "description": "Reflectance in band B3",
+                "name": "band_2",
                 "bandWidth": 100,
                 "bandHeight": 100,
-                "geophysicalUnit": "dl",
                 "noDataValue": "0.0",
                 "noDataValueUsed": "false",
-                "spectralWavelength": "560.0",
-                "spectralBandwidth": "100.0",
+                "spectralWavelength": "0.0",
+                "spectralBandwidth": "0.0",
                 "expectedPixels": [
                     {
                         "x": 29,
                         "y": 25,
-                        "value": 0.1333
+                        "value": 1333.0
                     },
                     {
                         "x": 61,
                         "y": 36,
-                        "value": 0.0928
+                        "value": 928.0
                     }
                 ]
             },
             {
-                "name": "B5",
-                "description": "Reflectance in band B5",
+                "name": "band_3",
                 "bandWidth": 100,
                 "bandHeight": 100,
-                "geophysicalUnit": "dl",
                 "noDataValue": "0.0",
                 "noDataValueUsed": "false",
-                "spectralWavelength": "705.0",
-                "spectralBandwidth": "97.0",
+                "spectralWavelength": "0.0",
+                "spectralBandwidth": "0.0",
                 "expectedPixels": [
                     {
                         "x": 55,
                         "y": 74,
-                        "value": 0.1663
+                        "value": 1663.0
                     },
                     {
                         "x": 60,
                         "y": 92,
-                        "value": 0.1413
+                        "value": 1413.0
                     }
                 ]
             },
             {
-                "name": "view_zenith_mean",
-                "description": "Viewing incidence zenith angle",
+                "name": "band_4",
                 "bandWidth": 100,
                 "bandHeight": 100,
-                "geophysicalUnit": "deg",
-                "noDataValue": "NaN",
-                "noDataValueUsed": "true",
+                "noDataValue": "0.0",
+                "noDataValueUsed": "false",
                 "spectralWavelength": "0.0",
                 "spectralBandwidth": "0.0",
                 "expectedPixels": [
@@ -112,18 +102,16 @@
                     {
                         "x": 51,
                         "y": 91,
-                        "value": 5.095249
+                        "value": 5.0952487
                     }
                 ]
             },
             {
-                "name": "sun_zenith",
-                "description": "Solar zenith angle",
+                "name": "band_5",
                 "bandWidth": 100,
                 "bandHeight": 100,
-                "geophysicalUnit": "deg",
-                "noDataValue": "NaN",
-                "noDataValueUsed": "true",
+                "noDataValue": "0.0",
+                "noDataValueUsed": "false",
                 "spectralWavelength": "0.0",
                 "spectralBandwidth": "0.0",
                 "expectedPixels": [
@@ -140,13 +128,11 @@
                 ]
             },
             {
-                "name": "sun_azimuth",
-                "description": "Solar azimuth angle",
+                "name": "band_6",
                 "bandWidth": 100,
                 "bandHeight": 100,
-                "geophysicalUnit": "deg",
-                "noDataValue": "NaN",
-                "noDataValueUsed": "true",
+                "noDataValue": "0.0",
+                "noDataValueUsed": "false",
                 "spectralWavelength": "0.0",
                 "spectralBandwidth": "0.0",
                 "expectedPixels": [
@@ -163,13 +149,11 @@
                 ]
             },
             {
-                "name": "view_azimuth_B12",
-                "description": "Viewing incidence azimuth angle",
+                "name": "band_7",
                 "bandWidth": 100,
                 "bandHeight": 100,
-                "geophysicalUnit": "deg",
-                "noDataValue": "NaN",
-                "noDataValueUsed": "true",
+                "noDataValue": "0.0",
+                "noDataValueUsed": "false",
                 "spectralWavelength": "0.0",
                 "spectralBandwidth": "0.0",
                 "expectedPixels": [
@@ -186,42 +170,83 @@
                 ]
             }
         ],
+        "masks": [
+            {
+                "name": "mask_band_1",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "255,255,255"
+            },
+            {
+                "name": "mask_band_2",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "255,255,255"
+            },
+            {
+                "name": "mask_band_3",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "255,255,255"
+            },
+            {
+                "name": "mask_band_4",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "255,255,255"
+            },
+            {
+                "name": "mask_band_5",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "255,255,255"
+            },
+            {
+                "name": "mask_band_6",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "255,255,255"
+            },
+            {
+                "name": "mask_band_7",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "255,255,255"
+            }
+        ],
         "metadata": [
             {
-                "path": "TIFF Metadata/GeoTIFF Metadata/GeoKeyDirectory/ProjectedCSTypeGeoKey",
-                "value": "PCS_WGS84_UTM_zone_36S"
+                "path": "Image info/Component[5]/signed",
+                "value": "true"
             },
             {
-                "path": "Level-2A_User_Product/Auxiliary_Data_Info/GIPP_List/GIPP_FILENAME[94]",
-                "value": "S2A_OPER_GIP_R2L2NC_MPC__20150605T094742_V20150622T000000_21000101T000000_B8A"
+                "path": "Image info/Component[2]/precision",
+                "value": "32"
             },
             {
-                "path": "Level-2A_DataStrip_ID/Satellite_Ancillary_Data_Info/Attitudes/Corrected_Attitudes/Values[2357]/QUATERNION_VALUES",
-                "value": "0.206702586481898 0.483415064679699 -0.149409459831415 0.837413117460731"
+                "path": "Image info/Component[6]/block size",
+                "value": "100x100"
             },
             {
-                "path": "TIFF Metadata/GeoTIFF Metadata/GeoKeyDirectory/GTCitationGeoKey",
-                "value": "WGS 84 / UTM zone 36S"
+                "path": "Image info/Component[3]/precision",
+                "value": "32"
             },
             {
-                "path": "Granules/Level-2A_Tile_36JTT/Geometric_Info/Tile_Angles/Viewing_Incidence_Angles_Grids[23]/Azimuth/Values_List/VALUES[10]",
-                "value": "NaN NaN NaN NaN NaN 276.979 277.319 277.627 277.909 278.165 278.397 NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN"
+                "path": "Image info/Component/signed",
+                "value": "true"
             },
             {
-                "path": "Level-2A_DataStrip_ID/Quality_Indicators_Info/Radiometric_Info/Radiometric_Quality_List/Radiometric_Quality[11]/Noise_Model/ALPHA",
-                "value": "1.067"
+                "path": "Image info/Component[7]/block size",
+                "value": "100x100"
             },
             {
-                "path": "Granules/Level-2A_Tile_36JTT/General_Info/Archiving_Info/metadataLevel",
-                "value": "Expertise"
+                "path": "Image info/Component[7]/data type",
+                "value": "Float32"
             },
             {
-                "path": "Granules/Level-2A_Tile_36JTT/General_Info/Archiving_Info/metadataLevel",
-                "value": "Expertise"
+                "path": "Image info/Component[4]/precision",
+                "value": "32"
             },
             {
-                "path": "Processing_Graph/node.2/parameters/resolution",
-                "value": "20"
+                "path": "Image info/Component[4]/precision",
+                "value": "32"
+            },
+            {
+                "path": "Image info/Component/block size",
+                "value": "100x100"
             }
         ]
     }
