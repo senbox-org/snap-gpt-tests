@@ -4,8 +4,6 @@
   "expectedContent": {
     "sceneWidth": 1000,
     "sceneHeight": 1000,
-    "startTime": "28-JUN-2017 09:20:31.026000",
-    "endTime": "28-JUN-2017 09:20:31.026000",
     "geoCoding": {
       "coordinates": [
         {
@@ -25,12 +23,11 @@
     },
     "bands": [
       {
-        "name": "SpectralAngleMapperBand",
-        "description": "",
+        "name": "band_1",
         "bandWidth": 1000,
         "bandHeight": 1000,
         "noDataValue": "0.0",
-        "noDataValueUsed": "true",
+        "noDataValueUsed": "false",
         "spectralWavelength": "0.0",
         "spectralBandwidth": "0.0",
         "expectedPixels": [
@@ -47,46 +44,53 @@
         ]
       }
     ],
+    "masks": [
+      {
+        "name": "mask_band_1",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "255,255,255"
+      }
+    ],
     "metadata": [
       {
-        "path": "Processing_Graph/node.0/parameters/hiddenSpectra/spectrum/isShapeDefined",
-        "value": "false"
-      },
-      {
-        "path": "Processing_Graph/node.1/parameters/deleteOutputOnFailure",
+        "path": "Image info/Component/signed",
         "value": "true"
       },
       {
-        "path": "TIFF Metadata/GeoTIFF Metadata/GeoKeyDirectory/PCSCitationGeoKey",
-        "value": "WGS 84 / UTM zone 35N"
+        "path": "Image info/Component/overview count",
+        "value": "7"
       },
       {
-        "path": "TIFF Metadata/GeoTIFF Metadata/GeoKeyDirectory/ProjectedCSTypeGeoKey",
-        "value": "PCS_WGS84_UTM_zone_35N"
+        "path": "Image info/Component/color interpretation",
+        "value": "Gray"
       },
       {
-        "path": "Processing_Graph/node.0/sources/sourceProduct",
-        "value": "product:Subset_S2A_MSIL1C_20170628T092031_N0205_R093_T35UMP_20170628T092026_resampled"
+        "path": "Image info/Component/overviews",
+        "value": "500x500, 250x250, 125x125, 63x63, 32x32, 16x16, 8x8"
       },
       {
-        "path": "Processing_Graph/node.0/parameters/spectra/spectrum/name",
-        "value": "Cropland"
+        "path": "Image info/Component/overviews",
+        "value": "500x500, 250x250, 125x125, 63x63, 32x32, 16x16, 8x8"
       },
       {
-        "path": "TIFF Metadata/GeoTIFF Metadata/GeoKeyDirectory/GTCitationGeoKey",
-        "value": "WGS 84 / UTM zone 35N"
+        "path": "Image info/Component/overviews",
+        "value": "500x500, 250x250, 125x125, 63x63, 32x32, 16x16, 8x8"
       },
       {
-        "path": "Processing_Graph/node.1/parameters/deleteOutputOnFailure",
+        "path": "Image info/Component/block size",
+        "value": "1000x1000"
+      },
+      {
+        "path": "Image info/Component/data type",
+        "value": "Int32"
+      },
+      {
+        "path": "Image info/Component/signed",
         "value": "true"
       },
       {
-        "path": "Processing_Graph/node.1/sources/sourceProduct",
-        "value": "SpectralAngleMapper"
-      },
-      {
-        "path": "TIFF Metadata/GeoTIFF Metadata/GeoKeyDirectory/PCSCitationGeoKey",
-        "value": "WGS 84 / UTM zone 35N"
+        "path": "Image info/Component/precision",
+        "value": "32"
       }
     ]
   }
