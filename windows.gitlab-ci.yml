@@ -43,6 +43,7 @@ test_windows:
     # Remove heavy images
     - DEL /Q /F /S %REPORT_DIR%\report\output\*.zip
     - DEL /Q /F /S %REPORT_DIR%\report\output\*.dim
+    - DEL /Q /F /S %TEMP%\*
   artifacts:
     when: always
     expire_in: "1 hour"
