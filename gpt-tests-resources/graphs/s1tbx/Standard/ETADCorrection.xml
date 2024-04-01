@@ -1,0 +1,82 @@
+<graph id="Graph">
+  <version>1.0</version>
+  <node id="Read">
+    <operator>Read</operator>
+    <sources/>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <file>$input1</file>
+    </parameters>
+  </node>
+  <node id="TOPSAR-Split">
+    <operator>TOPSAR-Split</operator>
+    <sources>
+      <sourceProduct refid="Read"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <subswath>IW1</subswath>
+      <selectedPolarisations/>
+      <firstBurstIndex>1</firstBurstIndex>
+      <lastBurstIndex>3</lastBurstIndex>
+      <wktAoi/>
+    </parameters>
+  </node>
+  <node id="Apply-Orbit-File">
+    <operator>Apply-Orbit-File</operator>
+    <sources>
+      <sourceProduct refid="TOPSAR-Split"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <orbitType>Sentinel Precise (Auto Download)</orbitType>
+      <polyDegree>3</polyDegree>
+      <continueOnFail>false</continueOnFail>
+    </parameters>
+  </node>
+  <node id="S1-ETAD-Correction">
+    <operator>S1-ETAD-Correction</operator>
+    <sources>
+      <sourceProduct refid="Apply-Orbit-File"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <sourceBands/>
+      <etadFile>$etadFile</etadFile>
+      <resamplingType>BISINC_5_POINT_INTERPOLATION</resamplingType>
+      <troposphericCorrectionRg>false</troposphericCorrectionRg>
+      <ionosphericCorrectionRg>false</ionosphericCorrectionRg>
+      <geodeticCorrectionRg>false</geodeticCorrectionRg>
+      <dopplerShiftCorrectionRg>false</dopplerShiftCorrectionRg>
+      <geodeticCorrectionAz>false</geodeticCorrectionAz>
+      <bistaticShiftCorrectionAz>false</bistaticShiftCorrectionAz>
+      <fmMismatchCorrectionAz>false</fmMismatchCorrectionAz>
+      <sumOfAzimuthCorrections>true</sumOfAzimuthCorrections>
+      <sumOfRangeCorrections>true</sumOfRangeCorrections>
+    </parameters>
+  </node>
+  <node id="Write">
+    <operator>Write</operator>
+    <sources>
+      <sourceProduct refid="S1-ETAD-Correction"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <file>$out1</file>
+      <formatName>BEAM-DIMAP</formatName>
+    </parameters>
+  </node>
+  <applicationData id="Presentation">
+    <Description/>
+    <node id="Read">
+            <displayPosition x="37.0" y="134.0"/>
+    </node>
+    <node id="TOPSAR-Split">
+      <displayPosition x="134.0" y="135.0"/>
+    </node>
+    <node id="Apply-Orbit-File">
+      <displayPosition x="128.0" y="201.0"/>
+    </node>
+    <node id="S1-ETAD-Correction">
+      <displayPosition x="269.0" y="202.0"/>
+    </node>
+    <node id="Write">
+            <displayPosition x="448.0" y="202.0"/>
+    </node>
+  </applicationData>
+</graph>
