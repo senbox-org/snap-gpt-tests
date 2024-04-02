@@ -1,0 +1,46 @@
+{
+  "id" : "expected-etadcorrection-s1-slc",
+  "decodeQualification" : "INTENDED",
+  "expectedContent" : {
+    "sceneWidth" : 21132,
+    "sceneHeight" : 4476,
+    "geoCoding" : {
+      "coordinates" : [ {
+        "x" : 1000.0,
+        "y" : 800.0,
+        "lat" : -28.217537126195765,
+        "lon" : 150.229801233712
+      } ]
+    },
+    "bands" : [ {
+      "name" : "i_IW1_HH",
+      "description" : "",
+      "bandWidth" : 21132,
+      "bandHeight" : 4476,
+      "noDataValue" : 0.0,
+      "noDataValueUsed" : true,
+      "spectralWavelength" : 0.0,
+      "spectralBandwidth" : 0.0,
+      "expectedPixels" : [ {
+        "x" : 1000.0,
+        "y" : 800.0,
+        "value" : 169.42835998535156
+      } ]
+    }, {
+      "name" : "q_IW1_HH",
+      "description" : "",
+      "bandWidth" : 21132,
+      "bandHeight" : 4476,
+      "noDataValue" : 0.0,
+      "noDataValueUsed" : true,
+      "spectralWavelength" : 0.0,
+      "spectralBandwidth" : 0.0,
+      "expectedPixels" : [ {
+        "x" : 1000.0,
+        "y" : 800.0,
+        "value" : -32.288162231
+      } ]
+    } ],
+    "masks" : [ ]
+  }
+}

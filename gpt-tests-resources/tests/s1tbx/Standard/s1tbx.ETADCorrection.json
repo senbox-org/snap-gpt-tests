@@ -6,10 +6,8 @@
     "frequency": "daily/s1tbx/standard",
     "graphPath": "s1tbx/Standard/ETADCorrection.xml",
     "inputs": {
-      "input1": "SAR/S1/SLC/ETAD-Surat/S1A_IW_SLC__1SSH_20230722T083317_20230722T083345_049533_05F4C7_7C1C.zip"
-    },
-    "parameters": {
-      "etadFile": "SAR/S1/SLC/ETAD-Surat/S1A_IW_ETA__AXSH_20230722T083317_20230722T083345_049533_05F4C7_4344.SAFE.zip",
+      "input1": "SAR/S1/ETAD/ETAD-Surat/S1A_IW_SLC__1SSH_20230722T083317_20230722T083345_049533_05F4C7_7C1C.zip",
+      "etadFile": "SAR/S1/ETAD/ETAD-Surat/S1A_IW_ETA__AXSH_20230722T083317_20230722T083345_049533_05F4C7_4344.SAFE.zip"
     },
     "outputs": [
       {
