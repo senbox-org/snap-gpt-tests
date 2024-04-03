@@ -76,8 +76,8 @@ class ProcessStats:
             self.stats['cpu_perc'].append(cpu_perc) # cpu usage
             self.stats['cpu_time'].append(cpu_time) # cpu time
             self.stats['threads'].append(n_threads) # num threads
-        except Exception:
-            print('No access to process...')
+        except Exception as e:
+            print(e.args)
 
 
     def summary(self):
@@ -257,6 +257,7 @@ def __split_command_args__(command):
             token += char
     if token:
         args.append(token)
+
     return args
 
 
@@ -332,7 +333,8 @@ def profile(command, sampling_time, output, **kwargs):
     env = os.environ
     if 'env' in kwargs:
         env = kwargs['env']
-    print(env)
+    if os.environ.get('CI_PROJECT_DIR') is None:
+        print(env)
     print(command)
     proc = subprocess.Popen(command, 
                             stdout=subprocess.PIPE, 
