@@ -35,9 +35,10 @@ test_windows:
     # Produce a list of tests to run
     - python %CI_PROJECT_DIR%\pygpt\filter_json.py gpt-tests-resources\tests %SCOPE% %REPORT_DIR%
     # Install snap
-    - curl --progress-bar "https://download.esa.int/step/snap/9.0/installers/esa-snap_all_windows-x64_9_0_0.exe" >> "%DL_DIR%\%SNAP_INSTALLER%"
-    - echo "Install SNAP" && "%DL_DIR%\%SNAP_INSTALLER%" -q -dir "C:\Users\Public\Documents\snap-9" -console -overwrite -v
-    - echo "Post install" && xcopy "C:\Users\Public\Documents\snap.properties" "%SNAP_DIR%\etc" /Y
+    # - curl --progress-bar "https://download.esa.int/step/snap/9.0/installers/esa-snap_all_windows-x64_9_0_0.exe" >> "%DL_DIR%\%SNAP_INSTALLER%"
+    # - echo "Install SNAP" && "%DL_DIR%\%SNAP_INSTALLER%" -q -dir "C:\Users\Public\Documents\snap-9" -console -overwrite -v
+    # - echo "Post install" && xcopy "C:\Users\Public\Documents\snap.properties" "%SNAP_DIR%\etc" /Y
+    # - C:\Users\Public\Documents\snap-9\bin\snap64.exe --no-splash --nogui --modules --update-all
   script:
     - run_tests.bat
   after_script:
