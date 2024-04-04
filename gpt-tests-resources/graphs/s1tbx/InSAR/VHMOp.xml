@@ -222,13 +222,13 @@
     </sources>
     <parameters class="com.bc.ceres.binding.dom.XppDomElement">
       <sourceProductPaths/>
-      <masterProductName>S1B_IW_SLC__1SDV_20161027T165655_20161027T165722_002695_0048F6_1E81_Stack_Deb_Ifg_TC</masterProductName>
+      <referenceProductName>S1B_IW_SLC__1SDV_20161027T165655_20161027T165722_002695_0048F6_1E81_Stack_Deb_Ifg_TC</referenceProductName>
       <targetProductName>_collocated</targetProductName>
       <targetProductType>COLLOCATED</targetProductType>
-      <renameMasterComponents>true</renameMasterComponents>
-      <renameSlaveComponents>true</renameSlaveComponents>
-      <masterComponentPattern>${ORIGINAL_NAME}_M</masterComponentPattern>
-      <slaveComponentPattern>${ORIGINAL_NAME}_S${SLAVE_NUMBER_ID}</slaveComponentPattern>
+      <renameReferenceComponents>true</renameReferenceComponents>
+      <renameSecondaryComponents>true</renameSecondaryComponents>
+      <referenceComponentPattern>${ORIGINAL_NAME}_M</referenceComponentPattern>
+      <secondaryComponentPattern>${ORIGINAL_NAME}_S${SECONDARY_NUMBER_ID}</secondaryComponentPattern>
       <resamplingType>NEAREST_NEIGHBOUR</resamplingType>
     </parameters>
   </node>
