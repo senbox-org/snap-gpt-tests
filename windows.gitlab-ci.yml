@@ -13,6 +13,7 @@ test_windows:
     PROPERTIES_PATH: win.conf
     SNAP_INSTALLER: "snap_all_windows-%VERSION%.exe"
     TEST_DATA_LIST: singleTestData.txt
+    JAVA_HOME: C:\\Program Files\\Zulu\\zulu-11
     JAVA_OPTIONS: >-
       -Dncsa.hdf.hdflib.HDFLibrary.hdflib=%SNAP_DIR%\\snap\\modules\\lib\\amd64\\jhdf.dll
       -Dncsa.hdf.hdf5lib.H5.hdf5lib=%SNAP_DIR%\\snap\modules\\lib\amd64\\jhdf5.dll
@@ -43,6 +44,7 @@ test_windows:
     # Remove heavy images
     - DEL /Q /F /S %REPORT_DIR%\report\output\*.zip
     - DEL /Q /F /S %REPORT_DIR%\report\output\*.dim
+    - DEL /Q /F /S %TEMP%\*
   artifacts:
     when: always
     expire_in: "1 hour"
