@@ -259,7 +259,7 @@ def __check_outputs__(test, args, properties):
                 return False, stdout
             expected_output_path = os.path.join(properties['expectedOutputFolder'],
                                                 output['expected'])
-            cmd = [args.java_path]
+            cmd = ['C:\\Program Files\\Zulu\\zulu-11\\bin\\java']
             if is_ci_pipeline():
                 cmd += args.java_args.split(" ")
             else:
