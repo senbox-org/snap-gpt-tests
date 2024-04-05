@@ -7,6 +7,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import org.esa.snap.core.dataio.ProductIO;
 import org.esa.snap.core.datamodel.Product;
+import org.esa.snap.core.util.StringUtils;
 import org.esa.snap.dataio.ContentAssert;
 import org.esa.snap.dataio.ExpectedDataset;
 
@@ -19,9 +20,18 @@ public class TestOutput {
         String outputNameWithExtension = args[0];
         String expectedOutput = args[1];
         String outputName = args[2];
-        Product product = ProductIO.readProduct(outputNameWithExtension);
+
         final ObjectMapper mapper = new ObjectMapper();
         final ExpectedDataset expectedDataset = mapper.readValue(new File(expectedOutput), ExpectedDataset.class);
+        Product product = null;
+
+        String readerFormatName = (expectedDataset == null) ? null : expectedDataset.getReaderFormatName();
+        if(StringUtils.isNullOrEmpty(readerFormatName)) {
+            product = ProductIO.readProduct(outputNameWithExtension);
+        } else {
+            product = ProductIO.readProduct(new File(outputNameWithExtension), readerFormatName);
+        }
+
         if(product == null){
             System.out.println("Cannot read output file: " + outputNameWithExtension);
             System.exit(1);
