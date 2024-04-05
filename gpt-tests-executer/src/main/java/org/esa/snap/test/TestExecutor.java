@@ -5,6 +5,7 @@ import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.filefilter.WildcardFileFilter;
 import org.esa.snap.core.dataio.ProductIO;
 import org.esa.snap.core.datamodel.Product;
+import org.esa.snap.core.util.StringUtils;
 import org.esa.snap.dataio.ContentAssert;
 import org.esa.snap.dataio.ExpectedDataset;
 
@@ -145,8 +146,16 @@ public class TestExecutor {
             }
 
             if (expectedIsDefined) { //if expected output is not defined, then skip this step
-                Product product = ProductIO.readProduct(outputNameWithExtension);
                 final ExpectedDataset expectedDataset = mapper.readValue(new File(expectedOutputFolder.resolve(output.getExpected()).toString()), ExpectedDataset.class);
+                final String readerFormatName = expectedDataset.getReaderFormatName();
+                final File outputFile = new File(outputNameWithExtension);
+
+                final Product product;
+                if (StringUtils.isNullOrEmpty(readerFormatName)) {
+                    product = ProductIO.readProduct(outputFile);
+                } else  {
+                    product = ProductIO.readProduct(outputFile, readerFormatName);
+                }
                 if (product == null) {
                     System.out.println("Cannot read output file: " + outputNameWithExtension);
                     testPassed = false;
@@ -168,6 +177,8 @@ public class TestExecutor {
                     }
                     testPassed = false;
                 }
+
+                product.dispose();
             }
         }
 
