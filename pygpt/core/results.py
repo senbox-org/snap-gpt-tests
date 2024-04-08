@@ -5,7 +5,7 @@ Author: Martino Ferrari (CS Group) <martino.ferrari@c-s.fr>
 License: GPLv3
 """
 import datetime
-import sys
+import os
 import json
 
 import matplotlib as mpl
@@ -61,9 +61,11 @@ class TestResult(Test):
 
     def __load_perfs__(self):
         perf_stats_file = fs.statistics.resolve(self.name+'.json')
-        with open(perf_stats_file, 'r') as stats:
-            return json.load(stats)
-        return None
+        if os.path.isfile(perf_stats_file):
+            with open(perf_stats_file, 'r') as stats:
+                return json.load(stats)
+        else:
+            return None
 
     def __load_stdout__(self):
         stdout_path = fs.outputs.resolve(f'{self.name}_gptOutput.txt')
@@ -276,7 +278,7 @@ class TestResult(Test):
             plt.ylabel('CPU Average Time (s)')
             plt.title('CPU Average Time Historic')
             #set ticks every day
-            axis.xaxis.set_major_locator(mdates.DayLocator())
+            axis.xaxis.set_major_locator(mdates.DayLocator(interval=5))
             #set major ticks format
             axis.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))
 
@@ -292,7 +294,7 @@ class TestResult(Test):
             plt.ylabel('Memory Average (Mb)')
             plt.title('Memory Average Historic')
             #set ticks every day
-            axis.xaxis.set_major_locator(mdates.DayLocator())
+            axis.xaxis.set_major_locator(mdates.DayLocator(interval=5))
             #set major ticks format
             axis.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))
 

@@ -5,7 +5,7 @@
   "frequency": "daily/snap/Reproject_S2",
   "graphPath": "snap/graphReproject.xml",
   "inputs": {
-    "input1": "s2tbx/S2/L1C/S2A_MSIL1C_20170416T105031_N0204_R051_T30TYN_20170416T105601.SAFE"
+    "input1": "S2/L1C/S2A_MSIL1C_20170416T105031_N0204_R051_T30TYN_20170416T105601.SAFE"
   },
   "parameters": {
     "crs": "EPSG:4326",
@@ -25,7 +25,7 @@
     "frequency": "daily/snap/Reproject_S2",
     "graphPath": "snap/graphReprojectSubset.xml",
     "inputs": {
-      "input1": "s2tbx/S2/L1C/S2A_MSIL1C_20170416T105031_N0204_R051_T30TYN_20170416T105601.SAFE"
+      "input1": "S2/L1C/S2A_MSIL1C_20170416T105031_N0204_R051_T30TYN_20170416T105601.SAFE"
     },
     "parameters": {
       "sourceBands": "B1,B2,B5,view_zenith_mean",
@@ -46,7 +46,7 @@
     "frequency": "daily/snap/Reproject_S2",
     "graphPath": "snap/graphReprojectSubset.xml",
     "inputs": {
-      "input1": "s2tbx/S2/L1C/S2A_MSIL1C_20170416T105031_N0204_R051_T30TYN_20170416T105601.SAFE"
+      "input1": "S2/L1C/S2A_MSIL1C_20170416T105031_N0204_R051_T30TYN_20170416T105601.SAFE"
     },
     "parameters": {
       "sourceBands": "B1",

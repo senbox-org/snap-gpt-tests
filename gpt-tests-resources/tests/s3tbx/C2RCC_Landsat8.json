@@ -6,7 +6,7 @@
     "frequency": "weekly/c2rcc/s3tbx",
     "graphPath": "s3tbx/graphC2RCC_Landsat8.xml",
     "inputs": {
-      "input": "s3tbx/sensors_platforms/LANDSAT/LANDSAT_8_OLI_TIRS/geotiff/LC82010282013102LGN01/LC82010282013102LGN01_MTL.txt"
+      "input": "sensors_platforms/LANDSAT/LANDSAT_8_OLI_TIRS/geotiff/LC82010282013102LGN01/LC82010282013102LGN01_MTL.txt"
     },
     "parameters": {
       "nets": "C2RCC-Nets",
@@ -27,7 +27,7 @@
     "frequency": "daily/c2rcc/s3tbx",
     "graphPath": "s3tbx/graphC2RCC_Landsat8.xml",
     "inputs": {
-      "input": "s3tbx/sensors_platforms/LANDSAT/LANDSAT_8_OLI_TIRS/geotiff/LC82010282013102LGN01/LC82010282013102LGN01_MTL.txt"
+      "input": "sensors_platforms/LANDSAT/LANDSAT_8_OLI_TIRS/geotiff/LC82010282013102LGN01/LC82010282013102LGN01_MTL.txt"
     },
     "parameters": {
       "nets": "C2X-Nets",
@@ -48,7 +48,7 @@
     "frequency": "daily/c2rcc/L8Col2L1/s3tbx",
     "graphPath": "s3tbx/graphC2RCC_Landsat8_subset.xml",
     "inputs": {
-      "input": "s3tbx/sensors_platforms/LANDSAT/L8_Col2L1/LC08_L1TP_140041_20130503_20200912_02_T1/LC08_L1TP_140041_20130503_20200912_02_T1_MTL.txt"
+      "input": "sensors_platforms/LANDSAT/L8_Col2L1/LC08_L1TP_140041_20130503_20200912_02_T1/LC08_L1TP_140041_20130503_20200912_02_T1_MTL.txt"
     },
     "parameters": {
       "nets": "C2X-Nets",

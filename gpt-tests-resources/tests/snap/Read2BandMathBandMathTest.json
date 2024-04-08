@@ -5,8 +5,8 @@
   "frequency": "daily/snap",
   "graphPath": "snap/graph2BandMathBandMath.xml",
   "inputs": {
-    "input1": "s2tbx/S2/dim/subset_1_of_S2A_MSIL2A_20170611T110621_N0205_R137_T30STG_20170611T111012_resampled.dim",
-    "input2": "s2tbx/S2/dim/subset_0_of_S2A_MSIL2A_20170601T110651_N0205_R137_T30STG_20170601T111225_resampled.dim"
+    "input1": "S2/dim/subset_1_of_S2A_MSIL2A_20170611T110621_N0205_R137_T30STG_20170611T111012_resampled.dim",
+    "input2": "S2/dim/subset_0_of_S2A_MSIL2A_20170601T110651_N0205_R137_T30STG_20170601T111225_resampled.dim"
   },
   "parameters": {
     "expression1": "(B8A-B4)/(B8A+B4)",

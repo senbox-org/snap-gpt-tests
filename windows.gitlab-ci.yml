@@ -14,11 +14,12 @@ test_windows:
     SNAP_INSTALLER: snap_all_windows-9.exe
     TEST_DATA_LIST: singleTestData.txt
     JAVA_HOME: C:\\Program Files\\Eclipse Adoptium\\jdk-8.0.402.6-hotspot
+    JDK_HOME: C:\\Program Files\\Eclipse Adoptium\\jdk-8.0.402.6-hotspot
     JAVA_OPTIONS: >-
       -Dncsa.hdf.hdflib.HDFLibrary.hdflib=%SNAP_DIR%\\snap\\modules\\lib\\amd64\\jhdf.dll
       -Dncsa.hdf.hdf5lib.H5.hdf5lib=%SNAP_DIR%\\snap\modules\\lib\amd64\\jhdf5.dll
       -Dfile.encoding=Windows-1252
-    CLASSPATH: gpt-tests-executer\\target\\gpt-test-exec.jar
+    CLASSPATH: gpt-tests-executer\\target\\TestOutput.jar
     # output upload and download progress every 2 seconds
     TRANSFER_METER_FREQUENCY: "2s"
     # Use fast compression for artifacts, resulting in larger archives
@@ -35,9 +36,10 @@ test_windows:
     # Produce a list of tests to run
     - python %CI_PROJECT_DIR%\pygpt\filter_json.py gpt-tests-resources\tests %SCOPE% %REPORT_DIR%
     # Install snap
-    - curl --progress-bar "https://download.esa.int/step/snap/9.0/installers/esa-snap_all_windows-x64_9_0_0.exe" >> "%DL_DIR%\%SNAP_INSTALLER%"
-    - echo "Install SNAP" && "%CI_PROJECT_DIR%\%SNAP_INSTALLER%" -q -dir "C:\Users\Public\Documents\snap-9" -console -overwrite -v
-    - echo "Post install" && xcopy "C:\Users\Public\Documents\snap.properties" "%SNAP_DIR%\etc" /Y
+    # - curl --progress-bar "https://download.esa.int/step/snap/9.0/installers/esa-snap_all_windows-x64_9_0_0.exe" >> "%DL_DIR%\%SNAP_INSTALLER%"
+    # - echo "Install SNAP" && "%DL_DIR%\%SNAP_INSTALLER%" -q -dir "C:\Users\Public\Documents\snap-9" -console -overwrite -v
+    # - echo "Post install" && xcopy "C:\Users\Public\Documents\snap.properties" "%SNAP_DIR%\etc" /Y
+    # - C:\Users\Public\Documents\snap-9\bin\snap64.exe --no-splash --nogui --modules --update-all
   script:
     - run_tests.bat
   after_script:
