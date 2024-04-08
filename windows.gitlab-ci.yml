@@ -9,7 +9,7 @@ test_windows:
     DL_DIR: 'C:\\Users\\Public\\Documents'
     SNAP_DIR: 'C:\\Users\\Public\\Documents\\snap-9'
     TEMP_DIR: 'D:\\tmp'
-    TAG: 9.0.0-reference
+    TAG: 9.0.8-reference
     PROPERTIES_PATH: win.conf
     SNAP_INSTALLER: snap_all_windows-9.exe
     TEST_DATA_LIST: singleTestData.txt
@@ -72,6 +72,7 @@ report:
     # Set maximum duration of cache upload and download
     CACHE_REQUEST_TIMEOUT: 5
     DEST_DIR: public\windows
+    TAG: 9.0.8-reference
   script:
     - echo "Copy assets for report generation"
     - mkdir %CI_PROJECT_DIR%\%REPORT_DIR%\report\json %CI_PROJECT_DIR%\%REPORT_DIR%\report\performances %CI_PROJECT_DIR%\%REPORT_DIR%\report\images
@@ -85,7 +86,7 @@ report:
     - xcopy /Y "%CI_PROJECT_DIR%\pygpt\statics\icons\*.png" "%CI_PROJECT_DIR%\result\report\icons\"
     - xcopy /Y "%CI_PROJECT_DIR%\pygpt\statics\js\*.js" "%CI_PROJECT_DIR%\result\report\js\"
     - echo "Generate report"
-    - python pygpt\report_utils.py pygpt\templates %CI_PROJECT_DIR%\%REPORT_DIR%\report %SCOPE% snap:master
+    - python pygpt\report_utils.py pygpt\templates %CI_PROJECT_DIR%\%REPORT_DIR%\report %SCOPE% snap:%TAG%
     - rd /s /q %CI_PROJECT_DIR%\%DEST_DIR%
     - mkdir %CI_PROJECT_DIR%\public %CI_PROJECT_DIR%\%DEST_DIR%
     # No upload to s3 for this branch
