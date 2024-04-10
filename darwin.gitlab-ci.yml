@@ -10,7 +10,7 @@ test_mac:
     SCOPE: daily
     SNAP_DIR: /Users/otb/Applications/snap
     REPORT_DIR: ./result
-    TAG: master
+    TAG: '10.0.0'
     PROPERTIES_PATH: $CI_PROJECT_DIR/mac.conf
     SNAP_INSTALLER: snap_all_macos_archive-$VERSION.dmg
     TEST_DATA_LIST: singleTestData.txt
@@ -57,9 +57,9 @@ report:
     - mac
   rules:
     - if: $SCOPE != 'CItest'
-    - if: $CI_COMMIT_BRANCH == 'master'
+    - if: $CI_COMMIT_BRANCH == '10.x'
       variables:
-        VERSION: snap:master
+        VERSION: snap:10.0.0
     - if: $CI_COMMIT_TAG
       variables:
         VERSION: snap:$CI_COMMIT_TAG
@@ -82,7 +82,7 @@ report:
     - cp -rf pygpt/statics/* result/report
     - ls result/report
     - echo "Generate report"
-    - python3 pygpt/report_utils.py pygpt/templates result/report $SCOPE snap:master
+    - python3 pygpt/report_utils.py pygpt/templates result/report $SCOPE snap:10.0.0
     # Upload to s3
     - aws s3 rm "s3://${S3_REPORTS}/release/macos" --recursive --endpoint-url https://s3.sbg.io.cloud.ovh.net --region sbg
     - aws s3 sync result/report "s3://${S3_REPORTS}/macos" --endpoint-url https://s3.sbg.io.cloud.ovh.net --region sbg --acl public-read
