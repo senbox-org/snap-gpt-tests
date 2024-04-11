@@ -28,9 +28,9 @@
         "name": "collocationFlags_S2A_MSIL1C_20170416T105031_N0204_R051_T30TYN_20170416T105601",
         "samples": [
           {
-            "name": "SLAVE_0_PRESENT",
+            "name": "SECONDARY_0_PRESENT",
             "value": 1,
-            "description": "Data for the slave is present."
+            "description": "Data for the secondary is present."
           }
         ]
       },
@@ -38,9 +38,9 @@
         "name": "collocationFlags_NDSI_1604",
         "samples": [
           {
-            "name": "SLAVE_1_PRESENT",
+            "name": "SECONDARY_1_PRESENT",
             "value": 1,
-            "description": "Data for the slave is present."
+            "description": "Data for the secondary is present."
           }
         ]
       },
@@ -48,9 +48,9 @@
         "name": "collocationFlags_NDSI_1502",
         "samples": [
           {
-            "name": "SLAVE_2_PRESENT",
+            "name": "SECONDARY_2_PRESENT",
             "value": 1,
-            "description": "Data for the slave is present."
+            "description": "Data for the secondary is present."
           }
         ]
       }
@@ -1204,7 +1204,7 @@
         "value": "1"
       },
       {
-        "path": "Processing_Graph/node.5/parameters/renameSlaveComponents",
+        "path": "Processing_Graph/node.5/parameters/renameSecondaryComponents",
         "value": "true"
       }
     ]
