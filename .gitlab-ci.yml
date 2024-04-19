@@ -25,7 +25,7 @@ include:
         when: never
 
 default:
-  image: docker-hosted.snap-ci.ovh/snap-installer:10.0.0-RC1-snapshot
+  image: docker-hosted.snap-ci.ovh/snap-installer:11.0.0-snapshot
   cache:
     - key: ${CI_COMMIT_BRANCH}
       paths:
@@ -34,11 +34,23 @@ default:
         - "${CI_PROJECT_DIR}/**/target"
 
 variables:
-  VERSION: 10.0.0-RC1
-  PLATFORM: linux
+  VERSION: '11.0.0'
+  PLATFORM:
+    description: Choose to plateform to run this job
+    value: linux
+    options:
+    - "linux"
+    - "windows"
+    - "darwin"
   PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
   # $DOCKER_AUTH_CONFIG should have been setup as projet variable
-  SCOPE: s3tbx
+  SCOPE:
+    description: Choose GPT tests scope
+    value: daily
+    options:
+    - "daily"
+    - "weekly"
+    - "CItest"
   REPORT_DIR: /home/snap/result
   TEST_DATA_DIR: "/home/snap/testData"
   TEST_DATA_LIST: "singleTestData.txt"
