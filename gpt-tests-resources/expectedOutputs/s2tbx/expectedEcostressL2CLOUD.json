@@ -1,0 +1,94 @@
+{
+  "id": "tempEcostressL2CLOUD",
+  "decodeQualification": "INTENDED",
+  "expectedContent": {
+    "sceneWidth": 402,
+    "sceneHeight": 401,
+    "startTime": "14-MAR-2024 20:56:59.119974",
+    "endTime": "14-MAR-2024 20:56:59.119974",
+    "geoCoding": {
+      "coordinates": [
+        {
+          "x": 173.0,
+          "y": 215.0,
+          "lat": -18.69406055809886,
+          "lon": 130.98583776272423
+        },
+        {
+          "x": 298.0,
+          "y": 260.0,
+          "lat": -18.73642352445226,
+          "lon": 131.10351266926142
+        }
+      ],
+      "reverseAccuracy": 2.9103830456733704E-11
+    },
+    "bands": [
+      {
+        "name": "SDS_CloudMask",
+        "description": "",
+        "bandWidth": 402,
+        "bandHeight": 401,
+        "geophysicalUnit": "Bits: 0 = Determined, 1 = Cloud (includes tests and extended), 2 = Test 1 or Test 2, 3 = Test 1: Thermal Brightness Test, 4 = Test 2: Band 4 - 5 Thermal Difference Test, 5 = Water",
+        "noDataValue": "0.0",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 20,
+            "y": 71,
+            "value": 1.0
+          },
+          {
+            "x": 275,
+            "y": 341,
+            "value": 1.0
+          }
+        ]
+      }
+    ],
+    "metadata": [
+      {
+        "path": "L2 CLOUD Metadata/CloudMeanTemperature",
+        "value": "NaN"
+      },
+      {
+        "path": "Processing_Graph/node.1/parameters/copyMetadata",
+        "value": "true"
+      },
+      {
+        "path": "Processing_Graph/node.3/sources/sourceProduct",
+        "value": "Reproject"
+      },
+      {
+        "path": "Processing_Graph/node.3/parameters/deleteOutputOnFailure",
+        "value": "true"
+      },
+      {
+        "path": "history/SubsetInfo/SubSampling.y",
+        "value": "1"
+      },
+      {
+        "path": "history/SubsetInfo/SubRegion.x",
+        "value": "100"
+      },
+      {
+        "path": "L2 CLOUD Metadata/CloudMeanTemperature",
+        "value": "NaN"
+      },
+      {
+        "path": "L2 CLOUD Metadata/CloudMaxTemperature",
+        "value": "0.0"
+      },
+      {
+        "path": "history/SubsetInfo/SubRegion.y",
+        "value": "100"
+      },
+      {
+        "path": "L2 CLOUD Metadata/OrbitCorrectionPerformed",
+        "value": "True"
+      }
+    ]
+  }
+}
