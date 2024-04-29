@@ -92,9 +92,14 @@ report:
     - '"C:\Program Files\Amazon\AWSCLIV2\aws.exe" s3 sync %CI_PROJECT_DIR%\%REPORT_DIR%\report "s3://%S3_REPORTS%/windows" --endpoint-url https://s3.sbg.io.cloud.ovh.net --region sbg --acl public-read'
   after_script:
     - |
+      set JOB=%CI_JOB_ID:6,10%
       IF %CI_COMMIT_BRANCH%=="master" IF %SCOPE%=="daily" (
+        ::Get nex job id (only works for master)
+        curl https://reports-api.snap-ci.ovh/api/job/last | %APPDATA%\jq.exe .ID >> jobid.txt
+        set /p JOB=<jobid.txt
+        set /A JOB=%JOB%+1
         ::Update reports database
-        python3 %CI_PROJECT_DIR%\pygpt\stats_db.py %DB_PATH% "snap:master" %SCOPE% %CI_PROJECT_DIR%\result\report %CI_JOB_ID:6,10% master
+        python3 %CI_PROJECT_DIR%\pygpt\stats_db.py %DB_PATH% "snap:master" %SCOPE% %CI_PROJECT_DIR%\result\report %JOB% master
       )
   artifacts:
     expire_in: 1 day
