@@ -99,7 +99,7 @@ report:
         set /p JOB=<jobid.txt
         set /A JOB=%JOB%+1
         ::Update reports database
-        python3 %CI_PROJECT_DIR%\pygpt\stats_db.py %DB_PATH% "snap:master" %SCOPE% %CI_PROJECT_DIR%\result\report %JOB% master
+        python %CI_PROJECT_DIR%\pygpt\stats_db.py %DB_PATH% "snap:master" %SCOPE% %CI_PROJECT_DIR%\result\report %JOB% master
       )
   artifacts:
     expire_in: 1 day
