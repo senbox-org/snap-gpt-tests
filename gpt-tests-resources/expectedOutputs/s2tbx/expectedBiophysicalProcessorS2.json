@@ -1,0 +1,151 @@
+{
+    "id": "biophysicalProcessorS2Output",
+    "decodeQualification": "INTENDED",
+    "expectedContent": {
+        "sceneWidth": 1830,
+        "sceneHeight": 1830,
+        "startTime": "02-OCT-2018 03:45:51.024000",
+        "endTime": "02-OCT-2018 03:45:51.024000",
+        "geoCoding": {
+            "coordinates": [
+                {
+                    "x": 789.0,
+                    "y": 983.0,
+                    "lat": 12.130762735271986,
+                    "lon": 98.51565851118606
+                },
+                {
+                    "x": 1358.0,
+                    "y": 1187.0,
+                    "lat": 12.020443580377831,
+                    "lon": 98.82949173383305
+                }
+            ],
+            "reverseAccuracy": 3.637978807091713E-12
+        },
+        "flagCodings": [
+            {
+                "name": "lai_flags",
+                "samples": [
+                    {
+                        "name": "INPUT_OUT_OF_RANGE",
+                        "value": 1,
+                        "description": "Input is out of definition domain"
+                    },
+                    {
+                        "name": "OUTPUT_THRESHOLDED_TO_MIN_OUTPUT",
+                        "value": 2,
+                        "description": "Output is lesser than minimum output, but within tolerance"
+                    },
+                    {
+                        "name": "OUTPUT_THRESHOLDED_TO_MAX_OUTPUT",
+                        "value": 4,
+                        "description": "Output is greater than maximum output, but within tolerance"
+                    },
+                    {
+                        "name": "OUTPUT_TOO_LOW",
+                        "value": 8,
+                        "description": "Output is too low"
+                    },
+                    {
+                        "name": "OUTPUT_TOO_HIGH",
+                        "value": 16,
+                        "description": "Output is too high"
+                    }
+                ]
+            }
+        ],
+        "bands": [
+            {
+                "name": "lai",
+                "description": "LAI",
+                "bandWidth": 1830,
+                "bandHeight": 1830,
+                "noDataValue": "0.0",
+                "noDataValueUsed": "true",
+                "spectralWavelength": "0.0",
+                "spectralBandwidth": "0.0",
+                "expectedPixels": [
+                    {
+                        "x": 289,
+                        "y": 1218,
+                        "value": -0.4048766
+                    },
+                    {
+                        "x": 950,
+                        "y": 1671,
+                        "value": 0.06987174
+                    }
+                ]
+            },
+            {
+                "name": "lai_flags",
+                "description": "",
+                "bandWidth": 1830,
+                "bandHeight": 1830,
+                "noDataValue": "0.0",
+                "noDataValueUsed": "false",
+                "spectralWavelength": "0.0",
+                "spectralBandwidth": "0.0",
+                "expectedPixels": [
+                    {
+                        "x": 1383,
+                        "y": 886,
+                        "value": 3.0
+                    },
+                    {
+                        "x": 1739,
+                        "y": 889,
+                        "value": 1.0
+                    }
+                ]
+            }
+        ],
+        "masks": [
+            {
+                "name": "lai_input_out_of_range",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "255,0,0",
+                "description": "Input is out of definition domain"
+            },
+            {
+                "name": "lai_output_thresholded_to_min_output",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "0,255,0",
+                "description": "Output is lesser than minimum output, but within tolerance"
+            },
+            {
+                "name": "lai_output_thresholded_to_max_output",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "0,0,255",
+                "description": "Output is greater than maximum output, but within tolerance"
+            },
+            {
+                "name": "lai_output_too_low",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "255,255,0",
+                "description": "Output is too low"
+            },
+            {
+                "name": "lai_output_too_high",
+                "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+                "color": "255,200,0",
+                "description": "Output is too high"
+            }
+        ],
+        "metadata": [
+            {
+                "path": "Processing_Graph/node.0/id",
+                "value": "BiophysicalS2"
+            },
+            {
+                "path": "Processing_Graph/node.0/parameters/computeCw",
+                "value": "false"
+            },
+            {
+                "path": "Processing_Graph/node.0/parameters/computeLAI",
+                "value": "true"
+            }
+        ]
+    }
+}
