@@ -1,0 +1,278 @@
+[
+  {
+    "id": "EcostressL1BGEOTest",
+    "author": "CSRO",
+    "description": "execute ECOSTRESS product reader and operators",
+    "frequency": "daily/CSROtest",
+    "graphPath": "s2tbx/graphReaderSingleLevelFormat.xml",
+    "inputs": {
+      "input1": "_ecostress/ECOSTRESS_L1B_GEO_32259_019_20240314T235129_0601_01.h5"
+    },
+    "parameters": {
+      "sourceBands": "Geolocation_height,Geolocation_land_fraction",
+      "subsetRegion": "100,100,400,400",
+      "formatName": "ECOSTRESS-L1B-GEO",
+      "crs": "WGS84(DD)"
+    },
+    "outputs": [
+      {
+        "parameter": "out1",
+        "outputName": "tempEcostressL1BGEO",
+        "expected": "s2tbx/expectedEcostressL1BGEO.json"
+      }
+    ]
+  },
+  {
+    "id": "EcostressL1BMAPRADTest",
+    "author": "CSRO",
+    "description": "execute ECOSTRESS product reader and operators",
+    "frequency": "daily/CSROtest",
+    "graphPath": "s2tbx/graphReaderSingleLevelFormat.xml",
+    "inputs": {
+      "input1": "_ecostress/ECOSTRESS_L1B_MAP_RAD_32259_019_20240314T235129_0601_01.h5"
+    },
+    "parameters": {
+      "sourceBands": "Mapped_data_quality_1,Mapped_data_quality_2,Mapped_data_quality_3",
+      "subsetRegion": "100,100,400,400",
+      "formatName": "ECOSTRESS-L1B-MAP-RAD",
+      "crs": "WGS84(DD)"
+    },
+    "outputs": [
+      {
+        "parameter": "out1",
+        "outputName": "tempEcostressL1BMAPRAD",
+        "expected": "s2tbx/expectedEcostressL1BMAPRAD.json"
+      }
+    ]
+  },
+  {
+    "id": "EcostressL2CLOUDTTest",
+    "author": "CSRO",
+    "description": "execute ECOSTRESS product reader and operators",
+    "frequency": "daily/CSROtest",
+    "graphPath": "s2tbx/graphReaderSingleLevelFormat.xml",
+    "inputs": {
+      "input1": "_ecostress/ECOSTRESS_L2_CLOUD_32257_019_20240314T205642_0601_01.h5"
+    },
+    "parameters": {
+      "sourceBands": "SDS_CloudMask",
+      "subsetRegion": "100,100,400,400",
+      "formatName": "ECOSTRESS-L2-CLOUD",
+      "crs": "WGS84(DD)"
+    },
+    "outputs": [
+      {
+        "parameter": "out1",
+        "outputName": "tempEcostressL2CLOUD",
+        "expected": "s2tbx/expectedEcostressL2CLOUD.json"
+      }
+    ]
+  },
+  {
+    "id": "EcostressL2LSTETest",
+    "author": "CSRO",
+    "description": "execute ECOSTRESS product reader and operators",
+    "frequency": "daily/CSROtest",
+    "graphPath": "s2tbx/graphReaderSingleLevelFormat.xml",
+    "inputs": {
+      "input1": "_ecostress/ECOSTRESS_L2_LSTE_32257_019_20240314T205642_0601_01.h5"
+    },
+    "parameters": {
+      "sourceBands": "SDS_Emis1,SDS_Emis2,SDS_Emis3",
+      "subsetRegion": "100,100,400,400",
+      "formatName": "ECOSTRESS-L2-LSTE",
+      "crs": "WGS84(DD)"
+    },
+    "outputs": [
+      {
+        "parameter": "out1",
+        "outputName": "tempEcostressL2LSTE",
+        "expected": "s2tbx/expectedEcostressL2LSTE.json"
+      }
+    ]
+  },
+  {
+    "id": "EcostressL3ETALEXITest",
+    "author": "CSRO",
+    "description": "execute ECOSTRESS product reader and operators",
+    "frequency": "daily/CSROtest",
+    "graphPath": "s2tbx/graphReaderSingleLevelFormat.xml",
+    "inputs": {
+      "input1": "_ecostress/ECOSTRESS_L3_ET_ALEXI_22306_005_20220612T161701_0601_02.h5"
+    },
+    "parameters": {
+      "sourceBands": "EVAPOTRANSPIRATION__ALEXI_ETdaily,EVAPOTRANSPIRATION__ALEXI_ETdailyUncertainty,EVAPOTRANSPIRATION__ALEXI_QualityFlag",
+      "subsetRegion": "100,100,400,400",
+      "formatName": "ECOSTRESS-L3-ET-ALEXI",
+      "crs": "WGS84(DD)"
+    },
+    "outputs": [
+      {
+        "parameter": "out1",
+        "outputName": "tempEcostressL3ETALEXI",
+        "expected": "s2tbx/expectedEcostressL3ETALEXI.json"
+      }
+    ]
+  },
+  {
+    "id": "EcostressL3ETALEXIUSDATest",
+    "author": "CSRO",
+    "description": "execute ECOSTRESS product reader and operators",
+    "frequency": "daily/CSROtest",
+    "graphPath": "s2tbx/graphReaderSingleLevelFormat.xml",
+    "inputs": {
+      "input1": "_ecostress/ECOSTRESS_L3_ET_ALEXI_USDA_00544_008_20180810T192504_0503_02.ames.h5"
+    },
+    "parameters": {
+      "sourceBands": "EVAPOTRANSPIRATION__ALEXI_ETdaily,EVAPOTRANSPIRATION__ALEXI_ETdailyUncertainty,EVAPOTRANSPIRATION__ALEXI_QualityFlag",
+      "subsetRegion": "100,100,400,400",
+      "formatName": "ECOSTRESS-L3-ET-ALEXI-USDA",
+      "crs": "WGS84(DD)"
+    },
+    "outputs": [
+      {
+        "parameter": "out1",
+        "outputName": "tempEcostressL3ETALEXIUSDA",
+        "expected": "s2tbx/expectedEcostressL3ETALEXIUSDA.json"
+      }
+    ]
+  },
+  {
+    "id": "EcostressL3ETPTJPLTest",
+    "author": "CSRO",
+    "description": "execute ECOSTRESS product reader and operators",
+    "frequency": "daily/CSROtest",
+    "graphPath": "s2tbx/graphReaderSingleLevelFormat.xml",
+    "inputs": {
+      "input1": "_ecostress/ECOSTRESS_L3_ET_PT-JPL_26313_001_20230225T154024_0601_01.h5"
+    },
+    "parameters": {
+      "sourceBands": "EVAPOTRANSPIRATION__PT-JPL_ETcanopy,EVAPOTRANSPIRATION__PT-JPL_ETdaily,EVAPOTRANSPIRATION__PT-JPL_ETinst",
+      "subsetRegion": "100,100,400,400",
+      "formatName": "ECOSTRESS-L3_ET_PT_JPL",
+      "crs": "WGS84(DD)"
+    },
+    "outputs": [
+      {
+        "parameter": "out1",
+        "outputName": "tempEcostressL3ETPTJPL",
+        "expected": "s2tbx/expectedEcostressL3ETPTJPL.json"
+      }
+    ]
+  },
+  {
+    "id": "EcostressL3L4QATest",
+    "author": "CSRO",
+    "description": "execute ECOSTRESS product reader and operators",
+    "frequency": "daily/CSROtest",
+    "graphPath": "s2tbx/graphReaderSingleLevelFormat.xml",
+    "inputs": {
+      "input1": "_ecostress/ECOSTRESS_L3_L4_QA_26313_001_20230225T154024_0601_01.h5"
+    },
+    "parameters": {
+      "sourceBands": "L3_L4_QA_ECOSTRESS_L2_QC,L3_L4_QA_Landsat8_QC,L3_L4_QA_MCD12Q1_QC",
+      "subsetRegion": "100,100,400,400",
+      "formatName": "ECOSTRESS-L3-L4-QA",
+      "crs": "WGS84(DD)"
+    },
+    "outputs": [
+      {
+        "parameter": "out1",
+        "outputName": "tempEcostressL3L4QA",
+        "expected": "s2tbx/expectedEcostressL3L4QA.json"
+      }
+    ]
+  },
+  {
+    "id": "EcostressL4ESIALEXITest",
+    "author": "CSRO",
+    "description": "execute ECOSTRESS product reader and operators",
+    "frequency": "daily/CSROtest",
+    "graphPath": "s2tbx/graphReaderSingleLevelFormat.xml",
+    "inputs": {
+      "input1": "_ecostress/ECOSTRESS_L4_ESI_ALEXI_22387_012_20220617T215911_0601_01.h5"
+    },
+    "parameters": {
+      "sourceBands": "EVAPORATIVE__STRESS__INDEX__ALEXI_ESIdaily,EVAPORATIVE__STRESS__INDEX__ALEXI_ESIdailyUncertainty,EVAPORATIVE__STRESS__INDEX__ALEXI_QualityFlag",
+      "subsetRegion": "100,100,400,400",
+      "formatName": "ECOSTRESS-L4_ESI_ALEXI",
+      "crs": "WGS84(DD)"
+    },
+    "outputs": [
+      {
+        "parameter": "out1",
+        "outputName": "tempEcostressL4ESIALEXI",
+        "expected": "s2tbx/expectedEcostressL4ESIALEXI.json"
+      }
+    ]
+  },
+  {
+    "id": "EcostressL4ESIALEXIUSDATest",
+    "author": "CSRO",
+    "description": "execute ECOSTRESS product reader and operators",
+    "frequency": "daily/CSROtest",
+    "graphPath": "s2tbx/graphReaderSingleLevelFormat.xml",
+    "inputs": {
+      "input1": "_ecostress/ECOSTRESS_L4_ESI_ALEXI_USDA_05562_006_20190629T163154_0600_01.bondville.h5"
+    },
+    "parameters": {
+      "sourceBands": "EVAPORATIVE__STRESS__INDEX__ALEXI_ESIdaily,EVAPORATIVE__STRESS__INDEX__ALEXI_ESIdailyUncertainty,EVAPORATIVE__STRESS__INDEX__ALEXI_QualityFlag",
+      "subsetRegion": "100,100,400,400",
+      "formatName": "ECOSTRESS-L4_ESI_ALEXI-USDA",
+      "crs": "WGS84(DD)"
+    },
+    "outputs": [
+      {
+        "parameter": "out1",
+        "outputName": "tempEcostressL4ESIALEXIUSDA",
+        "expected": "s2tbx/expectedEcostressL4ESIALEXIUSDA.json"
+      }
+    ]
+  },
+  {
+    "id": "EcostressL4ESIPTJPLTest",
+    "author": "CSRO",
+    "description": "execute ECOSTRESS product reader and operators",
+    "frequency": "daily/CSROtest",
+    "graphPath": "s2tbx/graphReaderSingleLevelFormat.xml",
+    "inputs": {
+      "input1": "_ecostress/ECOSTRESS_L4_ESI_PT-JPL_26313_001_20230225T154024_0601_01.h5"
+    },
+    "parameters": {
+      "sourceBands": "Evaporative__Stress__Index__PT-JPL_ESIavg,Evaporative__Stress__Index__PT-JPL_PET",
+      "subsetRegion": "100,100,400,400",
+      "formatName": "ECOSTRESS-L4-ESI-PT-JPL",
+      "crs": "WGS84(DD)"
+    },
+    "outputs": [
+      {
+        "parameter": "out1",
+        "outputName": "tempEcostressL4ESIPTJPL",
+        "expected": "s2tbx/expectedEcostressL4ESIPTJPL.json"
+      }
+    ]
+  },
+  {
+    "id": "EcostressL4WUETest",
+    "author": "CSRO",
+    "description": "execute ECOSTRESS product reader and operators",
+    "frequency": "daily/CSROtest",
+    "graphPath": "s2tbx/graphReaderSingleLevelFormat.xml",
+    "inputs": {
+      "input1": "_ecostress/ECOSTRESS_L4_WUE_26313_001_20230225T154024_0601_01.h5"
+    },
+    "parameters": {
+      "sourceBands": "Water__Use__Efficiency_WUEavg",
+      "subsetRegion": "100,100,400,400",
+      "formatName": "ECOSTRESS-L4-WUE",
+      "crs": "WGS84(DD)"
+    },
+    "outputs": [
+      {
+        "parameter": "out1",
+        "outputName": "tempEcostressL4WUE",
+        "expected": "s2tbx/expectedEcostressL4WUE.json"
+      }
+    ]
+  }
+]

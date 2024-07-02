@@ -1,0 +1,186 @@
+{
+  "id": "tempEcostressL1BMAPRAD",
+  "decodeQualification": "INTENDED",
+  "expectedContent": {
+    "sceneWidth": 401,
+    "sceneHeight": 401,
+    "startTime": "14-MAR-2024 23:51:33.170982",
+    "endTime": "14-MAR-2024 23:51:33.170982",
+    "geoCoding": {
+      "coordinates": [
+        {
+          "x": 172.0,
+          "y": 215.0,
+          "lat": 11.94829310533538,
+          "lon": 63.80015170825317
+        },
+        {
+          "x": 297.0,
+          "y": 260.0,
+          "lat": 11.908106521164871,
+          "lon": 63.9117811087268
+        }
+      ],
+      "reverseAccuracy": 1.8189894035458565E-12
+    },
+    "bands": [
+      {
+        "name": "Mapped_data_quality_1",
+        "description": "Data quality indicator. \n  0 - DQI_GOOD, normal data, nothing wrong with it\n  1 - DQI_INTERPOLATED, data was part of instrument \n      'stripe', and we have filled this in with \n      interpolated data (see ATB) \n  2 - DQI_STRIPE_NOT_INTERPOLATED, data was part of\n      instrument 'stripe' and we could not fill in\n      with interpolated data.\n  3 - DQI_BAD_OR_MISSING, indicates data with a bad \n      value (e.g., negative DN) or missing packets.\n  4 - DQI_NOT_SEEN, pixels where because of the \n      difference in time that a sample is seen with \n      each band, the ISS has moved enough we haven't \n      seen the pixel. So data is missing, but by\n      instrument design instead of some problem.",
+        "bandWidth": 401,
+        "bandHeight": 401,
+        "geophysicalUnit": "dimensionless",
+        "noDataValue": "0.0",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 20,
+            "y": 71,
+            "value": "NaN"
+          },
+          {
+            "x": 274,
+            "y": 341,
+            "value": "NaN"
+          }
+        ]
+      },
+      {
+        "name": "Mapped_data_quality_2",
+        "description": "Data quality indicator. \n  0 - DQI_GOOD, normal data, nothing wrong with it\n  1 - DQI_INTERPOLATED, data was part of instrument \n      'stripe', and we have filled this in with \n      interpolated data (see ATB) \n  2 - DQI_STRIPE_NOT_INTERPOLATED, data was part of\n      instrument 'stripe' and we could not fill in\n      with interpolated data.\n  3 - DQI_BAD_OR_MISSING, indicates data with a bad \n      value (e.g., negative DN) or missing packets.\n  4 - DQI_NOT_SEEN, pixels where because of the \n      difference in time that a sample is seen with \n      each band, the ISS has moved enough we haven't \n      seen the pixel. So data is missing, but by\n      instrument design instead of some problem.",
+        "bandWidth": 401,
+        "bandHeight": 401,
+        "geophysicalUnit": "dimensionless",
+        "noDataValue": "0.0",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 116,
+            "y": 102,
+            "value": 4.0
+          },
+          {
+            "x": 244,
+            "y": 146,
+            "value": 4.0
+          }
+        ]
+      },
+      {
+        "name": "Mapped_data_quality_3",
+        "description": "Data quality indicator. \n  0 - DQI_GOOD, normal data, nothing wrong with it\n  1 - DQI_INTERPOLATED, data was part of instrument \n      'stripe', and we have filled this in with \n      interpolated data (see ATB) \n  2 - DQI_STRIPE_NOT_INTERPOLATED, data was part of\n      instrument 'stripe' and we could not fill in\n      with interpolated data.\n  3 - DQI_BAD_OR_MISSING, indicates data with a bad \n      value (e.g., negative DN) or missing packets.\n  4 - DQI_NOT_SEEN, pixels where because of the \n      difference in time that a sample is seen with \n      each band, the ISS has moved enough we haven't \n      seen the pixel. So data is missing, but by\n      instrument design instead of some problem.",
+        "bandWidth": 401,
+        "bandHeight": 401,
+        "geophysicalUnit": "dimensionless",
+        "noDataValue": "0.0",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 220,
+            "y": 298,
+            "value": 4.0
+          },
+          {
+            "x": 243,
+            "y": 372,
+            "value": "NaN"
+          }
+        ]
+      },
+      {
+        "name": "Mapped_longitude",
+        "description": "",
+        "bandWidth": 401,
+        "bandHeight": 401,
+        "geophysicalUnit": "degrees",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 63,
+            "y": 267,
+            "value": "NaN"
+          },
+          {
+            "x": 208,
+            "y": 366,
+            "value": 63.832893
+          }
+        ]
+      },
+      {
+        "name": "Mapped_latitude",
+        "description": "",
+        "bandWidth": 401,
+        "bandHeight": 401,
+        "geophysicalUnit": "degrees",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 303,
+            "y": 194,
+            "value": 11.966243
+          },
+          {
+            "x": 381,
+            "y": 194,
+            "value": "NaN"
+          }
+        ]
+      }
+    ],
+    "metadata": [
+      {
+        "path": "L1GEOMetadata/QAPercentMissingData",
+        "value": "0.0"
+      },
+      {
+        "path": "StandardMetadata/PGEVersion",
+        "value": "6.00"
+      },
+      {
+        "path": "L1GEOMetadata/AncillaryFiles",
+        "value": "0"
+      },
+      {
+        "path": "L1GEOMetadata/AncillaryFiles",
+        "value": "0"
+      },
+      {
+        "path": "history/SubsetInfo/SubRegion.width",
+        "value": "400"
+      },
+      {
+        "path": "L1GEOMetadata/OrbitCorrectionPerformed",
+        "value": "True"
+      },
+      {
+        "path": "L1GEOMetadata/BandSpecification",
+        "value": "0.0,8.2,8.7,9.0,10.5,12.0"
+      },
+      {
+        "path": "MapInformation/GeoTransform",
+        "value": "64.09373871013642,-5.096057006507747E-4,-3.8566768660640966E-4,11.924507229178904,-3.8566768660640966E-4,5.096057006507747E-4"
+      },
+      {
+        "path": "MapInformation/CoordinateSystem",
+        "value": "GEOGCS[\"WGS 84\",\n    DATUM[\"WGS_1984\",\n        SPHEROID[\"WGS 84\",6378137,298.257223563,\n            AUTHORITY[\"EPSG\",\"7030\"]],\n        AUTHORITY[\"EPSG\",\"6326\"]],\n    PRIMEM[\"Greenwich\",0],\n    UNIT[\"degree\",0.0174532925199433],\n    AUTHORITY[\"EPSG\",\"4326\"]]"
+      },
+      {
+        "path": "Processing_Graph/node.0/parameters/file",
+        "value": "U:\\_ecostress\\ECOSTRESS_L1B_MAP_RAD_32259_019_20240314T235129_0601_01.h5"
+      }
+    ]
+  }
+}

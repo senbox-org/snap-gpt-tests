@@ -1,0 +1,140 @@
+{
+  "id": "tempEcostressL3ETALEXIUSDA",
+  "decodeQualification": "INTENDED",
+  "expectedContent": {
+    "sceneWidth": 542,
+    "sceneHeight": 401,
+    "startTime": "10-AUG-2018 19:25:34.381592",
+    "endTime": "10-AUG-2018 19:25:34.381592",
+    "geoCoding": {
+      "coordinates": [
+        {
+          "x": 233.0,
+          "y": 215.0,
+          "lat": 42.586991731263524,
+          "lon": -93.71813618744082
+        },
+        {
+          "x": 402.0,
+          "y": 260.0,
+          "lat": 42.574867959236535,
+          "lon": -93.67260468805055
+        }
+      ],
+      "reverseAccuracy": 5.820766091346741E-11
+    },
+    "bands": [
+      {
+        "name": "EVAPOTRANSPIRATION__ALEXI_ETdaily",
+        "description": "",
+        "bandWidth": 542,
+        "bandHeight": 401,
+        "geophysicalUnit": "mm/day",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 28,
+            "y": 71,
+            "value": 6.428566
+          },
+          {
+            "x": 371,
+            "y": 341,
+            "value": 6.855891
+          }
+        ]
+      },
+      {
+        "name": "EVAPOTRANSPIRATION__ALEXI_ETdailyUncertainty",
+        "description": "",
+        "bandWidth": 542,
+        "bandHeight": 401,
+        "geophysicalUnit": "mm/day",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 157,
+            "y": 102,
+            "value": 0.3168904
+          },
+          {
+            "x": 330,
+            "y": 146,
+            "value": 0.31689036
+          }
+        ]
+      },
+      {
+        "name": "EVAPOTRANSPIRATION__ALEXI_QualityFlag",
+        "description": "",
+        "bandWidth": 542,
+        "bandHeight": 401,
+        "geophysicalUnit": "NA",
+        "noDataValue": "0.0",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 298,
+            "y": 298,
+            "value": "NaN"
+          },
+          {
+            "x": 329,
+            "y": 372,
+            "value": 32.0
+          }
+        ]
+      }
+    ],
+    "metadata": [
+      {
+        "path": "StandardMetadata/ProductionDateTime",
+        "value": "2018-12-05T05:52:33.803Z"
+      },
+      {
+        "path": "Processing_Graph/node.3/parameters/deleteOutputOnFailure",
+        "value": "true"
+      },
+      {
+        "path": "history/SubsetInfo/SubRegion.x",
+        "value": "100"
+      },
+      {
+        "path": "history/SubsetInfo/SubRegion.y",
+        "value": "100"
+      },
+      {
+        "path": "L3_ET_ALEXI Metadata/AncillaryFileInsolation",
+        "value": "CFSR_swdn_2018222"
+      },
+      {
+        "path": "L3_ET_ALEXI Metadata/AncillaryFileALEXIETd",
+        "value": "EDAY_V7NC_CFSRINSOL_2018222.dat"
+      },
+      {
+        "path": "history/SubsetInfo/SubRegion.width",
+        "value": "400"
+      },
+      {
+        "path": "L3_ET_ALEXI Metadata/AvgETUncertainty",
+        "value": "-8480.212"
+      },
+      {
+        "path": "L3_ET_ALEXI Metadata/AncillaryFileSurfaceReflectance",
+        "value": "LC08_L1TP_026031_20180822_20180829_01_T1.xml"
+      },
+      {
+        "path": "L3_ET_ALEXI Metadata/AncillaryFilePressure",
+        "value": "CFSR_psfc_2018222"
+      }
+    ]
+  }
+}

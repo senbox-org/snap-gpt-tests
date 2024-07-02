@@ -1,0 +1,140 @@
+{
+  "id": "tempEcostressL4ESIALEXI",
+  "decodeQualification": "INTENDED",
+  "expectedContent": {
+    "sceneWidth": 454,
+    "sceneHeight": 401,
+    "startTime": "17-JUN-2022 21:59:27.856172",
+    "endTime": "17-JUN-2022 21:59:27.856172",
+    "geoCoding": {
+      "coordinates": [
+        {
+          "x": 195.0,
+          "y": 215.0,
+          "lat": 37.767591346933294,
+          "lon": -119.56759828183374
+        },
+        {
+          "x": 337.0,
+          "y": 260.0,
+          "lat": 37.72527764544088,
+          "lon": -119.43407504601326
+        }
+      ],
+      "reverseAccuracy": 1.4551915228366852E-11
+    },
+    "bands": [
+      {
+        "name": "EVAPORATIVE__STRESS__INDEX__ALEXI_ESIdaily",
+        "description": "",
+        "bandWidth": 454,
+        "bandHeight": 401,
+        "geophysicalUnit": "NA",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 23,
+            "y": 71,
+            "value": 1.0
+          },
+          {
+            "x": 311,
+            "y": 341,
+            "value": 1.0
+          }
+        ]
+      },
+      {
+        "name": "EVAPORATIVE__STRESS__INDEX__ALEXI_ESIdailyUncertainty",
+        "description": "",
+        "bandWidth": 454,
+        "bandHeight": 401,
+        "geophysicalUnit": "NA",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 132,
+            "y": 102,
+            "value": 0.093
+          },
+          {
+            "x": 277,
+            "y": 146,
+            "value": 0.096
+          }
+        ]
+      },
+      {
+        "name": "EVAPORATIVE__STRESS__INDEX__ALEXI_QualityFlag",
+        "description": "",
+        "bandWidth": 454,
+        "bandHeight": 401,
+        "geophysicalUnit": "NA",
+        "noDataValue": "0.0",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 249,
+            "y": 298,
+            "value": "NaN"
+          },
+          {
+            "x": 276,
+            "y": 372,
+            "value": "NaN"
+          }
+        ]
+      }
+    ],
+    "metadata": [
+      {
+        "path": "StandardMetadata/ProductionDateTime",
+        "value": "2023-01-31T01:42:06.610Z"
+      },
+      {
+        "path": "Processing_Graph/node.3/parameters/deleteOutputOnFailure",
+        "value": "true"
+      },
+      {
+        "path": "history/SubsetInfo/SubRegion.x",
+        "value": "100"
+      },
+      {
+        "path": "history/SubsetInfo/SubRegion.y",
+        "value": "100"
+      },
+      {
+        "path": "L4_ESI_ALEXI Metadata/AncillaryFileBadMask",
+        "value": "cloud_mask_2022_06_17_ECOSTRESS_22387012.h5"
+      },
+      {
+        "path": "L4_ESI_ALEXI Metadata/AncillaryFileALEXIETd",
+        "value": "alexi_et_2022_06_17_ECOSTRESS_22387012.h5"
+      },
+      {
+        "path": "history/SubsetInfo/SubRegion.width",
+        "value": "400"
+      },
+      {
+        "path": "L4_ESI_ALEXI Metadata/AncillaryFiles",
+        "value": "10"
+      },
+      {
+        "path": "L4_ESI_ALEXI Metadata/AncillaryFileLandcover",
+        "value": "nlcd_2011_landcover_2011_edition_2014_10_10.img"
+      },
+      {
+        "path": "L4_ESI_ALEXI Metadata/AncillaryFileLandcover",
+        "value": "nlcd_2011_landcover_2011_edition_2014_10_10.img"
+      }
+    ]
+  }
+}
