@@ -1,0 +1,71 @@
+[
+  {
+    "id": "EcostressSwath2GridGEOTest",
+    "author": "CSRO",
+    "description": "execute ECOSTRESS Swath2Grid operator without radiance to brightness temperature conversion and GEO CRS",
+    "frequency": "daily/CSROtest",
+    "graphPath": "s2tbx/graphEcostressSwath2GridOp.xml",
+    "inputs": {
+      "geoSourceProduct": "_ecostress_swath2grid/ECOSTRESS_L1B_GEO_08355_008_20191226T171130_0601_01.h5",
+      "ecoSourceProduct": "_ecostress_swath2grid/ECOSTRESS_L1B_RAD_08355_008_20191226T171130_0601_01.h5"
+    },
+    "parameters": {
+      "crsIN": "GEO",
+      "utmZone": "",
+      "r2b": false
+    },
+    "outputs": [
+      {
+        "parameter": "out1",
+        "outputName": "tempEcostressSwath2GridGEO",
+        "expected": "s2tbx/expectedEcostressSwath2GridGEO.json"
+      }
+    ]
+  },
+  {
+    "id": "EcostressSwath2GridBTGEOTest",
+    "author": "CSRO",
+    "description": "execute ECOSTRESS Swath2Grid operator with radiance to brightness temperature conversion and GEO CRS",
+    "frequency": "daily/CSROtest",
+    "graphPath": "s2tbx/graphEcostressSwath2GridOp.xml",
+    "inputs": {
+      "geoSourceProduct": "_ecostress_swath2grid/ECOSTRESS_L1B_GEO_08355_008_20191226T171130_0601_01.h5",
+      "ecoSourceProduct": "_ecostress_swath2grid/ECOSTRESS_L1B_RAD_08355_008_20191226T171130_0601_01.h5"
+    },
+    "parameters": {
+      "crsIN": "GEO",
+      "utmZone": "",
+      "r2b": true
+    },
+    "outputs": [
+      {
+        "parameter": "out1",
+        "outputName": "tempEcostressSwath2GridBTGEO",
+        "expected": "s2tbx/expectedEcostressSwath2GridBTGEO.json"
+      }
+    ]
+  },
+  {
+    "id": "EcostressSwath2GridUTMTest",
+    "author": "CSRO",
+    "description": "execute ECOSTRESS Swath2Grid operator without radiance to brightness temperature conversion and UTM CRS",
+    "frequency": "daily/CSROtest",
+    "graphPath": "s2tbx/graphEcostressSwath2GridOp.xml",
+    "inputs": {
+      "geoSourceProduct": "_ecostress_swath2grid/ECOSTRESS_L1B_GEO_08355_008_20191226T171130_0601_01.h5",
+      "ecoSourceProduct": "_ecostress_swath2grid/ECOSTRESS_L1B_RAD_08355_008_20191226T171130_0601_01.h5"
+    },
+    "parameters": {
+      "crsIN": "UTM",
+      "utmZone": "auto_lookup",
+      "r2b": false
+    },
+    "outputs": [
+      {
+        "parameter": "out1",
+        "outputName": "tempEcostressSwath2GridUTM",
+        "expected": "s2tbx/expectedEcostressSwath2GridUTM.json"
+      }
+    ]
+  }
+]
