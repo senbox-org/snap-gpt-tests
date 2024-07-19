@@ -1,0 +1,140 @@
+{
+  "id": "tempEcostressL2LSTE",
+  "decodeQualification": "INTENDED",
+  "expectedContent": {
+    "sceneWidth": 402,
+    "sceneHeight": 401,
+    "startTime": "14-MAR-2024 20:56:59.119974",
+    "endTime": "14-MAR-2024 20:56:59.119974",
+    "geoCoding": {
+      "coordinates": [
+        {
+          "x": 173.0,
+          "y": 215.0,
+          "lat": -18.69406055809886,
+          "lon": 130.98583776272423
+        },
+        {
+          "x": 298.0,
+          "y": 260.0,
+          "lat": -18.73642352445226,
+          "lon": 131.10351266926142
+        }
+      ],
+      "reverseAccuracy": 2.9103830456733704E-11
+    },
+    "bands": [
+      {
+        "name": "SDS_Emis1",
+        "description": "",
+        "bandWidth": 402,
+        "bandHeight": 401,
+        "geophysicalUnit": "n/a",
+        "noDataValue": "0.0",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 20,
+            "y": 71,
+            "value": "NaN"
+          },
+          {
+            "x": 275,
+            "y": 341,
+            "value": "NaN"
+          }
+        ]
+      },
+      {
+        "name": "SDS_Emis2",
+        "description": "",
+        "bandWidth": 402,
+        "bandHeight": 401,
+        "geophysicalUnit": "n/a",
+        "noDataValue": "0.0",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 116,
+            "y": 102,
+            "value": "NaN"
+          },
+          {
+            "x": 245,
+            "y": 146,
+            "value": "NaN"
+          }
+        ]
+      },
+      {
+        "name": "SDS_Emis3",
+        "description": "",
+        "bandWidth": 402,
+        "bandHeight": 401,
+        "geophysicalUnit": "n/a",
+        "noDataValue": "0.0",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 221,
+            "y": 298,
+            "value": "NaN"
+          },
+          {
+            "x": 244,
+            "y": 372,
+            "value": "NaN"
+          }
+        ]
+      }
+    ],
+    "metadata": [
+      {
+        "path": "StandardMetadata/ProducerInstitution",
+        "value": "Caltech"
+      },
+      {
+        "path": "Processing_Graph/node.3/parameters/deleteOutputOnFailure",
+        "value": "true"
+      },
+      {
+        "path": "history/SubsetInfo/SubRegion.x",
+        "value": "100"
+      },
+      {
+        "path": "history/SubsetInfo/SubRegion.y",
+        "value": "100"
+      },
+      {
+        "path": "L2 LSTE Metadata/CloudMeanTemperature",
+        "value": "NaN"
+      },
+      {
+        "path": "L2 LSTE Metadata/AncillaryNWP",
+        "value": "/NWP/GEOS5/2024/GEOS.fp.asm.inst3_3d_asm_Np.20240314_1800.V01.nc4, /NWP/GEOS5/2024/GEOS.fp.asm.inst3_3d_asm_Np.20240314_2100.V01.nc4"
+      },
+      {
+        "path": "history/SubsetInfo/SubRegion.width",
+        "value": "400"
+      },
+      {
+        "path": "L2 LSTE Metadata/NWPSource",
+        "value": "GEOS5"
+      },
+      {
+        "path": "L2 LSTE Metadata/Emis3GoodAvg",
+        "value": "0.9417997605487752"
+      },
+      {
+        "path": "L2 LSTE Metadata/Emis2GoodAvg",
+        "value": "0.927981009096697"
+      }
+    ]
+  }
+}
