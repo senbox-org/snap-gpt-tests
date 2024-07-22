@@ -15,4 +15,23 @@
     "outputName": "s2resampledOutput",
     "expected": "s2tbx/expectedS2Resampling.json"
   }]
-}]
+},
+  {
+    "id":"s2Resampling-FilteredBands",
+    "author": "CS RO",
+    "description":"execute s2Resampling with filtered bands",
+    "frequency":"daily",
+    "graphPath": "s2tbx/graphS2ResamplingWithFilteredBands.xml",
+    "inputs": {
+      "inputFile": "S2/L2A/S2A_MSIL2A_20181002T034551_N0211_R104_T47PMP_20230713T132110.SAFE"
+    },
+    "parameters": {
+      "resolution": "10",
+      "bands": "B3,B4"
+    },
+    "outputs": [{
+      "parameter": "outputFile",
+      "outputName": "s2resampledFilteredBandsOutput",
+      "expected": "s2tbx/expectedS2ResamplingFilteredBands.json"
+    }]
+  }]

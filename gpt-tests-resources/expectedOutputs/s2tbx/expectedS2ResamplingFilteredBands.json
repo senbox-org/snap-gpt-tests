@@ -1,0 +1,83 @@
+{
+    "id": "s2resampledOutput",
+    "decodeQualification": "INTENDED",
+    "expectedContent": {
+        "sceneWidth": 10980,
+        "sceneHeight": 10980,
+        "startTime": "02-OCT-2018 03:45:51.024000",
+        "endTime": "02-OCT-2018 03:45:51.024000",
+        "geoCoding": {
+            "coordinates": [
+                {
+                    "x": 4735.0,
+                    "y": 5902.0,
+                    "lat": 12.13040117681352,
+                    "lon": 98.51575106720786
+                },
+                {
+                    "x": 8152.0,
+                    "y": 7125.0,
+                    "lat": 12.020172504320414,
+                    "lon": 98.82985937785173
+                }
+            ],
+            "reverseAccuracy": 1.964508555829525E-10
+        },
+        "bands": [
+            {
+                "name": "B3",
+                "description": "Reflectance in band B3",
+                "bandWidth": 10980,
+                "bandHeight": 10980,
+                "geophysicalUnit": "dl",
+                "noDataValue": "0.0",
+                "noDataValueUsed": "false",
+                "spectralWavelength": "560.0",
+                "spectralBandwidth": "35",
+                "expectedPixels": [
+                    {
+                        "x": 3737,
+                        "y": 9875,
+                        "value": 0.5688
+                    },
+                    {
+                        "x": 109,
+                        "y": 5168,
+                        "value": 0.243
+                    }
+                ]
+            },
+            {
+                "name": "B4",
+                "description": "Reflectance in band B4",
+                "bandWidth": 10980,
+                "bandHeight": 10980,
+                "geophysicalUnit": "dl",
+                "noDataValue": "0.0",
+                "noDataValueUsed": "false",
+                "spectralWavelength": "665.0",
+                "spectralBandwidth": "30",
+                "expectedPixels": [
+                    {
+                        "x": 3595,
+                        "y": 2164,
+                        "value": 0.292
+                    },
+                    {
+                        "x": 2999,
+                        "y": 474,
+                        "value": 0.0951
+                    }
+                ]
+            }
+        ],
+        "metadata": [
+            {
+                "path": "Processing_Graph/node.3/parameters/bands",
+                "value": "B3,B4",
+                "path": "Processing_Graph/node.3/id",
+                "value": "S2Resampling"
+            }
+        ]
+    }
+}

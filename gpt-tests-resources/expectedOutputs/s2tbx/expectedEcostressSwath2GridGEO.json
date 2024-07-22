@@ -1,0 +1,358 @@
+{
+  "id": "tempEcostressSwath2GridGEO",
+  "decodeQualification": "INTENDED",
+  "expectedContent": {
+    "sceneWidth": 9586,
+    "sceneHeight": 8182,
+    "geoCoding": {
+      "coordinates": [
+        {
+          "x": 4134.0,
+          "y": 4398.0,
+          "lat": 40.970137902256496,
+          "lon": -89.8105456533699
+        },
+        {
+          "x": 7117.0,
+          "y": 5309.0,
+          "lat": 40.39589779729164,
+          "lon": -87.93015119528016
+        }
+      ],
+      "reverseAccuracy": 7.275957614183426E-12
+    },
+    "bands": [
+      {
+        "name": "Radiance_data_quality_1",
+        "description": "Data quality indicator. \n  0 - DQI_GOOD, normal data, nothing wrong with it\n  1 - DQI_INTERPOLATED, data was part of instrument \n      'stripe', and we have filled this in with \n      interpolated data (see ATB) \n  2 - DQI_STRIPE_NOT_INTERPOLATED, data was part of\n      instrument 'stripe' and we could not fill in\n      with interpolated data.\n  3 - DQI_BAD_OR_MISSING, indicates data with a bad \n      value (e.g., negative DN) or missing packets.\n  4 - DQI_NOT_SEEN, pixels where because of the \n      difference in time that a sample is seen with \n      each band, the ISS has moved enough we haven't \n      seen the pixel. So data is missing, but by\n      instrument design instead of some problem.",
+        "bandWidth": 9586,
+        "bandHeight": 8182,
+        "geophysicalUnit": "dimensionless",
+        "noDataValue": "0.0",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 500,
+            "y": 1457,
+            "value": "NaN"
+          },
+          {
+            "x": 6567,
+            "y": 6959,
+            "value": "NaN"
+          }
+        ]
+      },
+      {
+        "name": "Radiance_data_quality_2",
+        "description": "Data quality indicator. \n  0 - DQI_GOOD, normal data, nothing wrong with it\n  1 - DQI_INTERPOLATED, data was part of instrument \n      'stripe', and we have filled this in with \n      interpolated data (see ATB) \n  2 - DQI_STRIPE_NOT_INTERPOLATED, data was part of\n      instrument 'stripe' and we could not fill in\n      with interpolated data.\n  3 - DQI_BAD_OR_MISSING, indicates data with a bad \n      value (e.g., negative DN) or missing packets.\n  4 - DQI_NOT_SEEN, pixels where because of the \n      difference in time that a sample is seen with \n      each band, the ISS has moved enough we haven't \n      seen the pixel. So data is missing, but by\n      instrument design instead of some problem.",
+        "bandWidth": 9586,
+        "bandHeight": 8182,
+        "geophysicalUnit": "dimensionless",
+        "noDataValue": "0.0",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 2788,
+            "y": 2101,
+            "value": "NaN"
+          },
+          {
+            "x": 5852,
+            "y": 2988,
+            "value": "NaN"
+          }
+        ]
+      },
+      {
+        "name": "Radiance_data_quality_3",
+        "description": "Data quality indicator. \n  0 - DQI_GOOD, normal data, nothing wrong with it\n  1 - DQI_INTERPOLATED, data was part of instrument \n      'stripe', and we have filled this in with \n      interpolated data (see ATB) \n  2 - DQI_STRIPE_NOT_INTERPOLATED, data was part of\n      instrument 'stripe' and we could not fill in\n      with interpolated data.\n  3 - DQI_BAD_OR_MISSING, indicates data with a bad \n      value (e.g., negative DN) or missing packets.\n  4 - DQI_NOT_SEEN, pixels where because of the \n      difference in time that a sample is seen with \n      each band, the ISS has moved enough we haven't \n      seen the pixel. So data is missing, but by\n      instrument design instead of some problem.",
+        "bandWidth": 9586,
+        "bandHeight": 8182,
+        "geophysicalUnit": "dimensionless",
+        "noDataValue": "0.0",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 5272,
+            "y": 6098,
+            "value": "NaN"
+          },
+          {
+            "x": 5831,
+            "y": 7596,
+            "value": "NaN"
+          }
+        ]
+      },
+      {
+        "name": "Radiance_data_quality_4",
+        "description": "Data quality indicator. \n  0 - DQI_GOOD, normal data, nothing wrong with it\n  1 - DQI_INTERPOLATED, data was part of instrument \n      'stripe', and we have filled this in with \n      interpolated data (see ATB) \n  2 - DQI_STRIPE_NOT_INTERPOLATED, data was part of\n      instrument 'stripe' and we could not fill in\n      with interpolated data.\n  3 - DQI_BAD_OR_MISSING, indicates data with a bad \n      value (e.g., negative DN) or missing packets.\n  4 - DQI_NOT_SEEN, pixels where because of the \n      difference in time that a sample is seen with \n      each band, the ISS has moved enough we haven't \n      seen the pixel. So data is missing, but by\n      instrument design instead of some problem.",
+        "bandWidth": 9586,
+        "bandHeight": 8182,
+        "geophysicalUnit": "dimensionless",
+        "noDataValue": "0.0",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 1517,
+            "y": 5449,
+            "value": "NaN"
+          },
+          {
+            "x": 4976,
+            "y": 7474,
+            "value": "NaN"
+          }
+        ]
+      },
+      {
+        "name": "Radiance_data_quality_5",
+        "description": "Data quality indicator. \n  0 - DQI_GOOD, normal data, nothing wrong with it\n  1 - DQI_INTERPOLATED, data was part of instrument \n      'stripe', and we have filled this in with \n      interpolated data (see ATB) \n  2 - DQI_STRIPE_NOT_INTERPOLATED, data was part of\n      instrument 'stripe' and we could not fill in\n      with interpolated data.\n  3 - DQI_BAD_OR_MISSING, indicates data with a bad \n      value (e.g., negative DN) or missing packets.\n  4 - DQI_NOT_SEEN, pixels where because of the \n      difference in time that a sample is seen with \n      each band, the ISS has moved enough we haven't \n      seen the pixel. So data is missing, but by\n      instrument design instead of some problem.",
+        "bandWidth": 9586,
+        "bandHeight": 8182,
+        "geophysicalUnit": "dimensionless",
+        "noDataValue": "0.0",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 7248,
+            "y": 3965,
+            "value": "NaN"
+          },
+          {
+            "x": 9114,
+            "y": 3975,
+            "value": "NaN"
+          }
+        ]
+      },
+      {
+        "name": "Radiance_radiance_1",
+        "description": "",
+        "bandWidth": 9586,
+        "bandHeight": 8182,
+        "geophysicalUnit": "W/m^2/sr/um",
+        "noDataValue": "-9999.0",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 3263,
+            "y": 7359,
+            "value": 0.0
+          },
+          {
+            "x": 95,
+            "y": 3851,
+            "value": "NaN"
+          }
+        ]
+      },
+      {
+        "name": "Radiance_radiance_2",
+        "description": "",
+        "bandWidth": 9586,
+        "bandHeight": 8182,
+        "geophysicalUnit": "W/m^2/sr/um",
+        "noDataValue": "-9999.0",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 3138,
+            "y": 1612,
+            "value": 4.261307
+          },
+          {
+            "x": 2618,
+            "y": 353,
+            "value": "NaN"
+          }
+        ]
+      },
+      {
+        "name": "Radiance_radiance_3",
+        "description": "",
+        "bandWidth": 9586,
+        "bandHeight": 8182,
+        "geophysicalUnit": "W/m^2/sr/um",
+        "noDataValue": "-9999.0",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 9312,
+            "y": 4947,
+            "value": "NaN"
+          },
+          {
+            "x": 5486,
+            "y": 5864,
+            "value": 0.0
+          }
+        ]
+      },
+      {
+        "name": "Radiance_radiance_4",
+        "description": "",
+        "bandWidth": 9586,
+        "bandHeight": 8182,
+        "geophysicalUnit": "W/m^2/sr/um",
+        "noDataValue": "-9999.0",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 2223,
+            "y": 4070,
+            "value": 5.8693857
+          },
+          {
+            "x": 3078,
+            "y": 5911,
+            "value": 0.0
+          }
+        ]
+      },
+      {
+        "name": "Radiance_radiance_5",
+        "description": "",
+        "bandWidth": 9586,
+        "bandHeight": 8182,
+        "geophysicalUnit": "W/m^2/sr/um",
+        "noDataValue": "-9999.0",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 3432,
+            "y": 4076,
+            "value": 6.8255324
+          },
+          {
+            "x": 3861,
+            "y": 3619,
+            "value": 6.047401
+          }
+        ]
+      },
+      {
+        "name": "SWIR_swir_dn",
+        "description": "",
+        "bandWidth": 9586,
+        "bandHeight": 8182,
+        "geophysicalUnit": "dimensionless",
+        "noDataValue": "-9999.0",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 5508,
+            "y": 751,
+            "value": "NaN"
+          },
+          {
+            "x": 6185,
+            "y": 129,
+            "value": "NaN"
+          }
+        ]
+      },
+      {
+        "name": "longitude",
+        "description": "",
+        "bandWidth": 9586,
+        "bandHeight": 8182,
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 9348,
+            "y": 3005,
+            "value": "NaN"
+          },
+          {
+            "x": 9107,
+            "y": 7743,
+            "value": 0.0
+          }
+        ]
+      },
+      {
+        "name": "latitude",
+        "description": "",
+        "bandWidth": 9586,
+        "bandHeight": 8182,
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 1063,
+            "y": 3697,
+            "value": "NaN"
+          },
+          {
+            "x": 5472,
+            "y": 4602,
+            "value": "NaN"
+          }
+        ]
+      }
+    ],
+    "metadata": [
+      {
+        "path": "Processing_Graph[2]/node.0/sources/sourceProduct",
+        "value": "product:ECOSTRESS_L1B_RAD_08355_008_20191226T171130_0601_01.h5"
+      },
+      {
+        "path": "Processing_Graph/node.1/parameters/formatName",
+        "value": "BEAM-DIMAP"
+      },
+      {
+        "path": "Processing_Graph[2]/node.0/sources/sourceProduct",
+        "value": "product:ECOSTRESS_L1B_RAD_08355_008_20191226T171130_0601_01.h5"
+      },
+      {
+        "path": "Processing_Graph[2]/node.0/parameters/crs",
+        "value": "EPSG:4326"
+      },
+      {
+        "path": "Processing_Graph/node.1/sources/sourceProduct",
+        "value": "EcostressSwath2GridOp"
+      },
+      {
+        "path": "Processing_Graph/node.1/parameters/formatName",
+        "value": "BEAM-DIMAP"
+      },
+      {
+        "path": "Processing_Graph[2]/node.0/sources/sourceProduct",
+        "value": "product:ECOSTRESS_L1B_RAD_08355_008_20191226T171130_0601_01.h5"
+      },
+      {
+        "path": "Processing_Graph[2]/node.0/parameters/crs",
+        "value": "EPSG:4326"
+      }
+    ]
+  }
+}

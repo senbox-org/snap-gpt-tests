@@ -1,0 +1,137 @@
+{
+  "id": "tempEcostressL3L4QA",
+  "decodeQualification": "INTENDED",
+  "expectedContent": {
+    "sceneWidth": 542,
+    "sceneHeight": 401,
+    "startTime": "25-FEB-2023 15:40:40.439713",
+    "endTime": "25-FEB-2023 15:40:40.439713",
+    "geoCoding": {
+      "coordinates": [
+        {
+          "x": 233.0,
+          "y": 215.0,
+          "lat": 52.43083238829769,
+          "lon": -124.67693975153789
+        },
+        {
+          "x": 402.0,
+          "y": 260.0,
+          "lat": 52.39439996064267,
+          "lon": -124.54011574545572
+        }
+      ],
+      "reverseAccuracy": 0.0
+    },
+    "bands": [
+      {
+        "name": "L3_L4_QA_ECOSTRESS_L2_QC",
+        "description": "",
+        "bandWidth": 542,
+        "bandHeight": 401,
+        "noDataValue": "0.0",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 28,
+            "y": 71,
+            "value": 15.0
+          },
+          {
+            "x": 371,
+            "y": 341,
+            "value": 15.0
+          }
+        ]
+      },
+      {
+        "name": "L3_L4_QA_Landsat8_QC",
+        "description": "",
+        "bandWidth": 542,
+        "bandHeight": 401,
+        "noDataValue": "0.0",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 157,
+            "y": 102,
+            "value": -10484.0
+          },
+          {
+            "x": 330,
+            "y": 146,
+            "value": -10484.0
+          }
+        ]
+      },
+      {
+        "name": "L3_L4_QA_MCD12Q1_QC",
+        "description": "",
+        "bandWidth": 542,
+        "bandHeight": 401,
+        "noDataValue": "0.0",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 298,
+            "y": 298,
+            "value": "NaN"
+          },
+          {
+            "x": 329,
+            "y": 372,
+            "value": "NaN"
+          }
+        ]
+      }
+    ],
+    "metadata": [
+      {
+        "path": "StandardMetadata/ProductionDateTime",
+        "value": "2023-03-06T06:36:35.568Z"
+      },
+      {
+        "path": "Processing_Graph/node.3/parameters/deleteOutputOnFailure",
+        "value": "true"
+      },
+      {
+        "path": "history/SubsetInfo/SubRegion.x",
+        "value": "100"
+      },
+      {
+        "path": "history/SubsetInfo/SubRegion.y",
+        "value": "100"
+      },
+      {
+        "path": "L3_L4_QA_Metadata/AncillaryFile_MCD12Q1_QC",
+        "value": "['MCD12Q1.A2020001.h09v03.006.2021359051055.hdf', 'MCD12Q1.A2020001.h09v04.006.2021359073636.hdf', 'MCD12Q1.A2020001.h10v03.006.2021359070158.hdf', 'MCD12Q1.A2020001.h10v04.006.2021359104325.hdf']"
+      },
+      {
+        "path": "L3_L4_QA_Metadata/AncillaryFile_ECOSTRESS_L2_QC",
+        "value": "[]"
+      },
+      {
+        "path": "history/SubsetInfo/SubRegion.width",
+        "value": "400"
+      },
+      {
+        "path": "L3_L4_QA_Metadata/AncillaryFile_MOD07_QC",
+        "value": "['MOD07_L2.A2023042.1850.061.2023043194859.hdf', 'MOD07_L2.A2023042.2025.061.2023043193516.hdf', 'MOD07_L2.A2023043.1750.061.2023044022048.hdf', 'MOD07_L2.A2023043.1755.061.2023044022052.hdf', 'MOD07_L2.A2023043.1930.061.2023044073017.hdf', 'MOD07_L2.A2023044.1835.061.2023045134306.hdf', 'MOD07_L2.A2023044.2010.061.2023045134014.hdf', 'MOD07_L2.A2023045.1735.061.2023046024521.hdf', 'MOD07_L2.A2023045.1915.061.2023046111204.hdf', 'MOD07_L2.A2023046.1815.061.2023047122812.hdf', 'MOD07_L2.A2023046.1820.061.2023047143126.hdf', 'MOD07_L2.A2023046.1955.061.2023047123500.hdf', 'MOD07_L2.A2023047.1900.061.2023048155044.hdf', 'MOD07_L2.A2023048.1800.061.2023049185438.hdf', 'MOD07_L2.A2023048.1805.061.2023049180556.hdf', 'MOD07_L2.A2023048.1940.061.2023049184817.hdf', 'MOD07_L2.A2023049.1840.061.2023050143913.hdf', 'MOD07_L2.A2023049.1845.061.2023050144931.hdf', 'MOD07_L2.A2023049.2020.061.2023050172150.hdf', 'MOD07_L2.A2023050.1745.061.2023052113109.hdf', 'MOD07_L2.A2023050.1925.061.2023052104230.hdf', 'MOD07_L2.A2023051.1825.061.2023052101343.hdf', 'MOD07_L2.A2023051.1830.061.2023052100504.hdf', 'MOD07_L2.A2023051.2005.061.2023052111612.hdf', 'MOD07_L2.A2023052.1905.061.2023053222814.hdf', 'MOD07_L2.A2023052.1910.061.2023053223406.hdf', 'MOD07_L2.A2023053.1810.061.2023054201007.hdf', 'MOD07_L2.A2023053.1945.061.2023054201602.hdf', 'MOD07_L2.A2023053.1950.061.2023054201044.hdf', 'MOD07_L2.A2023054.1850.061.2023055075512.hdf', 'MOD07_L2.A2023054.2030.061.2023055075238.hdf', 'MOD07_L2.A2023055.1755.061.2023056105755.hdf', 'MOD07_L2.A2023055.1930.061.2023056125652.hdf', 'MOD07_L2.A2023055.1935.061.2023056120000.hdf', 'MOD07_L2.A2023056.1835.061.2023057124247.hdf', 'MOD07_L2.A2023056.2010.061.2023057124315.hdf', 'MOD07_L2.A2023056.2015.061.2023057124935.hdf']"
+      },
+      {
+        "path": "L3_L4_QA_Metadata/AncillaryFile_MOD06_1km_QC",
+        "value": "['MOD06_L2.A2023056.1835.061.2023057175914.hdf', 'MOD06_L2.A2023056.2010.061.2023057175553.hdf', 'MOD06_L2.A2023056.2015.061.2023057175813.hdf']"
+      },
+      {
+        "path": "L3_L4_QA_Metadata/AncillaryFile_MOD04_QC",
+        "value": "['MOD04_L2.A2023056.1835.061.2023057174804.hdf', 'MOD04_L2.A2023056.2010.061.2023057174540.hdf', 'MOD04_L2.A2023056.2015.061.2023057174025.hdf']"
+      }
+    ]
+  }
+}

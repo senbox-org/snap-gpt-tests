@@ -1,0 +1,25 @@
+[
+  {
+    "id": "BiophysicalProcessorS2",
+    "author": "CS RO",
+    "description": "execute Biophysical Processor S2",
+    "frequency": "daily",
+    "graphPath": "s2tbx/graphS2BioOp.xml",
+    "inputs": {
+      "inputFile": "S2/L2A/S2A_MSIL2A_20181002T034551_N0211_R104_T47PMP_20230713T132110.SAFE"
+    },
+    "parameters": {
+      "resolution": "60"
+    },
+    "outputs": [
+      {
+        "parameter": "outputFile",
+        "outputName": "biophysicalProcessorS2Output",
+        "expected": "s2tbx/expectedBiophysicalProcessorS2.json"
+      }
+    ]
+  }
+]
+
+
+
