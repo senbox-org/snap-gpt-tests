@@ -9,7 +9,7 @@ test_windows:
     DL_DIR: 'C:\\Users\\Public\\Documents'
     SNAP_DIR: 'C:\\Users\\Public\\Documents\\snap'
     TEMP_DIR: 'D:\\tmp'
-    TAG: master
+    TAG: '11.0.0'
     PROPERTIES_PATH: win.conf
     SNAP_INSTALLER: "snap_all_windows-%VERSION%.exe"
     TEST_DATA_LIST: singleTestData.txt
@@ -84,7 +84,7 @@ report:
     - xcopy /Y "%CI_PROJECT_DIR%\pygpt\statics\icons\*.png" "%CI_PROJECT_DIR%\result\report\icons\"
     - xcopy /Y "%CI_PROJECT_DIR%\pygpt\statics\js\*.js" "%CI_PROJECT_DIR%\result\report\js\"
     - echo "Generate report"
-    - python pygpt\report_utils.py pygpt\templates %CI_PROJECT_DIR%\%REPORT_DIR%\report %SCOPE% snap:master
+    - python pygpt\report_utils.py pygpt\templates %CI_PROJECT_DIR%\%REPORT_DIR%\report %SCOPE% snap:11.0.0
     - rd /s /q %CI_PROJECT_DIR%\%DEST_DIR%
     - mkdir %CI_PROJECT_DIR%\public %CI_PROJECT_DIR%\%DEST_DIR%
     # Upload report to s3
