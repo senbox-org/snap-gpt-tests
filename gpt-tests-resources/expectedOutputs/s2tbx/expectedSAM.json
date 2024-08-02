@@ -49,37 +49,18 @@
       {
         "name": "mask_band_1",
         "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
-        "color": "255,255,255"
+        "color": "255,255,255",
+        "description": "mask_band_1"
       }
     ],
     "metadata": [
       {
-        "path": "Image info/Component/signed",
-        "value": "true"
+        "path": "Image info/Component/precision",
+        "value": "32"
       },
       {
-        "path": "Image info/Component/overview count",
-        "value": "7"
-      },
-      {
-        "path": "Image info/Component/color interpretation",
-        "value": "Gray"
-      },
-      {
-        "path": "Image info/Component/overviews",
-        "value": "500x500, 250x250, 125x125, 63x63, 32x32, 16x16, 8x8"
-      },
-      {
-        "path": "Image info/Component/overviews",
-        "value": "500x500, 250x250, 125x125, 63x63, 32x32, 16x16, 8x8"
-      },
-      {
-        "path": "Image info/Component/overviews",
-        "value": "500x500, 250x250, 125x125, 63x63, 32x32, 16x16, 8x8"
-      },
-      {
-        "path": "Image info/Component/block size",
-        "value": "1000x1000"
+        "path": "Image info/Component/precision",
+        "value": "32"
       },
       {
         "path": "Image info/Component/data type",
@@ -90,8 +71,28 @@
         "value": "true"
       },
       {
-        "path": "Image info/Component/precision",
-        "value": "32"
+        "path": "Image info/Component/signed",
+        "value": "true"
+      },
+      {
+        "path": "Image info/Component/signed",
+        "value": "true"
+      },
+      {
+        "path": "Image info/Component/color interpretation",
+        "value": "Gray"
+      },
+      {
+        "path": "Image info/Component/data type",
+        "value": "Int32"
+      },
+      {
+        "path": "Image info/Component/block size",
+        "value": "512x512"
+      },
+      {
+        "path": "Image info/Component/block size",
+        "value": "512x512"
       }
     ]
   }
