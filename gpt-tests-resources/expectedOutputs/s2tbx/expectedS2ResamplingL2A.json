@@ -27,8 +27,8 @@
                 "name": "band_1",
                 "bandWidth": 100,
                 "bandHeight": 100,
-                "noDataValue": "0.0",
-                "noDataValueUsed": "false",
+                "noDataValue": "NaN",
+                "noDataValueUsed": "true",
                 "spectralWavelength": "0.0",
                 "spectralBandwidth": "0.0",
                 "expectedPixels": [
@@ -48,8 +48,8 @@
                 "name": "band_2",
                 "bandWidth": 100,
                 "bandHeight": 100,
-                "noDataValue": "0.0",
-                "noDataValueUsed": "false",
+                "noDataValue": "NaN",
+                "noDataValueUsed": "true",
                 "spectralWavelength": "0.0",
                 "spectralBandwidth": "0.0",
                 "expectedPixels": [
@@ -69,8 +69,8 @@
                 "name": "band_3",
                 "bandWidth": 100,
                 "bandHeight": 100,
-                "noDataValue": "0.0",
-                "noDataValueUsed": "false",
+                "noDataValue": "NaN",
+                "noDataValueUsed": "true",
                 "spectralWavelength": "0.0",
                 "spectralBandwidth": "0.0",
                 "expectedPixels": [
@@ -90,8 +90,8 @@
                 "name": "band_4",
                 "bandWidth": 100,
                 "bandHeight": 100,
-                "noDataValue": "0.0",
-                "noDataValueUsed": "false",
+                "noDataValue": "NaN",
+                "noDataValueUsed": "true",
                 "spectralWavelength": "0.0",
                 "spectralBandwidth": "0.0",
                 "expectedPixels": [
@@ -111,8 +111,8 @@
                 "name": "band_5",
                 "bandWidth": 100,
                 "bandHeight": 100,
-                "noDataValue": "0.0",
-                "noDataValueUsed": "false",
+                "noDataValue": "NaN",
+                "noDataValueUsed": "true",
                 "spectralWavelength": "0.0",
                 "spectralBandwidth": "0.0",
                 "expectedPixels": [
@@ -132,8 +132,8 @@
                 "name": "band_6",
                 "bandWidth": 100,
                 "bandHeight": 100,
-                "noDataValue": "0.0",
-                "noDataValueUsed": "false",
+                "noDataValue": "NaN",
+                "noDataValueUsed": "true",
                 "spectralWavelength": "0.0",
                 "spectralBandwidth": "0.0",
                 "expectedPixels": [
@@ -153,8 +153,8 @@
                 "name": "band_7",
                 "bandWidth": 100,
                 "bandHeight": 100,
-                "noDataValue": "0.0",
-                "noDataValueUsed": "false",
+                "noDataValue": "NaN",
+                "noDataValueUsed": "true",
                 "spectralWavelength": "0.0",
                 "spectralBandwidth": "0.0",
                 "expectedPixels": [
@@ -175,75 +175,82 @@
             {
                 "name": "mask_band_1",
                 "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
-                "color": "255,255,255"
+                "color": "255,255,255",
+                "description": "mask_band_1"
             },
             {
                 "name": "mask_band_2",
                 "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
-                "color": "255,255,255"
+                "color": "255,255,255",
+                "description": "mask_band_2"
             },
             {
                 "name": "mask_band_3",
                 "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
-                "color": "255,255,255"
+                "color": "255,255,255",
+                "description": "mask_band_3"
             },
             {
                 "name": "mask_band_4",
                 "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
-                "color": "255,255,255"
+                "color": "255,255,255",
+                "description": "mask_band_4"
             },
             {
                 "name": "mask_band_5",
                 "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
-                "color": "255,255,255"
+                "color": "255,255,255",
+                "description": "mask_band_5"
             },
             {
                 "name": "mask_band_6",
                 "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
-                "color": "255,255,255"
+                "color": "255,255,255",
+                "description": "mask_band_6"
             },
             {
                 "name": "mask_band_7",
                 "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
-                "color": "255,255,255"
+                "color": "255,255,255",
+                "description": "mask_band_7"
             }
         ],
         "metadata": [
             {
-                "path": "Image info/Component[5]/signed",
-                "value": "true"
-            },
-            {
-                "path": "Image info/Component[2]/precision",
-                "value": "32"
-            },
-            {
-                "path": "Image info/Component[6]/block size",
+                "path": "Image info/Component[5]/block size",
                 "value": "100x100"
             },
             {
-                "path": "Image info/Component[3]/precision",
+                "path": "Image info/Component[2]/block size",
+                "value": "100x100"
+            },
+            {
+                "path": "Image info/Component[6]/color interpretation",
+                "value": "Undefined"
+            },
+            {
+                "path": "Image info/Component[3]/block size",
+                "value": "100x100"
+            },
+            {
+                "path": "Image info/Component/precision",
                 "value": "32"
             },
             {
-                "path": "Image info/Component/signed",
-                "value": "true"
-            },
-            {
-                "path": "Image info/Component[7]/block size",
-                "value": "100x100"
+                "path": "Image info/Component[7]/color interpretation",
+                "value": "Undefined"
             },
             {
                 "path": "Image info/Component[7]/data type",
                 "value": "Float32"
             },
             {
-                "path": "Image info/Component[4]/precision",
-                "value": "32"
+                "path": "Image info/Component[4]/block size",
+                "value": "100x100"
             },
             {
-                "path": "Image info/Component[4]/precision",
-                "value": "32"
+                "path": "Image info/Component[4]/block size",
+                "value": "100x100"
             },
             {
                 "path": "Image info/Component/block size",
