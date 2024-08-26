@@ -11,7 +11,7 @@ test_mac:
     #     DL_URL: https://nexus.snap-ci.ovh/repository/snap-maven-releases/org/esa/snap/installers/snap_all_macos/RC10/snap_all_macos-RC10.dmg
   variables:
     SCOPE: daily
-    SNAP_DIR: /Users/otb/Applications/snap
+    SNAP_DIR: /Users/csro/Applications/snap
     REPORT_DIR: ./result
     TAG: '11.0.0'
     PROPERTIES_PATH: $CI_PROJECT_DIR/mac.conf
