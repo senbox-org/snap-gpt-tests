@@ -5,12 +5,12 @@
   "frequency": "daily/snap/advResamplingSubsetWithPreset",
   "graphPath": "snap/graphAdvResamplingSubset.xml",
   "inputs": {
-    "input1": "s2tbx/S2/L1C/S2A_MSIL1C_20170416T105031_N0204_R051_T30TYN_20170416T105601.SAFE"
+    "input1": "S2/L1C/S2A_MSIL1C_20170416T105031_N0204_R051_T30TYN_20170416T105601.SAFE"
   },
   "parameters": {
     "referenceBand": "B1",
     "targetResolution": "",
-    "resamplingPreset": "$inputFolder/s2tbx/S2/auxTestData/exampleResamplingPreset.res",
+    "resamplingPreset": "$inputFolder/S2/auxTestData/exampleResamplingPreset.res",
     "bandResampling": "B1:First:Nearest",
     "subsetBands": "B1,B2,view_zenith_mean",
       "subsetRegion": "0,0,500,500"
@@ -28,7 +28,7 @@
     "frequency": "daily/snap",
     "graphPath": "snap/graphAdvResamplingSubset.xml",
     "inputs": {
-      "input1": "s2tbx/S2/L1C/S2A_MSIL1C_20170416T105031_N0204_R051_T30TYN_20170416T105601.SAFE"
+      "input1": "S2/L1C/S2A_MSIL1C_20170416T105031_N0204_R051_T30TYN_20170416T105601.SAFE"
     },
     "parameters": {
       "referenceBand": "B2",
