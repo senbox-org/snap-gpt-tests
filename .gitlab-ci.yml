@@ -34,7 +34,8 @@ default:
         - "${CI_PROJECT_DIR}/**/target"
 
 variables:
-  VERSION: '11.0.0-RC2'
+  # to use this version of installers
+  VERSION: '11.0.0-RC3'
   PLATFORM:
     description: Choose to plateform to run this job
     value: linux
