@@ -55,7 +55,7 @@
     "id": "FuTest_CZCS",
     "author": "BC",
     "description": "execute Fu operator with CZCS L2",
-    "frequency": "daily/s3tbx",
+    "frequency": "disabled",
     "graphPath": "s3tbx/graphFuOp.xml",
     "inputs": {
       "input1": "sensors_platforms/CZCS/C1986010234000.L2_MLAC_OC"
@@ -81,7 +81,7 @@
     "id": "FuTest_SeaWIFS",
     "author": "BC",
     "description": "execute Fu operator with SeaWIFS L2",
-    "frequency": "daily/s3tbx",
+    "frequency": "disabled",
     "graphPath": "s3tbx/graphFuOp.xml",
     "inputs": {
       "input1": "sensors_platforms/SeaWIFS/S2001014011328.L2_GAC_OC"
