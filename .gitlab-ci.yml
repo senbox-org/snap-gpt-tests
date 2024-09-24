@@ -1,3 +1,29 @@
+include:
+  - local: linux.gitlab-ci.yml
+    rules:
+      - if: $PLATFORM == 'linux'
+        when: always
+      - if: $PLATFORM == 'windows'
+        when: never
+      - if: $PLATFORM == 'darwin'
+        when: never
+  - local: windows.gitlab-ci.yml
+    rules:
+      - if: $PLATFORM == 'windows'
+        when: always
+      - if: $PLATFORM == 'linux'
+        when: never
+      - if: $PLATFORM == 'darwin'
+        when: never
+  - local: darwin.gitlab-ci.yml
+    rules:
+      - if: $PLATFORM == 'darwin'
+        when: always
+      - if: $PLATFORM == 'linux'
+        when: never
+      - if: $PLATFORM == 'windows'
+        when: never
+
 default:
   image: docker-hosted.snap-ci.ovh/snap-installer:10.0.0-snapshot
   cache:
@@ -8,12 +34,24 @@ default:
         - "${CI_PROJECT_DIR}/**/target"
 
 variables:
+  # to use this version of installers
   VERSION: '10.0.0'
-  # Can be 'linux' | 'windows' | 'darwin'
-  PLATFORM: linux
+  PLATFORM:
+    description: Choose to plateform to run this job
+    value: linux
+    options:
+    - "linux"
+    - "windows"
+    - "darwin"
   PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
   # $DOCKER_AUTH_CONFIG should have been setup as projet variable
-  SCOPE: s3tbx
+  SCOPE:
+    description: Choose GPT tests scope
+    value: daily
+    options:
+    - "daily"
+    - "weekly"
+    - "CItest"
   REPORT_DIR: /home/snap/result
   TEST_DATA_DIR: "/home/snap/testData"
   TEST_DATA_LIST: "singleTestData.txt"
@@ -32,10 +70,9 @@ variables:
     -Dncsa.hdf.hdflib.HDFLibrary.hdflib=$SNAP_DIR/snap/modules/lib/amd64/libjhdf.so
     -Dncsa.hdf.hdf5lib.H5.hdf5lib=$SNAP_DIR/snap/modules/lib/amd64/libjhdf5.so
   S3_ARGS: --endpoint-url $S3_ENDPOINT --region sbg --no-progress
+# Overrides: memory_request = "4Gi" (but no more than: memory_request_overwrite_max_allowed = "8Gi")
+  KUBERNETES_MEMORY_REQUEST: "6Gi"
 
 stages:
   - test
   - report
-
-include:
-  - local: $PLATFORM.gitlab-ci.yml
