@@ -31,27 +31,31 @@ test_windows:
     # Clean old report
     - rd /s /q %REPORT_DIR%
     - mkdir %REPORT_DIR% && mkdir %REPORT_DIR%\report && mkdir %REPORT_DIR%\report\output
+    # expand batch variables at runtime
+    - setlocal enabledelayedexpansion
+    # check if the pipeline variable INSTALL_SNAP is defined
+	  - |
+      IF NOT DEFINED INSTALL_SNAP (
+        echo "The INSTALL_SNAP variable is undefined (on pipeline). Define and set its value to 'true'."
+        # Set the INSTALL_SNAP variable to a default value 'true'
+        set INSTALL_SNAP=true
+      )
+	  - echo "pipeline variable INSTALL_SNAP = !INSTALL_SNAP!"
+    
     - python -m venv snapenv && call .\snapenv\Scripts\activate.bat && pip3 install -r %CI_PROJECT_DIR%\requirements.txt
     # Produce a list of tests to run
     - python %CI_PROJECT_DIR%\pygpt\filter_json.py gpt-tests-resources\tests %SCOPE% %REPORT_DIR%
-    # check if the pipeline variable INSTALL_SNAP is defined
-	- |
-    if [ -z "$INSTALL_SNAP" ]; then
-      echo "The INSTALL_SNAP variable is empty or undefined. Set its value to 'true'."
-      # Set the INSTALL_SNAP variable to a default value 'true'
-      export INSTALL_SNAP="true"
-    fi
-	- echo "pipeline variable INSTALL_SNAP: $INSTALL_SNAP"  
-	# Install SNAP application, if the pipeline variable INSTALL_SNAP has value 'true'
-	- |
-    if [ "$INSTALL_SNAP" == "true" ]; then
-      echo "install SNAP application, using installer $SNAP_INSTALLER"
-		  curl --progress-bar "https://nexus.snap-ci.ovh/repository/snap-maven-releases/org/esa/snap/installers/snap_all_windows/%VERSION%/snap_all_windows-%VERSION%.exe" >> "%DL_DIR%\%SNAP_INSTALLER%"
-		  echo "Install SNAP" && "%DL_DIR%\%SNAP_INSTALLER%" -q -dir "%SNAP_DIR%" -console -overwrite -v
-		  echo "Post install" && xcopy "%DL_DIR%\snap.properties" "%SNAP_DIR%\etc" /Y
-	  else
-	    echo "SNAP application (using $SNAP_INSTALLER) will be not installed. Should be already installed from previous pipeline executions."	
-	  fi
+    
+	  # Install SNAP application, if the pipeline variable INSTALL_SNAP has value 'true'
+ 	  - |
+      IF "!INSTALL_SNAP!" == "true" (
+        echo "Install SNAP application, using installer %SNAP_INSTALLER%"
+		    curl --progress-bar "https://nexus.snap-ci.ovh/repository/snap-maven-releases/org/esa/snap/installers/snap_all_windows/%VERSION%/snap_all_windows-%VERSION%.exe" >> "%DL_DIR%\%SNAP_INSTALLER%"
+		    echo "Installing SNAP" && "%DL_DIR%\%SNAP_INSTALLER%" -q -dir "%SNAP_DIR%" -console -overwrite -v
+		    echo "Post SNAP install" && xcopy "%DL_DIR%\snap.properties" "%SNAP_DIR%\etc" /Y
+	    ) ELSE (
+	      echo "SNAP application (using %SNAP_INSTALLER%) will be not installed. Should be already installed from previous pipeline executions."	
+	    )
   script:
     - run_tests.bat
   after_script:
