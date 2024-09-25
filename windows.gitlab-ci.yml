@@ -4,7 +4,7 @@ test_windows:
   stage: test
   variables:
     SCOPE: daily
-    REPORT_DIR: result_snap-11
+    REPORT_DIR: result
     TEST_DATA_DIR: 'D:\\testData'
     DL_DIR: 'C:\\Users\\Public\\Documents'
     SNAP_DIR: 'C:\\Users\\Public\\Documents\\snap-11'
