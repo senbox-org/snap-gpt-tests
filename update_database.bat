@@ -17,12 +17,12 @@ IF %SCOPE%==daily (
     @REM   REPORT_DIR = result_snap-10
     @REM   CI_PROJECT_DIR = C:\builds\TPp69-DL\0\senbox-org\snap-gpt-tests\
     @REM   DB_PATH = mysql://<user:passwd>@mysql.snap-ci.ovh:3306/snap_reports_2024 
-    @REM   tag_name = snap:9.0.8-RC2
+    @REM   tag_name = snap:9.0.8-RC2 (with this name will be saved into performance database on https://reports.snap-ci.ovh/?#/branches)
     @REM   SCOPE = daily 
     @REM   base_path = %CI_PROJECT_DIR%\%REPORT_DIR%\report
     @REM   JOB = 126 
-    @REM   test_branch = 9.0.8-reference
-    python %CI_PROJECT_DIR%\pygpt\stats_db.py %DB_PATH% "snap:10.0.0" %SCOPE% %CI_PROJECT_DIR%\%REPORT_DIR%\report %JOB% "10.0.0-reference"
+    @REM   test_branch = 9.0.8-reference (with this version the results are saved into 'GTP Test Report' on https://snap-reports.s3.sbg.io.cloud.ovh.net/windows/index.html)
+    python %CI_PROJECT_DIR%\pygpt\stats_db.py %DB_PATH% "snap:10.0.0" %SCOPE% %CI_PROJECT_DIR%\%REPORT_DIR%\report %JOB% "10.0.0"
     @REM DEL %CI_PROJECT_DIR%\jobid.txt
     echo "done"
 )
