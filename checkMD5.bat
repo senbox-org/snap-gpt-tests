@@ -9,4 +9,16 @@ FOR /F "usebackq skip=1 eol=C tokens=1" %%a IN (`certutil -hashfile "%DL_DIR%\%S
     SET "LOCAL_MD5=%%a"
 )
 echo LOCAL_MD5 = %LOCAL_MD5%
+IF /I NOT %SNAP_INSTALLER_MD5%==%LOCAL_MD5% (
+    echo "MD5 checksum error - downloaded file 'SNAP installer' (%SNAP_INSTALLER_EXE%) is corrupt."
+    echo "ERROR - exit from job / pipeline !"
+    endlocal
+    :: exit with ERRORLEVEL > 0
+    EXIT /B 42
+) ELSE (
+    echo "MD5 checksum ok - downloaded file 'SNAP installer' (%SNAP_INSTALLER_EXE%) is ok."
+    endlocal
+    :: exit with ERRORLEVEL = 0
+    EXIT /B 
+) 
 endlocal
