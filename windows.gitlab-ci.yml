@@ -25,6 +25,8 @@ install_snap:
     TRANSFER_METER_FREQUENCY: "2s"
     # Use fast compression for artifacts, resulting in larger archives
     ARTIFACT_COMPRESSION_LEVEL: "slowest" 
+    # Define variable for MD5 checksum comparison
+    MD5_RESULT: FALSE
   script:
     - echo username = %USERNAME%
     # build maven project
@@ -49,9 +51,9 @@ install_snap:
     - DEL /Q /F /S %DL_DIR%\%SNAP_INSTALLER_EXE%
     # Download SNAP application from Nexus 
     - curl --progress-bar "%NEXUS_URL%/%SNAP_INSTALLER_EXE%" >> "%DL_DIR%\%SNAP_INSTALLER_EXE%"
-    # Retrieve MD5 checksums of SNAP installer executable files
+    # Retrieve MD5 checksums of SNAP installer executable files. Return value is in variable 'md5RetVal'
     - CALL checkMD5.bat
-    - echo "after checkMD5.bat execution errorlevel=%ERRORLEVEL%"
+    - echo "after checkMD5.bat execution MD5_RESULT is %md5RetVal%"
     # 
     # Check the ERRORLEVEL variable value. If greater than 0, fail the job/pipeline
     #
