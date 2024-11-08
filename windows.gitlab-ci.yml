@@ -53,10 +53,17 @@ install_snap:
     - curl --progress-bar "%NEXUS_URL%/%SNAP_INSTALLER_EXE%" >> "%DL_DIR%\%SNAP_INSTALLER_EXE%"
     # Retrieve MD5 checksums of SNAP installer executable files. Return value is in variable 'md5RetVal'
     - CALL checkMD5.bat
-    - echo "after checkMD5.bat execution MD5_RESULT is %md5RetVal%"
+    - MD5_RESULT: %md5RetVal%
+    - echo "after checkMD5.bat execution MD5_RESULT is ${MD5_RESULT}"
     # 
     # Check the ERRORLEVEL variable value. If greater than 0, fail the job/pipeline
     #
+    - |
+      if [[ "${MD5_RESULT}" == "TRUE" ]]; then
+        echo "md5 result is true"
+      else
+        echo "md5 result is false"
+      fi
     ######- IF %ERRORLEVEL%>0 echo "ERRORLEVEL greater than zero"
     #     echo "MD5 checksum error - downloaded file 'SNAP installer' (%SNAP_INSTALLER_EXE%) is corrupt."
     #     echo "ERROR - exit from job / pipeline !"
