@@ -19,6 +19,6 @@ IF /I NOT %SNAP_INSTALLER_MD5%==%LOCAL_MD5% (
     echo "MD5 checksum ok - downloaded file 'SNAP installer' (%SNAP_INSTALLER_EXE%) is ok."
     endlocal
     :: exit with ERRORLEVEL = 0
-    EXIT /B 
+    EXIT /B 41
 ) 
 endlocal

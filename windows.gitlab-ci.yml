@@ -52,11 +52,10 @@ install_snap:
     # Retrieve MD5 checksums of SNAP installer executable files
     - CALL checkMD5.bat
     - echo "after checkMD5.bat execution errorlevel=%ERRORLEVEL%"
-    # # 
-    # # Compare the MD5 values. If different, fail the job/pipeline
-    # #
-    # - |
-    #   IF /I NOT %SNAP_INSTALLER_MD5%==%LOCAL_MD5% (
+    # 
+    # Check the ERRORLEVEL variable value. If greater than 0, fail the job/pipeline
+    #
+    - IF %ERRORLEVEL%>0 echo "ERRORLEVEL greater than zero"
     #     echo "MD5 checksum error - downloaded file 'SNAP installer' (%SNAP_INSTALLER_EXE%) is corrupt."
     #     echo "ERROR - exit from job / pipeline !"
     #     exit 42
