@@ -55,7 +55,7 @@ install_snap:
     # 
     # Check the ERRORLEVEL variable value. If greater than 0, fail the job/pipeline
     #
-    - IF %ERRORLEVEL%>0 echo "ERRORLEVEL greater than zero"
+    ######- IF %ERRORLEVEL%>0 echo "ERRORLEVEL greater than zero"
     #     echo "MD5 checksum error - downloaded file 'SNAP installer' (%SNAP_INSTALLER_EXE%) is corrupt."
     #     echo "ERROR - exit from job / pipeline !"
     #     exit 42
