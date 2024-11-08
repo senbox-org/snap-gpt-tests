@@ -1,5 +1,4 @@
 @REM This batch compare the MD5 checksum of "SNAP installer executable" file from remote against downloaded
-
 setlocal enabledelayedexpansion
 REM Retrieve (from Nexus) MD5 checksum of SNAP installer executable file and set into variable
 FOR /F "usebackq tokens=*" %%a IN (`curl "%NEXUS_URL%/%SNAP_INSTALLER_EXE%.md5"`) do (

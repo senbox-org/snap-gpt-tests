@@ -51,6 +51,8 @@ install_snap:
     - curl --progress-bar "%NEXUS_URL%/%SNAP_INSTALLER_EXE%" >> "%DL_DIR%\%SNAP_INSTALLER_EXE%"
     # Retrieve MD5 checksums of SNAP installer executable files
     - checkMD5.bat
+    - echo "after checkMD5 bat execution"
+    - echo " %SNAP_INSTALLER_MD5% - %LOCAL_MD5% " 
     # 
     # Compare the MD5 values. If different, fail the job/pipeline
     #
