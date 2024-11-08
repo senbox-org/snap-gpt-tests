@@ -1,7 +1,8 @@
-.install_snap:
+install_snap:
   tags:
     - windows
   stage: test
+  cache: [] 
   variables:
     SCOPE: daily
     REPORT_DIR: result
@@ -23,9 +24,8 @@
     # output upload and download progress every 2 seconds
     TRANSFER_METER_FREQUENCY: "2s"
     # Use fast compression for artifacts, resulting in larger archives
-    ARTIFACT_COMPRESSION_LEVEL: "slowest"
-  cache: []  
-  before_script:
+    ARTIFACT_COMPRESSION_LEVEL: "slowest" 
+  script:
     - echo username = %USERNAME%
     # build maven project
     ###- call mvn %MAVEN_CLI_OPTS% package install
@@ -67,8 +67,17 @@
     - echo "Post install" && xcopy "%DL_DIR%\snap.properties" "%SNAP_DIR%\etc" /Y
 
 test_windows:
-  extends: .install_snap 
+  tags:
+    - windows
+  stage: test
   cache: []
+  rules:
+    - if: $PLATFORM == 'windows' && $SCOPE != 'CItest'
+      when: always
+    - when: never  
+  variables:
+    REPORT_DIR: result
+  before_script: []    
   script:
     - run_tests.bat
   after_script:
@@ -83,9 +92,9 @@ test_windows:
       - result
 
 report:
-  stage: report
   tags:
     - windows
+  stage: report  
   cache: []
   rules:
     - if: $PLATFORM == 'windows' && $SCOPE != 'CItest'
