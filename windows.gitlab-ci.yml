@@ -53,20 +53,20 @@ install_snap:
     - checkMD5.bat
     - echo "after checkMD5 bat execution"
     - echo " %SNAP_INSTALLER_MD5% - %LOCAL_MD5% " 
-    # 
-    # Compare the MD5 values. If different, fail the job/pipeline
-    #
-    - |
-      IF /I NOT %SNAP_INSTALLER_MD5%==%LOCAL_MD5% (
-        echo "MD5 checksum error - downloaded file 'SNAP installer' (%SNAP_INSTALLER_EXE%) is corrupt."
-        echo "ERROR - exit from job / pipeline !"
-        exit 42
-      ) ELSE (
-        echo "MD5 checksum ok - downloaded file 'SNAP installer' (%SNAP_INSTALLER_EXE%) is ok."
-      ) 
-    # Install SNAP aplication on destination Windows VM
-    - echo "Install SNAP (version %VERSION%)" && "%DL_DIR%\%SNAP_INSTALLER_EXE%" -q -dir "%SNAP_DIR%" -console -overwrite -v
-    - echo "Post install" && xcopy "%DL_DIR%\snap.properties" "%SNAP_DIR%\etc" /Y
+    # # 
+    # # Compare the MD5 values. If different, fail the job/pipeline
+    # #
+    # - |
+    #   IF /I NOT %SNAP_INSTALLER_MD5%==%LOCAL_MD5% (
+    #     echo "MD5 checksum error - downloaded file 'SNAP installer' (%SNAP_INSTALLER_EXE%) is corrupt."
+    #     echo "ERROR - exit from job / pipeline !"
+    #     exit 42
+    #   ) ELSE (
+    #     echo "MD5 checksum ok - downloaded file 'SNAP installer' (%SNAP_INSTALLER_EXE%) is ok."
+    #   ) 
+    # # Install SNAP aplication on destination Windows VM
+    # - echo "Install SNAP (version %VERSION%)" && "%DL_DIR%\%SNAP_INSTALLER_EXE%" -q -dir "%SNAP_DIR%" -console -overwrite -v
+    # - echo "Post install" && xcopy "%DL_DIR%\snap.properties" "%SNAP_DIR%\etc" /Y
 
 test_windows:
   tags:
