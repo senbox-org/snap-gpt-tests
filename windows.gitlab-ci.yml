@@ -1,3 +1,7 @@
+workflow:
+  auto_cancel:
+    on_job_failure: all
+
 install_snap:
   tags:
     - windows
@@ -54,19 +58,19 @@ install_snap:
     - echo "return from checkMD5.bat with code %md5RetVal%"
     - |
       IF !md5RetVal! EQU 0 (
-        echo "MD5_RETVAL=0" >> md5.env
+        :: echo "MD5_RETVAL=0" >> md5.env
         REM Install SNAP aplication on destination Windows VM
         REM echo "Install SNAP (version %VERSION%)" && "%DL_DIR%\%SNAP_INSTALLER_EXE%" -q -dir "%SNAP_DIR%" -console -overwrite -v
         REM echo "Post install" && xcopy "%DL_DIR%\snap.properties" "%SNAP_DIR%\etc" /Y
       ) ELSE (
-        echo "MD5_RETVAL=3" >> md5.env
+        :: echo "MD5_RETVAL=3" >> md5.env
         echo "ERROR - Do not execute installation of SNAP (version %VERSION%) - the installer file is corrupt."
-        echo "Exit from job..."
+        echo "Cancel the job '%CI_JOB_NAME%'..."
         exit 3
       )
-  artifacts:
-    reports:
-      dotenv: md5.env     
+  # artifacts:
+  #   reports:
+  #     dotenv: md5.env     
 
 test_windows:
   tags:
@@ -77,14 +81,15 @@ test_windows:
     REPORT_DIR: result
   before_script: []    
   script:
-    - |
-      IF !MD5_RETVAL! EQU 0 (
-        "run_tests.bat"
-      ) ELSE (
-        echo "ERROR - Do not run tests - the installer file is corrupt."
-        echo "Exit from job..."
-        exit 3
-      )
+    - run_tests.bat
+    # - |
+    #   IF !MD5_RETVAL! EQU 0 (
+    #     "run_tests.bat"
+    #   ) ELSE (
+    #     echo "ERROR - Do not run tests - the installer file is corrupt."
+    #     echo "Exit from job..."
+    #     exit 3
+    #   )
   after_script:
     # Remove heavy images
     - DEL /Q /F /S %REPORT_DIR%\report\output\*.zip
@@ -95,9 +100,9 @@ test_windows:
     expire_in: "1 hour"
     paths:
       - result
-  needs:
-    - job: install_snap
-      artifacts: true
+  # needs:
+  #   - job: install_snap
+  #     artifacts: true
 
 
 report:
