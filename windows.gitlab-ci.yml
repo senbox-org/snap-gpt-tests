@@ -52,13 +52,14 @@ install_snap:
     # Check MD5 checksums of SNAP installer executable files.
     - CALL checkMD5.bat
     - echo "return from checkMD5.bat with code %md5RetVal%"
-    - echo "MD5_RETVAL=%md5RetVal%" >> md5.env
     - |
       IF !md5RetVal! EQU 0 (
+        echo "MD5_RETVAL=0" >> md5.env
         REM Install SNAP aplication on destination Windows VM
         REM echo "Install SNAP (version %VERSION%)" && "%DL_DIR%\%SNAP_INSTALLER_EXE%" -q -dir "%SNAP_DIR%" -console -overwrite -v
         REM echo "Post install" && xcopy "%DL_DIR%\snap.properties" "%SNAP_DIR%\etc" /Y
       ) ELSE (
+        echo "MD5_RETVAL=3" >> md5.env
         echo "ERROR - Do not execute installation of SNAP (version %VERSION%) - the installer file is corrupt."
         echo "Exit from job..."
         exit 3
