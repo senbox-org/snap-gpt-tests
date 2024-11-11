@@ -53,8 +53,8 @@ install_snap:
     - curl --progress-bar "%NEXUS_URL%/%SNAP_INSTALLER_EXE%" >> "%DL_DIR%\%SNAP_INSTALLER_EXE%"
     # Check MD5 checksums of SNAP installer executable files.
     - CALL checkMD5.bat
-    - echo "return from checkMD5.bat with code %ERRORLEVEL%"
-    - IF !ERRORLEVEL! EQU 0 (echo "zero") ELSE (exit 3)
+    - echo "return from checkMD5.bat with code %md5RetVal%"
+    - IF !md5RetVal! EQU 0 (echo "ret val zero") ELSE (echo "non zero" && exit 3)
     # # Install SNAP aplication on destination Windows VM
     # - echo "Install SNAP (version %VERSION%)" && "%DL_DIR%\%SNAP_INSTALLER_EXE%" -q -dir "%SNAP_DIR%" -console -overwrite -v
     # - echo "Post install" && xcopy "%DL_DIR%\snap.properties" "%SNAP_DIR%\etc" /Y
