@@ -63,10 +63,10 @@ install_snap:
         echo "Exit from job..."
         exit 3
       )
- artifacts:
-  reports:
-    dotenv: md5.env
-    expire_in: "10 mins"     
+  artifacts:
+    reports:
+      dotenv: md5.env     
+      expire_in: "10 mins"
     
 
 test_windows:
@@ -96,9 +96,9 @@ test_windows:
     expire_in: "1 hour"
     paths:
       - result
-#  needs:
-#    - job: install_snap
-#      artifacts: true
+  needs:
+    - job: install_snap
+      artifacts: true
 
 
 report:
