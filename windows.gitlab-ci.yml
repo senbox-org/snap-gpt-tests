@@ -63,10 +63,10 @@ install_snap:
         echo "Exit from job..."
         exit 3
       )
- artifacts:
-  reports:
-    dotenv: md5.env
-    expire_in: "5 mins"     
+ #artifacts:
+ # reports:
+ #   dotenv: md5.env
+ #   expire_in: "5 mins"     
     
 
 test_windows:
@@ -80,7 +80,7 @@ test_windows:
   script:
     - |
       IF !MD5_RETVAL! EQU 0 (
-        CALL run_tests.bat
+        "run_tests.bat"
       ) ELSE (
         echo "ERROR - Do not run tests - the installer file is corrupt."
         echo "Exit from job..."
@@ -96,9 +96,9 @@ test_windows:
     expire_in: "1 hour"
     paths:
       - result
-  needs:
-    - job: install_snap
-      artifacts: true
+#  needs:
+#    - job: install_snap
+#      artifacts: true
 
 
 report:
@@ -146,6 +146,6 @@ report:
     expire_in: 1 day
     paths:
       - '%CI_PROJECT_DIR%\%REPORT_DIR%\report'
-  needs:
-    - job: install_snap
-      artifacts: true
+#  needs:
+#    - job: install_snap
+#      artifacts: true
