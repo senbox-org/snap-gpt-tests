@@ -53,8 +53,8 @@ install_snap:
     - curl --progress-bar "%NEXUS_URL%/%SNAP_INSTALLER_EXE%" >> "%DL_DIR%\%SNAP_INSTALLER_EXE%"
     # Retrieve MD5 checksums of SNAP installer executable files. Return value is in variable 'md5RetVal'
     - CALL checkMD5.bat
-    - echo "after checkMD5.bat execution MD5_RESULT is ${md5RetVal}"
-    - MD5_RESULT="${md5RetVal}"
+    - MD5_RESULT: %md5RetVal%
+    - echo "after checkMD5.bat execution MD5_RESULT is ${MD5_RESULT}"
     # 
     # Check the ERRORLEVEL variable value. If greater than 0, fail the job/pipeline
     #
@@ -80,10 +80,6 @@ test_windows:
     - windows
   stage: test
   cache: []
-  rules:
-    - if: $PLATFORM == 'windows' && $SCOPE != 'CItest'
-      when: always
-    - when: never  
   variables:
     REPORT_DIR: result
   before_script: []    
