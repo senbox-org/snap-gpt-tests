@@ -54,7 +54,7 @@ install_snap:
     # Check MD5 checksums of SNAP installer executable files.
     - CALL checkMD5.bat
     - echo "return from checkMD5.bat with code %ERRORLEVEL%"
-    - IF !ERRORLEVEL! NEQ 0 exit 2
+    - IF !ERRORLEVEL! EQ 0 exit 2
     # # Install SNAP aplication on destination Windows VM
     # - echo "Install SNAP (version %VERSION%)" && "%DL_DIR%\%SNAP_INSTALLER_EXE%" -q -dir "%SNAP_DIR%" -console -overwrite -v
     # - echo "Post install" && xcopy "%DL_DIR%\snap.properties" "%SNAP_DIR%\etc" /Y
