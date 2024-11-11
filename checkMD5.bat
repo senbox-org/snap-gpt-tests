@@ -13,12 +13,12 @@ IF /I %SNAP_INSTALLER_MD5%==%LOCAL_MD5% (
     echo "MD5 checksum ok - downloaded file 'SNAP installer' (%SNAP_INSTALLER_EXE%) is ok."
     endlocal
     :: exit with ERRORLEVEL = 0
-    EXIT /B 11
+    EXIT /B 2
 ) ELSE (
     echo "MD5 checksum error - downloaded file 'SNAP installer' (%SNAP_INSTALLER_EXE%) is corrupt."
     echo "ERROR - exit from job / pipeline !"
     endlocal
     :: exit with ERRORLEVEL > 0
-    EXIT /B 42
+    EXIT /B 1
 ) 
 endlocal 
