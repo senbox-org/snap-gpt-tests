@@ -51,26 +51,8 @@ install_snap:
     - DEL /Q /F /S %DL_DIR%\%SNAP_INSTALLER_EXE%
     # Download SNAP application from Nexus 
     - curl --progress-bar "%NEXUS_URL%/%SNAP_INSTALLER_EXE%" >> "%DL_DIR%\%SNAP_INSTALLER_EXE%"
-    # Retrieve MD5 checksums of SNAP installer executable files. Return value is in variable 'md5RetVal'
+    # Check MD5 checksums of SNAP installer executable files.
     - CALL checkMD5.bat
-    - MD5_RESULT="%md5RetVal%"
-    - echo "after checkMD5.bat execution MD5_RESULT is ${MD5_RESULT}"
-    # 
-    # Check the ERRORLEVEL variable value. If greater than 0, fail the job/pipeline
-    #
-    - |
-      if [[ "${MD5_RESULT}" == "TRUE" ]]; then
-        echo "md5 result is true"
-      else
-        echo "md5 result is false"
-      fi
-    ######- IF %ERRORLEVEL%>0 echo "ERRORLEVEL greater than zero"
-    #     echo "MD5 checksum error - downloaded file 'SNAP installer' (%SNAP_INSTALLER_EXE%) is corrupt."
-    #     echo "ERROR - exit from job / pipeline !"
-    #     exit 42
-    #   ) ELSE (
-    #     echo "MD5 checksum ok - downloaded file 'SNAP installer' (%SNAP_INSTALLER_EXE%) is ok."
-    #   ) 
     # # Install SNAP aplication on destination Windows VM
     # - echo "Install SNAP (version %VERSION%)" && "%DL_DIR%\%SNAP_INSTALLER_EXE%" -q -dir "%SNAP_DIR%" -console -overwrite -v
     # - echo "Post install" && xcopy "%DL_DIR%\snap.properties" "%SNAP_DIR%\etc" /Y

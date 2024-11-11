@@ -1,6 +1,5 @@
 setlocal enabledelayedexpansion
 REM Retrieve (from Nexus) MD5 checksum of SNAP installer executable file and set into variable
-SET "localReturnValue=FALSE"
 FOR /F "usebackq tokens=*" %%a IN (`curl "%NEXUS_URL%/%SNAP_INSTALLER_EXE%.md5"`) do (
     SET "SNAP_INSTALLER_MD5=%%a"
 )
@@ -10,13 +9,16 @@ FOR /F "usebackq skip=1 eol=C tokens=1" %%a IN (`certutil -hashfile "%DL_DIR%\%S
     SET "LOCAL_MD5=%%a"
 )
 echo LOCAL_MD5 = %LOCAL_MD5%
-IF /I NOT %SNAP_INSTALLER_MD5%==%LOCAL_MD5% (
-    echo "MD5 checksum error - downloaded file 'SNAP installer' (%SNAP_INSTALLER_EXE%) is corrupt."
-    echo "ERROR - exit from job / pipeline !"
-    SET "localReturnValue=TRUE"
-) ELSE (
+IF /I %SNAP_INSTALLER_MD5%==%LOCAL_MD5% (
     echo "MD5 checksum ok - downloaded file 'SNAP installer' (%SNAP_INSTALLER_EXE%) is ok."
     endlocal
-    SET "localReturnValue=TRUE"
+    :: exit with ERRORLEVEL = 0
+    EXIT /B 11
+) ELSE (
+    echo "MD5 checksum error - downloaded file 'SNAP installer' (%SNAP_INSTALLER_EXE%) is corrupt."
+    echo "ERROR - exit from job / pipeline !"
+    endlocal
+    :: exit with ERRORLEVEL > 0
+    EXIT /B 42
 ) 
-endlocal & SET "md5RetVal=%localReturnValue%"
+endlocal 
