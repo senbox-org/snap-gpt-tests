@@ -25,8 +25,6 @@ install_snap:
     TRANSFER_METER_FREQUENCY: "2s"
     # Use fast compression for artifacts, resulting in larger archives
     ARTIFACT_COMPRESSION_LEVEL: "slowest" 
-    # Define variable for MD5 checksum comparison
-    MD5_RESULT: FALSE
   script:
     - echo username = %USERNAME%
     # build maven project
@@ -54,10 +52,22 @@ install_snap:
     # Check MD5 checksums of SNAP installer executable files.
     - CALL checkMD5.bat
     - echo "return from checkMD5.bat with code %md5RetVal%"
-    - IF !md5RetVal! EQU 0 (echo "ret val zero") ELSE (echo "non zero" && exit 3)
-    # # Install SNAP aplication on destination Windows VM
-    # - echo "Install SNAP (version %VERSION%)" && "%DL_DIR%\%SNAP_INSTALLER_EXE%" -q -dir "%SNAP_DIR%" -console -overwrite -v
-    # - echo "Post install" && xcopy "%DL_DIR%\snap.properties" "%SNAP_DIR%\etc" /Y
+    - echo "MD5_RETVAL=%md5RetVal%" >> md5.env
+    - |
+      IF !md5RetVal! EQU 0 (
+        REM Install SNAP aplication on destination Windows VM
+        REM echo "Install SNAP (version %VERSION%)" && "%DL_DIR%\%SNAP_INSTALLER_EXE%" -q -dir "%SNAP_DIR%" -console -overwrite -v
+        REM echo "Post install" && xcopy "%DL_DIR%\snap.properties" "%SNAP_DIR%\etc" /Y
+      ) ELSE (
+        echo "ERROR - Do not execute installation of SNAP (version %VERSION%) - the installer file is corrupt."
+        echo "Exit from job..."
+        exit 3
+      )
+ artifacts:
+  reports:
+    dotenv: md5.env
+    expire_in: "5 mins"     
+    
 
 test_windows:
   tags:
@@ -68,7 +78,14 @@ test_windows:
     REPORT_DIR: result
   before_script: []    
   script:
-    - run_tests.bat
+    - |
+      IF !MD5_RETVAL! EQU 0 (
+        CALL run_tests.bat
+      ) ELSE (
+        echo "ERROR - Do not run tests - the installer file is corrupt."
+        echo "Exit from job..."
+        exit 3
+      )
   after_script:
     # Remove heavy images
     - DEL /Q /F /S %REPORT_DIR%\report\output\*.zip
@@ -79,6 +96,10 @@ test_windows:
     expire_in: "1 hour"
     paths:
       - result
+  needs:
+    - job: install_snap
+      artifacts: true
+
 
 report:
   tags:
@@ -125,3 +146,6 @@ report:
     expire_in: 1 day
     paths:
       - '%CI_PROJECT_DIR%\%REPORT_DIR%\report'
+  needs:
+    - job: install_snap
+      artifacts: true
