@@ -130,11 +130,11 @@ report:
     - python pygpt\report_utils.py pygpt\templates %CI_PROJECT_DIR%\%REPORT_DIR%\report %SCOPE% snap:master
     - rd /s /q %CI_PROJECT_DIR%\%DEST_DIR%
     - mkdir %CI_PROJECT_DIR%\public %CI_PROJECT_DIR%\%DEST_DIR%
-    # Upload report to s3
-    - '"C:\Program Files\Amazon\AWSCLIV2\aws.exe" s3 rm "s3://%S3_REPORTS%/windows" --recursive --endpoint-url https://s3.sbg.io.cloud.ovh.net --region sbg"'
-    - '"C:\Program Files\Amazon\AWSCLIV2\aws.exe" s3 sync %CI_PROJECT_DIR%\%REPORT_DIR%\report "s3://%S3_REPORTS%/windows" --endpoint-url https://s3.sbg.io.cloud.ovh.net --region sbg --acl public-read'
-  after_script:
-    - '%CI_PROJECT_DIR%\update_database.bat'
+  #   # Upload report to s3
+  #   - '"C:\Program Files\Amazon\AWSCLIV2\aws.exe" s3 rm "s3://%S3_REPORTS%/windows" --recursive --endpoint-url https://s3.sbg.io.cloud.ovh.net --region sbg"'
+  #   - '"C:\Program Files\Amazon\AWSCLIV2\aws.exe" s3 sync %CI_PROJECT_DIR%\%REPORT_DIR%\report "s3://%S3_REPORTS%/windows" --endpoint-url https://s3.sbg.io.cloud.ovh.net --region sbg --acl public-read'
+  # after_script:
+  #   - '%CI_PROJECT_DIR%\update_database.bat'
   artifacts:
     expire_in: 1 day
     paths:
