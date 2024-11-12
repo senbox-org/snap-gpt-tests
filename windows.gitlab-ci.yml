@@ -83,6 +83,7 @@ test_windows:
     - DEL /Q /F /S %REPORT_DIR%\report\output\*.zip
     - DEL /Q /F /S %REPORT_DIR%\report\output\*.dim
     - DEL /Q /F /S %TEMP%\*
+  needs: ["install_snap"]
   artifacts:
     when: always
     expire_in: "1 hour"
