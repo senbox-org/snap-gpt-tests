@@ -32,7 +32,7 @@ install_snap:
   script:
     - echo username = %USERNAME%
     # build maven project
-    ###- call mvn %MAVEN_CLI_OPTS% package install
+    - call mvn %MAVEN_CLI_OPTS% package install
     # print local variables
     - echo CI_PROJECT_DIR       = %CI_PROJECT_DIR%
     - echo DL_DIR               = %DL_DIR%
@@ -44,11 +44,11 @@ install_snap:
     - echo VERSION              = %VERSION%
     - echo S3_REPORTS           = %S3_REPORTS%
     # Clean old report
-    ###- rd /s /q %CI_PROJECT_DIR%\%REPORT_DIR%
-    ###- mkdir %REPORT_DIR% && mkdir %REPORT_DIR%\report && mkdir %REPORT_DIR%\report\output
-    ###- python -m venv snapenv && call .\snapenv\Scripts\activate.bat && pip3 install -r %CI_PROJECT_DIR%\requirements.txt
+    - rd /s /q %CI_PROJECT_DIR%\%REPORT_DIR%
+    - mkdir %REPORT_DIR% && mkdir %REPORT_DIR%\report && mkdir %REPORT_DIR%\report\output
+    - python -m venv snapenv && call .\snapenv\Scripts\activate.bat && pip3 install -r %CI_PROJECT_DIR%\requirements.txt
     # Produce a list of tests to run
-    ###- python %CI_PROJECT_DIR%\pygpt\filter_json.py gpt-tests-resources\tests %SCOPE% %REPORT_DIR%
+    - python %CI_PROJECT_DIR%\pygpt\filter_json.py gpt-tests-resources\tests %SCOPE% %REPORT_DIR%
     # remove old SNAP installer file
     - DEL /Q /F /S %DL_DIR%\%SNAP_INSTALLER_EXE%
     # Download SNAP application from Nexus 
@@ -56,16 +56,15 @@ install_snap:
     # Check MD5 checksums of SNAP installer executable files.
     - CALL checkMD5.bat
     - echo "return from checkMD5.bat with code %md5RetVal%"
+    # - echo MD5_RETVAL=%md5RetVal% >> md5.env
     - |
       IF !md5RetVal! EQU 0 (
-        :: echo "MD5_RETVAL=0" >> md5.env
         REM Install SNAP aplication on destination Windows VM
-        REM echo "Install SNAP (version %VERSION%)" && "%DL_DIR%\%SNAP_INSTALLER_EXE%" -q -dir "%SNAP_DIR%" -console -overwrite -v
-        REM echo "Post install" && xcopy "%DL_DIR%\snap.properties" "%SNAP_DIR%\etc" /Y
+        echo "Install SNAP (version %VERSION%)" && "%DL_DIR%\%SNAP_INSTALLER_EXE%" -q -dir "%SNAP_DIR%" -console -overwrite -v
+        echo "Post install" && xcopy "%DL_DIR%\snap.properties" "%SNAP_DIR%\etc" /Y
       ) ELSE (
-        :: echo "MD5_RETVAL=3" >> md5.env
         echo "ERROR - Do not execute installation of SNAP (version %VERSION%) - the installer file is corrupt."
-        echo "Cancel the job '%CI_JOB_NAME%'..."
+        echo "Cancel the job '%CI_JOB_NAME%'(and entire pipeline)..."
         exit 3
       )
   # artifacts:
@@ -103,7 +102,6 @@ test_windows:
   # needs:
   #   - job: install_snap
   #     artifacts: true
-
 
 report:
   tags:
