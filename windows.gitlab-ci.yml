@@ -65,11 +65,8 @@ install_snap:
       ) ELSE (
         echo "ERROR - Do not execute installation of SNAP (version %VERSION%) - the installer file is corrupt."
         echo "Cancel the job '%CI_JOB_NAME%'(and entire pipeline)..."
-        exit 3
+        exit %md5RetVal%
       )
-  # artifacts:
-  #   reports:
-  #     dotenv: md5.env     
 
 test_windows:
   tags:
@@ -81,14 +78,6 @@ test_windows:
   before_script: []    
   script:
     - run_tests.bat
-    # - |
-    #   IF !MD5_RETVAL! EQU 0 (
-    #     "run_tests.bat"
-    #   ) ELSE (
-    #     echo "ERROR - Do not run tests - the installer file is corrupt."
-    #     echo "Exit from job..."
-    #     exit 3
-    #   )
   after_script:
     # Remove heavy images
     - DEL /Q /F /S %REPORT_DIR%\report\output\*.zip
@@ -99,9 +88,6 @@ test_windows:
     expire_in: "1 hour"
     paths:
       - result
-  # needs:
-  #   - job: install_snap
-  #     artifacts: true
 
 report:
   tags:
@@ -148,6 +134,3 @@ report:
     expire_in: 1 day
     paths:
       - '%CI_PROJECT_DIR%\%REPORT_DIR%\report'
-#  needs:
-#    - job: install_snap
-#      artifacts: true
