@@ -8,47 +8,15 @@ install_snap:
   stage: test
   cache: []
   variables:
-    SCOPE: daily
-    REPORT_DIR: result
-    TEST_DATA_DIR: 'D:\\testData'
     DL_DIR: 'C:\Users\Public\Documents'
-    SNAP_DIR: 'C:\\Users\\Public\\Documents\\snap'
-    TEMP_DIR: 'D:\\tmp'
-    TAG: master
-    PROPERTIES_PATH: win.conf
-    SNAP_INSTALLER_EXE: "snap_all_windows-%VERSION%.exe"
     NEXUS_URL: "https://nexus.snap-ci.ovh/repository/snap-maven-releases/org/esa/snap/installers-snapshot/snap_all_windows/%VERSION%"
-    TEST_DATA_LIST: singleTestData.txt
-    JAVA_HOME: C:\\Program Files\\Zulu\\zulu-11
-    JAVA_OPTIONS: >-
-      -Dncsa.hdf.hdflib.HDFLibrary.hdflib=%SNAP_DIR%\\snap\\modules\\lib\\amd64\\jhdf.dll
-      -Dncsa.hdf.hdf5lib.H5.hdf5lib=%SNAP_DIR%\\snap\modules\\lib\amd64\\jhdf5.dll
-      -Dfile.encoding=Windows-1252
-    CLASSPATH: gpt-tests-executer\\target\\gpt-test-exec.jar
-    # output upload and download progress every 2 seconds
-    TRANSFER_METER_FREQUENCY: "2s"
-    # Use fast compression for artifacts, resulting in larger archives
-    ARTIFACT_COMPRESSION_LEVEL: "slowest" 
+    SNAP_INSTALLER_EXE: "snap_all_windows-%VERSION%.exe"
+  before_script:
+    - echo DL_DIR = %DL_DIR%
+    - echo NEXUS_URL = %NEXUS_URL%  
+    - echo SNAP_INSTALLER_EXE = %SNAP_INSTALLER_EXE%
+    - echo VERSION = %VERSION%
   script:
-    - echo username = %USERNAME%
-    # build maven project
-    - call mvn %MAVEN_CLI_OPTS% package install
-    # print local variables
-    - echo CI_PROJECT_DIR       = %CI_PROJECT_DIR%
-    - echo DL_DIR               = %DL_DIR%
-    - echo NEXUS_URL            = %NEXUS_URL%
-    - echo REPORT_DIR           = %REPORT_DIR%
-    - echo SCOPE                = %SCOPE%
-    - echo SNAP_DIR             = %SNAP_DIR%
-    - echo SNAP_INSTALLER_EXE   = %SNAP_INSTALLER_EXE%
-    - echo VERSION              = %VERSION%
-    - echo S3_REPORTS           = %S3_REPORTS%
-    # Clean old report
-    - rd /s /q %CI_PROJECT_DIR%\%REPORT_DIR%
-    - mkdir %REPORT_DIR% && mkdir %REPORT_DIR%\report && mkdir %REPORT_DIR%\report\output
-    - python -m venv snapenv && call .\snapenv\Scripts\activate.bat && pip3 install -r %CI_PROJECT_DIR%\requirements.txt
-    # Produce a list of tests to run
-    - python %CI_PROJECT_DIR%\pygpt\filter_json.py gpt-tests-resources\tests %SCOPE% %REPORT_DIR%
     # remove old SNAP installer file
     - DEL /Q /F /S %DL_DIR%\%SNAP_INSTALLER_EXE%
     # Download SNAP application from Nexus 
@@ -64,14 +32,9 @@ install_snap:
         echo "Post install - copy snap.properties file" && xcopy "%DL_DIR%\snap.properties" "%SNAP_DIR%\etc" /Y
       ) ELSE (
         echo "ERROR - Do not execute installation of SNAP (version %VERSION%) - the installer file is corrupt."
-        echo "Cancel the job '%CI_JOB_NAME%'(and entire pipeline)..."
+        echo "Cancel the job '%CI_JOB_NAME%' (and entire pipeline)..."
         exit %md5RetVal%
       )
-  artifacts:
-    when: always
-    expire_in: "1 hour"
-    paths:
-      - result    
 
 test_windows:
   tags:
@@ -79,10 +42,39 @@ test_windows:
   stage: test
   cache: []
   variables:
+    SCOPE: daily
     REPORT_DIR: result
+    TEST_DATA_DIR: 'D:\\testData'
+    SNAP_DIR: 'C:\\Users\\Public\\Documents\\snap'
+    TEMP_DIR: 'D:\\tmp'
+    TAG: master
+    PROPERTIES_PATH: win.conf
+    TEST_DATA_LIST: singleTestData.txt
+    JAVA_HOME: C:\\Program Files\\Zulu\\zulu-11
+    JAVA_OPTIONS: >-
+      -Dncsa.hdf.hdflib.HDFLibrary.hdflib=%SNAP_DIR%\\snap\\modules\\lib\\amd64\\jhdf.dll
+      -Dncsa.hdf.hdf5lib.H5.hdf5lib=%SNAP_DIR%\\snap\modules\\lib\amd64\\jhdf5.dll
+      -Dfile.encoding=Windows-1252
+    CLASSPATH: gpt-tests-executer\\target\\gpt-test-exec.jar
+    # output upload and download progress every 2 seconds
+    TRANSFER_METER_FREQUENCY: "2s"
+    # Use fast compression for artifacts, resulting in larger archives
+    ARTIFACT_COMPRESSION_LEVEL: "slowest" 
   before_script:
-  # print local variables
-    - echo REPORT_DIR       = %REPORT_DIR%    
+    - echo username = %USERNAME%
+    # build maven project
+    - call mvn %MAVEN_CLI_OPTS% package install
+    # print local variables
+    - echo CI_PROJECT_DIR       = %CI_PROJECT_DIR%
+    - echo REPORT_DIR           = %REPORT_DIR%
+    - echo SCOPE                = %SCOPE%
+    - echo SNAP_DIR             = %SNAP_DIR%
+    # Clean old report
+    - rd /s /q %CI_PROJECT_DIR%\%REPORT_DIR%
+    - mkdir %REPORT_DIR% && mkdir %REPORT_DIR%\report && mkdir %REPORT_DIR%\report\output
+    - python -m venv snapenv && call .\snapenv\Scripts\activate.bat && pip3 install -r %CI_PROJECT_DIR%\requirements.txt
+    # Produce a list of tests to run
+    - python %CI_PROJECT_DIR%\pygpt\filter_json.py gpt-tests-resources\tests %SCOPE% %REPORT_DIR%
   script:
     - run_tests.bat
   after_script:
@@ -117,6 +109,9 @@ report:
     # Set maximum duration of cache upload and download
     CACHE_REQUEST_TIMEOUT: 5
     DEST_DIR: public\windows
+  before_script:
+    - echo S3_REPORTS = %S3_REPORTS% 
+    - echo REPORT_DIR = %REPORT_DIR% 
   script:
     - echo "Copy assets for report generation"
     - mkdir %CI_PROJECT_DIR%\%REPORT_DIR%\report\json %CI_PROJECT_DIR%\%REPORT_DIR%\report\performances %CI_PROJECT_DIR%\%REPORT_DIR%\report\images
