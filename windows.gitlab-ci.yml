@@ -61,12 +61,17 @@ install_snap:
       IF !md5RetVal! EQU 0 (
         REM Install SNAP aplication on destination Windows VM
         echo "Install SNAP (version %VERSION%)" && "%DL_DIR%\%SNAP_INSTALLER_EXE%" -q -dir "%SNAP_DIR%" -console -overwrite -v
-        echo "Post install" && xcopy "%DL_DIR%\snap.properties" "%SNAP_DIR%\etc" /Y
+        echo "Post install - copy snap.properties file" && xcopy "%DL_DIR%\snap.properties" "%SNAP_DIR%\etc" /Y
       ) ELSE (
         echo "ERROR - Do not execute installation of SNAP (version %VERSION%) - the installer file is corrupt."
         echo "Cancel the job '%CI_JOB_NAME%'(and entire pipeline)..."
         exit %md5RetVal%
       )
+  artifacts:
+    when: always
+    expire_in: "1 hour"
+    paths:
+      - result    
 
 test_windows:
   tags:
@@ -75,7 +80,9 @@ test_windows:
   cache: []
   variables:
     REPORT_DIR: result
-  before_script: []    
+  before_script:
+  # print local variables
+    - echo REPORT_DIR       = %REPORT_DIR%    
   script:
     - run_tests.bat
   after_script:
