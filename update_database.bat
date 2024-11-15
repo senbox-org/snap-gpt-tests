@@ -5,13 +5,18 @@ set DB_PATH=%DB_PATH%
 set SCOPE=%SCOPE%
 set JOB=%CI_JOB_ID:~6,10%
 IF %CI_COMMIT_BRANCH%==master IF %SCOPE%==daily (
-    @REM ::Get next job id (only works for master)
-    @REM ::curl https://reports-api.snap-ci.ovh/api/job/last | %APPDATA%\jq.exe .ID >> %CI_PROJECT_DIR%\jobid.txt
-    @REM ::set /p JOB=<%CI_PROJECT_DIR%\jobid.txt
-    @REM ::set /a JOB=%JOB%+1
-    @REM ::echo "Saving results for job %JOB%"
-    @REM ::Update reports database
+    @REM example (command executed on Windows VM):
+    @REM python %CI_PROJECT_DIR%\pygpt\stats_db.py %DB_PATH% <report_group_name> %SCOPE% <base_path> %JOB% <branch>
+    @REM   CI_PROJECT_DIR = C:\builds\TPp69-DL\0\senbox-org\snap-gpt-tests\
+    @REM   DB_PATH = mysql://<user:passwd>@mysql.snap-ci.ovh:3306/snap_reports_2024
+    @REM                    (defined as variable into 'snap-gpt-tests' project from Gitlab)
+    @REM   report_group_name = snap:9.0.8-RC2 (with this (branch or tag) name will be saved into performance database on https://reports.snap-ci.ovh/?#/branches)
+    @REM                       (it contains always the prefix snap:)
+    @REM   SCOPE = daily (or CItest for pipeline test purposes)
+    @REM   base_path = %CI_PROJECT_DIR%\result\report
+    @REM   JOB = 126 
+    @REM   branch = 11.0.0 (with this version the results are saved into 'GPT Test Report' on https://snap-reports.s3.sbg.io.cloud.ovh.net/windows/index.html)
+    @REM Update reports database
     python %CI_PROJECT_DIR%\pygpt\stats_db.py %DB_PATH% "snap:master" %SCOPE% %CI_PROJECT_DIR%\result\report %JOB% master
-    @REM DEL %CI_PROJECT_DIR%\jobid.txt
     echo "done"
 )

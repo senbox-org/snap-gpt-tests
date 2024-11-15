@@ -13,6 +13,7 @@ install_snap:
     SNAP_DIR: 'C:\\Users\\Public\\Documents\\snap'
     SNAP_INSTALLER_EXE: "snap_all_windows-%VERSION%.exe"
   before_script:
+    # print local variables
     - echo DL_DIR = %DL_DIR%
     - echo NEXUS_URL = %NEXUS_URL%  
     - echo SNAP_DIR = %SNAP_DIR%
@@ -21,12 +22,11 @@ install_snap:
   script:
     # remove old SNAP installer file
     - DEL /Q /F /S %DL_DIR%\%SNAP_INSTALLER_EXE%
-    # Download SNAP application from Nexus 
+    # Download SNAP installer application from Nexus 
     - curl --progress-bar "%NEXUS_URL%/%SNAP_INSTALLER_EXE%" >> "%DL_DIR%\%SNAP_INSTALLER_EXE%"
-    # Check MD5 checksums of SNAP installer executable files.
+    # Check MD5 checksums of SNAP installer executable files (remote vs downloaded).
     - CALL checkMD5.bat
     - echo "return from checkMD5.bat with code %md5RetVal%"
-    # - echo MD5_RETVAL=%md5RetVal% >> md5.env
     - |
       IF !md5RetVal! EQU 0 (
         REM Install SNAP aplication on destination Windows VM
@@ -64,9 +64,9 @@ test_windows:
     ARTIFACT_COMPRESSION_LEVEL: "slowest" 
   before_script:
     - echo username = %USERNAME%
-    # build maven project
+    # Build maven project
     - call mvn %MAVEN_CLI_OPTS% package install
-    # print local variables
+    # Print local variables
     - echo CI_PROJECT_DIR = %CI_PROJECT_DIR%
     - echo REPORT_DIR = %REPORT_DIR%
     - echo SCOPE = %SCOPE%
@@ -102,7 +102,7 @@ report:
     - when: never
   variables:
     REPORT_DIR: result
-    # output upload and download progress every 2 seconds
+    # Output upload and download progress every 2 seconds
     TRANSFER_METER_FREQUENCY: "2s"
     # Use fast compression for artifacts, resulting in larger archives
     ARTIFACT_COMPRESSION_LEVEL: "fast"
@@ -126,15 +126,18 @@ report:
     - xcopy /Y "%CI_PROJECT_DIR%\pygpt\statics\icons\*.jpg" "%CI_PROJECT_DIR%\result\report\icons\"
     - xcopy /Y "%CI_PROJECT_DIR%\pygpt\statics\icons\*.png" "%CI_PROJECT_DIR%\result\report\icons\"
     - xcopy /Y "%CI_PROJECT_DIR%\pygpt\statics\js\*.js" "%CI_PROJECT_DIR%\result\report\js\"
-    - echo "Generate report"
+    - echo "Generate HTML report (for Windows)"
+    # Execute: python pygpt\report_utils.py <template_dir> <base_path> <scope> <report_group_name (aka version)>
     - python pygpt\report_utils.py pygpt\templates %CI_PROJECT_DIR%\%REPORT_DIR%\report %SCOPE% snap:master
     - rd /s /q %CI_PROJECT_DIR%\%DEST_DIR%
     - mkdir %CI_PROJECT_DIR%\public %CI_PROJECT_DIR%\%DEST_DIR%
-  #   # Upload report to s3
-  #   - '"C:\Program Files\Amazon\AWSCLIV2\aws.exe" s3 rm "s3://%S3_REPORTS%/windows" --recursive --endpoint-url https://s3.sbg.io.cloud.ovh.net --region sbg"'
-  #   - '"C:\Program Files\Amazon\AWSCLIV2\aws.exe" s3 sync %CI_PROJECT_DIR%\%REPORT_DIR%\report "s3://%S3_REPORTS%/windows" --endpoint-url https://s3.sbg.io.cloud.ovh.net --region sbg --acl public-read'
-  # after_script:
-  #   - '%CI_PROJECT_DIR%\update_database.bat'
+    # Remove previous report (for Windows) from S3 cloud (https://s3.sbg.io.cloud.ovh.net)
+    - '"C:\Program Files\Amazon\AWSCLIV2\aws.exe" s3 rm "s3://%S3_REPORTS%/windows" --recursive --endpoint-url https://s3.sbg.io.cloud.ovh.net --region sbg"'
+    # Upload HTML report to S3 cloud (https://snap-reports.s3.sbg.io.cloud.ovh.net/windows/index.html)
+    - '"C:\Program Files\Amazon\AWSCLIV2\aws.exe" s3 sync %CI_PROJECT_DIR%\%REPORT_DIR%\report "s3://%S3_REPORTS%/windows" --endpoint-url https://s3.sbg.io.cloud.ovh.net --region sbg --acl public-read'
+  after_script:
+    # Update database of web application for results comparison (statistics) (https://reports.snap-ci.ovh/?#/branches)
+    - '%CI_PROJECT_DIR%\update_database.bat'
   artifacts:
     expire_in: 1 day
     paths:
