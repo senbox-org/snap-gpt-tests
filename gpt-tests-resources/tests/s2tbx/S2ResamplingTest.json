@@ -34,4 +34,23 @@
       "outputName": "s2resampledFilteredBandsOutput",
       "expected": "s2tbx/expectedS2ResamplingFilteredBands.json"
     }]
+  },
+  {
+    "id":"s2cResampling-FilteredBands",
+    "author": "CS RO",
+    "description":"execute s2Resampling with filtered bands on Sentinel-2C products",
+    "frequency":"daily",
+    "graphPath": "s2tbx/graphS2ResamplingWithFilteredBands.xml",
+    "inputs": {
+      "inputFile": "S2/L2A/S2C_MSIL2A_20241114T080951_N9904_R035_T38SLG_20241114T091153.SAFE.zip"
+    },
+    "parameters": {
+      "resolution": "10",
+      "bands": "B3,B4"
+    },
+    "outputs": [{
+      "parameter": "outputFile",
+      "outputName": "s2cResampledFilteredBandsOutput",
+      "expected": "s2tbx/expectedS2CResamplingFilteredBands.json"
+    }]
   }]
