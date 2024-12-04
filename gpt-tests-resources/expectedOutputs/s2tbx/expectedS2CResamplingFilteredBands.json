@@ -1,0 +1,127 @@
+{
+    "id": "s2resampledOutput",
+    "decodeQualification": "INTENDED",
+    "expectedContent": {
+        "sceneWidth": 10980,
+        "sceneHeight": 10980,
+        "startTime": "14-NOV-2024 08:09:51.024000",
+        "endTime": "14-NOV-2024 08:09:51.024000",
+        "geoCoding": {
+            "coordinates": [
+                {
+                    "x": 4735.0,
+                    "y": 5902.0,
+                    "lat": 37.40303794661637,
+                    "lon": 43.27529284032488
+                },
+                {
+                    "x": 8152.0,
+                    "y": 7125.0,
+                    "lat": 37.29782939173431,
+                    "lon": 43.66320640690515
+                }
+            ],
+            "reverseAccuracy": 2.2431777324527502E-8
+        },
+        "tiePointGrids": [
+            {
+                "name": "tcwv",
+                "description": "Total column water vapour at surface level provided by ECMWF",
+                "offsetX": "0.5",
+                "offsetY": "0.5",
+                "subSamplingX": "1220.0",
+                "subSamplingY": "1220.0",
+                "expectedPixels": [
+                    {
+                        "x": 572,
+                        "y": 1956,
+                        "value": 5.468763
+                    },
+                    {
+                        "x": 7522,
+                        "y": 9339,
+                        "value": 8.561667
+                    }
+                ]
+            },
+            {
+                "name": "tco3",
+                "description": "Total column ozone at surface level provided by ECMWF",
+                "offsetX": "0.5",
+                "offsetY": "0.5",
+                "subSamplingX": "1220.0",
+                "subSamplingY": "1220.0",
+                "expectedPixels": [
+                    {
+                        "x": 3193,
+                        "y": 2820,
+                        "value": 0.0060825795
+                    },
+                    {
+                        "x": 6703,
+                        "y": 4010,
+                        "value": 0.006128799
+                    }
+                ]
+            }
+        ],
+        "bands": [
+            {
+                "name": "B3",
+                "description": "Reflectance in band B3",
+                "bandWidth": 10980,
+                "bandHeight": 10980,
+                "geophysicalUnit": "dl",
+                "noDataValue": "-0.1",
+                "noDataValueUsed": "false",
+                "spectralWavelength": "560.0",
+                "spectralBandwidth": "35.0",
+                "expectedPixels": [
+                    {
+                        "x": 5221,
+                        "y": 6139,
+                        "value": 0.2636
+                    },
+                    {
+                        "x": 1048,
+                        "y": 9330,
+                        "value": 0.062
+                    }
+                ]
+            },
+            {
+                "name": "B4",
+                "description": "Reflectance in band B4",
+                "bandWidth": 10980,
+                "bandHeight": 10980,
+                "geophysicalUnit": "dl",
+                "noDataValue": "-0.1",
+                "noDataValueUsed": "false",
+                "spectralWavelength": "665.0",
+                "spectralBandwidth": "30.0",
+                "expectedPixels": [
+                    {
+                        "x": 1056,
+                        "y": 854,
+                        "value": 0.147
+                    },
+                    {
+                        "x": 4996,
+                        "y": 7426,
+                        "value": 0.1166
+                    }
+                ]
+            }
+        ],
+        "metadata": [
+            {
+                "path": "Level-2A_DataStrip_ID/Auxiliary_Data_Info/GIPP_List/GIPP_FILENAME[15]",
+                "value": "S2C_OPER_GIP_HRTPAR_MPC__20240729T000000_V20240904T000000_21000101T000000_B00"
+            },
+            {
+                "path": "Level-2A_User_Product/Quality_Indicators_Info/Image_Content_QI/CAST_SHADOW_PERCENTAGE",
+                "value": "11.109997"
+            }
+        ]
+    }
+}
