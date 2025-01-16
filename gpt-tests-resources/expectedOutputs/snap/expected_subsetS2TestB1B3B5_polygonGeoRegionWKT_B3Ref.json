@@ -1,0 +1,136 @@
+{
+    "id": "subsetS2TestB1B3B5_polygonGeoRegionWKT_B3Ref",
+    "decodeQualification": "INTENDED",
+    "expectedContent": {
+        "sceneWidth": 8145,
+        "sceneHeight": 5570,
+        "startTime": "28-JUL-2021 10:30:31.024000",
+        "endTime": "28-JUL-2021 10:30:31.024000",
+        "geoCoding": {
+            "coordinates": [
+                {
+                    "x": 3513.0,
+                    "y": 2994.0,
+                    "lat": 68.00858601883569,
+                    "lon": 19.77378174131005
+                },
+                {
+                    "x": 6047.0,
+                    "y": 3614.0,
+                    "lat": 67.95637442597585,
+                    "lon": 20.38160940087228
+                }
+            ],
+            "reverseAccuracy": 1.7462298274040222E-9
+        },
+        "bands": [
+            {
+                "name": "B1",
+                "description": "Reflectance in band B1",
+                "bandWidth": 4073,
+                "bandHeight": 2786,
+                "geophysicalUnit": "dl",
+                "noDataValue": "-0.1",
+                "noDataValueUsed": "false",
+                "spectralWavelength": "443.0",
+                "spectralBandwidth": "20.0",
+                "expectedPixels": [
+                    {
+                        "x": 1936,
+                        "y": 1557,
+                        "value": 0.0252
+                    },
+                    {
+                        "x": 388,
+                        "y": 2367,
+                        "value": 0.0304
+                    }
+                ]
+            },
+            {
+                "name": "B3",
+                "description": "Reflectance in band B3",
+                "bandWidth": 8145,
+                "bandHeight": 5570,
+                "geophysicalUnit": "dl",
+                "noDataValue": "-0.1",
+                "noDataValueUsed": "false",
+                "spectralWavelength": "560.0",
+                "spectralBandwidth": "35.0",
+                "expectedPixels": [
+                    {
+                        "x": 783,
+                        "y": 433,
+                        "value": "NaN"
+                    },
+                    {
+                        "x": 3706,
+                        "y": 3767,
+                        "value": 0.0541
+                    }
+                ]
+            },
+            {
+                "name": "B5",
+                "description": "Reflectance in band B5",
+                "bandWidth": 4073,
+                "bandHeight": 2786,
+                "geophysicalUnit": "dl",
+                "noDataValue": "-0.1",
+                "noDataValueUsed": "false",
+                "spectralWavelength": "705.0",
+                "spectralBandwidth": "15.0",
+                "expectedPixels": [
+                    {
+                        "x": 1894,
+                        "y": 2494,
+                        "value": 0.1024
+                    },
+                    {
+                        "x": 3533,
+                        "y": 1671,
+                        "value": "NaN"
+                    }
+                ]
+            }
+        ],
+        "metadata": [
+            {
+                "path": "history/SubsetInfo/SubSampling.y",
+                "value": "1"
+            },
+            {
+                "path": "Granules/Level-2A_Tile_34WDA/Geometric_Info/Tile_Angles/Viewing_Incidence_Angles_Grids[16]/Zenith/Values_List/VALUES[6]",
+                "value": "9.50017 9.14836 8.78793 8.43065 8.06975 NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN"
+            },
+            {
+                "path": "Granules/Level-2A_Tile_34WDA/General_Info/Archiving_Info/ARCHIVING_TIME",
+                "value": "2021-11-19T16:20:30.454847Z"
+            },
+            {
+                "path": "history/SubsetInfo/ProductNodeName.16",
+                "value": "10v"
+            },
+            {
+                "path": "Level-2A_DataStrip_ID/Satellite_Ancillary_Data_Info/Ephemeris/AOCS_Ephemeris_List/AOCS_Ephemeris[373]/VALID_FLAG",
+                "value": "true"
+            },
+            {
+                "path": "history/SubsetInfo/ProductNodeName.17",
+                "value": "aux_latitude"
+            },
+            {
+                "path": "Level-2A_User_Product/Auxiliary_Data_Info/GRI_List/GRI_FILENAME[2]",
+                "value": "S2A_OPER_GRI_MSIL1B_MPC__20161018T120000_S20150928T103503"
+            },
+            {
+                "path": "Level-2A_DataStrip_ID/Image_Data_Info/Sensor_Configuration/Time_Stamp/Band_Time_Stamp[10]/Detector[11]/detectorId",
+                "value": "11"
+            },
+            {
+                "path": "history/SubsetInfo/SubSampling.y",
+                "value": "1"
+            }
+        ]
+    }
+}
