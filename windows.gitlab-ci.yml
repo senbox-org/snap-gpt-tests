@@ -111,6 +111,8 @@ report:
     # Set maximum duration of cache upload and download
     CACHE_REQUEST_TIMEOUT: 5
     DEST_DIR: public\windows
+    # version to display in HTML report
+    DISPLAY_VERSION: snap:%CI_COMMIT_REF_NAME%
   before_script:
     - echo S3_REPORTS = %S3_REPORTS% 
     - echo REPORT_DIR = %REPORT_DIR% 
@@ -127,8 +129,8 @@ report:
     - xcopy /Y "%CI_PROJECT_DIR%\pygpt\statics\icons\*.png" "%CI_PROJECT_DIR%\result\report\icons\"
     - xcopy /Y "%CI_PROJECT_DIR%\pygpt\statics\js\*.js" "%CI_PROJECT_DIR%\result\report\js\"
     - echo "Generate HTML report (for Windows)"
-    # Execute: python pygpt\report_utils.py <template_dir> <base_path> <scope> <report_group_name (aka version)>
-    - python pygpt\report_utils.py pygpt\templates %CI_PROJECT_DIR%\%REPORT_DIR%\report %SCOPE% snap:master
+    # Execute: python pygpt\report_utils.py <template_dir> <base_path> <scope> <display_version>
+    - python pygpt\report_utils.py pygpt\templates %CI_PROJECT_DIR%\%REPORT_DIR%\report %SCOPE% %DISPLAY_VERSION%
     - rd /s /q %CI_PROJECT_DIR%\%DEST_DIR%
     - mkdir %CI_PROJECT_DIR%\public %CI_PROJECT_DIR%\%DEST_DIR%
     # Remove previous report (for Windows) from S3 cloud (https://s3.sbg.io.cloud.ovh.net)
