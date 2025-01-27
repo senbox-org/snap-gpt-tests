@@ -1,0 +1,498 @@
+{
+    "id": "subsetS2TestB1B3B5_polygonRegionVectorFile_JSON_B3Ref",
+    "decodeQualification": "INTENDED",
+    "expectedContent": {
+        "sceneWidth": 9959,
+        "sceneHeight": 3818,
+        "startTime": "28-JUL-2021 10:30:31.024000",
+        "endTime": "28-JUL-2021 10:30:31.024000",
+        "geoCoding": {
+            "coordinates": [
+                {
+                    "x": 4295.0,
+                    "y": 2052.0,
+                    "lat": 67.68072858743031,
+                    "lon": 19.652819273514492
+                },
+                {
+                    "x": 7394.0,
+                    "y": 2477.0,
+                    "lat": 67.6470148788386,
+                    "lon": 20.38501798096214
+                }
+            ],
+            "reverseAccuracy": 3.3760443329811096E-9
+        },
+        "tiePointGrids": [
+            {
+                "name": "aod550",
+                "description": "Total Aerosol Optical Depth at 550nm at surface level provided by CAMS",
+                "offsetX": "0.5",
+                "offsetY": "-1060.5",
+                "subSamplingX": "1220.0",
+                "subSamplingY": "1220.0",
+                "expectedPixels": [
+                    {
+                        "x": 519,
+                        "y": 680,
+                        "value": 0.1505735
+                    },
+                    {
+                        "x": 6822,
+                        "y": 3247,
+                        "value": 0.15289886
+                    }
+                ]
+            },
+            {
+                "name": "z",
+                "description": "Geopotential at surface level provided by CAMS",
+                "offsetX": "0.5",
+                "offsetY": "-1060.5",
+                "subSamplingX": "1220.0",
+                "subSamplingY": "1220.0",
+                "expectedPixels": [
+                    {
+                        "x": 2896,
+                        "y": 980,
+                        "value": 6728.328
+                    },
+                    {
+                        "x": 6080,
+                        "y": 1394,
+                        "value": 4892.344
+                    }
+                ]
+            },
+            {
+                "name": "bcaod550",
+                "description": "Black Carbon Aerosol Optical Depth at 550nm at surface level provided by CAMS",
+                "offsetX": "0.5",
+                "offsetY": "-1060.5",
+                "subSamplingX": "1220.0",
+                "subSamplingY": "1220.0",
+                "expectedPixels": [
+                    {
+                        "x": 5477,
+                        "y": 2845,
+                        "value": 0.010019011
+                    },
+                    {
+                        "x": 6058,
+                        "y": 3544,
+                        "value": 0.009864945
+                    }
+                ]
+            },
+            {
+                "name": "omaod550",
+                "description": "Organic Matter Aerosol Optical Depth at 550nm at surface level provided by CAMS",
+                "offsetX": "0.5",
+                "offsetY": "-1060.5",
+                "subSamplingX": "1220.0",
+                "subSamplingY": "1220.0",
+                "expectedPixels": [
+                    {
+                        "x": 1576,
+                        "y": 2542,
+                        "value": 0.07290763
+                    },
+                    {
+                        "x": 5170,
+                        "y": 3487,
+                        "value": 0.074546605
+                    }
+                ]
+            },
+            {
+                "name": "ssaod550",
+                "description": "Sea Salt Aerosol Optical Depth at 550nm at surface level provided by CAMS",
+                "offsetX": "0.5",
+                "offsetY": "-1060.5",
+                "subSamplingX": "1220.0",
+                "subSamplingY": "1220.0",
+                "expectedPixels": [
+                    {
+                        "x": 7530,
+                        "y": 1850,
+                        "value": 4.7108473E-4
+                    },
+                    {
+                        "x": 9468,
+                        "y": 1855,
+                        "value": 4.282643E-4
+                    }
+                ]
+            },
+            {
+                "name": "suaod550",
+                "description": "Sulphate Aerosol Optical Depth at 550nm at surface level provided by CAMS",
+                "offsetX": "0.5",
+                "offsetY": "-1060.5",
+                "subSamplingX": "1220.0",
+                "subSamplingY": "1220.0",
+                "expectedPixels": [
+                    {
+                        "x": 3390,
+                        "y": 3434,
+                        "value": 0.05310446
+                    },
+                    {
+                        "x": 99,
+                        "y": 1797,
+                        "value": 0.05379566
+                    }
+                ]
+            },
+            {
+                "name": "aod469",
+                "description": "Total Aerosol Optical Depth at 469nm at surface level provided by CAMS",
+                "offsetX": "0.5",
+                "offsetY": "-1060.5",
+                "subSamplingX": "1220.0",
+                "subSamplingY": "1220.0",
+                "expectedPixels": [
+                    {
+                        "x": 3260,
+                        "y": 752,
+                        "value": 0.1957382
+                    },
+                    {
+                        "x": 2720,
+                        "y": 164,
+                        "value": 0.20000875
+                    }
+                ]
+            },
+            {
+                "name": "aod670",
+                "description": "Total Aerosol Optical Depth at 670nm at surface level provided by CAMS",
+                "offsetX": "0.5",
+                "offsetY": "-1060.5",
+                "subSamplingX": "1220.0",
+                "subSamplingY": "1220.0",
+                "expectedPixels": [
+                    {
+                        "x": 9674,
+                        "y": 2308,
+                        "value": 0.12478526
+                    },
+                    {
+                        "x": 5699,
+                        "y": 2736,
+                        "value": 0.11197408
+                    }
+                ]
+            },
+            {
+                "name": "aod865",
+                "description": "Total Aerosol Optical Depth at 865nm at surface level provided by CAMS",
+                "offsetX": "0.5",
+                "offsetY": "-1060.5",
+                "subSamplingX": "1220.0",
+                "subSamplingY": "1220.0",
+                "expectedPixels": [
+                    {
+                        "x": 2310,
+                        "y": 1899,
+                        "value": 0.07068567
+                    },
+                    {
+                        "x": 3197,
+                        "y": 2758,
+                        "value": 0.069559105
+                    }
+                ]
+            },
+            {
+                "name": "aod1240",
+                "description": "Total Aerosol Optical Depth at 1240nm at surface level provided by CAMS",
+                "offsetX": "0.5",
+                "offsetY": "-1060.5",
+                "subSamplingX": "1220.0",
+                "subSamplingY": "1220.0",
+                "expectedPixels": [
+                    {
+                        "x": 3566,
+                        "y": 1902,
+                        "value": 0.037491385
+                    },
+                    {
+                        "x": 4011,
+                        "y": 1688,
+                        "value": 0.037969187
+                    }
+                ]
+            },
+            {
+                "name": "tcwv",
+                "description": "Total column water vapour at surface level provided by ECMWF",
+                "offsetX": "0.5",
+                "offsetY": "-1060.5",
+                "subSamplingX": "1220.0",
+                "subSamplingY": "1220.0",
+                "expectedPixels": [
+                    {
+                        "x": 5723,
+                        "y": 350,
+                        "value": 18.567526
+                    },
+                    {
+                        "x": 6426,
+                        "y": 60,
+                        "value": 18.412958
+                    }
+                ]
+            },
+            {
+                "name": "tco3",
+                "description": "Total column ozone at surface level provided by ECMWF",
+                "offsetX": "0.5",
+                "offsetY": "-1060.5",
+                "subSamplingX": "1220.0",
+                "subSamplingY": "1220.0",
+                "expectedPixels": [
+                    {
+                        "x": 9712,
+                        "y": 1402,
+                        "value": 0.0067045805
+                    },
+                    {
+                        "x": 9462,
+                        "y": 3613,
+                        "value": 0.006724558
+                    }
+                ]
+            },
+            {
+                "name": "msl",
+                "description": "Mean sea level pressure at surface level provided by ECMWF",
+                "offsetX": "0.5",
+                "offsetY": "-1060.5",
+                "subSamplingX": "1220.0",
+                "subSamplingY": "1220.0",
+                "expectedPixels": [
+                    {
+                        "x": 1104,
+                        "y": 1725,
+                        "value": 101037.555
+                    },
+                    {
+                        "x": 5685,
+                        "y": 2147,
+                        "value": 100972.84
+                    }
+                ]
+            },
+            {
+                "name": "r",
+                "description": "Relative humidity at surface level provided by ECMWF",
+                "offsetX": "0.5",
+                "offsetY": "-1060.5",
+                "subSamplingX": "1220.0",
+                "subSamplingY": "1220.0",
+                "expectedPixels": [
+                    {
+                        "x": 5037,
+                        "y": 1991,
+                        "value": 39.093067
+                    },
+                    {
+                        "x": 4488,
+                        "y": 2218,
+                        "value": 39.084274
+                    }
+                ]
+            },
+            {
+                "name": "10u",
+                "description": "10 metre U wind component at surface level provided by ECMWF",
+                "offsetX": "0.5",
+                "offsetY": "-1060.5",
+                "subSamplingX": "1220.0",
+                "subSamplingY": "1220.0",
+                "expectedPixels": [
+                    {
+                        "x": 143,
+                        "y": 1621,
+                        "value": 0.73218
+                    },
+                    {
+                        "x": 698,
+                        "y": 3790,
+                        "value": 0.5507986
+                    }
+                ]
+            },
+            {
+                "name": "10v",
+                "description": "10 metre V wind component at surface level provided by ECMWF",
+                "offsetX": "0.5",
+                "offsetY": "-1060.5",
+                "subSamplingX": "1220.0",
+                "subSamplingY": "1220.0",
+                "expectedPixels": [
+                    {
+                        "x": 2955,
+                        "y": 2844,
+                        "value": 0.4283701
+                    },
+                    {
+                        "x": 8002,
+                        "y": 2811,
+                        "value": 0.0032264674
+                    }
+                ]
+            },
+            {
+                "name": "aux_latitude",
+                "description": "",
+                "offsetX": "0.5",
+                "offsetY": "-1060.5",
+                "subSamplingX": "1220.0",
+                "subSamplingY": "1220.0",
+                "expectedPixels": [
+                    {
+                        "x": 8310,
+                        "y": 3609,
+                        "value": 67.42793
+                    },
+                    {
+                        "x": 2475,
+                        "y": 2030,
+                        "value": 67.58437
+                    }
+                ]
+            },
+            {
+                "name": "aux_longitude",
+                "description": "",
+                "offsetX": "0.5",
+                "offsetY": "-1060.5",
+                "subSamplingX": "1220.0",
+                "subSamplingY": "1220.0",
+                "expectedPixels": [
+                    {
+                        "x": 6084,
+                        "y": 993,
+                        "value": 20.22149
+                    },
+                    {
+                        "x": 5505,
+                        "y": 576,
+                        "value": 20.0628
+                    }
+                ]
+            }
+        ],
+        "bands": [
+            {
+                "name": "B1",
+                "description": "Reflectance in band B1",
+                "bandWidth": 4980,
+                "bandHeight": 1910,
+                "geophysicalUnit": "dl",
+                "noDataValue": "-0.1",
+                "noDataValueUsed": "false",
+                "spectralWavelength": "443.0",
+                "spectralBandwidth": "20.0",
+                "expectedPixels": [
+                    {
+                        "x": 2368,
+                        "y": 1067,
+                        "value": 0.0445
+                    },
+                    {
+                        "x": 475,
+                        "y": 1623,
+                        "value": 0.0317
+                    }
+                ]
+            },
+            {
+                "name": "B3",
+                "description": "Reflectance in band B3",
+                "bandWidth": 9959,
+                "bandHeight": 3818,
+                "geophysicalUnit": "dl",
+                "noDataValue": "-0.1",
+                "noDataValueUsed": "false",
+                "spectralWavelength": "560.0",
+                "spectralBandwidth": "35.0",
+                "expectedPixels": [
+                    {
+                        "x": 957,
+                        "y": 297,
+                        "value": 0.1204
+                    },
+                    {
+                        "x": 4532,
+                        "y": 2582,
+                        "value": 0.0284
+                    }
+                ]
+            },
+            {
+                "name": "B5",
+                "description": "Reflectance in band B5",
+                "bandWidth": 4980,
+                "bandHeight": 1910,
+                "geophysicalUnit": "dl",
+                "noDataValue": "-0.1",
+                "noDataValueUsed": "false",
+                "spectralWavelength": "705.0",
+                "spectralBandwidth": "15.0",
+                "expectedPixels": [
+                    {
+                        "x": 2316,
+                        "y": 1709,
+                        "value": 0.0977
+                    },
+                    {
+                        "x": 4319,
+                        "y": 1146,
+                        "value": "NaN"
+                    }
+                ]
+            }
+        ],
+        "metadata": [
+            {
+                "path": "history/SubsetInfo/SubSampling.y",
+                "value": "1"
+            },
+            {
+                "path": "Granules/Level-2A_Tile_34WDA/Geometric_Info/Tile_Angles/Viewing_Incidence_Angles_Grids[16]/Zenith/Values_List/VALUES[6]",
+                "value": "9.50017 9.14836 8.78793 8.43065 8.06975 NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN"
+            },
+            {
+                "path": "Granules/Level-2A_Tile_34WDA/General_Info/Archiving_Info/ARCHIVING_TIME",
+                "value": "2021-11-19T16:20:30.454847Z"
+            },
+            {
+                "path": "history/SubsetInfo/ProductNodeName.16",
+                "value": "10v"
+            },
+            {
+                "path": "Level-2A_DataStrip_ID/Satellite_Ancillary_Data_Info/Ephemeris/AOCS_Ephemeris_List/AOCS_Ephemeris[373]/VALID_FLAG",
+                "value": "true"
+            },
+            {
+                "path": "history/SubsetInfo/ProductNodeName.17",
+                "value": "aux_latitude"
+            },
+            {
+                "path": "Level-2A_User_Product/Auxiliary_Data_Info/GRI_List/GRI_FILENAME[2]",
+                "value": "S2A_OPER_GRI_MSIL1B_MPC__20161018T120000_S20150928T103503"
+            },
+            {
+                "path": "Level-2A_DataStrip_ID/Image_Data_Info/Sensor_Configuration/Time_Stamp/Band_Time_Stamp[10]/Detector[11]/detectorId",
+                "value": "11"
+            },
+            {
+                "path": "history/SubsetInfo/SubSampling.y",
+                "value": "1"
+            }
+        ]
+    }
+}
