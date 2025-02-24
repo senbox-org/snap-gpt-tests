@@ -4,7 +4,7 @@
     <operator>ProductSet-Reader</operator>
     <sources/>
     <parameters class="com.bc.ceres.binding.dom.XppDomElement">
-      <fileList>$input_file_list</fileList>
+      <fileList>$input1,$input2,$input3</fileList>
     </parameters>
   </node>
   <node id="InSAR-Overview">
@@ -14,6 +14,16 @@
     </sources>
     <parameters class="com.bc.ceres.binding.dom.XppDomElement">
       <overviewJSONFile>$overviewJSONFile</overviewJSONFile>
+    </parameters>
+  </node>
+  <node id="Write">
+    <operator>Write</operator>
+    <sources>
+      <sourceProduct refid="InSAR-Overview"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <file>$out1</file>
+      <formatName>BEAM-DIMAP</formatName>
     </parameters>
   </node>
   <applicationData id="Presentation">

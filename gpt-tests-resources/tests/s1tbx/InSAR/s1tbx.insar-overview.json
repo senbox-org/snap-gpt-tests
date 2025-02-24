@@ -1,6 +1,6 @@
 [
 {
-  "id": "s1tbx.insar.overview",
+  "id": "s1tbx.insar-overview",
   "author": "SkyWatch",
   "description": "execute InSAR Overview",
   "frequency": "daily/s1tbx/insar/CItest",
@@ -11,11 +11,11 @@
     "input3": "SAR/ASAR/ASA_IMS_1PNESA20080426_134208_000000172068_00067_32185_0000.N1"
   },
   "parameters": {
-    "overviewJSONFile": "e:\\out\\file.json"
+    "overviewJSONFile": "output-test-insar-overview.json"
   },
   "outputs": [{
-    "parameter": "output",
-    "outputName": "output-test-insar-overview",
+    "parameter": "out1",
+    "outputName": "output-test-insar-overview.json",
     "expected": "s1tbx/InSAR/expected-insar-overview.json"
   }]
 }
