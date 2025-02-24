@@ -116,6 +116,7 @@ report:
   before_script:
     - echo S3_REPORTS = %S3_REPORTS% 
     - echo REPORT_DIR = %REPORT_DIR% 
+    - echo AWS_REQUEST_CHECKSUM_CALCULATION=WHEN_REQUIRED
   script:
     - echo "Copy assets for report generation"
     - mkdir %CI_PROJECT_DIR%\%REPORT_DIR%\report\json %CI_PROJECT_DIR%\%REPORT_DIR%\report\performances %CI_PROJECT_DIR%\%REPORT_DIR%\report\images
