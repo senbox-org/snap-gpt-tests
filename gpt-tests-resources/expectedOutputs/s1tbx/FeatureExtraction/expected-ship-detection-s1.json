@@ -101,26 +101,6 @@
         "y" : 1000.0,
         "value" : 0.005332825
       } ]
-    }, {
-      "name" : "Sigma0_VH_ship_bit_msk",
-      "description" : "",
-      "bandWidth" : 2000,
-      "bandHeight" : 2000,
-      "noDataValue" : 0.0,
-      "noDataValueUsed" : true,
-      "spectralWavelength" : 0.0,
-      "spectralBandwidth" : 0.0,
-      "expectedPixels" : [ {
-        "x" : 1000.0,
-        "y" : 1000.0,
-        "value" : "NaN"
-      } ]
-    } ],
-    "masks" : [ {
-      "name" : "ShipDetections",
-      "type" : "org.esa.snap.core.datamodel.Mask$VectorDataType",
-      "color" : "255,0,0",
-      "description" : "Mask derived from geometries in 'ShipDetections'"
     } ]
   }
 }
