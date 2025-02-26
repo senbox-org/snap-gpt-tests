@@ -1,0 +1,301 @@
+[
+  {
+    "id": "Subset_S2_B1B3B5_RefB1_Polygon_Region_WKT",
+    "author": "CS",
+    "description": "execute subset operator in a S2L1C product with bands B1, B3 and B5 (10m, 20m and 60m) and polygon region from WKT",
+    "frequency": "daily/snap/Subset_S2_Ref/Subset_S2_B1B3B5_Ref",
+    "graphPath": "snap/graphSubsetRefBandPolygonRegionWKT.xml",
+    "inputs": {
+      "input1": "S2/PSD149/L2A/S2A_MSIL2A_20210728T103031_N7990_R108_T34WDA_20211119T150533.SAFE"
+    },
+    "parameters": {
+      "subsetBands": "B1,B3,B5",
+      "polygonRegion": "POLYGON ((5396.462499999965 2575.900000001304, 1367.103125000198 8145.050000040908, 9512.162500000013 8130.649999999907, 9512.162500000013 8130.649999999907, 5396.462499999965 2575.900000001304))",
+      "referenceBand": "B1",
+      "outputFormat": "BEAM-DIMAP"
+    },
+    "outputs": [
+      {
+        "parameter": "out1",
+        "outputName": "subsetS2TestB1B3B5_polygonRegionWKT_B1Ref",
+        "expected": "snap/expected_subsetS2TestB1B3B5_polygonRegionWKT_B1Ref.json"
+      }
+    ]
+  },
+  {
+    "id": "Subset_S2_B1B3B5_RefB3_Polygon_Region_WKT",
+    "author": "CS",
+    "description": "execute subset operator in a S2L1C product with bands B1, B3 and B5 (10m, 20m and 60m) and polygon region from WKT",
+    "frequency": "daily/snap/Subset_S2_Ref/Subset_S2_B1B3B5_Ref",
+    "graphPath": "snap/graphSubsetRefBandPolygonRegionWKT.xml",
+    "inputs": {
+      "input1": "S2/PSD149/L2A/S2A_MSIL2A_20210728T103031_N7990_R108_T34WDA_20211119T150533.SAFE"
+    },
+    "parameters": {
+      "subsetBands": "B1,B3,B5",
+      "polygonRegion": "POLYGON ((5396.462499999965 2575.900000001304, 1367.103125000198 8145.050000040908, 9512.162500000013 8130.649999999907, 9512.162500000013 8130.649999999907, 5396.462499999965 2575.900000001304))",
+      "referenceBand": "B3",
+      "outputFormat": "BEAM-DIMAP"
+    },
+    "outputs": [
+      {
+        "parameter": "out1",
+        "outputName": "subsetS2TestB1B3B5_polygonRegionWKT_B3Ref",
+        "expected": "snap/expected_subsetS2TestB1B3B5_polygonRegionWKT_B3Ref.json"
+      }
+    ]
+  },
+  {
+    "id": "Subset_S2_B1B3B5_RefB5_Polygon_Region_WKT",
+    "author": "CS",
+    "description": "execute subset operator in a S2L1C product with bands B1, B3 and B5 (10m, 20m and 60m) and polygon region from WKT",
+    "frequency": "daily/snap/Subset_S2_Ref/Subset_S2_B1B3B5_Ref",
+    "graphPath": "snap/graphSubsetRefBandPolygonRegionWKT.xml",
+    "inputs": {
+      "input1": "S2/PSD149/L2A/S2A_MSIL2A_20210728T103031_N7990_R108_T34WDA_20211119T150533.SAFE"
+    },
+    "parameters": {
+      "subsetBands": "B1,B3,B5",
+      "polygonRegion": "POLYGON ((5396.462499999965 2575.900000001304, 1367.103125000198 8145.050000040908, 9512.162500000013 8130.649999999907, 9512.162500000013 8130.649999999907, 5396.462499999965 2575.900000001304))",
+      "referenceBand": "B5",
+      "outputFormat": "BEAM-DIMAP"
+    },
+    "outputs": [
+      {
+        "parameter": "out1",
+        "outputName": "subsetS2TestB1B3B5_polygonRegionWKT_B5Ref",
+        "expected": "snap/expected_subsetS2TestB1B3B5_polygonRegionWKT_B5Ref.json"
+      }
+    ]
+  },
+  {
+    "id": "Subset_S2_B1B3B5_RefB3_Polygon_GeoRegion_WKT",
+    "author": "CS",
+    "description": "execute subset operator in a S2L1C product with bands B1, B3 and B5 (10m, 20m and 60m) and polygon geo region from WKT",
+    "frequency": "daily/snap/Subset_S2_Ref/Subset_S2_B1B3B5_Ref",
+    "graphPath": "snap/graphSubsetRefBandPolygonGeoRegionWKT.xml",
+    "inputs": {
+      "input1": "S2/PSD149/L2A/S2A_MSIL2A_20210728T103031_N7990_R108_T34WDA_20211119T150533.SAFE"
+    },
+    "parameters": {
+      "subsetBands": "B1,B3,B5",
+      "geoRegion": "POLYGON ((19.884402832345323 68.27786478206762, 18.95403568500831 67.76928383954326, 20.883438050571606 67.7833392078582, 20.883438050571606 67.7833392078582, 19.884402832345323 68.27786478206762))",
+      "referenceBand": "B3",
+      "outputFormat": "BEAM-DIMAP"
+    },
+    "outputs": [
+      {
+        "parameter": "out1",
+        "outputName": "subsetS2TestB1B3B5_polygonGeoRegionWKT_B3Ref",
+        "expected": "snap/expected_subsetS2TestB1B3B5_polygonGeoRegionWKT_B3Ref.json"
+      }
+    ]
+  },
+  {
+    "id": "Subset_S2_B1B3B5_RefB3_Polygon_Region_Vector_File_Shapefile",
+    "author": "CS",
+    "description": "execute subset operator in a S2L1C product with bands B1, B3 and B5 (10m, 20m and 60m) and polygon region from vector file (shapefile)",
+    "frequency": "daily/snap/Subset_S2_Ref/Subset_S2_B1B3B5_Ref",
+    "graphPath": "snap/graphSubsetRefBandVectorFile.xml",
+    "inputs": {
+      "input1": "S2/PSD149/L2A/S2A_MSIL2A_20210728T103031_N7990_R108_T34WDA_20211119T150533.SAFE"
+    },
+    "parameters": {
+      "subsetBands": "B1,B3,B5",
+      "vectorFile": "$inputFolder/_subset_by_polygon/geometry_3p_Polygon.shp",
+      "referenceBand": "B3",
+      "outputFormat": "BEAM-DIMAP"
+    },
+    "outputs": [
+      {
+        "parameter": "out1",
+        "outputName": "subsetS2TestB1B3B5_polygonRegionVectorFile_shapefile_B3Ref",
+        "expected": "snap/expected_subsetS2TestB1B3B5_polygonRegionVectorFile_shapefile_B3Ref.json"
+      }
+    ]
+  },
+  {
+    "id": "Subset_S2_B1B3B5_RefB3_Polygon_Region_Vector_File_KML",
+    "author": "CS",
+    "description": "execute subset operator in a S2L1C product with bands B1, B3 and B5 (10m, 20m and 60m) and polygon region from vector file (KML)",
+    "frequency": "daily/snap/Subset_S2_Ref/Subset_S2_B1B3B5_Ref",
+    "graphPath": "snap/graphSubsetRefBandVectorFile.xml",
+    "inputs": {
+      "input1": "S2/PSD149/L2A/S2A_MSIL2A_20210728T103031_N7990_R108_T34WDA_20211119T150533.SAFE"
+    },
+    "parameters": {
+      "subsetBands": "B1,B3,B5",
+      "vectorFile": "$inputFolder/_subset_by_polygon/geometry_4p_Polygon.kml",
+      "referenceBand": "B3",
+      "outputFormat": "BEAM-DIMAP"
+    },
+    "outputs": [
+      {
+        "parameter": "out1",
+        "outputName": "subsetS2TestB1B3B5_polygonRegionVectorFile_KML_B3Ref",
+        "expected": "snap/expected_subsetS2TestB1B3B5_polygonRegionVectorFile_KML_B3Ref.json"
+      }
+    ]
+  },
+  {
+    "id": "Subset_S2_B1B3B5_RefB3_Polygon_Region_Vector_File_KMZ",
+    "author": "CS",
+    "description": "execute subset operator in a S2L1C product with bands B1, B3 and B5 (10m, 20m and 60m) and polygon region from vector file (KMZ)",
+    "frequency": "daily/snap/Subset_S2_Ref/Subset_S2_B1B3B5_Ref",
+    "graphPath": "snap/graphSubsetRefBandVectorFile.xml",
+    "inputs": {
+      "input1": "S2/PSD149/L2A/S2A_MSIL2A_20210728T103031_N7990_R108_T34WDA_20211119T150533.SAFE"
+    },
+    "parameters": {
+      "subsetBands": "B1,B3,B5",
+      "vectorFile": "$inputFolder/_subset_by_polygon/geometry_5p_Polygon.kmz",
+      "referenceBand": "B3",
+      "outputFormat": "BEAM-DIMAP"
+    },
+    "outputs": [
+      {
+        "parameter": "out1",
+        "outputName": "subsetS2TestB1B3B5_polygonRegionVectorFile_KMZ_B3Ref",
+        "expected": "snap/expected_subsetS2TestB1B3B5_polygonRegionVectorFile_KMZ_B3Ref.json"
+      }
+    ]
+  },
+  {
+    "id": "Subset_S2_B1B3B5_RefB3_Polygon_Region_Vector_File_placemark",
+    "author": "CS",
+    "description": "execute subset operator in a S2L1C product with bands B1, B3 and B5 (10m, 20m and 60m) and polygon region from vector file (placemark)",
+    "frequency": "daily/snap/Subset_S2_Ref/Subset_S2_B1B3B5_Ref",
+    "graphPath": "snap/graphSubsetRefBandVectorFile.xml",
+    "inputs": {
+      "input1": "S2/PSD149/L2A/S2A_MSIL2A_20210728T103031_N7990_R108_T34WDA_20211119T150533.SAFE"
+    },
+    "parameters": {
+      "subsetBands": "B1,B3,B5",
+      "vectorFile": "$inputFolder/_subset_by_polygon/geometry_6p_Polygon.placemark",
+      "referenceBand": "B3",
+      "outputFormat": "BEAM-DIMAP"
+    },
+    "outputs": [
+      {
+        "parameter": "out1",
+        "outputName": "subsetS2TestB1B3B5_polygonRegionVectorFile_placemark_B3Ref",
+        "expected": "snap/expected_subsetS2TestB1B3B5_polygonRegionVectorFile_placemark_B3Ref.json"
+      }
+    ]
+  },
+  {
+    "id": "Subset_S2_B1B3B5_RefB3_Polygon_Region_Vector_File_PNX",
+    "author": "CS",
+    "description": "execute subset operator in a S2L1C product with bands B1, B3 and B5 (10m, 20m and 60m) and polygon region from vector file (PNX)",
+    "frequency": "daily/snap/Subset_S2_Ref/Subset_S2_B1B3B5_Ref",
+    "graphPath": "snap/graphSubsetRefBandVectorFile.xml",
+    "inputs": {
+      "input1": "S2/PSD149/L2A/S2A_MSIL2A_20210728T103031_N7990_R108_T34WDA_20211119T150533.SAFE"
+    },
+    "parameters": {
+      "subsetBands": "B1,B3,B5",
+      "vectorFile": "$inputFolder/_subset_by_polygon/geometry_7p_Polygon.pnx",
+      "referenceBand": "B3",
+      "outputFormat": "BEAM-DIMAP"
+    },
+    "outputs": [
+      {
+        "parameter": "out1",
+        "outputName": "subsetS2TestB1B3B5_polygonRegionVectorFile_PNX_B3Ref",
+        "expected": "snap/expected_subsetS2TestB1B3B5_polygonRegionVectorFile_PNX_B3Ref.json"
+      }
+    ]
+  },
+  {
+    "id": "Subset_S2_B1B3B5_RefB3_Polygon_Region_Vector_File_TXT",
+    "author": "CS",
+    "description": "execute subset operator in a S2L1C product with bands B1, B3 and B5 (10m, 20m and 60m) and polygon region from vector file (TXT)",
+    "frequency": "daily/snap/Subset_S2_Ref/Subset_S2_B1B3B5_Ref",
+    "graphPath": "snap/graphSubsetRefBandVectorFile.xml",
+    "inputs": {
+      "input1": "S2/PSD149/L2A/S2A_MSIL2A_20210728T103031_N7990_R108_T34WDA_20211119T150533.SAFE"
+    },
+    "parameters": {
+      "subsetBands": "B1,B3,B5",
+      "vectorFile": "$inputFolder/_subset_by_polygon/geometry_8p_Polygon.txt",
+      "referenceBand": "B3",
+      "outputFormat": "BEAM-DIMAP"
+    },
+    "outputs": [
+      {
+        "parameter": "out1",
+        "outputName": "subsetS2TestB1B3B5_polygonRegionVectorFile_TXT_B3Ref",
+        "expected": "snap/expected_subsetS2TestB1B3B5_polygonRegionVectorFile_TXT_B3Ref.json"
+      }
+    ]
+  },
+  {
+    "id": "Subset_S2_B1B3B5_RefB3_Polygon_Region_Vector_File_WKT",
+    "author": "CS",
+    "description": "execute subset operator in a S2L1C product with bands B1, B3 and B5 (10m, 20m and 60m) and polygon region from vector file (WKT)",
+    "frequency": "daily/snap/Subset_S2_Ref/Subset_S2_B1B3B5_Ref",
+    "graphPath": "snap/graphSubsetRefBandVectorFile.xml",
+    "inputs": {
+      "input1": "S2/PSD149/L2A/S2A_MSIL2A_20210728T103031_N7990_R108_T34WDA_20211119T150533.SAFE"
+    },
+    "parameters": {
+      "subsetBands": "B1,B3,B5",
+      "vectorFile": "$inputFolder/_subset_by_polygon/geometry_9p_Polygon.wkt",
+      "referenceBand": "B3",
+      "outputFormat": "BEAM-DIMAP"
+    },
+    "outputs": [
+      {
+        "parameter": "out1",
+        "outputName": "subsetS2TestB1B3B5_polygonRegionVectorFile_WKT_B3Ref",
+        "expected": "snap/expected_subsetS2TestB1B3B5_polygonRegionVectorFile_WKT_B3Ref.json"
+      }
+    ]
+  },
+  {
+    "id": "Subset_S2_B1B3B5_RefB3_Polygon_Region_Vector_File_JSON",
+    "author": "CS",
+    "description": "execute subset operator in a S2L1C product with bands B1, B3 and B5 (10m, 20m and 60m) and polygon region from vector file (JSON)",
+    "frequency": "daily/snap/Subset_S2_Ref/Subset_S2_B1B3B5_Ref",
+    "graphPath": "snap/graphSubsetRefBandVectorFile.xml",
+    "inputs": {
+      "input1": "S2/PSD149/L2A/S2A_MSIL2A_20210728T103031_N7990_R108_T34WDA_20211119T150533.SAFE"
+    },
+    "parameters": {
+      "subsetBands": "B1,B3,B5",
+      "vectorFile": "$inputFolder/_subset_by_polygon/geometry_118p_Polygon_Galivare.json",
+      "referenceBand": "B3",
+      "outputFormat": "BEAM-DIMAP"
+    },
+    "outputs": [
+      {
+        "parameter": "out1",
+        "outputName": "subsetS2TestB1B3B5_polygonRegionVectorFile_JSON_B3Ref",
+        "expected": "snap/expected_subsetS2TestB1B3B5_polygonRegionVectorFile_JSON_B3Ref.json"
+      }
+    ]
+  },
+  {
+    "id": "Subset_S2_RefB3_Polygon_Region_Vector_File_JSON",
+    "author": "CS",
+    "description": "execute subset operator in a S2L1C product with all bands and polygon region from vector file (JSON)",
+    "frequency": "daily/snap/Subset_S2_Ref/Subset_S2_Ref",
+    "graphPath": "snap/graphSubsetRefBandVectorFile.xml",
+    "inputs": {
+      "input1": "S2/PSD149/L2A/S2A_MSIL2A_20210728T103031_N7990_R108_T34WDA_20211119T150533.SAFE"
+    },
+    "parameters": {
+      "subsetBands": "",
+      "vectorFile": "$inputFolder/_subset_by_polygon/geometry_118p_Polygon_Galivare.json",
+      "referenceBand": "B3",
+      "outputFormat": "BEAM-DIMAP"
+    },
+    "outputs": [
+      {
+        "parameter": "out1",
+        "outputName": "subsetS2Test_polygonRegionVectorFile_JSON_B3Ref",
+        "expected": "snap/expected_subsetS2Test_polygonRegionVectorFile_JSON_B3Ref.json"
+      }
+    ]
+  }
+]
