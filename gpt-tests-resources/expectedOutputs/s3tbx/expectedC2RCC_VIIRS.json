@@ -1,0 +1,1217 @@
+{
+  "id": "C2RCC_VIIRS",
+  "decodeQualification": "INTENDED",
+  "expectedContent": {
+    "sceneWidth": 601,
+    "sceneHeight": 901,
+    "startTime": "07-MAR-2018 13:15:02.109164",
+    "endTime": "07-MAR-2018 13:13:22.489944",
+    "flagCodings": [
+      {
+        "name": "L2Flags",
+        "samples": [
+          {
+            "name": "ATMFAIL",
+            "value": 1,
+            "description": "Atmospheric correction failure"
+          },
+          {
+            "name": "LAND",
+            "value": 2,
+            "description": "Land"
+          },
+          {
+            "name": "PRODWARN",
+            "value": 4,
+            "description": "One (or more) product algorithms generated a warning"
+          },
+          {
+            "name": "HIGLINT",
+            "value": 8,
+            "description": "High glint determined"
+          },
+          {
+            "name": "HILT",
+            "value": 16,
+            "description": "High (or saturating) TOA radiance"
+          },
+          {
+            "name": "HISATZEN",
+            "value": 32,
+            "description": "Large satellite zenith angle"
+          },
+          {
+            "name": "COASTZ",
+            "value": 64,
+            "description": "Shallow water (<30m)"
+          },
+          {
+            "name": "SPARE8",
+            "value": 128,
+            "description": "Unused spare flag"
+          },
+          {
+            "name": "STRAYLIGHT",
+            "value": 256,
+            "description": "Straylight determined"
+          },
+          {
+            "name": "CLDICE",
+            "value": 512,
+            "description": "Cloud/Ice determined"
+          },
+          {
+            "name": "COCCOLITH",
+            "value": 1024,
+            "description": "Coccolithophores detected"
+          },
+          {
+            "name": "TURBIDW",
+            "value": 2048,
+            "description": "Turbid water determined"
+          },
+          {
+            "name": "HISOLZEN",
+            "value": 4096,
+            "description": "High solar zenith angle"
+          },
+          {
+            "name": "SPARE14",
+            "value": 8192,
+            "description": "Unused spare flag"
+          },
+          {
+            "name": "LOWLW",
+            "value": 16384,
+            "description": "Low Lw @ 555nm (possible cloud shadow)"
+          },
+          {
+            "name": "CHLFAIL",
+            "value": 32768,
+            "description": "Chlorophyll algorithm failure"
+          },
+          {
+            "name": "NAVWARN",
+            "value": 65536,
+            "description": "Navigation suspect"
+          },
+          {
+            "name": "ABSAER",
+            "value": 131072,
+            "description": "Absorbing Aerosols determined"
+          },
+          {
+            "name": "SPARE19",
+            "value": 262144,
+            "description": "Unused spare flag"
+          },
+          {
+            "name": "MAXAERITER",
+            "value": 524288,
+            "description": "Maximum iterations reached for NIR iteration"
+          },
+          {
+            "name": "MODGLINT",
+            "value": 1048576,
+            "description": "Moderate glint determined"
+          },
+          {
+            "name": "CHLWARN",
+            "value": 2097152,
+            "description": "Chlorophyll out-of-bounds (<0.01 or >100 mg m^-3)"
+          },
+          {
+            "name": "ATMWARN",
+            "value": 4194304,
+            "description": "Atmospheric correction warning; Epsilon out-of-bounds"
+          },
+          {
+            "name": "SPARE24",
+            "value": 8388608,
+            "description": "Unused spare flag"
+          },
+          {
+            "name": "SEAICE",
+            "value": 16777216,
+            "description": "Sea ice determined"
+          },
+          {
+            "name": "NAVFAIL",
+            "value": 33554432,
+            "description": "Navigation failure"
+          },
+          {
+            "name": "FILTER",
+            "value": 67108864,
+            "description": "Insufficient data for smoothing filter"
+          },
+          {
+            "name": "SPARE28",
+            "value": 134217728,
+            "description": "Unused spare flag"
+          },
+          {
+            "name": "BOWTIEDEL",
+            "value": 268435456,
+            "description": "Bowtie deleted pixels (VIIRS)"
+          },
+          {
+            "name": "HIPOL",
+            "value": 536870912,
+            "description": "High degree of polariztion determined"
+          },
+          {
+            "name": "PRODFAIL",
+            "value": 1073741824,
+            "description": "One (or more) product algorithms produced a failure"
+          },
+          {
+            "name": "SPARE32",
+            "value": 2147483648,
+            "description": "Unused spare flag"
+          }
+        ]
+      },
+      {
+        "name": "c2rcc_flags",
+        "samples": [
+          {
+            "name": "Rtosa_OOS",
+            "value": 1,
+            "description": "The input spectrum to the atmospheric correction neural net was out of the scope of the training range and the inversion is likely to be wrong"
+          },
+          {
+            "name": "Rtosa_OOR",
+            "value": 2,
+            "description": "The input spectrum to atmospheric correction neural net out of training range"
+          },
+          {
+            "name": "Rhow_OOR",
+            "value": 4,
+            "description": "One of the inputs to the IOP retrieval neural net is out of training range"
+          },
+          {
+            "name": "Valid_PE",
+            "value": 2147483648,
+            "description": "The operators valid pixel expression has resolved to true"
+          }
+        ]
+      }
+    ],
+    "bands": [
+      {
+        "name": "longitude",
+        "description": "Longitude",
+        "bandWidth": 601,
+        "bandHeight": 901,
+        "geophysicalUnit": "degrees_east",
+        "noDataValue": "-999.0",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 76,
+            "y": 211,
+            "value": -7.943225860595703
+          },
+          {
+            "x": 484,
+            "y": 394,
+            "value": -3.8516504764556885
+          }
+        ]
+      },
+      {
+        "name": "latitude",
+        "description": "Latitude",
+        "bandWidth": 601,
+        "bandHeight": 901,
+        "geophysicalUnit": "degrees_north",
+        "noDataValue": "-999.0",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 76,
+            "y": 211,
+            "value": 36.50510025024414
+          },
+          {
+            "x": 484,
+            "y": 394,
+            "value": 35.953128814697266
+          }
+        ]
+      },
+      {
+        "name": "rtosa_ratio_min",
+        "description": "Minimum of rtosa_out:rtosa_in ratios",
+        "bandWidth": 601,
+        "bandHeight": 901,
+        "geophysicalUnit": "1",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 76,
+            "y": 211,
+            "value": 0.8914499878883362
+          },
+          {
+            "x": 484,
+            "y": 394,
+            "value": 0.6875613927841187
+          }
+        ]
+      },
+      {
+        "name": "rtosa_ratio_max",
+        "description": "Maximum of rtosa_out:rtosa_in ratios",
+        "bandWidth": 601,
+        "bandHeight": 901,
+        "geophysicalUnit": "1",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 76,
+            "y": 211,
+            "value": 1.449808955192566
+          },
+          {
+            "x": 484,
+            "y": 394,
+            "value": 2.3371517658233643
+          }
+        ]
+      },
+      {
+        "name": "rrs_410",
+        "description": "Atmospherically corrected Angular dependent remote sensing reflectances",
+        "bandWidth": 601,
+        "bandHeight": 901,
+        "geophysicalUnit": "sr^-1",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "410.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 76,
+            "y": 211,
+            "value": 0.0030355812050402164
+          },
+          {
+            "x": 484,
+            "y": 394,
+            "value": 0.0009171926067210734
+          }
+        ]
+      },
+      {
+        "name": "rrs_443",
+        "description": "Atmospherically corrected Angular dependent remote sensing reflectances",
+        "bandWidth": 601,
+        "bandHeight": 901,
+        "geophysicalUnit": "sr^-1",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "443.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 76,
+            "y": 211,
+            "value": 0.0040441458113491535
+          },
+          {
+            "x": 484,
+            "y": 394,
+            "value": 0.0012078956933692098
+          }
+        ]
+      },
+      {
+        "name": "rrs_486",
+        "description": "Atmospherically corrected Angular dependent remote sensing reflectances",
+        "bandWidth": 601,
+        "bandHeight": 901,
+        "geophysicalUnit": "sr^-1",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "486.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 76,
+            "y": 211,
+            "value": 0.006458194460719824
+          },
+          {
+            "x": 484,
+            "y": 394,
+            "value": 0.0019178797956556082
+          }
+        ]
+      },
+      {
+        "name": "rrs_551",
+        "description": "Atmospherically corrected Angular dependent remote sensing reflectances",
+        "bandWidth": 601,
+        "bandHeight": 901,
+        "geophysicalUnit": "sr^-1",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "551.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 76,
+            "y": 211,
+            "value": 0.012096446938812733
+          },
+          {
+            "x": 484,
+            "y": 394,
+            "value": 0.003496578661724925
+          }
+        ]
+      },
+      {
+        "name": "rrs_671",
+        "description": "Atmospherically corrected Angular dependent remote sensing reflectances",
+        "bandWidth": 601,
+        "bandHeight": 901,
+        "geophysicalUnit": "sr^-1",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "671.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 76,
+            "y": 211,
+            "value": 0.008546978235244751
+          },
+          {
+            "x": 484,
+            "y": 394,
+            "value": 0.0020317183807492256
+          }
+        ]
+      },
+      {
+        "name": "rrs_745",
+        "description": "Atmospherically corrected Angular dependent remote sensing reflectances",
+        "bandWidth": 601,
+        "bandHeight": 901,
+        "geophysicalUnit": "sr^-1",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "745.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 76,
+            "y": 211,
+            "value": 0.0019419379532337189
+          },
+          {
+            "x": 484,
+            "y": 394,
+            "value": 0.00043965139775536954
+          }
+        ]
+      },
+      {
+        "name": "rrs_862",
+        "description": "Atmospherically corrected Angular dependent remote sensing reflectances",
+        "bandWidth": 601,
+        "bandHeight": 901,
+        "geophysicalUnit": "sr^-1",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "862.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 76,
+            "y": 211,
+            "value": 0.0008576803375035524
+          },
+          {
+            "x": 484,
+            "y": 394,
+            "value": 0.00019833505211863667
+          }
+        ]
+      },
+      {
+        "name": "iop_apig",
+        "description": "Pigment absorption coefficient",
+        "bandWidth": 601,
+        "bandHeight": 901,
+        "geophysicalUnit": "m^-1",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 76,
+            "y": 211,
+            "value": 0.5584977269172668
+          },
+          {
+            "x": 484,
+            "y": 394,
+            "value": 0.37673190236091614
+          }
+        ]
+      },
+      {
+        "name": "iop_adet",
+        "description": "Pigment absorption",
+        "bandWidth": 601,
+        "bandHeight": 901,
+        "geophysicalUnit": "m^-1",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 76,
+            "y": 211,
+            "value": 1.147770643234253
+          },
+          {
+            "x": 484,
+            "y": 394,
+            "value": 0.7956012487411499
+          }
+        ]
+      },
+      {
+        "name": "iop_agelb",
+        "description": "Yellow substance absorption coefficient",
+        "bandWidth": 601,
+        "bandHeight": 901,
+        "geophysicalUnit": "m^-1",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 76,
+            "y": 211,
+            "value": 0.5206168293952942
+          },
+          {
+            "x": 484,
+            "y": 394,
+            "value": 0.4610939919948578
+          }
+        ]
+      },
+      {
+        "name": "iop_bpart",
+        "description": "",
+        "bandWidth": 601,
+        "bandHeight": 901,
+        "geophysicalUnit": "m^-1",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 76,
+            "y": 211,
+            "value": 5.136819362640381
+          },
+          {
+            "x": 484,
+            "y": 394,
+            "value": 1.4386928081512451
+          }
+        ]
+      },
+      {
+        "name": "iop_bwit",
+        "description": "Backscattering of suspended particulate matter",
+        "bandWidth": 601,
+        "bandHeight": 901,
+        "geophysicalUnit": "m^-1",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 76,
+            "y": 211,
+            "value": 8.298842430114746
+          },
+          {
+            "x": 484,
+            "y": 394,
+            "value": 1.9611232280731201
+          }
+        ]
+      },
+      {
+        "name": "iop_adg",
+        "description": "absorption of detritus and yellow substance",
+        "bandWidth": 601,
+        "bandHeight": 901,
+        "geophysicalUnit": "m^-1",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 76,
+            "y": 211,
+            "value": 1.6683874130249023
+          },
+          {
+            "x": 484,
+            "y": 394,
+            "value": 1.25669527053833
+          }
+        ]
+      },
+      {
+        "name": "iop_atot",
+        "description": "Total absorption coefficient of all water constituents",
+        "bandWidth": 601,
+        "bandHeight": 901,
+        "geophysicalUnit": "m^-1",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 76,
+            "y": 211,
+            "value": 2.2268853187561035
+          },
+          {
+            "x": 484,
+            "y": 394,
+            "value": 1.6334271430969238
+          }
+        ]
+      },
+      {
+        "name": "iop_btot",
+        "description": "Total particle scattering",
+        "bandWidth": 601,
+        "bandHeight": 901,
+        "geophysicalUnit": "m^-1",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 76,
+            "y": 211,
+            "value": 13.435661315917969
+          },
+          {
+            "x": 484,
+            "y": 394,
+            "value": 3.3998160362243652
+          }
+        ]
+      },
+      {
+        "name": "conc_tsm",
+        "description": "Total suspended matter dry weight concentration",
+        "bandWidth": 601,
+        "bandHeight": 901,
+        "geophysicalUnit": "g m^-3",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 76,
+            "y": 211,
+            "value": 22.840625762939453
+          },
+          {
+            "x": 484,
+            "y": 394,
+            "value": 5.779687404632568
+          }
+        ]
+      },
+      {
+        "name": "conc_chl",
+        "description": "Chlorophyll concentration",
+        "bandWidth": 601,
+        "bandHeight": 901,
+        "geophysicalUnit": "mg/m^3",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 76,
+            "y": 211,
+            "value": 10.912701606750488
+          },
+          {
+            "x": 484,
+            "y": 394,
+            "value": 7.246089458465576
+          }
+        ]
+      },
+      {
+        "name": "rtosa_in_410",
+        "description": "Top-of-standard-atmosphere reflectances, input to AC",
+        "bandWidth": 601,
+        "bandHeight": 901,
+        "geophysicalUnit": "1",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "410.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 76,
+            "y": 211,
+            "value": 0.05558612197637558
+          },
+          {
+            "x": 484,
+            "y": 394,
+            "value": 0.03324677795171738
+          }
+        ]
+      },
+      {
+        "name": "rtosa_in_443",
+        "description": "Top-of-standard-atmosphere reflectances, input to AC",
+        "bandWidth": 601,
+        "bandHeight": 901,
+        "geophysicalUnit": "1",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "443.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 76,
+            "y": 211,
+            "value": 0.05526084452867508
+          },
+          {
+            "x": 484,
+            "y": 394,
+            "value": 0.032140102237463
+          }
+        ]
+      },
+      {
+        "name": "rtosa_in_486",
+        "description": "Top-of-standard-atmosphere reflectances, input to AC",
+        "bandWidth": 601,
+        "bandHeight": 901,
+        "geophysicalUnit": "1",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "486.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 76,
+            "y": 211,
+            "value": 0.0526803582906723
+          },
+          {
+            "x": 484,
+            "y": 394,
+            "value": 0.030201923102140427
+          }
+        ]
+      },
+      {
+        "name": "rtosa_in_551",
+        "description": "Top-of-standard-atmosphere reflectances, input to AC",
+        "bandWidth": 601,
+        "bandHeight": 901,
+        "geophysicalUnit": "1",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "551.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 76,
+            "y": 211,
+            "value": 0.05105694383382797
+          },
+          {
+            "x": 484,
+            "y": 394,
+            "value": 0.028379226103425026
+          }
+        ]
+      },
+      {
+        "name": "rtosa_in_671",
+        "description": "Top-of-standard-atmosphere reflectances, input to AC",
+        "bandWidth": 601,
+        "bandHeight": 901,
+        "geophysicalUnit": "1",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "671.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 76,
+            "y": 211,
+            "value": 0.04996742680668831
+          },
+          {
+            "x": 484,
+            "y": 394,
+            "value": 0.02753584459424019
+          }
+        ]
+      },
+      {
+        "name": "rtosa_in_745",
+        "description": "Top-of-standard-atmosphere reflectances, input to AC",
+        "bandWidth": 601,
+        "bandHeight": 901,
+        "geophysicalUnit": "1",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "745.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 76,
+            "y": 211,
+            "value": 0.020289478823542595
+          },
+          {
+            "x": 484,
+            "y": 394,
+            "value": 0.01993969827890396
+          }
+        ]
+      },
+      {
+        "name": "rtosa_in_862",
+        "description": "Top-of-standard-atmosphere reflectances, input to AC",
+        "bandWidth": 601,
+        "bandHeight": 901,
+        "geophysicalUnit": "1",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "862.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 76,
+            "y": 211,
+            "value": 0.04918329417705536
+          },
+          {
+            "x": 484,
+            "y": 394,
+            "value": 0.02819828689098358
+          }
+        ]
+      },
+      {
+        "name": "rtosa_out_410",
+        "description": "Top-of-standard-atmosphere reflectances, output from ANN",
+        "bandWidth": 601,
+        "bandHeight": 901,
+        "geophysicalUnit": "1",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "410.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 76,
+            "y": 211,
+            "value": 0.08058925718069077
+          },
+          {
+            "x": 484,
+            "y": 394,
+            "value": 0.07770276814699173
+          }
+        ]
+      },
+      {
+        "name": "rtosa_out_443",
+        "description": "Top-of-standard-atmosphere reflectances, output from ANN",
+        "bandWidth": 601,
+        "bandHeight": 901,
+        "geophysicalUnit": "1",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "443.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 76,
+            "y": 211,
+            "value": 0.06647390127182007
+          },
+          {
+            "x": 484,
+            "y": 394,
+            "value": 0.06085827574133873
+          }
+        ]
+      },
+      {
+        "name": "rtosa_out_486",
+        "description": "Top-of-standard-atmosphere reflectances, output from ANN",
+        "bandWidth": 601,
+        "bandHeight": 901,
+        "geophysicalUnit": "1",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "486.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 76,
+            "y": 211,
+            "value": 0.053775448352098465
+          },
+          {
+            "x": 484,
+            "y": 394,
+            "value": 0.043644893914461136
+          }
+        ]
+      },
+      {
+        "name": "rtosa_out_551",
+        "description": "Top-of-standard-atmosphere reflectances, output from ANN",
+        "bandWidth": 601,
+        "bandHeight": 901,
+        "geophysicalUnit": "1",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "551.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 76,
+            "y": 211,
+            "value": 0.05362999811768532
+          },
+          {
+            "x": 484,
+            "y": 394,
+            "value": 0.033100008964538574
+          }
+        ]
+      },
+      {
+        "name": "rtosa_out_671",
+        "description": "Top-of-standard-atmosphere reflectances, output from ANN",
+        "bandWidth": 601,
+        "bandHeight": 901,
+        "geophysicalUnit": "1",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "671.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 76,
+            "y": 211,
+            "value": 0.04454346373677254
+          },
+          {
+            "x": 484,
+            "y": 394,
+            "value": 0.021771647036075592
+          }
+        ]
+      },
+      {
+        "name": "rtosa_out_745",
+        "description": "Top-of-standard-atmosphere reflectances, output from ANN",
+        "bandWidth": 601,
+        "bandHeight": 901,
+        "geophysicalUnit": "1",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "745.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 76,
+            "y": 211,
+            "value": 0.021904706954956055
+          },
+          {
+            "x": 484,
+            "y": 394,
+            "value": 0.021889956668019295
+          }
+        ]
+      },
+      {
+        "name": "rtosa_out_862",
+        "description": "Top-of-standard-atmosphere reflectances, output from ANN",
+        "bandWidth": 601,
+        "bandHeight": 901,
+        "geophysicalUnit": "1",
+        "noDataValue": "NaN",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "862.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 76,
+            "y": 211,
+            "value": 0.04855550080537796
+          },
+          {
+            "x": 484,
+            "y": 394,
+            "value": 0.019388053566217422
+          }
+        ]
+      }
+    ],
+    "masks": [
+      {
+        "name": "LAND",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "80,60,0",
+        "description": "Land"
+      },
+      {
+        "name": "ABSAER",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "255,200,0",
+        "description": "Absorbing Aerosols determined"
+      },
+      {
+        "name": "ATMFAIL",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "255,0,26",
+        "description": "Atmospheric correction failure"
+      },
+      {
+        "name": "ATMWARN",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "255,0,255",
+        "description": "Atmospheric correction warning; Epsilon out-of-bounds"
+      },
+      {
+        "name": "BOWTIEDEL",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "255,0,26",
+        "description": "Bowtie deleted pixels (VIIRS)"
+      },
+      {
+        "name": "CHLFAIL",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "255,0,26",
+        "description": "Chlorophyll algorithm failure"
+      },
+      {
+        "name": "CHLWARN",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "192,192,192",
+        "description": "Chlorophyll out-of-bounds (<0.01 or >100 mg m^-3)"
+      },
+      {
+        "name": "CLDICE",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "255,255,255",
+        "description": "Cloud/Ice determined"
+      },
+      {
+        "name": "COASTZ",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "165,0,11",
+        "description": "Shallow water (<30m)"
+      },
+      {
+        "name": "COCCOLITH",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "0,255,255",
+        "description": "Coccolithophores detected"
+      },
+      {
+        "name": "FILTER",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "192,192,192",
+        "description": "Insufficient data for smoothing filter"
+      },
+      {
+        "name": "HIGLINT",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "255,61,245",
+        "description": "High glint determined"
+      },
+      {
+        "name": "HILT",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "128,128,128",
+        "description": "High (or saturating) TOA radiance"
+      },
+      {
+        "name": "HIPOL",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "255,175,175",
+        "description": "High degree of polariztion determined"
+      },
+      {
+        "name": "HISATZEN",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "193,255,254",
+        "description": "Large satellite zenith angle"
+      },
+      {
+        "name": "HISOLZEN",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "141,11,134",
+        "description": "High solar zenith angle"
+      },
+      {
+        "name": "LOWLW",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "38,115,245",
+        "description": "Low Lw @ 555nm (possible cloud shadow)"
+      },
+      {
+        "name": "MAXAERITER",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "160,160,160",
+        "description": "Maximum iterations reached for NIR iteration"
+      },
+      {
+        "name": "MODGLINT",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "191,143,247",
+        "description": "Moderate glint determined"
+      },
+      {
+        "name": "NAVFAIL",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "255,0,26",
+        "description": "Navigation failure"
+      },
+      {
+        "name": "NAVWARN",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "255,0,255",
+        "description": "Navigation suspect"
+      },
+      {
+        "name": "PRODFAIL",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "255,0,26",
+        "description": "One (or more) product algorithms produced a failure"
+      },
+      {
+        "name": "PRODWARN",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "0,16,143",
+        "description": "One (or more) product algorithms generated a warning"
+      },
+      {
+        "name": "SEAICE",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "64,64,64",
+        "description": "Sea ice determined"
+      },
+      {
+        "name": "STRAYLIGHT",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "255,255,0",
+        "description": "Straylight determined"
+      },
+      {
+        "name": "TURBIDW",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "137,99,31",
+        "description": "Turbid water determined"
+      },
+      {
+        "name": "Composite1",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "200,200,200",
+        "description": "Composite1 Mask (see preferences to set)"
+      },
+      {
+        "name": "Water",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "0,16,143",
+        "description": "Not land (l2_flags.LAND)"
+      },
+      {
+        "name": "Rtosa_OOS",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "255,0,0",
+        "description": "The input spectrum to the atmospheric correction neural net was out of the scope of the training range and the inversion is likely to be wrong"
+      },
+      {
+        "name": "Rtosa_OOR",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "255,200,0",
+        "description": "The input spectrum to atmospheric correction neural net out of training range"
+      },
+      {
+        "name": "Rhow_OOR",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "255,255,0",
+        "description": "One of the inputs to the IOP retrieval neural net is out of training range"
+      },
+      {
+        "name": "Valid_PE",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "0,0,255",
+        "description": "The operators valid pixel expression has resolved to true"
+      }
+    ],
+    "metadata": [
+      {
+        "path": "Band_Attributes/rhot_410/valid_max",
+        "value": "1.0"
+      },
+      {
+        "path": "Scan_Line_Attributes/time/_FillValue",
+        "value": "-32767.0"
+      },
+      {
+        "path": "Sensor_Band_Parameters/wavelength/data",
+        "value": "410,443,486,551,671,745,862,1238,1601,2257,3700,4050,8550,10763,12013"
+      }
+    ]
+  }
+}

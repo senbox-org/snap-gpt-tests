@@ -1,0 +1,24 @@
+[
+  {
+    "id": "C2RCC_VIIRS",
+    "author": "BC",
+    "description": "execute VIIRS C2RCC",
+    "frequency": "daily/s3tbx",
+    "graphPath": "s3tbx/graphC2RCC_VIIRS.xml",
+    "inputs": {
+      "input": "sensors_platforms/VIIRS/l2gen/SNPP_VIIRS.20180307T131200.L2.OC.nc"
+    },
+    "parameters": {
+      "subsetRegion": "1100,1600,601,901",
+      "subSamplingFactorX": "1",
+      "subSamplingFactorY": "1"
+    },
+    "outputs": [
+      {
+        "parameter": "output",
+        "outputName": "C2RCC_VIIRS",
+        "expected": "s3tbx/expectedC2RCC_VIIRS.json"
+      }
+    ]
+  }
+]
