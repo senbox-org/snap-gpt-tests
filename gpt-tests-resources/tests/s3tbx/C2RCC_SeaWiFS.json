@@ -1,0 +1,24 @@
+[
+  {
+    "id": "C2RCC_SeaWiFS",
+    "author": "BC",
+    "description": "execute SeaWiFS C2RCC",
+    "frequency": "daily/s3tbx",
+    "graphPath": "s3tbx/graphC2RCC_SeaWiFS.xml",
+    "inputs": {
+      "input": "sensors_platforms/SeaWiFS/l2gen/SEASTAR_SEAWIFS_GAC.20050110T073610.L2.OC.nc"
+    },
+    "parameters": {
+      "subsetRegion": "0,0,248,701",
+      "subSamplingFactorX": "1",
+      "subSamplingFactorY": "1"
+    },
+    "outputs": [
+      {
+        "parameter": "output",
+        "outputName": "C2RCC_SeaWiFS",
+        "expected": "s3tbx/expectedC2RCC_SeaWiFS.json"
+      }
+    ]
+  }
+]
