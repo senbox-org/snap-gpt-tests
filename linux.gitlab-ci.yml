@@ -152,8 +152,8 @@ report:
     - python3 pygpt/report_utils.py pygpt/templates result/report $SCOPE snap:$CI_COMMIT_BRANCH
     # Upload to s3
     - export AWS_REQUEST_CHECKSUM_CALCULATION=WHEN_REQUIRED
-    - aws s3 rm "s3://${S3_REPORTS}/linux" --recursive --endpoint-url https://s3.sbg.io.cloud.ovh.net --region sbg
-    - aws s3 sync result/report "s3://${S3_REPORTS}/linux" --endpoint-url https://s3.sbg.io.cloud.ovh.net --region sbg --acl public-read
+    - aws s3 rm "s3://${S3_REPORTS}/$CI_COMMIT_BRANCH/linux" --recursive --endpoint-url https://s3.sbg.io.cloud.ovh.net --region sbg
+    - aws s3 sync result/report "s3://${S3_REPORTS}/$CI_COMMIT_BRANCH/linux" --endpoint-url https://s3.sbg.io.cloud.ovh.net --region sbg --acl public-read
   after_script:
     - |
       if [[ "${CI_COMMIT_BRANCH}" == "master" ]] || [[ "${CI_COMMIT_BRANCH}" =~ "*.x$" ]] || [[ "${CI_COMMIT_BRANCH}" =~ "*RC*" ]] || [[ ! -z "${CI_COMMIT_TAG}" ]]; then
