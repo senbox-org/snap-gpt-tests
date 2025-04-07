@@ -60,6 +60,9 @@ def __create_test_json_list__(test_folder, scope, test_files_path, data_files_pa
                             if 'input6' in test['inputs']:
                                 if test['inputs']['input6'] not in test_data:
                                     test_data.append(test['inputs']['input6'])
+                            if 'vectorFile' in test['inputs']:
+                                if test['inputs']['vectorFile'] not in test_data:
+                                    test_data.append(test['inputs']['vectorFile'])
                         # test_list += f'{test_path}\n'
     with open(test_files_path, 'w') as file:
         file.write('\n'.join(test_list))

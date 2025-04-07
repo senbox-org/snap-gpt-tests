@@ -14,6 +14,7 @@
     - pip3 install -q -r $CI_PROJECT_DIR/requirements.txt
     # Produce a list of tests to run
     - python3 $CI_PROJECT_DIR/pygpt/filter_json.py gpt-tests-resources/tests $SCOPE $REPORT_DIR
+    - echo "gpt-tests-resources/tests/snap/Subset_S2Ref_PolygonRegion.json" > $REPORT_DIR/JSONTestFiles.txt
     # Get test data for single test file
     - |
       export test=$(sed "${CI_NODE_INDEX}q;d" $REPORT_DIR/JSONTestFiles.txt)
