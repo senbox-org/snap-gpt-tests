@@ -27,11 +27,11 @@
     "frequency": "daily/snap/Subset_S2_Ref/Subset_S2_B2B3_Ref",
     "graphPath": "s2tbx/graphReadOpWithPolygonSubsetByVectorFile.xml",
     "inputs": {
-      "input1": "S2/PSD149/L2A/S2A_MSIL2A_20210728T103031_N7990_R108_T34WDA_20211119T150533.SAFE"
+      "input1": "S2/PSD149/L2A/S2A_MSIL2A_20210728T103031_N7990_R108_T34WDA_20211119T150533.SAFE",
+      "vectorFile": "_subset_by_polygon/geometry_118p_Polygon_Galivare.json"
     },
     "parameters": {
-      "sourceBands": "B1,B3,B5",
-      "vectorFile": "$inputFolder/_subset_by_polygon/geometry_118p_Polygon_Galivare.json"
+      "sourceBands": "B1,B3,B5"
     },
     "outputs": [
       {
