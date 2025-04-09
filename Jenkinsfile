@@ -28,7 +28,7 @@ def launchJobsSeq(jsonString, scope, outputDir, saveOutput, debug) {
         def currentJsonFile = "" + item
         if (currentJsonFile.trim() != "") {
             try {
-                sh script:"export LD_LIBRARY_PATH=. && python3 -u ${outputDir}/pygpt/snap_gpt_test.py '/home/snap/snap/jre/bin/java' '-Dncsa.hdf.hdflib.HDFLibrary.hdflib=/home/snap/snap/snap/modules/lib/amd64/libjhdf.so -Dncsa.hdf.hdf5lib.H5.hdf5lib=/home/snap/snap/snap/modules/lib/amd64/libjhdf5.so -cp ${outputDir}/gptExecutorTarget/TestOutput.jar' 'org.esa.snap.test.TestOutput' /opt/snap-gpt-tests/gpt-tests-executer.properties \"${scope}\" ${currentJsonFile} ${outputDir}/report ${saveOutput} --debug=${debug}", label: "Execute testset \"${currentJsonFile}\""
+                sh script:"export LD_LIBRARY_PATH=. && python3 -u ${outputDir}/pygpt/snap_gpt_test.py '/home/snap/snap/jre/bin/java' '-cp ${outputDir}/gptExecutorTarget/TestOutput.jar' 'org.esa.snap.test.TestOutput' /opt/snap-gpt-tests/gpt-tests-executer.properties \"${scope}\" ${currentJsonFile} ${outputDir}/report ${saveOutput} --debug=${debug}", label: "Execute testset \"${currentJsonFile}\""
             } catch (all) {
                 echo "A test from the testset \"${currentJsonFile}\" failed"
                 status = false

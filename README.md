@@ -59,13 +59,12 @@ mkdir OUTPUT_DIR/report/output
 
 Then run the run the following command for each JSON file you want to test:
 ```
-python3 pygpt/snap_gpt_test.py JAVA_BIN_PATH 'JAVA_OPTIONS -cp gpt-test-executer/target/gpt-test-exec.jar' GPT_TEST_EXECUTOR_PROPERTIES_PATH TEST_SCOPE JSON_FILE_TO_TEST OUTPUT_DIR/report/output false
+python3 pygpt/snap_gpt_test.py JAVA_BIN_PATH '-cp gpt-test-executer/target/gpt-test-exec.jar' GPT_TEST_EXECUTOR_PROPERTIES_PATH TEST_SCOPE JSON_FILE_TO_TEST OUTPUT_DIR/report/output false
 ```
 
 The parameters are the following:
 
  - JAVA_BIN_PATH is the path to the java executable (e.g. `/usr/bin/java` or simply `java` if you are using the system version), it will be used to run the TestOutput jar
- - JAVA_OPTIONS are the options to java that will be used to lunch the TestOutput jar (on the test server we use: `-Dncsa.hdf.hdflib.HDFLibrary.hdflib=.../libjhdf.so -Dncsa.hdf.hdf5lib.H5.hdf5lib=.../libjhdf5.so`)
  - GPT_TEST_EXECUTOR_PROPERTIES_PATH is the path to the properties file containing:
  ```
     testFolder=./gpt-tests-resources/tests
