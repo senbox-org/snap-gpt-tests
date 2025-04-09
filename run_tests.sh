@@ -32,7 +32,7 @@ echo "Running tests..."
 cat $OUTDIR/JSONTestFiles.txt | while read jsonFile
 do
     echo "Running ${jsonFile}"
-    python3 pygpt/snap_gpt_test.py java "-Dncsa.hdf.hdflib.HDFLibrary.hdflib=${SNAP_DIR}/snap/modules/lib/amd64/libjhdf.so -Dncsa.hdf.hdf5lib.H5.hdf5lib=${SNAP_DIR}/snap/modules/lib/amd64/libjhdf5.so -cp gpt-tests-executer/target/gpt-test-exec.jar" snap.conf $SCOPE $jsonFile $OUTDIR/report/output true
+    python3 pygpt/snap_gpt_test.py java "-cp gpt-tests-executer/target/gpt-test-exec.jar" snap.conf $SCOPE $jsonFile $OUTDIR/report/output true
 done
 # cp -R $OUTDIR/output/* $OUTDIR/report/output
 # cat $OUTDIR/report/output/Report_*.txt > $OUTDIR/output/report.txt

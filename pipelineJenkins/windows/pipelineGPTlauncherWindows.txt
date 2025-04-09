@@ -15,8 +15,8 @@ def launchJobs(jsonString, scope, outputDir, saveOutput, debug) {
         if (currentJsonFile.trim() != "") {
 			// Test commit message for flags
 			try{
-				echo """export LD_LIBRARY_PATH=. && ${PYTHON_CMD} -u "${outputDir}/pygpt/snap_gpt_test.py" '${JAVA_CMD}' '-Dncsa.hdf.hdflib.HDFLibrary.hdflib=${SNAP_INSTALL_ROOT_DIR2}/snap/modules/lib/amd64/jhdf.${LIB_EXTENSION} -Dncsa.hdf.hdf5lib.H5.hdf5lib=${SNAP_INSTALL_ROOT_DIR2}/snap/modules/lib/amd64/jhdf5.${LIB_EXTENSION} -cp ./gpt-tests-executer/target/TestOutput.jar' org.esa.snap.test.TestOutput \"${GPT_EXEC_PROPERTIES}\" \"${scope}\" \"${currentJsonFile}\" \"${outputDir}/report\" ${saveOutput}"""
-				sh """export LD_LIBRARY_PATH=. && ${PYTHON_CMD} -u "${outputDir}/pygpt/snap_gpt_test.py" '${JAVA_CMD}' '-Dncsa.hdf.hdflib.HDFLibrary.hdflib=${SNAP_INSTALL_ROOT_DIR2}/snap/modules/lib/amd64/jhdf.${LIB_EXTENSION} -Dncsa.hdf.hdf5lib.H5.hdf5lib=${SNAP_INSTALL_ROOT_DIR2}/snap/modules/lib/amd64/jhdf5.${LIB_EXTENSION} -cp ./gpt-tests-executer/target/TestOutput.jar' org.esa.snap.test.TestOutput \"${GPT_EXEC_PROPERTIES}\" \"${scope}\" \"${currentJsonFile}\" \"${outputDir}/report\" ${saveOutput}"""
+				echo """export LD_LIBRARY_PATH=. && ${PYTHON_CMD} -u "${outputDir}/pygpt/snap_gpt_test.py" '${JAVA_CMD}' '-cp ./gpt-tests-executer/target/TestOutput.jar' org.esa.snap.test.TestOutput \"${GPT_EXEC_PROPERTIES}\" \"${scope}\" \"${currentJsonFile}\" \"${outputDir}/report\" ${saveOutput}"""
+				sh """export LD_LIBRARY_PATH=. && ${PYTHON_CMD} -u "${outputDir}/pygpt/snap_gpt_test.py" '${JAVA_CMD}' '-cp ./gpt-tests-executer/target/TestOutput.jar' org.esa.snap.test.TestOutput \"${GPT_EXEC_PROPERTIES}\" \"${scope}\" \"${currentJsonFile}\" \"${outputDir}/report\" ${saveOutput}"""
 			} catch (all) {
                 echo "A test from the testset \"${currentJsonFile}\" failed"
                 status = false
@@ -253,8 +253,8 @@ pipeline {
                 sh "mkdir -p ${OUTPUT_DIR}/report/performances/plot"
                 sh "mkdir -p ${OUTPUT_DIR}/report/performances/stats"
                 sh "mkdir -p ${OUTPUT_DIR}/report/tests"
-				echo """export LD_LIBRARY_PATH=. && ${PYTHON_CMD} -u "${WORKSPACE}/pygpt/snap_gpt_test.py" '${JAVA_CMD}' '-Dncsa.hdf.hdflib.HDFLibrary.hdflib=${SNAP_INSTALL_ROOT_DIR2}/snap/modules/lib/amd64/jhdf.${LIB_EXTENSION} -Dncsa.hdf.hdf5lib.H5.hdf5lib=${SNAP_INSTALL_ROOT_DIR2}/snap/modules/lib/amd64/jhdf5.${LIB_EXTENSION} -cp "${WORKSPACE}"/gpt-tests-executer/target/TestOutput.jar' org.esa.snap.test.TestOutput \"${GPT_EXEC_PROPERTIES}\" \"${params.testScope}\" \"${params.jsonPath}\" \"${OUTPUT_DIR}/report\" ${params.saveOutput}"""
-				sh """export LD_LIBRARY_PATH=. && ${PYTHON_CMD} -u "${WORKSPACE}/pygpt/snap_gpt_test.py" '${JAVA_CMD}' '-Dncsa.hdf.hdflib.HDFLibrary.hdflib=${SNAP_INSTALL_ROOT_DIR2}/snap/modules/lib/amd64/jhdf.${LIB_EXTENSION} -Dncsa.hdf.hdf5lib.H5.hdf5lib=${SNAP_INSTALL_ROOT_DIR2}/snap/modules/lib/amd64/jhdf5.${LIB_EXTENSION} -cp ./gpt-tests-executer/target/TestOutput.jar' org.esa.snap.test.TestOutput \"${GPT_EXEC_PROPERTIES}\" \"${params.testScope}\" \"${params.jsonPath}\" \"${OUTPUT_DIR}/report\" ${params.saveOutput}"""
+				echo """export LD_LIBRARY_PATH=. && ${PYTHON_CMD} -u "${WORKSPACE}/pygpt/snap_gpt_test.py" '${JAVA_CMD}' '-cp "${WORKSPACE}"/gpt-tests-executer/target/TestOutput.jar' org.esa.snap.test.TestOutput \"${GPT_EXEC_PROPERTIES}\" \"${params.testScope}\" \"${params.jsonPath}\" \"${OUTPUT_DIR}/report\" ${params.saveOutput}"""
+				sh """export LD_LIBRARY_PATH=. && ${PYTHON_CMD} -u "${WORKSPACE}/pygpt/snap_gpt_test.py" '${JAVA_CMD}' '-cp ./gpt-tests-executer/target/TestOutput.jar' org.esa.snap.test.TestOutput \"${GPT_EXEC_PROPERTIES}\" \"${params.testScope}\" \"${params.jsonPath}\" \"${OUTPUT_DIR}/report\" ${params.saveOutput}"""
                 sh "rm -rf ${DOT_SNAP_DIR}/var/cache/*"
                 sh "rm -rf ${DOT_SNAP_DIR}/auxdata/dem/*"
                 sh "rm -rf ${DOT_SNAP_DIR}/auxdata/Orbits/*"

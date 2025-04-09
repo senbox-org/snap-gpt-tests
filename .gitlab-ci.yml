@@ -65,9 +65,6 @@ variables:
     --fail-at-end
     --show-version
     -DdeployAtEnd=false
-  JAVA_OPTIONS: >-
-    -Dncsa.hdf.hdflib.HDFLibrary.hdflib=$SNAP_DIR/snap/modules/lib/amd64/libjhdf.so
-    -Dncsa.hdf.hdf5lib.H5.hdf5lib=$SNAP_DIR/snap/modules/lib/amd64/libjhdf5.so
   S3_ARGS: --endpoint-url $S3_ENDPOINT --region sbg --no-progress
   # Overrides: memory_request = "4Gi" (but no more than: memory_request_overwrite_max_allowed = "8Gi")
   KUBERNETES_MEMORY_REQUEST: "6Gi"
