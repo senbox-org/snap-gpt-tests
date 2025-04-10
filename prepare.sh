@@ -22,6 +22,6 @@ do
     ./download_test_data.sh "${REPORT_DIR}" "${TEST_DATA_DIR}" "${TEST_DATA_LIST}" "${S3_BUCKET}" "${S3_ARGS}"
 
     echo "Running ${test}"
-    python3 pygpt/snap_gpt_test.py "${JAVA_HOME}/bin/java" "${JAVA_OPTIONS} -cp gpt-tests-executer/target/gpt-test-exec.jar" \
+    python3 pygpt/snap_gpt_test.py "${JAVA_HOME}/bin/java" "-cp gpt-tests-executer/target/gpt-test-exec.jar" \
         org.esa.snap.test.TestOutput "${PROPERTIES_PATH}" ${SCOPE} ${test} ${REPORT_DIR}/report/output true --profiling off
 done < ${REPORT_DIR}/JSONTestFiles.txt

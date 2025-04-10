@@ -59,7 +59,7 @@ mkdir OUTPUT_DIR/report/output
 
 Then run the run the following command for each JSON file you want to test:
 ```
-python3 pygpt/snap_gpt_test.py JAVA_BIN_PATH 'JAVA_OPTIONS -cp gpt-test-executer/target/gpt-test-exec.jar' GPT_TEST_EXECUTOR_PROPERTIES_PATH TEST_SCOPE JSON_FILE_TO_TEST OUTPUT_DIR/report/output false
+python3 pygpt/snap_gpt_test.py JAVA_BIN_PATH '-cp gpt-test-executer/target/gpt-test-exec.jar' GPT_TEST_EXECUTOR_PROPERTIES_PATH TEST_SCOPE JSON_FILE_TO_TEST OUTPUT_DIR/report/output false
 ```
 
 The parameters are the following:
