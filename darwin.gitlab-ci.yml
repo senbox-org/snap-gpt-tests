@@ -11,13 +11,13 @@ test_mac:
     #     DL_URL: https://nexus.snap-ci.ovh/repository/snap-maven-releases/org/esa/snap/installers/snap_all_macos/RC10/snap_all_macos-RC10.dmg
   variables:
     SCOPE: daily
-    SNAP_DIR: /Users/otb/Applications/snap
+    SNAP_DIR: "/Applications/snap-$VERSION"
     REPORT_DIR: ./result
     TAG: master
     PROPERTIES_PATH: $CI_PROJECT_DIR/mac.conf
     SNAP_INSTALLER: snap_all_macos_archive-$VERSION.dmg
     TEST_DATA_LIST: singleTestData.txt
-    TEST_DATA_DIR: "/Volumes/snap-ext/SNAP/testData"
+    TEST_DATA_DIR: "/Users/csro/STEP_Data_S3"
     # JAVA_HOME: /Library/Java/JavaVirtualMachines/temurin-21.jdk/Contents/Home
     JAVA_HOME: /Library/Java/JavaVirtualMachines/liberica-jdk-21-full.jdk/Contents/Home
     MAVEN_CLI_OPTS: >-
@@ -40,7 +40,7 @@ test_mac:
     - pip3 install -r $CI_PROJECT_DIR/requirements.txt
     - curl --progress-bar "${DL_URL}" >> "${CI_PROJECT_DIR}/${SNAP_INSTALLER}"
     - hdiutil attach ${CI_PROJECT_DIR}/${SNAP_INSTALLER}
-    - '"/Volumes/esa-snap 1/ESA SNAP.app/Contents/MacOS/JavaApplicationStub" -q -console -dir $SNAP_DIR'
+    - '"/Volumes/esa-snap 1/ESA SNAP Installer.app/Contents/MacOS/JavaApplicationStub" -q -console -dir $SNAP_DIR'
     - ls $SNAP_DIR/bin
     - python3 $CI_PROJECT_DIR/pygpt/filter_json.py gpt-tests-resources/tests $SCOPE $REPORT_DIR
   script:
@@ -86,11 +86,11 @@ report:
     - cp -rf pygpt/statics/* result/report
     - ls result/report
     - echo "Generate report"
-    - python3 pygpt/report_utils.py pygpt/templates result/report $SCOPE snap:master
+    - python3 pygpt/report_utils.py pygpt/templates result/report $SCOPE snap:$CI_COMMIT_BRANCH
     # Upload to s3
     - export AWS_REQUEST_CHECKSUM_CALCULATION=WHEN_REQUIRED
-    - aws s3 rm "s3://${S3_REPORTS}/macos" --recursive --endpoint-url https://s3.sbg.io.cloud.ovh.net --region sbg
-    - aws s3 sync result/report "s3://${S3_REPORTS}/macos" --endpoint-url https://s3.sbg.io.cloud.ovh.net --region sbg --acl public-read
+    - aws s3 rm "s3://${S3_REPORTS}/$CI_COMMIT_BRANCH/macos" --recursive --endpoint-url https://s3.sbg.io.cloud.ovh.net --region sbg
+    - aws s3 sync result/report "s3://${S3_REPORTS}/$CI_COMMIT_BRANCH/macos" --endpoint-url https://s3.sbg.io.cloud.ovh.net --region sbg --acl public-read
   artifacts:
     expire_in: 1 day
     paths:
