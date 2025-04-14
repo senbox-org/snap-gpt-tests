@@ -28,7 +28,7 @@
     - echo "Running $(sed "${CI_NODE_INDEX}q;d" ${REPORT_DIR}/JSONTestFiles.txt)"
     - |
       export FILE=$(sed "${CI_NODE_INDEX}q;d" $REPORT_DIR/JSONTestFiles.txt)
-      python3 pygpt/snap_gpt_test.py java "${JAVA_OPTIONS} -cp ${CI_PROJECT_DIR}/gpt-tests-executer/target/gpt-test-exec.jar" \
+      python3 pygpt/snap_gpt_test.py java "-cp ${CI_PROJECT_DIR}/gpt-tests-executer/target/gpt-test-exec.jar" \
         org.esa.snap.test.TestOutput $PROPERTIES_PATH $SCOPE $FILE $REPORT_DIR/report/output true
   after_script:
     # DEBUG
