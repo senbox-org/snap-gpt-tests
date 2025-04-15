@@ -29,7 +29,7 @@ test_mac:
       -DdeployAtEnd=false
       -Dmaven.wagon.http.ssl.insecure=true
       -Dmaven.wagon.http.ssl.allowall=true
-    DL_URL: https://nexus.snap-ci.ovh/repository/snap-maven-releases/org/esa/snap/installers-snapshot/snap_all_macos_archive/$VERSION/snap_all_macos_archive-$VERSION.dmg
+    DL_URL: https://nexus.snap-ci.ovh/repository/snap-maven-releases/org/esa/snap/installers-snapshot/snap_all_macos/$VERSION/snap_all_macos-$VERSION.dmg
   before_script:
     - echo $CI_PROJECT_DIR
     - mvn $MAVEN_CLI_OPTS package install
