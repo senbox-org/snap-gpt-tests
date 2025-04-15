@@ -42,7 +42,6 @@ test_mac:
     - curl --progress-bar "${DL_URL}" >> "${CI_PROJECT_DIR}/${SNAP_INSTALLER}"
     - hdiutil attach ${CI_PROJECT_DIR}/${SNAP_INSTALLER}
     - cp -R "/Volumes/esa-snap/ESA SNAP Installer.app" "${CI_PROJECT_DIR}/ESA SNAP Installer.app"
-    - # xattr -d com.apple.quarantine "${CI_PROJECT_DIR}/ESA SNAP Installer.app"
     - '"${CI_PROJECT_DIR}/ESA SNAP Installer.app/Contents/MacOS/JavaApplicationStub" -q -console -dir $SNAP_DIR'
     - ls $SNAP_DIR/bin
     - python3 $CI_PROJECT_DIR/pygpt/filter_json.py gpt-tests-resources/tests $SCOPE $REPORT_DIR
