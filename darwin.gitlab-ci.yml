@@ -15,7 +15,7 @@ test_mac:
     REPORT_DIR: ./result
     TAG: master
     PROPERTIES_PATH: $CI_PROJECT_DIR/mac.conf
-    SNAP_INSTALLER: snap_all_macos_archive-$VERSION.dmg
+    SNAP_INSTALLER: snap_all_macos-$VERSION.dmg
     TEST_DATA_LIST: singleTestData.txt
     TEST_DATA_DIR: "/Users/csro/STEP_Data_S3"
     # JAVA_HOME: /Library/Java/JavaVirtualMachines/temurin-21.jdk/Contents/Home
