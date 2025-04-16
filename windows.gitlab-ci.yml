@@ -56,7 +56,6 @@ test_windows:
     JAVA_OPTIONS: >-
       -Dncsa.hdf.hdflib.HDFLibrary.hdflib=%SNAP_DIR%\\snap\\modules\\lib\\amd64\\jhdf.dll
       -Dncsa.hdf.hdf5lib.H5.hdf5lib=%SNAP_DIR%\\snap\modules\\lib\amd64\\jhdf5.dll
-      -Dfile.encoding=Windows-1252
     CLASSPATH: gpt-tests-executer\\target\\gpt-test-exec.jar
     # output upload and download progress every 2 seconds
     TRANSFER_METER_FREQUENCY: "2s"
@@ -135,9 +134,9 @@ report:
     - rd /s /q %CI_PROJECT_DIR%\%DEST_DIR%
     - mkdir %CI_PROJECT_DIR%\public %CI_PROJECT_DIR%\%DEST_DIR%
     # Remove previous report (for Windows) from S3 cloud (https://s3.sbg.io.cloud.ovh.net)
-    - '"C:\Program Files\Amazon\AWSCLIV2\aws.exe" s3 rm "s3://%S3_REPORTS%/windows" --recursive --endpoint-url https://s3.sbg.io.cloud.ovh.net --region sbg"'
+    - '"C:\Program Files\Amazon\AWSCLIV2\aws.exe" s3 rm "s3://%S3_REPORTS%/%CI_COMMIT_REF_NAME%/windows" --recursive --endpoint-url https://s3.sbg.io.cloud.ovh.net --region sbg"'
     # Upload HTML report to S3 cloud (https://snap-reports.s3.sbg.io.cloud.ovh.net/windows/index.html)
-    - '"C:\Program Files\Amazon\AWSCLIV2\aws.exe" s3 sync %CI_PROJECT_DIR%\%REPORT_DIR%\report "s3://%S3_REPORTS%/windows" --endpoint-url https://s3.sbg.io.cloud.ovh.net --region sbg --acl public-read'
+    - '"C:\Program Files\Amazon\AWSCLIV2\aws.exe" s3 sync %CI_PROJECT_DIR%\%REPORT_DIR%\report "s3://%S3_REPORTS%/%CI_COMMIT_REF_NAME%/windows" --endpoint-url https://s3.sbg.io.cloud.ovh.net --region sbg --acl public-read'
   after_script:
     # Update database of web application for results comparison (statistics) (https://reports.snap-ci.ovh/?#/branches)
     - '%CI_PROJECT_DIR%\update_database.bat'
