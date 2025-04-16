@@ -11,12 +11,12 @@ test_mac:
     #     DL_URL: https://nexus.snap-ci.ovh/repository/snap-maven-releases/org/esa/snap/installers/snap_all_macos/RC10/snap_all_macos-RC10.dmg
   variables:
     SCOPE: daily
-    SNAP_DIR: "/Applications/snap-$VERSION"
+    SNAP_DIR: "/Applications/snap"
     REPORT_DIR: ./result
     TAG: master
     PROPERTIES_PATH: $CI_PROJECT_DIR/mac.conf
     SNAP_INSTALLER: snap_all_macos-$VERSION.dmg
-    TEST_DATA_LIST: JSONTestFiles.txt
+    TEST_DATA_LIST: singleTestData.txt
     TEST_DATA_DIR: "/Users/csro/STEP_Data_S3"
     # JAVA_HOME: /Library/Java/JavaVirtualMachines/temurin-21.jdk/Contents/Home
     JAVA_HOME: /Library/Java/JavaVirtualMachines/liberica-jdk-21-full.jdk/Contents/Home
