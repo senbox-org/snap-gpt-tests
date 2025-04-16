@@ -56,7 +56,6 @@ test_windows:
     JAVA_OPTIONS: >-
       -Dncsa.hdf.hdflib.HDFLibrary.hdflib=%SNAP_DIR%\\snap\\modules\\lib\\amd64\\jhdf.dll
       -Dncsa.hdf.hdf5lib.H5.hdf5lib=%SNAP_DIR%\\snap\modules\\lib\amd64\\jhdf5.dll
-      -Dfile.encoding=Windows-1252
     CLASSPATH: gpt-tests-executer\\target\\gpt-test-exec.jar
     # output upload and download progress every 2 seconds
     TRANSFER_METER_FREQUENCY: "2s"
