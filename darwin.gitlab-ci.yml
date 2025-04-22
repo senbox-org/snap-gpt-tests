@@ -46,7 +46,8 @@ test_mac:
     - ls $SNAP_DIR/bin
     - python3 $CI_PROJECT_DIR/pygpt/filter_json.py gpt-tests-resources/tests $SCOPE $REPORT_DIR
   script:
-    - $CI_PROJECT_DIR/prepare.sh "${REPORT_DIR}" "${TEST_DATA_DIR}" "${TEST_DATA_LIST}" "${S3_BUCKET}" "${S3_ARGS}" "${CI_PROJECT_DIR}"
+    #- $CI_PROJECT_DIR/prepare.sh "${REPORT_DIR}" "${TEST_DATA_DIR}" "${TEST_DATA_LIST}" "${S3_BUCKET}" "${S3_ARGS}" "${CI_PROJECT_DIR}"
+    - echo "Running tests"
   after_script:
     - hdiutil eject /Volumes/esa-snap
     - rm -fr "$SNAP_DIR"
@@ -82,6 +83,8 @@ report:
     # Set maximum duration of cache upload and download
     CACHE_REQUEST_TIMEOUT: 5
   before_script:
+    - python3 -m venv snap
+    - source snap/bin/activate
     - pip3 install -r $CI_PROJECT_DIR/requirements.txt
   script:
     - echo "Copy assets for report generation in result/report"
