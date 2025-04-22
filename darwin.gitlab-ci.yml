@@ -45,9 +45,10 @@ test_mac:
     - '"${CI_PROJECT_DIR}/ESA SNAP Installer.app/Contents/MacOS/JavaApplicationStub" -q -console -dir $SNAP_DIR'
     - ls $SNAP_DIR/bin
     - python3 $CI_PROJECT_DIR/pygpt/filter_json.py gpt-tests-resources/tests $SCOPE $REPORT_DIR
+    # Overwrite the original file with its first N lines
+    - head -n 3 "${REPORT_DIR}/JSONTestFiles.txt" > "${REPORT_DIR}/JSONTestFiles.txt.tmp" && mv "${REPORT_DIR}/JSONTestFiles.txt.tmp" "${REPORT_DIR}/JSONTestFiles.txt"
   script:
-    #- $CI_PROJECT_DIR/prepare.sh "${REPORT_DIR}" "${TEST_DATA_DIR}" "${TEST_DATA_LIST}" "${S3_BUCKET}" "${S3_ARGS}" "${CI_PROJECT_DIR}"
-    - echo "Running tests"
+    - $CI_PROJECT_DIR/prepare.sh "${REPORT_DIR}" "${TEST_DATA_DIR}" "${TEST_DATA_LIST}" "${S3_BUCKET}" "${S3_ARGS}" "${CI_PROJECT_DIR}"    
   after_script:
     - hdiutil eject /Volumes/esa-snap
     - rm -fr "$SNAP_DIR"
