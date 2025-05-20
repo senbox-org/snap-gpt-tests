@@ -1,0 +1,18 @@
+[{
+  "id": "L1cSynOp",
+  "author": "BC",
+  "description": "Create L1c synergy product from olci and sltsr L1",
+  "frequency": "daily/snap/l1csyn",
+  "graphPath": "s3tbx/graphL1cSynOp.xml",
+  "inputs": {
+    "input1": "sensors_platforms/SENTINEL-3/olci/L1/S3A_OL_1_EFR____20170309T142028_20170309T142328_20180408T075832_0179_015_153_1980_LR2_R_NT_002.SEN3",
+    "input2": "sensors_platforms/SENTINEL-3/slstr/L1/S3A_SL_1_RBT____20170309T142028_20170309T142328_20181005T050311_0179_015_153______LR1_R_NT_003.SEN3.zip"
+  },
+  "outputs": [
+    {
+      "parameter": "output",
+      "outputName": "l1c-syn",
+      "expected": "s3tbx/expectedL1cSynOp.json"
+    }]
+}
+]

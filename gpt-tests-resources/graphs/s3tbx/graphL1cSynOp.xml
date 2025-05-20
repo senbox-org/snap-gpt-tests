@@ -1,0 +1,81 @@
+<graph id="Graph">
+    <version>1.0</version>
+    <node id="Read">
+        <operator>Read</operator>
+        <sources/>
+        <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+            <file>$input1</file>
+        </parameters>
+    </node>
+    <node id="Read(2)">
+        <operator>Read</operator>
+        <sources/>
+        <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+            <file>$input2</file>
+        </parameters>
+    </node>
+    <node id="Subset">
+        <operator>Subset</operator>
+        <sources>
+            <sourceProduct refid="Read"/>
+        </sources>
+        <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+            <region>0,0,500,400</region>
+            <copyMetadata>true</copyMetadata>
+        </parameters>
+    </node>
+    <node id="Subset(2)">
+        <operator>Subset</operator>
+        <sources>
+            <sourceProduct refid="Read(2)"/>
+        </sources>
+        <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+            <region>0,0,500,400</region>
+            <copyMetadata>true</copyMetadata>
+        </parameters>
+    </node>
+    <node id="L1CSYN">
+        <operator>L1CSYN</operator>
+        <sources>
+            <olciProduct refid="Subset"/>
+            <slstrProduct refid="Subset(2)"/>
+        </sources>
+        <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+            <stayOnOlciGrid>true</stayOnOlciGrid>
+            <upsampling>Nearest</upsampling>
+            <bandsOlci>All</bandsOlci>
+            <bandsSlstr>All</bandsSlstr>
+        </parameters>
+    </node>
+    <node id="Write">
+        <operator>Write</operator>
+        <sources>
+            <sourceProduct refid="L1CSYN"/>
+        </sources>
+        <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+            <file>$output</file>
+            <formatName>BEAM-DIMAP</formatName>
+        </parameters>
+    </node>
+    <applicationData id="Presentation">
+        <Description/>
+        <node id="Read">
+            <displayPosition x="178.0" y="161.0"/>
+        </node>
+        <node id="Read(2)">
+            <displayPosition x="178.0" y="161.0"/>
+        </node>
+        <node id="Subset">
+            <displayPosition x="178.0" y="161.0"/>
+        </node>
+        <node id="Subset(2)">
+            <displayPosition x="178.0" y="161.0"/>
+        </node>
+        <node id="L1CSYN">
+            <displayPosition x="178.0" y="161.0"/>
+        </node>
+        <node id="Write">
+            <displayPosition x="178.0" y="161.0"/>
+        </node>
+    </applicationData>
+</graph>
