@@ -16,7 +16,12 @@
     </modules>
 
     <properties>
-        <jackson.version>2.17.2</jackson.version>
+        <commons-io.version>2.19.0</commons-io.version>
+        <jackson.version>2.19.0</jackson.version>
+        <jsoup.version>1.20.1</jsoup.version>
+        <junit.version>4.13.2</junit.version>
+
+        <jvm.version>21</jvm.version>
     </properties>
 
 
@@ -45,17 +50,17 @@
             <dependency>
                 <groupId>commons-io</groupId>
                 <artifactId>commons-io</artifactId>
-                <version>2.12.0</version>
+                <version>${commons-io.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.jsoup</groupId>
                 <artifactId>jsoup</artifactId>
-                <version>1.11.3</version>
+                <version>${jsoup.version}</version>
             </dependency>
             <dependency>
                 <groupId>junit</groupId>
                 <artifactId>junit</artifactId>
-                <version>4.13.2</version>
+                <version>${junit.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
