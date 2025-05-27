@@ -48,7 +48,7 @@ test_mac:
     # Overwrite the original file with its first N lines (run only a part of tests)
     #- head -n 3 "${REPORT_DIR}/JSONTestFiles.txt" > "${REPORT_DIR}/JSONTestFiles.txt.tmp" && mv "${REPORT_DIR}/JSONTestFiles.txt.tmp" "${REPORT_DIR}/JSONTestFiles.txt"
     # Remove some long running tests to be able to complete on the current MacOS machine
-    - awk '!/C2RCC_Landsat8|C2RCC_OLCI|s1tbx\.vhmop|MergeKNNClassificationTest|s1tbx\.coregister|EcostressSwath2GridOpTest/' "${REPORT_DIR}/JSONTestFiles.txt" > "${REPORT_DIR}/JSONTestFiles.txt.tmp" && mv "${REPORT_DIR}/JSONTestFiles.txt.tmp" "${REPORT_DIR}/JSONTestFiles.txt"
+    - awk '!/C2RCC_Landsat8|C2RCC_OLCI|s1tbx\.vhmop|MergeKNNClassificationTest|s1tbx\.coregister|EcostressSwath2GridOpTest|ReprojectionOpTest/' "${REPORT_DIR}/JSONTestFiles.txt" > "${REPORT_DIR}/JSONTestFiles.txt.tmp" && mv "${REPORT_DIR}/JSONTestFiles.txt.tmp" "${REPORT_DIR}/JSONTestFiles.txt"
   script:
     - $CI_PROJECT_DIR/prepare.sh "${REPORT_DIR}" "${TEST_DATA_DIR}" "${TEST_DATA_LIST}" "${S3_BUCKET}" "${S3_ARGS}" "${CI_PROJECT_DIR}"    
   after_script:
