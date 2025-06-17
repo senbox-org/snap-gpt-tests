@@ -1,0 +1,30 @@
+[{
+  "id":"S2Preprocessing",
+  "author": "BC",
+  "description":"execute S2 pre-processing provided by Ana Ruescas, Univ. Valencia",
+  "frequency":"daily",
+  "graphPath": "opttbx/graphPreprocessing_S2.xml",
+  "inputs": {
+    "input1": "sensors_platforms/SENTINEL-2/S2B_MSIL1C_20250616T140729_N0511_R024_T19FEU_20250616T184312.SAFE/MTD_MSIL1C.xml"
+  },
+  "parameters": {
+    "sourceBands": "blue,green,red,near_infrared",
+    "subsetRegion": "1,1,100,100",
+    "crs": "WGS84(DD)"
+  },
+  "outputs": [{
+    "parameter": "out1",
+    "outputName": "S2_preprocessing_reflectance",
+    "expected": "opttbx/expectedS2PreprocessingReflectance.json"
+  },
+    {
+      "parameter": "out2",
+      "outputName": "S2_preprocessing_sun_zenith",
+      "expected": "opttbx/expectedS2PreprocessingSunZenith.json"
+    },
+    {
+      "parameter": "out3",
+      "outputName": "S2_preprocessing_biophysical",
+      "expected": "opttbx/expectedS2PreprocessingBiophysical.json"
+    }]
+}]

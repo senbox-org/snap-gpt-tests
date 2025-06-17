@@ -1,0 +1,331 @@
+{
+  "id": "S2_coastal_analysis_result",
+  "decodeQualification": "INTENDED",
+  "expectedContent": {
+    "sceneWidth": 1830,
+    "sceneHeight": 1830,
+    "geoCoding": {
+      "coordinates": [
+        {
+          "x": 789.0,
+          "y": 983.0,
+          "lat": -55.57414165523229,
+          "lon": -68.2494990813628
+        },
+        {
+          "x": 1358.0,
+          "y": 1187.0,
+          "lat": -55.67958652114857,
+          "lon": -67.70453453821024
+        }
+      ],
+      "reverseAccuracy": 8.36735125631094E-10
+    },
+    "flagCodings": [
+      {
+        "name": "flags",
+        "samples": [
+          {
+            "name": "ARITHMETIC",
+            "value": 1,
+            "description": "Value calculation failed due to an arithmetic exception"
+          },
+          {
+            "name": "NEGATIVE",
+            "value": 2,
+            "description": "Index value is too low"
+          },
+          {
+            "name": "SATURATION",
+            "value": 4,
+            "description": "Index value is too high"
+          }
+        ]
+      }
+    ],
+    "bands": [
+      {
+        "name": "flags",
+        "description": "S2B_MSIL1C_20250616T140729_N0511_R024_T19FEU_20250616T184312_resampled_ndwi specific flags",
+        "bandWidth": 1830,
+        "bandHeight": 1830,
+        "noDataValue": "0.0",
+        "noDataValueUsed": "false",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 95,
+            "y": 326,
+            "value": 0.0
+          },
+          {
+            "x": 1253,
+            "y": 1556,
+            "value": 0.0
+          }
+        ]
+      },
+      {
+        "name": "S2B_MSIL1C_20250616T140729_N0511_R024_T19FEU_20250616T184312_resampled_ndwi",
+        "description": "",
+        "bandWidth": 1830,
+        "bandHeight": 1830,
+        "noDataValue": "0.0",
+        "noDataValueUsed": "false",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 532,
+            "y": 470,
+            "value": -0.0
+          },
+          {
+            "x": 1117,
+            "y": 668,
+            "value": 1.022075
+          }
+        ]
+      },
+      {
+        "name": "S2B_MSIL1C_20250616T140729_N0511_R024_T19FEU_20250616T184312_resampled_mndwi",
+        "description": "",
+        "bandWidth": 1830,
+        "bandHeight": 1830,
+        "noDataValue": "0.0",
+        "noDataValueUsed": "false",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 1006,
+            "y": 1363,
+            "value": -0.0
+          },
+          {
+            "x": 1113,
+            "y": 1699,
+            "value": -0.0
+          }
+        ]
+      },
+      {
+        "name": "flags_2",
+        "description": "S2B_MSIL1C_20250616T140729_N0511_R024_T19FEU_20250616T184312_resampled_mndwi specific flags",
+        "bandWidth": 1830,
+        "bandHeight": 1830,
+        "noDataValue": "0.0",
+        "noDataValueUsed": "false",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 289,
+            "y": 1218,
+            "value": 0.0
+          },
+          {
+            "x": 950,
+            "y": 1671,
+            "value": 0.0
+          }
+        ]
+      },
+      {
+        "name": "S2B_MSIL1C_20250616T140729_N0511_R024_T19FEU_20250616T184312_resampled_ndpi",
+        "description": "",
+        "bandWidth": 1830,
+        "bandHeight": 1830,
+        "noDataValue": "0.0",
+        "noDataValueUsed": "false",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 1383,
+            "y": 886,
+            "value": -0.0
+          },
+          {
+            "x": 1739,
+            "y": 889,
+            "value": -0.09208509
+          }
+        ]
+      },
+      {
+        "name": "flags_3",
+        "description": "S2B_MSIL1C_20250616T140729_N0511_R024_T19FEU_20250616T184312_resampled_ndpi specific flags",
+        "bandWidth": 1830,
+        "bandHeight": 1830,
+        "noDataValue": "0.0",
+        "noDataValueUsed": "false",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 622,
+            "y": 1645,
+            "value": 0.0
+          },
+          {
+            "x": 18,
+            "y": 861,
+            "value": 0.0
+          }
+        ]
+      },
+      {
+        "name": "S2B_MSIL1C_20250616T140729_N0511_R024_T19FEU_20250616T184312_resampled_ndti",
+        "description": "",
+        "bandWidth": 1830,
+        "bandHeight": 1830,
+        "noDataValue": "0.0",
+        "noDataValueUsed": "false",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 599,
+            "y": 360,
+            "value": -0.0
+          },
+          {
+            "x": 499,
+            "y": 79,
+            "value": -0.0
+          }
+        ]
+      },
+      {
+        "name": "flags_4",
+        "description": "S2B_MSIL1C_20250616T140729_N0511_R024_T19FEU_20250616T184312_resampled_ndti specific flags",
+        "bandWidth": 1830,
+        "bandHeight": 1830,
+        "noDataValue": "0.0",
+        "noDataValueUsed": "false",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 1777,
+            "y": 1106,
+            "value": 0.0
+          },
+          {
+            "x": 1047,
+            "y": 1311,
+            "value": 0.0
+          }
+        ]
+      },
+      {
+        "name": "S2B_MSIL1C_20250616T140729_N0511_R024_T19FEU_20250616T184312_resampled_ndwi2",
+        "description": "",
+        "bandWidth": 1830,
+        "bandHeight": 1830,
+        "noDataValue": "0.0",
+        "noDataValueUsed": "false",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 424,
+            "y": 910,
+            "value": 0.46944252
+          },
+          {
+            "x": 587,
+            "y": 1322,
+            "value": -0.0
+          }
+        ]
+      },
+      {
+        "name": "flags_5",
+        "description": "S2B_MSIL1C_20250616T140729_N0511_R024_T19FEU_20250616T184312_resampled_ndwi2 specific flags",
+        "bandWidth": 1830,
+        "bandHeight": 1830,
+        "noDataValue": "0.0",
+        "noDataValueUsed": "false",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 655,
+            "y": 911,
+            "value": 0.0
+          },
+          {
+            "x": 737,
+            "y": 809,
+            "value": 0.0
+          }
+        ]
+      }
+    ],
+    "masks": [
+      {
+        "name": "ARITHMETIC",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "255,0,0",
+        "description": "An arithmetic exception occurred."
+      },
+      {
+        "name": "NEGATIVE",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "255,0,0",
+        "description": "Index value is too low."
+      },
+      {
+        "name": "SATURATION",
+        "type": "org.esa.snap.core.datamodel.Mask$BandMathsType",
+        "color": "178,0,0",
+        "description": "Index value is too high."
+      }
+    ],
+    "metadata": [
+      {
+        "path": "Processing_Graph/node.0/parameters/nirFactor",
+        "value": "1.0"
+      },
+      {
+        "path": "Processing_Graph/node.3/parameters/geographicError",
+        "value": "1.0E-5"
+      },
+      {
+        "path": "Processing_Graph/node.4/parameters/mirFactor",
+        "value": "1.0"
+      },
+      {
+        "path": "Processing_Graph/node.4/sources/sourceProduct",
+        "value": "Land-Sea-Mask"
+      },
+      {
+        "path": "Processing_Graph/node.3/sources/sourceProduct.4",
+        "value": "Ndwi2Op"
+      },
+      {
+        "path": "Processing_Graph/node.6/parameters/resampleType",
+        "value": "None"
+      },
+      {
+        "path": "Processing_Graph/node.8/sources/sourceProduct",
+        "value": "BandMerge"
+      },
+      {
+        "path": "Processing_Graph/node.2/parameters/upsampling",
+        "value": "Nearest"
+      },
+      {
+        "path": "Processing_Graph/node.5/sources/sourceProduct",
+        "value": "Land-Sea-Mask"
+      },
+      {
+        "path": "Processing_Graph/node.0/sources/sourceProduct",
+        "value": "Land-Sea-Mask"
+      }
+    ]
+  }
+}

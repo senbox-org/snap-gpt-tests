@@ -1,0 +1,20 @@
+[{
+  "id":"S2CoastalAnalysis",
+  "author": "BC",
+  "description":"execute S2 coastal analysis provided by Ana Ruescas, Univ. Valencia",
+  "frequency":"daily",
+  "graphPath": "opttbx/graphCoastalAnalysis_S2.xml",
+  "inputs": {
+    "input1": "sensors_platforms/SENTINEL-2/S2B_MSIL1C_20250616T140729_N0511_R024_T19FEU_20250616T184312.SAFE/MTD_MSIL1C.xml"
+  },
+  "parameters": {
+    "sourceBands": "blue,green,red,near_infrared",
+    "subsetRegion": "1,1,100,100",
+    "crs": "WGS84(DD)"
+  },
+  "outputs": [{
+    "parameter": "out1",
+    "outputName": "S2_coastal_analysis_result",
+    "expected": "opttbx/expectedS2CoastalAnalysis.json"
+  }]
+}]
