@@ -18,6 +18,6 @@ IF %SCOPE%==daily (
     @REM   JOB = 126 
     @REM   branch = 11.0.0 (with this version the results are saved into 'GPT Test Report' on https://snap-reports.s3.sbg.io.cloud.ovh.net/windows/index.html)
     @REM Update reports database
-    python %CI_PROJECT_DIR%\pygpt\stats_db.py %DB_PATH% "snap:master" %SCOPE% %CI_PROJECT_DIR%\result\report %JOB% master
+    python %CI_PROJECT_DIR%\pygpt\stats_db.py %DB_PATH% "snap:13.0.0" %SCOPE% %CI_PROJECT_DIR%\result\report %JOB% 13.0.0
     echo "done"
 )
