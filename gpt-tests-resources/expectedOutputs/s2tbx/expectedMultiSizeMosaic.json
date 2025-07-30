@@ -7,19 +7,19 @@
     "geoCoding": {
       "coordinates": [
         {
-          "x": 3552.0,
-          "y": 2950.0,
-          "lat": 48.21804577418538,
-          "lon": 26.283240013509282
+          "x": 7104.0,
+          "y": 5901.0,
+          "lat": 48.217909762166926,
+          "lon": 26.28328535067066
         },
         {
-          "x": 6114.0,
-          "y": 3561.0,
-          "lat": 48.10724114981422,
-          "lon": 26.747857767419113
+          "x": 12229.0,
+          "y": 7124.0,
+          "lat": 48.107014463022814,
+          "lon": 26.74799377921815
         }
       ],
-      "reverseAccuracy": 5.820766091346741E-11
+      "reverseAccuracy": 0.0
     },
     "bands": [
       {
@@ -52,18 +52,6 @@
         "value": "B5"
       },
       {
-        "path": "Processing_Graph/node.1/parameters/deleteOutputOnFailure",
-        "value": "true"
-      },
-      {
-        "path": "Processing_Graph/node.1/parameters/formatName",
-        "value": "BEAM-DIMAP"
-      },
-      {
-        "path": "Processing_Graph/node.0/parameters/variables/variable/name",
-        "value": "B5"
-      },
-      {
         "path": "Processing_Graph/node.1/sources/sourceProduct",
         "value": "Multi-size_Mosaic"
       },
@@ -72,12 +60,32 @@
         "value": "true"
       },
       {
-        "path": "Processing_Graph/node.1/parameters/clearCacheAfterRowWrite",
-        "value": "false"
+        "path": "Processing_Graph/node.0/sources/sourceProduct.1",
+        "value": "file:/C:/Users/Benny/Work/EOData/Reader-Tests/S2/S2-new-products/S2A_OPER_MSI_L1C_TL_SGS__20160713T125925_A005524_T35UMP_N02.04/S2A_OPER_MTD_L1C_TL_SGS__20160713T125925_A005524_T35UMP.xml"
+      },
+      {
+        "path": "Processing_Graph/node.0/sources/sourceProduct.0",
+        "value": "file:/C:/Users/Benny/Work/EOData/Reader-Tests/S2/S2-new-products/S2A_MSIL1C_20170628T092031_N0205_R093_T35UMP_20170628T092026.SAFE/MTD_MSIL1C.xml"
       },
       {
         "path": "Processing_Graph/node.0/parameters/variables/variable/expression",
         "value": "B5"
+      },
+      {
+        "path": "Processing_Graph/node.0/sources/sourceProduct.1",
+        "value": "file:/C:/Users/Benny/Work/EOData/Reader-Tests/S2/S2-new-products/S2A_OPER_MSI_L1C_TL_SGS__20160713T125925_A005524_T35UMP_N02.04/S2A_OPER_MTD_L1C_TL_SGS__20160713T125925_A005524_T35UMP.xml"
+      },
+      {
+        "path": "Processing_Graph/node.0/sources/sourceProduct.0",
+        "value": "file:/C:/Users/Benny/Work/EOData/Reader-Tests/S2/S2-new-products/S2A_MSIL1C_20170628T092031_N0205_R093_T35UMP_20170628T092026.SAFE/MTD_MSIL1C.xml"
+      },
+      {
+        "path": "Processing_Graph/node.0/parameters/variables/variable/name",
+        "value": "B5"
+      },
+      {
+        "path": "Processing_Graph/node.1/sources/sourceProduct",
+        "value": "Multi-size_Mosaic"
       }
     ]
   }
