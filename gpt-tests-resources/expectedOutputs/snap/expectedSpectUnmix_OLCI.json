@@ -1,5 +1,5 @@
 {
-    "id": "SpecUnmix_OLCI",
+    "id": "out-spectral-olci",
     "decodeQualification": "INTENDED",
     "expectedContent": {
         "sceneWidth": 500,
@@ -9,13 +9,13 @@
                 {
                     "x": 215.0,
                     "y": 268.0,
-                    "lat": 59.046648999999995,
+                    "lat": 59.046648,
                     "lon": 5.308452
                 },
                 {
                     "x": 371.0,
                     "y": 324.0,
-                    "lat": 58.815377999999995,
+                    "lat": 58.815376,
                     "lon": 5.95961
                 }
             ],
@@ -23,8 +23,8 @@
         },
         "tiePointGrids": [
             {
-                "name": "TP_longitude",
-                "description": "Longitude",
+                "name": "OAA",
+                "description": "Observation (Viewing) Azimuth Angle",
                 "offsetX": "-16.0",
                 "offsetY": "-0.0",
                 "subSamplingX": "64.0",
@@ -33,72 +33,12 @@
                     {
                         "x": 26,
                         "y": 89,
-                        "value": 4.6396556
+                        "value": 107.45514
                     },
                     {
                         "x": 342,
                         "y": 425,
-                        "value": 5.70567
-                    }
-                ]
-            },
-            {
-                "name": "TP_latitude",
-                "description": "Latitude",
-                "offsetX": "-16.0",
-                "offsetY": "-0.0",
-                "subSamplingX": "64.0",
-                "subSamplingY": "1.0",
-                "expectedPixels": [
-                    {
-                        "x": 145,
-                        "y": 128,
-                        "value": 59.439327
-                    },
-                    {
-                        "x": 305,
-                        "y": 182,
-                        "value": 59.21301
-                    }
-                ]
-            },
-            {
-                "name": "SZA",
-                "description": "Sun Zenith Angle",
-                "offsetX": "-16.0",
-                "offsetY": "-0.0",
-                "subSamplingX": "64.0",
-                "subSamplingY": "1.0",
-                "expectedPixels": [
-                    {
-                        "x": 275,
-                        "y": 372,
-                        "value": 38.758076
-                    },
-                    {
-                        "x": 304,
-                        "y": 464,
-                        "value": 38.538425
-                    }
-                ]
-            },
-            {
-                "name": "SAA",
-                "description": "Sun Azimuth Angle",
-                "offsetX": "-16.0",
-                "offsetY": "-0.0",
-                "subSamplingX": "64.0",
-                "subSamplingY": "1.0",
-                "expectedPixels": [
-                    {
-                        "x": 79,
-                        "y": 333,
-                        "value": 144.8526
-                    },
-                    {
-                        "x": 259,
-                        "y": 456,
-                        "value": 145.5337
+                        "value": 101.098366
                     }
                 ]
             },
@@ -111,20 +51,80 @@
                 "subSamplingY": "1.0",
                 "expectedPixels": [
                     {
-                        "x": 378,
-                        "y": 242,
-                        "value": 25.158289
+                        "x": 145,
+                        "y": 128,
+                        "value": 6.8387537
                     },
                     {
-                        "x": 475,
-                        "y": 242,
-                        "value": 23.36925
+                        "x": 305,
+                        "y": 182,
+                        "value": 6.822448
                     }
                 ]
             },
             {
-                "name": "OAA",
-                "description": "Observation (Viewing) Azimuth Angle",
+                "name": "SAA",
+                "description": "Sun Azimuth Angle",
+                "offsetX": "-16.0",
+                "offsetY": "-0.0",
+                "subSamplingX": "64.0",
+                "subSamplingY": "1.0",
+                "expectedPixels": [
+                    {
+                        "x": 275,
+                        "y": 372,
+                        "value": 147.64948
+                    },
+                    {
+                        "x": 304,
+                        "y": 464,
+                        "value": 146.20474
+                    }
+                ]
+            },
+            {
+                "name": "SZA",
+                "description": "Sun Zenith Angle",
+                "offsetX": "-16.0",
+                "offsetY": "-0.0",
+                "subSamplingX": "64.0",
+                "subSamplingY": "1.0",
+                "expectedPixels": [
+                    {
+                        "x": 79,
+                        "y": 333,
+                        "value": 41.42276
+                    },
+                    {
+                        "x": 259,
+                        "y": 456,
+                        "value": 41.3019
+                    }
+                ]
+            },
+            {
+                "name": "TP_latitude",
+                "description": "Latitude",
+                "offsetX": "-16.0",
+                "offsetY": "-0.0",
+                "subSamplingX": "64.0",
+                "subSamplingY": "1.0",
+                "expectedPixels": [
+                    {
+                        "x": 378,
+                        "y": 242,
+                        "value": 60.534756
+                    },
+                    {
+                        "x": 475,
+                        "y": 242,
+                        "value": 60.468796
+                    }
+                ]
+            },
+            {
+                "name": "TP_longitude",
+                "description": "Longitude",
                 "offsetX": "-16.0",
                 "offsetY": "-0.0",
                 "subSamplingX": "64.0",
@@ -133,112 +133,12 @@
                     {
                         "x": 170,
                         "y": 449,
-                        "value": 102.902626
+                        "value": 5.3185015
                     },
                     {
                         "x": 4,
                         "y": 235,
-                        "value": 102.348015
-                    }
-                ]
-            },
-            {
-                "name": "horizontal_wind_vector_1",
-                "description": "Horizontal wind vector at 10m altitude",
-                "offsetX": "-16.0",
-                "offsetY": "-0.0",
-                "subSamplingX": "64.0",
-                "subSamplingY": "1.0",
-                "expectedPixels": [
-                    {
-                        "x": 163,
-                        "y": 98,
-                        "value": 1.6056148
-                    },
-                    {
-                        "x": 136,
-                        "y": 21,
-                        "value": 1.8344265
-                    }
-                ]
-            },
-            {
-                "name": "horizontal_wind_vector_2",
-                "description": "Horizontal wind vector at 10m altitude",
-                "offsetX": "-16.0",
-                "offsetY": "-0.0",
-                "subSamplingX": "64.0",
-                "subSamplingY": "1.0",
-                "expectedPixels": [
-                    {
-                        "x": 485,
-                        "y": 302,
-                        "value": -3.042257
-                    },
-                    {
-                        "x": 286,
-                        "y": 358,
-                        "value": -4.767377
-                    }
-                ]
-            },
-            {
-                "name": "sea_level_pressure",
-                "description": "Mean sea level pressure",
-                "offsetX": "-16.0",
-                "offsetY": "-0.0",
-                "subSamplingX": "64.0",
-                "subSamplingY": "1.0",
-                "expectedPixels": [
-                    {
-                        "x": 115,
-                        "y": 248,
-                        "value": 1026.7855
-                    },
-                    {
-                        "x": 160,
-                        "y": 361,
-                        "value": 1026.7162
-                    }
-                ]
-            },
-            {
-                "name": "total_ozone",
-                "description": "Total columnar ozone",
-                "offsetX": "-16.0",
-                "offsetY": "-0.0",
-                "subSamplingX": "64.0",
-                "subSamplingY": "1.0",
-                "expectedPixels": [
-                    {
-                        "x": 179,
-                        "y": 249,
-                        "value": 0.0063704113
-                    },
-                    {
-                        "x": 201,
-                        "y": 221,
-                        "value": 0.0063326107
-                    }
-                ]
-            },
-            {
-                "name": "humidity",
-                "description": "Relative humidity",
-                "offsetX": "-16.0",
-                "offsetY": "-0.0",
-                "subSamplingX": "64.0",
-                "subSamplingY": "1.0",
-                "expectedPixels": [
-                    {
-                        "x": 287,
-                        "y": 45,
-                        "value": 82.65882
-                    },
-                    {
-                        "x": 322,
-                        "y": 7,
-                        "value": 79.279594
+                        "value": 9.462351
                     }
                 ]
             },
@@ -251,14 +151,14 @@
                 "subSamplingY": "1.0",
                 "expectedPixels": [
                     {
-                        "x": 487,
-                        "y": 183,
-                        "value": 279.33383
+                        "x": 163,
+                        "y": 98,
+                        "value": 281.31265
                     },
                     {
-                        "x": 475,
-                        "y": 473,
-                        "value": 281.799
+                        "x": 136,
+                        "y": 21,
+                        "value": 281.32022
                     }
                 ]
             },
@@ -271,14 +171,14 @@
                 "subSamplingY": "1.0",
                 "expectedPixels": [
                     {
-                        "x": 55,
-                        "y": 225,
-                        "value": 276.81683
+                        "x": 485,
+                        "y": 302,
+                        "value": 276.77625
                     },
                     {
-                        "x": 285,
-                        "y": 281,
-                        "value": 276.73975
+                        "x": 286,
+                        "y": 358,
+                        "value": 278.9606
                     }
                 ]
             },
@@ -291,14 +191,14 @@
                 "subSamplingY": "1.0",
                 "expectedPixels": [
                     {
-                        "x": 252,
-                        "y": 260,
-                        "value": 276.68793
+                        "x": 115,
+                        "y": 248,
+                        "value": 278.95795
                     },
                     {
-                        "x": 225,
-                        "y": 290,
-                        "value": 276.7764
+                        "x": 160,
+                        "y": 361,
+                        "value": 278.93668
                     }
                 ]
             },
@@ -311,14 +211,14 @@
                 "subSamplingY": "1.0",
                 "expectedPixels": [
                     {
-                        "x": 7,
-                        "y": 212,
-                        "value": 277.3033
+                        "x": 179,
+                        "y": 249,
+                        "value": 274.71286
                     },
                     {
-                        "x": 35,
-                        "y": 496,
-                        "value": 278.12143
+                        "x": 201,
+                        "y": 221,
+                        "value": 273.65417
                     }
                 ]
             },
@@ -331,14 +231,14 @@
                 "subSamplingY": "1.0",
                 "expectedPixels": [
                     {
-                        "x": 148,
-                        "y": 372,
-                        "value": 276.20312
+                        "x": 287,
+                        "y": 45,
+                        "value": 275.2336
                     },
                     {
-                        "x": 401,
-                        "y": 368,
-                        "value": 276.91022
+                        "x": 322,
+                        "y": 7,
+                        "value": 274.09183
                     }
                 ]
             },
@@ -351,14 +251,14 @@
                 "subSamplingY": "1.0",
                 "expectedPixels": [
                     {
-                        "x": 417,
-                        "y": 472,
-                        "value": 275.87076
+                        "x": 487,
+                        "y": 183,
+                        "value": 271.19238
                     },
                     {
-                        "x": 124,
-                        "y": 265,
-                        "value": 274.51355
+                        "x": 475,
+                        "y": 473,
+                        "value": 270.30676
                     }
                 ]
             },
@@ -371,14 +271,14 @@
                 "subSamplingY": "1.0",
                 "expectedPixels": [
                     {
-                        "x": 305,
-                        "y": 130,
-                        "value": 270.9574
+                        "x": 55,
+                        "y": 225,
+                        "value": 269.78433
                     },
                     {
-                        "x": 276,
-                        "y": 75,
-                        "value": 270.95578
+                        "x": 285,
+                        "y": 281,
+                        "value": 266.89175
                     }
                 ]
             },
@@ -391,14 +291,14 @@
                 "subSamplingY": "1.0",
                 "expectedPixels": [
                     {
-                        "x": 237,
-                        "y": 279,
-                        "value": 263.5989
+                        "x": 252,
+                        "y": 260,
+                        "value": 258.96783
                     },
                     {
-                        "x": 47,
-                        "y": 424,
-                        "value": 263.35925
+                        "x": 225,
+                        "y": 290,
+                        "value": 259.87637
                     }
                 ]
             },
@@ -411,14 +311,14 @@
                 "subSamplingY": "1.0",
                 "expectedPixels": [
                     {
-                        "x": 48,
-                        "y": 38,
-                        "value": 253.77335
+                        "x": 7,
+                        "y": 212,
+                        "value": 252.49959
                     },
                     {
-                        "x": 227,
-                        "y": 338,
-                        "value": 253.8188
+                        "x": 35,
+                        "y": 496,
+                        "value": 252.64796
                     }
                 ]
             },
@@ -431,14 +331,14 @@
                 "subSamplingY": "1.0",
                 "expectedPixels": [
                     {
-                        "x": 232,
-                        "y": 447,
-                        "value": 240.57552
+                        "x": 148,
+                        "y": 372,
+                        "value": 239.81612
                     },
                     {
-                        "x": 433,
-                        "y": 300,
-                        "value": 240.2521
+                        "x": 401,
+                        "y": 368,
+                        "value": 239.41125
                     }
                 ]
             },
@@ -451,14 +351,14 @@
                 "subSamplingY": "1.0",
                 "expectedPixels": [
                     {
-                        "x": 481,
-                        "y": 190,
-                        "value": 224.31119
+                        "x": 417,
+                        "y": 472,
+                        "value": 224.65974
                     },
                     {
-                        "x": 43,
-                        "y": 266,
-                        "value": 224.71289
+                        "x": 124,
+                        "y": 265,
+                        "value": 224.67476
                     }
                 ]
             },
@@ -471,14 +371,14 @@
                 "subSamplingY": "1.0",
                 "expectedPixels": [
                     {
-                        "x": 367,
-                        "y": 297,
-                        "value": 216.72021
+                        "x": 305,
+                        "y": 130,
+                        "value": 219.36028
                     },
                     {
-                        "x": 488,
-                        "y": 93,
-                        "value": 216.7995
+                        "x": 276,
+                        "y": 75,
+                        "value": 221.66856
                     }
                 ]
             },
@@ -491,14 +391,14 @@
                 "subSamplingY": "1.0",
                 "expectedPixels": [
                     {
-                        "x": 230,
-                        "y": 130,
-                        "value": 216.08371
+                        "x": 237,
+                        "y": 279,
+                        "value": 216.0065
                     },
                     {
-                        "x": 114,
-                        "y": 323,
-                        "value": 216.49933
+                        "x": 47,
+                        "y": 424,
+                        "value": 212.35579
                     }
                 ]
             },
@@ -511,14 +411,14 @@
                 "subSamplingY": "1.0",
                 "expectedPixels": [
                     {
-                        "x": 319,
-                        "y": 218,
-                        "value": 217.95676
+                        "x": 48,
+                        "y": 38,
+                        "value": 217.75558
                     },
                     {
-                        "x": 265,
-                        "y": 283,
-                        "value": 217.94463
+                        "x": 227,
+                        "y": 338,
+                        "value": 217.79999
                     }
                 ]
             },
@@ -531,14 +431,14 @@
                 "subSamplingY": "1.0",
                 "expectedPixels": [
                     {
-                        "x": 197,
-                        "y": 106,
-                        "value": 211.26091
+                        "x": 232,
+                        "y": 447,
+                        "value": 212.51924
                     },
                     {
-                        "x": 139,
-                        "y": 444,
-                        "value": 211.62833
+                        "x": 433,
+                        "y": 300,
+                        "value": 213.18694
                     }
                 ]
             },
@@ -551,14 +451,14 @@
                 "subSamplingY": "1.0",
                 "expectedPixels": [
                     {
-                        "x": 472,
-                        "y": 289,
-                        "value": 211.86787
+                        "x": 481,
+                        "y": 190,
+                        "value": 209.45555
                     },
                     {
-                        "x": 379,
-                        "y": 164,
-                        "value": 211.13344
+                        "x": 43,
+                        "y": 266,
+                        "value": 209.88377
                     }
                 ]
             },
@@ -571,14 +471,14 @@
                 "subSamplingY": "1.0",
                 "expectedPixels": [
                     {
-                        "x": 280,
-                        "y": 145,
-                        "value": 213.30913
+                        "x": 367,
+                        "y": 297,
+                        "value": 219.41997
                     },
                     {
-                        "x": 414,
-                        "y": 435,
-                        "value": 213.33722
+                        "x": 488,
+                        "y": 93,
+                        "value": 214.3259
                     }
                 ]
             },
@@ -591,14 +491,14 @@
                 "subSamplingY": "1.0",
                 "expectedPixels": [
                     {
-                        "x": 54,
-                        "y": 443,
-                        "value": 210.74368
+                        "x": 230,
+                        "y": 130,
+                        "value": 216.99522
                     },
                     {
-                        "x": 171,
-                        "y": 407,
-                        "value": 210.8714
+                        "x": 114,
+                        "y": 323,
+                        "value": 217.1521
                     }
                 ]
             },
@@ -611,14 +511,14 @@
                 "subSamplingY": "1.0",
                 "expectedPixels": [
                     {
-                        "x": 91,
-                        "y": 346,
-                        "value": 218.21901
+                        "x": 319,
+                        "y": 218,
+                        "value": 222.29831
                     },
                     {
-                        "x": 296,
-                        "y": 274,
-                        "value": 218.45468
+                        "x": 265,
+                        "y": 283,
+                        "value": 221.32994
                     }
                 ]
             },
@@ -631,14 +531,14 @@
                 "subSamplingY": "1.0",
                 "expectedPixels": [
                     {
-                        "x": 102,
-                        "y": 153,
-                        "value": 230.38583
+                        "x": 197,
+                        "y": 106,
+                        "value": 229.28621
                     },
                     {
-                        "x": 205,
-                        "y": 431,
-                        "value": 230.5128
+                        "x": 139,
+                        "y": 444,
+                        "value": 229.96967
                     }
                 ]
             },
@@ -651,14 +551,14 @@
                 "subSamplingY": "1.0",
                 "expectedPixels": [
                     {
-                        "x": 350,
-                        "y": 448,
-                        "value": 236.69978
+                        "x": 472,
+                        "y": 289,
+                        "value": 236.79907
                     },
                     {
-                        "x": 148,
-                        "y": 496,
-                        "value": 236.45299
+                        "x": 379,
+                        "y": 164,
+                        "value": 237.3906
                     }
                 ]
             },
@@ -671,14 +571,14 @@
                 "subSamplingY": "1.0",
                 "expectedPixels": [
                     {
-                        "x": 273,
-                        "y": 58,
-                        "value": 243.14243
+                        "x": 280,
+                        "y": 145,
+                        "value": 244.90858
                     },
                     {
-                        "x": 97,
-                        "y": 280,
-                        "value": 241.56752
+                        "x": 414,
+                        "y": 435,
+                        "value": 244.03012
                     }
                 ]
             },
@@ -691,14 +591,14 @@
                 "subSamplingY": "1.0",
                 "expectedPixels": [
                     {
-                        "x": 229,
-                        "y": 64,
-                        "value": 252.26186
+                        "x": 54,
+                        "y": 443,
+                        "value": 251.9838
                     },
                     {
-                        "x": 414,
-                        "y": 286,
-                        "value": 251.63815
+                        "x": 171,
+                        "y": 407,
+                        "value": 253.21526
                     }
                 ]
             },
@@ -711,14 +611,14 @@
                 "subSamplingY": "1.0",
                 "expectedPixels": [
                     {
-                        "x": 51,
-                        "y": 338,
-                        "value": 258.34048
+                        "x": 91,
+                        "y": 346,
+                        "value": 259.68558
                     },
                     {
-                        "x": 365,
-                        "y": 236,
-                        "value": 257.31625
+                        "x": 296,
+                        "y": 274,
+                        "value": 259.01886
                     }
                 ]
             },
@@ -731,14 +631,94 @@
                 "subSamplingY": "1.0",
                 "expectedPixels": [
                     {
-                        "x": 71,
-                        "y": 33,
-                        "value": 265.39874
+                        "x": 102,
+                        "y": 153,
+                        "value": 263.72903
                     },
                     {
-                        "x": 420,
-                        "y": 149,
-                        "value": 265.865
+                        "x": 205,
+                        "y": 431,
+                        "value": 263.28815
+                    }
+                ]
+            },
+            {
+                "name": "horizontal_wind_vector_1",
+                "description": "Horizontal wind vector at 10m altitude",
+                "offsetX": "-16.0",
+                "offsetY": "-0.0",
+                "subSamplingX": "64.0",
+                "subSamplingY": "1.0",
+                "expectedPixels": [
+                    {
+                        "x": 350,
+                        "y": 448,
+                        "value": 2.8529027
+                    },
+                    {
+                        "x": 148,
+                        "y": 496,
+                        "value": 2.2375784
+                    }
+                ]
+            },
+            {
+                "name": "horizontal_wind_vector_2",
+                "description": "Horizontal wind vector at 10m altitude",
+                "offsetX": "-16.0",
+                "offsetY": "-0.0",
+                "subSamplingX": "64.0",
+                "subSamplingY": "1.0",
+                "expectedPixels": [
+                    {
+                        "x": 273,
+                        "y": 58,
+                        "value": -4.0135355
+                    },
+                    {
+                        "x": 97,
+                        "y": 280,
+                        "value": 0.19309697
+                    }
+                ]
+            },
+            {
+                "name": "humidity",
+                "description": "Relative humidity",
+                "offsetX": "-16.0",
+                "offsetY": "-0.0",
+                "subSamplingX": "64.0",
+                "subSamplingY": "1.0",
+                "expectedPixels": [
+                    {
+                        "x": 229,
+                        "y": 64,
+                        "value": 78.790886
+                    },
+                    {
+                        "x": 414,
+                        "y": 286,
+                        "value": 72.853485
+                    }
+                ]
+            },
+            {
+                "name": "sea_level_pressure",
+                "description": "Mean sea level pressure",
+                "offsetX": "-16.0",
+                "offsetY": "-0.0",
+                "subSamplingX": "64.0",
+                "subSamplingY": "1.0",
+                "expectedPixels": [
+                    {
+                        "x": 51,
+                        "y": 338,
+                        "value": 1017.8803
+                    },
+                    {
+                        "x": 365,
+                        "y": 236,
+                        "value": 1016.3378
                     }
                 ]
             },
@@ -751,107 +731,39 @@
                 "subSamplingY": "1.0",
                 "expectedPixels": [
                     {
+                        "x": 71,
+                        "y": 33,
+                        "value": 16.842005
+                    },
+                    {
+                        "x": 420,
+                        "y": 149,
+                        "value": 11.062134
+                    }
+                ]
+            },
+            {
+                "name": "total_ozone",
+                "description": "Total columnar ozone",
+                "offsetX": "-16.0",
+                "offsetY": "-0.0",
+                "subSamplingX": "64.0",
+                "subSamplingY": "1.0",
+                "expectedPixels": [
+                    {
                         "x": 296,
                         "y": 485,
-                        "value": 13.260134
+                        "value": 0.0064752167
                     },
                     {
                         "x": 388,
                         "y": 13,
-                        "value": 11.239226
+                        "value": 0.0067660813
                     }
                 ]
             }
         ],
         "bands": [
-            {
-                "name": "Forest_abundance",
-                "description": "",
-                "bandWidth": 500,
-                "bandHeight": 500,
-                "noDataValue": "0.0",
-                "noDataValueUsed": "false",
-                "spectralWavelength": "0.0",
-                "spectralBandwidth": "0.0",
-                "expectedPixels": [
-                    {
-                        "x": 108,
-                        "y": 123,
-                        "value": 0.0
-                    },
-                    {
-                        "x": 159,
-                        "y": 96,
-                        "value": 0.23135103
-                    }
-                ]
-            },
-            {
-                "name": "Cropland_abundance",
-                "description": "",
-                "bandWidth": 500,
-                "bandHeight": 500,
-                "noDataValue": "0.0",
-                "noDataValueUsed": "false",
-                "spectralWavelength": "0.0",
-                "spectralBandwidth": "0.0",
-                "expectedPixels": [
-                    {
-                        "x": 141,
-                        "y": 441,
-                        "value": 0.22970013
-                    },
-                    {
-                        "x": 498,
-                        "y": 37,
-                        "value": 0.0
-                    }
-                ]
-            },
-            {
-                "name": "Cloud_abundance",
-                "description": "",
-                "bandWidth": 500,
-                "bandHeight": 500,
-                "noDataValue": "0.0",
-                "noDataValueUsed": "false",
-                "spectralWavelength": "0.0",
-                "spectralBandwidth": "0.0",
-                "expectedPixels": [
-                    {
-                        "x": 409,
-                        "y": 250,
-                        "value": 0.5258998
-                    },
-                    {
-                        "x": 31,
-                        "y": 192,
-                        "value": 0.04730332
-                    }
-                ]
-            },
-            {
-                "name": "Ocean_abundance",
-                "description": "",
-                "bandWidth": 500,
-                "bandHeight": 500,
-                "noDataValue": "0.0",
-                "noDataValueUsed": "false",
-                "spectralWavelength": "0.0",
-                "spectralBandwidth": "0.0",
-                "expectedPixels": [
-                    {
-                        "x": 138,
-                        "y": 291,
-                        "value": 0.7234569
-                    },
-                    {
-                        "x": 464,
-                        "y": 69,
-                        "value": 0.0
-                    }
-                ]
-            },
             {
                 "name": "longitude",
                 "description": "DEM corrected longitude",
@@ -864,14 +776,14 @@
                 "spectralBandwidth": "0.0",
                 "expectedPixels": [
                     {
-                        "x": 52,
-                        "y": 72,
-                        "value": 4.776812
+                        "x": 108,
+                        "y": 123,
+                        "value": 4.985017
                     },
                     {
-                        "x": 441,
-                        "y": 53,
-                        "value": 6.613422
+                        "x": 159,
+                        "y": 96,
+                        "value": 5.252046
                     }
                 ]
             },
@@ -887,14 +799,102 @@
                 "spectralBandwidth": "0.0",
                 "expectedPixels": [
                     {
+                        "x": 141,
+                        "y": 441,
+                        "value": 58.645054
+                    },
+                    {
+                        "x": 498,
+                        "y": 37,
+                        "value": 59.470448
+                    }
+                ]
+            },
+            {
+                "name": "Forest_abundance",
+                "description": "",
+                "bandWidth": 500,
+                "bandHeight": 500,
+                "noDataValue": "0.0",
+                "noDataValueUsed": "false",
+                "spectralWavelength": "0.0",
+                "spectralBandwidth": "0.0",
+                "expectedPixels": [
+                    {
+                        "x": 409,
+                        "y": 250,
+                        "value": 0.2875826
+                    },
+                    {
+                        "x": 31,
+                        "y": 192,
+                        "value": 0.0
+                    }
+                ]
+            },
+            {
+                "name": "Cropland_abundance",
+                "description": "",
+                "bandWidth": 500,
+                "bandHeight": 500,
+                "noDataValue": "0.0",
+                "noDataValueUsed": "false",
+                "spectralWavelength": "0.0",
+                "spectralBandwidth": "0.0",
+                "expectedPixels": [
+                    {
+                        "x": 138,
+                        "y": 291,
+                        "value": 0.22967026
+                    },
+                    {
+                        "x": 464,
+                        "y": 69,
+                        "value": 0.0
+                    }
+                ]
+            },
+            {
+                "name": "Cloud_abundance",
+                "description": "",
+                "bandWidth": 500,
+                "bandHeight": 500,
+                "noDataValue": "0.0",
+                "noDataValueUsed": "false",
+                "spectralWavelength": "0.0",
+                "spectralBandwidth": "0.0",
+                "expectedPixels": [
+                    {
+                        "x": 52,
+                        "y": 72,
+                        "value": 0.0459151
+                    },
+                    {
+                        "x": 441,
+                        "y": 53,
+                        "value": 1.0
+                    }
+                ]
+            },
+            {
+                "name": "Ocean_abundance",
+                "description": "",
+                "bandWidth": 500,
+                "bandHeight": 500,
+                "noDataValue": "0.0",
+                "noDataValueUsed": "false",
+                "spectralWavelength": "0.0",
+                "spectralBandwidth": "0.0",
+                "expectedPixels": [
+                    {
                         "x": 185,
                         "y": 440,
-                        "value": 58.623917
+                        "value": 0.7245051
                     },
                     {
                         "x": 292,
                         "y": 287,
-                        "value": 58.95474
+                        "value": 0.0
                     }
                 ]
             }
@@ -922,7 +922,7 @@
             },
             {
                 "path": "history/SubsetInfo/ProductNodeName.70",
-                "value": "lambda0_band_6"
+                "value": "FWHM_band_6"
             },
             {
                 "path": "Processing_Graph/node.1/sources/sourceProduct",
