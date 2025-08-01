@@ -9,6 +9,7 @@
       "input": "sensors_platforms/SENTINEL-3/olci/L1/S3A_OL_1_EFR____20130621T100921_20130621T101417_20140613T170503_0295_001_002______LN2_D_NR____.SEN3"
     },
     "parameters": {
+      "subsetRegion": "0,0,2400,3000",
       "computeUnc": false
     },
     "outputs": [
@@ -19,7 +20,7 @@
       }
     ],
     "configVM": {
-      "xmx": "12G",
+      "xmx": "16G",
       "cacheSize": "3G",
       "parallelism": "2"
     }
@@ -34,6 +35,7 @@
       "input": "sensors_platforms/SENTINEL-3/olci/L1/S3A_OL_1_EFR____20130621T100921_20130621T101417_20140613T170503_0295_001_002______LN2_D_NR____.SEN3"
     },
     "parameters": {
+      "subsetRegion": "0,0,2400,3000",
       "computeUnc": true
     },
     "outputs": [

@@ -1,24 +1,24 @@
 {
-  "id": "C2RCC_OLCI",
+  "id": "out-c2rcc-olci",
   "decodeQualification": "INTENDED",
   "expectedContent": {
-    "sceneWidth": 4865,
-    "sceneHeight": 6728,
+    "sceneWidth": 2400,
+    "sceneHeight": 3000,
     "startTime": "21-JUN-2013 10:09:20.633099",
-    "endTime": "21-JUN-2013 10:14:16.621099",
+    "endTime": "21-JUN-2013 10:11:32.589099",
     "geoCoding": {
       "coordinates": [
         {
-          "x": 2098.0,
-          "y": 3616.0,
-          "lat": 51.818694,
-          "lon": 2.0067369999999998
+          "x": 1035.0,
+          "y": 1612.0,
+          "lat": 57.416208,
+          "lon": -0.7964859999999999
         },
         {
-          "x": 3612.0,
-          "y": 4365.0,
-          "lat": 49.026050999999995,
-          "lon": 6.858378
+          "x": 1781.0,
+          "y": 1946.0,
+          "lat": 56.251591999999995,
+          "lon": 2.191144
         }
       ],
       "reverseAccuracy": 0.5
@@ -302,82 +302,22 @@
     ],
     "tiePointGrids": [
       {
-        "name": "TP_longitude",
-        "description": "Longitude",
+        "name": "OAA",
+        "description": "Observation (Viewing) Azimuth Angle",
         "offsetX": "0.0",
         "offsetY": "0.0",
         "subSamplingX": "64.0",
         "subSamplingY": "1.0",
         "expectedPixels": [
           {
-            "x": 253,
-            "y": 1198,
-            "value": -4.1057625
+            "x": 125,
+            "y": 534,
+            "value": 17.95512
           },
           {
-            "x": 3332,
-            "y": 5722,
-            "value": 4.52136
-          }
-        ]
-      },
-      {
-        "name": "TP_latitude",
-        "description": "Latitude",
-        "offsetX": "0.0",
-        "offsetY": "0.0",
-        "subSamplingX": "64.0",
-        "subSamplingY": "1.0",
-        "expectedPixels": [
-          {
-            "x": 1415,
-            "y": 1728,
-            "value": 56.971592
-          },
-          {
-            "x": 2970,
-            "y": 2457,
-            "value": 54.295883
-          }
-        ]
-      },
-      {
-        "name": "SZA",
-        "description": "Sun Zenith Angle",
-        "offsetX": "0.0",
-        "offsetY": "0.0",
-        "subSamplingX": "64.0",
-        "subSamplingY": "1.0",
-        "expectedPixels": [
-          {
-            "x": 2675,
-            "y": 5014,
-            "value": 31.177368
-          },
-          {
-            "x": 2959,
-            "y": 6246,
-            "value": 28.924524
-          }
-        ]
-      },
-      {
-        "name": "SAA",
-        "description": "Sun Azimuth Angle",
-        "offsetX": "0.0",
-        "offsetY": "0.0",
-        "subSamplingX": "64.0",
-        "subSamplingY": "1.0",
-        "expectedPixels": [
-          {
-            "x": 769,
-            "y": 4481,
-            "value": 126.51521
-          },
-          {
-            "x": 2525,
-            "y": 6146,
-            "value": 127.6801
+            "x": 1644,
+            "y": 2551,
+            "value": 99.825165
           }
         ]
       },
@@ -390,134 +330,94 @@
         "subSamplingY": "1.0",
         "expectedPixels": [
           {
-            "x": 3678,
-            "y": 3260,
-            "value": 1.326164
+            "x": 698,
+            "y": 770,
+            "value": 28.564384
           },
           {
-            "x": 4625,
-            "y": 3268,
-            "value": 20.888304
+            "x": 1465,
+            "y": 1095,
+            "value": 29.607204
           }
         ]
       },
       {
-        "name": "OAA",
-        "description": "Observation (Viewing) Azimuth Angle",
+        "name": "SAA",
+        "description": "Sun Azimuth Angle",
         "offsetX": "0.0",
         "offsetY": "0.0",
         "subSamplingX": "64.0",
         "subSamplingY": "1.0",
         "expectedPixels": [
           {
-            "x": 1656,
-            "y": 6051,
-            "value": 100.297585
+            "x": 1320,
+            "y": 2236,
+            "value": 148.61235
           },
           {
-            "x": 48,
-            "y": 3167,
-            "value": 95.24268
+            "x": 1460,
+            "y": 2785,
+            "value": 139.87563
           }
         ]
       },
       {
-        "name": "horizontal_wind_vector_1",
-        "description": "Horizontal wind vector at 10m altitude",
+        "name": "SZA",
+        "description": "Sun Zenith Angle",
         "offsetX": "0.0",
         "offsetY": "0.0",
         "subSamplingX": "64.0",
         "subSamplingY": "1.0",
         "expectedPixels": [
           {
-            "x": 1592,
-            "y": 1326,
-            "value": 2.3345466
+            "x": 379,
+            "y": 1998,
+            "value": 40.012005
           },
           {
-            "x": 1329,
-            "y": 290,
-            "value": 4.003523
+            "x": 1245,
+            "y": 2740,
+            "value": 38.45809
           }
         ]
       },
       {
-        "name": "horizontal_wind_vector_2",
-        "description": "Horizontal wind vector at 10m altitude",
+        "name": "TP_latitude",
+        "description": "Latitude",
         "offsetX": "0.0",
         "offsetY": "0.0",
         "subSamplingX": "64.0",
         "subSamplingY": "1.0",
         "expectedPixels": [
           {
-            "x": 4726,
-            "y": 4068,
-            "value": -3.2693808
+            "x": 1814,
+            "y": 1453,
+            "value": 58.989525
           },
           {
-            "x": 2784,
-            "y": 4822,
-            "value": -2.9827647
+            "x": 2281,
+            "y": 1457,
+            "value": 58.47516
           }
         ]
       },
       {
-        "name": "sea_level_pressure",
-        "description": "Mean sea level pressure",
+        "name": "TP_longitude",
+        "description": "Longitude",
         "offsetX": "0.0",
         "offsetY": "0.0",
         "subSamplingX": "64.0",
         "subSamplingY": "1.0",
         "expectedPixels": [
           {
-            "x": 1128,
-            "y": 3347,
-            "value": 1026.4832
+            "x": 817,
+            "y": 2698,
+            "value": 5.256267
           },
           {
-            "x": 1562,
-            "y": 4861,
-            "value": 1022.4194
-          }
-        ]
-      },
-      {
-        "name": "total_ozone",
-        "description": "Total columnar ozone",
-        "offsetX": "0.0",
-        "offsetY": "0.0",
-        "subSamplingX": "64.0",
-        "subSamplingY": "1.0",
-        "expectedPixels": [
-          {
-            "x": 1742,
-            "y": 3352,
-            "value": 0.0061811833
-          },
-          {
-            "x": 1959,
-            "y": 2975,
-            "value": 0.0061643994
-          }
-        ]
-      },
-      {
-        "name": "humidity",
-        "description": "Relative humidity",
-        "offsetX": "0.0",
-        "offsetY": "0.0",
-        "subSamplingX": "64.0",
-        "subSamplingY": "1.0",
-        "expectedPixels": [
-          {
-            "x": 2795,
-            "y": 617,
-            "value": 54.71836
-          },
-          {
-            "x": 3139,
-            "y": 106,
-            "value": 60.590725
+            "x": 23,
+            "y": 1412,
+            "value": 1.1788117
           }
         ]
       },
@@ -530,14 +430,14 @@
         "subSamplingY": "1.0",
         "expectedPixels": [
           {
-            "x": 4744,
-            "y": 2471,
-            "value": 283.03885
+            "x": 785,
+            "y": 591,
+            "value": 282.47867
           },
           {
-            "x": 4622,
-            "y": 6367,
-            "value": 285.91135
+            "x": 655,
+            "y": 129,
+            "value": 282.0673
           }
         ]
       },
@@ -550,14 +450,14 @@
         "subSamplingY": "1.0",
         "expectedPixels": [
           {
-            "x": 539,
-            "y": 3040,
-            "value": 286.45844
+            "x": 2331,
+            "y": 1814,
+            "value": 279.2474
           },
           {
-            "x": 2777,
-            "y": 3784,
-            "value": 280.70917
+            "x": 1373,
+            "y": 2150,
+            "value": 280.39896
           }
         ]
       },
@@ -570,14 +470,14 @@
         "subSamplingY": "1.0",
         "expectedPixels": [
           {
-            "x": 2460,
-            "y": 3509,
-            "value": 281.4835
+            "x": 556,
+            "y": 1492,
+            "value": 279.2682
           },
           {
-            "x": 2192,
-            "y": 3908,
-            "value": 282.6645
+            "x": 770,
+            "y": 2167,
+            "value": 277.8816
           }
         ]
       },
@@ -590,14 +490,14 @@
         "subSamplingY": "1.0",
         "expectedPixels": [
           {
-            "x": 70,
-            "y": 2856,
-            "value": 283.4963
+            "x": 859,
+            "y": 1494,
+            "value": 277.0582
           },
           {
-            "x": 341,
-            "y": 6679,
-            "value": 287.4358
+            "x": 966,
+            "y": 1326,
+            "value": 280.64215
           }
         ]
       },
@@ -610,14 +510,14 @@
         "subSamplingY": "1.0",
         "expectedPixels": [
           {
-            "x": 1443,
-            "y": 5013,
-            "value": 284.5513
+            "x": 1379,
+            "y": 275,
+            "value": 275.3597
           },
           {
-            "x": 3909,
-            "y": 4954,
-            "value": 285.9392
+            "x": 1548,
+            "y": 47,
+            "value": 273.27377
           }
         ]
       },
@@ -630,14 +530,14 @@
         "subSamplingY": "1.0",
         "expectedPixels": [
           {
-            "x": 4059,
-            "y": 6361,
-            "value": 285.00858
+            "x": 2340,
+            "y": 1101,
+            "value": 270.06317
           },
           {
-            "x": 1209,
-            "y": 3577,
-            "value": 280.28427
+            "x": 2280,
+            "y": 2839,
+            "value": 276.31958
           }
         ]
       },
@@ -650,14 +550,14 @@
         "subSamplingY": "1.0",
         "expectedPixels": [
           {
-            "x": 2972,
-            "y": 1749,
-            "value": 271.0536
+            "x": 266,
+            "y": 1355,
+            "value": 266.58557
           },
           {
-            "x": 2689,
-            "y": 1015,
-            "value": 270.27567
+            "x": 1370,
+            "y": 1687,
+            "value": 270.46594
           }
         ]
       },
@@ -670,14 +570,14 @@
         "subSamplingY": "1.0",
         "expectedPixels": [
           {
-            "x": 2313,
-            "y": 3761,
-            "value": 265.36838
+            "x": 1213,
+            "y": 1564,
+            "value": 262.1702
           },
           {
-            "x": 464,
-            "y": 5717,
-            "value": 265.71124
+            "x": 1081,
+            "y": 1743,
+            "value": 262.43198
           }
         ]
       },
@@ -690,14 +590,14 @@
         "subSamplingY": "1.0",
         "expectedPixels": [
           {
-            "x": 467,
-            "y": 523,
-            "value": 252.71849
+            "x": 34,
+            "y": 1273,
+            "value": 252.82947
           },
           {
-            "x": 2213,
-            "y": 4550,
-            "value": 256.225
+            "x": 168,
+            "y": 2978,
+            "value": 253.04208
           }
         ]
       },
@@ -710,14 +610,14 @@
         "subSamplingY": "1.0",
         "expectedPixels": [
           {
-            "x": 2262,
-            "y": 6023,
-            "value": 245.68765
+            "x": 712,
+            "y": 2235,
+            "value": 240.29784
           },
           {
-            "x": 4220,
-            "y": 4037,
-            "value": 241.75684
+            "x": 1928,
+            "y": 2209,
+            "value": 239.63458
           }
         ]
       },
@@ -730,14 +630,14 @@
         "subSamplingY": "1.0",
         "expectedPixels": [
           {
-            "x": 4680,
-            "y": 2563,
-            "value": 225.51733
+            "x": 2002,
+            "y": 2836,
+            "value": 225.98582
           },
           {
-            "x": 427,
-            "y": 3584,
-            "value": 228.1022
+            "x": 596,
+            "y": 1595,
+            "value": 225.54547
           }
         ]
       },
@@ -750,14 +650,14 @@
         "subSamplingY": "1.0",
         "expectedPixels": [
           {
-            "x": 3577,
-            "y": 4002,
-            "value": 220.36871
+            "x": 1466,
+            "y": 780,
+            "value": 217.29353
           },
           {
-            "x": 4749,
-            "y": 1251,
-            "value": 221.69038
+            "x": 1326,
+            "y": 452,
+            "value": 218.07639
           }
         ]
       },
@@ -770,14 +670,14 @@
         "subSamplingY": "1.0",
         "expectedPixels": [
           {
-            "x": 2239,
-            "y": 1755,
-            "value": 217.02971
+            "x": 1141,
+            "y": 1677,
+            "value": 217.30724
           },
           {
-            "x": 1114,
-            "y": 4357,
-            "value": 214.63187
+            "x": 229,
+            "y": 2549,
+            "value": 215.97113
           }
         ]
       },
@@ -790,14 +690,14 @@
         "subSamplingY": "1.0",
         "expectedPixels": [
           {
-            "x": 3112,
-            "y": 2943,
-            "value": 217.11768
+            "x": 230,
+            "y": 233,
+            "value": 217.39664
           },
           {
-            "x": 2585,
-            "y": 3815,
-            "value": 216.16667
+            "x": 1092,
+            "y": 2028,
+            "value": 217.30576
           }
         ]
       },
@@ -810,14 +710,14 @@
         "subSamplingY": "1.0",
         "expectedPixels": [
           {
-            "x": 1925,
-            "y": 1438,
-            "value": 210.86453
+            "x": 1116,
+            "y": 2685,
+            "value": 212.25769
           },
           {
-            "x": 1357,
-            "y": 5979,
-            "value": 209.11923
+            "x": 2081,
+            "y": 1800,
+            "value": 212.103
           }
         ]
       },
@@ -830,14 +730,14 @@
         "subSamplingY": "1.0",
         "expectedPixels": [
           {
-            "x": 4600,
-            "y": 3902,
-            "value": 209.14159
+            "x": 2308,
+            "y": 1143,
+            "value": 213.38388
           },
           {
-            "x": 3687,
-            "y": 2207,
-            "value": 211.50618
+            "x": 210,
+            "y": 1598,
+            "value": 213.04599
           }
         ]
       },
@@ -850,14 +750,14 @@
         "subSamplingY": "1.0",
         "expectedPixels": [
           {
-            "x": 2727,
-            "y": 1957,
-            "value": 209.9502
+            "x": 1765,
+            "y": 1784,
+            "value": 212.55031
           },
           {
-            "x": 4034,
-            "y": 5858,
-            "value": 210.59517
+            "x": 2342,
+            "y": 558,
+            "value": 213.89513
           }
         ]
       },
@@ -870,14 +770,14 @@
         "subSamplingY": "1.0",
         "expectedPixels": [
           {
-            "x": 526,
-            "y": 5968,
-            "value": 210.43272
+            "x": 1104,
+            "y": 782,
+            "value": 214.13002
           },
           {
-            "x": 1673,
-            "y": 5477,
-            "value": 210.90594
+            "x": 549,
+            "y": 1943,
+            "value": 212.97963
           }
         ]
       },
@@ -890,14 +790,14 @@
         "subSamplingY": "1.0",
         "expectedPixels": [
           {
-            "x": 886,
-            "y": 4658,
-            "value": 213.51538
+            "x": 1535,
+            "y": 1312,
+            "value": 219.49837
           },
           {
-            "x": 2882,
-            "y": 3694,
-            "value": 214.94934
+            "x": 1275,
+            "y": 1701,
+            "value": 218.50711
           }
         ]
       },
@@ -910,14 +810,14 @@
         "subSamplingY": "1.0",
         "expectedPixels": [
           {
-            "x": 1000,
-            "y": 2059,
-            "value": 229.37608
+            "x": 950,
+            "y": 641,
+            "value": 230.30168
           },
           {
-            "x": 1996,
-            "y": 5810,
-            "value": 222.47849
+            "x": 669,
+            "y": 2666,
+            "value": 229.95636
           }
         ]
       },
@@ -930,14 +830,14 @@
         "subSamplingY": "1.0",
         "expectedPixels": [
           {
-            "x": 3414,
-            "y": 6038,
-            "value": 229.11139
+            "x": 2269,
+            "y": 1739,
+            "value": 236.31287
           },
           {
-            "x": 1447,
-            "y": 6678,
-            "value": 227.52652
+            "x": 1819,
+            "y": 984,
+            "value": 236.88109
           }
         ]
       },
@@ -950,14 +850,14 @@
         "subSamplingY": "1.0",
         "expectedPixels": [
           {
-            "x": 2662,
-            "y": 785,
-            "value": 242.47377
+            "x": 1345,
+            "y": 872,
+            "value": 242.95663
           },
           {
-            "x": 947,
-            "y": 3775,
-            "value": 237.93277
+            "x": 1990,
+            "y": 2612,
+            "value": 241.15591
           }
         ]
       },
@@ -970,14 +870,14 @@
         "subSamplingY": "1.0",
         "expectedPixels": [
           {
-            "x": 2228,
-            "y": 866,
-            "value": 251.59143
+            "x": 259,
+            "y": 2661,
+            "value": 250.27396
           },
           {
-            "x": 4032,
-            "y": 3853,
-            "value": 251.28035
+            "x": 825,
+            "y": 2442,
+            "value": 249.79222
           }
         ]
       },
@@ -990,14 +890,14 @@
         "subSamplingY": "1.0",
         "expectedPixels": [
           {
-            "x": 499,
-            "y": 4552,
-            "value": 257.4602
+            "x": 437,
+            "y": 2077,
+            "value": 259.17313
           },
           {
-            "x": 3556,
-            "y": 3176,
-            "value": 258.71878
+            "x": 1421,
+            "y": 1647,
+            "value": 258.5997
           }
         ]
       },
@@ -1010,14 +910,94 @@
         "subSamplingY": "1.0",
         "expectedPixels": [
           {
-            "x": 696,
-            "y": 448,
-            "value": 263.8182
+            "x": 493,
+            "y": 918,
+            "value": 265.347
           },
           {
-            "x": 4093,
-            "y": 2016,
-            "value": 268.67252
+            "x": 984,
+            "y": 2590,
+            "value": 267.2927
+          }
+        ]
+      },
+      {
+        "name": "horizontal_wind_vector_1",
+        "description": "Horizontal wind vector at 10m altitude",
+        "offsetX": "0.0",
+        "offsetY": "0.0",
+        "subSamplingX": "64.0",
+        "subSamplingY": "1.0",
+        "expectedPixels": [
+          {
+            "x": 1684,
+            "y": 2692,
+            "value": 3.849034
+          },
+          {
+            "x": 714,
+            "y": 2978,
+            "value": 0.85485506
+          }
+        ]
+      },
+      {
+        "name": "horizontal_wind_vector_2",
+        "description": "Horizontal wind vector at 10m altitude",
+        "offsetX": "0.0",
+        "offsetY": "0.0",
+        "subSamplingX": "64.0",
+        "subSamplingY": "1.0",
+        "expectedPixels": [
+          {
+            "x": 1313,
+            "y": 350,
+            "value": 2.001808
+          },
+          {
+            "x": 467,
+            "y": 1683,
+            "value": -3.0677137
+          }
+        ]
+      },
+      {
+        "name": "humidity",
+        "description": "Relative humidity",
+        "offsetX": "0.0",
+        "offsetY": "0.0",
+        "subSamplingX": "64.0",
+        "subSamplingY": "1.0",
+        "expectedPixels": [
+          {
+            "x": 1099,
+            "y": 386,
+            "value": 66.62843
+          },
+          {
+            "x": 1989,
+            "y": 1718,
+            "value": 65.62751
+          }
+        ]
+      },
+      {
+        "name": "sea_level_pressure",
+        "description": "Mean sea level pressure",
+        "offsetX": "0.0",
+        "offsetY": "0.0",
+        "subSamplingX": "64.0",
+        "subSamplingY": "1.0",
+        "expectedPixels": [
+          {
+            "x": 246,
+            "y": 2029,
+            "value": 1023.0658
+          },
+          {
+            "x": 1754,
+            "y": 1416,
+            "value": 1020.16693
           }
         ]
       },
@@ -1030,24 +1010,88 @@
         "subSamplingY": "1.0",
         "expectedPixels": [
           {
-            "x": 2881,
-            "y": 6538,
-            "value": 9.550628
+            "x": 343,
+            "y": 199,
+            "value": 10.101956
           },
           {
-            "x": 3781,
-            "y": 184,
-            "value": 10.042529
+            "x": 2019,
+            "y": 899,
+            "value": 11.711066
+          }
+        ]
+      },
+      {
+        "name": "total_ozone",
+        "description": "Total columnar ozone",
+        "offsetX": "0.0",
+        "offsetY": "0.0",
+        "subSamplingX": "64.0",
+        "subSamplingY": "1.0",
+        "expectedPixels": [
+          {
+            "x": 1421,
+            "y": 2915,
+            "value": 0.006338392
+          },
+          {
+            "x": 1865,
+            "y": 82,
+            "value": 0.0068273535
           }
         ]
       }
     ],
     "bands": [
       {
+        "name": "quality_flags",
+        "description": "Classification and quality flags",
+        "bandWidth": 2400,
+        "bandHeight": 3000,
+        "noDataValue": "0.0",
+        "noDataValueUsed": "false",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 520,
+            "y": 739,
+            "value": 2.6843546E8
+          },
+          {
+            "x": 766,
+            "y": 581,
+            "value": 8388608.0
+          }
+        ]
+      },
+      {
+        "name": "c2rcc_flags",
+        "description": "C2RCC quality flags",
+        "bandWidth": 2400,
+        "bandHeight": 3000,
+        "noDataValue": "0.0",
+        "noDataValueUsed": "false",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
+            "x": 678,
+            "y": 2649,
+            "value": 0.0
+          },
+          {
+            "x": 2394,
+            "y": 226,
+            "value": 0.0
+          }
+        ]
+      },
+      {
         "name": "longitude",
         "description": "DEM corrected longitude",
-        "bandWidth": 4865,
-        "bandHeight": 6728,
+        "bandWidth": 2400,
+        "bandHeight": 3000,
         "geophysicalUnit": "degrees_east",
         "noDataValue": "0.0",
         "noDataValueUsed": "false",
@@ -1055,22 +1099,22 @@
         "spectralBandwidth": "0.0",
         "expectedPixels": [
           {
-            "x": 1054,
-            "y": 1658,
-            "value": -0.742557
+            "x": 1965,
+            "y": 1505,
+            "value": 3.404946
           },
           {
-            "x": 1553,
-            "y": 1303,
-            "value": 1.764796
+            "x": 150,
+            "y": 1156,
+            "value": -4.563465
           }
         ]
       },
       {
         "name": "latitude",
         "description": "DEM corrected latitude",
-        "bandWidth": 4865,
-        "bandHeight": 6728,
+        "bandWidth": 2400,
+        "bandHeight": 3000,
         "geophysicalUnit": "degrees_north",
         "noDataValue": "0.0",
         "noDataValueUsed": "false",
@@ -1078,44 +1122,22 @@
         "spectralBandwidth": "0.0",
         "expectedPixels": [
           {
-            "x": 1374,
-            "y": 5942,
-            "value": 46.156113
+            "x": 665,
+            "y": 1746,
+            "value": 57.19247
           },
           {
-            "x": 4853,
-            "y": 508,
-            "value": 57.457863
-          }
-        ]
-      },
-      {
-        "name": "quality_flags",
-        "description": "Classification and quality flags",
-        "bandWidth": 4865,
-        "bandHeight": 6728,
-        "noDataValue": "0.0",
-        "noDataValueUsed": "false",
-        "spectralWavelength": "0.0",
-        "spectralBandwidth": "0.0",
-        "expectedPixels": [
-          {
-            "x": 3984,
-            "y": 3375,
-            "value": 2.15167795E9
-          },
-          {
-            "x": 305,
-            "y": 2593,
-            "value": 2.15587226E9
+            "x": 2228,
+            "y": 416,
+            "value": 59.936016
           }
         ]
       },
       {
         "name": "rtoa_1",
         "description": "Top-of-atmosphere reflectance",
-        "bandWidth": 4865,
-        "bandHeight": 6728,
+        "bandWidth": 2400,
+        "bandHeight": 3000,
         "geophysicalUnit": "1",
         "noDataValue": "NaN",
         "noDataValueUsed": "true",
@@ -1123,22 +1145,22 @@
         "spectralBandwidth": "15.0",
         "expectedPixels": [
           {
-            "x": 1349,
-            "y": 3916,
-            "value": 0.16968755
+            "x": 251,
+            "y": 437,
+            "value": 0.22200285
           },
           {
-            "x": 4517,
-            "y": 934,
-            "value": 0.16737492
+            "x": 2120,
+            "y": 319,
+            "value": 0.18167076
           }
         ]
       },
       {
         "name": "rtoa_2",
         "description": "Top-of-atmosphere reflectance",
-        "bandWidth": 4865,
-        "bandHeight": 6728,
+        "bandWidth": 2400,
+        "bandHeight": 3000,
         "geophysicalUnit": "1",
         "noDataValue": "NaN",
         "noDataValueUsed": "true",
@@ -1146,22 +1168,22 @@
         "spectralBandwidth": "10.0",
         "expectedPixels": [
           {
-            "x": 508,
-            "y": 980,
-            "value": 0.2140384
+            "x": 888,
+            "y": 2644,
+            "value": 0.16849105
           },
           {
-            "x": 4299,
-            "y": 717,
-            "value": 0.16303681
+            "x": 1404,
+            "y": 1726,
+            "value": 0.20607042
           }
         ]
       },
       {
         "name": "rtoa_3",
         "description": "Top-of-atmosphere reflectance",
-        "bandWidth": 4865,
-        "bandHeight": 6728,
+        "bandWidth": 2400,
+        "bandHeight": 3000,
         "geophysicalUnit": "1",
         "noDataValue": "NaN",
         "noDataValueUsed": "true",
@@ -1169,22 +1191,22 @@
         "spectralBandwidth": "10.0",
         "expectedPixels": [
           {
-            "x": 1800,
-            "y": 5929,
-            "value": 0.12428196
+            "x": 810,
+            "y": 977,
+            "value": 0.16789861
           },
           {
-            "x": 2846,
-            "y": 3872,
-            "value": 0.12321754
+            "x": 897,
+            "y": 2568,
+            "value": 0.13367923
           }
         ]
       },
       {
         "name": "rtoa_4",
         "description": "Top-of-atmosphere reflectance",
-        "bandWidth": 4865,
-        "bandHeight": 6728,
+        "bandWidth": 2400,
+        "bandHeight": 3000,
         "geophysicalUnit": "1",
         "noDataValue": "NaN",
         "noDataValueUsed": "true",
@@ -1192,22 +1214,22 @@
         "spectralBandwidth": "10.0",
         "expectedPixels": [
           {
-            "x": 1642,
-            "y": 2192,
-            "value": 0.13222608
+            "x": 781,
+            "y": 2054,
+            "value": 0.13478525
           },
           {
-            "x": 1818,
-            "y": 5760,
-            "value": 0.09982995
+            "x": 1544,
+            "y": 2026,
+            "value": 0.13312379
           }
         ]
       },
       {
         "name": "rtoa_5",
         "description": "Top-of-atmosphere reflectance",
-        "bandWidth": 4865,
-        "bandHeight": 6728,
+        "bandWidth": 2400,
+        "bandHeight": 3000,
         "geophysicalUnit": "1",
         "noDataValue": "NaN",
         "noDataValueUsed": "true",
@@ -1215,22 +1237,22 @@
         "spectralBandwidth": "10.0",
         "expectedPixels": [
           {
-            "x": 1585,
-            "y": 4608,
-            "value": 0.11308256
+            "x": 1272,
+            "y": 391,
+            "value": 0.11969503
           },
           {
-            "x": 3130,
-            "y": 4543,
-            "value": 0.09345614
+            "x": 1112,
+            "y": 2401,
+            "value": 0.12242395
           }
         ]
       },
       {
         "name": "rtoa_6",
         "description": "Top-of-atmosphere reflectance",
-        "bandWidth": 4865,
-        "bandHeight": 6728,
+        "bandWidth": 2400,
+        "bandHeight": 3000,
         "geophysicalUnit": "1",
         "noDataValue": "NaN",
         "noDataValueUsed": "true",
@@ -1238,22 +1260,22 @@
         "spectralBandwidth": "10.0",
         "expectedPixels": [
           {
-            "x": 2579,
-            "y": 877,
-            "value": 0.12473282
+            "x": 1925,
+            "y": 2706,
+            "value": 0.099768564
           },
           {
-            "x": 2255,
-            "y": 5386,
-            "value": 0.115159355
+            "x": 61,
+            "y": 2095,
+            "value": "NaN"
           }
         ]
       },
       {
         "name": "rtoa_7",
         "description": "Top-of-atmosphere reflectance",
-        "bandWidth": 4865,
-        "bandHeight": 6728,
+        "bandWidth": 2400,
+        "bandHeight": 3000,
         "geophysicalUnit": "1",
         "noDataValue": "NaN",
         "noDataValueUsed": "true",
@@ -1261,22 +1283,22 @@
         "spectralBandwidth": "10.0",
         "expectedPixels": [
           {
-            "x": 3903,
-            "y": 6069,
-            "value": 0.06499241
+            "x": 2133,
+            "y": 1728,
+            "value": 0.085139215
           },
           {
-            "x": 124,
-            "y": 4699,
-            "value": "NaN"
+            "x": 1530,
+            "y": 2722,
+            "value": 0.081742406
           }
         ]
       },
       {
         "name": "rtoa_8",
         "description": "Top-of-atmosphere reflectance",
-        "bandWidth": 4865,
-        "bandHeight": 6728,
+        "bandWidth": 2400,
+        "bandHeight": 3000,
         "geophysicalUnit": "1",
         "noDataValue": "NaN",
         "noDataValueUsed": "true",
@@ -1284,22 +1306,22 @@
         "spectralBandwidth": "10.0",
         "expectedPixels": [
           {
-            "x": 4325,
-            "y": 3876,
-            "value": 0.05503842
+            "x": 2357,
+            "y": 968,
+            "value": 0.0805992
           },
           {
-            "x": 3102,
-            "y": 6106,
-            "value": 0.054665256
+            "x": 862,
+            "y": 16,
+            "value": 0.086747326
           }
         ]
       },
       {
         "name": "rtoa_9",
         "description": "Top-of-atmosphere reflectance",
-        "bandWidth": 4865,
-        "bandHeight": 6728,
+        "bandWidth": 2400,
+        "bandHeight": 3000,
         "geophysicalUnit": "1",
         "noDataValue": "NaN",
         "noDataValueUsed": "true",
@@ -1307,22 +1329,22 @@
         "spectralBandwidth": "7.5",
         "expectedPixels": [
           {
-            "x": 4778,
-            "y": 2172,
-            "value": 0.05534182
+            "x": 2014,
+            "y": 1707,
+            "value": 0.08290409
           },
           {
-            "x": 1747,
-            "y": 36,
-            "value": 0.08536208
+            "x": 1417,
+            "y": 1194,
+            "value": 0.08457754
           }
         ]
       },
       {
         "name": "rtoa_10",
         "description": "Top-of-atmosphere reflectance",
-        "bandWidth": 4865,
-        "bandHeight": 6728,
+        "bandWidth": 2400,
+        "bandHeight": 3000,
         "geophysicalUnit": "1",
         "noDataValue": "NaN",
         "noDataValueUsed": "true",
@@ -1330,22 +1352,22 @@
         "spectralBandwidth": "7.5",
         "expectedPixels": [
           {
-            "x": 4084,
-            "y": 3829,
-            "value": 0.053913914
+            "x": 947,
+            "y": 2965,
+            "value": 0.056639157
           },
           {
-            "x": 2872,
-            "y": 2678,
-            "value": 0.07760903
+            "x": 550,
+            "y": 2151,
+            "value": 0.06027292
           }
         ]
       },
       {
         "name": "rtoa_11",
         "description": "Top-of-atmosphere reflectance",
-        "bandWidth": 4865,
-        "bandHeight": 6728,
+        "bandWidth": 2400,
+        "bandHeight": 3000,
         "geophysicalUnit": "1",
         "noDataValue": "NaN",
         "noDataValueUsed": "true",
@@ -1353,22 +1375,22 @@
         "spectralBandwidth": "10.0",
         "expectedPixels": [
           {
-            "x": 1919,
-            "y": 6650,
-            "value": 0.14687012
+            "x": 2252,
+            "y": 865,
+            "value": 0.07435105
           },
           {
-            "x": 1116,
-            "y": 4824,
-            "value": 0.07113954
+            "x": 755,
+            "y": 2556,
+            "value": 0.15557443
           }
         ]
       },
       {
         "name": "rtoa_12",
         "description": "Top-of-atmosphere reflectance",
-        "bandWidth": 4865,
-        "bandHeight": 6728,
+        "bandWidth": 2400,
+        "bandHeight": 3000,
         "geophysicalUnit": "1",
         "noDataValue": "NaN",
         "noDataValueUsed": "true",
@@ -1376,22 +1398,22 @@
         "spectralBandwidth": "7.5",
         "expectedPixels": [
           {
-            "x": 4566,
-            "y": 1940,
-            "value": 0.07393861
+            "x": 786,
+            "y": 1586,
+            "value": 0.52144486
           },
           {
-            "x": 1530,
-            "y": 5732,
-            "value": 0.47420132
+            "x": 859,
+            "y": 2399,
+            "value": 0.494142
           }
         ]
       },
       {
         "name": "rtoa_13",
         "description": "Top-of-atmosphere reflectance",
-        "bandWidth": 4865,
-        "bandHeight": 6728,
+        "bandWidth": 2400,
+        "bandHeight": 3000,
         "geophysicalUnit": "1",
         "noDataValue": "NaN",
         "noDataValueUsed": "true",
@@ -1399,22 +1421,22 @@
         "spectralBandwidth": "2.5",
         "expectedPixels": [
           {
-            "x": 1593,
-            "y": 3557,
-            "value": 0.1316926
+            "x": 1345,
+            "y": 654,
+            "value": 0.024011338
           },
           {
-            "x": 1742,
-            "y": 5380,
-            "value": 0.12523185
+            "x": 228,
+            "y": 2113,
+            "value": 0.13570438
           }
         ]
       },
       {
         "name": "rtoa_14",
         "description": "Top-of-atmosphere reflectance",
-        "bandWidth": 4865,
-        "bandHeight": 6728,
+        "bandWidth": 2400,
+        "bandHeight": 3000,
         "geophysicalUnit": "1",
         "noDataValue": "NaN",
         "noDataValueUsed": "true",
@@ -1422,22 +1444,22 @@
         "spectralBandwidth": "3.75",
         "expectedPixels": [
           {
-            "x": 2726,
-            "y": 1467,
-            "value": 0.034635358
+            "x": 1686,
+            "y": 2385,
+            "value": 0.035142574
           },
           {
-            "x": 462,
-            "y": 4740,
-            "value": 0.034895048
+            "x": 2025,
+            "y": 204,
+            "value": 0.1535292
           }
         ]
       },
       {
         "name": "rtoa_15",
         "description": "Top-of-atmosphere reflectance",
-        "bandWidth": 4865,
-        "bandHeight": 6728,
+        "bandWidth": 2400,
+        "bandHeight": 3000,
         "geophysicalUnit": "1",
         "noDataValue": "NaN",
         "noDataValueUsed": "true",
@@ -1445,22 +1467,22 @@
         "spectralBandwidth": "2.5",
         "expectedPixels": [
           {
-            "x": 3418,
-            "y": 5349,
-            "value": 0.39261162
+            "x": 2007,
+            "y": 680,
+            "value": 0.066744015
           },
           {
-            "x": 4106,
-            "y": 457,
-            "value": 0.42557505
+            "x": 1566,
+            "y": 2790,
+            "value": 0.06496562
           }
         ]
       },
       {
         "name": "rtoa_16",
         "description": "Top-of-atmosphere reflectance",
-        "bandWidth": 4865,
-        "bandHeight": 6728,
+        "bandWidth": 2400,
+        "bandHeight": 3000,
         "geophysicalUnit": "1",
         "noDataValue": "NaN",
         "noDataValueUsed": "true",
@@ -1468,22 +1490,22 @@
         "spectralBandwidth": "15.0",
         "expectedPixels": [
           {
-            "x": 4069,
-            "y": 1527,
-            "value": 0.5035731
+            "x": 643,
+            "y": 2584,
+            "value": 0.5125922
           },
           {
-            "x": 3174,
-            "y": 6258,
-            "value": 0.47211087
+            "x": 927,
+            "y": 1112,
+            "value": 0.07606119
           }
         ]
       },
       {
         "name": "rtoa_17",
         "description": "Top-of-atmosphere reflectance",
-        "bandWidth": 4865,
-        "bandHeight": 6728,
+        "bandWidth": 2400,
+        "bandHeight": 3000,
         "geophysicalUnit": "1",
         "noDataValue": "NaN",
         "noDataValueUsed": "true",
@@ -1491,22 +1513,22 @@
         "spectralBandwidth": "20.0",
         "expectedPixels": [
           {
-            "x": 1304,
-            "y": 5795,
-            "value": 0.067905135
+            "x": 2332,
+            "y": 2041,
+            "value": 0.0725502
           },
           {
-            "x": 1879,
-            "y": 2495,
-            "value": 0.07120391
+            "x": 1739,
+            "y": 1283,
+            "value": 0.07216691
           }
         ]
       },
       {
         "name": "rtoa_18",
         "description": "Top-of-atmosphere reflectance",
-        "bandWidth": 4865,
-        "bandHeight": 6728,
+        "bandWidth": 2400,
+        "bandHeight": 3000,
         "geophysicalUnit": "1",
         "noDataValue": "NaN",
         "noDataValueUsed": "true",
@@ -1514,22 +1536,22 @@
         "spectralBandwidth": "10.0",
         "expectedPixels": [
           {
-            "x": 4728,
-            "y": 4579,
-            "value": 0.44806418
+            "x": 1197,
+            "y": 416,
+            "value": 0.07177011
           },
           {
-            "x": 3526,
-            "y": 2877,
-            "value": 0.47337443
+            "x": 2325,
+            "y": 408,
+            "value": 0.5054411
           }
         ]
       },
       {
         "name": "rtoa_19",
         "description": "Top-of-atmosphere reflectance",
-        "bandWidth": 4865,
-        "bandHeight": 6728,
+        "bandWidth": 2400,
+        "bandHeight": 3000,
         "geophysicalUnit": "1",
         "noDataValue": "NaN",
         "noDataValueUsed": "true",
@@ -1537,22 +1559,22 @@
         "spectralBandwidth": "10.0",
         "expectedPixels": [
           {
-            "x": 2426,
-            "y": 934,
-            "value": 0.33565593
+            "x": 1730,
+            "y": 1668,
+            "value": 0.04875633
           },
           {
-            "x": 4713,
-            "y": 915,
-            "value": 0.31851825
+            "x": 1694,
+            "y": 2969,
+            "value": 0.048405427
           }
         ]
       },
       {
         "name": "rtoa_20",
         "description": "Top-of-atmosphere reflectance",
-        "bandWidth": 4865,
-        "bandHeight": 6728,
+        "bandWidth": 2400,
+        "bandHeight": 3000,
         "geophysicalUnit": "1",
         "noDataValue": "NaN",
         "noDataValueUsed": "true",
@@ -1560,22 +1582,22 @@
         "spectralBandwidth": "20.0",
         "expectedPixels": [
           {
-            "x": 3507,
-            "y": 3741,
-            "value": 0.08484665
+            "x": 1537,
+            "y": 2717,
+            "value": 0.01614437
           },
           {
-            "x": 3434,
-            "y": 6659,
-            "value": 0.014720583
+            "x": 2004,
+            "y": 1592,
+            "value": 0.016070755
           }
         ]
       },
       {
         "name": "rtoa_21",
         "description": "Top-of-atmosphere reflectance",
-        "bandWidth": 4865,
-        "bandHeight": 6728,
+        "bandWidth": 2400,
+        "bandHeight": 3000,
         "geophysicalUnit": "1",
         "noDataValue": "NaN",
         "noDataValueUsed": "true",
@@ -1583,22 +1605,22 @@
         "spectralBandwidth": "40.0",
         "expectedPixels": [
           {
-            "x": 3117,
-            "y": 6095,
-            "value": 0.43880925
+            "x": 1199,
+            "y": 2789,
+            "value": 0.49208677
           },
           {
-            "x": 4063,
-            "y": 3572,
-            "value": 0.44607323
+            "x": 1373,
+            "y": 2317,
+            "value": 0.066667326
           }
         ]
       },
       {
         "name": "rhow_1",
         "description": "Atmospherically corrected angular dependent water leaving reflectances",
-        "bandWidth": 4865,
-        "bandHeight": 6728,
+        "bandWidth": 2400,
+        "bandHeight": 3000,
         "geophysicalUnit": "1",
         "noDataValue": "NaN",
         "noDataValueUsed": "true",
@@ -1606,22 +1628,22 @@
         "spectralBandwidth": "15.0",
         "expectedPixels": [
           {
-            "x": 2432,
-            "y": 6255,
+            "x": 2230,
+            "y": 117,
             "value": "NaN"
           },
           {
-            "x": 2784,
-            "y": 5197,
-            "value": "NaN"
+            "x": 1689,
+            "y": 2168,
+            "value": 0.0018295512
           }
         ]
       },
       {
         "name": "rhow_2",
         "description": "Atmospherically corrected angular dependent water leaving reflectances",
-        "bandWidth": 4865,
-        "bandHeight": 6728,
+        "bandWidth": 2400,
+        "bandHeight": 3000,
         "geophysicalUnit": "1",
         "noDataValue": "NaN",
         "noDataValueUsed": "true",
@@ -1629,13 +1651,13 @@
         "spectralBandwidth": "10.0",
         "expectedPixels": [
           {
-            "x": 4521,
-            "y": 264,
-            "value": "NaN"
+            "x": 833,
+            "y": 20,
+            "value": 0.0015147239
           },
           {
-            "x": 3425,
-            "y": 4863,
+            "x": 519,
+            "y": 2581,
             "value": "NaN"
           }
         ]
@@ -1643,8 +1665,8 @@
       {
         "name": "rhow_3",
         "description": "Atmospherically corrected angular dependent water leaving reflectances",
-        "bandWidth": 4865,
-        "bandHeight": 6728,
+        "bandWidth": 2400,
+        "bandHeight": 3000,
         "geophysicalUnit": "1",
         "noDataValue": "NaN",
         "noDataValueUsed": "true",
@@ -1652,22 +1674,22 @@
         "spectralBandwidth": "10.0",
         "expectedPixels": [
           {
-            "x": 1689,
-            "y": 46,
-            "value": 0.0018779679
+            "x": 301,
+            "y": 304,
+            "value": 0.01253554
           },
           {
-            "x": 1052,
-            "y": 5789,
-            "value": 0.0012499046
+            "x": 206,
+            "y": 343,
+            "value": 0.014727775
           }
         ]
       },
       {
         "name": "rhow_4",
         "description": "Atmospherically corrected angular dependent water leaving reflectances",
-        "bandWidth": 4865,
-        "bandHeight": 6728,
+        "bandWidth": 2400,
+        "bandHeight": 3000,
         "geophysicalUnit": "1",
         "noDataValue": "NaN",
         "noDataValueUsed": "true",
@@ -1675,22 +1697,22 @@
         "spectralBandwidth": "10.0",
         "expectedPixels": [
           {
-            "x": 611,
-            "y": 682,
-            "value": 0.0019918713
+            "x": 1670,
+            "y": 209,
+            "value": 0.007178202
           },
           {
-            "x": 419,
-            "y": 770,
-            "value": 0.0018317383
+            "x": 1154,
+            "y": 2604,
+            "value": 0.004906895
           }
         ]
       },
       {
         "name": "rhow_5",
         "description": "Atmospherically corrected angular dependent water leaving reflectances",
-        "bandWidth": 4865,
-        "bandHeight": 6728,
+        "bandWidth": 2400,
+        "bandHeight": 3000,
         "geophysicalUnit": "1",
         "noDataValue": "NaN",
         "noDataValueUsed": "true",
@@ -1698,22 +1720,22 @@
         "spectralBandwidth": "10.0",
         "expectedPixels": [
           {
-            "x": 3386,
-            "y": 470,
-            "value": "NaN"
+            "x": 401,
+            "y": 709,
+            "value": 0.0039416533
           },
           {
-            "x": 2341,
-            "y": 5840,
-            "value": "NaN"
+            "x": 602,
+            "y": 2913,
+            "value": 0.0030146232
           }
         ]
       },
       {
         "name": "rhow_6",
         "description": "Atmospherically corrected angular dependent water leaving reflectances",
-        "bandWidth": 4865,
-        "bandHeight": 6728,
+        "bandWidth": 2400,
+        "bandHeight": 3000,
         "geophysicalUnit": "1",
         "noDataValue": "NaN",
         "noDataValueUsed": "true",
@@ -1721,22 +1743,22 @@
         "spectralBandwidth": "10.0",
         "expectedPixels": [
           {
-            "x": 814,
-            "y": 1591,
-            "value": 0.0047761267
+            "x": 1718,
+            "y": 1019,
+            "value": 0.004879274
           },
           {
-            "x": 1221,
-            "y": 6534,
-            "value": 0.005471147
+            "x": 1546,
+            "y": 1531,
+            "value": 0.004548252
           }
         ]
       },
       {
         "name": "rhow_7",
         "description": "Atmospherically corrected angular dependent water leaving reflectances",
-        "bandWidth": 4865,
-        "bandHeight": 6728,
+        "bandWidth": 2400,
+        "bandHeight": 3000,
         "geophysicalUnit": "1",
         "noDataValue": "NaN",
         "noDataValueUsed": "true",
@@ -1744,22 +1766,22 @@
         "spectralBandwidth": "10.0",
         "expectedPixels": [
           {
-            "x": 3482,
-            "y": 2286,
-            "value": "NaN"
+            "x": 2176,
+            "y": 1527,
+            "value": 0.004873514
           },
           {
-            "x": 3135,
-            "y": 3435,
-            "value": "NaN"
+            "x": 2066,
+            "y": 1675,
+            "value": 0.0076966058
           }
         ]
       },
       {
         "name": "rhow_8",
         "description": "Atmospherically corrected angular dependent water leaving reflectances",
-        "bandWidth": 4865,
-        "bandHeight": 6728,
+        "bandWidth": 2400,
+        "bandHeight": 3000,
         "geophysicalUnit": "1",
         "noDataValue": "NaN",
         "noDataValueUsed": "true",
@@ -1767,22 +1789,22 @@
         "spectralBandwidth": "10.0",
         "expectedPixels": [
           {
-            "x": 4412,
-            "y": 3424,
-            "value": "NaN"
+            "x": 1921,
+            "y": 2284,
+            "value": 1.8403985E-4
           },
           {
-            "x": 4189,
-            "y": 3757,
-            "value": "NaN"
+            "x": 2004,
+            "y": 2207,
+            "value": 2.1146954E-4
           }
         ]
       },
       {
         "name": "rhow_9",
         "description": "Atmospherically corrected angular dependent water leaving reflectances",
-        "bandWidth": 4865,
-        "bandHeight": 6728,
+        "bandWidth": 2400,
+        "bandHeight": 3000,
         "geophysicalUnit": "1",
         "noDataValue": "NaN",
         "noDataValueUsed": "true",
@@ -1790,22 +1812,22 @@
         "spectralBandwidth": "7.5",
         "expectedPixels": [
           {
-            "x": 3894,
-            "y": 5122,
-            "value": "NaN"
+            "x": 1510,
+            "y": 1278,
+            "value": 0.005471919
           },
           {
-            "x": 4063,
-            "y": 4951,
-            "value": "NaN"
+            "x": 1296,
+            "y": 2289,
+            "value": 1.9656248E-4
           }
         ]
       },
       {
         "name": "rhow_10",
         "description": "Atmospherically corrected angular dependent water leaving reflectances",
-        "bandWidth": 4865,
-        "bandHeight": 6728,
+        "bandWidth": 2400,
+        "bandHeight": 3000,
         "geophysicalUnit": "1",
         "noDataValue": "NaN",
         "noDataValueUsed": "true",
@@ -1813,22 +1835,22 @@
         "spectralBandwidth": "7.5",
         "expectedPixels": [
           {
-            "x": 3061,
-            "y": 2866,
-            "value": "NaN"
+            "x": 1521,
+            "y": 456,
+            "value": 0.0064128344
           },
           {
-            "x": 2628,
-            "y": 5135,
-            "value": "NaN"
+            "x": 2117,
+            "y": 944,
+            "value": 1.8286836E-4
           }
         ]
       },
       {
         "name": "rhow_11",
         "description": "Atmospherically corrected angular dependent water leaving reflectances",
-        "bandWidth": 4865,
-        "bandHeight": 6728,
+        "bandWidth": 2400,
+        "bandHeight": 3000,
         "geophysicalUnit": "1",
         "noDataValue": "NaN",
         "noDataValueUsed": "true",
@@ -1836,22 +1858,22 @@
         "spectralBandwidth": "10.0",
         "expectedPixels": [
           {
-            "x": 3084,
-            "y": 1022,
-            "value": 0.004502639
+            "x": 656,
+            "y": 1153,
+            "value": 0.009731005
           },
           {
-            "x": 4292,
-            "y": 2118,
-            "value": "NaN"
+            "x": 1637,
+            "y": 559,
+            "value": 0.0073048845
           }
         ]
       },
       {
         "name": "rhow_12",
         "description": "Atmospherically corrected angular dependent water leaving reflectances",
-        "bandWidth": 4865,
-        "bandHeight": 6728,
+        "bandWidth": 2400,
+        "bandHeight": 3000,
         "geophysicalUnit": "1",
         "noDataValue": "NaN",
         "noDataValueUsed": "true",
@@ -1859,22 +1881,22 @@
         "spectralBandwidth": "7.5",
         "expectedPixels": [
           {
-            "x": 1330,
-            "y": 2586,
-            "value": 0.008221204
+            "x": 349,
+            "y": 2960,
+            "value": "NaN"
           },
           {
-            "x": 3319,
-            "y": 1254,
-            "value": "NaN"
+            "x": 943,
+            "y": 2261,
+            "value": 0.003415156
           }
         ]
       },
       {
         "name": "rhow_16",
         "description": "Atmospherically corrected angular dependent water leaving reflectances",
-        "bandWidth": 4865,
-        "bandHeight": 6728,
+        "bandWidth": 2400,
+        "bandHeight": 3000,
         "geophysicalUnit": "1",
         "noDataValue": "NaN",
         "noDataValueUsed": "true",
@@ -1882,22 +1904,22 @@
         "spectralBandwidth": "15.0",
         "expectedPixels": [
           {
-            "x": 707,
-            "y": 6640,
-            "value": 0.0043962286
+            "x": 169,
+            "y": 2090,
+            "value": "NaN"
           },
           {
-            "x": 1911,
-            "y": 5071,
-            "value": "NaN"
+            "x": 1458,
+            "y": 2589,
+            "value": 2.3680448E-5
           }
         ]
       },
       {
         "name": "rhow_17",
         "description": "Atmospherically corrected angular dependent water leaving reflectances",
-        "bandWidth": 4865,
-        "bandHeight": 6728,
+        "bandWidth": 2400,
+        "bandHeight": 3000,
         "geophysicalUnit": "1",
         "noDataValue": "NaN",
         "noDataValueUsed": "true",
@@ -1905,22 +1927,22 @@
         "spectralBandwidth": "20.0",
         "expectedPixels": [
           {
-            "x": 343,
-            "y": 4689,
-            "value": 0.0019090485
+            "x": 1407,
+            "y": 996,
+            "value": 0.0047321194
           },
           {
-            "x": 2957,
-            "y": 5806,
-            "value": "NaN"
+            "x": 1049,
+            "y": 51,
+            "value": 0.005090378
           }
         ]
       },
       {
         "name": "rhow_18",
         "description": "Atmospherically corrected angular dependent water leaving reflectances",
-        "bandWidth": 4865,
-        "bandHeight": 6728,
+        "bandWidth": 2400,
+        "bandHeight": 3000,
         "geophysicalUnit": "1",
         "noDataValue": "NaN",
         "noDataValueUsed": "true",
@@ -1928,22 +1950,22 @@
         "spectralBandwidth": "10.0",
         "expectedPixels": [
           {
-            "x": 2852,
-            "y": 2235,
-            "value": 0.001936991
+            "x": 1443,
+            "y": 2003,
+            "value": 5.720883E-6
           },
           {
-            "x": 2127,
-            "y": 115,
-            "value": "NaN"
+            "x": 1883,
+            "y": 267,
+            "value": 0.005465092
           }
         ]
       },
       {
         "name": "rhow_21",
         "description": "Atmospherically corrected angular dependent water leaving reflectances",
-        "bandWidth": 4865,
-        "bandHeight": 6728,
+        "bandWidth": 2400,
+        "bandHeight": 3000,
         "geophysicalUnit": "1",
         "noDataValue": "NaN",
         "noDataValueUsed": "true",
@@ -1951,22 +1973,22 @@
         "spectralBandwidth": "40.0",
         "expectedPixels": [
           {
-            "x": 2925,
-            "y": 4492,
+            "x": 2161,
+            "y": 248,
             "value": "NaN"
           },
           {
-            "x": 3818,
-            "y": 600,
-            "value": "NaN"
+            "x": 185,
+            "y": 2472,
+            "value": 8.429337E-4
           }
         ]
       },
       {
         "name": "rhown_1",
         "description": "Normalized water leaving reflectances",
-        "bandWidth": 4865,
-        "bandHeight": 6728,
+        "bandWidth": 2400,
+        "bandHeight": 3000,
         "geophysicalUnit": "1",
         "noDataValue": "NaN",
         "noDataValueUsed": "true",
@@ -1974,22 +1996,22 @@
         "spectralBandwidth": "15.0",
         "expectedPixels": [
           {
-            "x": 4381,
-            "y": 557,
-            "value": 0.0019846663
+            "x": 306,
+            "y": 2740,
+            "value": 0.013167641
           },
           {
-            "x": 375,
-            "y": 5543,
-            "value": 3.2835355E-4
+            "x": 464,
+            "y": 966,
+            "value": 0.01248717
           }
         ]
       },
       {
         "name": "rhown_2",
         "description": "Normalized water leaving reflectances",
-        "bandWidth": 4865,
-        "bandHeight": 6728,
+        "bandWidth": 2400,
+        "bandHeight": 3000,
         "geophysicalUnit": "1",
         "noDataValue": "NaN",
         "noDataValueUsed": "true",
@@ -1997,22 +2019,22 @@
         "spectralBandwidth": "10.0",
         "expectedPixels": [
           {
-            "x": 620,
-            "y": 6145,
-            "value": 4.792473E-4
+            "x": 1308,
+            "y": 2141,
+            "value": 0.0016057467
           },
           {
-            "x": 942,
-            "y": 2167,
-            "value": 6.366178E-4
+            "x": 282,
+            "y": 654,
+            "value": 0.015253494
           }
         ]
       },
       {
         "name": "rhown_3",
         "description": "Normalized water leaving reflectances",
-        "bandWidth": 4865,
-        "bandHeight": 6728,
+        "bandWidth": 2400,
+        "bandHeight": 3000,
         "geophysicalUnit": "1",
         "noDataValue": "NaN",
         "noDataValueUsed": "true",
@@ -2020,22 +2042,22 @@
         "spectralBandwidth": "10.0",
         "expectedPixels": [
           {
-            "x": 2652,
-            "y": 4802,
-            "value": "NaN"
+            "x": 980,
+            "y": 2258,
+            "value": 0.002514124
           },
           {
-            "x": 572,
-            "y": 1468,
-            "value": 8.78885E-4
+            "x": 195,
+            "y": 2244,
+            "value": "NaN"
           }
         ]
       },
       {
         "name": "rhown_4",
         "description": "Normalized water leaving reflectances",
-        "bandWidth": 4865,
-        "bandHeight": 6728,
+        "bandWidth": 2400,
+        "bandHeight": 3000,
         "geophysicalUnit": "1",
         "noDataValue": "NaN",
         "noDataValueUsed": "true",
@@ -2043,22 +2065,22 @@
         "spectralBandwidth": "10.0",
         "expectedPixels": [
           {
-            "x": 1988,
-            "y": 5066,
+            "x": 2202,
+            "y": 637,
             "value": "NaN"
           },
           {
-            "x": 395,
-            "y": 5034,
-            "value": 0.0014073204
+            "x": 2113,
+            "y": 2107,
+            "value": 0.06846317
           }
         ]
       },
       {
         "name": "rhown_5",
         "description": "Normalized water leaving reflectances",
-        "bandWidth": 4865,
-        "bandHeight": 6728,
+        "bandWidth": 2400,
+        "bandHeight": 3000,
         "geophysicalUnit": "1",
         "noDataValue": "NaN",
         "noDataValueUsed": "true",
@@ -2066,13 +2088,13 @@
         "spectralBandwidth": "10.0",
         "expectedPixels": [
           {
-            "x": 4465,
-            "y": 1430,
-            "value": "NaN"
+            "x": 291,
+            "y": 82,
+            "value": 0.003546628
           },
           {
-            "x": 4283,
-            "y": 4727,
+            "x": 683,
+            "y": 2756,
             "value": "NaN"
           }
         ]
@@ -2080,8 +2102,8 @@
       {
         "name": "rhown_6",
         "description": "Normalized water leaving reflectances",
-        "bandWidth": 4865,
-        "bandHeight": 6728,
+        "bandWidth": 2400,
+        "bandHeight": 3000,
         "geophysicalUnit": "1",
         "noDataValue": "NaN",
         "noDataValueUsed": "true",
@@ -2089,22 +2111,22 @@
         "spectralBandwidth": "10.0",
         "expectedPixels": [
           {
-            "x": 590,
-            "y": 184,
-            "value": 0.0039528087
+            "x": 1436,
+            "y": 2171,
+            "value": 0.00493288
           },
           {
-            "x": 1386,
-            "y": 6182,
-            "value": 0.004131033
+            "x": 1223,
+            "y": 1419,
+            "value": 0.0018399379
           }
         ]
       },
       {
         "name": "rhown_7",
         "description": "Normalized water leaving reflectances",
-        "bandWidth": 4865,
-        "bandHeight": 6728,
+        "bandWidth": 2400,
+        "bandHeight": 3000,
         "geophysicalUnit": "1",
         "noDataValue": "NaN",
         "noDataValueUsed": "true",
@@ -2112,22 +2134,22 @@
         "spectralBandwidth": "10.0",
         "expectedPixels": [
           {
-            "x": 2912,
-            "y": 4870,
-            "value": "NaN"
+            "x": 1022,
+            "y": 459,
+            "value": 0.006207158
           },
           {
-            "x": 2479,
-            "y": 3184,
-            "value": 0.004740125
+            "x": 62,
+            "y": 2384,
+            "value": "NaN"
           }
         ]
       },
       {
         "name": "rhown_8",
         "description": "Normalized water leaving reflectances",
-        "bandWidth": 4865,
-        "bandHeight": 6728,
+        "bandWidth": 2400,
+        "bandHeight": 3000,
         "geophysicalUnit": "1",
         "noDataValue": "NaN",
         "noDataValueUsed": "true",
@@ -2135,22 +2157,22 @@
         "spectralBandwidth": "10.0",
         "expectedPixels": [
           {
-            "x": 2072,
-            "y": 1029,
-            "value": 0.0051551103
+            "x": 1619,
+            "y": 2121,
+            "value": 0.0050005573
           },
           {
-            "x": 126,
-            "y": 5347,
-            "value": "NaN"
+            "x": 708,
+            "y": 590,
+            "value": 0.0051820455
           }
         ]
       },
       {
         "name": "rhown_9",
         "description": "Normalized water leaving reflectances",
-        "bandWidth": 4865,
-        "bandHeight": 6728,
+        "bandWidth": 2400,
+        "bandHeight": 3000,
         "geophysicalUnit": "1",
         "noDataValue": "NaN",
         "noDataValueUsed": "true",
@@ -2158,22 +2180,22 @@
         "spectralBandwidth": "7.5",
         "expectedPixels": [
           {
-            "x": 3281,
-            "y": 4756,
+            "x": 456,
+            "y": 1679,
             "value": "NaN"
           },
           {
-            "x": 1436,
-            "y": 1323,
-            "value": 0.0067683714
+            "x": 1381,
+            "y": 1949,
+            "value": 1.9759178E-4
           }
         ]
       },
       {
         "name": "rhown_10",
         "description": "Normalized water leaving reflectances",
-        "bandWidth": 4865,
-        "bandHeight": 6728,
+        "bandWidth": 2400,
+        "bandHeight": 3000,
         "geophysicalUnit": "1",
         "noDataValue": "NaN",
         "noDataValueUsed": "true",
@@ -2181,22 +2203,22 @@
         "spectralBandwidth": "7.5",
         "expectedPixels": [
           {
-            "x": 926,
-            "y": 3765,
-            "value": "NaN"
+            "x": 1259,
+            "y": 255,
+            "value": 0.0056390306
           },
           {
-            "x": 2799,
-            "y": 4372,
-            "value": "NaN"
+            "x": 1864,
+            "y": 984,
+            "value": 0.005818689
           }
         ]
       },
       {
         "name": "rhown_11",
         "description": "Normalized water leaving reflectances",
-        "bandWidth": 4865,
-        "bandHeight": 6728,
+        "bandWidth": 2400,
+        "bandHeight": 3000,
         "geophysicalUnit": "1",
         "noDataValue": "NaN",
         "noDataValueUsed": "true",
@@ -2204,22 +2226,22 @@
         "spectralBandwidth": "10.0",
         "expectedPixels": [
           {
-            "x": 2553,
-            "y": 573,
-            "value": "NaN"
+            "x": 2087,
+            "y": 2760,
+            "value": 0.006733601
           },
           {
-            "x": 3778,
-            "y": 2207,
-            "value": "NaN"
+            "x": 1142,
+            "y": 1653,
+            "value": 8.5796215E-5
           }
         ]
       },
       {
         "name": "rhown_12",
         "description": "Normalized water leaving reflectances",
-        "bandWidth": 4865,
-        "bandHeight": 6728,
+        "bandWidth": 2400,
+        "bandHeight": 3000,
         "geophysicalUnit": "1",
         "noDataValue": "NaN",
         "noDataValueUsed": "true",
@@ -2227,22 +2249,22 @@
         "spectralBandwidth": "7.5",
         "expectedPixels": [
           {
-            "x": 4231,
-            "y": 6191,
+            "x": 1378,
+            "y": 2847,
             "value": "NaN"
           },
           {
-            "x": 2315,
-            "y": 3707,
-            "value": 0.004601225
+            "x": 2230,
+            "y": 560,
+            "value": "NaN"
           }
         ]
       },
       {
         "name": "rhown_16",
         "description": "Normalized water leaving reflectances",
-        "bandWidth": 4865,
-        "bandHeight": 6728,
+        "bandWidth": 2400,
+        "bandHeight": 3000,
         "geophysicalUnit": "1",
         "noDataValue": "NaN",
         "noDataValueUsed": "true",
@@ -2250,13 +2272,13 @@
         "spectralBandwidth": "15.0",
         "expectedPixels": [
           {
-            "x": 2794,
-            "y": 6385,
+            "x": 164,
+            "y": 2218,
             "value": "NaN"
           },
           {
-            "x": 4521,
-            "y": 1256,
+            "x": 157,
+            "y": 1628,
             "value": "NaN"
           }
         ]
@@ -2264,8 +2286,8 @@
       {
         "name": "rhown_17",
         "description": "Normalized water leaving reflectances",
-        "bandWidth": 4865,
-        "bandHeight": 6728,
+        "bandWidth": 2400,
+        "bandHeight": 3000,
         "geophysicalUnit": "1",
         "noDataValue": "NaN",
         "noDataValueUsed": "true",
@@ -2273,13 +2295,13 @@
         "spectralBandwidth": "20.0",
         "expectedPixels": [
           {
-            "x": 332,
-            "y": 4975,
+            "x": 1662,
+            "y": 2592,
             "value": 0.0
           },
           {
-            "x": 318,
-            "y": 3651,
+            "x": 1366,
+            "y": 2635,
             "value": 0.0
           }
         ]
@@ -2287,8 +2309,8 @@
       {
         "name": "rhown_18",
         "description": "Normalized water leaving reflectances",
-        "bandWidth": 4865,
-        "bandHeight": 6728,
+        "bandWidth": 2400,
+        "bandHeight": 3000,
         "geophysicalUnit": "1",
         "noDataValue": "NaN",
         "noDataValueUsed": "true",
@@ -2296,22 +2318,22 @@
         "spectralBandwidth": "10.0",
         "expectedPixels": [
           {
-            "x": 3370,
-            "y": 5813,
+            "x": 877,
+            "y": 2814,
             "value": "NaN"
           },
           {
-            "x": 2769,
-            "y": 5911,
-            "value": "NaN"
+            "x": 2153,
+            "y": 738,
+            "value": 0.0
           }
         ]
       },
       {
         "name": "rhown_21",
         "description": "Normalized water leaving reflectances",
-        "bandWidth": 4865,
-        "bandHeight": 6728,
+        "bandWidth": 2400,
+        "bandHeight": 3000,
         "geophysicalUnit": "1",
         "noDataValue": "NaN",
         "noDataValueUsed": "true",
@@ -2319,22 +2341,22 @@
         "spectralBandwidth": "40.0",
         "expectedPixels": [
           {
-            "x": 1779,
-            "y": 6312,
+            "x": 252,
+            "y": 2180,
             "value": "NaN"
           },
           {
-            "x": 4365,
-            "y": 1656,
-            "value": 0.0
+            "x": 526,
+            "y": 2040,
+            "value": "NaN"
           }
         ]
       },
       {
         "name": "iop_apig",
         "description": "Absorption coefficient of phytoplankton pigments at 443 nm",
-        "bandWidth": 4865,
-        "bandHeight": 6728,
+        "bandWidth": 2400,
+        "bandHeight": 3000,
         "geophysicalUnit": "m^-1",
         "noDataValue": "NaN",
         "noDataValueUsed": "true",
@@ -2342,22 +2364,22 @@
         "spectralBandwidth": "0.0",
         "expectedPixels": [
           {
-            "x": 512,
-            "y": 4889,
-            "value": 0.8854771
+            "x": 175,
+            "y": 118,
+            "value": 0.008584886
           },
           {
-            "x": 1067,
-            "y": 4575,
-            "value": 1.5051214
+            "x": 656,
+            "y": 936,
+            "value": 0.008031446
           }
         ]
       },
       {
         "name": "iop_adet",
         "description": "Absorption coefficient of detritus at 443 nm",
-        "bandWidth": 4865,
-        "bandHeight": 6728,
+        "bandWidth": 2400,
+        "bandHeight": 3000,
         "geophysicalUnit": "m^-1",
         "noDataValue": "NaN",
         "noDataValueUsed": "true",
@@ -2365,22 +2387,22 @@
         "spectralBandwidth": "0.0",
         "expectedPixels": [
           {
-            "x": 355,
-            "y": 265,
-            "value": 3.855554
+            "x": 2203,
+            "y": 1265,
+            "value": 7.137198
           },
           {
-            "x": 1330,
-            "y": 2099,
-            "value": 3.5506966
+            "x": 188,
+            "y": 2054,
+            "value": "NaN"
           }
         ]
       },
       {
         "name": "iop_agelb",
         "description": "Absorption coefficient of gelbstoff at 443 nm",
-        "bandWidth": 4865,
-        "bandHeight": 6728,
+        "bandWidth": 2400,
+        "bandHeight": 3000,
         "geophysicalUnit": "m^-1",
         "noDataValue": "NaN",
         "noDataValueUsed": "true",
@@ -2388,22 +2410,22 @@
         "spectralBandwidth": "0.0",
         "expectedPixels": [
           {
-            "x": 4465,
-            "y": 2837,
-            "value": "NaN"
+            "x": 500,
+            "y": 1342,
+            "value": 0.0022213438
           },
           {
-            "x": 382,
-            "y": 4606,
-            "value": 13.615091
+            "x": 1233,
+            "y": 158,
+            "value": 0.002059175
           }
         ]
       },
       {
         "name": "iop_bpart",
         "description": "Scattering coefficient of marine paticles at 443 nm",
-        "bandWidth": 4865,
-        "bandHeight": 6728,
+        "bandWidth": 2400,
+        "bandHeight": 3000,
         "geophysicalUnit": "m^-1",
         "noDataValue": "NaN",
         "noDataValueUsed": "true",
@@ -2411,22 +2433,22 @@
         "spectralBandwidth": "0.0",
         "expectedPixels": [
           {
-            "x": 1014,
-            "y": 3011,
-            "value": "NaN"
+            "x": 1466,
+            "y": 691,
+            "value": 0.0032230709
           },
           {
-            "x": 2501,
-            "y": 355,
-            "value": "NaN"
+            "x": 951,
+            "y": 1066,
+            "value": 0.0048751845
           }
         ]
       },
       {
         "name": "iop_bwit",
         "description": "Scattering coefficient of white particles at 443 nm",
-        "bandWidth": 4865,
-        "bandHeight": 6728,
+        "bandWidth": 2400,
+        "bandHeight": 3000,
         "geophysicalUnit": "m^-1",
         "noDataValue": "NaN",
         "noDataValueUsed": "true",
@@ -2434,22 +2456,22 @@
         "spectralBandwidth": "0.0",
         "expectedPixels": [
           {
-            "x": 2972,
-            "y": 1551,
-            "value": 18.967447
+            "x": 297,
+            "y": 282,
+            "value": 31.378937
           },
           {
-            "x": 1928,
-            "y": 2390,
-            "value": 25.13292
+            "x": 1879,
+            "y": 1877,
+            "value": 0.017801384
           }
         ]
       },
       {
         "name": "iop_adg",
         "description": "Detritus + gelbstoff absorption at 443 nm",
-        "bandWidth": 4865,
-        "bandHeight": 6728,
+        "bandWidth": 2400,
+        "bandHeight": 3000,
         "geophysicalUnit": "m^-1",
         "noDataValue": "NaN",
         "noDataValueUsed": "true",
@@ -2457,22 +2479,22 @@
         "spectralBandwidth": "0.0",
         "expectedPixels": [
           {
-            "x": 603,
-            "y": 634,
-            "value": 18.300272
+            "x": 359,
+            "y": 199,
+            "value": 0.0129598025
           },
           {
-            "x": 3810,
-            "y": 4209,
-            "value": "NaN"
+            "x": 1251,
+            "y": 358,
+            "value": 0.036730595
           }
         ]
       },
       {
         "name": "iop_atot",
         "description": "phytoplankton + detritus + gelbstoff absorption at 443 nm",
-        "bandWidth": 4865,
-        "bandHeight": 6728,
+        "bandWidth": 2400,
+        "bandHeight": 3000,
         "geophysicalUnit": "m^-1",
         "noDataValue": "NaN",
         "noDataValueUsed": "true",
@@ -2480,22 +2502,22 @@
         "spectralBandwidth": "0.0",
         "expectedPixels": [
           {
-            "x": 729,
-            "y": 446,
-            "value": "NaN"
+            "x": 2166,
+            "y": 1252,
+            "value": 0.04260366
           },
           {
-            "x": 2537,
-            "y": 804,
-            "value": "NaN"
+            "x": 590,
+            "y": 1013,
+            "value": 0.027145838
           }
         ]
       },
       {
         "name": "iop_btot",
         "description": "total particle scattering at 443 nm",
-        "bandWidth": 4865,
-        "bandHeight": 6728,
+        "bandWidth": 2400,
+        "bandHeight": 3000,
         "geophysicalUnit": "m^-1",
         "noDataValue": "NaN",
         "noDataValueUsed": "true",
@@ -2503,22 +2525,22 @@
         "spectralBandwidth": "0.0",
         "expectedPixels": [
           {
-            "x": 4390,
-            "y": 2809,
-            "value": "NaN"
+            "x": 1630,
+            "y": 368,
+            "value": 44.436493
           },
           {
-            "x": 1196,
-            "y": 2273,
-            "value": 40.359524
+            "x": 291,
+            "y": 902,
+            "value": 40.69654
           }
         ]
       },
       {
         "name": "kd489",
         "description": "Irradiance attenuation coefficient at 489 nm",
-        "bandWidth": 4865,
-        "bandHeight": 6728,
+        "bandWidth": 2400,
+        "bandHeight": 3000,
         "geophysicalUnit": "m^-1",
         "noDataValue": "NaN",
         "noDataValueUsed": "true",
@@ -2526,22 +2548,22 @@
         "spectralBandwidth": "0.0",
         "expectedPixels": [
           {
-            "x": 3305,
-            "y": 826,
-            "value": 10.335362
+            "x": 2047,
+            "y": 726,
+            "value": 11.279229
           },
           {
-            "x": 590,
-            "y": 2024,
-            "value": "NaN"
+            "x": 236,
+            "y": 2,
+            "value": 11.121514
           }
         ]
       },
       {
         "name": "kdmin",
         "description": "Mean irradiance attenuation coefficient at the three bands with minimum kd",
-        "bandWidth": 4865,
-        "bandHeight": 6728,
+        "bandWidth": 2400,
+        "bandHeight": 3000,
         "geophysicalUnit": "m^-1",
         "noDataValue": "NaN",
         "noDataValueUsed": "true",
@@ -2549,22 +2571,22 @@
         "spectralBandwidth": "0.0",
         "expectedPixels": [
           {
-            "x": 4149,
-            "y": 1629,
-            "value": 0.0682868
+            "x": 299,
+            "y": 1370,
+            "value": "NaN"
           },
           {
-            "x": 480,
-            "y": 6,
-            "value": 3.06081
+            "x": 1411,
+            "y": 1464,
+            "value": 0.06585905
           }
         ]
       },
       {
         "name": "kd_z90max",
         "description": "Depth of the water column from which 90% of the water leaving irradiance comes from",
-        "bandWidth": 4865,
-        "bandHeight": 6728,
+        "bandWidth": 2400,
+        "bandHeight": 3000,
         "geophysicalUnit": "m",
         "noDataValue": "NaN",
         "noDataValueUsed": "true",
@@ -2572,22 +2594,22 @@
         "spectralBandwidth": "0.0",
         "expectedPixels": [
           {
-            "x": 607,
-            "y": 3072,
-            "value": 0.33350134
+            "x": 415,
+            "y": 1887,
+            "value": "NaN"
           },
           {
-            "x": 2861,
-            "y": 3283,
-            "value": "NaN"
+            "x": 1284,
+            "y": 2320,
+            "value": 23.091747
           }
         ]
       },
       {
         "name": "conc_tsm",
         "description": "Total suspended matter dry weight concentration",
-        "bandWidth": 4865,
-        "bandHeight": 6728,
+        "bandWidth": 2400,
+        "bandHeight": 3000,
         "geophysicalUnit": "g m^-3",
         "noDataValue": "NaN",
         "noDataValueUsed": "true",
@@ -2595,13 +2617,13 @@
         "spectralBandwidth": "0.0",
         "expectedPixels": [
           {
-            "x": 841,
-            "y": 4231,
-            "value": "NaN"
+            "x": 963,
+            "y": 1056,
+            "value": 0.035625115
           },
           {
-            "x": 2603,
-            "y": 5203,
+            "x": 1067,
+            "y": 2724,
             "value": "NaN"
           }
         ]
@@ -2609,8 +2631,8 @@
       {
         "name": "conc_chl",
         "description": "Chlorophyll concentration",
-        "bandWidth": 4865,
-        "bandHeight": 6728,
+        "bandWidth": 2400,
+        "bandHeight": 3000,
         "geophysicalUnit": "mg m^-3",
         "noDataValue": "NaN",
         "noDataValueUsed": "true",
@@ -2618,36 +2640,14 @@
         "spectralBandwidth": "0.0",
         "expectedPixels": [
           {
-            "x": 1954,
-            "y": 2369,
-            "value": 44.05197
+            "x": 305,
+            "y": 532,
+            "value": 0.092868105
           },
           {
-            "x": 2163,
-            "y": 6109,
+            "x": 68,
+            "y": 1808,
             "value": "NaN"
-          }
-        ]
-      },
-      {
-        "name": "c2rcc_flags",
-        "description": "C2RCC quality flags",
-        "bandWidth": 4865,
-        "bandHeight": 6728,
-        "noDataValue": "0.0",
-        "noDataValueUsed": "false",
-        "spectralWavelength": "0.0",
-        "spectralBandwidth": "0.0",
-        "expectedPixels": [
-          {
-            "x": 618,
-            "y": 1195,
-            "value": 2.14748365E9
-          },
-          {
-            "x": 139,
-            "y": 4055,
-            "value": 2.14748365E9
           }
         ]
       }
@@ -2974,24 +2974,44 @@
     ],
     "metadata": [
       {
-        "path": "atmospheric_temperature_profile/reference_pressure_level",
-        "value": "1000.0,950.0,925.0,900.0,850.0,800.0,700.0,600.0,500.0,400.0,300.0,250.0,200.0,150.0,100.0,70.0,50.0,30.0,20.0,10.0,7.0,5.0,3.0,2.0,1.0"
+        "path": "reference_pressure_level/standard_name",
+        "value": "air_pressure"
       },
       {
-        "path": "Manifest/metadataSection/processing/resource[2]/processing/resource[2]/name",
-        "value": "S3__MPL_ORBSCT_20130415T222620_99999999T999999_0001.EEF"
+        "path": "relative_spectral_covariance/ancillary_variables",
+        "value": "lambda0"
       },
       {
-        "path": "reference_pressure_level/coordinates",
-        "value": "latitude longitude"
+        "path": "history/SubsetInfo/ProductNodeName.48",
+        "value": "Oa11_radiance"
       },
       {
-        "path": "relative_spectral_covariance/Covariances for band 13/Covariance",
-        "value": "0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0"
+        "path": "time_stamp/standard_name",
+        "value": "time"
       },
       {
-        "path": "atmospheric_temperature_profile/reference_pressure_level",
-        "value": "1000.0,950.0,925.0,900.0,850.0,800.0,700.0,600.0,500.0,400.0,300.0,250.0,200.0,150.0,100.0,70.0,50.0,30.0,20.0,10.0,7.0,5.0,3.0,2.0,1.0"
+        "path": "relative_spectral_covariance/long_name",
+        "value": "Relative spectral covariance matrix"
+      },
+      {
+        "path": "Manifest/metadataSection/generalProductInformation/dumpInformation/dumpStart",
+        "value": "2013-06-21T10:14:27.000000Z"
+      },
+      {
+        "path": "Manifest/metadataSection/qualityInformation/extension/productQuality/degradationFlags",
+        "value": "INPUT_GAPS ADF_GAPS"
+      },
+      {
+        "path": "reference_pressure_level/valid_min",
+        "value": "0.0"
+      },
+      {
+        "path": "relative_spectral_covariance/value",
+        "value": "1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0"
+      },
+      {
+        "path": "relative_spectral_covariance/_ChunkSizes",
+        "value": "21,21"
       }
     ]
   }
