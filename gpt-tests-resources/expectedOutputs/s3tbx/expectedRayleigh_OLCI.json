@@ -1,5 +1,5 @@
 {
-  "id": "Rayleigh_OLCI",
+  "id": "out-rayleigh",
   "decodeQualification": "INTENDED",
   "expectedContent": {
     "sceneWidth": 800,
@@ -11,13 +11,13 @@
         {
           "x": 345.0,
           "y": 215.0,
-          "lat": 80.46778499999999,
-          "lon": 172.768824
+          "lat": 80.467784,
+          "lon": 172.768832
         },
         {
           "x": 593.0,
           "y": 259.0,
-          "lat": 78.81585199999999,
+          "lat": 78.815856,
           "lon": 162.72127999999998
         }
       ],
@@ -192,46 +192,6 @@
     ],
     "tiePointGrids": [
       {
-        "name": "TP_latitude",
-        "description": "Latitude",
-        "offsetX": "-0.0",
-        "offsetY": "-0.0",
-        "subSamplingX": "16.0",
-        "subSamplingY": "1.0",
-        "expectedPixels": [
-          {
-            "x": 41,
-            "y": 71,
-            "value": 81.13412
-          },
-          {
-            "x": 548,
-            "y": 340,
-            "value": 79.622246
-          }
-        ]
-      },
-      {
-        "name": "TP_longitude",
-        "description": "Longitude",
-        "offsetX": "-0.0",
-        "offsetY": "-0.0",
-        "subSamplingX": "16.0",
-        "subSamplingY": "1.0",
-        "expectedPixels": [
-          {
-            "x": 232,
-            "y": 102,
-            "value": -177.61873
-          },
-          {
-            "x": 488,
-            "y": 146,
-            "value": 170.76384
-          }
-        ]
-      },
-      {
         "name": "OAA",
         "description": "Observation (Viewing) Azimuth Angle",
         "offsetX": "-0.0",
@@ -240,14 +200,14 @@
         "subSamplingY": "1.0",
         "expectedPixels": [
           {
-            "x": 440,
-            "y": 298,
-            "value": -145.69427
+            "x": 41,
+            "y": 71,
+            "value": -38.609272
           },
           {
-            "x": 486,
-            "y": 371,
-            "value": -151.06404
+            "x": 548,
+            "y": 340,
+            "value": -87.11356
           }
         ]
       },
@@ -260,14 +220,14 @@
         "subSamplingY": "1.0",
         "expectedPixels": [
           {
-            "x": 126,
-            "y": 266,
-            "value": 29.450853
+            "x": 232,
+            "y": 102,
+            "value": 26.976154
           },
           {
-            "x": 415,
-            "y": 365,
-            "value": 7.389306
+            "x": 488,
+            "y": 146,
+            "value": 24.012012
           }
         ]
       },
@@ -280,14 +240,14 @@
         "subSamplingY": "1.0",
         "expectedPixels": [
           {
-            "x": 604,
-            "y": 193,
-            "value": -80.45434
+            "x": 440,
+            "y": 298,
+            "value": -51.171917
           },
           {
-            "x": 760,
-            "y": 194,
-            "value": -83.81518
+            "x": 486,
+            "y": 371,
+            "value": -66.37864
           }
         ]
       },
@@ -300,14 +260,54 @@
         "subSamplingY": "1.0",
         "expectedPixels": [
           {
+            "x": 126,
+            "y": 266,
+            "value": 79.30737
+          },
+          {
+            "x": 415,
+            "y": 365,
+            "value": 78.22539
+          }
+        ]
+      },
+      {
+        "name": "TP_latitude",
+        "description": "Latitude",
+        "offsetX": "-0.0",
+        "offsetY": "-0.0",
+        "subSamplingX": "16.0",
+        "subSamplingY": "1.0",
+        "expectedPixels": [
+          {
+            "x": 604,
+            "y": 193,
+            "value": 76.08097
+          },
+          {
+            "x": 760,
+            "y": 194,
+            "value": 77.283714
+          }
+        ]
+      },
+      {
+        "name": "TP_longitude",
+        "description": "Longitude",
+        "offsetX": "-0.0",
+        "offsetY": "-0.0",
+        "subSamplingX": "16.0",
+        "subSamplingY": "1.0",
+        "expectedPixels": [
+          {
             "x": 272,
             "y": 359,
-            "value": 74.05106
+            "value": -167.92032
           },
           {
             "x": 7,
             "y": 188,
-            "value": 76.75643
+            "value": 2.1333392
           }
         ]
       },
@@ -322,12 +322,12 @@
           {
             "x": 261,
             "y": 78,
-            "value": 264.23593
+            "value": 263.08212
           },
           {
             "x": 218,
             "y": 17,
-            "value": 264.08096
+            "value": 263.45276
           }
         ]
       },
@@ -342,12 +342,12 @@
           {
             "x": 777,
             "y": 241,
-            "value": 259.07755
+            "value": 261.36508
           },
           {
             "x": 457,
             "y": 286,
-            "value": 259.97342
+            "value": 260.19806
           }
         ]
       },
@@ -362,12 +362,12 @@
           {
             "x": 185,
             "y": 199,
-            "value": 261.4027
+            "value": 261.619
           },
           {
             "x": 256,
             "y": 289,
-            "value": 259.8947
+            "value": 261.4811
           }
         ]
       },
@@ -382,12 +382,12 @@
           {
             "x": 286,
             "y": 199,
-            "value": 261.06174
+            "value": 263.31427
           },
           {
             "x": 322,
             "y": 176,
-            "value": 260.72647
+            "value": 263.7699
           }
         ]
       },
@@ -402,12 +402,12 @@
           {
             "x": 459,
             "y": 36,
-            "value": 261.32983
+            "value": 261.4731
           },
           {
             "x": 516,
             "y": 6,
-            "value": 261.49002
+            "value": 262.85284
           }
         ]
       },
@@ -422,12 +422,12 @@
           {
             "x": 780,
             "y": 146,
-            "value": 259.1679
+            "value": 261.2446
           },
           {
             "x": 760,
             "y": 378,
-            "value": 258.66992
+            "value": 260.00662
           }
         ]
       },
@@ -442,12 +442,12 @@
           {
             "x": 88,
             "y": 180,
-            "value": 255.9662
+            "value": 255.29187
           },
           {
             "x": 456,
             "y": 224,
-            "value": 255.03801
+            "value": 254.97044
           }
         ]
       },
@@ -462,12 +462,12 @@
           {
             "x": 404,
             "y": 208,
-            "value": 247.94633
+            "value": 247.66821
           },
           {
             "x": 360,
             "y": 232,
-            "value": 248.84238
+            "value": 248.21251
           }
         ]
       },
@@ -482,12 +482,12 @@
           {
             "x": 11,
             "y": 169,
-            "value": 242.83778
+            "value": 239.63004
           },
           {
             "x": 56,
             "y": 397,
-            "value": 244.84532
+            "value": 239.12793
           }
         ]
       },
@@ -502,12 +502,12 @@
           {
             "x": 237,
             "y": 298,
-            "value": 230.43465
+            "value": 228.97418
           },
           {
             "x": 642,
             "y": 294,
-            "value": 229.67067
+            "value": 229.42314
           }
         ]
       },
@@ -522,12 +522,12 @@
           {
             "x": 667,
             "y": 378,
-            "value": 220.72748
+            "value": 224.90068
           },
           {
             "x": 198,
             "y": 212,
-            "value": 220.03548
+            "value": 223.41562
           }
         ]
       },
@@ -542,12 +542,12 @@
           {
             "x": 488,
             "y": 104,
-            "value": 226.54326
+            "value": 226.10721
           },
           {
             "x": 442,
             "y": 60,
-            "value": 226.66504
+            "value": 225.7606
           }
         ]
       },
@@ -562,12 +562,12 @@
           {
             "x": 380,
             "y": 223,
-            "value": 226.9041
+            "value": 227.04393
           },
           {
             "x": 76,
             "y": 339,
-            "value": 225.97525
+            "value": 226.72389
           }
         ]
       },
@@ -582,12 +582,12 @@
           {
             "x": 76,
             "y": 31,
-            "value": 226.18332
+            "value": 225.01357
           },
           {
             "x": 364,
             "y": 270,
-            "value": 226.63911
+            "value": 225.67618
           }
         ]
       },
@@ -602,12 +602,12 @@
           {
             "x": 372,
             "y": 358,
-            "value": 225.78209
+            "value": 224.57397
           },
           {
             "x": 693,
             "y": 240,
-            "value": 225.72435
+            "value": 224.81386
           }
         ]
       },
@@ -622,12 +622,12 @@
           {
             "x": 769,
             "y": 152,
-            "value": 225.39363
+            "value": 224.23868
           },
           {
             "x": 70,
             "y": 213,
-            "value": 224.66179
+            "value": 224.28513
           }
         ]
       },
@@ -642,12 +642,12 @@
           {
             "x": 588,
             "y": 237,
-            "value": 224.33875
+            "value": 223.85066
           },
           {
             "x": 780,
             "y": 74,
-            "value": 225.04758
+            "value": 223.82434
           }
         ]
       },
@@ -662,12 +662,12 @@
           {
             "x": 368,
             "y": 104,
-            "value": 223.69994
+            "value": 223.32582
           },
           {
             "x": 183,
             "y": 259,
-            "value": 224.40651
+            "value": 223.56953
           }
         ]
       },
@@ -682,12 +682,12 @@
           {
             "x": 511,
             "y": 175,
-            "value": 224.88817
+            "value": 224.54018
           },
           {
             "x": 425,
             "y": 226,
-            "value": 224.68683
+            "value": 224.8802
           }
         ]
       },
@@ -702,12 +702,12 @@
           {
             "x": 316,
             "y": 85,
-            "value": 230.89743
+            "value": 230.05655
           },
           {
             "x": 223,
             "y": 355,
-            "value": 230.38152
+            "value": 229.55817
           }
         ]
       },
@@ -722,12 +722,12 @@
           {
             "x": 756,
             "y": 231,
-            "value": 236.55518
+            "value": 235.84593
           },
           {
             "x": 606,
             "y": 131,
-            "value": 235.69322
+            "value": 235.57567
           }
         ]
       },
@@ -742,12 +742,12 @@
           {
             "x": 448,
             "y": 116,
-            "value": 241.6038
+            "value": 242.07854
           },
           {
             "x": 663,
             "y": 348,
-            "value": 241.9546
+            "value": 241.22882
           }
         ]
       },
@@ -762,12 +762,12 @@
           {
             "x": 86,
             "y": 354,
-            "value": 255.314
+            "value": 256.46948
           },
           {
             "x": 275,
             "y": 325,
-            "value": 253.49648
+            "value": 254.30281
           }
         ]
       },
@@ -782,12 +782,12 @@
           {
             "x": 145,
             "y": 276,
-            "value": 264.11023
+            "value": 264.33066
           },
           {
             "x": 473,
             "y": 219,
-            "value": 265.41626
+            "value": 266.21896
           }
         ]
       },
@@ -802,12 +802,12 @@
           {
             "x": 164,
             "y": 122,
-            "value": 273.5924
+            "value": 272.18137
           },
           {
             "x": 328,
             "y": 345,
-            "value": 272.87292
+            "value": 272.37912
           }
         ]
       },
@@ -822,12 +822,12 @@
           {
             "x": 561,
             "y": 359,
-            "value": 0.3708846
+            "value": -2.0029635
           },
           {
             "x": 238,
             "y": 397,
-            "value": 3.163979
+            "value": 0.28659248
           }
         ]
       },
@@ -842,12 +842,12 @@
           {
             "x": 437,
             "y": 46,
-            "value": 4.184941
+            "value": 0.42019373
           },
           {
             "x": 155,
             "y": 224,
-            "value": -0.10356798
+            "value": 0.75465626
           }
         ]
       },
@@ -862,12 +862,12 @@
           {
             "x": 366,
             "y": 51,
-            "value": 65.711365
+            "value": 87.91979
           },
           {
             "x": 663,
             "y": 229,
-            "value": 92.5407
+            "value": 41.47053
           }
         ]
       },
@@ -882,12 +882,12 @@
           {
             "x": 82,
             "y": 270,
-            "value": 1019.6648
+            "value": 1022.5775
           },
           {
             "x": 584,
             "y": 188,
-            "value": 1019.76105
+            "value": 1023.43304
           }
         ]
       },
@@ -902,12 +902,12 @@
           {
             "x": 114,
             "y": 26,
-            "value": 4.545277
+            "value": 5.419204
           },
           {
             "x": 673,
             "y": 119,
-            "value": 3.87566
+            "value": 4.1603575
           }
         ]
       },
@@ -922,303 +922,17 @@
           {
             "x": 473,
             "y": 388,
-            "value": 0.008779217
+            "value": 0.009036188
           },
           {
             "x": 621,
             "y": 10,
-            "value": 0.00917271
+            "value": 0.008943626
           }
         ]
       }
     ],
     "bands": [
-      {
-        "name": "taur_01",
-        "description": "",
-        "bandWidth": 800,
-        "bandHeight": 400,
-        "noDataValue": "-999.9000244140625",
-        "noDataValueUsed": "true",
-        "spectralWavelength": "400.0",
-        "spectralBandwidth": "15.0",
-        "expectedPixels": [
-          {
-            "x": 173,
-            "y": 98,
-            "value": 0.35939384
-          },
-          {
-            "x": 255,
-            "y": 77,
-            "value": 0.35951415
-          }
-        ]
-      },
-      {
-        "name": "taur_06",
-        "description": "",
-        "bandWidth": 800,
-        "bandHeight": 400,
-        "noDataValue": "-999.9000244140625",
-        "noDataValueUsed": "true",
-        "spectralWavelength": "560.0",
-        "spectralBandwidth": "10.0",
-        "expectedPixels": [
-          {
-            "x": 226,
-            "y": 353,
-            "value": 0.09021804
-          },
-          {
-            "x": 798,
-            "y": 30,
-            "value": 0.09016981
-          }
-        ]
-      },
-      {
-        "name": "taur_07",
-        "description": "",
-        "bandWidth": 800,
-        "bandHeight": 400,
-        "noDataValue": "-999.9000244140625",
-        "noDataValueUsed": "true",
-        "spectralWavelength": "620.0",
-        "spectralBandwidth": "10.0",
-        "expectedPixels": [
-          {
-            "x": 655,
-            "y": 200,
-            "value": 0.059685547
-          },
-          {
-            "x": 50,
-            "y": 154,
-            "value": 0.059690718
-          }
-        ]
-      },
-      {
-        "name": "rBRR_01",
-        "description": "",
-        "bandWidth": 800,
-        "bandHeight": 400,
-        "noDataValue": "-999.9000244140625",
-        "noDataValueUsed": "true",
-        "spectralWavelength": "400.0",
-        "spectralBandwidth": "15.0",
-        "expectedPixels": [
-          {
-            "x": 221,
-            "y": 232,
-            "value": 0.9213117
-          },
-          {
-            "x": 742,
-            "y": 55,
-            "value": 0.9125988
-          }
-        ]
-      },
-      {
-        "name": "rBRR_06",
-        "description": "",
-        "bandWidth": 800,
-        "bandHeight": 400,
-        "noDataValue": "-999.9000244140625",
-        "noDataValueUsed": "true",
-        "spectralWavelength": "560.0",
-        "spectralBandwidth": "10.0",
-        "expectedPixels": [
-          {
-            "x": 83,
-            "y": 58,
-            "value": 0.7640602
-          },
-          {
-            "x": 706,
-            "y": 42,
-            "value": 0.76443857
-          }
-        ]
-      },
-      {
-        "name": "rBRR_07",
-        "description": "",
-        "bandWidth": 800,
-        "bandHeight": 400,
-        "noDataValue": "-999.9000244140625",
-        "noDataValueUsed": "true",
-        "spectralWavelength": "620.0",
-        "spectralBandwidth": "10.0",
-        "expectedPixels": [
-          {
-            "x": 296,
-            "y": 352,
-            "value": 0.7253401
-          },
-          {
-            "x": 468,
-            "y": 230,
-            "value": 0.7155096
-          }
-        ]
-      },
-      {
-        "name": "rtoa_ng_01",
-        "description": "",
-        "bandWidth": 800,
-        "bandHeight": 400,
-        "noDataValue": "-999.9000244140625",
-        "noDataValueUsed": "true",
-        "spectralWavelength": "400.0",
-        "spectralBandwidth": "15.0",
-        "expectedPixels": [
-          {
-            "x": 270,
-            "y": 130,
-            "value": 0.7202967
-          },
-          {
-            "x": 299,
-            "y": 342,
-            "value": 0.7447928
-          }
-        ]
-      },
-      {
-        "name": "rtoa_ng_06",
-        "description": "",
-        "bandWidth": 800,
-        "bandHeight": 400,
-        "noDataValue": "-999.9000244140625",
-        "noDataValueUsed": "true",
-        "spectralWavelength": "560.0",
-        "spectralBandwidth": "10.0",
-        "expectedPixels": [
-          {
-            "x": 260,
-            "y": 273,
-            "value": 0.7362215
-          },
-          {
-            "x": 514,
-            "y": 270,
-            "value": 0.7283149
-          }
-        ]
-      },
-      {
-        "name": "rtoa_ng_07",
-        "description": "",
-        "bandWidth": 800,
-        "bandHeight": 400,
-        "noDataValue": "-999.9000244140625",
-        "noDataValueUsed": "true",
-        "spectralWavelength": "620.0",
-        "spectralBandwidth": "10.0",
-        "expectedPixels": [
-          {
-            "x": 424,
-            "y": 52,
-            "value": 0.63098204
-          },
-          {
-            "x": 370,
-            "y": 320,
-            "value": 0.6946892
-          }
-        ]
-      },
-      {
-        "name": "rtoa_01",
-        "description": "",
-        "bandWidth": 800,
-        "bandHeight": 400,
-        "noDataValue": "-999.9000244140625",
-        "noDataValueUsed": "true",
-        "spectralWavelength": "400.0",
-        "spectralBandwidth": "15.0",
-        "expectedPixels": [
-          {
-            "x": 641,
-            "y": 360,
-            "value": 0.70718193
-          },
-          {
-            "x": 20,
-            "y": 279,
-            "value": 0.77541995
-          }
-        ]
-      },
-      {
-        "name": "rtoa_06",
-        "description": "",
-        "bandWidth": 800,
-        "bandHeight": 400,
-        "noDataValue": "-999.9000244140625",
-        "noDataValueUsed": "true",
-        "spectralWavelength": "560.0",
-        "spectralBandwidth": "10.0",
-        "expectedPixels": [
-          {
-            "x": 711,
-            "y": 230,
-            "value": 0.5840481
-          },
-          {
-            "x": 510,
-            "y": 363,
-            "value": 0.8180536
-          }
-        ]
-      },
-      {
-        "name": "rtoa_07",
-        "description": "",
-        "bandWidth": 800,
-        "bandHeight": 400,
-        "noDataValue": "-999.9000244140625",
-        "noDataValueUsed": "true",
-        "spectralWavelength": "620.0",
-        "spectralBandwidth": "10.0",
-        "expectedPixels": [
-          {
-            "x": 785,
-            "y": 129,
-            "value": 0.501204
-          },
-          {
-            "x": 287,
-            "y": 2,
-            "value": 0.5043739
-          }
-        ]
-      },
-      {
-        "name": "airmass",
-        "description": "",
-        "bandWidth": 800,
-        "bandHeight": 400,
-        "noDataValue": "-999.9000244140625",
-        "noDataValueUsed": "true",
-        "spectralWavelength": "0.0",
-        "spectralBandwidth": "0.0",
-        "expectedPixels": [
-          {
-            "x": 671,
-            "y": 227,
-            "value": 4.5800605
-          },
-          {
-            "x": 472,
-            "y": 159,
-            "value": 4.886292
-          }
-        ]
-      },
       {
         "name": "quality_flags",
         "description": "Classification and quality flags",
@@ -1230,14 +944,14 @@
         "spectralBandwidth": "0.0",
         "expectedPixels": [
           {
-            "x": 315,
-            "y": 395,
-            "value": 1.34217728E8
+            "x": 173,
+            "y": 98,
+            "value": 1.3421773E8
           },
           {
-            "x": 183,
-            "y": 286,
-            "value": 1.34217728E8
+            "x": 255,
+            "y": 77,
+            "value": 1.3421773E8
           }
         ]
       },
@@ -1253,14 +967,14 @@
         "spectralBandwidth": "0.0",
         "expectedPixels": [
           {
-            "x": 750,
-            "y": 115,
-            "value": 164.85712
+            "x": 226,
+            "y": 353,
+            "value": 170.48134
           },
           {
-            "x": 251,
-            "y": 340,
-            "value": 170.12254
+            "x": 798,
+            "y": 30,
+            "value": 166.85115
           }
         ]
       },
@@ -1276,14 +990,300 @@
         "spectralBandwidth": "0.0",
         "expectedPixels": [
           {
+            "x": 655,
+            "y": 200,
+            "value": 77.97684
+          },
+          {
+            "x": 50,
+            "y": 154,
+            "value": 81.83224
+          }
+        ]
+      },
+      {
+        "name": "taur_01",
+        "description": "",
+        "bandWidth": 800,
+        "bandHeight": 400,
+        "noDataValue": "-999.9000244140625",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "400.0",
+        "spectralBandwidth": "15.0",
+        "expectedPixels": [
+          {
+            "x": 221,
+            "y": 232,
+            "value": 0.35832456
+          },
+          {
+            "x": 742,
+            "y": 55,
+            "value": 0.36019048
+          }
+        ]
+      },
+      {
+        "name": "taur_06",
+        "description": "",
+        "bandWidth": 800,
+        "bandHeight": 400,
+        "noDataValue": "-999.9000244140625",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "560.0",
+        "spectralBandwidth": "10.0",
+        "expectedPixels": [
+          {
+            "x": 83,
+            "y": 58,
+            "value": 0.09051521
+          },
+          {
+            "x": 706,
+            "y": 42,
+            "value": 0.08988854
+          }
+        ]
+      },
+      {
+        "name": "taur_07",
+        "description": "",
+        "bandWidth": 800,
+        "bandHeight": 400,
+        "noDataValue": "-999.9000244140625",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "620.0",
+        "spectralBandwidth": "10.0",
+        "expectedPixels": [
+          {
+            "x": 296,
+            "y": 352,
+            "value": 0.05947909
+          },
+          {
+            "x": 468,
+            "y": 230,
+            "value": 0.05987556
+          }
+        ]
+      },
+      {
+        "name": "rBRR_01",
+        "description": "",
+        "bandWidth": 800,
+        "bandHeight": 400,
+        "noDataValue": "-999.9000244140625",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "400.0",
+        "spectralBandwidth": "15.0",
+        "expectedPixels": [
+          {
+            "x": 270,
+            "y": 130,
+            "value": 1.657919
+          },
+          {
+            "x": 299,
+            "y": 342,
+            "value": 1.4040486
+          }
+        ]
+      },
+      {
+        "name": "rBRR_06",
+        "description": "",
+        "bandWidth": 800,
+        "bandHeight": 400,
+        "noDataValue": "-999.9000244140625",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "560.0",
+        "spectralBandwidth": "10.0",
+        "expectedPixels": [
+          {
+            "x": 260,
+            "y": 273,
+            "value": 1.3806375
+          },
+          {
+            "x": 514,
+            "y": 270,
+            "value": 1.3093957
+          }
+        ]
+      },
+      {
+        "name": "rBRR_07",
+        "description": "",
+        "bandWidth": 800,
+        "bandHeight": 400,
+        "noDataValue": "-999.9000244140625",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "620.0",
+        "spectralBandwidth": "10.0",
+        "expectedPixels": [
+          {
+            "x": 424,
+            "y": 52,
+            "value": 1.3762808
+          },
+          {
+            "x": 370,
+            "y": 320,
+            "value": 1.4571865
+          }
+        ]
+      },
+      {
+        "name": "rtoa_ng_01",
+        "description": "",
+        "bandWidth": 800,
+        "bandHeight": 400,
+        "noDataValue": "-999.9000244140625",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "400.0",
+        "spectralBandwidth": "15.0",
+        "expectedPixels": [
+          {
+            "x": 641,
+            "y": 360,
+            "value": 1.1361023
+          },
+          {
+            "x": 20,
+            "y": 279,
+            "value": 1.1797888
+          }
+        ]
+      },
+      {
+        "name": "rtoa_ng_06",
+        "description": "",
+        "bandWidth": 800,
+        "bandHeight": 400,
+        "noDataValue": "-999.9000244140625",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "560.0",
+        "spectralBandwidth": "10.0",
+        "expectedPixels": [
+          {
+            "x": 711,
+            "y": 230,
+            "value": 1.1175202
+          },
+          {
+            "x": 510,
+            "y": 363,
+            "value": 1.7789248
+          }
+        ]
+      },
+      {
+        "name": "rtoa_ng_07",
+        "description": "",
+        "bandWidth": 800,
+        "bandHeight": 400,
+        "noDataValue": "-999.9000244140625",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "620.0",
+        "spectralBandwidth": "10.0",
+        "expectedPixels": [
+          {
+            "x": 785,
+            "y": 129,
+            "value": 1.0869732
+          },
+          {
+            "x": 287,
+            "y": 2,
+            "value": 1.1064287
+          }
+        ]
+      },
+      {
+        "name": "rtoa_01",
+        "description": "",
+        "bandWidth": 800,
+        "bandHeight": 400,
+        "noDataValue": "-999.9000244140625",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "400.0",
+        "spectralBandwidth": "15.0",
+        "expectedPixels": [
+          {
+            "x": 671,
+            "y": 227,
+            "value": 1.0340343
+          },
+          {
+            "x": 472,
+            "y": 159,
+            "value": 1.0326517
+          }
+        ]
+      },
+      {
+        "name": "rtoa_06",
+        "description": "",
+        "bandWidth": 800,
+        "bandHeight": 400,
+        "noDataValue": "-999.9000244140625",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "560.0",
+        "spectralBandwidth": "10.0",
+        "expectedPixels": [
+          {
+            "x": 315,
+            "y": 395,
+            "value": 0.9326016
+          },
+          {
+            "x": 183,
+            "y": 286,
+            "value": 0.85484636
+          }
+        ]
+      },
+      {
+        "name": "rtoa_07",
+        "description": "",
+        "bandWidth": 800,
+        "bandHeight": 400,
+        "noDataValue": "-999.9000244140625",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "620.0",
+        "spectralBandwidth": "10.0",
+        "expectedPixels": [
+          {
+            "x": 750,
+            "y": 115,
+            "value": 1.1225401
+          },
+          {
+            "x": 251,
+            "y": 340,
+            "value": 0.77709347
+          }
+        ]
+      },
+      {
+        "name": "airmass",
+        "description": "",
+        "bandWidth": 800,
+        "bandHeight": 400,
+        "noDataValue": "-999.9000244140625",
+        "noDataValueUsed": "true",
+        "spectralWavelength": "0.0",
+        "spectralBandwidth": "0.0",
+        "expectedPixels": [
+          {
             "x": 262,
             "y": 211,
-            "value": 81.02218
+            "value": 6.706071
           },
           {
             "x": 286,
             "y": 319,
-            "value": 81.606415
+            "value": 6.494191
           }
         ]
       }
@@ -1484,32 +1484,44 @@
     ],
     "metadata": [
       {
-        "path": "atmospheric_temperature_profile/reference_pressure_level",
-        "value": "1000.0,950.0,925.0,900.0,850.0,800.0,700.0,600.0,500.0,400.0,300.0,250.0,200.0,150.0,100.0,70.0,50.0,30.0,20.0,10.0,7.0,5.0,3.0,2.0,1.0"
+        "path": "relative_spectral_covariance/long_name",
+        "value": "Relative spectral covariance matrix"
+      },
+      {
+        "path": "Manifest/metadataSection/orbitReference/relativePassNumber[2]/type",
+        "value": "stop"
       },
       {
         "path": "Manifest/metadataSection/platform/instrument/mode/mode",
         "value": "Earth Observation"
       },
       {
-        "path": "reference_pressure_level/valid_min",
-        "value": "0.0"
+        "path": "history/SubsetInfo/ProductNodeName.43",
+        "value": "Oa06_radiance"
       },
       {
-        "path": "relative_spectral_covariance/Covariances for band 11/Covariance",
-        "value": "0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0"
-      },
-      {
-        "path": "history/SubsetInfo/ProductNodeName.90",
+        "path": "history/SubsetInfo/ProductNodeName.91",
         "value": "lambda0_band_6"
       },
       {
-        "path": "atmospheric_temperature_profile/reference_pressure_level",
-        "value": "1000.0,950.0,925.0,900.0,850.0,800.0,700.0,600.0,500.0,400.0,300.0,250.0,200.0,150.0,100.0,70.0,50.0,30.0,20.0,10.0,7.0,5.0,3.0,2.0,1.0"
+        "path": "reference_pressure_level/units",
+        "value": "hPa"
+      },
+      {
+        "path": "Manifest/metadataSection/platform/instrument/mode/identifier",
+        "value": "EO"
       },
       {
         "path": "history/SubsetInfo/ProductNodeName.115",
-        "value": "solar_flux_band_10"
+        "value": "solar_flux_band_9"
+      },
+      {
+        "path": "history/SubsetInfo/ProductNodeName.60",
+        "value": "detector_index"
+      },
+      {
+        "path": "history/SubsetInfo/ProductNodeName.97",
+        "value": "lambda0_band_12"
       }
     ]
   }

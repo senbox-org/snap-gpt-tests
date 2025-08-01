@@ -7,10 +7,20 @@
             <file>$input</file>
         </parameters>
     </node>
+    <node id="Subset">
+        <operator>Subset</operator>
+        <sources>
+            <sourceProduct refid="Read"/>
+        </sources>
+        <parameters>
+            <region>$subsetRegion</region>
+            <copyMetadata>true</copyMetadata>
+        </parameters>
+    </node>
     <node id="olci_c2rcc">
         <operator>c2rcc.olci</operator>
         <sources>
-            <sourceProduct>Read</sourceProduct>
+            <sourceProduct>Subset</sourceProduct>
         </sources>
         <parameters>
             <validPixelExpression>!quality_flags.invalid &amp;&amp; (!quality_flags.land || quality_flags.fresh_inland_water)</validPixelExpression>
@@ -56,6 +66,9 @@
         <Description/>
         <node id="Read">
             <displayPosition x="20.0" y="136.0"/>
+        </node>
+        <node id="Subset">
+            <displayPosition x="21.0" y="136.0"/>
         </node>
         <node id="olci_c2rcc">
             <displayPosition x="140.0" y="136.0"/>
