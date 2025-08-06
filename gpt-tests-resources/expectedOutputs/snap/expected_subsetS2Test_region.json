@@ -1,5 +1,5 @@
 {
-  "id": "out-subset-s2ref",
+  "id": "subset_S2_Test_B1",
   "decodeQualification": "INTENDED",
   "expectedContent": {
     "sceneWidth": 200,
@@ -9,82 +9,20 @@
     "geoCoding": {
       "coordinates": [
         {
-          "x": 86.0,
-          "y": 107.0,
-          "lat": 12.626275371767372,
-          "lon": 98.1144075872433
+          "x": 14.0,
+          "y": 17.0,
+          "lat": 12.626726854952482,
+          "lon": 98.11422189375024
         },
         {
-          "x": 148.0,
-          "y": 129.0,
-          "lat": 12.62430503466917,
-          "lon": 98.12012265922608
+          "x": 24.0,
+          "y": 21.0,
+          "lat": 12.624575077432922,
+          "lon": 98.11975345863323
         }
       ],
-      "reverseAccuracy": 1.3606040738523006E-9
+      "reverseAccuracy": 1.9736035028472543E-10
     },
-    "tiePointGrids": [
-      {
-        "name": "tcwv",
-        "description": "Total column water vapour at surface level provided by ECMWF",
-        "offsetX": "-299.5",
-        "offsetY": "-299.5",
-        "subSamplingX": "1220.0",
-        "subSamplingY": "1220.0",
-        "expectedPixels": [
-          {
-            "x": 10,
-            "y": 35,
-            "value": 59.467823
-          },
-          {
-            "x": 137,
-            "y": 170,
-            "value": 59.509216
-          }
-        ]
-      },
-      {
-        "name": "tco3",
-        "description": "Total column ozone at surface level provided by ECMWF",
-        "offsetX": "-299.5",
-        "offsetY": "-299.5",
-        "subSamplingX": "1220.0",
-        "subSamplingY": "1220.0",
-        "expectedPixels": [
-          {
-            "x": 58,
-            "y": 51,
-            "value": 0.0057747555
-          },
-          {
-            "x": 122,
-            "y": 73,
-            "value": 0.0057745473
-          }
-        ]
-      },
-      {
-        "name": "msl",
-        "description": "Mean sea level pressure at surface level provided by ECMWF",
-        "offsetX": "-299.5",
-        "offsetY": "-299.5",
-        "subSamplingX": "1220.0",
-        "subSamplingY": "1220.0",
-        "expectedPixels": [
-          {
-            "x": 110,
-            "y": 149,
-            "value": 100947.3
-          },
-          {
-            "x": 121,
-            "y": 185,
-            "value": 100947.5
-          }
-        ]
-      }
-    ],
     "bands": [
       {
         "name": "B1",
@@ -98,34 +36,42 @@
         "spectralBandwidth": "20.0",
         "expectedPixels": [
           {
-            "x": 5,
-            "y": 22,
-            "value": 0.3308
+            "x": 1,
+            "y": 5,
+            "value": 0.2853
           },
           {
-            "x": 17,
-            "y": 31,
-            "value": 0.3187
+            "x": 22,
+            "y": 28,
+            "value": 0.3416
           }
         ]
       }
     ],
     "metadata": [
       {
-        "path": "Processing_Graph/node.1/parameters/referenceBand",
-        "value": "B2"
+        "path": "Level-1C_DataStrip_ID/Image_Data_Info/Radiometric_Info/Image_Display_Order/GREEN_CHANNEL",
+        "value": "2"
       },
       {
-        "path": "Level-1C_DataStrip_ID/Auxiliary_Data_Info/IERS_Bulletin/GPS_TIME_TAI",
-        "value": "-19"
+        "path": "Processing_Graph/node.1/parameters/fullSwath",
+        "value": "false"
       },
       {
-        "path": "Level-1C_DataStrip_ID/General_Info/Datastrip_Time_Info/metadataLevel",
-        "value": "Brief"
+        "path": "Processing_Graph/node.1/parameters/copyMetadata",
+        "value": "true"
       },
       {
-        "path": "history/SubsetInfo/ProductNodeName.2",
-        "value": "tcwv"
+        "path": "Granules/Level-1C_Tile_47PMP/Geometric_Info/Tile_Geocoding/Geoposition[3]/resolution",
+        "value": "60"
+      },
+      {
+        "path": "Granules/Level-1C_Tile_47PMP/General_Info/Archiving_Info/metadataLevel",
+        "value": "Expertise"
+      },
+      {
+        "path": "history/SubsetInfo/SubSampling.y",
+        "value": "1"
       },
       {
         "path": "Granules/Level-1C_Tile_47PMP/Geometric_Info/Tile_Geocoding/Geoposition/resolution",
@@ -136,20 +82,12 @@
         "value": "B1"
       },
       {
-        "path": "history/SubsetInfo/ProductNodeName.1",
-        "value": "tco3"
+        "path": "history/SubsetInfo/SubSampling.x",
+        "value": "1"
       },
       {
         "path": "Granules/Level-1C_Tile_47PMP/Geometric_Info/Tile_Angles/Viewing_Incidence_Angles_Grids[35]/Azimuth/Values_List/VALUES[10]",
         "value": "NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN NaN 293.943 293.365 292.856 292.404 292.002 291.64 NaN"
-      },
-      {
-        "path": "Level-1C_User_Product/Quality_Indicators_Info/Technical_Quality_Assessment/DEGRADED_MSI_DATA_PERCENTAGE",
-        "value": "0"
-      },
-      {
-        "path": "history/SubsetInfo/ProductNodeName.3",
-        "value": "msl"
       }
     ]
   }
