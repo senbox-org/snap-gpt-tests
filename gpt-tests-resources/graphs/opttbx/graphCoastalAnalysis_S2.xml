@@ -1,0 +1,179 @@
+<graph id="Graph">
+  <version>1.0</version>
+  <node id="Read">
+    <operator>Read</operator>
+    <sources/>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <useAdvancedOptions>false</useAdvancedOptions>
+      <file>$input1</file>
+      <copyMetadata>true</copyMetadata>
+      <bandNames/>
+      <pixelRegion>0,0,10980,10980</pixelRegion>
+      <maskNames/>
+    </parameters>
+  </node>
+  <node id="Resample">
+    <operator>Resample</operator>
+    <sources>
+      <sourceProduct refid="Read"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <referenceBand>B1</referenceBand>
+      <targetWidth/>
+      <targetHeight/>
+      <targetResolution/>
+      <upsampling>Nearest</upsampling>
+      <downsampling>First</downsampling>
+      <flagDownsampling>First</flagDownsampling>
+      <resamplingPreset/>
+      <bandResamplings/>
+      <resampleOnPyramidLevels>true</resampleOnPyramidLevels>
+    </parameters>
+  </node>
+  <node id="Land-Sea-Mask">
+    <operator>Land-Sea-Mask</operator>
+    <sources>
+      <sourceProduct refid="Resample"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <sourceBands>B1,B2,B3,B4,B5,B6,B7,B8,B8A,B9,B10,B11,B12</sourceBands>
+      <landMask>true</landMask>
+      <useSRTM>true</useSRTM>
+      <geometry/>
+      <invertGeometry/>
+      <shorelineExtension>0</shorelineExtension>
+    </parameters>
+  </node>
+  <node id="NdwiOp">
+    <operator>NdwiOp</operator>
+    <sources>
+      <sourceProduct refid="Land-Sea-Mask"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <resampleType>None</resampleType>
+      <upsampling/>
+      <downsampling/>
+      <mirFactor>1.0</mirFactor>
+      <nirFactor>1.0</nirFactor>
+      <mirSourceBand>B12</mirSourceBand>
+      <nirSourceBand>B8</nirSourceBand>
+    </parameters>
+  </node>
+  <node id="MndwiOp">
+    <operator>MndwiOp</operator>
+    <sources>
+      <sourceProduct refid="Land-Sea-Mask"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <resampleType>None</resampleType>
+      <upsampling/>
+      <downsampling/>
+      <greenFactor>1.0</greenFactor>
+      <mirFactor>1.0</mirFactor>
+      <greenSourceBand>B3</greenSourceBand>
+      <mirSourceBand>B12</mirSourceBand>
+    </parameters>
+  </node>
+  <node id="NdpiOp">
+    <operator>NdpiOp</operator>
+    <sources>
+      <sourceProduct refid="Land-Sea-Mask"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <resampleType>None</resampleType>
+      <upsampling/>
+      <downsampling/>
+      <greenFactor>1.0</greenFactor>
+      <mirFactor>1.0</mirFactor>
+      <greenSourceBand>B3</greenSourceBand>
+      <mirSourceBand>B12</mirSourceBand>
+    </parameters>
+  </node>
+  <node id="NdtiOp">
+    <operator>NdtiOp</operator>
+    <sources>
+      <sourceProduct refid="Land-Sea-Mask"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <resampleType>None</resampleType>
+      <upsampling/>
+      <downsampling/>
+      <redFactor>1.0</redFactor>
+      <greenFactor>1.0</greenFactor>
+      <redSourceBand>B4</redSourceBand>
+      <greenSourceBand>B3</greenSourceBand>
+    </parameters>
+  </node>
+  <node id="Ndwi2Op">
+    <operator>Ndwi2Op</operator>
+    <sources>
+      <sourceProduct refid="Land-Sea-Mask"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <resampleType>None</resampleType>
+      <upsampling/>
+      <downsampling/>
+      <greenFactor>1.0</greenFactor>
+      <nirFactor>1.0</nirFactor>
+      <greenSourceBand>B3</greenSourceBand>
+      <nirSourceBand>B8</nirSourceBand>
+    </parameters>
+  </node>
+  <node id="BandMerge">
+    <operator>BandMerge</operator>
+    <sources>
+      <sourceProduct refid="NdwiOp"/>
+      <sourceProduct.1 refid="MndwiOp"/>
+      <sourceProduct.2 refid="NdpiOp"/>
+      <sourceProduct.3 refid="NdtiOp"/>
+      <sourceProduct.4 refid="Ndwi2Op"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <sourceBands/>
+      <geographicError>1.0E-5</geographicError>
+    </parameters>
+  </node>
+  <node id="Write">
+    <operator>Write</operator>
+    <sources>
+      <sourceProduct refid="BandMerge"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <file>$out</file>
+      <formatName>BEAM-DIMAP</formatName>
+    </parameters>
+  </node>
+  <applicationData id="Presentation">
+    <Description/>
+    <node id="Read">
+            <displayPosition x="37.0" y="134.0"/>
+    </node>
+    <node id="Resample">
+      <displayPosition x="37.0" y="197.0"/>
+    </node>
+    <node id="Land-Sea-Mask">
+      <displayPosition x="132.0" y="197.0"/>
+    </node>
+    <node id="NdwiOp">
+      <displayPosition x="316.0" y="197.0"/>
+    </node>
+    <node id="MndwiOp">
+      <displayPosition x="316.0" y="150.0"/>
+    </node>
+    <node id="NdpiOp">
+      <displayPosition x="316.0" y="245.0"/>
+    </node>
+    <node id="NdtiOp">
+      <displayPosition x="316.0" y="99.0"/>
+    </node>
+    <node id="Ndwi2Op">
+      <displayPosition x="316.0" y="294.0"/>
+    </node>
+    <node id="BandMerge">
+      <displayPosition x="450.0" y="197.0"/>
+    </node>
+    <node id="Write">
+      <displayPosition x="557.0" y="197.0"/>
+    </node>
+  </applicationData>
+</graph>
