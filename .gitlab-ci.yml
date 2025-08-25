@@ -25,7 +25,7 @@ include:
         when: never
 
 default:
-  image: docker-hosted.snap-ci.ovh/snap-installer:13.0.0-RC1
+  image: docker-hosted.snap-ci.ovh/snap-installer:13.0.0-RC2-SNAPSHOT
   cache:
     - key: ${CI_COMMIT_BRANCH}
       paths:
@@ -34,7 +34,7 @@ default:
         - "${CI_PROJECT_DIR}/**/target"
 
 variables:
-  VERSION: '13.0.0-RC1'
+  VERSION: '13.0.0-RC2-SNAPSHOT'
   PLATFORM:
     description: Choose to plateform to run this job
     value: linux
