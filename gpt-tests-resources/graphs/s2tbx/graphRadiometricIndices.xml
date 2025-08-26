@@ -1,0 +1,160 @@
+<graph id="Graph">
+  <version>1.0</version>
+  <node id="Read">
+    <operator>Read</operator>
+    <sources/>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <useAdvancedOptions>false</useAdvancedOptions>
+      <file>$inputFile</file>
+      <copyMetadata>true</copyMetadata>
+      <bandNames/>
+      <maskNames/>
+    </parameters>
+  </node>
+  <node id="Resample">
+    <operator>Resample</operator>
+    <sources>
+      <sourceProduct refid="Read"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <referenceBand/>
+      <targetWidth/>
+      <targetHeight/>
+      <targetResolution>100</targetResolution>
+      <upsampling>Nearest</upsampling>
+      <downsampling>First</downsampling>
+      <flagDownsampling>First</flagDownsampling>
+      <resamplingPreset/>
+      <bandResamplings/>
+      <resampleOnPyramidLevels>true</resampleOnPyramidLevels>
+    </parameters>
+  </node>
+  <node id="Subset">
+    <operator>Subset</operator>
+    <sources>
+      <sourceProduct refid="Resample"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <sourceBands/>
+      <tiePointGrids/>
+      <region>0,0,1098,1098</region>
+      <referenceBand/>
+      <geoRegion/>
+      <subSamplingX>1</subSamplingX>
+      <subSamplingY>1</subSamplingY>
+      <fullSwath>false</fullSwath>
+      <vectorFile/>
+      <polygonRegion/>
+      <copyMetadata>true</copyMetadata>
+    </parameters>
+  </node>
+  <node id="BaiOp">
+    <operator>BaiOp</operator>
+    <sources>
+      <sourceProduct refid="Subset"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <resampleType>None</resampleType>
+      <upsampling>Nearest</upsampling>
+      <downsampling>First</downsampling>
+      <redSourceBand>B4</redSourceBand>
+      <nirSourceBand>B8</nirSourceBand>
+    </parameters>
+  </node>
+  <node id="BainOp">
+    <operator>BainOp</operator>
+    <sources>
+      <sourceProduct refid="Subset"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <resampleType>None</resampleType>
+      <upsampling>Nearest</upsampling>
+      <downsampling>First</downsampling>
+      <redSourceBand>B4</redSourceBand>
+      <nirSourceBand>B8</nirSourceBand>
+      <swir1SourceBand>B11</swir1SourceBand>
+    </parameters>
+  </node>
+  <node id="BccOp">
+    <operator>BccOp</operator>
+    <sources>
+      <sourceProduct refid="Subset"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <resampleType>None</resampleType>
+      <upsampling>Nearest</upsampling>
+      <downsampling>First</downsampling>
+      <blueSourceBand>B2</blueSourceBand>
+      <greenSourceBand>B3</greenSourceBand>
+      <redSourceBand>B4</redSourceBand>
+    </parameters>
+  </node>
+  <node id="AweinshOp">
+    <operator>AweinshOp</operator>
+    <sources>
+      <sourceProduct refid="Subset"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <resampleType>None</resampleType>
+      <upsampling>Nearest</upsampling>
+      <downsampling>First</downsampling>
+      <greenSourceBand>B3</greenSourceBand>
+      <nirSourceBand>B8</nirSourceBand>
+      <swir1SourceBand>B11</swir1SourceBand>
+      <swir2SourceBand>B12</swir2SourceBand>
+    </parameters>
+  </node>
+  <node id="BandMerge">
+    <operator>BandMerge</operator>
+    <sources>
+      <sourceProduct refid="BaiOp"/>
+      <sourceProduct.1 refid="BainOp"/>
+      <sourceProduct.2 refid="BccOp"/>
+      <sourceProduct.3 refid="AweinshOp"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <sourceBands/>
+      <geographicError>1.0E-5</geographicError>
+    </parameters>
+  </node>
+  <node id="Write">
+    <operator>Write</operator>
+    <sources>
+      <sourceProduct refid="BandMerge"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <file>$outputFile</file>
+      <formatName>BEAM-DIMAP</formatName>
+    </parameters>
+  </node>
+  <applicationData id="Presentation">
+    <Description/>
+    <node id="Read">
+            <displayPosition x="10.0" y="134.0"/>
+    </node>
+    <node id="Subset">
+      <displayPosition x="177.0" y="134.0"/>
+    </node>
+    <node id="BaiOp">
+      <displayPosition x="302.0" y="51.0"/>
+    </node>
+    <node id="BainOp">
+      <displayPosition x="306.0" y="137.0"/>
+    </node>
+    <node id="BccOp">
+      <displayPosition x="297.0" y="177.0"/>
+    </node>
+    <node id="AweinshOp">
+      <displayPosition x="286.0" y="261.0"/>
+    </node>
+    <node id="BandMerge">
+      <displayPosition x="426.0" y="138.0"/>
+    </node>
+    <node id="Resample">
+      <displayPosition x="92.0" y="135.0"/>
+    </node>
+    <node id="Write">
+            <displayPosition x="557.0" y="139.0"/>
+    </node>
+  </applicationData>
+</graph>
