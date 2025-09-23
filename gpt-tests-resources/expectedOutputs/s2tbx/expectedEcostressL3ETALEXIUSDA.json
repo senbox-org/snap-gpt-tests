@@ -2,32 +2,32 @@
   "id": "tempEcostressL3ETALEXIUSDA",
   "decodeQualification": "INTENDED",
   "expectedContent": {
-    "sceneWidth": 542,
+    "sceneWidth": 540,
     "sceneHeight": 401,
-    "startTime": "10-AUG-2018 19:25:34.381593",
-    "endTime": "10-AUG-2018 19:25:34.381593",
+    "startTime": "26-DEC-2019 17:12:01.685594",
+    "endTime": "26-DEC-2019 17:12:01.685594",
     "geoCoding": {
       "coordinates": [
         {
-          "x": 233.0,
+          "x": 232.0,
           "y": 215.0,
-          "lat": 42.586991731263524,
-          "lon": -93.71813618744082
+          "lat": 40.32384597263452,
+          "lon": -88.83755727525585
         },
         {
-          "x": 402.0,
+          "x": 400.0,
           "y": 260.0,
-          "lat": 42.574867959236535,
-          "lon": -93.67260468805055
+          "lat": 40.31192944657208,
+          "lon": -88.79306891128942
         }
       ],
       "reverseAccuracy": 5.820766091346741E-11
     },
     "bands": [
       {
-        "name": "EVAPOTRANSPIRATION__ALEXI_ETdaily",
+        "name": "EVAPOTRANSPIRATION_ALEXI_ETdaily",
         "description": "",
-        "bandWidth": 542,
+        "bandWidth": 540,
         "bandHeight": 401,
         "geophysicalUnit": "mm/day",
         "noDataValue": "NaN",
@@ -38,19 +38,19 @@
           {
             "x": 28,
             "y": 71,
-            "value": 6.428566
+            "value": -9999.0
           },
           {
-            "x": 371,
+            "x": 369,
             "y": 341,
-            "value": 6.855891
+            "value": -9999.0
           }
         ]
       },
       {
-        "name": "EVAPOTRANSPIRATION__ALEXI_ETdailyUncertainty",
+        "name": "EVAPOTRANSPIRATION_ALEXI_ETdailyUncertainty",
         "description": "",
-        "bandWidth": 542,
+        "bandWidth": 540,
         "bandHeight": 401,
         "geophysicalUnit": "mm/day",
         "noDataValue": "NaN",
@@ -61,19 +61,19 @@
           {
             "x": 157,
             "y": 102,
-            "value": 0.3168904
+            "value": 0.070234895
           },
           {
-            "x": 330,
+            "x": 329,
             "y": 146,
-            "value": 0.31689036
+            "value": 0.070234895
           }
         ]
       },
       {
-        "name": "EVAPOTRANSPIRATION__ALEXI_QualityFlag",
+        "name": "EVAPOTRANSPIRATION_ALEXI_QualityFlag",
         "description": "",
-        "bandWidth": 542,
+        "bandWidth": 540,
         "bandHeight": 401,
         "geophysicalUnit": "NA",
         "noDataValue": "0.0",
@@ -82,14 +82,14 @@
         "spectralBandwidth": "0.0",
         "expectedPixels": [
           {
-            "x": 298,
+            "x": 297,
             "y": 298,
-            "value": "NaN"
+            "value": 39.0
           },
           {
-            "x": 329,
+            "x": 328,
             "y": 372,
-            "value": 32.0
+            "value": 39.0
           }
         ]
       }
@@ -97,7 +97,7 @@
     "metadata": [
       {
         "path": "StandardMetadata/ProductionDateTime",
-        "value": "2018-12-05T05:52:33.803Z"
+        "value": "2019-12-27T05:42:36.620Z"
       },
       {
         "path": "Processing_Graph/node.3/parameters/deleteOutputOnFailure",
@@ -113,11 +113,11 @@
       },
       {
         "path": "L3_ET_ALEXI Metadata/AncillaryFileInsolation",
-        "value": "CFSR_swdn_2018222"
+        "value": "CFSR_swdn_2019360"
       },
       {
         "path": "L3_ET_ALEXI Metadata/AncillaryFileALEXIETd",
-        "value": "EDAY_V7NC_CFSRINSOL_2018222.dat"
+        "value": "EDAY_V7NC_CFSRINSOL_2019360.dat"
       },
       {
         "path": "history/SubsetInfo/SubRegion.width",
@@ -125,15 +125,15 @@
       },
       {
         "path": "L3_ET_ALEXI Metadata/AvgETUncertainty",
-        "value": "-8480.212"
+        "value": "0.07128772"
       },
       {
         "path": "L3_ET_ALEXI Metadata/AncillaryFileSurfaceReflectance",
-        "value": "LC08_L1TP_026031_20180822_20180829_01_T1.xml"
+        "value": "LC08_L1TP_023032_20191226_20200110_01_T1.xml"
       },
       {
         "path": "L3_ET_ALEXI Metadata/AncillaryFilePressure",
-        "value": "CFSR_psfc_2018222"
+        "value": "CFSR_psfc_2019360"
       }
     ]
   }

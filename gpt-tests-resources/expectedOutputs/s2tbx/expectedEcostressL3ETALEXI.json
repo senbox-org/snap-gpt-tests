@@ -2,32 +2,32 @@
   "id": "tempEcostressL3ETALEXI",
   "decodeQualification": "INTENDED",
   "expectedContent": {
-    "sceneWidth": 526,
+    "sceneWidth": 507,
     "sceneHeight": 401,
-    "startTime": "12-JUN-2022 16:17:17.662631",
-    "endTime": "12-JUN-2022 16:17:17.662631",
+    "startTime": "26-DEC-2019 17:11:47.681921",
+    "endTime": "26-DEC-2019 17:11:47.681921",
     "geoCoding": {
       "coordinates": [
         {
-          "x": 226.0,
+          "x": 218.0,
           "y": 215.0,
-          "lat": 38.24206810021718,
-          "lon": -114.37719839559793
+          "lat": 43.46468744462058,
+          "lon": -92.11226922858053
         },
         {
-          "x": 390.0,
+          "x": 376.0,
           "y": 260.0,
-          "lat": 38.20233104756752,
-          "lon": -114.23237891483026
+          "lat": 43.42492661975713,
+          "lon": -91.97266455461553
         }
       ],
       "reverseAccuracy": 1.4551915228366852E-11
     },
     "bands": [
       {
-        "name": "EVAPOTRANSPIRATION__ALEXI_ETdaily",
+        "name": "EVAPOTRANSPIRATION_ALEXI_ETdaily",
         "description": "",
-        "bandWidth": 526,
+        "bandWidth": 507,
         "bandHeight": 401,
         "geophysicalUnit": "mm/day",
         "noDataValue": "NaN",
@@ -36,21 +36,21 @@
         "spectralBandwidth": "0.0",
         "expectedPixels": [
           {
-            "x": 27,
+            "x": 26,
             "y": 71,
-            "value": 2.64647
+            "value": "NaN"
           },
           {
-            "x": 360,
+            "x": 347,
             "y": 341,
-            "value": 2.7592068
+            "value": "NaN"
           }
         ]
       },
       {
-        "name": "EVAPOTRANSPIRATION__ALEXI_ETdailyUncertainty",
+        "name": "EVAPOTRANSPIRATION_ALEXI_ETdailyUncertainty",
         "description": "",
-        "bandWidth": 526,
+        "bandWidth": 507,
         "bandHeight": 401,
         "geophysicalUnit": "mm/day",
         "noDataValue": "NaN",
@@ -59,21 +59,21 @@
         "spectralBandwidth": "0.0",
         "expectedPixels": [
           {
-            "x": 153,
+            "x": 147,
             "y": 102,
-            "value": 1.08
+            "value": 0.21790098
           },
           {
-            "x": 321,
+            "x": 309,
             "y": 146,
-            "value": 1.05
+            "value": 0.21790098
           }
         ]
       },
       {
-        "name": "EVAPOTRANSPIRATION__ALEXI_QualityFlag",
+        "name": "EVAPOTRANSPIRATION_ALEXI_QualityFlag",
         "description": "",
-        "bandWidth": 526,
+        "bandWidth": 507,
         "bandHeight": 401,
         "geophysicalUnit": "NA",
         "noDataValue": "0.0",
@@ -82,12 +82,12 @@
         "spectralBandwidth": "0.0",
         "expectedPixels": [
           {
-            "x": 289,
+            "x": 278,
             "y": 298,
             "value": "NaN"
           },
           {
-            "x": 319,
+            "x": 308,
             "y": 372,
             "value": "NaN"
           }
@@ -97,7 +97,7 @@
     "metadata": [
       {
         "path": "StandardMetadata/ProductionDateTime",
-        "value": "2023-01-29T18:41:37.151Z"
+        "value": "2020-02-18T19:32:30.866Z"
       },
       {
         "path": "Processing_Graph/node.3/parameters/deleteOutputOnFailure",
@@ -113,11 +113,11 @@
       },
       {
         "path": "L3_ET_ALEXI Metadata/AncillaryFileBadMask",
-        "value": "cloud_mask_2022_06_12_ECOSTRESS_22306005.h5"
+        "value": "cloud_mask_2019_12_26_ECOSTRESS_08355008.h5"
       },
       {
         "path": "L3_ET_ALEXI Metadata/AncillaryFileALEXIETd",
-        "value": "alexi_et_2022_06_12_ECOSTRESS_22306005.h5"
+        "value": "alexi_et_2019_12_26_ECOSTRESS_08355008.h5"
       },
       {
         "path": "history/SubsetInfo/SubRegion.width",
