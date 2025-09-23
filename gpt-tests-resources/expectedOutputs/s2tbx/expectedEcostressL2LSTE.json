@@ -2,32 +2,32 @@
   "id": "tempEcostressL2LSTE",
   "decodeQualification": "INTENDED",
   "expectedContent": {
-    "sceneWidth": 402,
+    "sceneWidth": 507,
     "sceneHeight": 401,
-    "startTime": "14-MAR-2024 20:56:59.119975",
-    "endTime": "14-MAR-2024 20:56:59.119975",
+    "startTime": "26-DEC-2019 17:11:47.681921",
+    "endTime": "26-DEC-2019 17:11:47.681921",
     "geoCoding": {
       "coordinates": [
         {
-          "x": 173.0,
+          "x": 218.0,
           "y": 215.0,
-          "lat": -18.69406055809886,
-          "lon": 130.98583776272423
+          "lat": 43.46468744462058,
+          "lon": -92.11226922858053
         },
         {
-          "x": 298.0,
+          "x": 376.0,
           "y": 260.0,
-          "lat": -18.73642352445226,
-          "lon": 131.10351266926142
+          "lat": 43.42492661975713,
+          "lon": -91.97266455461553
         }
       ],
-      "reverseAccuracy": 2.9103830456733704E-11
+      "reverseAccuracy": 1.4551915228366852E-11
     },
     "bands": [
       {
         "name": "SDS_Emis1",
         "description": "",
-        "bandWidth": 402,
+        "bandWidth": 507,
         "bandHeight": 401,
         "geophysicalUnit": "n/a",
         "noDataValue": "0.0",
@@ -36,12 +36,12 @@
         "spectralBandwidth": "0.0",
         "expectedPixels": [
           {
-            "x": 20,
+            "x": 26,
             "y": 71,
             "value": "NaN"
           },
           {
-            "x": 275,
+            "x": 347,
             "y": 341,
             "value": "NaN"
           }
@@ -50,7 +50,7 @@
       {
         "name": "SDS_Emis2",
         "description": "",
-        "bandWidth": 402,
+        "bandWidth": 507,
         "bandHeight": 401,
         "geophysicalUnit": "n/a",
         "noDataValue": "0.0",
@@ -59,12 +59,12 @@
         "spectralBandwidth": "0.0",
         "expectedPixels": [
           {
-            "x": 116,
+            "x": 147,
             "y": 102,
             "value": "NaN"
           },
           {
-            "x": 245,
+            "x": 309,
             "y": 146,
             "value": "NaN"
           }
@@ -73,7 +73,7 @@
       {
         "name": "SDS_Emis3",
         "description": "",
-        "bandWidth": 402,
+        "bandWidth": 507,
         "bandHeight": 401,
         "geophysicalUnit": "n/a",
         "noDataValue": "0.0",
@@ -82,12 +82,12 @@
         "spectralBandwidth": "0.0",
         "expectedPixels": [
           {
-            "x": 221,
+            "x": 278,
             "y": 298,
             "value": "NaN"
           },
           {
-            "x": 244,
+            "x": 308,
             "y": 372,
             "value": "NaN"
           }
@@ -113,11 +113,11 @@
       },
       {
         "path": "L2 LSTE Metadata/CloudMeanTemperature",
-        "value": "NaN"
+        "value": "278.68995884045125"
       },
       {
         "path": "L2 LSTE Metadata/AncillaryNWP",
-        "value": "/NWP/GEOS5/2024/GEOS.fp.asm.inst3_3d_asm_Np.20240314_1800.V01.nc4, /NWP/GEOS5/2024/GEOS.fp.asm.inst3_3d_asm_Np.20240314_2100.V01.nc4"
+        "value": "/NWP/GEOS5/2019/GEOS.fp.asm.inst3_3d_asm_Np.20191226_1500.V01.nc4, /NWP/GEOS5/2019/GEOS.fp.asm.inst3_3d_asm_Np.20191226_1800.V01.nc4"
       },
       {
         "path": "history/SubsetInfo/SubRegion.width",
@@ -129,11 +129,11 @@
       },
       {
         "path": "L2 LSTE Metadata/Emis3GoodAvg",
-        "value": "0.9417997605487752"
+        "value": "0.0"
       },
       {
         "path": "L2 LSTE Metadata/Emis2GoodAvg",
-        "value": "0.927981009096697"
+        "value": "0.9729184687636859"
       }
     ]
   }
