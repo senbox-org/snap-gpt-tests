@@ -2,23 +2,23 @@
   "id": "tempEcostressL1BGEO",
   "decodeQualification": "INTENDED",
   "expectedContent": {
-    "sceneWidth": 401,
-    "sceneHeight": 416,
-    "startTime": "14-MAR-2024 23:51:33.170983",
-    "endTime": "14-MAR-2024 23:51:33.170983",
+    "sceneWidth": 456,
+    "sceneHeight": 400,
+    "startTime": "26-DEC-2019 17:11:34.489759",
+    "endTime": "26-DEC-2019 17:11:34.489759",
     "geoCoding": {
       "coordinates": [
         {
-          "x": 172.0,
-          "y": 223.0,
-          "lat": 12.190502570256262,
-          "lon": 59.277746241890625
+          "x": 196.0,
+          "y": 215.0,
+          "lat": 40.55739206460788,
+          "lon": -92.0890851424813
         },
         {
-          "x": 297.0,
-          "y": 269.0,
-          "lat": 12.14600587174582,
-          "lon": 59.398661183495086
+          "x": 338.0,
+          "y": 259.0,
+          "lat": 40.51341735949448,
+          "lon": -91.94716677597896
         }
       ],
       "reverseAccuracy": 7.275957614183426E-12
@@ -27,8 +27,8 @@
       {
         "name": "Geolocation_height",
         "description": "",
-        "bandWidth": 401,
-        "bandHeight": 416,
+        "bandWidth": 456,
+        "bandHeight": 400,
         "geophysicalUnit": "m",
         "noDataValue": "NaN",
         "noDataValueUsed": "true",
@@ -36,13 +36,13 @@
         "spectralBandwidth": "0.0",
         "expectedPixels": [
           {
-            "x": 20,
-            "y": 74,
+            "x": 23,
+            "y": 71,
             "value": "NaN"
           },
           {
-            "x": 274,
-            "y": 353,
+            "x": 312,
+            "y": 340,
             "value": "NaN"
           }
         ]
@@ -50,8 +50,8 @@
       {
         "name": "Geolocation_land_fraction",
         "description": "",
-        "bandWidth": 401,
-        "bandHeight": 416,
+        "bandWidth": 456,
+        "bandHeight": 400,
         "geophysicalUnit": "percentage",
         "noDataValue": "NaN",
         "noDataValueUsed": "true",
@@ -59,22 +59,22 @@
         "spectralBandwidth": "0.0",
         "expectedPixels": [
           {
-            "x": 116,
-            "y": 106,
-            "value": "NaN"
+            "x": 132,
+            "y": 102,
+            "value": 100.0
           },
           {
-            "x": 244,
-            "y": 151,
-            "value": 0.0
+            "x": 278,
+            "y": 146,
+            "value": 100.0
           }
         ]
       },
       {
         "name": "Geolocation_longitude",
         "description": "",
-        "bandWidth": 401,
-        "bandHeight": 416,
+        "bandWidth": 456,
+        "bandHeight": 400,
         "geophysicalUnit": "degrees",
         "noDataValue": "NaN",
         "noDataValueUsed": "true",
@@ -82,22 +82,22 @@
         "spectralBandwidth": "0.0",
         "expectedPixels": [
           {
-            "x": 220,
-            "y": 310,
-            "value": 59.32479
+            "x": 250,
+            "y": 298,
+            "value": -92.03449
           },
           {
-            "x": 243,
-            "y": 386,
-            "value": "NaN"
+            "x": 277,
+            "y": 371,
+            "value": -92.00733
           }
         ]
       },
       {
         "name": "Geolocation_latitude",
         "description": "",
-        "bandWidth": 401,
-        "bandHeight": 416,
+        "bandWidth": 456,
+        "bandHeight": 400,
         "geophysicalUnit": "degrees",
         "noDataValue": "NaN",
         "noDataValueUsed": "true",
@@ -105,14 +105,14 @@
         "spectralBandwidth": "0.0",
         "expectedPixels": [
           {
-            "x": 63,
-            "y": 277,
-            "value": 12.1383095
+            "x": 72,
+            "y": 266,
+            "value": 40.505966
           },
           {
-            "x": 208,
-            "y": 380,
-            "value": "NaN"
+            "x": 236,
+            "y": 365,
+            "value": 40.407127
           }
         ]
       }
@@ -124,7 +124,7 @@
       },
       {
         "path": "L1GEOMetadata/AverageSolarZenith",
-        "value": "122.47182644241805"
+        "value": "65.40811866994709"
       },
       {
         "path": "history/SubsetInfo/SubRegion.y",
@@ -148,11 +148,11 @@
       },
       {
         "path": "L1GEOMetadata/AverageSolarZenith",
-        "value": "122.47182644241805"
+        "value": "65.40811866994709"
       },
       {
         "path": "L1GEOMetadata/AverageSolarZenith",
-        "value": "122.47182644241805"
+        "value": "65.40811866994709"
       },
       {
         "path": "Processing_Graph/node.0/parameters/useAdvancedOptions",

@@ -2,32 +2,32 @@
   "id": "tempEcostressL4WUE",
   "decodeQualification": "INTENDED",
   "expectedContent": {
-    "sceneWidth": 542,
+    "sceneWidth": 507,
     "sceneHeight": 401,
-    "startTime": "25-FEB-2023 15:40:40.439714",
-    "endTime": "25-FEB-2023 15:40:40.439714",
+    "startTime": "26-DEC-2019 17:11:47.681921",
+    "endTime": "26-DEC-2019 17:11:47.681921",
     "geoCoding": {
       "coordinates": [
         {
-          "x": 233.0,
+          "x": 218.0,
           "y": 215.0,
-          "lat": 52.43083317498715,
-          "lon": -124.67693892549791
+          "lat": 43.464688192330286,
+          "lon": -92.11226684515104
         },
         {
-          "x": 402.0,
+          "x": 376.0,
           "y": 260.0,
-          "lat": 52.394400753277985,
-          "lon": -124.54011494174573
+          "lat": 43.42492734771325,
+          "lon": -91.97266210182902
         }
       ],
-      "reverseAccuracy": 7.275957614183426E-12
+      "reverseAccuracy": 1.4551915228366852E-11
     },
     "bands": [
       {
-        "name": "Water__Use__Efficiency_WUEavg",
+        "name": "Water_Use_Efficiency_WUEavg",
         "description": "",
-        "bandWidth": 542,
+        "bandWidth": 507,
         "bandHeight": 401,
         "geophysicalUnit": "ratio GPP/ET",
         "noDataValue": "NaN",
@@ -36,12 +36,12 @@
         "spectralBandwidth": "0.0",
         "expectedPixels": [
           {
-            "x": 28,
+            "x": 26,
             "y": 71,
             "value": "NaN"
           },
           {
-            "x": 371,
+            "x": 347,
             "y": 341,
             "value": "NaN"
           }
@@ -51,7 +51,7 @@
     "metadata": [
       {
         "path": "L4_WUE_Metadata/AncillaryFileGPP",
-        "value": "MOD17A2H.A2023041.h09v03.006.2023050164012.hdf,MOD17A2H.A2023041.h09v04.006.2023050165049.hdf,MOD17A2H.A2023041.h10v03.006.2023050163936.hdf,MOD17A2H.A2023041.h10v04.006.2023050164932.hdf"
+        "value": "MOD17A2H.A2019353.h11v04.006.2019362052032.hdf,MOD17A2H.A2019353.h10v04.006.2019362050807.hdf,MOD17A2H.A2019353.h11v05.006.2019362050952.hdf,MOD17A2H.A2019353.h10v05.006.2019362050253.hdf"
       },
       {
         "path": "Processing_Graph/node.1/parameters/copyMetadata",
@@ -75,11 +75,11 @@
       },
       {
         "path": "L4_WUE_Metadata/AncillaryFileGPP",
-        "value": "MOD17A2H.A2023041.h09v03.006.2023050164012.hdf,MOD17A2H.A2023041.h09v04.006.2023050165049.hdf,MOD17A2H.A2023041.h10v03.006.2023050163936.hdf,MOD17A2H.A2023041.h10v04.006.2023050164932.hdf"
+        "value": "MOD17A2H.A2019353.h11v04.006.2019362052032.hdf,MOD17A2H.A2019353.h10v04.006.2019362050807.hdf,MOD17A2H.A2019353.h11v05.006.2019362050952.hdf,MOD17A2H.A2019353.h10v05.006.2019362050253.hdf"
       },
       {
         "path": "L4_WUE_Metadata/AncillaryFileGPP",
-        "value": "MOD17A2H.A2023041.h09v03.006.2023050164012.hdf,MOD17A2H.A2023041.h09v04.006.2023050165049.hdf,MOD17A2H.A2023041.h10v03.006.2023050163936.hdf,MOD17A2H.A2023041.h10v04.006.2023050164932.hdf"
+        "value": "MOD17A2H.A2019353.h11v04.006.2019362052032.hdf,MOD17A2H.A2019353.h10v04.006.2019362050807.hdf,MOD17A2H.A2019353.h11v05.006.2019362050952.hdf,MOD17A2H.A2019353.h10v05.006.2019362050253.hdf"
       },
       {
         "path": "history/SubsetInfo/SubRegion.y",

@@ -2,32 +2,32 @@
   "id": "tempEcostressL4ESIALEXI",
   "decodeQualification": "INTENDED",
   "expectedContent": {
-    "sceneWidth": 454,
+    "sceneWidth": 507,
     "sceneHeight": 401,
-    "startTime": "17-JUN-2022 21:59:27.856173",
-    "endTime": "17-JUN-2022 21:59:27.856173",
+    "startTime": "26-DEC-2019 17:11:47.681921",
+    "endTime": "26-DEC-2019 17:11:47.681921",
     "geoCoding": {
       "coordinates": [
         {
-          "x": 195.0,
+          "x": 218.0,
           "y": 215.0,
-          "lat": 37.767591346933294,
-          "lon": -119.56759828183374
+          "lat": 43.46468744462058,
+          "lon": -92.11226922858053
         },
         {
-          "x": 337.0,
+          "x": 376.0,
           "y": 260.0,
-          "lat": 37.72527764544088,
-          "lon": -119.43407504601326
+          "lat": 43.42492661975713,
+          "lon": -91.97266455461553
         }
       ],
       "reverseAccuracy": 1.4551915228366852E-11
     },
     "bands": [
       {
-        "name": "EVAPORATIVE__STRESS__INDEX__ALEXI_ESIdaily",
+        "name": "EVAPORATIVE_STRESS_INDEX_ALEXI_ESIdaily",
         "description": "",
-        "bandWidth": 454,
+        "bandWidth": 507,
         "bandHeight": 401,
         "geophysicalUnit": "NA",
         "noDataValue": "NaN",
@@ -36,21 +36,21 @@
         "spectralBandwidth": "0.0",
         "expectedPixels": [
           {
-            "x": 23,
+            "x": 26,
             "y": 71,
             "value": 1.0
           },
           {
-            "x": 311,
+            "x": 347,
             "y": 341,
             "value": 1.0
           }
         ]
       },
       {
-        "name": "EVAPORATIVE__STRESS__INDEX__ALEXI_ESIdailyUncertainty",
+        "name": "EVAPORATIVE_STRESS_INDEX_ALEXI_ESIdailyUncertainty",
         "description": "",
-        "bandWidth": 454,
+        "bandWidth": 507,
         "bandHeight": 401,
         "geophysicalUnit": "NA",
         "noDataValue": "NaN",
@@ -59,21 +59,21 @@
         "spectralBandwidth": "0.0",
         "expectedPixels": [
           {
-            "x": 132,
+            "x": 147,
             "y": 102,
-            "value": 0.093
+            "value": 0.3256835
           },
           {
-            "x": 277,
+            "x": 309,
             "y": 146,
-            "value": 0.096
+            "value": 0.3256835
           }
         ]
       },
       {
-        "name": "EVAPORATIVE__STRESS__INDEX__ALEXI_QualityFlag",
+        "name": "EVAPORATIVE_STRESS_INDEX_ALEXI_QualityFlag",
         "description": "",
-        "bandWidth": 454,
+        "bandWidth": 507,
         "bandHeight": 401,
         "geophysicalUnit": "NA",
         "noDataValue": "0.0",
@@ -82,12 +82,12 @@
         "spectralBandwidth": "0.0",
         "expectedPixels": [
           {
-            "x": 249,
+            "x": 278,
             "y": 298,
             "value": "NaN"
           },
           {
-            "x": 276,
+            "x": 308,
             "y": 372,
             "value": "NaN"
           }
@@ -97,7 +97,7 @@
     "metadata": [
       {
         "path": "StandardMetadata/ProductionDateTime",
-        "value": "2023-01-31T01:42:06.610Z"
+        "value": "2020-02-18T19:32:30.866Z"
       },
       {
         "path": "Processing_Graph/node.3/parameters/deleteOutputOnFailure",
@@ -113,11 +113,11 @@
       },
       {
         "path": "L4_ESI_ALEXI Metadata/AncillaryFileBadMask",
-        "value": "cloud_mask_2022_06_17_ECOSTRESS_22387012.h5"
+        "value": "cloud_mask_2019_12_26_ECOSTRESS_08355008.h5"
       },
       {
         "path": "L4_ESI_ALEXI Metadata/AncillaryFileALEXIETd",
-        "value": "alexi_et_2022_06_17_ECOSTRESS_22387012.h5"
+        "value": "alexi_et_2019_12_26_ECOSTRESS_08355008.h5"
       },
       {
         "path": "history/SubsetInfo/SubRegion.width",
