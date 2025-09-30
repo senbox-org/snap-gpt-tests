@@ -34,7 +34,7 @@ default:
         - "${CI_PROJECT_DIR}/**/target"
 
 variables:
-  VERSION: '13.0.0-SNAPSHOT'
+  VERSION: '13.0.0'
   PLATFORM:
     description: Choose to plateform to run this job
     value: linux
