@@ -15,7 +15,7 @@ test_mac:
     REPORT_DIR: ./result
     TAG: master
     PROPERTIES_PATH: $CI_PROJECT_DIR/mac.conf
-    SNAP_INSTALLER: snap_all_macos_intel-$VERSION.dmg
+    SNAP_INSTALLER: snap_all_macos-$VERSION.dmg
     TEST_DATA_LIST: singleTestData.txt
     TEST_DATA_DIR: "/Users/csro/STEP_Data_S3"
     # JAVA_HOME: /Library/Java/JavaVirtualMachines/temurin-21.jdk/Contents/Home
@@ -29,7 +29,7 @@ test_mac:
       -DdeployAtEnd=false
       -Dmaven.wagon.http.ssl.insecure=true
       -Dmaven.wagon.http.ssl.allowall=true
-    DL_URL: https://nexus.snap-ci.ovh/repository/snap-maven-releases/org/esa/snap/installers-snapshot/snap_all_macos_intel/$VERSION/snap_all_macos_intel-$VERSION.dmg
+    DL_URL: https://nexus.snap-ci.ovh/repository/snap-maven-releases/org/esa/snap/installers-snapshot/snap_all_macos_arm/$VERSION/snap_all_macos_arm-$VERSION.dmg
   before_script:
     - echo $CI_PROJECT_DIR
     - mvn $MAVEN_CLI_OPTS package install
