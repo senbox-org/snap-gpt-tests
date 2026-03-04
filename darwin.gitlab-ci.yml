@@ -29,6 +29,7 @@ test_mac:
       -DdeployAtEnd=false
       -Dmaven.wagon.http.ssl.insecure=true
       -Dmaven.wagon.http.ssl.allowall=true
+      -nsu
     DL_URL: https://nexus.snap-ci.ovh/repository/snap-maven-releases/org/esa/snap/installers-snapshot/snap_all_macos_arm/$VERSION/snap_all_macos_arm-$VERSION.dmg
   before_script:
     - echo $CI_PROJECT_DIR
