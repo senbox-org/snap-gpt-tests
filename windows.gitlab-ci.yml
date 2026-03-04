@@ -61,7 +61,7 @@ test_windows:
   before_script:
     - echo username = %USERNAME%
     # Build maven project
-    - call mvn %MAVEN_CLI_OPTS% package install
+    - call mvn %MAVEN_CLI_OPTS% -nsu package install
     # Print local variables
     - echo CI_PROJECT_DIR = %CI_PROJECT_DIR%
     - echo REPORT_DIR = %REPORT_DIR%
