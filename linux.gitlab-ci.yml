@@ -7,7 +7,7 @@
         - "${CI_PROJECT_DIR}/**/target"
   before_script:
     # build project
-    - mvn -q $MAVEN_CLI_OPTS package install
+    - mvn -q $MAVEN_CLI_OPTS -nsu package install
     - ls "${CI_PROJECT_DIR}/gpt-tests-executer/target"
     # Clean old report
     - mkdir -p $REPORT_DIR $REPORT_DIR/report $REPORT_DIR/report/output $TEMP_DIR
