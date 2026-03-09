@@ -7,7 +7,7 @@
         - "${CI_PROJECT_DIR}/**/target"
   before_script:
     # build project
-    - mvn -q $MAVEN_CLI_OPTS -nsu package install
+    #- mvn -q $MAVEN_CLI_OPTS -nsu package install
     - ls "${CI_PROJECT_DIR}/gpt-tests-executer/target"
     # Clean old report
     - mkdir -p $REPORT_DIR $REPORT_DIR/report $REPORT_DIR/report/output $TEMP_DIR
@@ -21,8 +21,20 @@
     - cat $REPORT_DIR/$TEST_DATA_LIST
     # Download test data
     - $CI_PROJECT_DIR/download_test_data.sh "${REPORT_DIR}" "${TEST_DATA_DIR}" "${TEST_DATA_LIST}" "${S3_BUCKET}" "${S3_ARGS}"
+
+build_project:
+  stage: build
+  tags: [kube]
+  script:
+    - mvn -q $MAVEN_CLI_OPTS -nsu package install
+  artifacts:
+    expire_in: 1 day
+    paths:
+      - gpt-tests-executer/target/gpt-test-exec.jar
+
 .test:
   stage: test
+  needs: ["build_project"]
   extends: .prepare
   script:
     - echo "Running $(sed "${CI_NODE_INDEX}q;d" ${REPORT_DIR}/JSONTestFiles.txt)"
