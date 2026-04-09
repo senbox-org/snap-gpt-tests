@@ -1,0 +1,55 @@
+<graph id="SpectralNoiseReduction_Gaussian">
+    <version>1.0</version>
+
+    <node id="Read">
+        <operator>Read</operator>
+        <sources/>
+        <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+            <file>$input1</file>
+        </parameters>
+    </node>
+
+    <node id="Subset">
+        <operator>Subset</operator>
+        <sources>
+            <sourceProduct refid="Read"/>
+        </sources>
+        <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+            <sourceBands/>
+            <tiePointGrids/>
+            <region>256,256,256,256</region>
+            <referenceBand/>
+            <geoRegion/>
+            <subSamplingX>1</subSamplingX>
+            <subSamplingY>1</subSamplingY>
+            <fullSwath>false</fullSwath>
+            <vectorFile/>
+            <polygonRegion/>
+            <copyMetadata>true</copyMetadata>
+        </parameters>
+    </node>
+
+    <node id="SpectralNoiseReduction">
+        <operator>SpectralNoiseReduction</operator>
+        <sources>
+            <sourceProduct refid="Subset"/>
+        </sources>
+        <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+            <sourceBands/>
+            <filterType>$filterType</filterType>
+            <kernelSize>$kernelSize</kernelSize>
+            <gaussianSigma>$gaussianSigma</gaussianSigma>
+        </parameters>
+    </node>
+
+    <node id="Write">
+        <operator>Write</operator>
+        <sources>
+            <sourceProduct refid="SpectralNoiseReduction"/>
+        </sources>
+        <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+            <file>$out1</file>
+            <formatName>BEAM-DIMAP</formatName>
+        </parameters>
+    </node>
+</graph>

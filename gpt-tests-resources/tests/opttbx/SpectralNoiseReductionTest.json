@@ -1,0 +1,67 @@
+[
+  {
+    "id": "SpectralNoiseReduction_SG",
+    "author": "BC",
+    "description": "Execute spectral noise reduction with Savitzky-Golay filter on a small hyperspectral subset.",
+    "frequency": "daily",
+    "graphPath": "opttbx/spectral-noise-reduction/graphSpectralNoiseReduction_SG.xml",
+    "inputs": {
+      "input1": "sensors_platforms/EnMAP/ENMAP01-____L1C-DT0000063982_20240305T104023Z_001_V010401_20240314T085432Z/ENMAP01-____L1C-DT0000063982_20240305T104023Z_001_V010401_20240314T085432Z-METADATA.XML"
+    },
+    "parameters": {
+      "filterType": "Savitzky-Golay",
+      "kernelSize": "11",
+      "sgPolynomialOrder": "3"
+    },
+    "outputs": [
+      {
+        "parameter": "out1",
+        "outputName": "spectral_noise_reduction_sg",
+        "expected": "opttbx/spectral-noise-reduction/expectedSpectralNoiseReductionSG.json"
+      }
+    ]
+  },
+  {
+    "id": "SpectralNoiseReduction_Gaussian",
+    "author": "BC",
+    "description": "Execute spectral noise reduction with Gaussian filter on a small hyperspectral subset.",
+    "frequency": "daily",
+    "graphPath": "opttbx/spectral-noise-reduction/graphSpectralNoiseReduction_Gaussian.xml",
+    "inputs": {
+      "input1": "sensors_platforms/EnMAP/ENMAP01-____L1C-DT0000063982_20240305T104023Z_001_V010401_20240314T085432Z/ENMAP01-____L1C-DT0000063982_20240305T104023Z_001_V010401_20240314T085432Z-METADATA.XML"
+    },
+    "parameters": {
+      "filterType": "Gaussian",
+      "kernelSize": "5",
+      "gaussianSigma": "1.0"
+    },
+    "outputs": [
+      {
+        "parameter": "out1",
+        "outputName": "spectral_noise_reduction_gaussian",
+        "expected": "opttbx/spectral-noise-reduction/expectedSpectralNoiseReductionGaussian.json"
+      }
+    ]
+  },
+  {
+    "id": "SpectralNoiseReduction_Box",
+    "author": "BC",
+    "description": "Execute spectral noise reduction with box filter on a small hyperspectral subset.",
+    "frequency": "daily",
+    "graphPath": "opttbx/spectral-noise-reduction/graphSpectralNoiseReduction_Box.xml",
+    "inputs": {
+      "input1": "sensors_platforms/EnMAP/ENMAP01-____L1C-DT0000063982_20240305T104023Z_001_V010401_20240314T085432Z/ENMAP01-____L1C-DT0000063982_20240305T104023Z_001_V010401_20240314T085432Z-METADATA.XML"
+    },
+    "parameters": {
+      "filterType": "Box",
+      "kernelSize": "5"
+    },
+    "outputs": [
+      {
+        "parameter": "out1",
+        "outputName": "spectral_noise_reduction_box",
+        "expected": "opttbx/spectral-noise-reduction/expectedSpectralNoiseReductionBox.json"
+      }
+    ]
+  }
+]
