@@ -74,7 +74,7 @@
       } ]
     } ],
     "bands" : [ {
-      "name" : "i_VV_mst_03Dec2003",
+      "name" : "i_VV_ref_03Dec2003",
       "description" : "Image Mode SLC Image (i)",
       "bandWidth" : 1754,
       "bandHeight" : 8077,
@@ -88,7 +88,7 @@
         "value" : 1.0
       } ]
     }, {
-      "name" : "q_VV_mst_03Dec2003",
+      "name" : "q_VV_ref_03Dec2003",
       "description" : "Image Mode SLC Image (q)",
       "bandWidth" : 1754,
       "bandHeight" : 8077,
@@ -102,7 +102,7 @@
         "value" : 47.0
       } ]
     }, {
-      "name" : "Intensity_VV_mst_03Dec2003",
+      "name" : "Intensity_VV_ref_03Dec2003",
       "description" : "Intensity from complex data",
       "bandWidth" : 1754,
       "bandHeight" : 8077,
@@ -116,7 +116,7 @@
         "value" : "NaN"
       } ]
     }, {
-      "name" : "i_VV_slv1_11Feb2004",
+      "name" : "i_VV_sec1_11Feb2004",
       "description" : "Image Mode SLC Image (i)",
       "bandWidth" : 1754,
       "bandHeight" : 8077,
@@ -127,10 +127,10 @@
       "expectedPixels" : [ {
         "x" : 877,
         "y" : 4038,
-        "value" : -47.412724
+        "value" : -47.22283935546875
       } ]
     }, {
-      "name" : "q_VV_slv1_11Feb2004",
+      "name" : "q_VV_sec1_11Feb2004",
       "description" : "Image Mode SLC Image (q)",
       "bandWidth" : 1754,
       "bandHeight" : 8077,
@@ -141,10 +141,10 @@
       "expectedPixels" : [ {
         "x" : 877,
         "y" : 4038,
-        "value" : 14.246062
+        "value" : 13.955269813537598
       } ]
     }, {
-      "name" : "Intensity_VV_slv1_11Feb2004",
+      "name" : "Intensity_VV_sec1_11Feb2004",
       "description" : "Intensity from complex data",
       "bandWidth" : 1754,
       "bandHeight" : 8077,
@@ -155,7 +155,7 @@
       "expectedPixels" : [ {
         "x" : 877,
         "y" : 4038,
-        "value" : 2450.9167
+        "value" : 2424.74609375
       } ]
     } ],
     "masks" : [ ]
