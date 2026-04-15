@@ -32,6 +32,14 @@ install_snap:
         REM Install SNAP aplication on destination Windows VM
         echo "Install SNAP (version %VERSION%)" && "%DL_DIR%\%SNAP_INSTALLER_EXE%" -q -dir "%SNAP_DIR%" -console -overwrite -v
         echo "Post install - copy snap.properties file" && xcopy "%DL_DIR%\snap.properties" "%SNAP_DIR%\etc" /Y
+        REM If NOT snapshot -> install updates
+        echo %NEXUS_URL% | findstr /I "installers-snapshot" >nul
+        IF ERRORLEVEL 1 (
+        echo Release build detected - Installing SNAP updates...
+          "%SNAP_DIR%\bin\snap64.exe" --nosplash --nogui --modules --update-all
+        ) ELSE (
+          echo Snapshot build detected - Skipping update-all
+        )
       ) ELSE (
         echo "ERROR - Do not execute installation of SNAP (version %VERSION%) - the installer file is corrupt."
         echo "Cancel the job '%CI_JOB_NAME%' (and entire pipeline)..."

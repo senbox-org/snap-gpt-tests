@@ -44,6 +44,14 @@ test_mac:
     - hdiutil attach ${CI_PROJECT_DIR}/${SNAP_INSTALLER}
     - cp -R "/Volumes/esa-snap/ESA SNAP Installer.app" "${CI_PROJECT_DIR}/ESA SNAP Installer.app"
     - '"${CI_PROJECT_DIR}/ESA SNAP Installer.app/Contents/MacOS/JavaApplicationStub" -q -console -dir $SNAP_DIR'
+    # Update modules only for release builds
+    - |
+      if [[ "$DL_URL" != *installers-snapshot* ]]; then
+        echo "Release build detected - Installing SNAP updates..."
+        "$SNAP_DIR/bin/snap" --nosplash --nogui --modules --update-all
+      else
+        echo "Snapshot build detected - Skipping update-all"
+      fi
     - ls $SNAP_DIR/bin
     - python3 $CI_PROJECT_DIR/pygpt/filter_json.py gpt-tests-resources/tests $SCOPE $REPORT_DIR
     # Overwrite the original file with its first N lines (run only a part of tests)
