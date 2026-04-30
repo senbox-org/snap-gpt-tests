@@ -1,8 +1,6 @@
 @echo off
 setlocal enabledelayedexpansion
-set STOP=0
 FOR /F "usebackq tokens=1,2* delims=" %%t in ("%CI_PROJECT_DIR%\%REPORT_DIR%\JSONTestFiles.txt") DO (
-    if "!STOP!"=="1" GOTO :end_loop
     echo "Get test data for %%t"
     python %CI_PROJECT_DIR%\pygpt\get_test_data_list.py "%CI_PROJECT_DIR%\%%t" "%CI_PROJECT_DIR%\%REPORT_DIR%" "%TEST_DATA_DIR%"
     @REM type %REPORT_DIR%\%TEST_DATA_LIST%
@@ -15,8 +13,5 @@ FOR /F "usebackq tokens=1,2* delims=" %%t in ("%CI_PROJECT_DIR%\%REPORT_DIR%\JSO
     echo  java args: "%JAVA_OPTIONS% -cp %CLASSPATH%"
     echo %USERPROFILE%
     python "%CI_PROJECT_DIR%\pygpt\snap_gpt_test.py" "%JAVA_HOME%\bin\java.exe" "-cp %CLASSPATH%" org.esa.snap.test.TestOutput "%CI_PROJECT_DIR%\%PROPERTIES_PATH%" %SCOPE% "%CI_PROJECT_DIR%\%%t" "%CI_PROJECT_DIR%\%REPORT_DIR%\report\output" true
-    
-    set STOP=1
 )
-:end_loop
 endlocal
