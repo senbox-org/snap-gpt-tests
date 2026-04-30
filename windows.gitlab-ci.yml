@@ -84,10 +84,10 @@ test_windows:
   script:
     - run_tests.bat
   after_script:
-    # Remove heavy images
-    - DEL /Q /F /S %REPORT_DIR%\report\output\*.zip
-    - DEL /Q /F /S %REPORT_DIR%\report\output\*.dim
-    - DEL /Q /F /S %TEMP%\*
+    # Remove heavy images    
+    - for /R "%REPORT_DIR%\report\output" %%F in (*.zip) do DEL /Q /F "%%F" 2>NUL
+    - for /R "%REPORT_DIR%\report\output" %%F in (*.dim) do DEL /Q /F "%%F" 2>NUL    
+    - for /R "%TEMP%" %%F in (*) do DEL /Q /F "%%F" 2>NUL
   needs: ["install_snap"]
   artifacts:
     when: always
