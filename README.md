@@ -1,5 +1,7 @@
 # snap-gpt-tests
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20284489.svg)](https://doi.org/10.5281/zenodo.20284489)
+
 GPT test platform, it contains both the gpt tests that will be executed on the jenkins test platform then all the utilities needed to perfrom the tests, compare the results and produce the reports.
 
 The utilities are mostly written in Python3 a part for the output comparator that use the internal java code. 
