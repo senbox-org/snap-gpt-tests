@@ -85,17 +85,20 @@ public class TestExecutor {
             value = value.replaceAll("\\$inputFolder", Matcher.quoteReplacement(inputFolder.toString()));
             value = value.replaceAll("\\$expectedOutputFolder", Matcher.quoteReplacement(expectedOutputFolder.toString()));
             value = value.replaceAll("\\$tempFolder", Matcher.quoteReplacement(tempFolder.toString()));
-            params.add(String.format("-P%s=%s", entry.getKey(), inputFolder.resolve(value).toString()));
+            params.add(String.format("-P%s=%s", entry.getKey(), inputFolder.resolve(value)));
         }
 
         //parameters
-        for (Map.Entry<String, String> entry : graphTest.getParameters().entrySet()) {
-            String value = entry.getValue();
-            value = value.replaceAll("\\$graphFolder", Matcher.quoteReplacement(graphFolder.toString()));
-            value = value.replaceAll("\\$inputFolder", Matcher.quoteReplacement(inputFolder.toString()));
-            value = value.replaceAll("\\$expectedOutputFolder", Matcher.quoteReplacement(expectedOutputFolder.toString()));
-            value = value.replaceAll("\\$tempFolder", Matcher.quoteReplacement(tempFolder.toString()));
-            params.add(String.format("-P%s=%s", entry.getKey(), value));
+        Map<String, String> parameters = graphTest.getParameters();
+        if (parameters != null && !parameters.isEmpty()) {
+            for (Map.Entry<String, String> entry : parameters.entrySet()) {
+                String value = entry.getValue();
+                value = value.replaceAll("\\$graphFolder", Matcher.quoteReplacement(graphFolder.toString()));
+                value = value.replaceAll("\\$inputFolder", Matcher.quoteReplacement(inputFolder.toString()));
+                value = value.replaceAll("\\$expectedOutputFolder", Matcher.quoteReplacement(expectedOutputFolder.toString()));
+                value = value.replaceAll("\\$tempFolder", Matcher.quoteReplacement(tempFolder.toString()));
+                params.add(String.format("-P%s=%s", entry.getKey(), value));
+            }
         }
 
         //outputs
@@ -105,14 +108,14 @@ public class TestExecutor {
             value = value.replaceAll("\\$inputFolder", Matcher.quoteReplacement(inputFolder.toString()));
             value = value.replaceAll("\\$expectedOutputFolder", Matcher.quoteReplacement(expectedOutputFolder.toString()));
             value = value.replaceAll("\\$tempFolder", Matcher.quoteReplacement(tempFolder.toString()));
-            params.add(String.format("-P%s=%s", output.getParameter(), tempFolder.resolve(value).toString()));
+            params.add(String.format("-P%s=%s", output.getParameter(), tempFolder.resolve(value)));
         }
 
         //execute graph
         ProcessBuilder builder = new ProcessBuilder(params);
         Map<String, String> environ = builder.environment();
 
-        File redirectOutputFile = new File(tempFolder.resolve(graphTest.getId()).toString() + "_gptOutput.txt");
+        File redirectOutputFile = new File(tempFolder.resolve(graphTest.getId()) + "_gptOutput.txt");
         builder.redirectErrorStream(true);
         builder.redirectOutput(redirectOutputFile);
 
@@ -131,10 +134,7 @@ public class TestExecutor {
         //check outputs
         for (Output output : graphTest.getOutputs()) {
             final ObjectMapper mapper = new ObjectMapper();
-            boolean expectedIsDefined = true;
-            if (output.getExpected() == null || output.getExpected().length() == 0) {
-                expectedIsDefined = false;
-            }
+            boolean expectedIsDefined = output.getExpected() != null && output.getExpected().length() != 0;
 
             String outputNameWithExtension = findOutput(output, tempFolder);
             if (outputNameWithExtension == null) {
@@ -153,7 +153,7 @@ public class TestExecutor {
                 final Product product;
                 if (StringUtils.isNullOrEmpty(readerFormatName)) {
                     product = ProductIO.readProduct(outputFile);
-                } else  {
+                } else {
                     product = ProductIO.readProduct(outputFile, readerFormatName);
                 }
                 if (product == null) {
@@ -168,7 +168,7 @@ public class TestExecutor {
                 } catch (AssertionError e) {
                     System.out.println("Error in test!!!");
                     System.out.println(e.getMessage());
-                    try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(tempFolder.resolve(graphTest.getId()).toString() + "_gptOutput.txt", true))) {
+                    try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(tempFolder.resolve(graphTest.getId()) + "_gptOutput.txt", true))) {
                         bufferedWriter.write("\n\n---------------------------------------------------------------------\n\n");
                         bufferedWriter.write("Error when comparing expected output:\n");
                         bufferedWriter.write(e.getMessage());

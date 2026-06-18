@@ -196,7 +196,8 @@ public class SnapGPTTest {
                     try {
                         passed = TestExecutor.executeTest(graphTest, graphFolder, inputFolder, expectedOutputFolder, tempFolder, snapBinFolder);
                     } catch (Exception e) {
-                        System.out.println(String.format("CException when executing test: %s", e.getMessage()));
+                        System.out.println(String.format("Exception when executing test: %s", e.getMessage()));
+                        e.printStackTrace();
                     }
 
                     endDate = new Date();
