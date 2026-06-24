@@ -46,7 +46,7 @@
       "expectedPixels" : [ {
         "x" : 17377.0,
         "y" : 849.0,
-        "value" : 34.432106
+        "value" : 34.432106018066406
       } ]
     }, {
       "name" : "elevation_angle",
@@ -58,7 +58,7 @@
       "expectedPixels" : [ {
         "x" : 17377.0,
         "y" : 849.0,
-        "value" : 30.559319
+        "value" : 30.55931854248047
       } ]
     }, {
       "name" : "slant_range_time",
@@ -82,29 +82,25 @@
       "noDataValueUsed" : true,
       "spectralWavelength" : 0.0,
       "spectralBandwidth" : 0.0,
-      "expectedPixels" : [
-        {
-          "x": 17377.0,
-          "y": 849.0,
-          "value": -33.0
-        }
-      ]
+      "expectedPixels" : [ {
+        "x" : 17377.0,
+        "y" : 849.0,
+        "value" : -33.0
+      } ]
     }, {
-        "name" : "q_IW1_VV_ref_04Mar2019",
-        "description" : "",
-        "bandWidth" : 22198,
-        "bandHeight" : 2996,
-        "noDataValue" : 0.0,
-        "noDataValueUsed" : true,
-        "spectralWavelength" : 0.0,
-        "spectralBandwidth" : 0.0,
-        "expectedPixels" : [
-          {
-            "x": 17377.0,
-            "y": 849.0,
-            "value": -5.0
-          }
-        ]
+      "name" : "q_IW1_VV_ref_04Mar2019",
+      "description" : "",
+      "bandWidth" : 22198,
+      "bandHeight" : 2996,
+      "noDataValue" : 0.0,
+      "noDataValueUsed" : true,
+      "spectralWavelength" : 0.0,
+      "spectralBandwidth" : 0.0,
+      "expectedPixels" : [ {
+        "x" : 17377.0,
+        "y" : 849.0,
+        "value" : -5.0
+      } ]
     }, {
       "name" : "Intensity_IW1_VV_ref_04Mar2019",
       "description" : "Intensity from complex data",
@@ -125,13 +121,13 @@
       "bandWidth" : 22198,
       "bandHeight" : 2996,
       "noDataValue" : 0.0,
-      "noDataValueUsed" : false,
+      "noDataValueUsed" : true,
       "spectralWavelength" : 0.0,
       "spectralBandwidth" : 0.0,
       "expectedPixels" : [ {
         "x" : 17377.0,
         "y" : 849.0,
-        "value" : -43.71289825439453
+        "value" : -43.70579528808594
       } ]
     }, {
       "name" : "q_IW1_VV_sec1_22Jan2020",
@@ -139,13 +135,13 @@
       "bandWidth" : 22198,
       "bandHeight" : 2996,
       "noDataValue" : 0.0,
-      "noDataValueUsed" : false,
+      "noDataValueUsed" : true,
       "spectralWavelength" : 0.0,
       "spectralBandwidth" : 0.0,
       "expectedPixels" : [ {
         "x" : 17377.0,
         "y" : 849.0,
-        "value" : -27.449262619018555
+        "value" : -27.461984634399414
       } ]
     }, {
       "name" : "Intensity_IW1_VV_sec1_22Jan2020",
@@ -159,7 +155,7 @@
       "expectedPixels" : [ {
         "x" : 17377.0,
         "y" : 849.0,
-        "value" : 2664.279541015625
+        "value" : 2664.357177734375
       } ]
     }, {
       "name" : "i_IW1_VV_sec2_15Feb2020",
@@ -167,32 +163,28 @@
       "bandWidth" : 22198,
       "bandHeight" : 2996,
       "noDataValue" : 0.0,
-      "noDataValueUsed" : false,
+      "noDataValueUsed" : true,
       "spectralWavelength" : 0.0,
       "spectralBandwidth" : 0.0,
-      "expectedPixels" : [
-        {
-          "x": 17377.0,
-          "y": 849.0,
-          "value": -31.44478988647461
-        }
-      ]
+      "expectedPixels" : [ {
+        "x" : 17377.0,
+        "y" : 849.0,
+        "value" : -31.42624282836914
+      } ]
     }, {
       "name" : "q_IW1_VV_sec2_15Feb2020",
       "description" : "",
       "bandWidth" : 22198,
       "bandHeight" : 2996,
       "noDataValue" : 0.0,
-      "noDataValueUsed" : false,
+      "noDataValueUsed" : true,
       "spectralWavelength" : 0.0,
       "spectralBandwidth" : 0.0,
-      "expectedPixels" : [
-        {
-          "x": 17377.0,
-          "y": 849.0,
-          "value": -47.440425872802734
-        }
-      ]
+      "expectedPixels" : [ {
+        "x" : 17377.0,
+        "y" : 849.0,
+        "value" : -47.58308792114258
+      } ]
     }, {
       "name" : "Intensity_IW1_VV_sec2_15Feb2020",
       "description" : "Intensity from complex data",
@@ -205,7 +197,7 @@
       "expectedPixels" : [ {
         "x" : 17377.0,
         "y" : 849.0,
-        "value" : 3239.368896484375
+        "value" : 3251.759033203125
       } ]
     } ],
     "masks" : [ ]
