@@ -23,7 +23,7 @@
       <subswath>IW1</subswath>
       <selectedPolarisations>VV</selectedPolarisations>
       <firstBurstIndex>5</firstBurstIndex>
-      <lastBurstIndex>6</lastBurstIndex>
+      <lastBurstIndex>5</lastBurstIndex>
       <wktAoi/>
     </parameters>
   </node>
@@ -36,7 +36,7 @@
       <subswath>IW1</subswath>
       <selectedPolarisations>VV</selectedPolarisations>
       <firstBurstIndex>3</firstBurstIndex>
-      <lastBurstIndex>4</lastBurstIndex>
+      <lastBurstIndex>3</lastBurstIndex>
       <wktAoi/>
     </parameters>
   </node>
@@ -59,7 +59,7 @@
       <externalDEMFile/>
       <externalDEMNoDataValue>0.0</externalDEMNoDataValue>
       <externalDEMApplyEGM>true</externalDEMApplyEGM>
-      <tileExtensionPercent>100</tileExtensionPercent>
+      <tileExtensionPercent>20</tileExtensionPercent>
       <outputElevation>false</outputElevation>
       <outputLatLon>false</outputLatLon>
     </parameters>
@@ -130,7 +130,7 @@
       <subswath>IW3</subswath>
       <selectedPolarisations>VV</selectedPolarisations>
       <firstBurstIndex>1</firstBurstIndex>
-      <lastBurstIndex>2</lastBurstIndex>
+      <lastBurstIndex>1</lastBurstIndex>
       <wktAoi/>
     </parameters>
   </node>
@@ -143,7 +143,7 @@
       <subswath>IW3</subswath>
       <selectedPolarisations>VV</selectedPolarisations>
       <firstBurstIndex>4</firstBurstIndex>
-      <lastBurstIndex>5</lastBurstIndex>
+      <lastBurstIndex>4</lastBurstIndex>
       <wktAoi/>
     </parameters>
   </node>
@@ -166,7 +166,7 @@
       <externalDEMFile/>
       <externalDEMNoDataValue>0.0</externalDEMNoDataValue>
       <externalDEMApplyEGM>true</externalDEMApplyEGM>
-      <tileExtensionPercent>100</tileExtensionPercent>
+      <tileExtensionPercent>20</tileExtensionPercent>
       <outputElevation>false</outputElevation>
       <outputLatLon>false</outputLatLon>
     </parameters>
@@ -238,8 +238,8 @@
       <sourceProduct refid="Collocate"/>
     </sources>
     <parameters class="com.bc.ceres.binding.dom.XppDomElement">
-      <refPixelX>0</refPixelX>
-      <refPixelY>0</refPixelY>
+      <refPixelX>4761</refPixelX>
+      <refPixelY>1996</refPixelY>
     </parameters>
   </node>
   <node id="Back-Geocoding">
