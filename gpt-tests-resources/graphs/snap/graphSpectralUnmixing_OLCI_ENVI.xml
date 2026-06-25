@@ -1,0 +1,85 @@
+<graph id="GraphSpectralUnmixing_OLCI_ENVI">
+    <version>1.0</version>
+    <node id="Read">
+        <operator>Read</operator>
+        <sources/>
+        <parameters>
+            <file>$input1</file>
+        </parameters>
+    </node>
+
+
+    <node id="Subset">
+        <operator>Subset</operator>
+        <sources>
+            <sourceProduct refid="Read"/>
+        </sources>
+        <parameters>
+            <region>$subsetRegion</region>
+            <copyMetadata>false</copyMetadata>
+        </parameters>
+    </node>
+
+    <node id="Unmix">
+        <operator>Unmix</operator>
+        <sources>
+            <sourceProduct refid="Subset"/>
+        </sources>
+        <parameters>
+            <sourceBands>
+                <band>Oa01_radiance</band>
+                <band>Oa02_radiance</band>
+                <band>Oa03_radiance</band>
+                <band>Oa04_radiance</band>
+                <band>Oa05_radiance</band>
+                <band>Oa06_radiance</band>
+                <band>Oa07_radiance</band>
+                <band>Oa08_radiance</band>
+                <band>Oa09_radiance</band>
+                <band>Oa10_radiance</band>
+                <band>Oa11_radiance</band>
+                <band>Oa12_radiance</band>
+                <band>Oa13_radiance</band>
+                <band>Oa14_radiance</band>
+                <band>Oa15_radiance</band>
+                <band>Oa16_radiance</band>
+                <band>Oa17_radiance</band>
+                <band>Oa18_radiance</band>
+                <band>Oa19_radiance</band>
+            </sourceBands>
+            <endmemberFile>$endmemberFile</endmemberFile>
+            <unmixingModelName>$unmixingModelName</unmixingModelName>
+            <abundanceBandNameSuffix>$abundanceBandNameSuffix</abundanceBandNameSuffix>
+            <errorBandNameSuffix>$errorBandNameSuffix</errorBandNameSuffix>
+            <computeErrorBands>$computeErrorBands</computeErrorBands>
+            <minBandwidth>$minBandwidth</minBandwidth>
+        </parameters>
+    </node>
+
+    <node id="Write">
+        <operator>Write</operator>
+        <sources>
+            <sourceProduct refid="Unmix"/>
+        </sources>
+        <parameters>
+            <file>$output</file>
+            <formatName>$outputFormat</formatName>
+        </parameters>
+    </node>
+    <applicationData id="Presentation">
+        <Description/>
+        <node id="Read">
+            <displayPosition x="20.0" y="136.0"/>
+        </node>
+        <node id="Subset">
+            <displayPosition x="140.0" y="136.0"/>
+        </node>
+        <node id="Unmix">
+            <displayPosition x="260.0" y="136.0"/>
+        </node>
+        <node id="Write">
+            <displayPosition x="380.0" y="136.0"/>
+        </node>
+    </applicationData>
+
+</graph>

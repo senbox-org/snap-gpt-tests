@@ -66,5 +66,32 @@
         "expected": "snap/expectedSpectUnmix_OLCI.json"
       }
     ]
+  },
+  {
+    "id": "SpecUnmix_OLCI_ENVI",
+    "author": "BC",
+    "description": "Spectral Unmixing of OLCI product using ENVI spectral library endmembers.",
+    "frequency": "daily/snap/envi",
+    "graphPath": "snap/graphSpectralUnmixing_OLCI_ENVI.xml",
+    "inputs": {
+      "input1": "sensors_platforms/SENTINEL-3/olci/L1/S3A_OL_1_EFR____20130621T100921_20130621T101417_20140613T170503_0295_001_002______LN2_D_NR____.SEN3"
+    },
+    "parameters": {
+      "subsetRegion": "2000,500,500,500",
+      "endmemberFile": "$graphFolder/snap/endmembers/SpectralUnmixing_OLCI_Endmembers.sli",
+      "unmixingModelName": "Fully Constrained LSU",
+      "abundanceBandNameSuffix": "_abundance",
+      "errorBandNameSuffix": "_error",
+      "computeErrorBands": "false",
+      "minBandwidth": "10.0",
+      "outputFormat": "BEAM-DIMAP"
+    },
+    "outputs": [
+      {
+        "parameter": "output",
+        "outputName": "SpecUnmix_OLCI_ENVI",
+        "expected": "snap/expectedSpectUnmix_OLCI_ENVI.json"
+      }
+    ]
   }
 ]
