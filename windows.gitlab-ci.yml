@@ -9,7 +9,7 @@ install_snap:
   cache: []
   variables:
     DL_DIR: 'C:\Users\Public\Documents'
-    NEXUS_URL: "https://nexus.snap-ci.ovh/repository/snap-maven-releases/org/esa/snap/installers-snapshot/snap_all_windows/%VERSION%"
+    NEXUS_URL: "https://nexus.snap-ci.ovh/repository/snap-maven-releases/org/esa/snap/installers/snap_all_windows/%VERSION%"
     SNAP_DIR: 'C:\\Users\\Public\\Documents\\snap'
     SNAP_INSTALLER_EXE: "snap_all_windows-%VERSION%.exe"
   before_script:
