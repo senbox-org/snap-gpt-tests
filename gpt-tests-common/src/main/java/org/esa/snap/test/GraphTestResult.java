@@ -63,14 +63,14 @@ public class GraphTestResult {
         if(endDate == null || startDate == null) {
             return "NULL";
         }
-        return String.format("%d s",Math.round((endDate.getTime()-startDate.getTime())/1000));
+        return String.format("%d s",Math.round((endDate.getTime()-startDate.getTime())/1000.f));
     }
 
     public int getExecutionTime() {
         if(endDate == null || startDate == null) {
             return duration;
         }
-        return Math.round((endDate.getTime()-startDate.getTime())/1000);
+        return Math.round((endDate.getTime()-startDate.getTime())/1000.f);
     }
 
     public void setDuration(int duration) {

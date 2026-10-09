@@ -77,7 +77,7 @@ public class ReportUtils {
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
         context.put("startDateString", formatter.format(start));
         context.put("endDateString", formatter.format(end));
-        context.put("totalTime", Math.round((end.getTime()-start.getTime())/1000));
+        context.put("totalTime", Math.round((end.getTime()-start.getTime())/1000.f));
         context.put("sumTime", totalDuration);
 
 
@@ -121,7 +121,7 @@ public class ReportUtils {
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
         context.put("startDateString", formatter.format(start));
         context.put("endDateString", formatter.format(end));
-        context.put("totalTime", Math.round((end.getTime()-start.getTime())/1000));
+        context.put("totalTime", Math.round((end.getTime()-start.getTime())/1000.f));
         context.put("sumTime", totalDuration);
 
 
