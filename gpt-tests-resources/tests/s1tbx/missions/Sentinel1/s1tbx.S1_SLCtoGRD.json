@@ -25,11 +25,11 @@
 {
   "id":"s1tbx.sentinel1.slc2grd.tops.s1",
   "author": "Skywatch",
-  "description":"execute TOPS SLC to GRD with S1",
+  "description":"execute TOPS SLC to GRD with S1 (IPF 2.91; thermal noise removal requires IPF >= 2.50)",
   "frequency":"daily/s1tbx/sentinel1",
   "graphPath": "s1tbx/Missions/Sentinel1/Sentinel1SLCtoGRDGraph.xml",
   "inputs": {
-    "input1": "SAR/S1/SLC/Etna-DLR/S1A_IW_SLC__1SDV_20140809T165546_20140809T165613_001866_001C20_088B.zip"
+    "input1": "SAR/S1/SLC/Patagonia-AR/S1A_IW_SLC__1SDV_20190304T093435_20190304T093501_026186_02EC6C_A140.zip"
   },
   "parameters": {
 	"subsetRegion": "2000,3000,3000,3000"

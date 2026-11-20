@@ -12,6 +12,7 @@
     "input4": "SAR/S1/SLC/Norcia-IT/S1A_IW_SLC__1SDV_20161101T051118_20161101T051145_013744_0160F4_D5C1.zip"
   },
     "parameters": {
+    "region": "3961,672,2000,2000"
   },
   "outputs": [{
     "parameter": "output",
@@ -19,7 +20,7 @@
     "expected": "s1tbx/InSAR/expected-insar-vhmop.json"
   }],
   "configVM": {
-    "xmx": "20G",
+    "xmx": "10G",
     "cacheSize": "1G",
     "parallelism": "2"
   }

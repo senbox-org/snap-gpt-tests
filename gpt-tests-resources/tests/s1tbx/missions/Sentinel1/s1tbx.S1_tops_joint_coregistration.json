@@ -11,7 +11,7 @@
 	"input3": "SAR/S1/SLC/Patagonia-AR/S1A_IW_SLC__1SDV_20200215T093442_20200215T093507_031261_03987B_7C05.zip"
   },
   "parameters": {
-	
+    "region": "16377,0,2000,2996"
   },
   "outputs": [{
     "parameter": "out1",
@@ -19,7 +19,7 @@
     "expected": "s1tbx/missions/Sentinel1/expected-tops-joint-coregistration-s1.json"
   }],
   "configVM": {
-    "xmx": "12G",
+    "xmx": "8G",
     "cacheSize": "2G",
     "parallelism": "1"
   }

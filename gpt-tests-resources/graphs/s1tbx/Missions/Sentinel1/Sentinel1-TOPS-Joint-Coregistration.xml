@@ -131,10 +131,20 @@
       <overallAzimuthShift>0.0</overallAzimuthShift>
     </parameters>
   </node>
+  <node id="Subset-Region">
+    <operator>Subset</operator>
+    <sources>
+      <sourceProduct refid="Enhanced-Spectral-Diversity"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <region>$region</region>
+      <copyMetadata>true</copyMetadata>
+    </parameters>
+  </node>
   <node id="Write">
     <operator>Write</operator>
     <sources>
-      <sourceProduct refid="Enhanced-Spectral-Diversity"/>
+      <sourceProduct refid="Subset-Region"/>
     </sources>
     <parameters>
       <formatName>BEAM-DIMAP</formatName>

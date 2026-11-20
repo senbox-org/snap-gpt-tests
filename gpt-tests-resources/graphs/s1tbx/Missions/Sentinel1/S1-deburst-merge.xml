@@ -29,10 +29,20 @@
       <wktAoi/>
     </parameters>
   </node>
+  <node id="Subset-Region">
+    <operator>Subset</operator>
+    <sources>
+      <sourceProduct refid="TOPSAR-Deburst"/>
+    </sources>
+    <parameters class="com.bc.ceres.binding.dom.XppDomElement">
+      <region>$subsetRegion</region>
+      <copyMetadata>true</copyMetadata>
+    </parameters>
+  </node>
   <node id="Write">
     <operator>Write</operator>
     <sources>
-      <sourceProduct refid="TOPSAR-Deburst"/>
+      <sourceProduct refid="Subset-Region"/>
     </sources>
     <parameters>
       <formatName>$outputFormat</formatName>

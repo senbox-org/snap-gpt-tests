@@ -2,12 +2,12 @@
   "id" : "s1tbx.insar.vhmop",
   "decodeQualification" : "INTENDED",
   "expectedContent" : {
-    "sceneWidth" : 9167,
-    "sceneHeight" : 2672,
+    "sceneWidth" : 2000,
+    "sceneHeight" : 2000,
     "geoCoding" : {
       "coordinates" : [ {
-        "x" : 4761,
-        "y" : 1996,
+        "x" : 800,
+        "y" : 1324,
         "lat" : 42.97602388828469,
         "lon" : 13.188576434685741
       } ]
@@ -16,30 +16,30 @@
     "bands" : [ {
       "name" : "horizontalMotion",
       "description" : "",
-      "bandWidth" : 9167,
-      "bandHeight" : 2672,
+      "bandWidth" : 2000,
+      "bandHeight" : 2000,
       "noDataValue" : "NaN",
       "noDataValueUsed" : true,
       "spectralWavelength" : 0.0,
       "spectralBandwidth" : 0.0,
       "expectedPixels" : [ {
-        "x" : 4961,
-        "y" : 1996,
-        "value" : -3.977921485900879
+        "x" : 1000,
+        "y" : 1324,
+        "value" : 3.977921485900879
       } ]
     }, {
       "name" : "verticalMotion",
       "description" : "",
-      "bandWidth" : 9167,
-      "bandHeight" : 2672,
+      "bandWidth" : 2000,
+      "bandHeight" : 2000,
       "noDataValue" : "NaN",
       "noDataValueUsed" : true,
       "spectralWavelength" : 0.0,
       "spectralBandwidth" : 0.0,
       "expectedPixels" : [ {
-        "x" : 4961,
-        "y" : 1996,
-        "value" : 0.0
+        "x" : 1000,
+        "y" : 1324,
+        "value" : -0.0
       } ]
     } ],
     "masks" : [ ]

@@ -2,82 +2,82 @@
   "id" : "s1tbx.insar.stack.average.asar",
   "decodeQualification" : "INTENDED",
   "expectedContent" : {
-    "sceneWidth" : 1754,
-    "sceneHeight" : 8077,
+    "sceneWidth" : 903,
+    "sceneHeight" : 4266,
     "geoCoding" : {
       "coordinates" : [ {
         "x" : 877.0,
         "y" : 4038.0,
-        "lat" : 28.974967488831307,
-        "lon" : 58.48470783468331
+        "lat" : 28.922559531109886,
+        "lon" : 58.3877233590559
       } ]
     },
     "tiePointGrids" : [ {
       "name" : "samples",
       "description" : "range sample",
-      "offsetX" : -145.5,
-      "offsetY" : -1740.5,
+      "offsetX" : -32.5,
+      "offsetY" : -1172.5,
       "subSamplingX" : 517.0,
       "subSamplingY" : 2446.0,
       "expectedPixels" : [ {
         "x" : 877.0,
         "y" : 4038.0,
-        "value" : 2573.04248046875
+        "value" : 2978.520263671875
       } ]
     }, {
       "name" : "slant_range_time",
       "description" : "2 way slant range time",
-      "offsetX" : -145.5,
-      "offsetY" : -1740.5,
+      "offsetX" : -32.5,
+      "offsetY" : -1172.5,
       "subSamplingX" : 517.0,
       "subSamplingY" : 2446.0,
       "expectedPixels" : [ {
         "x" : 877.0,
         "y" : 4038.0,
-        "value" : 5643016.0
+        "value" : 5664126.5
       } ]
     }, {
       "name" : "incident_angle",
       "description" : "Incident angle",
-      "offsetX" : -145.5,
-      "offsetY" : -1740.5,
+      "offsetX" : -32.5,
+      "offsetY" : -1172.5,
       "subSamplingX" : 517.0,
       "subSamplingY" : 2446.0,
       "expectedPixels" : [ {
         "x" : 877.0,
         "y" : 4038.0,
-        "value" : 22.744184494018555
+        "value" : 23.318777084350586
       } ]
     }, {
       "name" : "latitude",
       "description" : "Latitude of the tie points (WGS-84), positive N",
-      "offsetX" : -145.5,
-      "offsetY" : -1740.5,
+      "offsetX" : -32.5,
+      "offsetY" : -1172.5,
       "subSamplingX" : 517.0,
       "subSamplingY" : 2446.0,
       "expectedPixels" : [ {
         "x" : 877.0,
         "y" : 4038.0,
-        "value" : 28.97496795654297
+        "value" : 28.92255973815918
       } ]
     }, {
       "name" : "longitude",
       "description" : "Longitude of the tie points (WGS-84), Greenwich origin, positive E",
-      "offsetX" : -145.5,
-      "offsetY" : -1740.5,
+      "offsetX" : -32.5,
+      "offsetY" : -1172.5,
       "subSamplingX" : 517.0,
       "subSamplingY" : 2446.0,
       "expectedPixels" : [ {
         "x" : 877.0,
         "y" : 4038.0,
-        "value" : 58.48460006713867
+        "value" : 58.38761901855469
       } ]
     } ],
     "bands" : [ {
       "name" : "i_VV",
       "description" : "i_VV average real",
-      "bandWidth" : 1754,
-      "bandHeight" : 8077,
+      "bandWidth" : 903,
+      "bandHeight" : 4266,
       "noDataValue" : 0.0,
       "noDataValueUsed" : true,
       "spectralWavelength" : 0.0,
@@ -85,13 +85,13 @@
       "expectedPixels" : [ {
         "x" : 877.0,
         "y" : 4038.0,
-        "value" : -23.706361770629883
+        "value" : -95.46487426757812
       } ]
     }, {
       "name" : "q_VV",
       "description" : "q_VV average imaginary",
-      "bandWidth" : 1754,
-      "bandHeight" : 8077,
+      "bandWidth" : 903,
+      "bandHeight" : 4266,
       "noDataValue" : 0.0,
       "noDataValueUsed" : true,
       "spectralWavelength" : 0.0,
@@ -99,13 +99,13 @@
       "expectedPixels" : [ {
         "x" : 877.0,
         "y" : 4038.0,
-        "value" : 30.623031616210938
+        "value" : -47.07334518432617
       } ]
     }, {
       "name" : "Intensity_VV",
       "description" : "Intensity from complex data",
-      "bandWidth" : 1754,
-      "bandHeight" : 8077,
+      "bandWidth" : 903,
+      "bandHeight" : 4266,
       "noDataValue" : 0.0,
       "noDataValueUsed" : true,
       "spectralWavelength" : 0.0,
@@ -113,7 +113,7 @@
       "expectedPixels" : [ {
         "x" : 877.0,
         "y" : 4038.0,
-        "value" : 1499.7615966796875
+        "value" : 11329.4423828125
       } ]
     } ],
     "masks" : [ ]

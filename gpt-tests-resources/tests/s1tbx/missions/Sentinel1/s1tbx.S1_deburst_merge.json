@@ -9,7 +9,7 @@
       "input1": "SAR/S1/SLC/Etna-DLR/S1A_IW_SLC__1SDV_20140809T165546_20140809T165613_001866_001C20_088B.zip"
     },
     "parameters": {
-      "subsetRegion": "2000,3000,3000,3000",
+      "subsetRegion": "2000,2000,2000,2000",
       "outputFormat": "BEAM-DIMAP"
     },
     "outputs": [
@@ -20,7 +20,7 @@
       }
     ],
     "configVM": {
-      "xmx": "13G",
+      "xmx": "6G",
       "cacheSize": "3G",
       "parallelism": "4"
     }
@@ -35,7 +35,7 @@
       "input1": "SAR/S1/SLC/Etna-DLR/S1A_IW_SLC__1SDV_20140809T165546_20140809T165613_001866_001C20_088B.zip"
     },
     "parameters": {
-      "subsetRegion": "2000,3000,3000,3000",
+      "subsetRegion": "2000,2000,2000,2000",
       "outputFormat": "ZNAP"
     },
     "outputs": [
@@ -46,7 +46,7 @@
       }
     ],
     "configVM": {
-      "xmx": "13G",
+      "xmx": "6G",
       "cacheSize": "3G",
       "parallelism": "4"
     }

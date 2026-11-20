@@ -10,7 +10,7 @@
 	"input2": "SAR/S1/SLC/Etna-DLR/S1A_IW_SLC__1SDV_20140821T165547_20140821T165614_002041_001FC1_8601.zip"
   },
   "parameters": {
-	
+    "region": "9626,0,2000,1629"
   },
   "outputs": [{
     "parameter": "out1",
@@ -18,7 +18,7 @@
     "expected": "s1tbx/missions/Sentinel1/expected-tops-coregistration-s1.json"
   }],
   "configVM": {
-    "xmx": "10G",
+    "xmx": "6G",
     "cacheSize": "2G",
     "parallelism": "1"
   }
